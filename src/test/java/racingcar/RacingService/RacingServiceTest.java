@@ -16,41 +16,40 @@ import static org.mockito.Mockito.*;
 
 class RacingServiceTest {
 
-    private RacingService racingService;
+    private RacingService testService;
 
     @BeforeEach
     void setUp() {
-        racingService = spy(RacingService.class);
+        testService = spy(RacingService.class);
     }
 
     @Test
     public void 자동차_이름_세팅_테스트() throws Exception {
         //given
-        List<String> expected = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
+        List<String> expectedNames = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
+        doReturn(expectedNames).when(testService).getCarNameList();
 
-        doReturn(expected).when(racingService).getCarNameList();
-
-        List<String> actual = racingService.getCarNameList();
         //when
-        racingService.readyCarName();
+        testService.readyCarName();
+        List<String> actualNames = testService.getCarNameList();
 
         //then
-        assertEquals(expected, actual);
+        assertEquals(expectedNames, actualNames);
     }
 
     @Test
     public void 시도할_횟수_세팅_테스트() throws Exception {
         //given
-        int expected = 5;
+        int expectedAttemptCount = 5;
+        doReturn(5).when(testService).getAttemptCount();
 
-        doReturn(5).when(racingService).getAttemptCount();
 
-        int actual = racingService.getAttemptCount();
         //when
-        racingService.readyAttemptCount();
+        testService.readyAttemptCount();
+        int actualAttemptCount = testService.getAttemptCount();
 
         //then
-        assertEquals(expected, actual);
+        assertEquals(expectedAttemptCount, actualAttemptCount);
     }
 
     @Test
@@ -61,37 +60,43 @@ class RacingServiceTest {
         String expectedJun = "jun";
 
         List<String> carNames = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
-        doReturn(carNames).when(racingService).getCarNameList();
+        doReturn(carNames).when(testService).getCarNameList();
 
-        racingService.readyCarName();
+        testService.readyCarName();
 
         //when
-        racingService.readyCars(new RandomNumberGenerator());
+        testService.readyCars(new RandomNumberGenerator());
+
+        String actualPobi = testService.getCars().get(0).getName();
+        String actualWoni = testService.getCars().get(1).getName();
+        String actualJun = testService.getCars().get(2).getName();
 
         //then
-
-        assertEquals(expectedPobi, racingService.getCars().get(0).getName());
-        assertEquals(expectedWoni, racingService.getCars().get(1).getName());
-        assertEquals(expectedJun, racingService.getCars().get(2).getName());
+        assertEquals(expectedPobi, actualPobi);
+        assertEquals(expectedWoni, actualWoni);
+        assertEquals(expectedJun, actualJun);
     }
 
     @Test
     public void 레이싱_1회_진행() throws Exception {
         //given
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
-        doReturn(carNames).when(racingService).getCarNameList();
+        doReturn(carNames).when(testService).getCarNameList();
 
-        racingService.readyCarName();
-        racingService.readyCars(new StubNumberGenerator(5));
+        testService.readyCarName();
+        testService.readyCars(new StubNumberGenerator(5));
 
-        List<Car> cars = racingService.getCars();
+        List<Car> cars = testService.getCars();
+
+        int expectedPosition = 1;
 
         //when
-        racingService.playOneRound();
+        testService.playOneRound();
 
         //then
         for (Car car : cars) {
-            assertEquals(1, car.getPosition());
+            int actualPosition = car.getPosition();
+            assertEquals(expectedPosition, actualPosition);
         }
     }
 
@@ -99,12 +104,11 @@ class RacingServiceTest {
     public void 단독_우승자_찾기_테스트() throws Exception {
         //given
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
-        doReturn(carNames).when(racingService).getCarNameList();
+        doReturn(carNames).when(testService).getCarNameList();
 
-        racingService.readyCarName();
+        testService.readyCarName();
 
-        // pobi만 move()할 수 있도록 랜덤함수 생성 재정의
-        NumberGenerator numberGenerator = new NumberGenerator() {
+        NumberGenerator pobiMoveGenerator = new NumberGenerator() {
             private int count = 0;
 
             @Override
@@ -118,37 +122,40 @@ class RacingServiceTest {
             }
         };
 
-        racingService.readyCars(numberGenerator);
+        testService.readyCars(pobiMoveGenerator);
 
-        List<Car> cars = racingService.getCars();
+        List<Car> cars = testService.getCars();
 
-        racingService.playOneRound();
+        testService.playOneRound();
+
+        String expectedWinningCarName = "pobi";
 
         //when
-        String actual = racingService.findWinner(cars);
+        String actualWinningCarName = testService.findWinner(cars);
 
         //then
-        assertEquals("pobi", actual);
+        assertEquals(expectedWinningCarName, actualWinningCarName);
     }
 
     @Test
     public void 공동_우승자_찾기_테스트() throws Exception {
         //given
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
-        doReturn(carNames).when(racingService).getCarNameList();
+        doReturn(carNames).when(testService).getCarNameList();
 
-        racingService.readyCarName();
-        racingService.readyCars(new StubNumberGenerator(5));
+        testService.readyCarName();
+        testService.readyCars(new StubNumberGenerator(5));
 
-        List<Car> cars = racingService.getCars();
+        List<Car> cars = testService.getCars();
 
-        racingService.playOneRound();
+        testService.playOneRound();
+
+        String expectedWinningCarName = "pobi, woni, jun";
 
         //when
-        String actual = racingService.findWinner(cars);
+        String actualWinningCarName = testService.findWinner(cars);
 
         //then
-        assertEquals("pobi, woni, jun", actual);
+        assertEquals(expectedWinningCarName, actualWinningCarName);
     }
-
 }
