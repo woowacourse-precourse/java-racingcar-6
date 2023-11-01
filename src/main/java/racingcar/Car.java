@@ -28,7 +28,7 @@ public class Car {
     }
     
     public String getLocationStatus() {
-        return LOCATION_STRING.repeat(this.location);
+        return LOCATION_STRING.repeat(location);
     }
     
     private boolean isValidName(String name) {
@@ -40,7 +40,6 @@ public class Car {
         return nameLength >= MIN_NAME_LENGTH && nameLength <= MAX_NAME_LENGTH;
     }
     
-    // 빈 문자열 혹은 공백 문자로 구성된 이름인지 판별하는 메서드
     private boolean isBlankName(String name) {
         return name.isBlank();
     }

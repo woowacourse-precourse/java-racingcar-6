@@ -20,13 +20,12 @@ public class GameSystem {
     private static final int MAX_RANDOM_NUBER = 9;
     
     public List<Car> cars = new LinkedList<>();
-    private String userInput;
     private String resultMessage;
     private String winnerMessage;
     
     public void startGame() {
         print(CAR_NAMES.getMessage());
-        userInput = getUserInput();
+        String userInput = getUserInput();
         setUpCars(userInput);
         
         print(TRY_COUNT.getMessage());
@@ -41,10 +40,6 @@ public class GameSystem {
         print(winnerMessage);
     }
     
-    private void print(String message) {
-        System.out.println(message);
-    }
-    
     public void setUpCars(String userInput) {
         String[] carNames = separateCarNamesByComma(userInput);
         for (String carName : carNames) {
@@ -54,20 +49,23 @@ public class GameSystem {
         verfiyCarNames();
     }
     
+    public String[] separateCarNamesByComma(String userInput) {
+        return userInput.split(",");
+    }
+    
     public int verfiyTryCount(String userInput) {
         if (isNotNumber(userInput)) {
             throw new IllegalArgumentException("Try count is not number.");
         }
-        
         return Integer.parseInt(userInput);
+    }
+    
+    private void print(String message) {
+        System.out.println(message);
     }
     
     private static String getUserInput() {
         return Console.readLine();
-    }
-    
-    public String[] separateCarNamesByComma(String userInput) {
-        return userInput.split(",");
     }
     
     private void verfiyCarNames() {
@@ -133,14 +131,16 @@ public class GameSystem {
     
     private List<Car> findWinners(int maxLocation) {
         List<Car> winners = new LinkedList<>();
-        
         for (Car car : cars) {
-            if (car.isWinner) {
-                winners.add(car);
-            }
+            addWinnerCars(winners, car);
         }
-        
         return winners;
+    }
+    
+    private void addWinnerCars(List<Car> winners, Car car) {
+        if (car.isWinner) {
+            winners.add(car);
+        }
     }
     
     private void calculateWinnerMessage(List<Car> winners) {
@@ -148,6 +148,7 @@ public class GameSystem {
         String winnerNames = winners.stream()
                 .map(car -> car.name)
                 .collect(Collectors.joining(", "));
+        
         winnerMessageBuilder.append(FINAL_WINNER.getMessage()).append(" : ").append(winnerNames);
         winnerMessage = winnerMessageBuilder.toString();
     }
