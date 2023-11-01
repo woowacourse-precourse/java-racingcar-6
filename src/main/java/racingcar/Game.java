@@ -1,10 +1,11 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class Game {
-    public static List<Car> players;
+    public static List<Car> players = new ArrayList<>();
     public List<Car> createName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
@@ -24,4 +25,14 @@ public class Game {
         return Integer.parseInt(camp.nextstep.edu.missionutils.Console.readLine());
     }
 
+    public List<Car> letsGo(int tryNumber){
+        for (int i=1;i<=tryNumber;i++) {
+            for (Car car : players) {
+                car.decideGo(car.drawNumber());
+            }
+        }
+
+        return players;
     }
+
+}
