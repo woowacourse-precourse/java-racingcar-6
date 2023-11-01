@@ -1,7 +1,6 @@
 package racingcar.handler;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static racingcar.constants.ExceptionMessageConstants.*;
 
@@ -13,16 +12,9 @@ public class InputHandler {
     public List<String> toNameList(String names) {
         validateNull(names);
 
-        String[] nameArray = names.split(NAME_DELIMITER);
-        List<String> nameList = new ArrayList<>();
+        List<String> nameList = convertToNameList(names);
 
-        for (String name : nameArray) {
-            String trimName = name.trim();
-
-            validateName(trimName, nameList);
-
-            nameList.add(trimName);
-        }
+        validateNameList(nameList);
 
         return nameList;
     }
@@ -43,14 +35,34 @@ public class InputHandler {
         }
     }
 
-    private void validateName(String trimName, List<String> nameList) {
-        validateNull(trimName);
+    private List<String> convertToNameList(String names) {
+        String[] nameArray = names.split(NAME_DELIMITER);
 
-        if (nameList.contains(trimName)) {
-            throw new IllegalArgumentException(DUPLICATE_NAME_NOT_ALLOWED);
+        List<String> nameList = Arrays.stream(nameArray)
+                .map(name -> name.trim())
+                .toList();
+        return nameList;
+    }
+
+    private void validateNameList(List<String> nameList) {
+        nameList.forEach(name -> validateName(name));
+
+        validateDuplicateName(nameList);
+    }
+
+    private void validateName(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException(NULL_NOT_ALLOWED);
         }
-        if (trimName.length() > MAX_LENGTH) {
+        if (name.length() > MAX_LENGTH) {
             throw new IllegalArgumentException(INVALID_NAME_LENGTH);
+        }
+    }
+
+    private void validateDuplicateName(List<String> nameList) {
+        Set<String> uniqueNames = new HashSet<>(nameList);
+        if (uniqueNames.size() != nameList.size()) {
+            throw new IllegalArgumentException(DUPLICATE_NAME_NOT_ALLOWED);
         }
     }
 }
