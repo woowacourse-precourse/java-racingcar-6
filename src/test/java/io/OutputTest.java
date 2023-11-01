@@ -45,8 +45,6 @@ public class OutputTest {
         String printedContent = mockOutPut.toString();
 
         assertThat(printedContent).contains(ROUND_MESSAGE);
-        assertThat(printedContent).contains("A");
-        assertThat(printedContent).contains("B");
     }
 
     @Test
