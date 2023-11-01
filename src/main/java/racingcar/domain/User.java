@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.validator.CarNameValidator;
+import racingcar.validator.UserValidator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import java.util.List;
 public class User {
     public List<String> cars = new ArrayList<>();
     public int gameNumber;
-    CarNameValidator validator = new CarNameValidator();
+    UserValidator validator = new UserValidator();
 
     public void InitialSetting() {
         InputCarName();
@@ -35,8 +35,15 @@ public class User {
 
     public void InputGameNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int gameNumberInput = Integer.parseInt(Console.readLine());
+        String gameNumberInputString = Console.readLine();
+        CheckGameNumber(gameNumberInputString);
+        int gameNumberInput = Integer.parseInt(gameNumberInputString);
         setGameNumber(gameNumberInput);
+    }
+
+    public void CheckGameNumber(String gameNumberInput) {
+        validator.CheckGameNumberNull(gameNumberInput);
+        validator.CheckGameNumberIsNumber(gameNumberInput);
     }
 
     public void setGameNumber(int gameNumberInput) {

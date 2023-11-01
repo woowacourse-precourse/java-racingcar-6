@@ -25,4 +25,19 @@ public class UserValidator {
             throw new IllegalArgumentException("자동차 이름은 중복일 수 없습니다.");
         }
     }
+
+    public void CheckGameNumberNull(String gameNumberInput) {
+        if(gameNumberInput == "") {
+            throw new IllegalArgumentException("시도 횟수는 공백을 입력할 수 없습니다.");
+        }
+    }
+
+    public void CheckGameNumberIsNumber(String gameNumberInput) {
+        for (int i = 0; i < gameNumberInput.length(); i++) {
+            char c = gameNumberInput.charAt(i);
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException("시도 횟수에 숫자 이외의 문자가 포함되어 있습니다.");
+            }
+        }
+    }
 }
