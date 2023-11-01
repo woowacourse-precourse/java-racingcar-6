@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Cars {
     private List<Integer> moveCountList = new ArrayList<>(); //전역변수 설정
-    private List<String> notMoveCarNameList = new ArrayList<>(); //전역변수 설정
+    private List<String> CarNameList = new ArrayList<>(); //전역변수 설정
     private List<String> winners = new ArrayList<>(); //전역변수 설정
     private final String[] carNames;
     private int firstMagicNumber = 0;
@@ -59,9 +59,12 @@ public class Cars {
             String moveCount = carNames[i].substring(distinctionNumber, carNames[i].length());
 
             moveCountList.add(i, moveCount.length()); //움직인 횟수 넣기
-            notMoveCarNameList.add(i,CarName);
+            CarNameList.add(i,CarName);
 
             System.out.println(CarName + ":" + moveCount);
         }
+
+        moveCountList = moveCountList.subList(0,carNames.length);   //나온 차수만큼 나누기
+        CarNameList = CarNameList.subList(0, carNames.length);
     }
 }
