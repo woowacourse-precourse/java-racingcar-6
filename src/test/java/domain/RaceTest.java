@@ -71,7 +71,7 @@ public class RaceTest {
         int lineCount = contents.length;
 
         assertThat(lineCount)
-                .isEqualTo((CAR_COUNT + 1) * ROUND_COUNT);
+                .isEqualTo(CAR_COUNT * ROUND_COUNT);
     }
 
     @Test
@@ -83,6 +83,7 @@ public class RaceTest {
         Car carA = carList.get(CAR_COUNT - 1);
         Car carB = carList.get(0);
 
+        mockOutput.reset();
         System.out.print(carA);
         String aPrinted = mockOutput.toString();
         mockOutput.reset();
@@ -94,11 +95,11 @@ public class RaceTest {
         ArrayList<Car> result = race.getWinnerList();
 
         if (aPrinted.length() >= bPrinted.length()) {
-            assertThat(result.contains("A")).isEqualTo(true);
+            assertThat(result.contains(carA)).isEqualTo(true);
         }
 
         if (aPrinted.length() <= bPrinted.length()) {
-            assertThat(result.contains("B")).isEqualTo(true);
+            assertThat(result.contains(carB)).isEqualTo(true);
         }
     }
 }
