@@ -13,13 +13,13 @@ public class RacingGame {
             proceedRound(cars);
             System.out.println();
         }
-        printWinner(cars);
+        printWinners(cars);
     }
 
-    private void printWinner(List<Car> cars) {
+    private void printWinners(List<Car> cars) {
         StringBuilder result = new StringBuilder();
         result.append("최종 우승자 : ");
-        result.append(String.join(", ", getWinnerNames(cars)));
+        result.append(String.join(", ", getWinnersName(cars)));
         System.out.println(result);
     }
 
@@ -30,8 +30,8 @@ public class RacingGame {
         }
     }
 
-    private List<String> getWinnerNames(List<Car> cars) {
-        int maxPosition = getMaxPosition(cars);
+    private List<String> getWinnersName(List<Car> cars) {
+        int maxPosition = getWinnersPosition(cars);
 
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
@@ -39,7 +39,7 @@ public class RacingGame {
                 .toList();
     }
 
-    private int getMaxPosition(List<Car> cars) {
+    private int getWinnersPosition(List<Car> cars) {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compare)
