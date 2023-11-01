@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class ResultByRace {
     private static final String INPUT_TRY_TIMES = "시도할 회수는 몇회인가요?";
-    public static final String NUMBER_EXCEPTION = "시도 횟수는 숫자여야 한다.";
-    public static final String POSITIVE_EXCEPTION = "시도 횟수는 양수이어야 한다.";
+    public static final String NUMBER_ERROR = "시도 횟수는 숫자여야 합니다.";
+    public static final String POSITIVE_ERROR = "시도 횟수는 양수여야 합니다.";
     public static final String EXECUTION_RESULTS = "실행 결과";
     private int finalRound = 0;
     private int currentRound = 0;
@@ -16,14 +16,14 @@ public class ResultByRace {
         try {
             finalRound = inputPlayTimes();
             if (finalRound <= 0) {
-                throw new IllegalArgumentException(POSITIVE_EXCEPTION);
+                throw new IllegalArgumentException(POSITIVE_ERROR);
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NUMBER_EXCEPTION);
+            throw new IllegalArgumentException(NUMBER_ERROR);
         }
     }
 
-    private static int inputPlayTimes() {
+    private int inputPlayTimes() {
         return Integer.parseInt(Console.readLine());
     }
 

@@ -7,7 +7,7 @@ import java.util.List;
 public class Cars {
     private static final String INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String DELIMITER = ",";
-    private static final String LENGTH_ERROR = "자동차 이름은 5자 이하만 가능하다.";
+    private static final String LENGTH_ERROR = "자동차 이름은 5자 이하만 가능합니다.";
     private static final String DIGIT_ERROR = "자동차 이름에는 숫자가 포함될 수 없습니다.";
     private static final String NO_WINNER = "우승자가 없습니다.";
     private static final int NAME_LENGTH = 5;
