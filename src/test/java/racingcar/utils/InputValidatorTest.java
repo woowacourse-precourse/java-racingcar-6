@@ -55,19 +55,10 @@ class InputValidatorTest {
     }
 
     @Test
-    void 시도횟수_정수가_아닌경우() {
-        assertInvalidAttemptCount("1.1", "시도 횟수는 정수여야 합니다.");
-    }
-
-    @Test
     void 시도횟수_0이하_인_경우() {
-        assertInvalidAttemptCount("-1", "시도 횟수는 0보다 커야 합니다.");
+        assertInvalidAttemptCount(-1, "시도 횟수는 0보다 커야 합니다.");
     }
 
-    @Test
-    void 시도횟수_숫자가_아닌_경우() {
-        assertInvalidAttemptCount("다섯", "시도 횟수는 정수여야 합니다.");
-    }
 
     private void assertInvalidCarNames(List<String> carNames, String expectedErrorMessage) {
         assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
@@ -75,7 +66,7 @@ class InputValidatorTest {
             .hasMessageContaining(expectedErrorMessage);
     }
 
-    private void assertInvalidAttemptCount(String attemptCount, String expectedErrorMessage) {
+    private void assertInvalidAttemptCount(int attemptCount, String expectedErrorMessage) {
         assertThatThrownBy(() -> InputValidator.validateAttemptCount(attemptCount))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(expectedErrorMessage);
