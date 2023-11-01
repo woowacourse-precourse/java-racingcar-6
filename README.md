@@ -161,3 +161,64 @@ Randoms.pickNumberInRange(0,9);
 - **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
   - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+
+## 💡기능 구현 목록
+### ✅ 입력
+- [x] 게임문구 출력 InputView
+  - [x] 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) InputView#promptCarNames
+  - [x] 시도할 회수는 몇회인가요? InputView#promptTryCount
+- [x] 쉼표를 기준으로 n개의 자동차 입력받음(자동차 이름은 5자 이하) InputView#promptCarNames
+- [x] 시도할 횟수를 입력받음 (n 대의 자동차가 전진 또는 멈추는 횟수) InputView#promptTryCount
+- [x] 경주할 자동차 이름을 입력받는 부분은 빈 칸이면 안된다. checkIsEmptyInput
+- [x] 경주할 자동차 이름을 입력받는 부분에서 문자의 개수는 , 의 개수 +1 이어야한다. checkInputFormat
+- [x] 자동차 이름 값은 5자 이하이어야 한다. CarNameValidator
+
+<br/>
+
+### ✅ 프로그램
+- [x] 입력받은 횟수로 랜덤한 값을 생성한다 GameNumber#generateRandomNumber
+- [x] 0-3사이인 경우 멈추고, 4이상 9 이하인 경우 전진한다 Car#checkProcess
+- [x] 모든 횟수를 다 돈 후 가장 길이가 긴(전진을 많이 한) 자동차가 승리한다 GameController#findWinners
+
+<br/>
+
+###  ✅ 출력
+- [x] 승리한 자동차가 두개 이상이라면 쉼표를 기준으로 출력하고 한 개라면 그냥 출력한다. 
+
+
+
+## 👍🏻 이런 점에 주목했어요!
+### ✅ static 키워드를 잘 사용하려고 노력했어요.
+ - [x] GameController, Cars, CarNameValidator, InputView, OutputView 에서는 모든 인스턴스에서 변수와 메서드가 공유돼도 상관없어 static 키워드를 사용했어요
+ - [x] Car, GameNumber 와 같이 인스턴스 마다 다른 값을 가져야 하는 클래스에 대해서는 인스턴스 변수와 인스턴스 메서드를 사용했어요
+### 🙋🏼‍♀️ static 키워드의 장점
+- Heap 영역이 아닌 Static 메모리 영역에 저장되어 고정된 메모리 영역을 사용하기 매번 인스턴스를 생성하여 낭비되는 메모리를 줄일 수 있다.
+- 객체를 생성하지 않 사용가능하기 때문에 속도가 빠르다
+
+### ✅ [자바 코딩 컨벤션](https://myeonguni.tistory.com/1596)을 지키려고 노력했어요.
+
+### ✅ 객체 지향적으로 코드를 짜기 위해 노력했어요.
+- [x] 하나의 클래스는 하나의 역할, 책임만 가져야한다. - SRP(단일 책임 원칙)
+
+### ✅ MVC 디자인 패턴을 지키려고 노력했어요.
+- [x] controller 에서만 model 과 view를 참조하고 변경할 수 있게 코드를 짜려고 노력했어요.
+
+
+
+## ✔️ PR CHECKLIST
+- [x] 자바 코드 컨벤션을 지키면서 프로그래밍했는가?
+- [ ] 한 메서드에 오직 한 단계의 들여쓰기(indent)만 허용했는가?
+    - Validator#checkCarNameLength 제외
+    - GameController#findWinners 제외
+- [ ] else 예약어를 쓰지 않았는가?
+    - Car#checkProcess 제외
+- [ ] 모든 원시값과 문자열을 포장했는가?
+- [ ] 콜렉션에 대해 일급 콜렉션을 적용했는가?
+- [x] 3개 이상의 인스턴스 변수를 가진 클래스를 구현하지 않았는가?
+- [ ] getter/setter 없이 구현했는가?
+- [x] 메소드의 인자 수를 제한했는가?
+- [x] 코드 한 줄에 점(.)을 하나만 허용했는가?
+- [x] 메소드가 한가지 일만 담당하도록 구현했는가?
+- [x] 클래스를 작게 유지하기 위해 노력했는가?
+
+> 👀 최대한 지키려고 했으나 체크 안된 PR CHECKLIST 에 대해 의견이나 제안 사항 있으시면 자유롭게 댓글달아주시면 감사하겠습니다:)
