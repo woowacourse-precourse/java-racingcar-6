@@ -1,14 +1,23 @@
 package racingcar.model;
 
-import java.util.Map;
+import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.ValidatorConstant;
+
+import java.util.List;
 
 public class GameDto {
-    private final Map<String, CarDto> cars;
-    public GameDto(Map<String, CarDto> cars){
-        this.cars=cars;
+    private final List<CarDto> cars;
+
+    public GameDto(List<CarDto> cars) {
+        this.cars = cars;
     }
 
-    public Map<String,CarDto> getCars(){
+    public void run() {
+        cars.forEach(car -> car.move(Randoms.pickNumberInRange(ValidatorConstant.MIN_RANDOM_RANGE, ValidatorConstant.MAX_RANDOM_RANGE))
+        );
+    }
+
+    public List<CarDto> getCars() {
         return cars;
     }
 }
