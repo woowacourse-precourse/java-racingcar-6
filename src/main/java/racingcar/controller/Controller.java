@@ -8,7 +8,6 @@ import racingcar.utils.Utils;
 import racingcar.view.Output;
 import racingcar.view.OutputMessage;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -49,7 +48,7 @@ public class Controller {
     }
 
     public static void judgeEachCar(String key, HashMap<String,String> hashMap, int maxNum) {
-        if (Utils.stringToInt(hashMap.get(key)) == maxNum) {
+        if (hashMap.get(key).length() == maxNum) {
             winnerArrayList.add(hashMap.get(key));
         }
     }
