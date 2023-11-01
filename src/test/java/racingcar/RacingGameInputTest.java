@@ -1,22 +1,20 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RacingGameInputTest {
 
-    private final InputStream originalSystemIn = System.in;
-
     @AfterEach
-    public void tearDown() {
-        System.setIn(originalSystemIn); // 테스트 이후에 원래 상태로 복구
+    public void close() {
+        Console.close();
     }
 
     @Test
@@ -24,8 +22,10 @@ public class RacingGameInputTest {
     public void testCarNamesInput() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("테스트,자동차".getBytes());
         System.setIn(inputStream);
+
         RacingGameView racingGameView = new RacingGameView();
         List<String> input = racingGameView.inputCarNames();
+
         assertEquals("테스트", input.get(0));
         assertEquals("자동차", input.get(1));
     }
@@ -35,8 +35,10 @@ public class RacingGameInputTest {
     public void testGameRoundsInput() {
         ByteArrayInputStream inputStream = new ByteArrayInputStream("10".getBytes());
         System.setIn(inputStream);
+
         RacingGameView racingGameView = new RacingGameView();
         int input = racingGameView.inputGameRounds();
+
         assertEquals(10, input);
     }
 
