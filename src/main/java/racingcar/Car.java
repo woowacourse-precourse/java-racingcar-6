@@ -4,7 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     String name;
-    private int distance=0;
+    int distance=0;
+
 
     public Car( String name) {
         this.name=name;
