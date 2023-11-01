@@ -10,7 +10,7 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(List<String> names) {
+    private Cars(List<String> names) {
         this.cars = createCars(names);
     }
 
@@ -33,17 +33,22 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<Name> getWinnerNames() {
+    public List<String> getWinnerNames() {
         Car car = getMaxPositionCar();
         return findSamePositionCarNames(car);
     }
 
     private Car getMaxPositionCar() {
-        return cars.stream().max(Car::compareTo).get();
+        return cars.stream()
+                .max(Car::compareTo)
+                .get();
     }
 
-    private List<Name> findSamePositionCarNames(Car car) {
-        return cars.stream().filter(car::isSamePosition).map(Car::getName).toList();
+    private List<String> findSamePositionCarNames(Car car) {
+        return cars.stream()
+                .filter(car::isSamePosition)
+                .map(Car::getName)
+                .map(Name::toString)
+                .toList();
     }
-
 }

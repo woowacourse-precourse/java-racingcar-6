@@ -54,10 +54,10 @@ public class CarsTest {
         carList.get(1).move(MOVABLE_NUMBER);
         carList.get(2).move(NON_MOVABLE_NUMBER);
 
-        List<Name> winnerNames = cars.getWinnerNames();
-        List<Name> expect = List.of(new Name("pobi"), new Name("crong"));
+        List<String> winnerNames = cars.getWinnerNames();
+        List<String> expected = List.of("pobi", "crong");
 
-        assertThat(winnerNames).isEqualTo(expect);
+        assertThat(winnerNames).isEqualTo(expected);
     }
 
 }

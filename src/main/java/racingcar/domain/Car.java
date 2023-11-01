@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class Car implements Comparable<Car> {
 
-    private static final String NAME_DELIMITER = " : ";
     private static final String POSITION_REGEX = "-";
     private static final int MOVABLE_THRESHOLD = 3;
 
@@ -21,17 +20,20 @@ public class Car implements Comparable<Car> {
     }
 
     public void move(int randomNumber) {
-        if (randomNumber > MOVABLE_THRESHOLD) {
+        if (isMovable(randomNumber)) {
             this.position++;
         }
     }
-
     public Name getName() {
         return name;
     }
 
     public boolean isSamePosition(Car otherCar) {
         return this.position == otherCar.position;
+    }
+
+    private boolean isMovable(int randomNumber) {
+        return randomNumber > MOVABLE_THRESHOLD;
     }
 
     @Override
@@ -53,10 +55,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(name.toString());
-        sb.append(NAME_DELIMITER);
-        sb.append(POSITION_REGEX.repeat(Math.max(0, position)));
-        return sb.toString();
+        return String.format("%s : %s", name, POSITION_REGEX.repeat(Math.max(0, position)));
     }
 
     @Override
