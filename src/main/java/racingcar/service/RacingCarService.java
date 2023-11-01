@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.List;
 import racingcar.domain.RacingStatus;
 
 public class RacingCarService {
@@ -9,6 +10,7 @@ public class RacingCarService {
 		for (int i = 0; i < racingStatus.getTryNumber(); i++) {
 			racingStatus.updateCarStatus();
 		}
+		List<String> maxValueFromCarStatus = racingStatus.findMaxValueFromCarStatus();
 	}
 
 }
