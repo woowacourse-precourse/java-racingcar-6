@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -36,6 +39,30 @@ public class Application {
             }
         }
 
+        int max = 0;
+        for (int i : cars_move) {
+            if (i > max) {
+                max = i;
+            } else if (i == max) {
 
+            }
+        }
+    }
+
+    public static List<Integer> findMaxIndices(int[] arr) {
+        List<Integer> maxIndices = new ArrayList<>();
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                maxIndices.clear();
+                maxIndices.add(i);
+            } else if (arr[i] == max) {
+                maxIndices.add(i);g
+            }
+        }
+
+        return maxIndices;
     }
 }
