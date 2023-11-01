@@ -17,4 +17,7 @@ public class RacingGame {
             car.move(Randoms.pickNumberInRange(0, 9));
         }
     }
+    private void printCurrentPositions() {
+        cars.forEach(car -> System.out.println(car.getName() + " : " + "-".repeat(car.getScore())));
+    }
 }
