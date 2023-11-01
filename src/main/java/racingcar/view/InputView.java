@@ -15,12 +15,12 @@ public class InputView {
     private InputView() {
     }
 
-    public List<String> readCarName() {
+    public static List<String> readCarName() {
         System.out.println(PRINT_READ_CAR_NAME_MESSAGE);
         return convertCarName(getInput());
     }
 
-    public int readGameRound() {
+    public static int readGameRound() {
         System.out.println(PRINT_READ_TRY_NUMBER_MESSAGE);
         return convertGameRound(getInput());
     }
