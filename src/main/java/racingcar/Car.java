@@ -18,6 +18,10 @@ public class Car {
         return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     public void move() {
         if (isMovable()) {
             position += 1;

@@ -10,6 +10,7 @@ public class Cars {
     private static final String DELIMITER = ",";
     private static final String LENGTH_EXCEPTION = "자동차 이름은 5자 이하만 가능하다.";
     private static final String NON_NUMBER_EXCEPTION = "자동차 이름에는 숫자가 포함될 수 없습니다.";
+    private static final String NON_WINNER = "우승자가 없습니다.";
     private static final int NAME_LENGTH = 5;
     private final List<Car> cars = new ArrayList<>();
 
@@ -52,5 +53,34 @@ public class Cars {
         for (Car car : cars) {
             car.move();
         }
+    }
+
+    public void isWinner() {
+        int maxPosition = getMaxPosition();
+        List<String> winners = getWinners(maxPosition);
+
+        if (!winners.isEmpty()) {
+            System.out.println("최종 우승자 : " + String.join(", ", winners));
+        } else {
+            System.out.println(NON_WINNER);
+        }
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
+
+    private List<String> getWinners(int maxPosition) {
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
     }
 }

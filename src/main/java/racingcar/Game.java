@@ -7,7 +7,7 @@ public class Game {
     public void play() {
         cars.createCars();
         resultByRace.askPlayTime();
-        System.out.println("실행 결과");
         resultByRace.showEachResult(cars);
+        resultByRace.showWinner(cars);
     }
 }
