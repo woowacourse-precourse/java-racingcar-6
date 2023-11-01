@@ -3,6 +3,8 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.constant.errorMessage.ErrorMessages;
+import racingcar.constant.errorMessage.InvalidArgumentException;
 
 public class InputView {
 
@@ -37,7 +39,7 @@ public class InputView {
         try {
             return Integer.parseInt(input.trim());
         } catch (NumberFormatException e) {
-            throw  new IllegalArgumentException();
+            throw new InvalidArgumentException(ErrorMessages.ROUND_IS_NOT_NUMERIC);
         }
     }
 
