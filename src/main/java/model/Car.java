@@ -4,12 +4,10 @@ public class Car {
     String name;
     int stepCount;
 
-    Car(){}
+    public Car(){}
     Car(String name){
         this.name = name;
     }
-
-    //경주 할 자동차 이름 받아오기()
 
     /**
      *자동차 이름을 받아와 Car객체를 리턴한다.
