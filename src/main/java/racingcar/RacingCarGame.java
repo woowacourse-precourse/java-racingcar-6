@@ -60,8 +60,8 @@ public class RacingCarGame {
     }
 
     void playGame() {
-        for (RacingCar player : racingCars) {
-            player.move(Randoms.pickNumberInRange(0, 9));
+        for (RacingCar racingCar : racingCars) {
+            racingCar.move(Randoms.pickNumberInRange(0, 9));
         }
     }
 
