@@ -11,7 +11,7 @@ public class OutputView {
 
     public void printResultMessage() {
         System.out.println();
-        System.out.println(MessageConstant.RESULT_MESSAGE);
+        System.out.println(MessageConstant.PRINT_RESULT);
     }
 
     public void printCars(Cars cars) {
@@ -31,6 +31,6 @@ public class OutputView {
     public void printWinner(Cars cars) {
         List<String> winners = cars.findWinners();
         String result = String.join(", ", winners);
-        System.out.print(MessageConstant.WINNER_MESSAGE + result);
+        System.out.print(MessageConstant.PRINT_WINNERS + result);
     }
 }

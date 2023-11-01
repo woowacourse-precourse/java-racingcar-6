@@ -10,6 +10,6 @@ public class RandomNumberGenerator {
     }
 
     public static boolean canMove() {
-        return Randoms.pickNumberInRange(0,9) >= MOVE_CONDITION;
+        return Randoms.pickNumberInRange(0, 9) >= MOVE_CONDITION;
     }
 }

@@ -6,12 +6,12 @@ import racingcar.utils.MessageConstant;
 public class InputView {
 
     public String inputCarNames() {
-        System.out.println(MessageConstant.INPUT_CAR_NAMES_MESSAGE);
+        System.out.println(MessageConstant.INPUT_CAR_NAMES);
         return Console.readLine();
     }
 
     public int inputTryNumber() {
-        System.out.println(MessageConstant.INPUT_TRY_NUMBER_MESSAGE);
+        System.out.println(MessageConstant.INPUT_TRY_NUMBER);
         String string = Console.readLine();
         try {
             return Integer.parseInt(string);
