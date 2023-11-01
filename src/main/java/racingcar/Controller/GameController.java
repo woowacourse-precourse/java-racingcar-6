@@ -4,8 +4,6 @@ import racingcar.Domain.Car;
 import racingcar.Service.RacingGame;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
-
-import java.lang.reflect.Array;
 import java.util.List;
 
 public class GameController {
@@ -15,23 +13,18 @@ public class GameController {
     private OutputView outputView;
     private Integer tryCount;
 
-    //클래스 다이어그램에 추가하기
-    public GameController(){
-
+    public GameController() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
-
     }
 
-    public void playGame(){
-
+    public void playGame() {
         String carsName = inputView.getCarsName();
         this.tryCount = inputView.getTryCount();
-
         this.game = new RacingGame(carsName);
 
         outputView.printRESULT_GUIDE();
-        while(tryCount > 0){
+        while (tryCount > 0) {
             tryCount--;
             List<Car> racingResult= game.racing();
             outputView.printRacingResult(racingResult);
@@ -39,8 +32,5 @@ public class GameController {
 
         List<String> winners = game.findWinners();
         outputView.printWinners(winners);
-
     }
-
-
 }
