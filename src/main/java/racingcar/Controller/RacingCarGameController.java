@@ -59,7 +59,7 @@ public class RacingCarGameController {
     public void roundProgress(List<Car> carList, int racingRoundTimes) {
         System.out.println("실행결과");
         for (int i = 0; i < racingRoundTimes; i++) {
-            decideGoOrStop(carList);
+            isMove(carList);
             totalCurrentRoundResult(carList);
         }
     }
@@ -72,15 +72,15 @@ public class RacingCarGameController {
         OutView.printCurrentRoundResult(roundResult);
     }
 
-    public void decideGoOrStop(List<Car> carList) {
+    public void isMove(List<Car> carList) {
         for (Car car : carList) {
-            if (isMove()) {
+            if (checkRandomNumber()) {
                 car.accel();
             }
         }
     }
 
-    public boolean isMove() { // 랜덤번호 생성
+    public boolean checkRandomNumber() { // 랜덤번호 생성
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 }
