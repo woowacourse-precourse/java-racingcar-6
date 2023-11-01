@@ -12,4 +12,7 @@ public class GameOutputView {
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
+    public static void printResultsHeader() {
+        System.out.println("\n실행 결과");
+    }
 }
