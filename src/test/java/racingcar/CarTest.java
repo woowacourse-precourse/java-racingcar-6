@@ -24,4 +24,11 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("null을 입력하지 마세요.");
     }
+    @Test
+    @DisplayName("자동차 이름의 길이가 0이면 예외")
+    void validateLengthZero(){
+        assertThatThrownBy(() -> new Car(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("길이를 0보다 크게 입력하셔야 합니다.");
+    }
 }
