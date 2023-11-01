@@ -8,7 +8,8 @@ import java.util.List;
 public class Controller {
     int tryTime;
     Cars cars = new Cars();
-    public void startRace(){
+
+    public void startRace() {
         Message.NameInputMsg();
         ArrayList<String> carNameList = splitCarNames(getInput());
         Validation.validateCarNames(carNameList);
@@ -20,7 +21,7 @@ public class Controller {
 
         cars.createCars(carNameList);
 
-        for (int idx=0; idx<tryTime; idx++){
+        for (int idx = 0; idx < tryTime; idx++) {
             String interimResult = cars.doRace();
             Message.raceInterimResultMsg(interimResult);
         }
@@ -28,7 +29,8 @@ public class Controller {
         Message.finalWinnerMsg(cars.CheckFinalWinner());
 
     }
-    public String getInput(){
+
+    public String getInput() {
         String nameInput = Console.readLine();
 
         if (nameInput == null) {
@@ -37,13 +39,14 @@ public class Controller {
         return nameInput;
     }
 
-    public ArrayList<String> splitCarNames(String carNames){
+    public ArrayList<String> splitCarNames(String carNames) {
 
-        ArrayList<String> names = new ArrayList<>(Arrays.asList(carNames.split(",", -1))) ;;
+        ArrayList<String> names = new ArrayList<>(Arrays.asList(carNames.split(",", -1)));
+        ;
         return names;
     }
 
-    private int convertStrToInt(String time){
+    private int convertStrToInt(String time) {
         return Integer.parseInt(time);
     }
 
