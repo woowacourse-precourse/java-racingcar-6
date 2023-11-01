@@ -29,6 +29,29 @@ class RacingCarServiceTest {
     }
 
     @Test
+    void 참가하는_자동차_이름_리스트_받아와_객체_생성하기(){
+        final List<String> racingCars = new ArrayList<>(Arrays.asList("one", "two", "three", "four"));
+        List<Car> carList = new ArrayList<>();
+
+        for (int i=0; i<racingCars.size(); i++){
+            if (globalExceptionHandler.isValidCarName(racingCars.get(i))) {
+                final Car car = new Car(racingCars.get(i));
+                carList.add(car);
+            }
+        }
+
+        Car one = new Car("one");
+        Car two = new Car("two");
+        Car three = new Car("three");
+        Car four = new Car("four");
+        List<Car> result = new ArrayList<>(Arrays.asList(one, two, three, four));
+        for (Car resultCar:result) {
+            Car car = carList.get(result.indexOf(resultCar));
+            assertThat(car).usingRecursiveComparison().isEqualTo(resultCar);
+        }
+    }
+
+    @Test
     void 자동차_경주_객체_생성하기() {
         final String racingCount = "4";
         Car one = new Car("one");
