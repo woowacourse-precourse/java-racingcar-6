@@ -1,13 +1,19 @@
 package racingcar.Exception;
 
+import java.util.List;
+
 public class UserInputException {
-    private void validateIsNumber(String userInput) {
+    public void validateIsNumber(String userInput) {
         if (!userInput.matches("^[0-9]*$")) {
             throw new IllegalArgumentException();
         }
     }
 
-    public void validateUserInput(String userInput) {
-        validateIsNumber(userInput);
+    public void validateCarNameLength(List<String> carList) {
+        for (String carName : carList) {
+            if(carName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
