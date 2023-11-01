@@ -35,7 +35,7 @@ public class User {
     }
 
     private void vaildateCarNameLength(String input) {
-        if (input.length() > CAR_NAME_LENGTH) {
+        if (input.length() > CAR_NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(EXCEPTION_NAME_LENGTH_MESSAGE);
         }
     }
