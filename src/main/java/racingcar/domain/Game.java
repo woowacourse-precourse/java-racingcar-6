@@ -11,6 +11,7 @@ public class Game {
         this.cars = cars;
     }
 
+
     public void playOnce(NumberGenerator numberGenerator) {
         cars.forEach(car -> {
             car.moveOrStop(numberGenerator.generate());
@@ -19,7 +20,7 @@ public class Game {
 
     private Car findMaxPositionCar() {
         return cars.stream()
-                .max(Car::compareTo)
+                .max(Car::compareToPosition)
                 .orElseThrow(() -> new IllegalArgumentException("자동차가 존재하지 않습니다"));
     }
 
@@ -33,7 +34,7 @@ public class Game {
 
     public void validateDuplicateCarName(List<Car> cars) {
         boolean isSameNameExists = cars.stream()
-                .map(Car::toString)
+                .map(Car::getName)
                 .distinct()
                 .count() < cars.size();
 
