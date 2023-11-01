@@ -17,5 +17,4 @@ public class MinimumLengthValidator implements RegistryValidator {
                 .filter(String::isEmpty)
                 .count();
     }
-
 }

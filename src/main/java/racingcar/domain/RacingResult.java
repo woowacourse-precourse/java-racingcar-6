@@ -5,6 +5,7 @@ import racingcar.dto.CarStatusDto;
 
 public class RacingResult {
     private static final String SCORE_FORMAT = "-";
+    
     private final List<CarStatusDto> carStatusDto;
 
     private RacingResult(List<CarStatusDto> playerStatusDto) {

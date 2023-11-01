@@ -4,9 +4,10 @@ import racingcar.dto.CarStatusDto;
 
 
 public class Car {
+    private final static Integer START_SCORE = 0;
+
     private final String name;
     private Integer progressScore;
-    private final static Integer START_SCORE = 0;
 
     private Car(String name) {
         this.name = name;

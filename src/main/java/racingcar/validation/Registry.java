@@ -22,5 +22,4 @@ public class Registry {
             validator.validate(inputValue);
         }
     }
-
 }

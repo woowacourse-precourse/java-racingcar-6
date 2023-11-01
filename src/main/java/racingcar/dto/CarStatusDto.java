@@ -1,6 +1,5 @@
 package racingcar.dto;
 
-
 public record CarStatusDto(
         String name,
         Integer score
