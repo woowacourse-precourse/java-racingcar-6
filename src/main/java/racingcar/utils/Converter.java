@@ -12,7 +12,8 @@ public class Converter {
                 .collect(Collectors.toList());
     }
 
-    public static int toInteger(String before) {
+    public static int toInteger(String before) throws IllegalArgumentException {
+        Validator.validateDigit(before);
         return Integer.parseInt(before);
     }
 }
