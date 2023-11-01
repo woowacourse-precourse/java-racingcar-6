@@ -42,4 +42,12 @@ class RacingCarGameTest {
             assertThat(oneCar.getCarName()).isEqualTo(onePlayer);
         }
     }
+
+    @Test
+    @DisplayName("이동 횟수 저장 테스트")
+    void 이동_횟수_저장_테스트() {
+        int movingCount = 5;
+        racingCarGame.saveMovingCount(movingCount);
+        assertThat(racingCarGame.getMovingCount()).isEqualTo(movingCount);
+    }
 }
