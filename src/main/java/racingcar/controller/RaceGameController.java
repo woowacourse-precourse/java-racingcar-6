@@ -30,4 +30,12 @@ public class RaceGameController {
         outputView.printLoopSetMessage();
         return inputView.inputLoopStringToInt();
     }
+
+    private void playingGame(RacingCars racingCars) {
+        racingCars.getAllCars().forEach(car -> {
+            car.moveIfRandomSuccess();
+            outputView.printRaceStatusMessage(car);
+        });
+        outputView.printSpaceMessage();
+    }
 }
