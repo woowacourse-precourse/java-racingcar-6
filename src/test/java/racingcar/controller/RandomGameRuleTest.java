@@ -1,20 +1,16 @@
-/*package controller;
+/*package racingcar.controller;
 
-import model.CarList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import view.UserView;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-public class UserControllerTest {
-    private UserView userController;
+public class RandomGameRuleTest {
     private CarList carList;
 
     @BeforeEach
     void setUp() {
-        userController = new UserView(carList);
         carList = new CarList();
     }
 
@@ -56,4 +52,5 @@ public class UserControllerTest {
 
         assertThat(userController.getCoin()).isEqualTo(11);
     }
-}*/
+}
+*/

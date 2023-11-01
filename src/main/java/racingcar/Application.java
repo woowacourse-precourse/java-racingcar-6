@@ -9,10 +9,10 @@ import racingcar.model.CarList;
 public class Application {
     public static void main(String[] args) {
         CarList carList = new CarList();
-        GameSetter racingGame = new GameSetter(carList);
+        GameSetter gameSetter = new GameSetter(carList);
         GameRule randomGameRule = new RandomGameRuleImpl(carList);
-        GameController gameController = new GameController(racingGame, randomGameRule);
 
+        GameController gameController = new GameController(gameSetter, randomGameRule);
         gameController.run();
     }
 }
