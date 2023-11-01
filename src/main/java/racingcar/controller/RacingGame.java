@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.model.Game;
 import racingcar.view.Input;
 import racingcar.view.Output;
+import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
     private Game game;
@@ -17,10 +18,16 @@ public class RacingGame {
     }
 
     public void ready() {
-        Output.nameInputMessage();
-        String carNames = Input.carNameInput();
+        Output.carNameInputMessage();
+        String carNames = Input.carNamesInput();
         Output.attemptInputMessage();
         int numberOfAttempts = Input.attemptInput();
         game = new Game(carNames, numberOfAttempts);
+    }
+
+    public static void exception(String str) {
+        Console.close();
+        Output.getError(str);
+        throw new IllegalArgumentException(str);
     }
 }

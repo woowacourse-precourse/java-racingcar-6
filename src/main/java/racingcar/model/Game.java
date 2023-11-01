@@ -16,6 +16,7 @@ public class Game {
     private void initializeCars(String carNames) {
         String[] names = carNames.split(",");
         for (String name: names) {
+            name = name.trim();
             cars.add(new Car(name));
         }
     }
@@ -45,7 +46,7 @@ public class Game {
             }
         }
 
-        System.out.print("최종 우승자 : ");
+        Output.winnerMessage();
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
             if (i < winners.size() - 1) {
