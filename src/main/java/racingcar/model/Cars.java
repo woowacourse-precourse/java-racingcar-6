@@ -39,7 +39,7 @@ public class Cars {
         List<String> winnerNames = new ArrayList<>();
         for (Car car : racingCars) {
             if (car.isWinnerCondition(getMaxScore())) {
-                winnerNames.add(car.toString());
+                winnerNames.add(car.getName());
             }
         }
         return winnerNames;

@@ -24,8 +24,7 @@ public class Car {
         return position.makeInt();
     }
 
-    @Override
-    public String toString() {
+    public String getName() {
         return name.toString();
     }
 
