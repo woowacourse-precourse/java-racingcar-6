@@ -157,6 +157,7 @@
   - 구분한 문자열 배열의 각 원소를 `trim()` 메소드로 앞 뒤 공백을 자른다.
   - `isNameOK`메소드로 구분된 문자열들이 적합한지 판단한다.
   - `isNameOK`의 결과가 `false`라면 `IllegalArgumentException`을 발생시킨다.
+  - Set의 add()메소드로 이름이 올바른 경우라도 중복된 이름이 있으면 `IllegalArgumentException`을 발생시킨다.
   - 모든 결과가 `true`면 `List<String>`을 반환한다.
 
 ##### 문자열이 이름으로 적합한지 확인하는 메소드
