@@ -30,7 +30,7 @@ public class RaceController {
 
     private List<String> getCarNames() {
         String carNamesString = inputView.readCarNames();
-        return List.of(carNamesString.split(","));
+        return List.of(carNamesString.split(",", -1));
     }
 
     private int getTotalRounds() {
