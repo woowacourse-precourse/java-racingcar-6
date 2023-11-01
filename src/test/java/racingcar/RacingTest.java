@@ -95,4 +95,14 @@ public class RacingTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    @DisplayName("initPlayCount 초과 실패 테스트")
+    void initParticipants_over_fail() {
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> racing.initPlayCount(11))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
