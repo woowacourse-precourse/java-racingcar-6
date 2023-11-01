@@ -11,9 +11,15 @@ public class Race {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
-    CarManager carManager = new CarManager();
+    CarManager carManager;
+
+    public Race() {
+        NumberMaker numberMaker = new NumberMaker();
+        carManager = new CarManager(numberMaker);
+    }
 
     public void doRacing() {
+
         List<String> names = getNames();
 
         Integer gameCount = getGameCount();
@@ -23,8 +29,8 @@ public class Race {
         for (int i = 0; i < gameCount; i++) {
             List<Car> matchResult = carManager.runMatch();
             printMatchResult(matchResult);
-            outputView.print(Output.BLANK_LINE);
 
+            outputView.print(Output.BLANK_LINE);
         }
 
         printWinners();
