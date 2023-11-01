@@ -1,6 +1,8 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.Constant;
+import racingcar.util.Util;
 
 public class Car {
     private String name;
@@ -24,5 +26,12 @@ public class Car {
         if (num>=4){
             position++;
         }
+    }
+    public String getRoundResult() {
+        return name + Constant.ROUND_RESULT_DELIMITER + Util.dashRepeat(position);
+    }
+
+    public boolean isWinner(int winDistance){
+        return position == winDistance;
     }
 }
