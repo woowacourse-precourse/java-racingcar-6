@@ -1,19 +1,20 @@
 package racingcar.view;
 
 import racingcar.model.Car;
+import racingcar.model.GameState;
 import racingcar.model.GameViewMessage;
 
 import java.util.ArrayList;
 
 public class OutputView {
 
-    public void displayResultPerRound(ArrayList<Car> carList){
+    public void displayResultPerRound(GameState gameState){
         StringBuilder sb = new StringBuilder();
-        for(Car car : carList){
-            sb.append(car.getCarName()).append(colonWithSpaceBar()).append(car.totalDistance()).append("\n");
+        for(String carName : gameState.getCarStateMap().keySet()){
+            String stepDistance = gameState.getCarStateMap().get(carName);
+            sb.append(carName).append(colonWithSpaceBar()).append(stepDistance).append("\n");
         }
-        sb.append("\n");
-        System.out.print(sb);
+        System.out.println(sb);
     }
 
     public void displayWinner(ArrayList<Car> carWinnerList){
@@ -30,14 +31,14 @@ public class OutputView {
         System.out.println(sb);
     }
 
-    public String colonWithSpaceBar(){
+    private String colonWithSpaceBar(){
         String colon = GameViewMessage.spaceBar.getMessage();
         colon += GameViewMessage.colonString.getMessage();
         colon += GameViewMessage.spaceBar.getMessage();
         return colon;
     }
 
-    public String colonString(){
+    private String colonString(){
         return GameViewMessage.colonString.getMessage();
     }
 
@@ -48,7 +49,7 @@ public class OutputView {
 
 
 
-    public String winnerMessage(){
+    private String winnerMessage(){
         return GameViewMessage.outputWinnerMessage.getMessage();
     }
 }
