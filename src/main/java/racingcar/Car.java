@@ -1,12 +1,13 @@
 package racingcar;
 
 public class Car {
+    final int INITIALIZED_DISTANCE = 0;
     private String name;
     private int distance;
 
     Car(String name){
         PutName(name);
-        PutDistance(0);
+        PutDistance(INITIALIZED_DISTANCE);
     }
 
     public int GetDistance() {

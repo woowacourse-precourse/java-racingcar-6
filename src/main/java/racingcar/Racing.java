@@ -3,11 +3,16 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class Racing {
-    private int count;
+    final int MOVE_CRITICAL_POINT = 4;
+    final int MOVE_VELOCITY = 1;
+    final int RANDOM_NUMBER_START = 0;
+    final int RANDOM_NUMBER_FINISH = 9;
+    final int MAX_COUNT_START = 0;
+    private int moveCount;
     private ArrayList<Car> carList = new ArrayList<>();
 
     Racing(ArrayList<String> carNames){
-        MakeCount();
+        MakeMoveCount();
         for(String carName : carNames){
             PutCarList(new Car(carName));
         }
@@ -15,37 +20,38 @@ public class Racing {
     void PutCarList(Car car){
         carList.add(car);
     }
-    void PutCount(int count){
-        this.count = count;
+    void PutMoveCount(int moveCount){
+        this.moveCount = moveCount;
     }
     ArrayList<Car> GetCarList(){
         return carList;
     }
-    int GetCount(){
-        return count;
+    int GetMoveCount(){
+        return moveCount;
     }
-    void MakeCount(){
-        PutCount(Input.CountInput());
+    void MakeMoveCount(){
+        PutMoveCount(Input.MoveCountInput());
     }
 
     void Move(){
         int randomCount;
         for(Car car : GetCarList()){
-            randomCount = Randoms.pickNumberInRange(0,9);
+            randomCount = Randoms.pickNumberInRange(RANDOM_NUMBER_START
+                    ,RANDOM_NUMBER_FINISH);
             MovePossible(randomCount,car);
             System.out.println(car.toString());
         }
     }
 
     void MovePossible(int num, Car car){
-        if(num >= 4){
-            car.PlusDistance(1);
+        if(num >= MOVE_CRITICAL_POINT){
+            car.PlusDistance(MOVE_VELOCITY);
         }
     }
 
     void race(){
         int count;
-        count = GetCount();
+        count = GetMoveCount();
         Output.ResultText();
         for(int i = 0 ; i < count ; i++){
             Move();
@@ -64,7 +70,7 @@ public class Racing {
     }
 
     int MaxDistance(ArrayList<Car> carList){
-        int maxDistance = 0;
+        int maxDistance = MAX_COUNT_START;
         int distance;
         for(Car car : carList){
             distance = car.GetDistance();

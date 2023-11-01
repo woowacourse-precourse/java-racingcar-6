@@ -6,6 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Input {
+    static final int MAX_CAR_NAME = 5;
+    static final int INPUT_MIN_DISGIT = 0;
+    static final int INPUT_MAX_DISGIT = 9;
+
     public static ArrayList<String> nameInput() throws IllegalArgumentException{
         String answer;
         String[] answerArray;
@@ -25,10 +29,10 @@ public class Input {
         DuplicationError(result,nameIdentify);
         return result;
     }
-    public static int CountInput() throws IllegalArgumentException{
+    public static int MoveCountInput() throws IllegalArgumentException{
         String answer;
         int result;
-        Output.CountText();
+        Output.MoveCountText();
         answer = ReadLineError();
         EmptyError(answer);
         NotNumberError(answer);
@@ -39,7 +43,7 @@ public class Input {
         int test;
         for(int i = 0 ; i<answer.length();i++){
             test = answer.charAt(i) - '0';
-            if (test < 1 || test > 9) {
+            if (test <= INPUT_MIN_DISGIT || test >= INPUT_MAX_DISGIT) {
                 throw new IllegalArgumentException("input type error");
             }
         }
@@ -75,7 +79,8 @@ public class Input {
     }
 
     public static void EndNotCharError(String answer) throws IllegalArgumentException{
-        if(answer.charAt(answer.length() - 1) == ','){
+        int lastIndex = answer.length() - 1;
+        if(answer.charAt(lastIndex) == ','){
             throw new IllegalArgumentException("not char error");
         }
     }
@@ -83,7 +88,7 @@ public class Input {
     public static void SizeError(String answer,ArrayList<String> result,Set<String> nameIdentify) throws IllegalArgumentException{
         if(answer.isEmpty()){
             throw new IllegalArgumentException("empty error");
-        } else if(answer.length() > 5){
+        } else if(answer.length() > MAX_CAR_NAME){
             throw new IllegalArgumentException("size error");
         } else{
             result.add(answer);
