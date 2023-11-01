@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
 
-    private static final int RANDOM_UNDER = 4;
+    private static final int RANDOM_UNDER = 3;
     private static final int RANDOM_OVER = 6;
 
     @ParameterizedTest
