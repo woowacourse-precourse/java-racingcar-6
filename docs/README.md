@@ -36,7 +36,8 @@
 - `AttemptNumber` : int
 
 ## AttemptData
-- `MoveAttempts` : List\<Attempt>
+- `GameAttempts` : List\<Attempt>
+- `AttemptIndex` : int
 
 ## Attempt
 - `RacingCars` : List\<Car>
