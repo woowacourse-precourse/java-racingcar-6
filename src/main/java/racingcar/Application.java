@@ -58,7 +58,7 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         return input;
-      }
+    }
 
     public static int inputAttemptsValidation(String inputAttempts){
         try {
@@ -105,6 +105,6 @@ public class Application {
             }
         }
         System.out.println("최종 우승자 : " + winner);
-      }
+    }
 
 }
