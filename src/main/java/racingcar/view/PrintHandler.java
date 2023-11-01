@@ -12,7 +12,7 @@ public class PrintHandler {
             Printer.printResultMessage(carName, dashPosition);
         }
 
-        System.out.println();
+        Printer.printLineBreak();
     }
 
 }
