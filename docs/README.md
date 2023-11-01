@@ -3,29 +3,29 @@ JAVA _ 자동차 경주 게임 프로젝트
 
 ## 기능 목록
 ### ✔ 입력
-- [x]: 경주할 자동차들의 이름을 입력받고 검사한다. - InputHandler.inputCarName()
-    - [x]: 입력값이 아예 없거나 공백으로만 이뤄져 있으면 오류 발생시킨다. - Validation.checkIfNullOrBlankList()
-    - [x]: 입력 받은 자동차 이름이 1자 이상이 아니면 오류 발생시킨다. - Validation.checkIfAnyBelowOneLength()
-    - [x]: 입력 받은 자동차 이름이 5자를 초과하면 오류 발생시킨다. - Validation.checkIfAnyOverFiveLength()
-    - [x]: 중복되는 자동차 이름이 있으면 오류 발생시킨다. - Validation.checkIfAnyOverlapping()
-- [x]: 올바른 입력값들을 저장한다. - CarRaceManager.createCarList()
+- 경주할 자동차들의 이름을 입력받고 검사한다. - InputHandler.inputCarName()
+    - 입력값이 아예 없거나 공백으로만 이뤄져 있으면 오류 발생시킨다. - Validation.checkIfNullOrBlankList()
+    - 입력 받은 자동차 이름이 1자 이상이 아니면 오류 발생시킨다. - Validation.checkIfAnyBelowOneLength()
+    - 입력 받은 자동차 이름이 5자를 초과하면 오류 발생시킨다. - Validation.checkIfAnyOverFiveLength()
+    - 중복되는 자동차 이름이 있으면 오류 발생시킨다. - Validation.checkIfAnyOverlapping()
+- 올바른 입력값들을 저장한다. - CarRaceManager.createCarList()
 
-- [x]: 시도할 회수를 입력받고 검사한다. - InputHandler.inputAttemptNumber()
-    - [x]: 입력값이 아예 없거나 공백으로만 이뤄져 있으면 오류 발생시킨다. - Validation.checkIfNullOrBlankString()
-    - [x]: 입력값이 int type이 아니면 오류 발생시킨다. - Validation.checkIfNotInteger()
-    - [x]: 입력값이 0이하면 오류 발생시킨다. - Validation.checkIfNotPositiveNumber()
+- 시도할 회수를 입력받고 검사한다. - InputHandler.inputAttemptNumber()
+    - 입력값이 아예 없거나 공백으로만 이뤄져 있으면 오류 발생시킨다. - Validation.checkIfNullOrBlankString()
+    - 입력값이 int type이 아니면 오류 발생시킨다. - Validation.checkIfNotInteger()
+    - 입력값이 0이하면 오류 발생시킨다. - Validation.checkIfNotPositiveNumber()
 
 ### ✔ 경주 실행 - RaceService.runRace()
-- [x]: 각 시도별 경주 실행 - RaceService.runRace()
-    - [x]: 0~9까지 중에 무작위 값을 구한다. - Util.generateRandomNumber()
-    - [x]: 무작위로 구한 값이 전진값인지 아닌 지 판단한다. - Util.isMove()
-        - [x]: 전진값이면 해당 차의 전진값을 +1 한다. - Car.moveForward()
+- 각 시도별 경주 실행 - RaceService.runRace()
+    - 0~9까지 중에 무작위 값을 구한다. - Util.generateRandomNumber()
+    - 무작위로 구한 값이 전진값인지 아닌 지 판단한다. - Util.isMove()
+        - 전진값이면 해당 차의 전진값을 +1 한다. - Car.moveForward()
 
-- [x]: 각 시도별 경주 결과 출력. - RaceService.printAttemptResult()
+- 각 시도별 경주 결과 출력. - RaceService.printAttemptResult()
 
 ### ✔ 우승자 판단 및 출력  - RaceService.getWinners()
-- [x]: 우승자를 판단한다. - RaceService.getWinners()
-- [x]: 우승자를 출력한다 - Output.printWinners()
+- 우승자를 판단한다. - RaceService.getWinners()
+- 우승자를 출력한다 - Output.printWinners()
 
 ## 기능 요구 사항
 초간단 자동차 경주 게임을 구현한다.
