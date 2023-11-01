@@ -11,5 +11,6 @@ public interface CarDao {
     void increaseMoveCount(String carName);
     void decreaseTryCount();
     int getTryCount();
+    int selectTopMoveCount();
     List<Car> selectCarsByTopMoveCount();
 }

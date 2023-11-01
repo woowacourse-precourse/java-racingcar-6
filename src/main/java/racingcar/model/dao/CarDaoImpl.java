@@ -58,11 +58,16 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public List<Car> selectCarsByTopMoveCount() {
-        int maxMoveCount = carLineup.stream()
+    public int selectTopMoveCount() {
+        return carLineup.stream()
                 .max(Comparator.comparing(Car::getMoveCount))
                 .get()
                 .getMoveCount();
+    }
+
+    @Override
+    public List<Car> selectCarsByTopMoveCount() {
+        int maxMoveCount = selectTopMoveCount();
 
         List<Car> topCars = carLineup.stream()
                 .filter(car -> car.getMoveCount() == maxMoveCount)
