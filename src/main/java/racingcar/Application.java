@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -13,7 +14,7 @@ public class Application {
 
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> carNames = Arrays.asList(Console.readLine().split(","));
+        String[] carNames = Console.readLine().split(",");
         ArrayList<Car> cars = new ArrayList<>();
 
         for (String name : carNames) {
@@ -38,13 +39,21 @@ public class Application {
             System.out.println();
         }
 
+        cars.sort((car1, car2) -> car2.moveCount - car1.moveCount);
+        int winningCount = cars.get(0).moveCount;
+
+        ArrayList<String> winningCars = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.moveCount == winningCount) {
+                winningCars.add(car.name);
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", winningCars));
     }
 
-    /**
-     * 자동차 이름의 유효성 검사(5자 이하만 가능함)
-     *
-     * @param name 자동차 이름
-     */
     public static void checkCarNameValid(String name) {
         if (name.length() > CAR_NAME_MAX) {
             throw new IllegalArgumentException();
