@@ -17,5 +17,12 @@ public class OutputView {
         System.out.println();
     }
 
+    public static void printCarPosition(int position) {
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
 
 }
