@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.utils.validator.CarNamesInputValidator.CarNamesInputExceptionMessage;
+import racingcar.utils.CarExceptionMessage;
 
 class CarNamesInputValidatorTest {
     @Nested
@@ -54,7 +54,7 @@ class CarNamesInputValidatorTest {
         void wrongLengthInputTest(String input) {
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
-                    .hasMessage(CarNamesInputExceptionMessage.OUT_OF_LENGTH.getError());
+                    .hasMessage(CarExceptionMessage.OUT_OF_NAME_LENGTH.getError());
         }
 
         @ParameterizedTest
@@ -62,7 +62,7 @@ class CarNamesInputValidatorTest {
         @DisplayName("[실패 테스트] 공백만 존재하는 문자 입력")
         void onlyBlankInputTest1(String input) {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
-                    .hasMessage(CarNamesInputExceptionMessage.CAR_NAME_BLANK.getError());
+                    .hasMessage(CarExceptionMessage.ONLY_BLANK_NAME.getError());
         }
 
         @ParameterizedTest
@@ -70,7 +70,7 @@ class CarNamesInputValidatorTest {
         @DisplayName("[실패 테스트] 입력값 없음")
         void test(String input) {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
-                    .hasMessage(CarNamesInputExceptionMessage.BLANK_INPUT.getError());
+                    .hasMessage(CarExceptionMessage.BLANK_INPUT.getError());
         }
 
         @ParameterizedTest
@@ -78,7 +78,7 @@ class CarNamesInputValidatorTest {
         @DisplayName("[실패 테스트] 쉼표가 양 끝에 있는 입력")
         void onlyBlankInputTest2(String input) {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
-                    .hasMessage(CarNamesInputExceptionMessage.CAR_NAME_BLANK.getError());
+                    .hasMessage(CarExceptionMessage.ONLY_BLANK_NAME.getError());
         }
 
         @ParameterizedTest
@@ -86,7 +86,7 @@ class CarNamesInputValidatorTest {
         @DisplayName("[실패 테스트] 쉼표가 맨 뒤에 있는 입력")
         void onlyBlankInputTest3(String input) {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
-                    .hasMessage(CarNamesInputExceptionMessage.CAR_NAME_BLANK.getError());
+                    .hasMessage(CarExceptionMessage.ONLY_BLANK_NAME.getError());
         }
 
         @ParameterizedTest
@@ -94,7 +94,7 @@ class CarNamesInputValidatorTest {
         @DisplayName("[실패 테스트] 쉼표가 중간에 연속으로 있는 입력은 공백을 의미한다")
         void onlyBlankInputTest4(String input) {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
-                    .hasMessage(CarNamesInputExceptionMessage.CAR_NAME_BLANK.getError());
+                    .hasMessage(CarExceptionMessage.ONLY_BLANK_NAME.getError());
         }
 
         @ParameterizedTest
@@ -102,7 +102,7 @@ class CarNamesInputValidatorTest {
         @DisplayName("[실패 테스트] 중복 이름 존재")
         void duplicateTest(String input) {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
-                    .hasMessage(CarNamesInputExceptionMessage.DUPLICATE_EXISTS.getError());
+                    .hasMessage(CarExceptionMessage.DUPLICATE_EXISTS.getError());
         }
 
         @ParameterizedTest
@@ -110,7 +110,7 @@ class CarNamesInputValidatorTest {
         @DisplayName("[실패 테스트] 10개 이상인 이름 입력")
         void outOfTotalCountTest(String input) {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
-                    .hasMessage(CarNamesInputExceptionMessage.OUT_OF_TOTAL_COUNT.getError());
+                    .hasMessage(CarExceptionMessage.OUT_OF_TOTAL_COUNT.getError());
         }
     }
 
