@@ -15,7 +15,7 @@ public class RacingGame {
         this.totalTryCnt = totalTryCnt;
     }
 
-    public void createCars(List<String> carNames){
+    private void createCars(List<String> carNames){
         cars = new ArrayList<>();
         for (String name : carNames){
             cars.add(new Car(name));
