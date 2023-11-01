@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.views.OutputView;
+
 import java.util.ArrayList;
 
 public class Cars {
@@ -29,5 +31,16 @@ public class Cars {
             }
         }
         return Cars.of(bestCars);
+    }
+
+    public void executeRound(int runCount) {
+        while (runCount > 0) {
+            for (Car car : cars) {
+                car.move();
+                car.showDistance();
+            }
+            OutputView.printEmptyLine();
+            runCount--;
+        }
     }
 }

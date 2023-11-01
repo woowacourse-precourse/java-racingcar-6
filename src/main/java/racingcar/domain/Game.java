@@ -43,6 +43,7 @@ public class Game {
             if (!userInput.chars().allMatch(Character::isDigit)) {
                 throw new IllegalArgumentException(TRIAL_COUNT_ERROR_MESSAGE.getMessage());
             }
+            race.setRunCount(Integer.parseInt(userInput));
         } catch (IllegalArgumentException exception) {
             OutputView.printErrorMessage(exception);
             getMoveCount();
