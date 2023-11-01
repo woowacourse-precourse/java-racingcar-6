@@ -1,13 +1,13 @@
 package racingcar;
 
-import static racingcar.ErrorMessage.CAR_NAME_DUPLICATED;
-import static racingcar.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER;
-import static racingcar.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS;
-import static racingcar.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;
-import static racingcar.PrintMessage.INPUT_NUMBER_OF_ATTEMPTS;
-import static racingcar.PrintMessage.INPUT_RACING_CAR_NAME;
-import static racingcar.PrintMessage.PRINT_GAME_RESULT;
-import static racingcar.PrintMessage.WINNER_NAME_FORMAT;
+import static racingcar.constant.ErrorMessage.CAR_NAME_DUPLICATED;
+import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER;
+import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS;
+import static racingcar.constant.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;
+import static racingcar.constant.PrintMessage.INPUT_NUMBER_OF_ATTEMPTS;
+import static racingcar.constant.PrintMessage.INPUT_RACING_CAR_NAME;
+import static racingcar.constant.PrintMessage.PRINT_GAME_RESULT;
+import static racingcar.constant.PrintMessage.WINNER_NAME_FORMAT;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;

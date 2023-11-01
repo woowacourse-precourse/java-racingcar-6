@@ -1,8 +1,8 @@
 package racingcar;
 
-import static racingcar.ErrorMessage.CAR_NAME_OVER_MAX_LENGTH;
-import static racingcar.PrintMessage.LOCATION_SIGN;
-import static racingcar.PrintMessage.RESULT_OF_RACING_CAR_FORMAT;
+import static racingcar.constant.ErrorMessage.CAR_NAME_OVER_MAX_LENGTH;
+import static racingcar.constant.PrintMessage.LOCATION_SIGN;
+import static racingcar.constant.PrintMessage.RESULT_OF_RACING_CAR_FORMAT;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
