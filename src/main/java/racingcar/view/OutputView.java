@@ -10,7 +10,7 @@ public class OutputView {
 		
 	}
 
-	public void inputRaceCount() {
+	public void printInputRaceCount() {
 		System.out.println(RACE_COUNT_INPUT);
 	}
 

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.RacingCount;
 import racingcar.model.Car;
 
 public class InputView {
@@ -15,4 +16,8 @@ public class InputView {
 		return Arrays.stream(nameInput.split(",")).map(Car::new).toList();
 	}
 
+	public RacingCount inputRacingCount() {
+		String input = Console.readLine();
+		return new RacingCount(Integer.parseInt(input));
+	}
 }

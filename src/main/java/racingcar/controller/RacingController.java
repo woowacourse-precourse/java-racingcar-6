@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 
 import racingcar.model.Car;
+import racingcar.model.RacingCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,7 +15,8 @@ public class RacingController {
 		// TODO Auto-generated method stub
 		outputView.printInputCarName();
 		List<Car> carNames = inputView.inputCarNames();
-		outputView.inputRaceCount();
+		outputView.printInputRaceCount();
+		RacingCount racingCount = inputView.inputRacingCount();
 	}
 
 }
