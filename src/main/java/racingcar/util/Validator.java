@@ -31,4 +31,10 @@ public class Validator {
             throw new IllegalArgumentException("유효하지 않은 이름 입력(이름 사이 공백)");
         }
     }
+
+    public static void validateEndsWith(String input) {
+        if (input.endsWith(",")) {
+            throw new IllegalArgumentException(",로 문장이 마쳐졌습니다.");
+        }
+    }
 }
