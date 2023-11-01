@@ -11,6 +11,9 @@ public class Generate {
             if(car[i].length() > 5){
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
             }
+            if (map.containsKey(car[i])) {
+                throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
+            }
             map.put(car[i], 0);
         }
 
@@ -49,7 +52,7 @@ public class Generate {
             if(value > winnerCount) {
                 winnerCount = value;
                 winner = key;
-            } else if(value == winnerCount) {
+            } else if(value == winnerCount && winnerCount != 0) {
                 winner += (", " + key);
             }
         }
