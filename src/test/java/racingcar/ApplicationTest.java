@@ -25,10 +25,8 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        runException("pobi,javaji", "1");
+        assertThat(output()).contains("[ERROR] 자동차 이름은 5자 이하만 가능합니다.");
     }
 
     @Override
