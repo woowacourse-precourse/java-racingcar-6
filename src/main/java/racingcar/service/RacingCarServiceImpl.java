@@ -33,7 +33,11 @@ public class RacingCarServiceImpl implements RacingCarService {
      */
     @Override
     public int getAttemptCount() {
-
+        try {
+            return readAndParseAttemptCount();
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
 
@@ -75,5 +79,10 @@ public class RacingCarServiceImpl implements RacingCarService {
             carList.add(car);
         }
         return carList;
+    }
+
+    private int readAndParseAttemptCount() {
+        String input = Console.readLine();
+        return Integer.parseInt(input);
     }
 }
