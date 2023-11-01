@@ -4,11 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 import racingcar.model.Car;
 
-public class SetResultDto {
-    private final LinkedHashMap<String, Integer> cars;
-
+public record SetResultDto(LinkedHashMap<String, Integer> cars) {
     public SetResultDto(Car cars) {
-        this.cars = cars.getCars();
+        this(cars.getCars());
     }
 
     public Set<String> getCarNameSet() {

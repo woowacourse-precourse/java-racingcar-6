@@ -45,7 +45,7 @@ public class ConsoleIO {
     public static void printFinalResult(FinalResultDto finalResultDto) {
         StringBuilder finalResult = new StringBuilder(FINAL_WINNER_MESSAGE);
 
-        List<String> winner = finalResultDto.getWinners();
+        List<String> winner = finalResultDto.winners();
 
         finalResult.append(winner.get(0));
 
