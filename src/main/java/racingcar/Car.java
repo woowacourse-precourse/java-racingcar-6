@@ -7,9 +7,11 @@ public class Car {
     private static final int MAX_LENGTH_OF_NAME = 5;
     private static final int CRITICAL_OF_MOVING = 4;
     String name;
+    int distance;
 
     private Car(String carName) {
         name = carName;
+        distance = 0;
     }
 
     public static Car of(String carName) {
@@ -20,13 +22,11 @@ public class Car {
         return new Car(carName);
     }
 
-    public int moveRandomDistance() {
-        int distance = Randoms.pickNumberInRange(0, 9);
+    public void moveOrStay() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
 
-        if (distance < CRITICAL_OF_MOVING) {
-            return 0;
+        if (randomNumber >= CRITICAL_OF_MOVING) {
+            this.distance++;
         }
-
-        return distance - CRITICAL_OF_MOVING + 1;
     }
 }
