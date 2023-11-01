@@ -7,8 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 class RefereeTest {
 
@@ -18,30 +16,28 @@ class RefereeTest {
 
         assertThat(referee.isGreaterThanEqual(9)).isTrue();
         assertThat(referee.isGreaterThanEqual(8)).isTrue();
-
         assertThat(referee.isGreaterThanEqual(2)).isFalse();
     }
 
     @Test
     public void 우승자를_판별한다() {
         List<Car> carList = Arrays.asList(
-                mock(Car.class),
-                mock(Car.class),
-                mock(Car.class)
+                new Car("Car1"),
+                new Car("Car2"),
+                new Car("Car3")
         );
 
-        when(carList.get(0).getName()).thenReturn("Car1");
-        when(carList.get(0).getLocation()).thenReturn(3);
+        carList.get(0).go();
+        carList.get(0).go();
+        carList.get(0).go();
 
-        when(carList.get(1).getName()).thenReturn("Car2");
-        when(carList.get(1).getLocation()).thenReturn(3);
+        carList.get(1).go();
+        carList.get(1).go();
+        carList.get(1).go();
 
-        when(carList.get(2).getName()).thenReturn("Car3");
-        when(carList.get(2).getLocation()).thenReturn(2);
+        carList.get(2).go();
 
-        Referee referee = mock(Referee.class);
-        when(referee.judgeWinner(carList)).thenCallRealMethod();
-
+        Referee referee = new Referee();
         List<String> result = referee.judgeWinner(carList);
         List<String> expected = List.of("Car1", "Car2");
 
