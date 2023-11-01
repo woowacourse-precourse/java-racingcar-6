@@ -45,8 +45,9 @@ public class Race {
      * @return 가장 멀리 이동한 자동차(들)의 목록
      */
     public List<Car> findWinners() {
+        int maxPosition = findMaxPosition();
         return cars.stream()
-                .filter(car -> car.getPosition() == findMaxPosition())
+                .filter(car -> car.getPosition() == maxPosition)
                 .toList();
     }
 
