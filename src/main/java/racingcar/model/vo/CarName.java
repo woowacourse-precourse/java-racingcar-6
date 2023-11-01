@@ -11,10 +11,6 @@ public class CarName {
         this.name = carName;
     }
 
-    public static CarName from(String carName) {
-        return new CarName(carName);
-    }
-
     private void validate(String carName) {
         isLengthLessThan5(carName);
         isBlank(carName);
@@ -32,9 +28,8 @@ public class CarName {
         }
     }
 
-    @Override
-    public String toString() {
-        return name;
+    public String getName() {
+        return this.name;
     }
 
     @Override
