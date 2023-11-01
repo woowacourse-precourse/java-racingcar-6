@@ -34,6 +34,7 @@ public class Game {
 
         while (moveCnt > 0) {
             play();
+            printCarMoveResult();
             moveCnt--;
         }
     }
@@ -74,5 +75,23 @@ public class Game {
         for (String name : carNames) {
             carList.add(new Car(name));
         }
+    }
+
+    private void printCarMoveResult() {
+        carList.stream().forEach(System.out::println);
+        System.out.println();
+    }
+
+    public void printResult() {
+        int max = carList.stream()
+                .mapToInt(c -> c.getPosition())
+                .max().getAsInt();
+
+        String winner = carList.stream()
+                .filter(c -> c.getPosition() == max)
+                .map(c -> c.getName())
+                .collect(Collectors.joining(", "));
+
+        System.out.println("최종 우승자 : " + winner);
     }
 }
