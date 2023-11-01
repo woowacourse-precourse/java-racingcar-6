@@ -2,6 +2,8 @@ package racingcar;
 
 
 import java.util.*;
+import camp.nextstep.edu.missionutils.Randoms;
+
 
 public class CarRacingGame {
     private List<Car> cars;
@@ -21,7 +23,7 @@ public class CarRacingGame {
 
         for (int move = 0; move < numberOfMoves; move++) {
             for (Car car : cars) {
-                int randomValue = new Random().nextInt(10);
+                int randomValue = Randoms.pickNumberInRange(0, 9); // Randoms 클래스 사용
                 if (randomValue >= 4) {
                     car.moveForward();
                 }
