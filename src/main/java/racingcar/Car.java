@@ -1,0 +1,34 @@
+package racingcar;
+
+import camp.nextstep.edu.missionutils.Randoms;
+
+public class Car {
+    final private String name;
+    private int forwardCount = 0;
+    private String carState;
+
+    Car(String name) {
+        this.name = name;
+        this.carState = name + " : ";
+    }
+
+    public void goForward(int randomNumber) {
+        isGreaterThan4(randomNumber);
+        Message.makeResultMessage(this.carState);
+    }
+
+    private void isGreaterThan4(int randomNumber) {
+        if (randomNumber >= 4) {
+            this.forwardCount++;
+            this.carState = this.carState.concat("-");
+        }
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getForward() {
+        return this.forwardCount;
+    }
+}
