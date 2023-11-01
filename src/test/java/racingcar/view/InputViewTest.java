@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 
-
 class InputViewTest {
     InputView inputView;
 
@@ -22,8 +21,18 @@ class InputViewTest {
         inputView = new InputView();
     }
 
+    private void setInput(String input) {
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+    }
+
+    @AfterEach
+    void closeConsole() {
+        Console.close();
+    }
+
     @Nested
-    class readCarNamesTest{
+    class readCarNamesTest {
         @Test
         void 자동차_이름_입력_테스트() {
             // given
@@ -64,8 +73,8 @@ class InputViewTest {
 
     }
 
-   @Nested
-   class readTryCountTest{
+    @Nested
+    class readTryCountTest {
         @Test
         void 시도_횟수_입력_테스트() {
             // given
@@ -102,17 +111,6 @@ class InputViewTest {
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage("잘못된 입력입니다. 유효한 숫자를 입력해주세요.");
         }
-   }
-
-
-    private void setInput(String input) {
-        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inputStream);
-    }
-
-    @AfterEach
-    void closeConsole() {
-        Console.close();
     }
 
 }

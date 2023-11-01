@@ -6,7 +6,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.exception.ErrorMessage;
 import racingcar.mock.TestNumberGenerator;
 import racingcar.model.car.CarDTO;
 

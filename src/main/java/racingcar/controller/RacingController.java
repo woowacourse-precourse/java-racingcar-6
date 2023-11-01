@@ -20,7 +20,7 @@ public class RacingController {
         endGame();
     }
 
-    private static void startGame(){
+    private static void startGame() {
         List<String> names = input.readCarNames();
         tryCount = input.readTryCount();
         game = new RacingGame(names, new JudgeWinnerImpl(), new RandomNumberGenerator());
