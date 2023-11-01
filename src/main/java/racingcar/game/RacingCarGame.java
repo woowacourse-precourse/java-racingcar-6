@@ -1,6 +1,9 @@
 package racingcar.game;
 
+import static racingcar.utils.constants.RacingCarGameConstants.COMMA_DELIMITER;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -26,8 +29,8 @@ public class RacingCarGame {
         this.writer = writer;
     }
 
-    public void play(List<String> carNames, int attemptCount) {
-        initCars(carNames);
+    public void play(String carNameContext, int attemptCount) {
+        initCars(carNameContext);
         display(EXECUTION_RESULT);
         executeRounds(attemptCount);
         display(resultGenerator.makeWinnersResult(getWinners()));
@@ -63,7 +66,8 @@ public class RacingCarGame {
         }
     }
 
-    private void initCars(List<String> carNames) {
+    private void initCars(String carNameContext) {
+        List<String> carNames = makeCarNames(carNameContext);
         cars = new ArrayList<>();
         for (String carName : carNames) {
             carName = carName.trim();
@@ -71,4 +75,7 @@ public class RacingCarGame {
         }
     }
 
+    private static List<String> makeCarNames(String carNameContext) {
+        return Arrays.asList(carNameContext.split(COMMA_DELIMITER));
+    }
 }

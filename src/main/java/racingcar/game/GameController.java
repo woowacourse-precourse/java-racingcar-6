@@ -39,12 +39,7 @@ public class GameController {
         carNameValidator.validate(carNameContext);
         String attemptCount = inputAttemptCount();
         attemptCountValidator.validate(attemptCount);
-        List<String> carNames = makeCarNames(carNameContext);
-        racingCarGame.play(carNames, Integer.parseInt(attemptCount));
-    }
-
-    private static List<String> makeCarNames(String carNameContext) {
-        return Arrays.asList(carNameContext.split(COMMA_DELIMITER));
+        racingCarGame.play(carNameContext, Integer.parseInt(attemptCount));
     }
 
     private String inputAttemptCount() {
