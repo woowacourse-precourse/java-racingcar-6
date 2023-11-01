@@ -5,17 +5,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.entity.Car;
 
 public class RacingGameResponderTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream sysOut = System.out;
+    private final PrintStream originalSysOut = System.out;
+
+    @BeforeEach
+    void setSysOutBeforeEachTest() {
+        System.setOut(new PrintStream(outContent));
+    }
+    @AfterEach
+    void setSysOutAfterEachTest() {
+        System.setOut(originalSysOut);
+    }
 
     @Test
     void testInformGameProcess_ConsecutiveCall() {
-        System.setOut(new PrintStream(outContent));
         RacingGameResponder racingGameResponderTester = new RacingGameResponder();
         racingGameResponderTester.informGameProcess(
                 List.of(
@@ -46,7 +56,7 @@ public class RacingGameResponderTest {
                 + "234 : -\n"
                 + "hw : -----\n"
                 + "\n", outContent.toString());
-        System.setOut(sysOut);
+
     }
 
     Car initializeCarForTesting(String name, int pos) {
@@ -59,12 +69,10 @@ public class RacingGameResponderTest {
 
     @Test
     void testInformGameResult() {
-        System.setOut(new PrintStream(outContent));
         RacingGameResponder racingGameResponderTester = new RacingGameResponder();
         racingGameResponderTester.informGameResult(List.of(
                 "aaa", "bbb", "ccc"
         ));
         assertEquals("최종 우승자 : aaa, bbb, ccc\n", outContent.toString());
-        System.setOut(sysOut);
     }
 }
