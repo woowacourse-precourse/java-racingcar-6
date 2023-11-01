@@ -37,19 +37,19 @@ public class Game {
 
     public void play() {
 
-        for(currentTurn = 0L; currentTurn < totalTurns; currentTurn++) {
+        for (currentTurn = 0L; currentTurn < totalTurns; currentTurn++) {
             turn();
-            System.out.println();
         }
         OutputView.printWinner(GameResult.fromCars(cars));
     }
 
     private void turn() {
-        for(Car car : cars) {
+        for (Car car : cars) {
             if (GameUtils.canFoward()) {
                 car.foward();
             }
             OutputView.printStatus(GameStatus.fromCar(car));
         }
+        System.out.println();
     }
 }
