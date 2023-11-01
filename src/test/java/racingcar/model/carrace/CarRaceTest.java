@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.model.carrace;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -8,14 +8,15 @@ import java.util.List;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.model.CarRace;
 
-public class RaceServiceTest {
+public class CarRaceTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
     private static final int THREE_TIMES = 3;
     public static final int START_INCLUSIVE = 0;
     public static final int END_INCLUSIVE = 9;
-    private RaceService raceService = new RaceService();
+    private static final int ONE_TIMES = 1;
 
     @Nested
     class 우승자_구하기 {
@@ -26,11 +27,12 @@ public class RaceServiceTest {
                     new Car("woni"),
                     new Car("java")
             );
+            CarRace carRace = new CarRace(cars, THREE_TIMES);
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        raceService.runRaceWithIteration(cars, THREE_TIMES);
-                        List<Car> winners = raceService.getWinner(cars);
+                        carRace.runRaceWithIteration(cars, THREE_TIMES);
+                        List<Car> winners = carRace.getWinner(cars);
                         assertThat(winners.size()).isEqualTo(1);
                         assertThat(winners.get(0).getName()).isEqualTo("pobi");
                     },
@@ -46,12 +48,13 @@ public class RaceServiceTest {
                     new Car("woni"),
                     new Car("java")
             );
+            CarRace carRace = new CarRace(cars, THREE_TIMES);
             List<Car> predictedWinners = List.of(cars.get(0), cars.get(2));
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        raceService.runRaceWithIteration(cars, THREE_TIMES);
-                        List<Car> winners = raceService.getWinner(cars);
+                        carRace.runRaceWithIteration(cars, THREE_TIMES);
+                        List<Car> winners = carRace.getWinner(cars);
                         assertThat(winners.size()).isEqualTo(2);
                         assertThat(winners.containsAll(predictedWinners)).isTrue();
                     },
@@ -83,10 +86,11 @@ public class RaceServiceTest {
                     new Car("woni"),
                     new Car("java")
             );
+            CarRace carRace = new CarRace(cars, ONE_TIMES);
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        raceService.runRace(cars);
+                        carRace.runRace(cars);
                         Car pobi = cars.get(0);
                         Car woni = cars.get(1);
                         Car java = cars.get(2);
@@ -105,10 +109,11 @@ public class RaceServiceTest {
                     new Car("woni"),
                     new Car("java")
             );
+            CarRace carRace = new CarRace(cars, THREE_TIMES);
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        raceService.runRaceWithIteration(cars, THREE_TIMES);
+                        carRace.runRaceWithIteration(cars, THREE_TIMES);
                         Car pobi = cars.get(0);
                         Car woni = cars.get(1);
                         Car java = cars.get(2);
