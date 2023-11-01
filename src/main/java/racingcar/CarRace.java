@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CarRace {
 
-    private int round;
+    private final int round;
     private final List<String> carNames;
     private final List<StringBuilder> results;
 
@@ -42,9 +42,9 @@ public class CarRace {
     }
 
     private void playRound() {
-        for (int i = 0; i < results.size(); i++) {
+        for (StringBuilder result : results) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                results.get(i).append("-");
+                result.append("-");
             }
         }
     }
