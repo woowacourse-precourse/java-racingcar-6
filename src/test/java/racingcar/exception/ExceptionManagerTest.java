@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.util.ErrorMessage.ERROR_NOT_EMPTY;
 import static racingcar.util.ErrorMessage.ERROR_WRONG_CARS_NAME;
 import static racingcar.util.ErrorMessage.ERROR_WRONG_CAR_NAME;
+import static racingcar.util.ErrorMessage.ERROR_WRONG_NUMBER_OF_RACE;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,6 +49,28 @@ class ExceptionManagerTest {
     }
 
     @Test
-    void checkNumberOfRace() {
+    @DisplayName("자동차_이동횟수_입력값이_없을때_예외")
+    void test_checkNumberOfRace1() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> em.checkNumberOfRace(""))
+                .withMessage(ERROR_NOT_EMPTY);
     }
+
+    @Test
+    @DisplayName("자동차_이동횟수_입력값이_0일때_예외")
+    void test_checkNumberOfRace2() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> em.checkNumberOfRace("0"))
+                .withMessage(ERROR_WRONG_NUMBER_OF_RACE);
+    }
+
+    @Test
+    @DisplayName("자동차_이동횟수_입력값이_숫자가_아닐때_예외")
+    void test_checkNumberOfRace3() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> em.checkNumberOfRace("@"))
+                .withMessage(ERROR_WRONG_NUMBER_OF_RACE);
+    }
+
+
 }
