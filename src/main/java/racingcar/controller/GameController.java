@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.CarForward;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,7 +16,11 @@ public class GameController {
         OutputView.printGameResult();
 
         for (int i = 0; i < gameCount; i++) {
-            int[] randomNumArray = Car.carRandomNum(cars.length);
+            Car.carRandomNum();
+            CarForward.forwardCountInit();
+            CarForward.carMoreThanFour();
+
+
         }
 
         OutputView.printWinners();

@@ -3,16 +3,15 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    public static int[] carRandomNum(int carsNum) {
-        int[] randomNumArray = new int[carsNum];
+    static int carsNum;
+    static int[] randomNumArray;
 
-        for (int j = 0; j < carsNum; j++) {
+    public static void carRandomNum() {
+        randomNumArray = new int[carsNum];
+
+        for (int i = 0; i < carsNum; i++) {
             int randomNum = Randoms.pickNumberInRange(0, 9);
-            randomNumArray[j] = randomNum;
+            randomNumArray[i] = randomNum;
         }
-
-        return randomNumArray;
     }
-
-    public static int[] carMore4()
 }
