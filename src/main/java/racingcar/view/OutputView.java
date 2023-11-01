@@ -18,7 +18,7 @@ public class OutputView {
     public static void showCurrentMove(Race race){
         List<Car> carRepository = race.getCarRepository();
         for (Car car : carRepository) {
-            System.out.print(car.getName() + " " + COLON + " ");
+            System.out.print(car.getName() + " " + COLON);
             for(int i = 0; i < car.advanceNum; i++) {
                 System.out.print(ADVANCE);
             }

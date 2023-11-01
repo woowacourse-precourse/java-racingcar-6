@@ -13,6 +13,7 @@ public class InputView {
     private static final String INPUT_CAR_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
 
     public static List<Car> registCarName() {
+        System.out.println(INPUT_CAR_NAME_MESSAGE);
         List<Car> registedCar = new ArrayList<>();
         String carNames = Console.readLine();
         String[] carNameSplits = carNames.split(",");
@@ -24,6 +25,7 @@ public class InputView {
     }
 
     public static int registCarMoveNum() {
+        System.out.println(INPUT_CAR_ROUND_MESSAGE);
         String roundNumString = Console.readLine();
         InputValidate.validateCarMoveNum(roundNumString);
         int roundNum = Integer.parseInt(roundNumString);

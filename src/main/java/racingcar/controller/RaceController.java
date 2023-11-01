@@ -26,7 +26,7 @@ public class RaceController {
     public void raceStart(Race race){
         RaceService raceService = new RaceService(race.getRaceRound());
         OutputView.firstComment();
-        while(RaceService.remainRound != 0){
+        while(RaceService.remainRound > 0){
             raceService.moveCarByLogic(race);
             OutputView.showCurrentMove(race);
         }
