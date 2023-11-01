@@ -8,15 +8,17 @@ public class Car {
 
     private final String name;
     private int position;
+    private final MovingStrategy movingStrategy;
 
-    public Car(String name) {
+    public Car(String name, MovingStrategy movingStrategy) {
         validateHasText(name);
         validateLength(name);
         this.name = name;
+        this.movingStrategy = movingStrategy;
         this.position = 0;
     }
 
-    public void move(MovingStrategy movingStrategy) {
+    public void move() {
         if (movingStrategy.isMovable()) {
             position++;
         }

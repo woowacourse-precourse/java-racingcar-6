@@ -6,18 +6,12 @@ import java.util.List;
 
 public class Racing {
 
-    private static final int MIN_RANDOM_BOUND = 0;
-    private static final int MAX_RANDOM_BOUND = 9;
-    private static final int MOVING_THRESHOLD = 4;
-
     private final List<Car> cars;
     private final int roundNumber;
-    private final MovingStrategy movingStrategy;
 
     public Racing(List<Car> cars, int roundNumber) {
         this.cars = cars;
         this.roundNumber = roundNumber;
-        this.movingStrategy = new ThresholdRandomMover(MIN_RANDOM_BOUND, MAX_RANDOM_BOUND, MOVING_THRESHOLD);
     }
 
     public List<RacingRoundResult> race() {
@@ -35,7 +29,7 @@ public class Racing {
 
     private void moveCars() {
         for (Car car : cars) {
-            car.move(movingStrategy);
+            car.move();
         }
     }
 

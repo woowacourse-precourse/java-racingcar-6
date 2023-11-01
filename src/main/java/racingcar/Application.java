@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
+
+    private static final int MIN_RANDOM_BOUND = 0;
+    private static final int MAX_RANDOM_BOUND = 9;
+    private static final int MOVING_THRESHOLD = 4;
+    private static final MovingStrategy gameMovingStrategy =
+            new ThresholdRandomMover(MIN_RANDOM_BOUND, MAX_RANDOM_BOUND, MOVING_THRESHOLD);
+
     public static void main(String[] args) {
         InputView inputView = new InputView();
         Racing racing = createRacing(inputView);
@@ -24,7 +31,7 @@ public class Application {
     private static List<Car> createCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            cars.add(new Car(carName));
+            cars.add(new Car(carName, gameMovingStrategy));
         }
         return cars;
     }
