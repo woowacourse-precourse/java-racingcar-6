@@ -27,7 +27,7 @@ class AppTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리2() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(",", "1"))
+                assertThatThrownBy(() -> runException("kim,,lee,park", "1")) // 이름이 0자인 경우
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }

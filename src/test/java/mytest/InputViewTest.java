@@ -30,13 +30,13 @@ public class InputViewTest {
     }
 
     @Test
-    void getCarsWrongName_Test() {
+    void getCarsWrongName_Test() { // 이름 마지막에 ,를 붙인 경우
         // given
         System.setIn(createUserInput("kim,lee,park,"));
         // when, then
         Assertions.assertThatThrownBy(() -> inputView.getCarsName())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("올바르지 않은 입력이에요.");
+                .hasMessageContaining("이름 마지막에 ,(comma)를 붙이지 말아주세요.");
     }
 
     @Test
@@ -46,7 +46,7 @@ public class InputViewTest {
         // when, then
         Assertions.assertThatThrownBy(() -> inputView.getCarsName())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("올바르지 않은 입력이에요.");
+                .hasMessageContaining("아무 값도 입력하지 않았어요.");
     }
 
     @Test
@@ -74,6 +74,6 @@ public class InputViewTest {
         // when, then
         Assertions.assertThatThrownBy(() -> inputView.getTryNumber())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("올바르지 않은 입력이에요.");
+                .hasMessageContaining("아무 값도 입력하지 않았어요.");
     }
 }

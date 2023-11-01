@@ -14,7 +14,7 @@ public class Validation {
 
     public static void endsWithComma(String input) {
         if (input.endsWith(",")) {
-            throw new IllegalArgumentException("올바르지 않은 입력이에요.");
+            throw new IllegalArgumentException("이름 마지막에 ,(comma)를 붙이지 말아주세요.");
         }
     }
 
@@ -26,7 +26,7 @@ public class Validation {
 
     public static void isEmpty(String input) {
         if (input.isBlank()) {
-            throw new IllegalArgumentException("올바르지 않은 입력이에요.");
+            throw new IllegalArgumentException("아무 값도 입력하지 않았어요.");
         }
     }
 }
