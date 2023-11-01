@@ -10,6 +10,36 @@ public class RacingGame {
     private Winner winner;
     private int gameCount;
 
+    public void startGame() {
+        inputRacingCars();
+        inputGameCount();
+
+        System.out.println("실행 결과");
+        for (int i = 0 ; i < gameCount ; i++) {
+            doGame();
+            viewGame();
+        }
+
+        winner = Winner.createWinner(racingCars);
+        winner.viewWinner();
+    }
+
+    private void doGame(){
+        for (RacingCar racingCar : racingCars) {
+            racingCar.race();
+        }
+    }
+    private void viewGame(){
+        for (RacingCar racingCar : racingCars) {
+            System.out.print(racingCar.getName() + " : ");
+            for (int i = 0 ; i < racingCar.getPosition() ; i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     private void addRacingCar(String name) {
         this.racingCars.add(RacingCar.createRacingCar(name));
     }
