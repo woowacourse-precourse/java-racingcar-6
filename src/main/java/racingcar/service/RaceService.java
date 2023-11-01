@@ -101,6 +101,6 @@ public class RaceService {
 
     public void printWinner(List<Car> carList) {
         List<String> winners = getWinner(carList);
-        System.out.println(String.join(", ", winners));
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
