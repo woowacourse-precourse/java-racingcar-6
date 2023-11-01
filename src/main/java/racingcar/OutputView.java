@@ -3,8 +3,8 @@ package racingcar;
 import java.util.List;
 
 public class OutputView {
-    private void printCarStatus(Car car) {
-        System.out.println(car.getName() + Constant.COLON + Constant.HYPHEN.repeat(car.getPosition()));
+    public void printResultMessage() {
+        System.out.println("\n실행 결과");
     }
 
     public void printRoundResult(Cars cars) {
@@ -12,6 +12,10 @@ public class OutputView {
             printCarStatus(car);
         }
         System.out.println();
+    }
+
+    private void printCarStatus(Car car) {
+        System.out.println(car.getName() + Constant.COLON + Constant.HYPHEN.repeat(car.getPosition()));
     }
 
     public void printFinalResult(List<String> winners) {

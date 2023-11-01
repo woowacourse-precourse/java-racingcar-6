@@ -15,6 +15,7 @@ public class GameController {
 
         Game game = new Game(carNames);
 
+        outputView.printResultMessage();
         for (int i = 0; i < tryCount; i++) {
             game.playRound();
             outputView.printRoundResult(game.getCars());
