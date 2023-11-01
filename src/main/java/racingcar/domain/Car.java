@@ -25,6 +25,11 @@ public class Car implements Comparable<Car> {
         return distance.location();
     }
 
+
+    public boolean isSameDistance(Car competeCar) {
+        return this.distance.location() == competeCar.distance.location();
+    }
+
     @Override
     public int compareTo(Car competeCar) {
         return this.distance.location() - competeCar.distance.location();
