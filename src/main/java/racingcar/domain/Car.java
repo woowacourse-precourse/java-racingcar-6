@@ -11,10 +11,12 @@ public class Car {
     private static final int MIN_MOVE_NUMBER = 4;
     private final CarName name;
     private final CarDistance movedDistance;
+
     private Car(String name) {
         this.name = CarName.create(name);
         this.movedDistance = CarDistance.create();
     }
+
     public static Car create(String name) {
         return new Car(name);
     }
@@ -44,5 +46,4 @@ public class Car {
     private void moveForward() {
         movedDistance.increment();
     }
-
 }

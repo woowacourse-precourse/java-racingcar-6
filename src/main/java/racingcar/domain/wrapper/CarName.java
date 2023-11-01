@@ -8,10 +8,6 @@ public class CarName {
         this.carName = carName;
     }
 
-    public String getCarName() {
-        return carName;
-    }
-
     public static CarName create(String carName) {
         validateCarName(carName);
         return new CarName(carName);
@@ -21,5 +17,9 @@ public class CarName {
         if (carName.isBlank() || carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public String getCarName() {
+        return carName;
     }
 }

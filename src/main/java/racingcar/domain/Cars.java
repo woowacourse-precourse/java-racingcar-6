@@ -7,17 +7,12 @@ import java.util.List;
 
 public class Cars {
     private static final String CAR_NAME_DELIMITER = ",";
-    private final List<Car> cars;
+    private final List<Car> cars = new ArrayList<>();
 
     private Cars(List<String> carNames) {
-        this.cars = new ArrayList<>();
-        for (String carName: carNames) {
+        for (String carName : carNames) {
             this.cars.add(Car.create(carName));
         }
-    }
-
-    public List<Car> getCars() {
-        return cars;
     }
 
     public static Cars create(String carNameString) {
@@ -37,11 +32,15 @@ public class Cars {
 
     private static void checkDuplicate(List<String> carNames) {
         HashSet<String> carNameSet = new HashSet<>();
-        for (String carName: carNames) {
+        for (String carName : carNames) {
             if (carNameSet.contains(carName)) {
                 throw new IllegalArgumentException();
             }
             carNameSet.add(carName);
         }
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
