@@ -16,18 +16,26 @@ public class InputException {
     }
 
     public List<String> carListException(String input){
+        checkInputIsNull(input);
         String[] values = input.split(",");
 
 // 배열을 리스트로 변환
         List<String> carList = Arrays.asList(values);
-        carListSizeException(carList);
-
         for(String car:carList){
             car = car.trim();
-            carNameSize(car);
+            carNameSizeException(car);
         }
+        carListSizeException(carList);
+
 
         return carList;
+    }
+
+    public void checkInputIsNull(String input){
+        if(input==""){
+            throw new IllegalArgumentException("자동차 이름을 입력하여야 합니다.");
+        }
+        return;
     }
 
     public List<String> carListSizeException(List<String> carList){
@@ -38,7 +46,7 @@ public class InputException {
         }
     }
 
-    public void carNameSize(String car){
+    public void carNameSizeException(String car){
         if(car.length()>Car_Name_LENGTH){
             throw new IllegalArgumentException("자동차의 이름은 중간 공백을 포함해 5글자 이하여야 합니다.");
         }
