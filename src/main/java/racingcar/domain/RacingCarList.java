@@ -50,12 +50,14 @@ public record RacingCarList(List<RacingCar> racingCars) {
 	private void validateCarName(List<RacingCar> racingCars) {
 		racingCars.stream()
 				.map(RacingCar::getName)
-				.filter(this::isInValidCarNameLength)
+				.filter(this::isInvalidCarNameLength)
 				.findAny()
-				.orElseThrow(() -> new IllegalArgumentException(OutputType.EXCEPTION.getComment()));
+				.ifPresent(name -> {
+					throw new IllegalArgumentException(OutputType.EXCEPTION.getComment());
+				});
 	}
 
-	private boolean isInValidCarNameLength(String carName) {
+	private boolean isInvalidCarNameLength(String carName) {
 		return carName.length() > MAX_LENGTH_OF_CAR_NAME || carName.length() == MIN_LENGTH_OF_CAR_NAME;
 	}
 }
