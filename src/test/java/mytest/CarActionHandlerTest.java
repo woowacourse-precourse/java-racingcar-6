@@ -1,18 +1,18 @@
 package mytest;
 
 import org.junit.jupiter.api.Test;
-import service.CarListService;
+import service.CarActionHandler;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CarListServiceTest {
+public class CarActionHandlerTest {
     @Test
     void StringtoMap_테스트() {
         //given
-        CarListService carListServiceTest = new CarListService();
+        CarActionHandler carActionHandlerTest = new CarActionHandler();
         String carListName = "a,b,c";
         Map<String, Integer> expectedMap = new HashMap<>();
         expectedMap.put("a", 0);
@@ -20,16 +20,16 @@ public class CarListServiceTest {
         expectedMap.put("c", 0);
 
         //when
-        carListServiceTest.init(carListName);
+        carActionHandlerTest.init(carListName);
 
         //then
-        assertEquals(expectedMap, carListServiceTest.getCarList());
+        assertEquals(expectedMap, carActionHandlerTest.getCarList());
     }
 
     @Test
     void forwardCar_테스트() {
         //given
-        CarListService carListServiceTest = new CarListService();
+        CarActionHandler carActionHandlerTest = new CarActionHandler();
         String carListName = "a,b,c";
         Map<String, Integer> expectedMap = new HashMap<>();
         expectedMap.put("a", 1);
@@ -37,12 +37,12 @@ public class CarListServiceTest {
         expectedMap.put("c", 0);
 
         //when
-        carListServiceTest.init(carListName);
-        carListServiceTest.forwardCar("a");
-        carListServiceTest.forwardCar("b");
+        carActionHandlerTest.init(carListName);
+        carActionHandlerTest.forwardCar("a");
+        carActionHandlerTest.forwardCar("b");
 
         //then
-        assertEquals(expectedMap, carListServiceTest.getCarList());
+        assertEquals(expectedMap, carActionHandlerTest.getCarList());
     }
 
 }

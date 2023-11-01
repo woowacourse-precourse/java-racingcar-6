@@ -1,49 +1,21 @@
 package controller;
 
-import service.CarListService;
-import service.RaceWinnerAnalyzer;
+import service.InputValidator;
+import service.CarService;
 import view.OutputView;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-
-import static service.RandomMovementDecider.moveDecide;
-
 public class RacingGame {
-    private final CarListService carList;
+    private final CarService carService;
+
     public RacingGame() {
-        this.carList = new CarListService();
+        this.carService = new CarService();
     }
 
     public void gameSetAndStart() {
         String carListInput = InputValidator.carListInputSetAndValidate();
-        carList.init(carListInput);
+        carService.init(carListInput);
+
         int rounds = InputValidator.roundInputSetAndValidate();
-
-        OutputView.startPlayDisplay();
-        for(int round = 0; round < rounds; round++){
-            playSingleRound();
-        }
-        winnerSetAndDisplay();
+        carService.playRound(rounds);
     }
-
-    private void playSingleRound(){
-        LinkedHashMap<String, Integer> shouldMoveList = carList.getCarList();
-        shouldMoveList.forEach((carName, distance) -> moveCar(carName));
-        singleRoundDisplay();
-    }
-
-    private void moveCar(String carName){
-        if(moveDecide()){
-            carList.forwardCar(carName);
-        }
-    }
-    private void singleRoundDisplay(){
-        OutputView.displayRaceResult(carList.getCarList());
-    }
-    private void winnerSetAndDisplay(){
-        List<String> winnerList = RaceWinnerAnalyzer.determineWinner(carList.getCarList());
-        OutputView.displayWinners(winnerList);
-    }
-
 }
