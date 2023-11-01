@@ -21,15 +21,13 @@ public class User {
         this.moveSize = moveSize(size);
     }
     public int moveSize(String size) {
-        if(!isNumber(size)) {
-            try {
-                if (isNegativeNumber(size)) throw new IllegalArgumentException(NOT_NEGATIVE_NUMBER);
-            }catch(NumberFormatException e) {
-                throw new IllegalArgumentException(IS_NOT_NUMBER);
-            }
+        try {
+            if (isNegativeNumber(size)) throw new IllegalArgumentException(NOT_NEGATIVE_NUMBER);
+            if (!isNumber(size))  throw new IllegalArgumentException(IS_NOT_NUMBER);
+        }catch (NumberFormatException e) {
+            throw new IllegalArgumentException(IS_NOT_NUMBER);
         }
         if(isZero(size)) throw new IllegalArgumentException(NOT_ZERO);
-
         return Integer.parseInt(size);
     }
     public boolean moveForward() {
