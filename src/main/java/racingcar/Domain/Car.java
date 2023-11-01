@@ -24,8 +24,8 @@ public class Car {
         }
     }
 
-    public void moveForward() {
-        if (RandomNumber.chooseRandomNumber() >= MOVE_THRESHOLD) {
+    public void moveForward(int isMoveAvailable) {
+        if (isMoveAvailable >= MOVE_THRESHOLD) {
             this.position += TICK;
         }
     }

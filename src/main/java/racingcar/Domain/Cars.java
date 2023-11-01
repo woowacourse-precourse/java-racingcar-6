@@ -13,7 +13,7 @@ public class Cars {
 
     public void moveAll() {
         for (Car car : cars) {
-            car.moveForward();
+            car.moveForward(RandomNumber.chooseRandomNumber());
         }
     }
 
