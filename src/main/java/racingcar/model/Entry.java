@@ -35,4 +35,21 @@ public class Entry {
     public void driveAll() {
         cars.forEach(Car::drive);
     }
+
+    /**
+     * @return 우승자 리스트 반환. 엔트리가 비어있는 경우 null 반환
+     */
+    public List<Car> getWinners() {
+        Car oneOfWinner;
+        Optional<Car> OptionalOneOfWinners = cars.stream().max(Comparator.naturalOrder());
+        if (OptionalOneOfWinners.isPresent()) {
+            oneOfWinner = OptionalOneOfWinners.get();
+
+            return cars
+                    .stream()
+                    .filter(car -> car.isNotLoseTo(oneOfWinner))
+                    .toList();
+        }
+        return null;
+    }
 }
