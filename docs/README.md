@@ -1,8 +1,8 @@
 ## 목표
-- [ ] MVC 패턴 적용해보기
-  - [ ] Model - Car, Referee, RandomNumber
-  - [ ] View - InputView, OutputView
-  - [ ] Controller - RaceGameController
+- [x] MVC 패턴 적용해보기
+  - [x] Model - Car, Referee, RandomNumber
+  - [x] View - InputView, OutputView
+  - [x] Controller - RaceGameController
 
 
 ## 기능 목록
