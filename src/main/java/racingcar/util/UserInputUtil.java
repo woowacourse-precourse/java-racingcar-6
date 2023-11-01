@@ -30,4 +30,14 @@ public class UserInputUtil {
             }
         }
     }
+
+    public static int getTries() {
+        System.out.println(RacingCarConstant.INPUT_TRIES_MESSAGE);
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            System.out.println(RacingCarConstant.NUMBER_INPUT_ERROR_MESSAGE);
+            return getTries();
+        }
+    }
 }

@@ -21,7 +21,8 @@ public class GameManager {
 
     private void initializeGame() {
         List<String> carNameList = UserInputUtil.getCarNames();
-
+        this.tries = UserInputUtil.getTries();
+        this.racingCarManager = new RacingCarManager(carNameList);
     }
 
     private void playGame() {
