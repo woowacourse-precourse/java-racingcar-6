@@ -35,6 +35,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 객체_멈춤_테스트() {
+        Car car = new Car("test");
+        car.tryMove(3);
+        assertThat(car.getMoveCount()).isEqualTo(0);
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
