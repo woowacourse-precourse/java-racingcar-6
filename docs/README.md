@@ -20,7 +20,7 @@ RacingCarGame을 실행시킴
     - 초기 자동차이름과 시도횟수 입력
     - checkInputValid() : 입력한 것에 오류가 없는지 검증(5자리 이상의 이름이 있는지)
     - setNumOfPlaying() : 실행횟수 setter함수 실행
-    - generateRacingCars() : 입력받은 값을 가지고 RacingCar 생성후 자동차 list에 넣기
+    - generateListOfRacingCars() : 입력받은 값을 가지고 RacingCar 생성후 자동차 list에 넣기
       - StringToListOfString() : 입력받은 문자열을 가지고 ,로 구분하여 String을 list<String>로 변환
       - generateRacingCar() : List에서 하나의 이름을 꺼내 RacingCar 객체를 생성(이동량의 default:0)
   - 반복문으로 입력받은 시도횟수만큼 play
