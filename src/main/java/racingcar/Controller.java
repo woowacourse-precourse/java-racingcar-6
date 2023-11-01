@@ -6,42 +6,30 @@ import java.util.Collections;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import static racingcar.Constant.*;
 
 class Game {
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
-    private static final int MORE_THAN_FOUR = 4;
-    static ArrayList<String> carsNames = new ArrayList<String>();
-    private static final String GET_CARS_NAMES_MESSAGE = "경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)";
-    private static final String GET_PLAY_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
-    private static final String PLAY_RESULT_MESSAGE = "실행 결과";
-    private static final String FINAL_WINNERS_MESSAGE = "최종 우승자 : ";
-
-    Game() {
-
-    }
-
-    public static void init(){
-        String carsNamesStr = getCarsNames();
+    Game(){
+        getCarsNames();
         int playNumber = getPlayNumber();
-        stringToArrayList(carsNamesStr);
 
-        gamePlay(carsNames, playNumber);
+        gamePlay(playNumber);
     }
 
-    private static void gamePlay(ArrayList<String> carsNames, int playNumber) {
+    private static void gamePlay(int playNumber) {
         System.out.println(PLAY_RESULT_MESSAGE);
         ArrayList<Integer> countCarsMove = new ArrayList<Integer>(Collections.nCopies(carsNames.size(), 0));
         int playCount = playNumber;
+
         while(playCount != 0) {
             for(String car : carsNames){
-                System.out.print(car + " : ");
+                System.out.print(car + SEPARATOR_STATUS);
                 int randomNumber = getRandomNumber();
                 if(randomNumber >= MORE_THAN_FOUR){
                     int index = carsNames.indexOf(car);
                     countCarsMove.set(index, countCarsMove.get(index) + 1);
                     playCount--;
-                    System.out.print("-".repeat(countCarsMove.get(index)));
+                    System.out.print(CAR_DISTANCE.repeat(countCarsMove.get(index)));
                 }
                 System.out.println();
             }
@@ -54,7 +42,7 @@ class Game {
         if(winnerCount == 1){
             printWinnerAlone(countCarsMove.indexOf(playNumber));
         }
-        else if(winnerCount > 1){
+        if(winnerCount > 1){
             ArrayList<Integer> winnersIndexes = new ArrayList<>();
             for(int i = 0; i < countCarsMove.size(); i++){
                 if(countCarsMove.get(i) == playNumber){
@@ -66,27 +54,29 @@ class Game {
     }
 
     private static void printWinnerAlone(int index) {
-        System.out.println(FINAL_WINNERS_MESSAGE + carsNames.get(index));
+        System.out.println(FINAL_WINNER_MESSAGE + carsNames.get(index));
     }
     private static void printWinnerSeveral(ArrayList<Integer> winnersIndexes) {
         ArrayList<String> winners = new ArrayList<>();
-        for(int index : winnersIndexes){
-            winners.add(carsNames.get(index));
+        for(int winnerIndex : winnersIndexes){
+            winners.add(carsNames.get(winnerIndex));
         }
-        System.out.print(FINAL_WINNERS_MESSAGE + String.join(", ", winners));
-
+        System.out.print(FINAL_WINNER_MESSAGE + String.join(SEPARATOR_WINNER, winners));
     }
 
     private static int getRandomNumber() {
         return pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
-    private static String getCarsNames() {
+    private static void getCarsNames() {
         System.out.println(GET_CARS_NAMES_MESSAGE);
         String inputCarsNames = readLine();
-        carsNames = stringToArrayList(inputCarsNames);
 
-        return inputCarsNames;
+        setCarNames(inputCarsNames);
+    }
+
+    private static void setCarNames(String inputCarsNames){
+        carsNames = stringToArrayList(inputCarsNames);
     }
 
     private static int getPlayNumber(){
@@ -98,12 +88,9 @@ class Game {
     }
 
     private static ArrayList<String> stringToArrayList(String carStr) {
-        ArrayList<String> carNameCheck = new ArrayList<>(Arrays.asList(carStr.split(",")));
+        ArrayList<String> carNameCheck = new ArrayList<>(Arrays.asList(carStr.split(SEPARATOR)));
         for(String s : carNameCheck){
-            if(s.length() > 5){
-                throw new IllegalArgumentException();
-            }
-            if(s.contains(" ")){
+            if(s.length() > MAX_NAME_SIZE){
                 throw new IllegalArgumentException();
             }
         }
@@ -114,7 +101,6 @@ class Game {
         if(!Game.isNumeric(str)) {
             throw new IllegalArgumentException();
         }
-
     }
 
     static boolean isNumeric(String isNumber){
