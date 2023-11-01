@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Race;
+import racingcar.domain.UserInput;
 
 import java.util.List;
 import java.util.Map;
@@ -9,8 +10,8 @@ import java.util.Map;
 public class Application {
     public static void main(String[] args) {
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNameString = Console.readLine();
+        // 사용자가 자동차 이름을 입력
+        String carNameString = UserInput.userCarNameInput();
 
         Race race = new Race();
         Map<String, String> carMap = race.saveCarMap(carNameString); // 입력받은 car 이름을 Map에 저장한다.
@@ -24,7 +25,7 @@ public class Application {
         List<String> winnerCarNameList = race.raceGameStart(carMap, raceCount);
 
         // 최종 우승자 출력
-        String commaWinnerCarName = String.join(",", winnerCarNameList);
+        String commaWinnerCarName = String.join(", ", winnerCarNameList);
         System.out.println("최종 우승자 : " + commaWinnerCarName);
     }
 }
