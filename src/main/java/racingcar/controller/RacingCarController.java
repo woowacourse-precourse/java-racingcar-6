@@ -35,7 +35,7 @@ public class RacingCarController {
 
     public int setGameCount() {
         print.tryCount();
-        String inputValue = input.GameCount();
+        String inputValue = input.gameCount();
         int number = validator.number(inputValue);
         return gameCount.setGameCount(number);
     }

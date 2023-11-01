@@ -10,7 +10,7 @@ public class InputView {
         return Arrays.asList(Console.readLine().split(","));
     }
 
-    public static String GameCount() {
+    public static String gameCount() {
         return Console.readLine();
     }
 }
