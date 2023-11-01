@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.service.RacingcarGameService;
 import racingcar.service.RacingcarGameServiceImpl;
+import racingcar.utility.TypeConverter;
 import racingcar.view.InputHandler;
 import racingcar.view.Printer;
 
@@ -14,10 +15,12 @@ public class RacingcarController {
         Printer.printRoundChoiceMessage();
         String roundChoiceInputMessage = InputHandler.getInputMessage();
 
-        playRacingcarGame(carChoiceInputMessage, roundChoiceInputMessage);
+        int roundToRace = TypeConverter.convertStringToInt(roundChoiceInputMessage);
+
+        playRacingcarGame(carChoiceInputMessage, roundToRace);
     }
 
-    private static void playRacingcarGame(String carChoiceInputMessage, String roundChoiceInputMessage) {
+    private static void playRacingcarGame(String carChoiceInputMessage, int roundToRace) {
         RacingcarGameService racingcarGameService = new RacingcarGameServiceImpl();
         racingcarGameService.generateCarsToRace(carChoiceInputMessage);
     }
