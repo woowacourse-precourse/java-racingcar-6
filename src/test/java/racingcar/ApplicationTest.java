@@ -82,7 +82,7 @@ class ApplicationTest extends NsTest {
         moveArr[0] = STOP;
         moveArr[2] = STOP;
         for (int i = 0; i < carCnt; i++) {
-            carList.add(new Car(Integer.toString(i), i));
+            carList.add(new Car("car" + i, i));
         }
         assertRandomNumberInRangeTest(
                 () -> {
@@ -93,10 +93,21 @@ class ApplicationTest extends NsTest {
                     }
                     Collections.sort(carList);
                     assertThat(Car.winnerString(carList))
-                            .isEqualTo("0, 2, 4");
+                            .isEqualTo("car0, car2, car4");
                 },
                 MOVING_FORWARD, moveArr
         );
+    }
+
+    @Test
+    void 자동차_이름_입력() {
+        int carCnt = 5;
+        List<Car> carList = new ArrayList<>();
+        for (int i = 0; i < carCnt; i++) {
+            carList.add(new Car("car" + i, i));
+        }
+        assertThat(Car.winnerString(carList))
+                .isEqualTo("car0, car1, car2, car3, car4");
     }
 
     @Test
