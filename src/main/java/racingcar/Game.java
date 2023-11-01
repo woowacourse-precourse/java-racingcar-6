@@ -1,4 +1,5 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
@@ -10,7 +11,8 @@ public class Game {
     private int maxDistance;
     private ArrayList<String> winnerList;
     private Util myUtil;
-    public Game(){
+
+    public Game() {
         myOutput = new Output();
         myInput = new Input();
         carList = new ArrayList<>();
@@ -19,21 +21,18 @@ public class Game {
         myUtil = new Util();
     }
 
-    public void run(){
+    public void run() {
         myOutput.printEnterNameOfCar();
         String input = Console.readLine();
         ArrayList<String> carNameList = myInput.getNameList(input);
-        for(int i=0; i<carNameList.size(); i++){
-            Car myCar = new Car(carNameList.get(i));
-            carList.add(myCar);
-        }
+        carList = new ArrayList<>(setCarList(carNameList));
 
         myOutput.printEnterTryTime();
         input = Console.readLine();
         int tryCount = myInput.getTryCount(input);
         myOutput.printExecutionResult();
 
-        for(int i=0; i<tryCount; i++){
+        for (int i = 0; i < tryCount; i++) {
             movingALLCar();
             printTryResult();
         }
@@ -43,40 +42,49 @@ public class Game {
         myOutput.printGameResult(winnerList);
     }
 
-    public void movingALLCar(){
-        for(int i=0; i<carList.size(); i++){
+    public ArrayList<Car> setCarList(ArrayList<String> nameList) {
+        ArrayList<Car> list = new ArrayList<>();
+        for (int i = 0; i < nameList.size(); i++) {
+            Car myCar = new Car(nameList.get(i));
+            list.add(myCar);
+        }
+        return list;
+    }
+
+    public void movingALLCar() {
+        for (int i = 0; i < carList.size(); i++) {
             carList.get(i).moving(myUtil.generateRandomNumber());
         }
     }
 
-    public void printTryResult(){
-        for(int i=0; i<carList.size(); i++){
+    public void printTryResult() {
+        for (int i = 0; i < carList.size(); i++) {
             System.out.print(carList.get(i).getName() + " : ");
             myOutput.printDashBoard(carList.get(i).getDistance());
         }
         System.out.println();
     }
 
-    public void calcMaxDistance(){
-        for(int i=0; i<carList.size(); i++){
+    public void calcMaxDistance() {
+        for (int i = 0; i < carList.size(); i++) {
             compareDistance(i);
         }
     }
 
-    public void compareDistance(int index){
-        if(maxDistance < carList.get(index).getDistance()){
+    public void compareDistance(int index) {
+        if (maxDistance < carList.get(index).getDistance()) {
             maxDistance = carList.get(index).getDistance();
         }
     }
 
-    public void makeWinnerList(){
-        for(int i=0; i<carList.size(); i++){
+    public void makeWinnerList() {
+        for (int i = 0; i < carList.size(); i++) {
             getWinner(i);
         }
     }
 
-    public void getWinner(int index){
-        if(carList.get(index).getDistance() == maxDistance){
+    public void getWinner(int index) {
+        if (carList.get(index).getDistance() == maxDistance) {
             winnerList.add(carList.get(index).getName());
         }
     }
