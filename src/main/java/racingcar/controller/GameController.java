@@ -5,12 +5,12 @@ import racingcar.util.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class Game {
+public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
     private final NumberGenerator numberGenerator;
 
-    public Game(InputView inputView, OutputView outputView, NumberGenerator numberGenerator) {
+    public GameController(InputView inputView, OutputView outputView, NumberGenerator numberGenerator) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.numberGenerator = numberGenerator;
