@@ -4,7 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
-import java.util.StringJoiner;
+import java.util.List;
+
 
 public class Application {
     public static void main(String[] args) {
@@ -36,13 +37,6 @@ public class Application {
             }
         }
 
-
-        StringJoiner joiner = new StringJoiner(", ");
-        for (String name : carNamelist) {
-            joiner.add(name);
-        }
-
-        System.out.println(joiner);
         for (int i = 0; i < carNamelist.size(); i++) {
             carDistances.add(0);
         }
@@ -53,20 +47,7 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String tryNumber = Console.readLine();
-        System.out.println(tryNumber);
-        System.out.println();
         return tryNumber;
-    }
-
-    static boolean goStop() {
-
-        int randomNum = Randoms.pickNumberInRange(0, 9);
-        if (randomNum >= 4) {
-            return true;
-        } 
-        else {
-            return false;
-        }
     }
 
     static String score() {
@@ -85,22 +66,58 @@ public class Application {
         int countNum = Integer.parseInt(count);
 
         for (int i = 0; i < countNum; i++) {
-            for (int j = 0; j < carname.size(); j++) {
-                String name = carname.get(j);
-                String theScore = score();
-
-
-                int currentDistance = carDistances.get(j);
-                if (theScore.equals("-")) {
-                    currentDistance++;
-                }
-                carDistances.set(j, currentDistance);
-
-                System.out.println(name + " : " + theScore);
-            }
+            moveSingleCar(carname);
             System.out.println();
         }
+
+        List<String> winners = findWinners(carname);
+        printWinners(winners);
     }
+
+    static void moveSingleCar(ArrayList<String> carname) {
+        for (String name : carname) {
+            String theScore = score();
+
+            if (theScore.equals("-")) {
+                int index = carname.indexOf(name);
+                carDistances.set(index, carDistances.get(index) + 1);
+            }
+
+            System.out.println(name + " : " + "-".repeat(carDistances.get(carname.indexOf(name))));
+        }
+    }
+
+    static List<String> findWinners(ArrayList<String> carname) {
+        List<String> winners = new ArrayList<>();
+        int maxDistance = 0;
+
+        for (String name : carname) {
+            int index = carname.indexOf(name);
+            int distance = carDistances.get(index);
+
+            if (distance > maxDistance) {
+                maxDistance = distance;
+                winners.clear();
+                winners.add(name);
+            } else if (distance == maxDistance) {
+                winners.add(name);
+            }
+        }
+
+        return winners;
+    }
+
+    static void printWinners(List<String> winners) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if (i < winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
+
 
 
 }
