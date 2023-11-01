@@ -8,4 +8,12 @@ public class Car {
         this.name = name;
         this.score = 0;
     }
+
+    public void move(){
+        score += 1;
+    }
+
+    public int getScore(){
+        return score;
+    }
 }
