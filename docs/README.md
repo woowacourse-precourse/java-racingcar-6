@@ -28,20 +28,28 @@
 - display
 
 메서드
-- move()
-- getPosition()
-- getName()
-- getDisplay
+- move() : 전진 시 호출
+- getPosition() : winner 계산 시 호출
+- getName() : winner 계산 시 호출
+- getDisplay() : result 기록 시 호출
 
 
 ### RaceGame클래스
+변수
+- MIN_MOVE_NUMBER
 - cars
 - round
 - result
 - winner
 
-- roundStart()
-- recordResult()
+메서드
+- setCars() : 차량 생성 시 
+- getRandomNumber() : 랜덤 숫자 생성
+- roundStart() : 라운드 시작 시 호출
+- recordResult() : 라운드 종료 시 결과기록
+- setWinner() : 모든 라운드 종료 시 우승자 계산
+- getWinner()
+- getRound()
 - getWinner()
 
 RaceGameController클래스
