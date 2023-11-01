@@ -15,5 +15,7 @@ public class Repository {
         id++;
     }
 
-
+    public List<Car> returnAll() {
+        return new ArrayList<>(cars.values());
+    }
 }

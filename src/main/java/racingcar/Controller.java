@@ -4,7 +4,7 @@ import racingcar.Service;
 public class Controller {
     Service service = new Service();
 
-    public void run() {
+    public void play() {
         userInput();
 
     }
