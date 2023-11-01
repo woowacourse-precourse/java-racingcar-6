@@ -26,4 +26,8 @@ public class Car {
     public int getPosition() {
         return this.position;
     }
+
+    private int getGenerateNumber() {
+        return RandomNumberGenerator.generateNumber();
+    }
 }
