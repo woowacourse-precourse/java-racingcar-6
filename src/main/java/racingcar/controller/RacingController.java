@@ -9,5 +9,6 @@ public class RacingController {
     public static void run() {
         RacingView.startGameMessage();
         HashMap<String, String> car = RacingService.enterCarName(Console.readLine());
+        RacingView.enterRoundMessage();
     }
 }
