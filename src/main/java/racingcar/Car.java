@@ -1,9 +1,5 @@
 package racingcar;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 public class Car {
     public static final int REFERENCE_NUMBER_VALUE = 4;
 
