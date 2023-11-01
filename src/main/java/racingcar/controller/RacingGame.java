@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static racingcar.domain.RacingGameManager.end;
 import static racingcar.domain.RacingGameManager.proceedAwardStage;
 import static racingcar.domain.RacingGameManager.proceedCarNameInputStage;
 import static racingcar.domain.RacingGameManager.proceedPlayNumberInputStage;
@@ -17,5 +18,7 @@ public class RacingGame {
         proceedPlayStage();
 
         proceedAwardStage();
+
+        end();
     }
 }

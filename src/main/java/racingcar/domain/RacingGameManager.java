@@ -11,6 +11,7 @@ import static racingcar.view.ConsoleOutput.printFinalWinner;
 import static racingcar.view.ConsoleOutput.printNewLine;
 import static racingcar.view.ConsoleOutput.printProgressState;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.dto.FinalResult;
 import racingcar.domain.dto.ProgressState;
@@ -47,6 +48,10 @@ public class RacingGameManager {
             printProgressState(progressState);
             printNewLine();
         }
+    }
+
+    public static void end() {
+        Console.close();
     }
 
 }
