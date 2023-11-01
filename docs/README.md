@@ -7,7 +7,7 @@
     - [V]0에서 9 중 무작위 숫자를 자동차 수만큼 만들기 JudgeMovement#creatRandomNumber()
     - [V]생성된 숫자를 각 자동차에 배치하고 배치된 숫자가 4이상이면 전진 JudgeMovement#moveForward()
 4. []결과 출력하기 Result
-    - []경기 결과 출력하기 Result#printRapResult()
-    - []전진한 칸수 출력하기 Result#printCarPosition()
+    - [V]경기 결과 출력하기 Result#printRapResult()
+    - [V]전진한 칸수 출력하기 Result#printCarPosition()
     - []우승자 선정하기 Result#pickWinners()
     - []우승자 출력하기 Result#printWinner()

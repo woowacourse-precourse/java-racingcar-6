@@ -10,6 +10,10 @@ public class Result {
     }
 
     private void printCarPosition(int position) {
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
     public void pickWinners() {
