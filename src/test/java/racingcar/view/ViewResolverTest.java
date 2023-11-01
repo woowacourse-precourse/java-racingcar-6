@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.constant.Constant.ENTER;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +25,7 @@ class ViewResolverTest {
 
         // then
         assertThat(result).isEqualTo(
-                "k5 : -" + '\n' + "k3 : " + '\n' +  "sm3 : --" + '\n'
+                "k5 : -" + ENTER + "k3 : " + ENTER +  "sm3 : --" + ENTER
         );
     }
 
