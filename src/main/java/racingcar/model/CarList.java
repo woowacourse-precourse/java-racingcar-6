@@ -1,6 +1,8 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarList {
 
@@ -14,10 +16,19 @@ public class CarList {
         return carList;
     }
 
-    public int findMaxMoveCnt(){
+    public List<Car> findWinners(){
+        int maxMoveCnt = findMaxMoveCnt();
+        return carList.stream()
+                .filter(car -> car.getMoveCnt() == maxMoveCnt)
+                .collect(Collectors.toList());
+    }
+
+
+    private int findMaxMoveCnt(){
         return carList.stream()
                 .mapToInt(Car::getMoveCnt)
                 .max()
                 .orElse(0);
     }
+
 }
