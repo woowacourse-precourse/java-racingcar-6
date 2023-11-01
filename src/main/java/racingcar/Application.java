@@ -10,9 +10,9 @@ public class Application {
     static Racer[] createRacerFromInput() {
         String input = Console.readLine();
 
-        validateInputForRacerCreation(input);
-
         String[] names = input.split(",");
+
+        validateInputForRacerCreation(names);
 
         Racer[] racers = new Racer[names.length];
 
@@ -23,12 +23,17 @@ public class Application {
         return racers;
     }
 
-    static void validateInputForRacerCreation(String input){
+    static void validateInputForRacerCreation(String[] names){
 
-        String regex = "^[a-zA-Z가-힣,]+$";
+        String regex = "^[a-zA-Z가-힣]+$";
 
-        if (!input.matches(regex)) {
-            throw new IllegalArgumentException("입력은 한글, 알파벳, 쉼표만 포함해야 합니다.");
+        for(String name : names) {
+            if (name.length()>5) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
+            if (!name.matches(regex)) {
+                throw new IllegalArgumentException("입력은 한글, 알파벳, 쉼표만 포함해야 합니다.");
+            }
         }
     }
 
