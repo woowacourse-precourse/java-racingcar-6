@@ -24,8 +24,7 @@ public class  InputOutputMessage {
         System.out.println();
     }
 
-    public static void presentWinner(ArrayList<String> winners) {
+    public static void printWinner(ArrayList<String> winners) {
         System.out.println(Constants.WINNER_RESULT + String.join(Constants.COMMAS_AND_SPACE, winners));
     }
-
 }
