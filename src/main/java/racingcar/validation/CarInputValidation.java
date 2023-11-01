@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
+import racingcar.utils.Constants;
 import racingcar.utils.ErrorMessage;
 import racingcar.utils.Util;
 
@@ -35,7 +36,7 @@ public class CarInputValidation {
     private void validateNameLength(String input) {
         String[] inputCars = input.split(Util.CAR_NAME_DELIMITER);
         for (String name : inputCars) {
-            if (name.length() < 1 || name.length() > 5) {
+            if (name.length() < Constants.MIN_CAR_NAME_LENGTH || name.length() > Constants.MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_OUT_OF_RANGE_ERROR_MESSAGE);
             }
         }
@@ -43,7 +44,7 @@ public class CarInputValidation {
 
     private void validateMinCarCount(String input) {
         String[] inputCars = input.split(Util.CAR_NAME_DELIMITER);
-        if (inputCars.length < 2) {
+        if (inputCars.length < Constants.MIN_CAR_COUNT) {
             throw new IllegalArgumentException(ErrorMessage.LESS_THAN_MINIMUM_CAR_COUNT_ERROR_MESSAGE);
         }
     }
@@ -68,7 +69,7 @@ public class CarInputValidation {
     private void validateSpecialCharacters(String input) {
         String[] inputCars = input.split(Util.CAR_NAME_DELIMITER);
         for (String name : inputCars) {
-            if (!Pattern.matches("^[a-zA-Z0-9-_.]*$", name)) {
+            if (!Pattern.matches(Constants.ALPHANUMERIC_HYPHEN_UNDERSCORE_PERIOD_REGEX, name)) {
                 throw new IllegalArgumentException(ErrorMessage.INVALID_CHARACTERS_ERROR_MESSAGE);
             }
         }
