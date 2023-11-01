@@ -9,12 +9,12 @@ public class Input {
 	private ArrayList<Car> cars = new ArrayList<>();
 	private int count;
 
-	public void getUserInput() {
+	public void user() {
 
 		String carNames = namesInput();
-		String count = countInput();
-
 		processCarNamesInput(carNames);
+
+		String count = countInput();
 		processCountInput(count);
 	}
 
@@ -34,6 +34,7 @@ public class Input {
 	}
 
 	private void processCarNamesInput(String input) {
+
 		String[] carNames = input.split(",");
 		InputValid.names(carNames);
 
@@ -44,6 +45,7 @@ public class Input {
 	}
 
 	private void processCountInput(String input) {
+
 		count = Integer.parseInt(input);
 		InputValid.count(count);
 	}
