@@ -1,7 +1,9 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Entry {
 
@@ -28,5 +30,9 @@ public class Entry {
         });
 
         cars.add(car);
+    }
+
+    public void driveAll() {
+        cars.forEach(Car::drive);
     }
 }
