@@ -41,4 +41,8 @@ public class RacingCar {
     public Integer getLocation() {
         return location;
     }
+
+    public String getName() {
+        return name;
+    }
 }
