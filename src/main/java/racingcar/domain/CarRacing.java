@@ -37,14 +37,14 @@ public class CarRacing {
                 .forEach(position -> farthestPosition = position);
     }
 
+    public RacingResultDTO toDTO() {
+        return new RacingResultDTO(getNames(), getPositions());
+    }
+
     private List<String> getNames() {
         return cars.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());
-    }
-
-    public RacingResultDTO toDTO() {
-        return new RacingResultDTO(getNames(), getPositions());
     }
 
     private List<Integer> getPositions() {

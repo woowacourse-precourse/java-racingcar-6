@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class OutputView {
+
     private static final String RACE_RESULT_MESSAGE = "실행 결과";
     private static final String NAME_POSITION_SEPARATOR_MESSAGE = " : ";
     private static final String ONE_STEP_MESSAGE = "-";

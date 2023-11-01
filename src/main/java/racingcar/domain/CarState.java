@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public enum CarState {
+
     MOVE(true),
     STOP(false);
 

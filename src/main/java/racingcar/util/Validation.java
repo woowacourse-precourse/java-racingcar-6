@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Validation {
+
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MIN_NUMBER_OF_RACES = 1;
     private static final int MIN_NUMBER_OF_NAMES = 2;
