@@ -7,3 +7,12 @@
 6. 이름 Validator (NameValidator)
 7. 횟수 Validator (CountValidator)
 8. 서비스 출력 함수 (ServicePrinter)
+
+Test Code
+
+- [x] NameReader (with NameValidator)
+- [x] CountReader (with CountValidator)
+- [x] RacingCarController
+- [x] MovementStatus
+- [x] WinnerSelector
+- [x] ServicePrinter
