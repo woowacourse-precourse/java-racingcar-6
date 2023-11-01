@@ -44,6 +44,7 @@ public class Game {
     public void inputCarName() {
         carNames = Console.readLine();
     }
+
     public String printHowManyCounts() {
         return "";
     }
