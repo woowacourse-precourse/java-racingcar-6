@@ -35,6 +35,9 @@ public class Converter {
     }
 
     private static void validateLength(String name) {
+        if (name.length() == 0) {
+            throw new IllegalArgumentException("자동차의 이름을 1글자 이상 입력해주세요");
+        }
         if (name.length() > LENGTH_LIMITER) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다");
         }
