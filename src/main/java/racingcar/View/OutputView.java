@@ -29,11 +29,8 @@ public class OutputView {
 
     private String makeWinnerState(List<String> winnerNames) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(Constants.gameWinnerState + " :");
-        for (String name : winnerNames) {
-            stringBuilder.append(" " + name + ",");
-        }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        stringBuilder.append(Constants.gameWinnerState + " : ");
+        stringBuilder.append(String.join(", ", winnerNames));
         return stringBuilder.toString();
     }
 
