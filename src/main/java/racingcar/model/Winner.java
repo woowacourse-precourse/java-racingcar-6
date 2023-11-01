@@ -8,17 +8,21 @@ public class Winner {
     private final List<Car> winners;
 
     public Winner(List<Car> cars) {
-        int maxPosition = getMaxPosition(cars);
-        winners = cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .collect(Collectors.toList());
+        int maxPosition = calculateMaxPosition(cars);
+        this.winners = filterWinners(cars, maxPosition);
     }
 
-    private int getMaxPosition(List<Car> cars) {
+    private int calculateMaxPosition(List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElse(Integer.MIN_VALUE);
+                .orElse(0);
+    }
+
+    private List<Car> filterWinners(List<Car> cars, int maxPosition) {
+        return cars.stream()
+                .filter(car -> car.isPositionEqualOrGreater(maxPosition))
+                .collect(Collectors.toList());
     }
 
     public List<String> getWinnerNames() {
