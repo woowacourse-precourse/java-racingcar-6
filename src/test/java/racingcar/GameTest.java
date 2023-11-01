@@ -32,7 +32,7 @@ public class GameTest {
     }
 
     private static void assertRaceResult(List<Integer> randomValue, List<Integer> expectedValue) {
-        Game game = new Game(Arrays.asList("pobi","crong","jun"), 3);
+        Game game = new Game(Arrays.asList("pobi","crong","jun"));
         RaceProgressResponse response = game.move(randomValue);
         Assertions.assertThat(response.getRaceProgress()).isEqualTo(expectedValue);
     }

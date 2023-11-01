@@ -12,19 +12,25 @@ import racingcar.message.ValidateErrorMessage;
 
 public class Game {
     private List<String> cars;
-    private int raceCount;
     private List<Integer> raceProgress;
 
-    public Game(List<String> cars, int raceCount) {
+    public Game(List<String> cars) {
         validate(cars);
         this.cars = cars;
-        this.raceCount = raceCount;
         this.raceProgress = new ArrayList<>(Collections.nCopies(cars.size(), 0));
+    }
+    private void validate(List<String> cars) {
+        cars.stream()
+                .filter(car -> car.length() > RaceConstant.MAX_NAME_LENGTH)
+                .findFirst()
+                .ifPresent(car -> {
+                    throw new IllegalArgumentException(ValidateErrorMessage.NAME_LENGTH_ERROR);
+                });
     }
     public RaceProgressResponse move(List<Integer> randomNumbers){
         for (int i = 0; i < randomNumbers.size(); i++) {
             if (randomNumbers.get(i) >= RaceConstant.MIN_MOVEMENT_VALUE) {
-                int updatedProgress = raceProgress.get(i) + RaceConstant.ONE;
+                int updatedProgress = raceProgress.get(i) + RaceConstant.PROGRESS_DISTANCE;
                 raceProgress.set(i, updatedProgress);
             }
         }

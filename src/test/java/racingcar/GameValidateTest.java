@@ -13,7 +13,7 @@ public class GameValidateTest {
     @DisplayName("자동차 이름 길이가 6 이상일 경우, 예외 발생")
     void 이름길이초과_에러(){
         Assertions.assertThatThrownBy(() ->
-                new Game(Arrays.asList("pobigjek","crong","jun"), 3))
+                new Game(Arrays.asList("pobigjek","crong","jun")))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ValidateErrorMessage.NAME_LENGTH_ERROR);
     }
