@@ -41,7 +41,7 @@ public class InputValidator {
     }
 
     private String checkBoundary(String input) {
-        if (input.charAt(0) == ',' || input.charAt(input.length()-1) == ',') {
+        if (input.charAt(0) == ',' || input.charAt(input.length() - 1) == ',') {
             throw new IllegalArgumentException();
         }
         return input;

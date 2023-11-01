@@ -8,7 +8,6 @@ import racingcar.entity.Car;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -141,68 +140,6 @@ class RacingGameServiceTest {
     void 최대_이동거리_계산_빈엔트리() {
         assertThat(racingGameService.getMaxDistance())
                 .isEqualTo(0);
-    }
-
-    private static class RacingGameServiceStub {
-        private int remainChance;
-        private List<Car> entry;
-        private int maxDistance;
-
-        private void init() {
-            entry = new ArrayList<>();
-            remainChance = 0;
-            maxDistance = 1;
-        }
-
-        private void mainSequence() {
-            while (remainChance > 0) {
-//                movingSequence();
-                remainChance--;
-                System.out.println("자동차목록_정상출력" + remainChance);
-            }
-        }
-
-        private void endSequence() {
-            List<String> winners = entry.stream()
-                    .filter(car -> car.getDistance() == maxDistance)
-                    .map(Car::getName).toList();
-
-            System.out.println(Message.WINNER.getMessage() + String.join(", ", winners));
-        }
-
-        private void setCars(boolean cond) {
-//            outputView.printMessage(Message.START);
-            getCarsNameReplaced(cond).forEach(name -> entry.add(new Car(name)));
-        }
-
-        private List<String> getCarsNameReplaced(boolean cond) {
-            if (cond) {
-                return List.of(new String[]{"yujin", "rei"});
-            }
-            throw new IllegalArgumentException();
-        }
-
-        private void setRemainChange(boolean cond) {
-//            outputView.printMessage(Message.COUNT);
-            remainChance = getPlayCountReplaced(cond);
-        }
-
-        private int getPlayCountReplaced(boolean cond) {
-            if (cond) {
-                return 1;
-            }
-            throw new IllegalArgumentException();
-        }
-
-        private int getMaxDistance() {
-            int max = 0;
-
-            for (Car car : entry) {
-                max = Math.max(max, car.getDistance());
-            }
-            return max;
-        }
-
     }
 
 }
