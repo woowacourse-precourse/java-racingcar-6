@@ -24,6 +24,25 @@ public class Cars {
         }
     }
 
+    public List<String> findWinners(){
+        Car maxDistanceCar = findMaxDistanceCar();
+        List<String> winnerCarNameList = findSameDistanceList(maxDistanceCar);
+        return winnerCarNameList;
+    }
+
+    private Car findMaxDistanceCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException("차량 리스트가 비었습니다."));
+    }
+
+    private List<String> findSameDistanceList(Car maxDistanceCar) {
+        return cars.stream()
+                .filter(maxDistanceCar::isSameDistance)
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
+    }
+
     private void isDifferentCarName(List<Car> cars) {
         List<String> carName = cars.stream()
                 .map(idx -> idx.getCarName())
