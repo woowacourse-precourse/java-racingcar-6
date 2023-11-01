@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class Application {
@@ -12,7 +14,13 @@ public class Application {
 
         int carsNum = cars.length;
 
-        String[] forwardCount = new String[carsNum];
+        // TODO: StringBuilder 초기화
+        StringBuilder[] forwardCount = new StringBuilder[carsNum];
+        for (int l = 0; l < carsNum; l++) {
+            forwardCount[l] = new StringBuilder();
+        }
+
+        int[] forwardCountInt = new int[carsNum];
 
         // TODO: 시도할 회수 입력 받기
         System.out.println("시도할 회수는 몇회인가요?");
@@ -25,23 +33,49 @@ public class Application {
             int[] randomNumArray = new int[carsNum];
 
             for (int j = 0; j < carsNum; j++) {
-                int randomNum = Randoms.pickNumberInRange(0,9);
+                int randomNum = Randoms.pickNumberInRange(0, 9);
                 randomNumArray[j] = randomNum;
             }
 
             // TODO: 랜덤값이 4 이상이면 전진
             for (int k = 0; k < carsNum; k++) {
                 if (randomNumArray[k] >= 4) {
-                    forwardCount[k] += "-";
+                    forwardCount[k].append("-");
+                    forwardCountInt[k]++;
                 }
             }
         }
 
-        // TODO: 전진 "-" 개수 계산
-        for (int s = 0; s < carsNum; s++) {
+        // TODO: 전진 "-" 개수 비교
+        int maxCount = 0;
+        List<String> maxCountCars = new ArrayList<>();
 
+        for (int i = 0; i < forwardCountInt.length; i++) {
+            if (forwardCountInt[i] > maxCount) {
+                maxCount = forwardCountInt[i];
+                maxCountCars.clear();
+                maxCountCars.add(cars[i]);
+            }
+            else if (forwardCountInt[i] == maxCount) {
+                maxCountCars.add(cars[i]);
+            }
+        }
+
+        // TODO: 실행 결과
+        System.out.println("실행 결과");
+        for (int f = 0; f < carsNum; f++) {
+            System.out.println(forwardCount[f]);
         }
 
         // TODO: 우승자 출력
+        if (!maxCountCars.isEmpty()) {
+            System.out.print("최종 우승자 : ");
+            for (int i = 0; i < maxCountCars.size(); i++) {
+                System.out.print(maxCountCars.get(i));
+                if (i < maxCountCars.size() - 1) {
+                    System.out.print(", ");
+                }
+            }
+        }
     }
 }
