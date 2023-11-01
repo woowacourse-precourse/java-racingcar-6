@@ -2,10 +2,8 @@ package racingcar.validation;
 
 import org.junit.jupiter.api.Test;
 import racingcar.exception.InvalidDuplicatedNamesException;
-import racingcar.exception.InvalidNumberFormatException;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ValidateDuplicatedNameTest {
 

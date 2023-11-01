@@ -1,13 +1,8 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
-import racingcar.domain.RacingCars;
-import racingcar.view.InputView;
-
-import java.util.HashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RacingcarGameTest {
 

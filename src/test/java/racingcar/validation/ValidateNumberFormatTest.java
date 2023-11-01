@@ -1,11 +1,9 @@
 package racingcar.validation;
 
 import org.junit.jupiter.api.Test;
-import racingcar.exception.InvalidBlankNameException;
 import racingcar.exception.InvalidNumberFormatException;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ValidateNumberFormatTest {
 

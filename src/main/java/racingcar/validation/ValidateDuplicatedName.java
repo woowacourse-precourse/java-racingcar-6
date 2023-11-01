@@ -1,11 +1,8 @@
 package racingcar.validation;
 
-import racingcar.exception.InvalidBlankNameException;
 import racingcar.exception.InvalidDuplicatedNamesException;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class ValidateDuplicatedName {
     public static void validate(String value) {
