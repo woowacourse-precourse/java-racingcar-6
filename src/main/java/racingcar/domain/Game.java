@@ -44,7 +44,7 @@ public class Game {
         System.out.println();
     }
 
-    public void judgeWinner() {
+    public void judgeWinners() {
         cars.sort(Comparator.comparingInt(car -> car.getPosition() * (-1)));
         int maxPosition = cars.get(0).getPosition();
 
