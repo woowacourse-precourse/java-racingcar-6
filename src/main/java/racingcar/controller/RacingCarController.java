@@ -6,9 +6,7 @@ import racingcar.domain.car.CarFactory;
 import racingcar.domain.formula.Formula;
 import racingcar.domain.formula.MoveFormula;
 import racingcar.domain.game.RaceGame;
-import racingcar.domain.game.RaceGameResult;
 import racingcar.domain.generator.RandomNumberGenerator;
-import racingcar.view.CarPositionResult;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.view.RaceGameInput;
@@ -30,14 +28,7 @@ public class RacingCarController {
 
     RaceGame raceGame = new RaceGame(moveFormula, cars, raceGameInput.round());
     outputView.printStartRaceGame();
-    raceGame.race(this::printCarPositionResults);
+    raceGame.race(outputView::printRaceGameResults);
     outputView.printFinalHeadOfRace(raceGame.currentHeadOfRace());
-  }
-
-  private void printCarPositionResults(final List<RaceGameResult> raceResults) {
-    List<CarPositionResult> results = raceResults.stream()
-        .map(result -> new CarPositionResult(result.carName(), result.position()))
-        .toList();
-    outputView.printCarPositionResults(results);
   }
 }

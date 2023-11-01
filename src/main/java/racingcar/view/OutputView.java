@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.domain.game.RaceGameResult;
 
 public class OutputView {
 
@@ -14,11 +15,13 @@ public class OutputView {
     System.out.println(START_RACE_GAME);
   }
 
-  public void printCarPositionResults(final List<CarPositionResult> results) {
-    results.forEach(result -> {
-      System.out.println(result.carName() + CAR_POSITION_DELIMITER + mark(result.position()));
-    });
+  public void printRaceGameResults(final List<RaceGameResult> raceResults) {
+    raceResults.forEach(this::printRaceGameResult);
     System.out.println();
+  }
+
+  private void printRaceGameResult(final RaceGameResult raceResult) {
+    System.out.println(raceResult.carName() + CAR_POSITION_DELIMITER + mark(raceResult.position()));
   }
 
   private String mark(final int position) {
