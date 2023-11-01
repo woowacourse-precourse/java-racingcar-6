@@ -10,6 +10,8 @@ public class Output {
     }
 
     public void showWinners (String[] names, List<Integer> winners) {
+        System.out.print("최종 우승자 : ");
+
         for (int i = 0; i < winners.size(); i++) {
             if (0 < i) {
                 System.out.print(", ");

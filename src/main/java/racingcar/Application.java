@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.IO.Input;
+import racingcar.IO.ManageException;
 import racingcar.IO.Output;
 import racingcar.domain.GameLogic;
 import racingcar.domain.Judgement;
@@ -36,7 +37,6 @@ public class Application {
         //우승자 판별
         List<Integer> winners = judgement.findWinner(result);
 
-        System.out.print("최종 우승자 : ");
         output.showWinners(names, winners);
 
     }
