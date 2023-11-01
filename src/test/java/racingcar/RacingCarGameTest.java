@@ -92,6 +92,31 @@ public class RacingCarGameTest extends NsTest {
     }
 
     @Test
+    @Order(5)
+    void 우승_후보_트랙_길이_출력(){
+        assertRandomNumberInRangeTest(
+                ()->{
+                    RacingCarGame game = new RacingCarGame();
+                    System.setIn(createTestingInput("aa,bb,cc"));
+                    String[] names = game.splitInputNames();
+                    game.inputNames(names);
+                    Console.close();
+
+                    System.setIn(createTestingInput("2"));
+                    game.inputTryLimit();
+
+                    game.race();
+                    game.setMax();
+
+                    assertThat(game.getMax()).isEqualTo(2);
+
+                },
+                6,2,6
+                ,6, 2, 2
+        );
+    }
+
+    @Test
     @Order(6)
     void 게임_3명_5회() {
         assertRandomNumberInRangeTest(
