@@ -7,7 +7,7 @@ public class View {
 
     private void inputRacingCarNameCheck(String carNames){
         for(String carName : carNames.split(",")){
-            if(carName.length()>5){
+            if(carName.length()>5||carName.length()<1){
                 throw new IllegalArgumentException();
             }
         }
