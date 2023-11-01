@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,6 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 public class BasicTest {
 
 
+    @DisplayName("MethodSource 기본 테스트")
     @ParameterizedTest
     @MethodSource("listProvider")
     void testListSize(List<Integer> inputList, int expectedSize) {

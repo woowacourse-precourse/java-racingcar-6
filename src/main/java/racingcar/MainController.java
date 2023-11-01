@@ -29,7 +29,7 @@ public class MainController {
     private void proceedGame(Cars cars, TrialCount trialCount) {
         int moveCount  = 0;
         OutputView.printMessage(ViewMessage.GAME_RESULT);
-        while (trialCount.moreThen(moveCount)) {
+        while (trialCount.isMoreThen(moveCount)) {
             cars.commandAllCarsToMove();
             OutputView.printMovingResult(cars);
             moveCount++;

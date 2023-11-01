@@ -14,7 +14,7 @@ public record TrialCount(int count) {
         }
     }
 
-    public boolean moreThen(int count) {
+    public boolean isMoreThen(int count) {
         return this.count > count;
     }
 }
