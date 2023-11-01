@@ -28,10 +28,6 @@ public class Game {
             Match();
             System.out.println();
         }
-        //        System.out.println("입력된 자동차 목록");
-        //        for (Car car : CarList) {
-        //            System.out.println(car.name);
-        //        }
     }
     // 경기 함수
     void Match(){
