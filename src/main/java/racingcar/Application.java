@@ -29,10 +29,11 @@ public class Application {
         System.out.println("실행 결과");
 
         CarSimulate carSimulate = new CarSimulate();
-        RandNum randNum = new RandNum();
+        RandomNumberGenerator randNum = new RandomNumberGenerator();
         for (int i = 0; i < time; i++) {
             for (int j = 0; j < track.size(); j++) {
-                int randomNumber = randNum.createRandomNumber();
+                randNum.generateRandomNumber();
+                int randomNumber = randNum.getRandomNumber();
                 carSimulate.goSimulate(randomNumber, j, track);
             }
             carSimulate.viewCurrentProgress(car, track);
