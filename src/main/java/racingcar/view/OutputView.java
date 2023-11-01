@@ -19,6 +19,7 @@ public class OutputView {
     }
 
     public void printGameResultMessage() {
+        printNewLine();
         System.out.println(GAME_RESULT_MESSAGE);
     }
 
