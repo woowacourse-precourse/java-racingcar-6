@@ -17,7 +17,7 @@ class CarTest {
     final static int CANT_MOVE_EDGE_CONDITION = 3;
 
     @Nested
-    @DisplayName("자동차 움직임 테스트")
+    @DisplayName("자동차 움직임 기능 테스트")
     class MoveCarTest {
         @CsvSource(value = "8,4")
         @DisplayName("[성공 테스트] 8번의 움직임 중 4번만 4이상의 수를 생성하여 자동차 4번 움직임")
@@ -55,17 +55,26 @@ class CarTest {
             // then
             Assertions.assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
         }
+    }
 
-        static class CustomCarEngine implements CarEngine {
+    @Nested
+    @DisplayName("최대 위치 확인 기능 테스트")
+    class IsMaxPositionTest {
 
-            List<Integer> enginePowers = Lists.newArrayList(1, 4, 0, 9, 2, 3, 4, 8);
-
-            @Override
-            public int generateNumber() {
-                return enginePowers.remove(0);
+        @ParameterizedTest
+        @CsvSource(value = "8,4")
+        void maxPositionTest(int moveCount, int expectedMaxPosition) {
+            // given
+            Car car = new Car("준기", new CustomCarEngine());
+            // when
+            for (int move = 0; move < moveCount; move++) {
+                car.moveCar();
             }
+            // then
+            Assertions.assertThat(car.isMaxPosition(expectedMaxPosition)).isTrue();
         }
     }
+
 
     @Nested
     @DisplayName("자동차 생성 테스트")
@@ -92,6 +101,16 @@ class CarTest {
         void outOfLengthTest(String name) {
             Assertions.assertThatThrownBy(() -> new Car(name, new WootecoCarEngine()))
                     .hasMessage(CarExceptionMessage.OUT_OF_NAME_LENGTH.getError());
+        }
+    }
+
+    static class CustomCarEngine implements CarEngine {
+
+        List<Integer> enginePowers = Lists.newArrayList(1, 4, 0, 9, 2, 3, 4, 8);
+
+        @Override
+        public int generateNumber() {
+            return enginePowers.remove(0);
         }
     }
 }
