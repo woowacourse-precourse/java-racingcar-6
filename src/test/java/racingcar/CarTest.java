@@ -27,4 +27,15 @@ public class CarTest {
 
         assertThat(before + 1).isEqualTo(after);
     }
+
+    @Test
+    void 자동차가_정지한_경우() {
+        final Car car = new Car("a");
+
+        int before = car.getTotalMoveLen();
+        car.moveOrStop(false);
+        int after = car.getTotalMoveLen();
+
+        assertThat(before).isEqualTo(after);
+    }
 }
