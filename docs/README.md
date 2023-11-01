@@ -1,6 +1,4 @@
-<p align="center">
-    <img src="wooteco.png" alt="우아한테크코스" width="2246">
-</p>
+![wooteco](https://github.com/AidenRoh/wooteco-precourse/assets/124841119/08c069a4-a7b0-41c1-884f-dfc6af17d373)
 
 # 프리코스 2주차 미션: 자동차 경주
 
@@ -11,15 +9,7 @@
 
 <br>
 
----
-
-## 구현 스크린샷
-
-<br>
-
-<p align="center">
-  <img src="racingcar.gif" alt="구현스크린샷" width="1920">
-</p>
+![racingcar](https://github.com/AidenRoh/wooteco-precourse/assets/124841119/3d843806-54f2-497d-b662-a23c38599e45)
 
 <br>
 
@@ -82,9 +72,7 @@
 
 ## 게임 흐름
 
-<p align="center">
-  <img src="gameflow.png" alt="게임흐름" width="5370">
-</p>
+![gameflow](https://github.com/AidenRoh/wooteco-precourse/assets/124841119/d0d40409-e4e5-4111-ae7e-38ea4a00c3e4)
 
 <br>
 
@@ -92,7 +80,7 @@
 
 ## 기능 목록
 
-> 게임 흐름 순서로 기능 목록이 나열되어 있습니다. [구현 스크린샷](#구현-스크린샷) [게임 흐름](#게임-흐름)
+> 게임 흐름 순서로 기능 목록이 나열되어 있습니다. [게임 흐름](#게임-흐름)
 
 ### 1️⃣ 플레이어 등록
 
