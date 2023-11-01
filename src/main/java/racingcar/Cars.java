@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,15 +23,7 @@ public class Cars {
     }
 
     public List<CarDto> getCarDtos() {
-        List<CarDto> carDtos = new ArrayList<>();
-        for (Car car : cars) {
-            CarDto carDto = new CarDto();
-            carDto.setName(car.getName());
-            carDto.setPosition(car.getPosition());
-
-            carDtos.add(carDto);
-        }
-        return carDtos;
+        return Util.carsToCarDtos(Collections.unmodifiableList(cars));
     }
 
     public List<Car> findWinners() {

@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,6 +25,22 @@ public class Util {
 
     public static int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public static CarDto carToCarDto(Car car) {
+        CarDto carDto = new CarDto();
+        carDto.setName(car.getName());
+        carDto.setPosition(car.getPosition());
+        return carDto;
+    }
+
+    public static List<CarDto> carsToCarDtos(List<Car> cars) {
+        List<CarDto> carDtos = new ArrayList<>();
+        for (Car car : cars) {
+            CarDto carDto = Util.carToCarDto(car);
+            carDtos.add(carDto);
+        }
+        return carDtos;
     }
 
     private Util() {
