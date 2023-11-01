@@ -3,6 +3,7 @@ package racingcar;
 import racingcar.constant.OutputMessage;
 import racingcar.validator.RacingCarGameMachineValidator;
 import racingcar.validator.RacingCarValidator;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -71,11 +72,15 @@ public class RacingCarGameMachine {
     }
 
     private void playRound() {
-        if (!isGameInProgress()) {
+        if (!canPlayRound()) {
             throw new IllegalStateException();
         }
         currentRound++;
         moveAllRacingCar();
+    }
+
+    public boolean canPlayRound() {
+        return initialized && currentRound <= maxRoundCount;
     }
 
     private void moveAllRacingCar() {
@@ -85,15 +90,15 @@ public class RacingCarGameMachine {
     }
 
     public String getGameResult() {
-        if (isGameInProgress()) {
+        if (!canGetResult()) {
             throw new IllegalStateException();
         }
         finishGame();
         return getGameResultMessage();
     }
 
-    public boolean isGameInProgress() {
-        return initialized && currentRound <= maxRoundCount;
+    private boolean canGetResult() {
+        return initialized && currentRound == maxRoundCount + 1;
     }
 
     private void finishGame() {
