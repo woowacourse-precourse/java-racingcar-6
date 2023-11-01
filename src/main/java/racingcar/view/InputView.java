@@ -2,16 +2,17 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-import java.security.PublicKey;
-import java.util.List;
-import racingcar.validation.Validator;
+import racingcar.validation.CommonValidator;
+import racingcar.validation.CountValidator;
 
 public class InputView {
 
-    private Validator inputValidator;
+    private CountValidator countValidator;
+    private CommonValidator commonValidator;
 
     public InputView() {
-        this.inputValidator = new Validator();
+        this.countValidator = new CountValidator();
+        this.commonValidator = new CommonValidator();
     }
 
     public String readCarName() {
@@ -32,12 +33,12 @@ public class InputView {
     }
 
     private void validateCarName(String names) {
-        inputValidator.isNull(names);
+        commonValidator.isNull(names);
     }
 
     private void validateCount(String count) {
-        inputValidator.isNull(count);
-        inputValidator.isContainLetter(count);
-        inputValidator.isNotNaturalNum(count);
+        commonValidator.isNull(count);
+        countValidator.isContainLetter(count);
+        countValidator.isNotNaturalNum(count);
     }
 }

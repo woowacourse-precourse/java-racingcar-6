@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Winners {
@@ -12,7 +13,7 @@ public class Winners {
 
     public List<String> getWinners() {
         List<String> winnerList = calculateWinners();
-        return winnerList;
+        return Collections.unmodifiableList(winnerList);
     }
 
     private List<String> calculateWinners() {
