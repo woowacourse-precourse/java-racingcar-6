@@ -34,22 +34,25 @@ public class InputException {
 
     public void checkInputIsNull(String input) {
         if (input == "") {
-            throw new IllegalArgumentException("자동차 이름을 입력하여야 합니다.");
+            throw new IllegalArgumentException(Input_Null_Exception);
         }
         return;
     }
 
     public List<String> carListSizeException(List<String> carList) {
+        if(carList.size()>2000000000){
+            throw new IllegalArgumentException(Car_List_MAX_Exception);
+        }
         if (carList.size() > 0) {
             return carList;
         } else {
-            throw new IllegalArgumentException("자동차는 1개 이상 있어야합니다.");
+            throw new IllegalArgumentException(Car_List_MIN_Exception);
         }
     }
 
     public void carNameSizeException(String car) {
         if (car.length() > Car_Name_LENGTH) {
-            throw new IllegalArgumentException("자동차의 이름은 중간 공백을 포함해 5글자 이하여야 합니다.");
+            throw new IllegalArgumentException(Car_Name_Length_Exception);
         }
         return;
     }
@@ -62,6 +65,9 @@ public class InputException {
     public int numOfRoundException(int input) {
         if (input < 0) {
             throw new IllegalArgumentException(Num_Of_Round_Exception);
+        }
+        else if(input >2000000000){
+            throw new IllegalArgumentException(Num_Of_Round_MAX_Exception);
         }
         return input;
     }

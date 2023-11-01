@@ -26,6 +26,8 @@ class ApplicationTest extends NsTest {
             run("aaaaaa", "1");
         });
     }
+
+
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
