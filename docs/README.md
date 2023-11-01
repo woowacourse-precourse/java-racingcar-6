@@ -18,10 +18,10 @@
 - [x] GameOption : 자동차 경주 관련된 옵션들
 - [x] Referee : 우승한 자동차를 판단하는 역할
 - [x] RandomNumber : 랜덤값을 생성하는 역할
+- [x] Validator : 받은 정보를 검증하는 역할
 
 - [x] Input : 입력을 받아 가공(Mapper) 후 값을 리턴하는 역할
 - [x] Mapper : 받은 값을 알맞게 가공하는 역할
-- [x] Validator : 받은 정보를 검증하는 역할
 - [x] Output : 출력하는 역할
 
 - [x] GameController : 객체들을 이용하여 자동차 경주 게임을 진행하는 역할
