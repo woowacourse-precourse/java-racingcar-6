@@ -116,10 +116,6 @@ public abstract class BasicGame implements Game {
     }
 
     private String getPositionPrint(PrintType printType, Long count) {
-        StringBuilder source = new StringBuilder();
-        for (int i = 0; i < count; i++) {
-            source.append(printType.getType());
-        }
-        return source.toString();
+        return printType.getType().repeat(count.intValue());
     }
 }
