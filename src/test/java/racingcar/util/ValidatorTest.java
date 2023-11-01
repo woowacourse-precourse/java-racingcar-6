@@ -46,5 +46,38 @@ public class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 시도횟수_문자_입력() {
+        String number = "a";
+        assertThatThrownBy(() -> new TrialNumberValidator(number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
+    @Test
+    void 시도횟수_빈문자_입력() {
+        String number = " ";
+        assertThatThrownBy(() -> new TrialNumberValidator(number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도횟수_1글자미만_입력() {
+        String number = "";
+        assertThatThrownBy(() -> new TrialNumberValidator(number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도횟수_0으로시작하는숫자_입력() {
+        String number = "01";
+        assertThatThrownBy(() -> new TrialNumberValidator(number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도횟수_0_입력() {
+        String number = "0";
+        assertThatThrownBy(() -> new TrialNumberValidator(number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
