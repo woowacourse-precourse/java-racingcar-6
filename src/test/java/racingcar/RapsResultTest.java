@@ -32,7 +32,7 @@ class RapsResultTest {
     }
 
     @Test
-    void testResultText_1경기_끝난후_자동차_결과_출력() {
+    void testResultText_1경기_끝난후_자동차_결과_텍스트_생성() {
 
         String result = rapsResult.resultText();
 
@@ -56,7 +56,7 @@ class RapsResultTest {
     }
 
     @Test
-    void forwardOrNot() {
+    void forwardOrNot_자동차_1경기_결과_출력() {
 
 
     }
