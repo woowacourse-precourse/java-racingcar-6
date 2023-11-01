@@ -18,9 +18,9 @@ public class InputView {
     public int setPlayCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String num = Console.readLine();
-        Validator.playCount(num);
-        int play_count = Integer.parseInt(num);
+        Validator.attemptCount(num);
+        int attempt_count = Integer.parseInt(num);
 
-        return play_count;
+        return attempt_count;
     }
 }

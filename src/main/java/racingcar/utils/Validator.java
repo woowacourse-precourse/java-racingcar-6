@@ -14,12 +14,12 @@ public class Validator {
         }
     }
 
-    public static void playCount(String play_count) {
-        if (play_count == null || play_count.isBlank()) {
+    public static void attemptCount(String attempt_count) {
+        if (attempt_count == null || attempt_count.isBlank()) {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
 
-        if (Integer.parseInt(play_count) < MIN_ATTEMPT_COUNT) {
+        if (Integer.parseInt(attempt_count) < MIN_ATTEMPT_COUNT) {
             throw new IllegalArgumentException("양수를 입력하세요.");
         }
     }
