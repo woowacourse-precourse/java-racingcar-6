@@ -76,14 +76,10 @@ public class Application {
     }
 
     private static void moveCars(List<String> cars, List<Integer> position) {
-        for (int j = 0; j < cars.size(); j++) {
-            updatePosition(position, j);
-        }
-    }
-
-    private static void updatePosition(List<Integer> position, int index) {
-        if (canMoveForward()) {
-            position.set(index, position.get(index) + 1);
+        for (int i = 0; i < cars.size(); i++) {
+            if (canMoveForward()) {
+                position.set(i, position.get(i) + 1);
+            }
         }
     }
 
