@@ -6,7 +6,7 @@ import java.util.List;
 public class CarRepository {
 
     private List<Car> cars = new ArrayList<>();
-
+    private List<String> winners = new ArrayList<>();
 
     public void add(Car car) {
         this.cars.add(car);
@@ -27,7 +27,6 @@ public class CarRepository {
     }
 
     public void getWinner() {
-        List<String> winners = new ArrayList<>();
         System.out.print("최종 우승자 : ");
         int max = getMaxForwardLength();
         for (Car car : this.cars) {
