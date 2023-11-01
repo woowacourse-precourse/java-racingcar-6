@@ -32,11 +32,12 @@
 - 라운드 별 경기 결과를 저장하고 반환하는 기능 (RaceResult)
 - 종료 조건을 확인하는 기능 (라운드 수)
 
-### RaceResult
+### RaceResult(RoundResult, CarSnapshot을 포함)
 
-- 라운드 별 경기 결과를 저장하는 기능 (Map 구조로 key - 자동차 이름, value - 라운드 별 이동 거리)
-- 최종 우승자 계산하고 반환하는 기능 (Map의 value 중 최대값을 가진 key)
-- 경주의 결과 (우승자, 각 라운드별 결과 등) 반환하는 기능 (Stream으로 Map의 entrySet을 반환)
+- 라운드 별 경기 결과를 저장하는 기능 (List<RoundResult>로 구현)
+    - CarSnapshot은 자동차의 이름과 현재 위치를 저장하는 기능을 수행
+- 최종 우승자 계산하고 반환하는 기능 (마지막 라운드의 RoundResult에서 최대 position 값을 가진 자동차들의 이름 리스트를 반환)
+- 라운드별 경주의 결과 반환하는 기능 (RoundResult의 리스트를 반환(각 자동차들의 CarSnapshot 리스트)
 
 ### RaceException
 
