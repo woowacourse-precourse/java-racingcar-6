@@ -1,25 +1,25 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/** 게임을 위한 입력을 받고, 필요한 객체를 생성 */
 public class GameMaker {
     List<String> carNames;
     public int totalRounds;
     public List<Car> cars;
     int carCount;
+
     public GameMaker() {
         String carNameInput = setCarNames();
         setTotalRounds();
         splitCarNames(carNameInput);
     }
 
-    // 콤마(,)로 구분된 차량이름을 분리해 이름별 차량 만들어 리스트로 설정
+    // 콤마(,)로 구분된 차량이름을 분리해 이름별 차량 만들어 리스트로 생성
     void splitCarNames(String carNameInput) {
-        // 아예 Car들의 리스트를 인자로 받아 초기화하기. 그럼 CarNames없어두됨
         String[] tokens = carNameInput.split(",");
         carNames = Arrays.asList(tokens);
         carCount = this.carNames.size();

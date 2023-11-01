@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 
+/** Car 클래스의 요소 중 승자를 탐색 */
 public class WinnerDeterminer {
     public static String winner(List<Car> cars) {
         int winnerScore = getWinnerScore(cars);

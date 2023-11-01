@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 
+/** 입력값이 유효한지 판단 */
 public class InputValidator {
     public static boolean isPositiveNumber(String input) {
         if (input == null || input.isEmpty()) {

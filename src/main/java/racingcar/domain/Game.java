@@ -2,10 +2,10 @@ package racingcar.domain;
 
 import java.util.List;
 
+/** 차량을 이동시키고, 이동형환을 출력하고, 승자를 출력 */
 public class Game {
     List<Car> cars;
     int totalRounds;
-    RaceDecisionMaker decision;
 
     public Game(List<Car> cars, int totalRounds) {
         this.cars = cars;
@@ -43,5 +43,4 @@ public class Game {
         printString += "-".repeat(car.position);
         System.out.println(printString);
     }
-
 }
