@@ -2,10 +2,8 @@ package racingcar.controller;
 
 import static racingcar.constant.CommonConstant.ONE_BLANK_LINE;
 
-import java.util.List;
 import racingcar.domain.car.CarInfo;
 import racingcar.domain.game.GameManager;
-import racingcar.dto.Car;
 import racingcar.view.InputVeiw;
 import racingcar.view.OutputView;
 
@@ -35,7 +33,6 @@ public class GameController {
         OutputView.printBlankLine(ONE_BLANK_LINE);
         OutputView.printOutputMessageResult();
 
-        List<Car> gameWinners = gameManager.startGame();
-        OutputView.printGameWinner(gameWinners);
+        gameManager.startGame();
     }
 }
