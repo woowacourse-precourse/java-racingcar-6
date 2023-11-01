@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.util.Validator;
-import racingcar.dto.CarDto;
-import racingcar.util.CarDtoConverter;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,7 +18,6 @@ public class Game {
         inputView = new InputView();
     }
 
-    //start() 함수 구현
     public void start() {
         String carListString = inputView.inputCarNames();
         cars = new Cars(carListString);
@@ -31,12 +28,11 @@ public class Game {
         Race race = new Race(cars, outputView);
         race.playRaceAllRounds(roundNumber);
 
-        List<CarDto> carDtoList = CarDtoConverter.convertCarsToCarDtoList(cars);
         List<String> winners = findWinners(cars);
         outputView.printWinner(winners);
     }
 
-    private List<String> findWinners(Cars cars) {
+    public List<String> findWinners(Cars cars) {
         List<String> winners = new ArrayList<>();
         int max = findTopDistance(cars);
         for (int i = 0; i < cars.size(); i++) {
