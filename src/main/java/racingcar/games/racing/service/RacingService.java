@@ -22,4 +22,10 @@ public class RacingService {
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
+
+    public List<String> makePlayResult() {
+        return cars.stream()
+                .map(Car::getMoveResult)
+                .collect(Collectors.toList());
+    }
 }
