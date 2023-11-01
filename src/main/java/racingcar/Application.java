@@ -27,14 +27,14 @@ public class Application {
         printWinners(winners);
     }
 
-    private static String[] getCarNames() {
+    public static String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         String[] carNames = input.split(",");
         return carNames;
     }
 
-    private static int getRoundCount() {
+    public static int getRoundCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         try {
@@ -44,7 +44,7 @@ public class Application {
         }
     }
 
-    private static void printRoundResult(GameManagement game) {
+    public static void printRoundResult(GameManagement game) {
         for (CarInformation car : game.getCars()) {
             System.out.print(car.getName() + " : ");
             int position = car.getPosition();
@@ -56,7 +56,7 @@ public class Application {
         System.out.println();
     }
 
-    private static List<String> getWinners(GameManagement game) {
+    public static List<String> getWinners(GameManagement game) {
         List<CarInformation> winnerCars = game.getWinners();
         List<String> winners = new ArrayList<>();
         for (CarInformation car : winnerCars) {
@@ -65,7 +65,7 @@ public class Application {
         return winners;
     }
 
-    private static void printWinners(List<String> winners) {
+    public static void printWinners(List<String> winners) {
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
