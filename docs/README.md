@@ -18,5 +18,5 @@ JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 �
 /////////////////////////////
 자동차가 필요  Car  메서드: 자동차이름
 게임 횟수를 입력할 사용자 필요   User  메서드:횟수입력
-GO STOP 해주는거 필요 Score  메서드: go ,stop
+GO STOP 해주는거 필요 Score  메서드: move 
 GO 횟수를 더 해 누가 이길지 비교기 필요 Validate 메서드:valid
