@@ -1,9 +1,7 @@
 package racingcar.Service;
 
 import racingcar.Domain.Car;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
