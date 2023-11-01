@@ -18,7 +18,7 @@ public class Car {
         return move;
     }
 
-    public String getMove() {
+    public String getMoveDistance() {
         return "-".repeat(move);
     }
 

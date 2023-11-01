@@ -23,7 +23,7 @@ public class RacingGame {
         for (int i = 0; i < raceCount; i++) {
             for (Car car : cars) {
                 car.tryMove();
-                System.out.println(car.getName() + " : " + car.getMove());
+                System.out.println(car.getName() + " : " + car.getMoveDistance());
             }
             System.out.println();
         }
