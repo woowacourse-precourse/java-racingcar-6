@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public class Car {
 
+    private static final int MOVE_CONDITION = 4;
     private CarName carName;
     private Distance distance;
 
@@ -10,9 +11,17 @@ public class Car {
         this.distance = new Distance(distance);
     }
 
+    public void move(final int number) {
+        if (number >= MOVE_CONDITION) {
+            this.distance = distance.increase();
+        }
     }
 
     public CarName getCarName() {
         return carName;
+    }
+
+    public Distance getDistance() {
+        return distance;
     }
 }
