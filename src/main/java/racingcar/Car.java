@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.constant.ExceptionMessage.BLANK_NAME;
+import static racingcar.constant.ExceptionMessage.INVALID_BLANK_NAME;
 import static racingcar.constant.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -32,7 +32,7 @@ public class Car {
 
     private void validNameBlank(String name) {
         if (name.isBlank()) {
-            throw new IllegalArgumentException(BLANK_NAME);
+            throw new IllegalArgumentException(INVALID_BLANK_NAME);
         }
     }
 
