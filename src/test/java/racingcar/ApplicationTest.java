@@ -34,6 +34,17 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 입력값_나누기_및_저장() {
+        RacingCar racingCar = new RacingCar(new Validate());
+        String input = "pobi,woni";
+        HashMap<String, String> result = new HashMap<String, String>();
+        result.put("pobi", "");
+        result.put("woni", "");
+
+        assertThat(racingCar.splitCarName(input)).isEqualTo(result);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
