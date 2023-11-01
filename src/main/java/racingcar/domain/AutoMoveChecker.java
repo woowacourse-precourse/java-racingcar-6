@@ -17,6 +17,6 @@ public class AutoMoveChecker implements MoveChecker {
     }
 
     private boolean numberIsMoreThanThree() {
-        return randomNumberGenerator.generateRandomNumber() >= MINIMUM_NUMBER;
+        return randomNumberGenerator.generate() >= MINIMUM_NUMBER;
     }
 }
