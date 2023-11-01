@@ -1,0 +1,48 @@
+# 구현할 기능 목록
+
+- `Config`: 의존 객체를 주입해주고 생성한 객체를 반환해주는 역할을 한다.
+  - `getPrinter()`: 게임 메시지를 출력하는 객체 반환하기
+  - `getNameScanner()`: 자동차 이름을 입력받는 `GameScanner` 반환하기
+  - `getNumberScanner()`: 이동 횟수를 입력받는 `GameScanner` 반환하기
+- `RacingGame`: 자동차 경주 게임의 흐름을 제어하는 역할을 한다.
+  - `start()`: 게임 시작에 필요한 것들 준비하기
+    - `setRacingCarsWithNames()`: `RacingCar`에 이름을 짓고 리스트에 저장하기
+    - `setNumberOfTimes()`: 이동 횟수 저장하기
+  - `play()`: 게임을 입력받은 횟수만큼 진행하기
+    - `race()`: 하나의 라운드 (차수) 진행하기
+    - `finishRace()`: 우승자 찾기
+  - `end()`: 게임 마무리하기 (게임에 사용한 자원 해제하기)
+- `GamePrinter`: 자동차 경주 게임의 메시지를 출력하는 역할을 한다.
+  - `printRacingCarNameMessage()`: 경주에 참여할 자동차 이름 입력 메시지 출력하기
+  - `printNumberOfTimesMessage()`: 이동 횟수 입력 메시지 출력하기
+  - `printResult()`: 차수별 실행 결과 출력하기
+  - `printWinnersName()`: 우승자 안내 문구 출력하기
+  - `printNewLine()`: 공백 라인 출력하기
+- `GameScanner`: 자동차 경주 게임에 필요한 입력을 받는 역할을 한다.
+  - `scan()`: 입력 받기
+  - `close()`: 자원 해제하기
+- `RacingCarNameScanner`: 경주에 참여할 자동차 이름을 입력받는 역할을 한다.
+  - `scan()`: 입력 받기
+- `RacingCarNameScanner`: 이동 횟수를 입력 받는 역할을 한다.
+  - `scan()`: 입력 받기
+- `RacingCar`: 자동차의 동작을 담당하는 역할을 한다.
+  - `move()`: 자동차 전진하기
+  - `getName()`: 자동차 이름 가져오기
+  - `getPosition()`: 자동차 위치 가져오기
+  - `toString()`: 출력 형식 정의하기
+- `Result`: 차수별 실행 결과를 저장하는 역할을 한다.
+  - `add()`: 결과에 `RacingCar` 추가하기
+  - `getNames()`: 결과에 저장된 자동차의 이름을 리스트로 반환하기
+  - `findWinners()`: 우승자를 찾아서 `Result`로 반환하기
+  - `toString()`: 출력 형식 정의하기
+- `Validator`: 입력 값을 검증하는 역할을 한다.
+  - `validate()`: 검증한기
+- `RacingCarNameValidator`: 자동차 이름을 검증하는 역할을 한다.
+  - `validate()`: 검증하기
+    - `validateByLength()`: 자동차 이름의 길이 검증하기
+    - `validateByCharacter()`: 자동차 이름으로 유효한 문자인지 검증하기
+    - `validateDuplicateNames()`: 자동차 이름이 중복된 경우 검증하기
+- `NumberOfTimesValidator`: 이동 횟수를 검증하는 역할을 한다.
+  - `validate()`: 검증하기
+    - `validateContainingOnlyNumbers`: 이동 횟수에 대한 입력이 숫자인지 검증하기
+    - `validateByRange()`: 이동 횟수에 대한 입력이 양수이면서 `int` 범위 이내인지 검증하기
