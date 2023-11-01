@@ -3,12 +3,11 @@ package racingcar.domain;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
     @Test
-    void 자동차_랜덤값_4이상_이동(){
+    void 자동차_랜덤값_4이상_이동() {
         //given
         Car car = new Car("유정");
         int random1 = 5;
@@ -25,7 +24,7 @@ class CarTest {
     }
 
     @Test
-    void 자동차_랜덤값_4미만_미이동(){
+    void 자동차_랜덤값_4미만_미이동() {
         //given
         Car car = new Car("유정");
         int random1 = 3;

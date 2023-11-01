@@ -8,20 +8,21 @@ public class Car {
     private final Name name;
     private int position = INITIAL_DISTANCE;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = new Name(name);
     }
 
-    public void move(int random){
-        if (random >= MOVABLE_NUMBER){
+    public void move(int random) {
+        if (random >= MOVABLE_NUMBER) {
             position++;
         }
     }
 
-    public String getName(){
+    public String getName() {
         return name.getName();
     }
-    public int getPosition(){
+
+    public int getPosition() {
         return position;
     }
 }

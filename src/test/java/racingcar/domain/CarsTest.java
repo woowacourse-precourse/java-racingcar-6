@@ -2,13 +2,15 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarsTest {
 
     @Test
-    void 중복_체크(){
+    void 중복_체크() {
         //given
         String input = "유정,유정,유정님";
 
@@ -19,7 +21,7 @@ class CarsTest {
     }
 
     @Test
-    void 공동_우승(){
+    void 공동_우승() {
         //given
         String name1 = "유정";
         String name2 = "권유정";
@@ -32,7 +34,7 @@ class CarsTest {
     }
 
     @Test
-    void 한명_우승(){
+    void 한명_우승() {
         //given
         String name1 = "유정";
         String name2 = "권유정";

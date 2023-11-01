@@ -6,7 +6,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
-    private  Cars cars;
+    private Cars cars;
     private int tryCount;
 
     public void start() {
@@ -22,10 +22,10 @@ public class RacingController {
     }
 
     private void race() {
-        int nowTryCount = 0;
         OutputView.printPlayMessage();
 
-        while (tryCount + 1 != nowTryCount++){
+        int nowTryCount = 0;
+        while (tryCount + 1 != nowTryCount++) {
             cars.move();
             OutputView.printRoundResult(cars.getCars());
         }

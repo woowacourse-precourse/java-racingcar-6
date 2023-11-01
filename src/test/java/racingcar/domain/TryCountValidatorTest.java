@@ -4,11 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class TryCountValidatorTest {
     @Test
-    void 올바른_입력(){
+    void 올바른_입력() {
         //given
         String input = "4";
 
@@ -20,7 +19,7 @@ class TryCountValidatorTest {
     }
 
     @Test
-    void 올바르지_않은_입력(){
+    void 올바르지_않은_입력() {
         //given
         String input = "ㅇ";
         String input2 = "=-5";

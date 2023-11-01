@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class NameTest {
 
     @Test
-    void 올바르지_않은_이름을_사용(){
+    void 올바르지_않은_이름을_사용() {
         //given
         String s1 = "";
         String s2 = null;
@@ -30,7 +29,7 @@ class NameTest {
     }
 
     @Test
-    void 올바른_이름을_사용한_경우(){
+    void 올바른_이름을_사용한_경우() {
         //give
         String s1 = "유정이";
 
