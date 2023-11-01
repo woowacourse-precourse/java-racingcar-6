@@ -37,6 +37,10 @@
 - [x] `현재 경주 상태` 반환 기능
 - [x] `우승 자동차` 반환 기능
 
+### RandomIntGenerator
+
+- [x] `0~9 사이의 랜덤 숫자` 생성 기능
+
 ## 👩🏻‍💻 View
 
 ### InputView
@@ -60,13 +64,7 @@
 - [x] `경주 실행` 기능 (각 이동마다 경주 상태 받아 출력)
 - [x] `경주 정리` 기능 (우승자 받아 출력)
 
-## ⚙️ Util
-
-### RandomIntGenerator
-
-- [x] `0~9 사이의 랜덤 숫자` 생성 기능
-
-## 🔑 Enum
+## 🔑 Exception
 
 ### ErrorCode
 
