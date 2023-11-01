@@ -27,7 +27,7 @@ public class RacingCarGame {
 		showWinner(cars);
 	}
 
-	private void showWinner(List<Car> cars) {
+	void showWinner(List<Car> cars) {
 		StringBuilder winners = new StringBuilder();
 		winners.append("최종 우승자 : ");
 
@@ -45,7 +45,7 @@ public class RacingCarGame {
 		System.out.println(winners);
 	}
 
-	private int checkLoop(String InputLoop) {
+	int checkLoop(String InputLoop) {
 		int loop;
 
 		try {
@@ -57,7 +57,7 @@ public class RacingCarGame {
 		return loop;
 	}
 
-	private List<Car> checkCar(String userInput) {
+	List<Car> checkCar(String userInput) {
 		List<Car> cars = new ArrayList<>();
 		List<String> carNames = List.of(userInput.split(","));
 
