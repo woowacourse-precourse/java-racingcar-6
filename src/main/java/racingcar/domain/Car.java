@@ -22,6 +22,14 @@ public class Car {
         }
     }
 
+    public CarName getName() {
+        return name;
+    }
+
+    public int getPositionNumber() {
+        return position.getPosition();
+    }
+
     @Override
     public String toString() {
         return name.toString() + " : " + position.toString();
