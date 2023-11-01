@@ -22,14 +22,16 @@ public class CarRepository {
         if(!carList.contains(car))
             carList.add(car);
     }
-    public void moveForward(Car car, Move move){
+    public void moveForward(int carIndex, Move move){
         if(move == Move.STOP)
             return;
-        if(carList.contains(car))
-            car.moveForward();
+        carList.get(carIndex).moveForward();
     }
     public List<Car> findAllCars(){
         return carList;
+    }
+    public int size(){
+        return carList.size();
     }
 
 }

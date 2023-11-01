@@ -16,6 +16,9 @@ public class Car {
     public String getName(){
         return name;
     }
+    public int getForward(){
+        return forward;
+    }
 
     @Override
     public boolean equals(Object obj) {

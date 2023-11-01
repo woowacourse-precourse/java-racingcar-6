@@ -1,6 +1,7 @@
 package service;
 
 import domain.Car;
+import domain.Move;
 import repository.CarRepository;
 
 import java.util.HashMap;
@@ -23,5 +24,21 @@ public class CarService {
             carRepository.save(car);
         }
     }
+    public int repositorySize(){
+        return carRepository.size();
+    }
+    public void moveAllCars(List<Integer> moveConditionValues){
+        int listSize = repositorySize();
+        for(int i=0; i< listSize; i++){
+            int moveCondition = moveConditionValues.get(i);
+
+            Move move = Move.STOP;
+            if(moveCondition >= 4)
+                move = Move.FORWARD;
+
+            carRepository.moveForward(i,move);
+        }
+    }
+
 
 }
