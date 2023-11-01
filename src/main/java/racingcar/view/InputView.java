@@ -20,12 +20,18 @@ public class InputView {
     private String[] parseToNames(String[] carNames) {
         return Arrays.stream(carNames)
                 .map(String::trim)
-                .peek(carName -> {
-                    if (carName.length() == 0 || carName.length() > MAX_CAR_NAME_LENGTH) {
-                        throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
-                    }
-                })
+                .peek(this:: validateCarName)
                 .toArray(String[]::new);
+    }
+
+    private void validateCarName(String carName) {
+        validateLength(carName);
+    }
+
+    private void validateLength(String carName) {
+        if (carName.length() > MAX_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
     }
 
     private static int parseToInt(String input) {
