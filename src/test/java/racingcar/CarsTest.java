@@ -32,4 +32,14 @@ class CarsTest {
         assertThat(carList).extracting(Car::getName)
                 .containsExactly("woo..", "p*#", "cou(r", "se)");
     }
+
+    @Test
+    void findWinners_메서드가_올바른_우승자를_반환() {
+        Cars cars = new Cars("na,yoon,kang");
+        List<Car> carList = cars.toList();
+        carList.get(0).moveOrNot(MOVING_FORWARD);
+        carList.get(1).moveOrNot(STOP);
+        carList.get(2).moveOrNot(MOVING_FORWARD);
+        assertThat(cars.findWinners()).containsExactly("na", "kang");
+    }
 }
