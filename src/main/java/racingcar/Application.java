@@ -20,7 +20,19 @@ public class Application {
         System.out.println();
     }
 
-
+    public void roundResult() {
+        for (int i = 0; i < scoreList.size(); i++) {
+            int randomNumber;
+            if (randomNumbers.size() > i) {
+                randomNumber = randomNumbers.get(i);
+            } else {
+                randomNumber = Randoms.pickNumberInRange(0, 9);
+            }
+            if (randomNumber >= 4) {
+                scoreList.set(i, scoreList.get(i) + 1);
+            }
+        }
+    }
 
 }
 
