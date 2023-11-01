@@ -1,5 +1,7 @@
 package racingcar.validator;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import racingcar.constants.ValidatorConstant;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -16,13 +18,18 @@ public class CarValidatorTest {
     @NullAndEmptySource
     @ValueSource(strings = {" ", "   ", "\t", "\n"})
     void testCarNameIsNullOrEmpty(String name) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validate(name));
+        IllegalArgumentException carNameError =
+                Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validate(name));
+        assertThat(carNameError.getMessage()).isEqualTo(ValidatorConstant.carNameErrorMessage);
     }
 
     @Test
     @DisplayName("최대 길이 이상의 자동차 이름 입력 시 에러 발생 테스트")
     void testCarNameLengthOverThanMaxLength() {
         String name = "a".repeat(ValidatorConstant.MAX_CAR_NAME_LENGTH + 1);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validate(name));
+
+        IllegalArgumentException carNameError =
+                Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validate(name));
+        assertThat(carNameError.getMessage()).isEqualTo(ValidatorConstant.carNameErrorMessage);
     }
 }

@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import racingcar.constants.DomainConstant;
@@ -9,6 +10,7 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.constants.ValidatorConstant;
 
 public class CarsTest {
     @Test
@@ -28,7 +30,9 @@ public class CarsTest {
     @Test
     @DisplayName("자동차 이름 중 최대길이 이상의 이름 포함 시 에러 발생 테스트")
     void testCarNamesContainsNameLengthOverThanMaxLength() {
-        assertThrows(IllegalArgumentException.class, () -> new Cars("tiger,eagle,leopard"));
+        IllegalArgumentException carsNameError =
+                assertThrows(IllegalArgumentException.class, () -> new Cars("tiger,eagle,leopard"));
+        assertThat(carsNameError.getMessage()).isEqualTo(ValidatorConstant.carNameErrorMessage);
     }
 
     @Test
