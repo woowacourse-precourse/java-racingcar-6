@@ -6,10 +6,13 @@ import static racingcar.PrintMessage.INPUT_RACING_CAR_NAME;
 import static racingcar.PrintMessage.PRINT_GAME_RESULT;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import java.util.StringJoiner;
 
 public class CarRacingGame {
 
     private static final String RACING_CAR_NAME_SEPARATOR = ",";
+    private static final String WINNER_RACING_CAR_NAME_DELIMITER= ", ";
 
     public void run(){
         System.out.println(INPUT_RACING_CAR_NAME);
@@ -28,6 +31,9 @@ public class CarRacingGame {
             stringBuilder.append(racingCars).append(System.lineSeparator()).append(System.lineSeparator());
         }
         System.out.println(stringBuilder);
+        List<String> winnerNames = racingCars.getWinnerNames();
+        StringJoiner winnerNamesJoiner = new StringJoiner(WINNER_RACING_CAR_NAME_DELIMITER);
+        winnerNames.stream().forEach(name -> winnerNamesJoiner.add(name));
     }
 
 
