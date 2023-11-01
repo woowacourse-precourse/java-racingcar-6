@@ -30,3 +30,9 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# IntelliJ IDEA
+.idea/
+
+# Compiled class files
+*.class
