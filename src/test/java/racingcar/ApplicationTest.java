@@ -85,6 +85,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 경주_횟수에_정수가_아닌_다른_자료형이_들어오면_예외_처리() {
+        String input = "k";
+
+        assertThatThrownBy(() ->
+                assertThatThrownBy(() -> runException(input))
+                        .isInstanceOf(NumberFormatException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
