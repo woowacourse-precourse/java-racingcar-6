@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -50,7 +51,11 @@ public class Application {
         announceWinner(cars);
     }
     private static void moveCars(List<Car> cars) {
-
+        for (Car car : cars) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                car.moveForward();
+            }
+        }
     }
 
     private static void printCars(List<Car> cars) {
