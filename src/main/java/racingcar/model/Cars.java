@@ -26,4 +26,8 @@ public record Cars(List<Car> cars) {
                 .filter(car -> car.getPoint() == maxPoint)
                 .toList();
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
