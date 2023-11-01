@@ -1,7 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -34,5 +37,27 @@ class ApplicationTest extends NsTest {
     @Override
     public void runMain() {
         Application.main(new String[]{});
+    }
+
+    @ParameterizedTest
+    @DisplayName("경주 횟수에 대한 예외 처리")
+    @ValueSource(strings = {"-1", "0", "eng", "한글"})
+    void raceCountFailTest(String raceCount) {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", raceCount))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("우승자 여러명")
+    void winnersTest() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,eora", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ","eora : -", "최종 우승자 : pobi, eora");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
     }
 }
