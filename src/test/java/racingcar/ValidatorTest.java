@@ -48,4 +48,18 @@ class ValidatorTest {
         //when, then
         assertThatIllegalArgumentException().isThrownBy(() -> validator.playTimes(playTimes));
     }
+
+    @Test
+    @DisplayName("예외 - 쉼표가 입력 처음과 끝에 존재한다.")
+    void test5() {
+        //given
+        final String carNames1 = ",go,min,seok";
+        final String carNames2 = "go,min,seok,";
+        final String carNames3 = ",go,min,seok,";
+
+        //when, then
+        assertThatIllegalArgumentException().isThrownBy(() -> validator.correctCommaLocation(carNames1));
+        assertThatIllegalArgumentException().isThrownBy(() -> validator.correctCommaLocation(carNames2));
+        assertThatIllegalArgumentException().isThrownBy(() -> validator.correctCommaLocation(carNames3));
+    }
 }
