@@ -15,6 +15,7 @@ public class RacingController {
         play();
         showWinner();
     }
+
     public void setCars(){
         try{
             String [] nameArray= InputNames.carInput();
