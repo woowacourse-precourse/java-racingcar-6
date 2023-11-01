@@ -1,17 +1,16 @@
 package racingcar.domain;
 
 import racingcar.view.Output;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
     private List<Car> cars = new ArrayList<>();
-    private int numberOfAttempts;
+    private int attemptCount;
 
     public Game(String carNames, int numberOfAttempts) {
         initializeCars(carNames);
-        this.numberOfAttempts = numberOfAttempts;
+        this.attemptCount = numberOfAttempts;
     }
 
     private void initializeCars(String carNames) {
@@ -22,13 +21,14 @@ public class Game {
         }
     }
 
-    public void startGame() {
+    public void setGame() {
         currentCondition();
+        isWinners();
     }
 
-    public void currentCondition() {
+    private void currentCondition() {
         Output.attemptResultMessage();
-        for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
+        for (int attempt = 0; attempt < attemptCount; attempt++) {
             for (Car car : cars) {
                 car.move();
                 car.currentLocation();
@@ -37,11 +37,11 @@ public class Game {
         }
     }
 
-    public void printWinners() {
+    private void isWinners() {
         List<String> winners = new ArrayList<>();
 
         setWinners(winners);
-        getWinners(winners);
+        printWinners(winners);
     }
 
     private void setWinners(List<String> winners) {
@@ -58,7 +58,7 @@ public class Game {
         }
     }
 
-    private void getWinners(List<String> winners) {
+    private void printWinners(List<String> winners) {
         Output.winnerMessage();
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));

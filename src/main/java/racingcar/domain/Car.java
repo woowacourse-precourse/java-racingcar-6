@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+class Car {
     private String name;
     private int forwardCount;
 

@@ -6,23 +6,22 @@ import racingcar.view.Output;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
-    private Game game;
+    private Game race;
 
     public RacingGame() {
     }
 
     public void start() {
-        ready();
-        game.startGame();
-        game.printWinners();
+        gameReady();
+        race.setGame();
     }
 
-    public void ready() {
+    private void gameReady() {
         Output.carNameInputMessage();
         String carNames = Input.carNamesInput();
         Output.attemptInputMessage();
-        int numberOfAttempts = Input.attemptInput();
-        game = new Game(carNames, numberOfAttempts);
+        int attemptCount = Input.attemptCountInput();
+        race = new Game(carNames, attemptCount);
     }
 
     public static void exception(String str) {

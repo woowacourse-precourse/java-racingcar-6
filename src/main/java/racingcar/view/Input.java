@@ -1,8 +1,6 @@
 package racingcar.view;
 
 import racingcar.domain.Validator;
-import racingcar.controller.RacingGame;
-import racingcar.domain.ErrorMessage;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Input {
@@ -15,9 +13,9 @@ public class Input {
         return carNames;
     }
 
-    public static int attemptInput() {
-        int numberOfAttempts = Integer.parseInt(Console.readLine());
-        Validator.checkAttempt(numberOfAttempts);
-        return numberOfAttempts;
+    public static int attemptCountInput() {
+        int attemptCount = Integer.parseInt(Console.readLine());
+        Validator.checkAttemptCount(attemptCount);
+        return attemptCount;
     }
 }

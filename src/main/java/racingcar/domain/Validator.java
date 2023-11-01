@@ -7,20 +7,20 @@ public class Validator {
     }
 
     /* for carNames */
-    public static boolean isEmpty(String name) {
-        return name == null || name.trim().isEmpty();
+    private static boolean isEmpty(String canNames) {
+        return canNames == null || canNames.trim().isEmpty();
     }
 
-    public static boolean isNumber(String input) {
+    private static boolean isNumber(String canNames) {
         try {
-            int num = Integer.parseInt(input);
+            int num = Integer.parseInt(canNames);
             return true;
         } catch (NumberFormatException e) {
             return false;
         }
     }
 
-    public static boolean isOneString(String carNames) {
+    private static boolean isOneString(String carNames) {
         return carNames.split(",").length < 2;
     }
 
@@ -35,8 +35,7 @@ public class Validator {
     }
 
     /* for Car.name */
-
-    public static boolean isShorterFive(String name) {
+    private static boolean isShorterFive(String name) {
         return name.length() > 5;
     }
 
@@ -46,20 +45,19 @@ public class Validator {
         }
     }
 
-    /* for numberOfAttempts */
-
-    public static boolean isZero(int attempt) {
-        return attempt == 0;
+    /* for attemptCount */
+    private static boolean isZero(int attemptCount) {
+        return attemptCount == 0;
     }
 
-    public static boolean isNegative(int attempt) {
-        return attempt < 0;
+    private static boolean isNegative(int attemptCount) {
+        return attemptCount < 0;
     }
 
-    public static void checkAttempt(int numberOfAttempts) {
-        if (Validator.isZero(numberOfAttempts)) {
+    public static void checkAttemptCount(int attemptCount) {
+        if (Validator.isZero(attemptCount)) {
             RacingGame.exception(ErrorMessage.IS_ZERO);
-        } else if (Validator.isNegative(numberOfAttempts)) {
+        } else if (Validator.isNegative(attemptCount)) {
             RacingGame.exception(ErrorMessage.IS_NEGATIVE);
         }
     }
