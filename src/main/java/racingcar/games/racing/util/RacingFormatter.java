@@ -15,6 +15,15 @@ public class RacingFormatter {
         return carNames;
     }
 
+    public int reformatAttemptNumber(String input) {
+        try {
+            int attemptNumber = Integer.parseInt(input);
+            return attemptNumber;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자로 입력해야 합니다.");
+        }
+    }
+
     private void validateCarNames(int beforeFilteringSize, int afterFilteringSize) {
         if (beforeFilteringSize != afterFilteringSize) {
             throw new IllegalArgumentException("자동차 이름은 1글자 이상, 5글자 이하만 가능합니다.");
