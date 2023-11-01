@@ -32,4 +32,22 @@ class CarDaoImplTest {
             }
         }
     }
+    
+    @DisplayName("가장 큰 전진 횟수(moveCount)를 반환한다.")
+    @Test
+    void selectTopMoveCount() {
+        for (int i=0; i<10; i++) {
+            carDao.increaseMoveCount("pobi");
+            if (i < 8) {
+                carDao.increaseMoveCount("woni");
+            }
+            if (i < 3) {
+                carDao.increaseMoveCount("jun");
+            }
+        }
+
+        assertThat(carDao.selectTopMoveCount())
+                .isEqualTo(10);
+
+    }
 }
