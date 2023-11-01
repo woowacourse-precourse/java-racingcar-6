@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.constant.GameNumber.MOVE_NUMBER;
+
+import racingcar.Utils;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -17,6 +21,8 @@ public class Car {
     }
 
     public void move() {
-        position++;
+        if (Utils.createRandomNumber() >= MOVE_NUMBER) {
+            position++;
+        }
     }
 }

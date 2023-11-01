@@ -10,14 +10,12 @@ import java.util.List;
 import racingcar.view.OutputView;
 
 public class Game {
-    private final Movement move;
     private final List<Car> cars;
     private int attemptNumber;
 
     public Game(List<Car> cars, int attemptNumber) {
         this.cars = cars;
         this.attemptNumber = attemptNumber;
-        move = new Movement();
     }
 
     public void startRacing() {
@@ -28,7 +26,7 @@ public class Game {
     public void playRacing() {
         OutputView.printResultMessage();
         while (attemptNumber != STOP_ATTEMPT_NUMBER) {
-            move.moveCar(cars);
+            moveCar();
             OutputView.printRoundResult(getRoundResult());
             attemptNumber--;
         }
@@ -62,7 +60,6 @@ public class Game {
         }
 
         return maxPosition;
-
     }
 
     public List<String> findWinner() {
@@ -76,6 +73,10 @@ public class Game {
         }
 
         return winners;
+    }
+
+    public void moveCar() {
+        cars.forEach(Car::move);
     }
 
 }
