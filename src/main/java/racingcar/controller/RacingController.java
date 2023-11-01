@@ -3,8 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.model.Game;
-
-
+import racingcar.utils.Constant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,13 +26,13 @@ public class RacingController {
     }
 
     private void validMovement(Car car){
-        if(setRandomNums() >= 4){
-            car.movingForward(1);
+        if(setRandomNums() >= Constant.FORWARD){
+            car.movingForward(Constant.INCREASE_DISTANCE);
         }
     }
 
     private Integer setRandomNums() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(Constant.MIN_NUMBER, Constant.MAX_NUMBER);
     }
 
     private List<String> getMaxPositionCars (List<Car> cars, int maxPosition) {
@@ -47,7 +46,7 @@ public class RacingController {
     }
 
     private int getMaxPosition(List<Car> cars){
-        int max = -1;
+        int max = Constant.INITIAL_POSITION_VALUE;
         for (Car car : cars){
             if (max < car.getPosition()){
                 max = car.getPosition();

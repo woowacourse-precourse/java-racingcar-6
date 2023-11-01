@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
 public class InputException {
     private Set<String> existCarNames = new HashSet<>();
     private final Parser parser = new Parser();
@@ -26,36 +27,36 @@ public class InputException {
 
     private void checkEmpty(String input) {
         if (input.isEmpty()){
-            throw new IllegalArgumentException("값을 입력해주세요");
+            throw new IllegalArgumentException(Constant.IS_EMPTY);
         }
     }
 
     private void checkCarNameDuplicated(String carName){
         if(!existCarNames.add(carName)){
-            throw new IllegalArgumentException("자동차의 이름이 중복됩니다.");
+            throw new IllegalArgumentException(Constant.IS_DUPLICATED);
         }
     }
 
     private void checkCarNameLength(String carName){
-        if (carName.length() > 4){
+        if (carName.length() > Constant.MAX_LENGTH){
             maxLengthException();
         }
-        if (carName.length() < 1){
+        if (carName.length() < Constant.MIN_LENGTH){
             minLengthException();
         }
     }
 
     private void maxLengthException(){
-        throw new IllegalArgumentException("자동차 이름은 5글자 미만여야 합니다.");
+        throw new IllegalArgumentException(Constant.IS_MAXIMUM);
     }
 
     private void minLengthException(){
-        throw new IllegalArgumentException("자동차 이름은 1글자 이상이야 합니다.");
+        throw new IllegalArgumentException(Constant.IS_MINIMUM);
     }
 
     private void invalidSpace(String carName){
         if (carName.contains(" ")){
-            throw new IllegalArgumentException("이름에 공백은 포함되어선 안됩니다.");
+            throw new IllegalArgumentException(Constant.IS_BLANK);
         }
     }
 
@@ -70,14 +71,14 @@ public class InputException {
         try{
             Integer.parseInt(input);
         } catch (NumberFormatException e){
-            throw new IllegalArgumentException("숫자를 옳바르게 입력해주세요");
+            throw new IllegalArgumentException(Constant.IS_CHAR);
         }
     }
 
     private void checkMinimum(String input){
        int number = Integer.parseInt(input);
        if (number < 1){
-           throw new IllegalArgumentException("최소 시도 횟수는 1이상입니다.");
+           throw new IllegalArgumentException(Constant.IS_POSITIVE);
        }
     }
 }

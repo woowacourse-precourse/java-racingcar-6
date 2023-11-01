@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Parser {
     public List<String> parseCar(String input){
-        return new ArrayList<>(Arrays.asList(input.split(",")));
+        return new ArrayList<>(Arrays.asList(input.split(Constant.STANDARD_SEPARATE_CARS)));
     }
 
     public int parseNumberOfTry (String input){
