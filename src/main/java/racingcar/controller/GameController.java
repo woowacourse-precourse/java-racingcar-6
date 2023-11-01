@@ -5,6 +5,7 @@ import racingcar.Validator;
 import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.service.GameService;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -29,8 +30,7 @@ public class GameController {
     }
 
     private List<Car> createCarList() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carName = Console.readLine();
+        String carName = InputView.getCarNames();
         List<String> carNames = gameService.parseCarName(carName);
         validator.checkCarName(carNames);
         List<Car> cars = saveCars(carNames);
@@ -38,8 +38,7 @@ public class GameController {
     }
 
     private int createTrialNum() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String countTrial = Console.readLine();
+        String countTrial = InputView.getTrialNum();
         validator.checkVaildNum(countTrial);
         int trialNum = saveTrialNum(countTrial);
         return trialNum;

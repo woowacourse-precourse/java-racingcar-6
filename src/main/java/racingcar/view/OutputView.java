@@ -16,7 +16,7 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> carNames) {
-        printWinnerMessage();
+        System.out.print(WINNERS_LIST);
         System.out.print(carNames.get(0));
         if (carNames.size() > SOLO) {
             printCarNames(carNames);
@@ -41,9 +41,5 @@ public class OutputView {
         for (int i = 0; i < car.getPosition(); i++) {
             System.out.print("-");
         }
-    }
-
-    private static String printWinnerMessage() {
-        return WINNERS_LIST;
     }
 }
