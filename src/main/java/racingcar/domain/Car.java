@@ -40,6 +40,7 @@ public class Car {
         builder.append(this.name.getCarName());
         builder.append(" : ");
         builder.append("-".repeat(Math.max(0, getMovedDistance())));
+        builder.append(System.lineSeparator());
         return builder.toString();
     }
 

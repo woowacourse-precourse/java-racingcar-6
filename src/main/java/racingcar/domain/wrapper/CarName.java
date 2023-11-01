@@ -1,5 +1,7 @@
 package racingcar.domain.wrapper;
 
+import racingcar.domain.exception.BadCarNameException;
+
 public class CarName {
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private final String carName;
@@ -15,7 +17,7 @@ public class CarName {
 
     public static void validateCarName(String carName) {
         if (carName.isBlank() || carName.length() > MAX_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 1글자 이상, 5글자 이하만 가능합니다.");
+            throw new BadCarNameException("자동차 이름 길이 제한을 벗어났습니다.");
         }
     }
 

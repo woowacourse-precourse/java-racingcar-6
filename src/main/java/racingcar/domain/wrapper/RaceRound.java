@@ -1,8 +1,10 @@
 package racingcar.domain.wrapper;
 
 import java.util.regex.Pattern;
+import racingcar.domain.exception.BadRaceRoundException;
 
 public class RaceRound {
+    private static final int MIN_NUMBER_OF_ROUND = 1;
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]*$");
     private final int numberOfRound;
 
@@ -12,11 +14,11 @@ public class RaceRound {
 
     public static RaceRound create(String numberOfRoundString) {
         if (!NUMBER_PATTERN.matcher(numberOfRoundString).matches()) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+            throw new BadRaceRoundException("숫자만 입력 가능합니다.");
         }
         int numberOfRound = Integer.parseInt(numberOfRoundString);
-        if (numberOfRound <= 0) {
-            throw new IllegalArgumentException("1 이상의 숫자만 입력 가능합니다.");
+        if (numberOfRound < MIN_NUMBER_OF_ROUND) {
+            throw new BadRaceRoundException(MIN_NUMBER_OF_ROUND + " 이상의 숫자만 입력 가능합니다.");
         }
         return new RaceRound(numberOfRound);
     }

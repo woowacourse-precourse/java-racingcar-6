@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import racingcar.domain.exception.BadCarNameException;
+import racingcar.domain.exception.DuplicateCarNameException;
 
 public class Cars {
     private static final String CAR_NAME_DELIMITER = ",";
@@ -27,14 +29,14 @@ public class Cars {
         if (carNames.contains(CAR_NAME_DELIMITER.repeat(2))
                 || carNames.startsWith(CAR_NAME_DELIMITER)
                 || carNames.endsWith(CAR_NAME_DELIMITER)) {
-            throw new IllegalArgumentException("자동차 이름은 1글자 이상, 5글자 이하만 가능합니다.");
+            throw new BadCarNameException("자동차 이름 길이 제한을 벗어났습니다.");
         }
     }
 
     private static String[] splitCarNames(String carNames) {
         String[] splittedCarNames = carNames.split(CAR_NAME_DELIMITER);
         if (splittedCarNames.length == 0) {
-            throw new IllegalArgumentException("유효하지 않은 자동차 이름 입력입니다.");
+            throw new BadCarNameException("자동차 이름 길이 제한을 벗어났습니다.");
         }
         return splittedCarNames;
     }
@@ -47,7 +49,7 @@ public class Cars {
         HashSet<String> carNameSet = new HashSet<>();
         for (String carName : carNames) {
             if (carNameSet.contains(carName)) {
-                throw new IllegalArgumentException("중복된 이름이 존재합니다.");
+                throw new DuplicateCarNameException("중복된 이름이 존재합니다.");
             }
             carNameSet.add(carName);
         }
