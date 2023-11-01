@@ -10,7 +10,14 @@ public class Application {
         if (carNamesInput == null || carNamesInput.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 비어있을 수 없습니다.");
         }
+        String[] carNames = carNamesInput.split("\\s*,\\s*");
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하이어야 합니다.");
+            }
+        }
     }
+
 
     private static int parseAttempts(String attemptsInput) {
         try {

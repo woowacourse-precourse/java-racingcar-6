@@ -64,7 +64,7 @@ public class Game {
 
     public static void printWinners(List<String> winners) {
         String winnerNames = String.join(", ", winners);
-        System.out.println("최종 우승자: " + winnerNames);
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 
 
