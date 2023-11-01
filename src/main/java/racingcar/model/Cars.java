@@ -44,20 +44,20 @@ public class Cars {
         }
     }
 
-    public List<Car> getMaximumMovedCarList() {
+    public List<String> getMaximumMovedCarNameList() {
         Integer maximumCount = Collections.max(this.movedCount);
-        List<Car> cars = new ArrayList<>();
+        List<String> carNameList = new ArrayList<>();
 
         for (int i = 0; i < this.carListSize; ++i) {
             Integer currentMoved = this.movedCount.get(i);
 
             if (currentMoved.equals(maximumCount)) {
                 Car currentCar = this.carList.get(i);
-                cars.add(currentCar);
+                carNameList.add(currentCar.toString());
             }
         }
 
-        return cars;
+        return carNameList;
     }
 
     public Integer size() {

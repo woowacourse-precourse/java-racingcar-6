@@ -6,6 +6,7 @@ import racingcar.enums.GameConstant;
 import racingcar.model.Cars;
 import racingcar.model.GameState;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameEngine {
     private Cars cars;
@@ -19,11 +20,20 @@ public class GameEngine {
 
     public void proceedGame() {
         initGame();
+        OutputView.printLineFeed();
+        OutputView.printStartMessageOfResult();
 
         while (this.gameState.continueGame()) {
             List<Integer> randomNumbers = generateRandomNumbers();
             this.cars.moveAll(randomNumbers);
+
+            OutputView.printProgressAfterCarForward(this.cars);
+
+            this.gameState.increaseAttempsCount();
         }
+
+        Cars winner = new Cars(cars.getMaximumMovedCarNameList());
+        OutputView.printWinnerOfGameMessage(winner);
     }
 
     private List<Integer> generateRandomNumbers() {
