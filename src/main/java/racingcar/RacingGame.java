@@ -10,8 +10,11 @@ public class RacingGame {
 	public RacingGame() {
 
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		String inputNames = Console.readLine();
+		addCar(Console.readLine());
 
+	}
+
+	public void addCar(String inputNames) {
 		String[] carNames = inputNames.split(",");
 		for (String name : carNames) {
 			if (name.length() <= 5) {

@@ -12,7 +12,7 @@ public class RacingController {
 
 	public void runGame() {
 		int tryCount = getTryCount();
-		System.out.println("\b실행 결과");
+		System.out.println("\n실행 결과");
 		racingGame.runRacing(tryCount);
 		printResults();
 	}
