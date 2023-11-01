@@ -29,7 +29,7 @@ class InputManagerTest {
         //when
         Integer result = inputManager.inputTryCount();
         //then
-        String expected = 5;
+        Integer expected = 5;
         assertEquals(expected, result);
     }
 
