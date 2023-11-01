@@ -1,28 +1,23 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import racingcar.util.Validate;
 
 public class Cars {
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         Validate.carNamesDuplicate(cars);
         Validate.carNameIsOne(cars);
 
-        this.cars = cars;
+        this.cars = new ArrayList<>(cars);
     }
 
     public List<Car> getCars() {
-        return cars;
-    }
-
-    public int size() {
-        return cars.size();
+        return this.cars;
     }
 
     /**
@@ -32,7 +27,8 @@ public class Cars {
      * @return List<String> : member 들의 이름
      */
     public List<String> getWinner(int position) {
-        return cars.stream()
+        return this.cars
+                .stream()
                 .filter(car -> car.getPosition() == position)
                 .map(Car::getMember)
                 .collect(Collectors.toList());
@@ -44,7 +40,8 @@ public class Cars {
      * @return int: Cars의 멤버 중 가장 높은 position을 반환
      */
     public int getMaxPosition() {
-        return cars.stream()
+        return this.cars
+                .stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
@@ -53,13 +50,5 @@ public class Cars {
     public void forward() {
         cars.stream()
                 .forEach(car -> randomForward(car));
-    }
-
-    private void randomForward(Car car) {
-        int randomValue = Randoms.pickNumberInRange(1, 9);
-
-        if (randomValue >= 4) {
-            car.forward();
-        }
     }
 }
