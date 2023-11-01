@@ -2,8 +2,6 @@ package racingcar.unit.game;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.BDDMockito.given;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,15 +12,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.common.config.RacingCarRule;
-import racingcar.config.RandomMock;
+import racingcar.config.RacerMovingNumber;
 import racingcar.game.RacingGameManager;
 import racingcar.mock.MockRacingGameScreen;
-import racingcar.util.Random;
+import racingcar.mock.MockRandom;
 
-class RacingGameManagerTest extends RandomMock {
+class RacingGameManagerTest extends RacerMovingNumber {
 
+    private final MockRandom mockRandom = new MockRandom();
     private final MockRacingGameScreen mockScreen = new MockRacingGameScreen(null, null);
-    private final RacingGameManager racingGameManager = new RacingGameManager(mockScreen);
+    private final RacingGameManager racingGameManager = new RacingGameManager(mockRandom, mockScreen);
 
     @Nested
     @DisplayName("자동차 경주 게임을 성공적으로 수행한다.")
@@ -34,7 +33,7 @@ class RacingGameManagerTest extends RandomMock {
             //given
             mockScreen.setRacingCarNames("car1,car2,car3");
             mockScreen.setTotalTurn("5");
-            given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(
+            mockRandom.setRandomNumber(
                     MOVING_FORWARD, STOP, MOVING_FORWARD,
                     MOVING_FORWARD, STOP, MOVING_FORWARD,
                     MOVING_FORWARD, STOP, MOVING_FORWARD,
@@ -57,7 +56,7 @@ class RacingGameManagerTest extends RandomMock {
             //given
             mockScreen.setRacingCarNames("car1,car2,car3,car4,car5,car6");
             mockScreen.setTotalTurn("5");
-            given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(
+            mockRandom.setRandomNumber(
                     MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD,
                     MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD,
                     MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD,

@@ -4,20 +4,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import racingcar.common.config.RacingCarRule;
 import racingcar.domain.RacerRegistry;
 import racingcar.domain.racer.Racer;
 import racingcar.game.vo.RacerPosition;
+import racingcar.util.Random;
 
 public class RacingTurnProcessor<T extends Racer> {
+    private final Random random;
     private final List<T> racers = new ArrayList<>();
 
-    public RacingTurnProcessor(RacerRegistry<T> racerRegistry) {
+    public RacingTurnProcessor(Random random, RacerRegistry<T> racerRegistry) {
+        this.random = random;
         this.racers.addAll(racerRegistry.getRacers());
     }
 
     public void progressTurn() {
+
         for (T racer : racers) {
-            racer.move();
+            racer.move(random.getRandomNumberInRange(RacingCarRule.RANDOM_NUMBER_MIN, RacingCarRule.RANDOM_NUMBER_MAX));
         }
     }
 

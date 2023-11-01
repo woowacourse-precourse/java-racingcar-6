@@ -6,13 +6,16 @@ import racingcar.domain.RacingTurn;
 import racingcar.domain.racer.Racer;
 import racingcar.game.vo.RacingCarNamesInput;
 import racingcar.game.vo.TotalTurnInput;
+import racingcar.util.Random;
 
 public class RacingGameManager {
 
+    private final Random random;
     private final RacingGameScreen racingGameScreen;
     private final RacerRegistry<Racer> racerRegistry = new RacerRegistry<>();
 
-    public RacingGameManager(RacingGameScreen racingGameScreen) {
+    public RacingGameManager(Random random, RacingGameScreen racingGameScreen) {
+        this.random = random;
         this.racingGameScreen = racingGameScreen;
     }
 
@@ -42,7 +45,7 @@ public class RacingGameManager {
     private List<String> race(RacingTurn totalTurn) {
         racingGameScreen.startShowGameResult();
 
-        RacingTurnProcessor<Racer> racingTurnProcessor = new RacingTurnProcessor<>(racerRegistry);
+        RacingTurnProcessor<Racer> racingTurnProcessor = new RacingTurnProcessor<>(random, racerRegistry);
         for (int i = 0; i < totalTurn.getCount(); i++) {
             racingTurnProcessor.progressTurn();
             racingGameScreen.showTurnResult(racingTurnProcessor.getRacerPositions());

@@ -1,11 +1,7 @@
 package racingcar.domain.racer;
 
-import racingcar.util.Random;
-
 public class RacingCar extends Racer {
 
-    private static final int RANDOM_NUMBER_MIN = 0;
-    private static final int RANDOM_NUMBER_MAX = 9;
     private static final int MIN_MOVING_FORWARD_NUMBER = 4;
 
     protected RacingCar(String name) {
@@ -17,12 +13,11 @@ public class RacingCar extends Racer {
     }
 
     @Override
-    public void move() {
-        moveForwardOrStop();
+    public void move(int number) {
+        moveForwardOrStop(number);
     }
 
-    private void moveForwardOrStop() {
-        int number = Random.getRandomNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+    private void moveForwardOrStop(int number) {
         if (number >= MIN_MOVING_FORWARD_NUMBER) {
             ++position;
         }

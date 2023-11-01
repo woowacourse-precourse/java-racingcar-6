@@ -1,22 +1,20 @@
 package racingcar.unit.game;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.BDDMockito.given;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.config.RandomMock;
+import racingcar.config.RacerMovingNumber;
 import racingcar.domain.RacerRegistry;
 import racingcar.domain.racer.RacingCar;
 import racingcar.game.RacingTurnProcessor;
 import racingcar.game.vo.RacerPosition;
-import racingcar.util.Random;
+import racingcar.mock.MockRandom;
 
-class RacingTurnProcessorTest extends RandomMock {
+class RacingTurnProcessorTest extends RacerMovingNumber {
 
     private static RacerRegistry<RacingCar> getRacingCarRegistry(String... names) {
         List<RacingCar> racingCarList = new ArrayList<>();
@@ -32,10 +30,16 @@ class RacingTurnProcessorTest extends RandomMock {
     @Test
     void progressTurn() {
         //given
-        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(
+        MockRandom mockRandom = new MockRandom();
+        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(mockRandom,
                 getRacingCarRegistry("a", "b", "c"));
-        given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(
-                MOVING_FORWARD, STOP, MOVING_FORWARD);
+        mockRandom.setRandomNumber(
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, STOP
+        );
         //when
         racingTurnProcessor.progressTurn();
         //then
@@ -47,7 +51,8 @@ class RacingTurnProcessorTest extends RandomMock {
     @Test
     void getTurnResult() {
         //given
-        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(
+        MockRandom mockRandom = new MockRandom();
+        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(mockRandom,
                 getRacingCarRegistry("a", "b", "c"));
         //when
         List<RacerPosition> turnResult = racingTurnProcessor.getRacerPositions();
@@ -65,14 +70,11 @@ class RacingTurnProcessorTest extends RandomMock {
     @Test
     void getWinners() {
         //given
-        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(
+        MockRandom mockRandom = new MockRandom();
+        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(mockRandom,
                 getRacingCarRegistry("a", "b", "c"));
-        given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(
-                MOVING_FORWARD, STOP, MOVING_FORWARD);
-        given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(
-                MOVING_FORWARD, STOP, MOVING_FORWARD);
+        mockRandom.setRandomNumber(MOVING_FORWARD, STOP, MOVING_FORWARD);
         //when
-        racingTurnProcessor.progressTurn();
         racingTurnProcessor.progressTurn();
         List<String> winners = racingTurnProcessor.getWinners();
         //then
