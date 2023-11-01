@@ -6,6 +6,10 @@ import java.util.List;
 import static racingcar.view.inputview.SettingInputView.DELIMITER;
 
 public final class InputValidator {
+
+    private static final char MIN_NUMBER_SIZE = '0';
+    private static final char MAX_NUMBER_SIZE = '9';
+
     private InputValidator() {
     }
 
@@ -22,7 +26,7 @@ public final class InputValidator {
 
     static void isOnlyNaturalNumber(String input) {
         boolean isAllNatural = input.chars()
-                .allMatch(number -> '0' <= number && number <= '9');
+                .allMatch(number -> MIN_NUMBER_SIZE <= number && number <= MAX_NUMBER_SIZE);
 
         if (!isAllNatural) {
             throw new IllegalArgumentException();
