@@ -6,10 +6,6 @@ public class Position implements Comparable<Position> {
 
     private int position = START_POSITION;
 
-    public int getPosition() {
-        return position;
-    }
-
     @Override
     public String toString() {
         return POSITION_SYMBOL.repeat(position);
