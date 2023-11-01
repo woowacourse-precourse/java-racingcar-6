@@ -3,7 +3,6 @@ package racingcar.domain;
 import racingcar.message.OutputMessage;
 import racingcar.resource.CarGameValue;
 import racingcar.util.LetterUtil;
-import racingcar.util.RandomUtil;
 
 public class Car {
 
