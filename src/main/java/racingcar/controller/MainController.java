@@ -16,7 +16,7 @@ public final class MainController {
     private final Map<String, Object> model = new HashMap<>();
 
     public MainController() {
-        adapter = initControllerMapping();
+        adapter = initControllerMap();
     }
 
     public void run() {
@@ -27,7 +27,7 @@ public final class MainController {
         finishGame(gameState);
     }
 
-    private static Map<GameState, Function<Object, Controller>> initControllerMapping() {
+    private static Map<GameState, Function<Object, Controller>> initControllerMap() {
         return Map.ofEntries(
                 Map.entry(GameState.SETTING, param -> createSettingController()),
                 Map.entry(GameState.PLAYING, ControlConfig::createPlayController),
