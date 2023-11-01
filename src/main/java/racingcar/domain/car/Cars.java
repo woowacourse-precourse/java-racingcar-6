@@ -20,6 +20,20 @@ public class Cars {
         return carList.stream().map(Car::toString).collect(Collectors.joining(CAR_DELIMITER));
     }
 
+    public Names getWinnerNames() {
+        final Car winnerCar = getWinnerCar();
+
+        /**
+         * Stream API의 성능을 위해 메소드 분리 X
+         * Getter를 사용하지 않고 디미터의 법칙을 지키면서 Car -> CarDto -> Names로 가는 방법 고민해보기
+         */
+        return carList.stream()
+                .filter(winnerCar::isSamePosition)
+                .map(Car::toCarDto)
+                .map(CarDto::name)
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Names::new));
+    }
+
     public void moveAll() {
         carList.forEach(Car::move);
     }
@@ -32,5 +46,11 @@ public class Cars {
         if (carNameList.size() != carNameList.stream().distinct().count()) {
             throw new IllegalArgumentException(ErrorConsts.DUPLICATED_CAR_NAME.getMessage());
         }
+    }
+
+    private Car getWinnerCar() {
+        return carList.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(ErrorConsts.NO_WINNER_CAR.getMessage()));
     }
 }
