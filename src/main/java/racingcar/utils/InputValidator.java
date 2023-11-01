@@ -4,8 +4,12 @@ import java.util.List;
 
 public class InputValidator {
 
+    private static final int MINIMUM_CAR_COUNT = 1;
+    private static final int MIN_CAR_NAME_COUNT = 1;
+    private static final int MAX_CAR_NAME_COUNT = 5;
+
     public static void validateCarCountForRace(int carCount) {
-        if (carCount == 1) {
+        if (carCount == MINIMUM_CAR_COUNT) {
             throw new IllegalArgumentException(Message.ERROR_RACE_MINIMUM_CAR_MESSAGE.getMessage());
         }
     }
@@ -17,7 +21,7 @@ public class InputValidator {
     }
 
     public static void validateInputLength(String input) {
-        if (input.length() < 1 || input.length() > 5) {
+        if (input.length() < MIN_CAR_NAME_COUNT || input.length() > MAX_CAR_NAME_COUNT) {
             throw new IllegalArgumentException(Message.ERROR_INVALID_CAR_NAME_LENGTH_MESSAGE.getMessage());
         }
     }
