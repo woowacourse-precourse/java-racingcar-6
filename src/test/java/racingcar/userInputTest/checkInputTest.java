@@ -25,5 +25,12 @@ public class checkInputTest {
         checkException.checkCarNameException(carNameArray);
     }
 
+    @DisplayName("시도 횟수 입력이 정수가 아닌 경우")
+    @Test
+    void countNotInteger() {
+        final checkException checkException = new checkException();
+        final String askCount = "A";
 
+        checkException.checkAskCount(askCount);
+    }
 }
