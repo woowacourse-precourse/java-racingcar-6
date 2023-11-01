@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import static racingcar.Application.cars;
 
 public class DriveProcedure {
-
     public static void drive(Integer saveTrialNumber) {
         for (int i = 0; i<saveTrialNumber; i++) {
             updateDriveNum();
@@ -46,5 +45,4 @@ public class DriveProcedure {
             System.out.println(car.getName()+" : "+makeResultSign(car.getDriveNum()));
         }
     }
-
 }

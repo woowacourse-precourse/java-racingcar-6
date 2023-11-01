@@ -1,9 +1,6 @@
 package racingcar;
 
 public class InputException {
-
-
-
     public static Integer isNumberFormat(String trialNumberInput) {
         try {
             Integer trialNumber = Integer.valueOf(trialNumberInput);
@@ -22,5 +19,4 @@ public class InputException {
             throw new IllegalArgumentException("여러 대의 자동차를 쉼표로 입력해주세요");
         }
     }
-
 }

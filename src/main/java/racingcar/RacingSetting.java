@@ -8,7 +8,6 @@ public class RacingSetting {
         createCar(carNames);
         Integer carsLength = cars.size();
     }
-
     private static void createCar(String carNames) {
         for (String carName : carNames.split(",")) {
             InputException.isCorrectNameLength(carName.trim());
@@ -16,8 +15,6 @@ public class RacingSetting {
             cars.add(car);
         }
     }
-
-
     public static Integer saveTrialNumber(String trialNumberInput) {
         return InputException.isNumberFormat(trialNumberInput);
     }

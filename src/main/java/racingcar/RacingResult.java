@@ -4,7 +4,6 @@ import static racingcar.Application.cars;
 import static racingcar.Application.winners;
 
 public class RacingResult {
-
     private static int getMaxScore() {
         int max = 0;
         int countPerson = 0;
@@ -30,7 +29,6 @@ public class RacingResult {
         if (countPerson > 1) isSolo = false;
         return isSolo;
     }
-
     public static void showWinner() {
         boolean isSolo = decideWinner(getMaxScore());
         if (isSolo) {
