@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.service.RacingService;
 import racingcar.view.OutputView;
@@ -16,6 +17,10 @@ public class RacingController {
 
     public void start() {
         List<Car> cars = inputCar();
+        int racingCount = inputRacingCount();
+
+        OutputView.printStartRacing();
+        repeatRace(cars, racingCount);
     }
 
     private List<Car> inputCar() {
@@ -32,8 +37,18 @@ public class RacingController {
         return carList;
     }
 
-    private static int inputCount() {
+    private static int inputRacingCount() {
         OutputView.printInputRacingCount();
         return InputView.inputRacingCount();
+    }
+
+    private void repeatRace(List<Car> cars, int racingCount) {
+        for (int i = 0; i < racingCount; i++) {
+            racingService.race();
+            OutputView.carResult(cars.stream()
+                    .map(Car::toDto)
+                    .collect(Collectors.toList())
+            );
+        }
     }
 }

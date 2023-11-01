@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import racingcar.model.Car;
 
 public class CarService {
@@ -9,5 +10,9 @@ public class CarService {
 
     public void saveCar(Car car) {
         cars.add(car);
+    }
+
+    public List<Car> findCars() {
+        return new ArrayList<>(cars);
     }
 }
