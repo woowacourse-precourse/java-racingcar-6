@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.ResultView;
+import racingcar.view.OutputView;
 
 public class Car {
 
@@ -31,7 +31,7 @@ public class Car {
     }
 
     public void showMove() {
-        ResultView.printMove(this.distance, this.name);
+        OutputView.printMove(this.distance, this.name);
     }
 
     private int makeRandomNumber(){ return Randoms.pickNumberInRange(0,9); }

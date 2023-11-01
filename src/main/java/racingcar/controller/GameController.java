@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.view.InputView;
-import racingcar.view.ResultView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +27,7 @@ public class GameController {
     }
 
     public void startGame() {
-        ResultView.printResult();
+        OutputView.printResult();
         while (gameRound-->0) {
             for(Car car : cars) {
                 car.move();
@@ -38,9 +38,8 @@ public class GameController {
     }
 
     public void endGame() {
-        ResultView.printWinners();
         findWinner();
-        printWinner();
+        OutputView.printWinners();
     }
 
     public ArrayList<Car> createCars(String input) {
@@ -48,9 +47,7 @@ public class GameController {
         return InputView.inputCars(carNames);
     }
 
-    public void printWinner(){
-        System.out.println(String.join(", ", winners));
-    }
+
     public void findWinner(){
         winners = new ArrayList<>();
         cars.sort(new Comparator<Car>() {
