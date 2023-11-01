@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.model.intgenerator;
 
 public class CustomIntGenerator implements IntGenerator {
 

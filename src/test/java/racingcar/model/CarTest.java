@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.util.CustomIntGenerator;
+import racingcar.model.intgenerator.CustomIntGenerator;
 
 public class CarTest {
     @ParameterizedTest

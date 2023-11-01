@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import racingcar.util.IntGenerator;
+import racingcar.model.intgenerator.IntGenerator;
 
 public class Cars {
     private final List<Car> cars;

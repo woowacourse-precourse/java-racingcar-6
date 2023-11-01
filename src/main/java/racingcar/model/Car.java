@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import racingcar.util.IntGenerator;
-import racingcar.util.RandomIntGenerator;
+import racingcar.model.intgenerator.IntGenerator;
+import racingcar.model.intgenerator.RandomIntGenerator;
 
 public class Car {
     private static final int MAXIMUM_NAME_LENGTH = 5;
