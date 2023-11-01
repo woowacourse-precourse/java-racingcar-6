@@ -28,7 +28,7 @@ public class RaceView {
                 .distinct()
                 .count();
         if (inputNames.size() != distinctCount) {
-            throw new IllegalArgumentException("중복된 이름은 입력할 수 없습니다.");
+            throw new IllegalArgumentException(RaceViewMessage.EXCEPTION_DUPLICATE_NAME.get());
         }
     }
 
