@@ -24,6 +24,7 @@ public class InputView {
         }
 
         CarNameValidator.validateDuplicateCarName(convertedCarNames);
+        CarNameValidator.validateMaxCountCarName(convertedCarNames);
 
         return convertedCarNames;
     }
