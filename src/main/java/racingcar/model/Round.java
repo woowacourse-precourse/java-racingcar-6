@@ -15,4 +15,15 @@ public class Round {
 
         this.round = nonNegativeInteger;
     }
+
+    /**
+     * @return 감소한 경우 true, 그렇지 않은 경우 false
+     */
+    public boolean decreaseByOne() {
+        if (round >= 1) {
+            round -= 1;
+            return true;
+        }
+        return false;
+    }
 }
