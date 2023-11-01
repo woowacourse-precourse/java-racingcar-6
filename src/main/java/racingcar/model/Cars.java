@@ -18,4 +18,9 @@ public class Cars {
         return new Cars(carNames);
     }
 
+    public void tryCars() {
+        for (Car car : cars) {
+            car.advanceOrStop();
+        }
+    }
 }
