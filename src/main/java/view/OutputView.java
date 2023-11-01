@@ -20,9 +20,7 @@ public class OutputView {
 
     public void outputCarPosition(List<CarDto> cars) {
         for (CarDto car : cars) {
-            System.out.print(
-                    Message.OUTPUT_CAR_POSITION.getMessage(car)
-            );
+            System.out.print(Message.OUTPUT_CAR_POSITION.getMessage(car));
         }
         System.out.print(Message.OUTPUT_NEWLINE.getMessage());
     }

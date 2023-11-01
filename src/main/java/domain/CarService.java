@@ -31,7 +31,10 @@ public class CarService {
 
     public void playRound() {
         remainingRound.playRound();
+        moveCars();
+    }
 
+    private void moveCars() {
         for (int i = 0; i < cars.size(); i++) {
             if (decideGo(getRandomNumber())) {
                 cars.go(i);
