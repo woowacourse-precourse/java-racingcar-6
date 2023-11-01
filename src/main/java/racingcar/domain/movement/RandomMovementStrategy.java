@@ -12,7 +12,7 @@ public class RandomMovementStrategy implements MovementStrategy {
         return randomValue >= MOVE_FORWARD_VALUE;
     }
 
-    private int generateRandomNumber() {
+    public int generateRandomNumber() {
         return pickNumberInRange(MIN_NUMBER,MAX_NUMBER);
     }
 }

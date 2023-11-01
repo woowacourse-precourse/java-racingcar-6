@@ -46,10 +46,10 @@ public class RacingView {
         System.out.println(winner);
     }
 
-    private String formattedMoveHistories(String name, String history){
+    public String formattedMoveHistories(String name, String history){
         return String.format(OUTPUT_PATTERN, name, history);
     }
-    private String formattedWinner(String formattingNames) {
+    public String formattedWinner(String formattingNames) {
         return String.format(WINNER_OUTPUT_PATTERN, formattingNames);
     }
 }
