@@ -1,16 +1,34 @@
 package racingcar;
 
-import java.util.ArrayList;
+import static racingcar.constant.ErrorMessage.CAR_NAME_DUPLICATED;
+import static racingcar.constant.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
 
 public class RacingCars {
 
-    private List<RacingCar> racingCars = new ArrayList<>();
+    private static final Integer MINIMUM_NUMBER_OF_CAR_NAMES = 2;
+
+    private List<RacingCar> racingCars;
 
     public RacingCars(String[] carNames) {
+        validateCarNameDuplicate(carNames);
+        validateNumberOfCarNames(carNames);
         this.racingCars = Arrays.stream(carNames).map(RacingCar::new).toList();
+    }
+
+    private void validateCarNameDuplicate(String[] carNames) {
+        if (Arrays.stream(carNames).distinct().count() != carNames.length) {
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATED);
+        }
+    }
+
+    private void validateNumberOfCarNames(String[] carNames) {
+        if (carNames.length < MINIMUM_NUMBER_OF_CAR_NAMES) {
+            throw new IllegalArgumentException(NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS);
+        }
     }
 
     public void race() {
