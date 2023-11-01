@@ -38,7 +38,7 @@ public class RacingGameController {
 
         if (anyCarMove) {
             for (Car car : carNameList) {
-                gameResult.append(OutputView.name(car))
+                gameResult.append(OutputView.nameConcatDelim(car))
                         .append(OutputView.distanceToPosition(car)).append('\n');
             }
             gameResult.append('\n');
