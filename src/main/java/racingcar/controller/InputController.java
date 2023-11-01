@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 import static racingcar.model.nameValidator.namesException;
+import static racingcar.model.roundNumberValidator.roundNumberException;
 import static racingcar.view.InputView.nameInputPrint;
 import static racingcar.view.InputView.roundNumberInputPrint;
 
@@ -18,6 +19,7 @@ public class InputController {
     public static void roundNumberInput(){
         roundNumberInputPrint();
         String roundNumberString = Console.readLine();
+        roundNumberException(roundNumberString);
     }
 
 }
