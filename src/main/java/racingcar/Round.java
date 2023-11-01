@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Round {
@@ -10,10 +11,14 @@ public class Round {
         progressNumber = inputRound;
     }
 
-    public void rounding(List<Car> inputPlayers) {
+    public List<Car> rounding(List<Car> inputPlayers) {
+        CustomView customView = new CustomView();
+        customView.printRoundResult();
         for (int i = 0; i < progressNumber; i++) {
             progress(inputPlayers);
+            customView.printEachRound(inputPlayers);
         }
+        return inputPlayers;
     }
 
     public void progress(List<Car> inputPlayers) {
@@ -24,4 +29,5 @@ public class Round {
             }
         }
     }
+
 }
