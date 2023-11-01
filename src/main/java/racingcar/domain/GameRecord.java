@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/*
-    우승자, 기록지
- */
 public class GameRecord {
 
     private final List<String> winners = new ArrayList<>();
