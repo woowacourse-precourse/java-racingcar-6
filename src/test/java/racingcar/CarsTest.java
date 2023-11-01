@@ -14,7 +14,6 @@ import racingcar.util.InputParser;
 public class CarsTest {
     String playerInput = "pobi,woni,kibum";
     InputParser inputParser = new InputParser();
-
     Cars cars = new Cars(inputParser.parseCarName(playerInput));
 
     @Test
@@ -39,7 +38,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("우승자를 리턴하는 기능")
-    void testGetWinners() {
+    void testGetWinnersName() {
         for (int i = 0; i < 5; i++) {
             cars.driveAll();
         }
@@ -48,6 +47,7 @@ public class CarsTest {
         List<String> names = cars.getNames();
         int maxDistance = Collections.max(result);
         List<String> expected = new ArrayList<>();
+
         for (int i = 0; i < result.size(); i++) {
             if (result.get(i) == maxDistance) {
                 expected.add(names.get(i));
@@ -55,5 +55,4 @@ public class CarsTest {
         }
         assertThat(expected).containsAll(winners);
     }
-
 }

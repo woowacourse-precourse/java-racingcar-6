@@ -31,6 +31,7 @@ public class InputParserTest {
         List<String> result2 = getNames(inputParser.parseCarName(input2));
         List<String> expected1 = Arrays.asList("car1", "car2", "car3");
         List<String> expected2 = Arrays.asList("q.w", "car3");
+
         assertThat(result1).containsAll(expected1);
         assertThat(result2).containsAll(expected2);
     }
