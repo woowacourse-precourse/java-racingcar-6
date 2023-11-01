@@ -30,6 +30,22 @@ public class Application {
         }
     }
 
+    //자동차 이름이 유효한지 판단하는 메소드
+    public static void validateCarNames(String carNames) {
+        //자동차 이름을 쉼표로 구분해서 저장
+        String[] names = carNames.split(",");
+        //자동차 이름에 대한 예외처리
+        if (names.length < 2) {
+            throw new IllegalArgumentException("자동차 이름은 2개 이상 입력되어야 합니다.");
+        }
+
+        for (String name : names) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하로 입력되어야 합니다.");
+            }
+        }
+    }
+
     //우승자를 출력하는 메소드
     public static void printWinners(String[] carNames, int[][] raceResults) {
         int maxDistance = 0; //최대 이동 거리 저장
