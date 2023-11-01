@@ -74,17 +74,18 @@ class ApplicationTest extends NsTest {
     void 횟수_입력_글자_예외() {
         String name = "Kim,Park,Lee";
         RacingGame rg = new RacingGame(name);
-        String str = new String("예와");
-        assertThatThrownBy(() -> {rg.playGame(Integer.valueOf(str));})
+        String step = new String("예외");
+        assertThatThrownBy(() -> {InputException.exceptionCheckStep(step);})
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(InputException.NEGATIVE_OR_ZERO);
+                .hasMessageContaining(InputException.NOT_INTEGER);
     }
 
     @Test
     void 횟수_입력_0_예외() {
         String name = "Kim,Park,Lee";
         RacingGame rg = new RacingGame(name);
-        assertThatThrownBy(() -> {rg.playGame(0);})
+        String step = "0";
+        assertThatThrownBy(() -> {InputException.exceptionCheckStep(step);})
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(InputException.NEGATIVE_OR_ZERO);
     }
@@ -93,7 +94,8 @@ class ApplicationTest extends NsTest {
     void 횟수_입력_음수_예외() {
         String name = "Kim,Park,Lee";
         RacingGame rg = new RacingGame(name);
-        assertThatThrownBy(() -> {rg.playGame(-1);})
+        String step = "-10";
+        assertThatThrownBy(() -> {InputException.exceptionCheckStep(step);})
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(InputException.NEGATIVE_OR_ZERO);
     }
