@@ -11,7 +11,7 @@ public class Car implements Comparable<Car> {
 
     public void move(Judge judge) {
         if (judge.isMoveAvailable()) {
-            score += 1;
+            this.score += 1;
         }
     }
 
@@ -27,7 +27,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int compareTo(Car o) {
-        return o.getScore() - getScore();
+        return getScore() - o.getScore();
     }
 
     public String getName() {

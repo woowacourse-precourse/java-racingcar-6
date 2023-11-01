@@ -18,8 +18,10 @@ public class Judge {
 
     public List<String> getFinalWinner(List<Car> cars) {
         List<String> finalWinners = new ArrayList<>();
-        Collections.sort(cars);
         int max = Collections.max(cars).getScore();
+        if (max == 0) {
+            return finalWinners;
+        }
         for (Car car : cars) {
             if (car.getScore() == max) {
                 finalWinners.add(car.getName());
