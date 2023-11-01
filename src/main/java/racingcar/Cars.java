@@ -4,25 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private final List<Car> cars;
+    private final List<Car> carList;
 
     public Cars(String carNames) {
-        this.cars = new ArrayList<>();
+        this.carList = new ArrayList<>();
         makeCars(carNames);
     }
 
     private void makeCars(String carNames) {
         for (String carName : carNames.split(Constant.CAR_NAMES_DELIMITER)) {
-            cars.add(new Car(carName));
+            carList.add(new Car(carName));
         }
     }
 
     public List<Car> toList() {
-        return cars;
+        return carList;
     }
 
     private int findMaxPosition() {
-        return cars.stream()
+        return carList.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
@@ -30,7 +30,7 @@ public class Cars {
 
     public List<String> findWinners() {
         int maxPosition = findMaxPosition();
-        return cars.stream()
+        return carList.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .toList();
