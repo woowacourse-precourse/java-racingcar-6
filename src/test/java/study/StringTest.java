@@ -48,4 +48,17 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void split_대상에_연속_콤마가_포함될_경우() {
+        //when
+        String input = "pobi,suhwpa,,";
+        String[] splitInput = input.split(",", -1);
+
+        //given
+        String[] expectSplit = {"pobi", "suhwpa", "", ""};
+
+        //then
+        assertThat(splitInput).isEqualTo(expectSplit);
+
+    }
 }
