@@ -2,6 +2,14 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        View view = new View();
+        String racingCarNames = view.racingCarNamesInput();
+        int racingFrequencyNum = view.racingFrequencyInput();
+        RacingPlay racingPlay = new RacingPlay(racingCarNames, racingFrequencyNum);
+        for(int i = 0; i < racingFrequencyNum; i++){
+            racingPlay.oneTryRacing();
+            racingPlay.viewCurrentRacingResult();
+        }
+        racingPlay.viewRacingWinner();
     }
 }
