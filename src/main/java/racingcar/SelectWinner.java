@@ -29,4 +29,11 @@ public class SelectWinner {
         System.out.printf("최종 우승자 : %s", answer);
     }
 
+    public static List<String> getWinners() {
+        return winners;
+    }
+
+    public static void setWinners(List<String> winners) {
+        SelectWinner.winners = winners;
+    }
 }
