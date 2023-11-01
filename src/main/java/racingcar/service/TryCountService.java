@@ -2,7 +2,7 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-public class TryCount {
+public class TryCountService {
     private static void printGuide_InputTryCount(){
         System.out.println("시도할 회수는 몇회인가요?");
     }
