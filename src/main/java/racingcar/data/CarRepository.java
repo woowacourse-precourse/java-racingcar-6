@@ -45,18 +45,18 @@ public class CarRepository {
     }
 
     private List<String> getWinnerList() {
-        int maxDistance = carList.get(0).getMoveDistance();
+        int maxDistance = carList.get(0).getDistance();
         List<String> winnerList = new ArrayList<>(List.of(carList.get(0).getName()));
 
         int carListSize = carList.size();
         for (int i = 1; i < carListSize; i++) {
             Car car = carList.get(i);
 
-            if (maxDistance < car.getMoveDistance()) {
+            if (maxDistance < car.getDistance()) {
                 winnerList.clear();
-                maxDistance = car.getMoveDistance();
+                maxDistance = car.getDistance();
                 winnerList.add(car.getName());
-            } else if (maxDistance == car.getMoveDistance()) {
+            } else if (maxDistance == car.getDistance()) {
                 winnerList.add(car.getName());
             }
         }
