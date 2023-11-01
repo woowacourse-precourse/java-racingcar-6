@@ -1,6 +1,8 @@
 package view;
 
 import constants.OutputMessage;
+import java.util.Map;
+import java.util.Set;
 
 public class OutputView {
     public void requestCarNames(){
@@ -13,5 +15,9 @@ public class OutputView {
 
     public void noticeRaceStart(){
         System.out.println(OutputMessage.RESULT_PRINT_START_STATEMENT);
+    }
+
+    public void printAttemptResult(String name, String movement){
+        System.out.printf("%s : %s\n", name, movement);
     }
 }
