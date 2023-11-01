@@ -32,7 +32,7 @@ public class ConstructorValidationTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"more_than_five", "abcdef", "123456", "아에이오우으", "!@#$%^"})
-    void 자동차_이름_5자_이상인_경우(String carName) {
+    void 자동차_이름_6자_이상인_경우(String carName) {
         assertThatThrownBy(() -> new Car(carName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(LENGTH_EXCEPTION_MESSAGE);

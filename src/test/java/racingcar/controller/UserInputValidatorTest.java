@@ -30,7 +30,7 @@ public class UserInputValidatorTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"1,2,more_than_five", "1,2,abcdef", "1,2,123456", "1,2,아에이오우으", "1,2,!@#$%^"})
-    void 자동차_이름_5자_이상인_경우(String carNames) {
+    void 자동차_이름_6자_이상인_경우(String carNames) {
         assertThatThrownBy(() -> CarNamesValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(LENGTH_EXCEPTION_MESSAGE);
