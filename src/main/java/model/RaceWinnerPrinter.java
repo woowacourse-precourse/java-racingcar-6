@@ -9,11 +9,16 @@ import view.OutputView;
 public class RaceWinnerPrinter {
 
     private final OutputView outputView = new OutputView();
+    private final RaceDto raceDto;
 
-    public void print(RaceDto raceDto) {
-        List<Integer> AdvanceIntList = convertAdvanceStringToInt(raceDto);
+    public RaceWinnerPrinter(RaceDto raceDto){
+        this.raceDto = raceDto;
+    }
+
+    public void print() {
+        List<Integer> AdvanceIntList = convertAdvanceStringToInt();
         int maxAdvance = calculateMaxAdvance(AdvanceIntList);
-        List<String> winnerList = findWinner(maxAdvance, raceDto);
+        List<String> winnerList = findWinner(maxAdvance);
         String winnerString = format(winnerList);
         outputView.printWinner(winnerString);
     }
@@ -26,7 +31,7 @@ public class RaceWinnerPrinter {
         return maxAdvance;
     }
 
-    private List<Integer> convertAdvanceStringToInt(RaceDto raceDto) {
+    private List<Integer> convertAdvanceStringToInt() {
         List<String> carNameList = raceDto.getCarNameList();
         List<Integer> carAdvanceList = new ArrayList<>();
         for (String carName : carNameList) {
@@ -35,7 +40,7 @@ public class RaceWinnerPrinter {
         return carAdvanceList;
     }
 
-    private List<String> findWinner(int maxAdvance, RaceDto raceDto) {
+    private List<String> findWinner(int maxAdvance) {
         Map<String, String> carNameToAdvanceMap = raceDto.getCarNameToAdvanceMap();
         Set<String> carNames = raceDto.getCarNameToAdvanceMap().keySet();
         List<String> winnerNames = new ArrayList<>();
