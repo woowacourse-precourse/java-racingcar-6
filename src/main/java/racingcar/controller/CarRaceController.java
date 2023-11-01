@@ -19,7 +19,7 @@ public class CarRaceController {
         int iteration = inputView.readNumberInput();
         for (int i = 0; i < iteration; i++) {
             raceService.runRace(cars);
-            outputView.displayPerResults(cars);
+            outputView.displayPerRace(cars);
         }
 
         List<Car> winners = raceService.getWinner(cars);

@@ -3,14 +3,13 @@ package racingcar.view;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
-import racingcar.service.RaceService;
 
 public class OutputView {
     public static final String LOCATION_AND_NAME_DELIMITER = " : ";
     public static final String NAME_DELIMITER = ", ";
     public static final String FINAL_WINNER = "최종 우승자";
 
-    public void displayPerResults(List<Car> cars) {
+    public void displayPerRace(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.toString());
         }

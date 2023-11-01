@@ -44,7 +44,7 @@ public class OutputViewTest extends NsTest {
             car.goOrStop(MOVING_FORWARD);
         }
 
-        outputView.displayPerResults(cars);
+        outputView.displayPerRace(cars);
         assertThat(output()).contains("pobi : --", "woni : --");
     }
     @Override
