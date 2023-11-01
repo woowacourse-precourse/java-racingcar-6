@@ -52,7 +52,7 @@ public class Game {
         return cars
                 .stream()
                 .filter(car -> car.isPosition(maxPosition))
-                .map(CarSnapshot::from)
+                .map(CarSnapshot::capture)
                 .toList();
     }
 
@@ -68,7 +68,7 @@ public class Game {
         List<CarSnapshot> carSnapshots = cars
                 .stream()
                 .peek(Car::move)
-                .map(CarSnapshot::from)
+                .map(CarSnapshot::capture)
                 .toList();
 
         RaceSnapshot raceSnapshot = new RaceSnapshot(currentRace, carSnapshots);
