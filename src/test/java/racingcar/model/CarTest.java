@@ -76,4 +76,26 @@ class CarTest {
         }
 
     }
+
+    /**
+     * toString_테스트에서 활용하기 위한 메소드입니다.
+     * 주어진 car를 n번 전진시킵니다.
+     * @param car
+     * @param n
+     */
+    void proceedNTimes(Car car, int n) {
+        int cnt = 0;
+        while (cnt < n) {
+            if (car.drive()) {
+                cnt++;
+            }
+        }
+    }
+    @Test
+    void toString_테스트() {
+        Car car = new Car(new Name("픽업 트럭"));
+        proceedNTimes(car, 3);
+
+        assertEquals(car.toString(), "픽업 트럭 : ---");
+    }
 }
