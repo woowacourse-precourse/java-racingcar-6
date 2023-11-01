@@ -5,7 +5,7 @@
 - [x] 자동차의 이름은 5자리 이하만 가능하도록 판별 기능.
 - [X] 사용자는 시도할 회수를 입력기능.
 - [x] 잘못된 값을 입력받을 경우, IllegalArgumentException을 발생시키고 애플리케이션을 종료기능.
-- [ ] Car객체 배열 생성 기능
+- [X] Car객체 배열 생성 기능
 
 **_2. 자동차 기능_**
 - [X] 각 시도당 0~9 사이값을 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange(0,9)를 사용하여 구하는 기능.

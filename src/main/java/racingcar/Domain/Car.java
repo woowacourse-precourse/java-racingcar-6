@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Car {
     String name;
-    ArrayList<String> forwardStack;
+    ArrayList<String> forwardStack= new ArrayList<>();
 
     public String getName() {
         return name;

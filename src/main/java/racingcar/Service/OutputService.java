@@ -1,22 +1,25 @@
 package racingcar.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.Domain.Car;
 
 public class OutputService {
-    private static CarService car;
+    private static CarService carService
+            ;
     private static InputService inputService;
 
     public OutputService(CarService car, InputService inputService) {
         this.inputService=inputService;
-        this.car = car;
+        this.carService = car;
     }
 
-    public static CarService getCar() {
-        return car;
+    public static CarService getCarService() {
+        return carService;
     }
 
-    public static void setCar(CarService car) {
-        OutputService.car = car;
+    public static void setCarService(CarService carService) {
+        OutputService.carService = carService;
     }
 
     public static InputService getInputService() {
@@ -49,8 +52,21 @@ public class OutputService {
     }
 
     public String printForwardStatus() {
+        List<Car> cars = inputService.getCars();
+        StringBuilder result = new StringBuilder();
+        for (Car car : cars) {
+            appendCarStatus(result, car);
+        }
+        return result.toString();
+    }
 
-        return null;
-
+    private void appendCarStatus(StringBuilder result, Car car) {
+        if (carService.forwardOrStop()) {
+            car.getForwardStack().add("-");
+        }
+        result.append(car.getName())
+                .append(" : ")
+                .append(String.join("", car.getForwardStack()))
+                .append("\n");
     }
 }

@@ -12,6 +12,10 @@ public class InputService {
     ArrayList<Car> cars = new ArrayList<>();
     String inputTryNum;
 
+    public ArrayList<Car> getCars() {
+        return cars;
+    }
+
     public List<String> SplitCarname(String inputCarname) {
         CarNames = new ArrayList<>(Arrays.asList(inputCarname.split(",")));
         return CarNames;

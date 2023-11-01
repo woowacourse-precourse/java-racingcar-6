@@ -20,7 +20,8 @@ public class OutputServiceTest {
         String inputCarname = "pobi,woni,jun";
         inputService.inputCarname(inputCarname);
         inputService.SplitCarname(inputCarname);
-        car = outputService.getCar();
+        inputService.makeCarArray();
+        car = outputService.getCarService();
         car.setGeneratedNum(5);
 
     }
@@ -54,7 +55,7 @@ public class OutputServiceTest {
     public void output4() {
         assertThat(outputService.printForwardStatus()).
                 isEqualTo("pobi : -\n"
-                        + "woni : \n"
+                        + "woni : -\n"
                         + "jun : -\n");
     }
 }
