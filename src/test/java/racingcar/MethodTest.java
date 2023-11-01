@@ -36,7 +36,7 @@ public class MethodTest {
         CarRaceModel carRaceModel = new CarRaceModel();
         List<Car> carList = carRaceModel.generateCar(carNameList);
 
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             carList.get(0).controlCarMovement();
             carList.get(1).controlCarMovement();
             carList.get(2).controlCarMovement();
@@ -44,14 +44,14 @@ public class MethodTest {
 
         List<String> result = carRaceModel.findWinner(carList);
 
-        assertThat(result.get(0)).containsAnyOf("one","two","three");
+        assertThat(result.get(0)).containsAnyOf("one", "two", "three");
     }
 
     @Test
     void 자동차_객체_이동기능_테스트() {
         Car car = new Car("one");
 
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             car.controlCarMovement();
         }
 
@@ -62,7 +62,7 @@ public class MethodTest {
     void 자동차_객체_이동거리_출력기능_테스트() {
         Car car = new Car("one");
 
-        for(int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             car.controlCarMovement();
         }
 
@@ -77,15 +77,15 @@ public class MethodTest {
         List<String> blankContainName = Arrays.asList("a ");
         List<String> longName = Arrays.asList("123456");
 
-        assertThatThrownBy(()->validator.validateCarName(nullName))
+        assertThatThrownBy(() -> validator.validateCarName(nullName))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("자동차 이름은 한글자 이상이어야 합니다");
 
-        assertThatThrownBy(()->validator.validateCarName(blankContainName))
+        assertThatThrownBy(() -> validator.validateCarName(blankContainName))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("자동차 이름에는 공백을 포함할 수 없습니다.");
 
-        assertThatThrownBy(()->validator.validateCarName(longName))
+        assertThatThrownBy(() -> validator.validateCarName(longName))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("자동차 이름은 5자 이하여야 합니다.");
     }
@@ -94,9 +94,9 @@ public class MethodTest {
     void 중복된_자동차_이름을_체크하는_기능_테스트() {
         Validator validator = new Validator();
 
-        List<String> duplicateName = Arrays.asList("a","a");
+        List<String> duplicateName = Arrays.asList("a", "a");
 
-        assertThatThrownBy(()->validator.isCarNameUnique(duplicateName))
+        assertThatThrownBy(() -> validator.isCarNameUnique(duplicateName))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("자동차 이름은 중복될 수 없습니다.");
     }
@@ -105,11 +105,11 @@ public class MethodTest {
     void 게임시도_횟수의_입력값_유효성을_체크하는_기능_테스트() {
         Validator validator = new Validator();
 
-        assertThatThrownBy(()->validator.validateAttemptInput(0))
+        assertThatThrownBy(() -> validator.validateAttemptInput(0))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("시도할 횟수는 1회 이상이여야 합니다.");
 
-        assertThatThrownBy(()->validator.validateAttemptInput(-1))
+        assertThatThrownBy(() -> validator.validateAttemptInput(-1))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("시도할 횟수는 1회 이상이여야 합니다.");
     }

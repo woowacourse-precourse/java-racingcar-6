@@ -22,14 +22,14 @@ public class Car {
     public String showCarMovement() {
         String movement = "";
 
-        for(int i = 0; i < distance; i++) {
+        for (int i = 0; i < distance; i++) {
             movement += "-";
         }
         return movement;
     }
 
     public void controlCarMovement() {
-        if(Randoms.pickNumberInRange(0,9)>=4) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
             distance++;
         }
     }

@@ -18,7 +18,7 @@ public class CarRaceModel {
     public List<Car> generateCar(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
 
-        for(int i = 0; i < carNameList.size(); i++) {
+        for (int i = 0; i < carNameList.size(); i++) {
             carList.add(new Car(carNameList.get(i)));
         }
 
@@ -29,13 +29,13 @@ public class CarRaceModel {
         List<String> winner = new ArrayList<>();
         int topMovement = 0;
 
-        for(int i = 0; i < carList.size(); i++) {
+        for (int i = 0; i < carList.size(); i++) {
             String carName = carList.get(i).getName();
             int carMovement = carList.get(i).getDistance();
 
             winner.add(carName);
 
-            if(carMovement > topMovement) {
+            if (carMovement > topMovement) {
                 winner.clear();
                 topMovement = carMovement;
                 winner.add(carName);
