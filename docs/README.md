@@ -20,10 +20,9 @@
   - [x]  예외) 길이가 0일 경우를 확인합니다. - checkZeroLength()
   - [x]  예외) 이름에 한글, 영어, 숫자를 제외한 문자가 있는 지 확인합니다 - checkHasSpecialCharacter()
 ### RoundTryCount
-- [ ]  입력받은 횟수가 valid한지 확인합니다 - isValidRoundTryCount()
-  - [ ]  예외) Null인지 확인합니다. - isNull()
-  - [ ]  예외) 숫자인지 확인합니다. - isNotNumber()
-  - [ ]  예외) 마이너스인지 확인합니다 - isNegativeNumber()
+- [x]  입력받은 횟수가 valid한지 확인합니다 - isValidRoundTryCount()
+  - [x]  예외) Null인지 확인합니다. - isNull()
+  - [x]  예외) 마이너스인지 확인합니다 - isNegativeNumber()
 
    
 

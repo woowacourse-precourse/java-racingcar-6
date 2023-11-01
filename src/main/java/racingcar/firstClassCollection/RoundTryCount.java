@@ -1,22 +1,29 @@
 package racingcar.firstClassCollection;
 
 public class RoundTryCount {
-    
+    private int count;
 
-    private boolean isValidRoundTryount(){
-        return false;
+    public RoundTryCount(int roundTryCount) {
+        checkValidRoundTryCount(roundTryCount);
+        this.count = roundTryCount;
     }
 
-    private boolean isNull(){
-        return false;
+
+    private void checkValidRoundTryCount(int count) {
+        checkZero(count);
+        checkNegativeNumber(count);
     }
 
-    private boolean isNotNumber(){
-        return false;
+    private void checkZero(int count) {
+        if(count==0){
+            throw new IllegalArgumentException("라운드가 0으로 입력됨");
+        }
     }
 
-    private boolean isNegativeNumber(){
-        return false;
+    private void checkNegativeNumber(int count) {
+        if(count<0){
+            throw new IllegalArgumentException("라운드가 음수로 입력됨");
+        }
     }
-    
+
 }
