@@ -29,7 +29,7 @@ public class Car{
     void TestSame(String j){
         for(int i=0;i<car.size();i++){
             if(car.get(i).equals(j)){
-                throw new IllegalArgumentException("에러가 발생했습니다.");
+                throw new IllegalArgumentException("[ERROR] 이름은 5자 이하만 가능하다.");
             }
         }
     }
