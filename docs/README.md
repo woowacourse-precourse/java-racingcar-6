@@ -25,17 +25,17 @@
 
     -> [ ] 숫자만 가능
     
-[ ] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료
+[X] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료
 
 
 ## 게임 
 
-[x] 사용자에게 자동차 이름을 받아 쉼표로 구분
+[X] 사용자에게 자동차 이름을 받아 쉼표로 구분
 
 [ ] 사용자에게 경기 반복 횟수를 받아 반복함
 
 
-[ ] 0에서 9 사이에서 무작위 값을 구함
+[X] 0에서 9 사이에서 무작위 값을 구함
 
     -> Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용
     
@@ -43,7 +43,7 @@
     
         Randoms.pickNumberInRange(0,9);
         
-[ ] 무작위 값이 4이상인 경우 자동차 전진
+[X] 무작위 값이 4이상인 경우 자동차 전진
 
 
 

@@ -1,7 +1,10 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 	private final String name;
+	private int position;
 	
 	private static final int MAX_CARNAME_LENGTH = 5;
 	private static final int MIN_CARNAME_LENGTH = 1;
@@ -11,6 +14,7 @@ public class Car {
 		vallidateNameLength(name);
 		validateNameCharacter(name);
 		this.name = name;
+		this.position = 0;
 	}
 
 	private void vallidateNameLength(String name) {
@@ -24,6 +28,13 @@ public class Car {
 		if (!name.matches(NAME_FORMAT)) {
             throw new IllegalArgumentException("자동차 이름에는 알파벳과 숫자만 사용할 수 있습니다.");
         }
+	}
+	
+	
+	public void move() {
+		if (Randoms.pickNumberInRange(0, 9) >= 4) {
+			position++;
+		}
 	}
 	
 }
