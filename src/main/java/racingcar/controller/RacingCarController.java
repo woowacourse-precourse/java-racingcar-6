@@ -18,8 +18,8 @@ public class RacingCarController {
     }
 
     public void run() {
-        int gameCount = startGame();
-        playGame(gameCount);
+        int gamePlayCount = startGame();
+        playGame(gamePlayCount);
         endGame();
     }
 
@@ -27,18 +27,17 @@ public class RacingCarController {
         outputView.printGameStartMessage();
         List<String> carNames = inputView.inputCarNames();
         racingCarService.save(carNames);
-        return getGameCount();
+        return getGamePlayCount();
     }
 
-    private int getGameCount() {
+    private int getGamePlayCount() {
         outputView.printInputGameProgressCountMessage();
-        int gameCount = inputView.inputGameCount();
-        outputView.printGameProcessMessage();
-        return gameCount;
+        return inputView.inputGamePlayCount();
     }
 
-    private void playGame(int gameCount) {
-        for (int count = 0; count < gameCount; count++) {
+    private void playGame(int gamePlayCount) {
+        outputView.printGameProcessMessage();
+        for (int count = 0; count < gamePlayCount; count++) {
             List<CarResultResponse> carResultResponses = racingCarService.processMove();
             outputView.printGameProcessResult(carResultResponses);
         }

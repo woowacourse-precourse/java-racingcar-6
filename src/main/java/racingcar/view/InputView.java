@@ -4,14 +4,14 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.utils.CarNameValidator;
-import racingcar.utils.GameCountValidator;
+import racingcar.utils.GamePlayCountValidator;
 
 public class InputView {
 
-    public int inputGameCount() {
-        String gameCount = Console.readLine();
-        GameCountValidator.validatePositiveDigitAnInRangeGameCount(gameCount);
-        return Integer.parseInt(gameCount);
+    public int inputGamePlayCount() {
+        String gamePlayCount = Console.readLine();
+        GamePlayCountValidator.validatePositiveDigitAnInRangeGamePlayCount(gamePlayCount);
+        return Integer.parseInt(gamePlayCount);
     }
 
     public List<String> inputCarNames() {
