@@ -1,9 +1,5 @@
 package racingcar;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import racingcar.racer.Racer;
 import racingcar.utils.Printer;
 
@@ -12,6 +8,10 @@ import java.io.PrintStream;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class PrinterTest {
     private ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();
@@ -36,7 +36,7 @@ public class PrinterTest {
                 test2 : --
                 test3 : ---""";
 
-        Printer.printRaceResultInProgressWithRacerList(racerList);
+        Printer.printInProgress(racerList);
         Assertions.assertEquals(expectedPrint,outputStreamCaptor.toString().trim());
     }
     @Test
@@ -44,7 +44,7 @@ public class PrinterTest {
         List<String> winnerList = new ArrayList<>();
         winnerList.add("pobi");
 
-        Printer.printRaceResultInTotalWithWinnerList(winnerList);
+        Printer.printTotalWinners(winnerList);
         String expectedResult = "최종 우승자 : pobi";
 
         Assertions.assertEquals(expectedResult,outputStreamCaptor.toString().trim());
@@ -56,7 +56,7 @@ public class PrinterTest {
         winnerList.add("pobi");
         winnerList.add("jun");
 
-        Printer.printRaceResultInTotalWithWinnerList(winnerList);
+        Printer.printTotalWinners(winnerList);
         String expectedResult = "최종 우승자 : pobi, jun";
 
         Assertions.assertEquals(expectedResult, outputStreamCaptor.toString().trim());

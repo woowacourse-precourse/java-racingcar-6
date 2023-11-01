@@ -2,6 +2,7 @@ package racingcar.racer;
 
 import racingcar.car.Car;
 import racingcar.car.CarFactory;
+
 import racingcar.configs.Config;
 
 public class Racer {

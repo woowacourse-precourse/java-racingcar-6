@@ -6,7 +6,7 @@ import racingcar.racer.Racer;
 import java.util.List;
 
 public class Printer {
-    public static void printRaceResultInProgressWithRacerList(List<Racer>racerList){
+    public static void printInProgress(List<Racer>racerList){
         for (Racer racer : racerList){
             String name = racer.getName();
             Integer racerPos = racer.getCurrentPos();
@@ -17,7 +17,7 @@ public class Printer {
         }
         System.out.println();
     }
-    public static void printRaceResultInTotalWithWinnerList(List<String>winnerList){
+    public static void printTotalWinners(List<String>winnerList){
         StringBuilder sb = new StringBuilder();
         sb.append("최종 우승자 : ");
         sb.append(String.join(", ", winnerList));

@@ -1,5 +1,9 @@
 package racingcar.mocking;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
+import racingcar.configs.Config;
+
 import java.time.Duration;
 
 import org.junit.jupiter.api.Assertions;
@@ -8,10 +12,6 @@ import org.junit.jupiter.api.function.Executable;
 import org.mockito.Mockito;
 import org.mockito.MockedStatic;
 import org.mockito.ArgumentMatchers;
-
-import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.configs.Config;
-
 
 public class RandomsMocking {
     private static MockedStatic.Verification verificationPickNumberInRange =

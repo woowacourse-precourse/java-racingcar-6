@@ -1,6 +1,7 @@
 package racingcar.server;
 
 import racingcar.racer.Racer;
+
 import racingcar.utils.Printer;
 import racingcar.utils.Parser;
 import racingcar.utils.Validator;
@@ -34,7 +35,7 @@ public class Server {
         System.out.println("실행 결과");
         for (int i = 0; i < raceRound; i++){
             continueRace();
-            Printer.printRaceResultInProgressWithRacerList(racerList);
+            Printer.printInProgress(racerList);
         }
 
     }
@@ -45,7 +46,7 @@ public class Server {
     }
     public void finishRace(){
         List<String> winnerList = aggregateRaceResults();
-        Printer.printRaceResultInTotalWithWinnerList(winnerList);
+        Printer.printTotalWinners(winnerList);
     }
     private List<String> aggregateRaceResults(){
         int maxPos = 0;
