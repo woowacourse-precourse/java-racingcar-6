@@ -45,13 +45,36 @@ public class RacingGame {
 
     public void printEachResult(){
 
-        for (Car car: carList){
+        for (Car car: carList) {
             System.out.print(car.getCarName() + " : ");
-            for(int i=0; i<car.getGameResult(); i++){
+            for(int i=0; i<car.getGameResult(); i++) {
                 System.out.print("-");
             }
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void printFinalResult(){
+
+        List<String> winners = new ArrayList<>();
+        System.out.print("최종 우승자 : ");
+
+        int maxGameResult = 0;
+
+        for(Car car: carList) {
+            if(car.getGameResult() > maxGameResult) {
+                maxGameResult = car.getGameResult();
+            }
+        }
+
+        for(Car car: carList) {
+            if(car.getGameResult() == maxGameResult) {
+                winners.add(car.getCarName());
+            }
+        }
+
+        String result = String.join(", ", winners);
+        System.out.println(result);
     }
 }
