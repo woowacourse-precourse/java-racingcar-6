@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.ExceptionMessage.INVALID_ATTEMPT;
+import static racingcar.constant.ExceptionMessage.INVALID_BLANK_NAME;
 import static racingcar.constant.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -29,6 +30,13 @@ class GameTest {
         입력("love,hate,you,longCar\n1");
         assertThatThrownBy(() -> Game.create()).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(INVALID_CAR_NAME_LENGTH);
+    }
+
+    @Test
+    void Game_객체_생성_시_차_이름_빈칸일_경우_예외_발생() {
+        입력("love,hate,you,   \n1");
+        assertThatThrownBy(() -> Game.create()).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(INVALID_BLANK_NAME);
     }
 
     @Test
