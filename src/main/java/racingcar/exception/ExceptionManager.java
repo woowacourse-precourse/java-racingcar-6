@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.exception;
 
-import static racingcar.ErrorMessage.ERROR_NOT_EMPTY;
-import static racingcar.ErrorMessage.ERROR_WRONG_CARS_NAME;
-import static racingcar.ErrorMessage.ERROR_WRONG_CAR_NAME;
-import static racingcar.ErrorMessage.ERROR_WRONG_NUMBER_OF_RACE;
+import static racingcar.util.ErrorMessage.ERROR_NOT_EMPTY;
+import static racingcar.util.ErrorMessage.ERROR_WRONG_CARS_NAME;
+import static racingcar.util.ErrorMessage.ERROR_WRONG_CAR_NAME;
+import static racingcar.util.ErrorMessage.ERROR_WRONG_NUMBER_OF_RACE;
 
 public class ExceptionManager {
 

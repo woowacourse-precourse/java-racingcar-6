@@ -1,12 +1,15 @@
 package racingcar;
 
-import static racingcar.OutputView.askNamesOfCars;
-import static racingcar.OutputView.askNumberOfRace;
-import static racingcar.OutputView.showResultOfRace;
-import static racingcar.OutputView.showWinner;
+import static racingcar.view.OutputView.askNamesOfCars;
+import static racingcar.view.OutputView.askNumberOfRace;
+import static racingcar.view.OutputView.showResultOfRace;
+import static racingcar.view.OutputView.showWinner;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.customCollection.CustomArrayList;
+import racingcar.domain.Car;
+import racingcar.domain.RacingCarGame;
 
 public class Application {
     public static void main(String[] args) {

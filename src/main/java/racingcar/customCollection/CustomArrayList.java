@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.customCollection;
 
 import java.util.ArrayList;
 import java.util.Iterator;

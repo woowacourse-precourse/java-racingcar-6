@@ -1,11 +1,13 @@
-package racingcar;
+package racingcar.domain;
 
-import static racingcar.OutputView.showNameOfWinner;
-import static racingcar.OutputView.showStatusOfCar;
+import static racingcar.view.OutputView.showNameOfWinner;
+import static racingcar.view.OutputView.showStatusOfCar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Iterator;
 import java.util.List;
+import racingcar.customCollection.CustomArrayList;
+import racingcar.exception.ExceptionManager;
 
 public class RacingCarGame {
 

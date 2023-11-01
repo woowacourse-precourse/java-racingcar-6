@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.util;
 
 public class ErrorMessage {
     public static final String ERROR_NOT_EMPTY = "비어있는 값을 입력할 수 없습니다.";
