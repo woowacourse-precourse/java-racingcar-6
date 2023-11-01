@@ -39,6 +39,20 @@ class RacingGameServiceTest {
     }
 
     @Test
+    public void 자동차_이름_공백_제거() {
+        //given
+        String input = "Car1, Car2, Car3";
+
+        //when
+        List<RacingCar> racingCars = racingGameService.carNameInput(input);
+
+        //then
+        assertThat("Car1").isEqualTo(racingCars.get(0).getCarName());
+        assertThat("Car2").isEqualTo(racingCars.get(1).getCarName());
+        assertThat("Car3").isEqualTo(racingCars.get(2).getCarName());
+    }
+
+    @Test
     public void 시도_횟수_입력() {
         //given
         String input = "3";
