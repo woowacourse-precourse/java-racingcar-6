@@ -53,4 +53,14 @@ public class RaceGameTest {
                 .hasMessageContaining("2대 이상의 자동차 이름을 입력해주세요.");
     }
 
+    @Test
+    void 입력한_차_이름이_공백인지_확인() {
+
+        List<String> inputCarName = new ArrayList<>(Arrays.asList("", "pobi", "jun"));
+
+        assertThatThrownBy(() -> carNameValidator.toValidateCarName(inputCarName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백이 아닌 자동차 이름을 입력해주세요.");
+    }
+
 }
