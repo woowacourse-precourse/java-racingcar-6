@@ -27,18 +27,19 @@ public class CarValidator {
         for (String car:carList) {
             errorInTry(car.length() > NumbersUtil.carNameMax);
 
-            if (car.contains(" ")) {
-                System.out.println(MessageUtil.Empty_Error_Message);
-                throw new IllegalArgumentException();
-            }
+            carNameBlank(car.contains(" "), MessageUtil.Empty_Error_Message);
 
-            if (carNameDistinct(carList)) {
-                System.out.println(MessageUtil.Same_Name_Message);
-                throw new IllegalArgumentException();
-            }
+            carNameBlank(carNameDistinct(carList), MessageUtil.Same_Name_Message);
 
         }
         return carList;
+    }
+
+    public void carNameBlank(boolean car, String Error_Message) {
+        if (car) {
+            System.out.println(Error_Message);
+            throw new IllegalArgumentException();
+        }
     }
 
     public boolean carNameDistinct(ArrayList<String> carList) {
