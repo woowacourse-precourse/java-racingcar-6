@@ -8,14 +8,10 @@ public class Referee {
     public static Stack<Car> pickWinners(List<Car> cars) {
         Stack<Car> winners = new Stack<>();
         for (Car car: cars) {
-            if (winners.empty()) {
-                winners.push(car);
-                continue;
-            }
-            while (!winners.empty() && car.getMovedDistance() > winners.peek().getMovedDistance()) {
+            while (!winners.empty() && winners.peek().getMovedDistance() < car.getMovedDistance()) {
                 winners.pop();
             }
-            if (!winners.empty() && car.getMovedDistance() == winners.peek().getMovedDistance()) {
+            if (winners.empty() || winners.peek().getMovedDistance() == car.getMovedDistance()) {
                 winners.push(car);
             }
         }
