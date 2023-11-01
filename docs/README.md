@@ -25,7 +25,7 @@
     생성자 정의  
     게임을 시작하는 start 메서드 구현
   - feat(Game): Implement Game class to run the car racing game
-- [ ] GameResult 클래스 구현
+- [x] GameResult 클래스 구현
   - GameResult 클래스 생성  
     GameResult class private 멤버 변수 선언 (단계별 자동차 위치, 최종 우승자 등)  
     생성자 정의  
