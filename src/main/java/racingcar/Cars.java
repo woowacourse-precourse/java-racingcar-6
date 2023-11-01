@@ -19,7 +19,7 @@ public class Cars {
 
     private static List<Car> putCarIntoList(List<String> names) {
         List<Car> cars = names.stream()
-                .map(name -> new Car(name, 0))
+                .map(name -> Car.createCar(name, 0))
                 .collect(Collectors.toList());
 
         return Collections.unmodifiableList(cars);

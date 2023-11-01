@@ -8,9 +8,13 @@ public class Car {
     private String name;
     private int distance;
 
-    public Car(String name, int distance) {
+    private Car(String name, int distance) {
         this.name = name;
         this.distance = distance;
+    }
+
+    public static Car createCar(final String name, int distance) {
+        return new Car(name, distance);
     }
 
     public void moveByGeneratedNumber() {
