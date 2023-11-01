@@ -11,6 +11,7 @@ public class RacingcarController {
         exception.validateNumberOfCarName(splitCarName);
         exception.validateDuplicateCarName(splitCarName);
         addCars(splitCarName);
+        int number = inputNumber();
     }
 
     public String inputCarsName() {
@@ -26,5 +27,9 @@ public class RacingcarController {
             Car car = new Car(name.trim(), 0);
             cars.addCarList(car);
         }
+    }
+
+    public int inputNumber() {
+        return input.inputNumber();
     }
 }

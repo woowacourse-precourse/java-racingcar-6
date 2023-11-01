@@ -16,4 +16,11 @@ public class Input {
         exception.validateInputNotEndWithComma(input);
         exception.validateInputContainsConsecutiveCommas(input);
     }
+
+    public int inputNumber() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        int number = Integer.parseInt(input);
+        return number;
+    }
 }
