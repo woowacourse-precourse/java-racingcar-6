@@ -56,13 +56,37 @@ public class RacingTest extends NsTest {
                 MOVING_FORWARD, MOVING_FORWARD, STOP//random 숫자의 범위 그래서 pobi는 4라서 전진 woni는 3이라서 가만히인듯ㄷㄷ
         );
     }
-
+    @Test
+    void 이름에_대한_예외_처리_콤마_뒤() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("ppp,,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
+        );
+    }
     @Test
     void 이름에_대한_예외_처리_콤마_단독() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException(",", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("자동차 이름은 1자 이상 입력해야 한다")
+                        .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_콤마_처음() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",pp,bb", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리_콤마_중간() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pp,,bb", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
         );
     }
 

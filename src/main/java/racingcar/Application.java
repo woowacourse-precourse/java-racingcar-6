@@ -80,14 +80,11 @@ public class Application {
         List<String> cars=new ArrayList<>();
 
         String car=camp.nextstep.edu.missionutils.Console.readLine();
-        String checkCar[]=car.split(",");
-        if(checkCar.length==0)
-            throw new IllegalArgumentException("자동차 이름은 1자 이상 입력해야 한다");
-        System.out.println(checkCar.length);
+        String checkCar[]=car.split(",",-1);
 
         for(int i=0;i<checkCar.length;i++){
             if(checkCar[i].length()==0)
-                continue;
+                throw new IllegalArgumentException("각 자동차 이름은 1자 이상 입력해야 한다");
             else if(checkCar[i].length()<=5)
                 cars.add(checkCar[i]);
             else if (checkCar[i].length()>5)
