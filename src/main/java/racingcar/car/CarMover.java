@@ -13,12 +13,14 @@ public class CarMover {
 	private static final Integer EndOfRecursive = 0;
 	private static final Integer StartIndex = 0;
 	private static final Integer IndexIncreaseNumber = 1;
+	private static final String ChangeLine = "\n";
 	CarMovementWriter carMovementWriter = new CarMovementWriter();
 
 	public void moveCars(List<Car> carList, Integer tryingCountsNumber,
 		CarMovementResultLogStorage carMovementResultLogStorage) {
 		updateCarMovements(carList, StartIndex);
 		carMovementWriter.writeMovementOfCars(carList, StartIndex, carMovementResultLogStorage);
+		carMovementResultLogStorage.addLog(ChangeLine);
 		tryingCountsNumber = tryingCountsNumber - RecursiveSteps;
 		if (tryingCountsNumber == EndOfRecursive) {
 			return;
