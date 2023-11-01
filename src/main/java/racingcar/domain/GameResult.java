@@ -23,4 +23,8 @@ public class GameResult {
                 .collect(Collectors.joining(GameConstants.JOIN_COMMA_SEPARATOR));
         gameOutputView.printGameResult(result);
     }
+
+    public List<Car> getWinners() {
+        return winners;
+    }
 }
