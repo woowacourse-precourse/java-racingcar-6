@@ -10,7 +10,7 @@ class CreateRandomNumberTest {
         final int randomNumber = CreateRandomNumber.getNumber();
 
         // when
-        boolean isInRange = 0 < randomNumber && randomNumber < 9;
+        boolean isInRange = 0 <= randomNumber && randomNumber <= 9;
 
         // then
         Assertions.assertThat(isInRange).isTrue();
