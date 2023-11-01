@@ -27,8 +27,4 @@ public class Car {
             this.position++;
         }
     }
-
-    public boolean isPositionGreaterThan(int num) {
-        return position > num;
-    }
 }
