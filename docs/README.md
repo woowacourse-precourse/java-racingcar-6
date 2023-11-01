@@ -48,7 +48,7 @@
 ### 자동차 Car
 - [x] 자동차 인스턴스 생성 시에 이름 속성을 부여 - Car(name)
 - [x] 0 ~ 9 사이 무작위 값을 생성해 4 이상인지 판단하는 기능 - checkRandomNumber()
-- [ ] 자동차를 한 칸 전진시키는 기능 - moveForward()
+- [x] 자동차를 한 칸 전진시키는 기능 - moveForward()
 
 ### 자동차 컬렉션 Cars
 - [ ] 주어진 시점에 최종 우승자를 정하는 기능 - getFinalWinner()

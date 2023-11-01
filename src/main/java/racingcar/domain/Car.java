@@ -26,4 +26,8 @@ public class Car {
         int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         return randomNumber >= CRITERIA;
     }
+
+    public void moveForward() {
+        position++;
+    }
 }
