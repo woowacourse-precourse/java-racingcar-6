@@ -25,7 +25,6 @@ public class RacingGameManager {
             racingGameScreen.showError(e.getMessage());
             throw e;
         } finally {
-            racerRegistry.clear();
             racingGameScreen.close();
         }
     }

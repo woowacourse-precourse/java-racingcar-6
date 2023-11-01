@@ -16,10 +16,6 @@ public class RacerRegistry<T extends Racer> {
         this.racers.addAll(racers);
     }
 
-    public void clear() {
-        racers.clear();
-    }
-
     public List<T> getRacers() {
         return racers;
     }
