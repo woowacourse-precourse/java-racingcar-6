@@ -18,6 +18,17 @@ public class RacingCarGame {
         this.numOfPlaying = 0;
     }
 
+    public void playGame(){
+        init();
+        for(int i =0;i<numOfPlaying;i++){
+            play();
+        }
+        printWinner();
+    }
+
+    private void printWinner(){
+
+    }
 
     private void play(){
         decideToGoOrStop();
