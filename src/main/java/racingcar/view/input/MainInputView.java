@@ -1,11 +1,9 @@
 package racingcar.view.input;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class MainInputView {
-    private static final String CARNAME_SPLIT_DELIMETER = ",";
     private static final Pattern NUMBER_PATTERN = Pattern.compile("\\d+");
 
     private MainInputView() {
@@ -15,7 +13,7 @@ public class MainInputView {
         Input input = Input.readLine();
         String trimmedInput = input.trimmed();
 
-        return Arrays.asList(trimmedInput.split(CARNAME_SPLIT_DELIMETER));
+        return CarNamesInput.parse(trimmedInput).carNames();
     }
 
     public static int readPlayCount() {
