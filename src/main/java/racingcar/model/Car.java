@@ -36,7 +36,10 @@ public class Car {
         this.distance++;
     }
 
-    
+    public String distanceConvertString(){
+        String printDistanceUnit = "-";
+        return String.format("%s : ",this.name) + printDistanceUnit.repeat(this.distance);
+    }
 
     public Integer measureDistance(){
         return this.distance;
