@@ -24,8 +24,8 @@ public class Cars {
         List<CarDto> carDtos = new ArrayList<>();
         for (Car car : cars) {
             CarDto carDto = new CarDto();
-            carDto.setName(car.getName().getValue());
-            carDto.setPosition(car.getPosition().getValue());
+            carDto.setName(car.getName());
+            carDto.setPosition(car.getPosition());
 
             carDtos.add(carDto);
         }
