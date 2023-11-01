@@ -42,4 +42,12 @@ public class CarTest {
             InputValidator.validateNumbers(input);
         });
     }
+
+    @Test
+    public void 중복_이름_검증(){
+        String[] names = {"brian", "poby", "brian"};
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateDuplicateName(names);
+        });
+    }
 }
