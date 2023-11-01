@@ -12,9 +12,7 @@ import racingcar.Application;
 import java.util.ArrayList;
 import java.util.List;
 
-class RacingcarServiceTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
+class RacingcarServiceTest {
 
     @Test
     void getAdvance_test() {
@@ -29,13 +27,6 @@ class RacingcarServiceTest extends NsTest {
         } else {
             assertTrue(isAdvance);
         }
-    }
-
-
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
     }
 
 }
