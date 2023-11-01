@@ -4,13 +4,13 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.enums.Constant.FORWARD_THRESHOLD;
-import static racingcar.enums.ExceptionMessage.DUPLICATE_NAME_MESSAGE;
-import static racingcar.enums.ExceptionMessage.EXCEED_MAX_LENGTH_MESSAGE;
-import static racingcar.enums.ExceptionMessage.NAME_HAS_WHITE_SPACE_MESSAGE;
-import static racingcar.enums.ExceptionMessage.NON_NUMERIC_INPUT_ERROR_MESSAGE;
-import static racingcar.enums.ExceptionMessage.NULL_OR_EMPTY_INPUT_MESSAGE;
-import static racingcar.enums.ExceptionMessage.TRIAL_MINIMUM_MESSAGE;
+import static racingcar.global.enums.Constant.FORWARD_THRESHOLD;
+import static racingcar.global.enums.ExceptionMessage.DUPLICATE_NAME_MESSAGE;
+import static racingcar.global.enums.ExceptionMessage.EXCEED_MAX_LENGTH_MESSAGE;
+import static racingcar.global.enums.ExceptionMessage.NAME_HAS_WHITE_SPACE_MESSAGE;
+import static racingcar.global.enums.ExceptionMessage.NON_NUMERIC_INPUT_ERROR_MESSAGE;
+import static racingcar.global.enums.ExceptionMessage.NULL_OR_EMPTY_INPUT_MESSAGE;
+import static racingcar.global.enums.ExceptionMessage.TRIAL_MINIMUM_MESSAGE;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;

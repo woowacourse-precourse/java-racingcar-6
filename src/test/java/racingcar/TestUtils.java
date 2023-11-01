@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.enums.Constant.MAX_NAME_LENGTH;
+import static racingcar.global.enums.Constant.MAX_NAME_LENGTH;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
