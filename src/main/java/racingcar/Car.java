@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     String state = "";
+    String name;
     public int drawNumber(){
         return Randoms.pickNumberInRange(0, 9);
     }
@@ -18,6 +19,7 @@ public class Car {
         }
         return "버그";
     }
-//테스트 코드 작성부터 하자.
+
+
 
 }
