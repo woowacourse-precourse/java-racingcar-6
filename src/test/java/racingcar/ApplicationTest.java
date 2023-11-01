@@ -50,7 +50,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 정해진_횟수_달성시_종료() {
+    void 정해진_횟수_달성시_결과값_일치() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("kim"));
         cars.add(new Car("go"));
