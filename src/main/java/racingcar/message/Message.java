@@ -1,5 +1,7 @@
 package racingcar.message;
 
+import racingcar.model.Car;
+
 import java.util.List;
 
 public class Message {
