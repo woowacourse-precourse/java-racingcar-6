@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    private static final int NAME_LENGTH = 5;
 
     @Test
     void 전진_정지() {
@@ -80,6 +81,20 @@ class ApplicationTest extends NsTest {
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> isNumberic(input));
         assertEquals("문자만 입력하세요", exception.getMessage());
+    }
+
+    public void checkLength(String input){
+        if(input.length() > NAME_LENGTH){
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    @Test
+    void 이름_5글자_이상_예외처리(){
+        String input = "dfdssfdf";
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> checkLength(input));
+        assertEquals("이름은 5자 이하만 가능합니다.", exception.getMessage());
     }
 
 
