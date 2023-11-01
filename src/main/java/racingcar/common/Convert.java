@@ -7,10 +7,18 @@ public class Convert {
         return List.of(string.split(","));
     }
 
-    public static Integer stringToInteger(String attemptNumber) {
+    public static Integer stringToInteger(String stringAttemptNumber) {
         try {
-            return Integer.parseInt(attemptNumber);
+            int integerAttemptNumber = Integer.parseInt(stringAttemptNumber);
+            validatePositive(integerAttemptNumber);
+            return integerAttemptNumber;
         } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static void validatePositive(int integerAttemptNumber) {
+        if (integerAttemptNumber < 0) {
             throw new IllegalArgumentException();
         }
     }
