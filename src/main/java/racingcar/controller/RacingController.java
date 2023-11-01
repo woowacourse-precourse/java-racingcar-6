@@ -56,13 +56,12 @@ public class RacingController {
         Collections.sort(cars, (o1, o2) -> Integer.compare(o2.getProgress(), o1.getProgress()));    //이동 횟수가 큰 순서대로 정렬
 
         StringBuilder sb = new StringBuilder();
+        sb.append(cars.get(0).getName());
+
         int maxScore = cars.get(0).getProgress();
-        for (Car car : cars) {
-            if (car.getProgress() == maxScore) {
-                if (sb.length() > 0) {
-                    sb.append(COMMA);
-                }
-                sb.append(car.getName());
+        for(int i=1; i<cars.size(); i++) {
+            if (cars.get(i).getProgress() == maxScore) {
+                sb.append(COMMA).append(cars.get(i).getName());
             } else {
                 break;
             }
