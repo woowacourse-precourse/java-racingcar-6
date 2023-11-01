@@ -3,8 +3,9 @@
 ---
 
 ## 자동차 전진
-- [ ] 회차마다 자동차들 각각의 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4보다 큰 경우 전진한다.
-- [ ] Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
+- [x] 회차마다 자동차들 각각의 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4보다 큰 경우 전진한다.
+- [x] Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
+
 ## 우승자 결정
 - [x] 가장 많이 이동한 자동차의 거리를 계산한다.
 - [x] 자동차 게임이 끝난 후 가장 많이 전진한 자동차를 결정한다. 
