@@ -2,10 +2,10 @@ package racingcar.car.impl;
 
 import racingcar.car.Car;
 
-public class CarImpl implements Car {
+public class NamedCar implements Car {
     private int movedDistance;
     private final String name;
-    public CarImpl(String name) {
+    public NamedCar(String name) {
         this.name = name;
         this.movedDistance = 0;
     }
