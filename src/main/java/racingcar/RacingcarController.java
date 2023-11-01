@@ -2,6 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RacingcarController {
     Input input = new Input();
     Cars cars = new Cars();
@@ -15,6 +18,7 @@ public class RacingcarController {
         addCars(splitCarName);
         int number = inputNumber();
         playGame(number);
+        printWinner(getWinner());
     }
 
     public String inputCarsName() {
@@ -51,5 +55,31 @@ public class RacingcarController {
             System.out.println(car.toString());
         }
         System.out.println();
+    }
+
+    public List<String> getWinner() {
+        List<String> winners = new ArrayList<>();
+        int maxNumber = -1;
+
+        for (Car car : cars.cars) {
+            if (car.getNumber() > maxNumber) {
+                maxNumber = car.getNumber();
+                winners.clear();
+                winners.add(car.getName());
+            } else if (car.getNumber() == maxNumber) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
+
+    public void printWinner(List<String> winners) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if (i < winners.size() - 1)
+                System.out.print(", ");
+        }
     }
 }
