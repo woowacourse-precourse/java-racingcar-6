@@ -39,7 +39,6 @@ public class User {
 
         System.out.println("실행 결과");
 
-        // Car 객체 생성
         List<Car> cars = new ArrayList<>();
         Referee referee = new Referee();
 

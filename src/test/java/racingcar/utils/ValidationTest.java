@@ -33,4 +33,15 @@ class ValidationTest {
         Assertions.assertThatIllegalArgumentException()
                 .isThrownBy(() -> validation.nullStringInput(null));
     }
+
+    @Test
+    void 예외_attemptCount_입력값_자아닐때1() {
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> validation.isNumberValidation("안녕"));
+    }
+    @Test
+    void 예외_attemptCount_숫자아닐때2() {
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> validation.isNumberValidation("?"));
+    }
 }
