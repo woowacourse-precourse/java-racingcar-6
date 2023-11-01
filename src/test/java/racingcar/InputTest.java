@@ -113,7 +113,31 @@ public class InputTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"99999999999999"})
-    void getTryNumberRangeExceptionTest(String userInput) {
+    void canProcessOverIntTryNumber(String userInput) {
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getCarName();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            assertEquals(INVALID_TRY_NUMBER_RANGE_MESSAGE, illegalArgumentException.getMessage());
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1"})
+    void canProcessMinusTryNumber(String userInput) {
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getCarName();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            assertEquals(INVALID_TRY_NUMBER_RANGE_MESSAGE, illegalArgumentException.getMessage());
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"101"})
+    void canProcessOverHundred(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
         try {
