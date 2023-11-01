@@ -11,9 +11,9 @@ import java.util.Set;
 
 public class InputValidator {
     private static InputValidator instance;
-    private static int NAME_MIN_LENGTH = 1;
-    private static int NAME_MAX_LENGTH = 5;
-    private static int MIN_TRY_COUNT = 1;
+    private static final int NAME_MIN_LENGTH = 1;
+    private static final int NAME_MAX_LENGTH = 5;
+    private static final int MIN_TRY_COUNT = 1;
 
     private InputValidator() {}
 
