@@ -5,7 +5,11 @@ import racingcar.view.GameView;
 import java.util.List;
 
 public class GameModel {
-    private GameView gameView;
+    private final GameView gameView;
+
+    public GameModel() {
+        this.gameView = new GameView();
+    }
 
     public List<String> getCarName() {
         return gameView.inputCarName();
