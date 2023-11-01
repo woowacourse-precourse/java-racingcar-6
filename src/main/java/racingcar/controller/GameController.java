@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -12,7 +11,7 @@ public class GameController {
     public void play() {
         Game game = readyGame();
         startGame(game);
-        endGame();
+        endGame(game);
     }
 
     public Game readyGame() {
@@ -24,6 +23,9 @@ public class GameController {
 
     public void startGame(Game game) {
         OutputView.printResult();
+        while (!game.isGameOver()) {
+            game.play();
+        }
     }
 
     public void endGame(Game game) {
