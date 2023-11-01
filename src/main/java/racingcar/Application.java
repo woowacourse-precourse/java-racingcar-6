@@ -45,7 +45,7 @@ public class Application {
         return true;
     }
 
-    private static void moveCars(String[] carNameArray,int[] carForwardArray) {
+    public static void moveCars(String[] carNameArray,int[] carForwardArray) {
         for (int j=0; j<carNameArray.length; j++){
             int randomValue= Randoms.pickNumberInRange(0,9);
             if (randomValue>=4){
@@ -54,7 +54,7 @@ public class Application {
         }
     }
 
-    private static void printForwardCounts(String[] carNameArray,int[] carForwardArray){
+    public static void printForwardCounts(String[] carNameArray,int[] carForwardArray){
         StringBuilder result=new StringBuilder();
         for (int i=0;i<carNameArray.length;i++){
             result.append(carNameArray[i]).append(" : ").append("-".repeat(carForwardArray[i]));
@@ -78,7 +78,7 @@ public class Application {
 
     }
 
-    private static String[] getWinners(String[] carNameArray,int[] carForwardArray,int maxForwardCount){
+    public static String[] getWinners(String[] carNameArray,int[] carForwardArray,int maxForwardCount){
         List<String> winnerList=new ArrayList<>();
 
         for (int i=0;i<carNameArray.length;i++){
