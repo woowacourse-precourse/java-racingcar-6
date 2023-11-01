@@ -3,17 +3,19 @@
 ## 기능목록
 - [O] 자동차에 이름을 부여한다 - InputUser
   - [O] 자동차의 이름은 쉼표로 구분하고, 이름은 5자 이하만 가능하다 InputUser#getNames
-  - [ ] 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료한다.
-- [O] 자동차의 움직임
-  - [O] 0~9 사이 무작위 값 중에 값이 4 이상일 경우
-    - [O] 자동차가 전진한다
+  - [O] 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료한다. InputUser#getNames
+- [O] 자동차의 움직임 Cars
+  - [O] 0~9 사이 무작위 값 중에 값이 4 이상일 경우 Cars#randomNum
+    - [O] 자동차가 전진한다 Cars#move
   - [O] 그 외
     - [O] 자동차가 멈춘다
-- [O] 자동차의 이름을 출력한다
+- [O] 자동차의 이름을 출력한다 Cars#printCars
 - [O] 몇번 이동을 할 것인지 입력받는다 inputUser#getNumber
-  - [ ] 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료한다.
-- [O] 우승자가 누구인지 알려준다
+  - [O] 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료한다. inputUser#getNumber
+- [O] 우승자가 누구인지 알려준다 Cars#printWinner
   - [O] 우승자가 여러명일 경우 쉼표를 이용해 출력한다
+- [ ] move 테스트케이스
+- [O] randomNum 테스트케이스
 
 
 

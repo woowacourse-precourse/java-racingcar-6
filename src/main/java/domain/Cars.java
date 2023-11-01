@@ -9,7 +9,7 @@ public class Cars {
     //쉼표로 나눠진 차들을 기반으로 각각의 차의 위치 리스트 생성
 
     List<String> carPos;
-
+    public static int num;
     public void setCars(List<String> cars) {
         carPos = new ArrayList<String>();
         for (int i = 0; i < cars.size(); i++) {
@@ -27,7 +27,7 @@ public class Cars {
     }
 
     public boolean randomNum() {
-        int num = Randoms.pickNumberInRange(0, 9);
+        num = Randoms.pickNumberInRange(0, 9);
         if (num >= 4) {
             return true;
         }

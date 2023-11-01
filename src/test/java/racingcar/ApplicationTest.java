@@ -1,15 +1,18 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import domain.Cars;
 import domain.InputUser;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -17,11 +20,11 @@ class ApplicationTest extends NsTest {
     @Test
     void split_메서드로_주어진_값을_구분() {
         InputUser inputUser = new InputUser();
-        String userInput = "1,2" ;
+        String userInput = "pobi,jun" ;
         List<String> input = inputUser.getNames(userInput);
 
-        assertThat(input).contains("2", "1");
-        assertThat(input).containsExactly("1", "2");
+        assertThat(input).contains("pobi", "jun");
+        assertThat(input).containsExactly("jun", "pobi");
     }
     @Test
     void 전진_정지() {
@@ -32,6 +35,17 @@ class ApplicationTest extends NsTest {
             },
             MOVING_FORWARD, STOP
         );
+    }
+
+    @Test
+    void 랜덤숫자가_4이상일_경우(){
+        Cars cars = new Cars();
+        boolean overFour = cars.randomNum();
+        if (cars.num<4){
+            assertFalse(overFour);
+        } else if (cars.num>=4) {
+            assertTrue(overFour);
+        }
     }
 
     @Test
