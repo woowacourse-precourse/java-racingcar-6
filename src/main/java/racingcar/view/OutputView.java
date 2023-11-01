@@ -8,6 +8,7 @@ public class OutputView {
     private final String RESULT_MESSAGE = "\n실행 결과";
     private final String DISTANCE_SYMBOL = "-";
     private final String FINAL_WINNER = "최종 우승자 : ";
+    private final String JOIN_DELIMETER = ", ";
 
     public void displayResultMessage() {
         System.out.println(RESULT_MESSAGE);
@@ -21,7 +22,7 @@ public class OutputView {
     }
 
     public void displayWinners(Winners winners) {
-        System.out.print(FINAL_WINNER + String.join(", ", winners.getNames()));
+        System.out.print(FINAL_WINNER + String.join(JOIN_DELIMETER, winners.getNames()));
     }
 
     private String displayCarStatus(Car car) {
