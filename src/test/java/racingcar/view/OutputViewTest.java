@@ -79,4 +79,17 @@ class OutputViewTest {
                 .isEqualTo("---");
     }
 
+    @DisplayName("자동차 마일리지가 없을 경우 ")
+    @Test
+    void zeroDistanceToPosition() {
+        //given
+        addCars();
+        Car car = carList.get(1);
+
+        //then
+        Assertions.assertThat(OutputView.distanceToPosition(car))
+                .isEqualTo("");
+    }
+
+
 }
