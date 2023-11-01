@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Race {
@@ -95,6 +96,11 @@ public class Race {
         System.out.println();
     }
 
+    private void compareMaxValue(Map.Entry<String, Integer> set, Integer maxValue) {
+        if (Objects.equals(maxValue, set.getValue())) {
+            winners.add(set.getKey());
+        }
+    }
 
     private void findWinner() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -102,10 +108,8 @@ public class Race {
         int maxValue = Collections.max(playingStatus.values());
         for (Map.Entry<String, Integer> set :
                 playingStatus.entrySet()) {
-            if (maxValue == set.getValue()) {
-                winners.add(set.getKey());
+            compareMaxValue(set, maxValue);
             }
-        }
         String print = winners.stream().
                 map(Object::toString).
                 collect(Collectors.joining(", ")).toString();
