@@ -14,12 +14,15 @@ public class ConsoleInput {
     public static List<Car> carNamesInput() {
         System.out.println(REQUEST_CAR_NAMES_SENTENCE.getText());
         String carNames = Console.readLine();
+        Console.close();
         return parseSentence(carNames);
     }
 
     public static int attemptsNumberInput() {
         System.out.println(REQUEST_ATTEMPTS_NUMBER_SENTENCE.getText());
-        return validateAttemptsNumber(Console.readLine());
+        int attemptsNumber = validateAttemptsNumber(Console.readLine());
+        Console.close();
+        return attemptsNumber;
     }
 
 
