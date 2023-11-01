@@ -17,5 +17,14 @@ public class Output {
         return carNames;
     }
 
+    public static void gameResult(){
+        System.out.println("실행 결과");
+
+    }
+
+    public static void finalWinner(){
+        System.out.println("최종 우승자 : ");
+    }
+
     
 }
