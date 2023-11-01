@@ -21,10 +21,8 @@ public class Application {
         Game.runGame(cars, counts);
 
         System.out.print(printWinnerMessage);
-        ArrayList<Car> winners = Game.getWinner(cars);
-        for (Car winner : winners) {
-            System.out.print(winner.name + " ");
-        }
+        ArrayList<String> winners = Game.getWinner(cars);
+        System.out.println(String.join(", ", winners));
 
     }
 }
