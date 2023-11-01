@@ -8,19 +8,19 @@ public class Car {
         this.name = name;
         this.movingDistance = 0;
     }
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
     public String getName() {
         return name;
     }
-    public void setmovingDistance(int movingDistance) {
-        this.movingDistance = movingDistance;
+    private void setmovingDistance(int movingDistance) {
+        this.movingDistance += movingDistance;
     }
     public int getmovingDistance() {
         return movingDistance;
     }
     public void moveForward() {
-        movingDistance += 1;
+        setmovingDistance(1);
     }
 }

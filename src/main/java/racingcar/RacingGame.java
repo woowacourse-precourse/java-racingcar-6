@@ -7,23 +7,24 @@ import java.util.List;
 public class RacingGame {
 
     ArrayList<Car> carList;
-    UserInputValidator validator;
+    UserInputValidator validator; // user 입력을 올바른지 체크하기 위한 validator
 
     public RacingGame() {
         carList = new ArrayList<>();
     }
 
     public void startGame() {
-
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String userCarName = Console.readLine();
+
         String[] carArr = validator.validateCarName(userCarName);
         settingCar(carArr);
 
         System.out.println("시도할 횟수는 몇회인가요?");
-        String userGameNumber = Console.readLine();
+        String userInput = Console.readLine();
+        int userGameNumber = validator.validateGameNumber(userInput);
 
-        progressCarGame(Integer.parseInt(userGameNumber));
+        progressCarGame(userGameNumber);
     }
 
     public void settingCar(String[] carArray) {
