@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.NumberGenerator;
-import racingcar.model.Race;
 import racingcar.utils.UserInputManager;
 import racingcar.view.RaceView;
 
@@ -12,7 +11,6 @@ import java.util.stream.Collectors;
 public class GameController {
 
     private List<Car> cars;
-    private Race race;
     private RaceView raceView;
     private final NumberGenerator numberGenerator;
     private final Judgement judgement;

@@ -1,11 +1,11 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
 import java.util.List;
 
 public class RaceView {
-    private void viewResult(){
-        for (: ) {
 
-        }
+    public void displayRaceProcess(List<Car> cars) {
     }
 }
