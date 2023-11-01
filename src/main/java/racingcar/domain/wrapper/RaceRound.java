@@ -1,6 +1,9 @@
 package racingcar.domain.wrapper;
 
+import java.util.regex.Pattern;
+
 public class RaceRound {
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]*$");
     private final int numberOfRound;
 
     private RaceRound(int numberOfRound) {
@@ -8,11 +11,8 @@ public class RaceRound {
     }
 
     public static RaceRound create(String numberOfRoundString) {
-        for (int i = 0; i < numberOfRoundString.length(); ++i) {
-            char ch = numberOfRoundString.charAt(i);
-            if (ch < '0' || ch > '9') {
-                throw new IllegalArgumentException();
-            }
+        if (!NUMBER_PATTERN.matcher(numberOfRoundString).matches()) {
+            throw new IllegalArgumentException();
         }
         return new RaceRound(Integer.parseInt(numberOfRoundString));
     }
