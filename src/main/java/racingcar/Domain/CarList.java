@@ -39,7 +39,7 @@ public class CarList {
 
     private void validateFormat(List<String> carNames) {
         for (String carName : carNames) {
-            if (!carName.matches("^[a-zA-Z0-9가-힣]{1,5}$")) {
+            if (!carName.matches(CAR_NAME_PATTERN)) {
                 throw new IllegalArgumentException();
             }
         }

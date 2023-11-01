@@ -32,7 +32,7 @@ public class RacingManager {
     }
 
     private void validateFormat(String attemptsNumber) {
-        if (!attemptsNumber.matches("^[1-9]\\d*$")) {
+        if (!attemptsNumber.matches(ATTEMPTS_NUMBER_PATTERN)) {
             throw new IllegalArgumentException();
         }
     }
