@@ -6,7 +6,7 @@ public class Validator {
 
     public static void carName(String name) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("공백은 이름으로 사용할 수 없습니다.");
+            throw new IllegalArgumentException("자동차 이름을 입력하세요.");
         }
 
         if (name.length() > MAX_NAME_LENGTH) {
