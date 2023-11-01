@@ -1,6 +1,8 @@
 package racingcar.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Validator {
     private final static String SYMBOL = ",";
@@ -31,6 +33,18 @@ public class Validator {
                     if (name.length() > MAXIMUM_NAME_LENGTH) {
                         throw new IllegalArgumentException();
                     }
+                });
+    }
+
+    private void validateDuplicateName(String carsName) {
+        String[] names = carsName.split(SYMBOL);
+        List<String> seen = new ArrayList<>();
+        Arrays.stream(names)
+                .forEach(name -> {
+                    if (seen.contains(name)) {
+                        throw new IllegalArgumentException();
+                    }
+                    seen.add(name);
                 });
     }
 }
