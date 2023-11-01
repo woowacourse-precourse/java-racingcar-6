@@ -1,12 +1,11 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.domain.dto.GameResult;
 import racingcar.resolver.InputResolver;
 import racingcar.service.GameService;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
@@ -44,5 +43,6 @@ public class GameController {
     private void finishGame(Game game) {
         List<String> winnerCarNameList = gameService.determineWinner(game);
         outputView.outputGameWinner(winnerCarNameList);
+        Console.close();
     }
 }

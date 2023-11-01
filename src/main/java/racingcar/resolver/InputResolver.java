@@ -3,11 +3,13 @@ package racingcar.resolver;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.view.InputView;
 
 public class InputResolver {
-    private final InputView inputView;
 
+    private static final int MAX_NAME_LENGTH = 5;
+    private final InputView inputView;
     public InputResolver(InputView inputView) {
         this.inputView = inputView;
     }
@@ -15,25 +17,21 @@ public class InputResolver {
     public List<String> preprocessCarName() {
         String carNames = inputView.inputCarNames();
 
-        String[] splitCarNames = splitByComma(carNames);
-        List<String> carNameList = removeDuplicates(splitCarNames);
-        return removeSpace(carNameList);
-    }
-
-    private static String[] splitByComma(String carNames) {
-        return carNames.split(",");
-    }
-
-    private List<String> removeDuplicates(String[] splitCarNames) {
-        return Arrays.stream(splitCarNames)
+        List<String> carNameList = Arrays.stream(carNames.split(","))
+                .map(String::trim)
                 .distinct()
                 .toList();
+
+        return limitNameSize(carNameList);
     }
 
-    private List<String> removeSpace(List<String> splitInput) {
-        return splitInput.stream()
-                .map(String::trim)
-                .toList();
+    private static List<String> limitNameSize(List<String> carNameList) {
+        for (String carName : carNameList) {
+            if (carName.length() > MAX_NAME_LENGTH) {
+                throw new IllegalArgumentException("차의 이름은 5자 이하만 가능하다.");
+            }
+        }
+        return carNameList;
     }
 
     public int preprocessCount() {
