@@ -29,6 +29,7 @@ public class RacingGame {
         for (int i = 0; i < attemptCount; i++) {
             extractRandomNumber(carList);
         }
+
         List<String> winnerList = extractResult(carList, size);
         return winnerList;
     }
@@ -56,6 +57,7 @@ public class RacingGame {
             int movingCount = evaluateMoving(target, count, i);
             outputView.showResult(car, movingCount);
         }
+
         System.out.println();
     }
 
