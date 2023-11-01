@@ -1,2 +1,4 @@
-package racingcar.repository;public class RacingRepository {
+package racingcar.repository;
+
+public class RacingRepository {
 }
