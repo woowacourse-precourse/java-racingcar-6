@@ -11,18 +11,18 @@ import java.util.List;
 public class GameManager {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
-
+    private int maxMove = 0;
     public void initGame() {
         playGame();
     }
 
 
     private void playGame() {
-        int maxMove = 0;
+        maxMove = 0;
         List<String> carList = inputView.userInputName();
         int count = inputView.userInputCount();
         List<Car> Cars = listUp(carList);
-        maxMove = playUntilRound(count, Cars);
+        playUntilRound(count, Cars);
         finishGame(Cars, maxMove);
     }
 
@@ -35,8 +35,7 @@ public class GameManager {
         return Cars;
     }
 
-    private int playRound(List<Car> Cars) {
-        int maxMove = 0;
+    private void playRound(List<Car> Cars) {
         for (Car car : Cars) {
             if (NumberGenerator.generateNumber() >= 4) {
                 car.setDistance(car.getDistance() + 1);
@@ -45,16 +44,14 @@ public class GameManager {
                 maxMove = car.getDistance();
             }
         }
-        return maxMove;
     }
 
-    private int playUntilRound(int count, List<Car> Cars) {
-        int maxMove = 0;
+    private void playUntilRound(int count, List<Car> Cars) {
+
         for (int i = 0; i < count; i++) {
-            maxMove = playRound(Cars);
+            playRound(Cars);
             OutputView.printRoundResultMessage(Cars);
         }
-        return maxMove;
     }
 
     private void finishGame(List<Car> Cars, int maxMove) {
