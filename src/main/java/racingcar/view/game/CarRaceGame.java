@@ -33,6 +33,7 @@ public class CarRaceGame implements Game {
         printFinalResult();
     }
 
+
     private void saveRaceRound(String input) {
         Validate.isNumber(input);
         this.gameRound = Integer.parseInt(input);

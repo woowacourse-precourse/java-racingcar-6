@@ -10,17 +10,20 @@ class CarManagerTest {
 
     private static final CarManager cm = new CarManager();
 
+    static {
+        cm.saveCars("pobi");
+    }
+
     @Test
     void saveCars() {
-        cm.saveCars("pobi,woni");
+        cm.saveCars("woni");
         assertThat(cm.size())
                 .isEqualTo(2);
     }
 
     @Test
     void moveCar() {
-        cm.saveCars("pobi");
-        cm.moveCar(0);
+        cm.moveCar(1);
         assertThat(cm.getLocations()
                 .get(0))
                 .isEqualTo(1);
@@ -52,7 +55,6 @@ class CarManagerTest {
 
     @Test
     void getCarsByLocation() {
-        cm.saveCars("pobi");
         assertThat(cm.getCarsByLocation(0)
                 .get(0)
                 .getName())

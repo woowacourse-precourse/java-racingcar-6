@@ -29,11 +29,14 @@ class CarRaceServiceTest {
 
     @Test
     void getCarsLocation() {
-        assertThat(cs.getCarsLocation().get(0)).isZero();
+        assertThat(cs.getCarsLocation().get(0))
+                .isZero();
     }
 
     @Test
     void getWinnersName() {
-        assertThat(cs.getWinnersName().get(0)).isEqualTo("pobi");
+        assertThat(cs.getWinnersName()
+                .get(0))
+                .isEqualTo("pobi");
     }
 }
