@@ -21,4 +21,12 @@ public class ValidatorTest {
         assertThatThrownBy(() -> Validator.validateRangeOfExecutions(numOfExecutions))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 자동차_이름이_5자_초과일_경우_에러() {
+        String name = "asdfgh";
+
+        assertThatThrownBy(() -> Validator.validateCarName(name))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
