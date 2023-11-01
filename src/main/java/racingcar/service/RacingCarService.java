@@ -8,6 +8,7 @@ import racingcar.domain.round.RoundResult;
 
 public class RacingCarService {
 
+    private static final String AND_COMMA = ", ";
     private static final Cars cars = new Cars();
     private RoundResult roundResults;
 
@@ -28,6 +29,6 @@ public class RacingCarService {
         return Arrays.stream(cars.getCars())
             .filter(car -> car.getMileage() == roundResults.getMaxMoveCount())
             .map(Car::getName)
-            .collect(Collectors.joining(", "));
+            .collect(Collectors.joining(AND_COMMA));
     }
 }
