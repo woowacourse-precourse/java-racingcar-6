@@ -27,7 +27,7 @@
 
 ## 자동차 세부 기능
 
-- [ ] 자동차 생성 (생성 시, 자동차 이름 부여)
+- [x] 자동차 생성 (생성 시, 자동차 이름 부여)
 - [ ] 자동차 전진
   - [ ] 전진 조건 : 0 ~ 9 사이의 무작위 값을 생성 후, 해당 값이 4 이상인 경우
 - [ ] 자동차 멈춤(정지)
@@ -51,5 +51,5 @@
 - [ ] 3항 연산자를 쓰지 않음.
 - [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게.
 - [ ] 기능 목록이 정상 동작함을 테스트 코드로 확인.
-- [ ] JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 
+- [ ] JDK에서 제공하는 Random 및 Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 Randoms 및 Console API를 사용하여 
   구현.
