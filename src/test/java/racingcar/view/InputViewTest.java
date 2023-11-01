@@ -38,6 +38,19 @@ class InputViewTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {"pobi3", "pobi,jun,ian", "hi,hello,안녕"})
+    public void 이름의_형식이_지켜진_경우_에러가_발생하지_않는다(String input) {
+        // given
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // when, then
+        InputView.getCarNames();
+
+        // close Scanner
+        Console.close();
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = {"Ab", "하이", "!@"})
     public void 시도_회수는_숫자_이외에_값을_받을_수_없다(String input) {
         // given
@@ -55,4 +68,5 @@ class InputViewTest {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(byteArrayInputStream);
     }
+
 }
