@@ -11,7 +11,7 @@ public class Game {
 
     private int winnerPosition = 0;
 
-    public Game() {
+    public void startGame() {
         String input;
         String inputPlayTime;
 
