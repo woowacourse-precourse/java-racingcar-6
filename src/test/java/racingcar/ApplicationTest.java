@@ -14,7 +14,8 @@ import racingcar.model.RacingGame;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-
+    private static final String NORMAL_TEST_STEP = "20";
+    
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
@@ -32,6 +33,16 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 정상_테스트() {
+        String name = "Hello,World,Jason,Robin";
+        RacingGame rg = new RacingGame(name);
+        int stepNum = InputException.exceptionCheckStep(NORMAL_TEST_STEP);
+        rg.playGame(stepNum);
+
+        assertThat(output()).contains("Hello", "World", "Jason", "Robin", "최종 우승자");
     }
 
     @Test
@@ -58,19 +69,19 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_단일_처리() {
-        String name = "Kim";
-        RacingGame rg = new RacingGame(name);
-        rg.playGame(1);
-        assertThat(output()).contains("Kim : ", "최종 우승자 : Kim");
-    }
-
-    @Test
     void 이름_중복_예외() {
         String name = "Kim,Lee,Kim";
         assertThatThrownBy(() -> {RacingGame rg = new RacingGame(name);})
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(InputException.SAME_NAME);
+    }
+
+    @Test
+    void 자동차_단일_처리() {
+        String name = "Kim";
+        RacingGame rg = new RacingGame(name);
+        rg.playGame(1);
+        assertThat(output()).contains("Kim : ", "최종 우승자 : Kim");
     }
 
     @Test
