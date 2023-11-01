@@ -26,13 +26,14 @@ class CarManagerTest {
     void generateCarList_EqualName() {
         // given
         List<String> nameList = Arrays.asList("pobi", "wooni", "kong");
+        List<Integer> expectedNumbers = Arrays.asList(0, 0, 0); // 각 자동차에 들어갈 숫자들
 
         // when
         carManager.generateCarList(nameList);
 
         // then
-        Stream<String> carNames = carManager.runMatch().stream().map(Car::getName);
-        assertThat(carNames).isEqualTo(nameList);
+        List<Car> matchResult = runMatch(expectedNumbers);
+        assertThat(convertToName(matchResult)).isEqualTo(nameList);
     }
 
     @Test
@@ -40,12 +41,13 @@ class CarManagerTest {
     void generateCarList_EqualSize() {
         // given
         List<String> nameList = Arrays.asList("pobi", "wooni", "kong");
+        List<Integer> expectedNumbers = Arrays.asList(0, 0, 0); // 각 자동차에 들어갈 숫자들
 
         // when
         carManager.generateCarList(nameList);
 
         // then
-        int size = carManager.runMatch().size();
+        int size = runMatch(expectedNumbers).size();
         assertThat(nameList.size()).isEqualTo(size);
     }
 
