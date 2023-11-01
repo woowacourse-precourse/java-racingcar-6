@@ -1,0 +1,30 @@
+# 기능 단위 목록
+
+- **`isNamesInput()`**
+    - user 입력을 담당할 메서드
+    - `List` 형태로 저장할 계획
+    - `StringTokenizer` 로 문자열을 분리한다.
+        - input이 `null` 이거나 이름이 5글자 이상인 경우 `IllegalArgumetExcepion` 을 throw한다.
+    - return은 유저 리스트를 반환한다.
+- **`isNumberInput()`**
+    - 얼마나 많이 경주를 할 것인가?
+    - 입력이 음수일 경우 `IllegalArgumetExcepion` 을 throw한다.
+- **`startRacing()`**
+    - `isNamesInput()` 에서 반환 받은 List와 `isNumberInput()` 을 파라미터로 받는다.
+    - `makeHashMap()` 을 사용해서 *User - status* 상태의 `HashMap`을 만든다.
+    - `HashMap` 을 기준으로 `shouldStart()` 를 이용해 레이싱을 시뮬레이션한다.
+    - `printUsers()` 를 사용해 각 반복의 상태를 출력한다.
+    - return으로 `getLongesetUsers()` 을 사용해 반환한다.
+- **`getLongestUsers()`**
+    - `startRacing()` 의 반환값을 결정하는 메소드
+    - 가장 긴 유저를 고른다.
+- **`makeHashMap()`**
+    - 사용자로부터 받은 입력을 `HashMap` 으로 변환합니다.
+- **`shouldStart()`**
+    - `Randoms` 를 통해 랜덤 값으로 자동차가 출발 할지 안할지를 결정한다.
+- **`isNameInput()`**
+    - 사용자들로부터 이름을 받아 `List` 로 반환합니다.
+- **`isNumberInput()`**
+    - 사용자들로부터 얼마나 경기를 진행할지 `int` 를 받는다.
+- **`printUsers()`**
+    - 현재 유저들의 상태를 출력한다.
