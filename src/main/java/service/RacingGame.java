@@ -1,24 +1,34 @@
 package service;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import model.CarList;
 import model.Message;
+import model.Round;
+import model.RoundSet;
 
 public class RacingGame {
 
     private final GameProcessor gameProcessor = new GameProcessor();
 
-    public void gameStart(){
-        System.out.println(Message.GAMESTART);
-
+    public RoundSet gameStart(){
+        System.out.println(Message.SETCARNAME);
         CarList carList = gameProcessor.namingCar();
-        int round = gameProcessor.setRound();
 
+        System.out.println(Message.SETROUND);
+        Round round = new Round(gameProcessor.setRound());
 
+        return new RoundSet(carList, round);
+    }
+
+    public void gameProcess(RoundSet roundSet){
+        System.out.println(Message.RESULT);
+        gameProcessor.printRoundResult(roundSet);
     }
 
 
+    public void printWinner(RoundSet roundSet){
+        System.out.println(Message.GAMEEND);
+        gameProcessor.winnerJudgement(roundSet.getCarList());
+    }
 
 
 

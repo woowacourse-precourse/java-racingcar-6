@@ -1,9 +1,12 @@
 package service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import camp.nextstep.edu.missionutils.Randoms;
+import model.Car;
 import model.CarList;
+
+import java.util.List;
+import java.util.Random;
+
 public class ProcessHelper {
 
     private final Validation validation = new Validation();
@@ -22,6 +25,19 @@ public class ProcessHelper {
         }
         return carList;
     }
-
+    public List<Car> raceCars(List<Car> carList){
+        for(Car car : carList) {
+            int randomNum = Randoms.pickNumberInRange(0, 9);
+            if(randomNum >= 4) {
+                car.addForwardCount();
+            }
+        }
+        return carList;
+    }
+    public void printRaceResultByRound(List<Car> carList){
+        for(Car car : carList){
+            System.out.println(car.getCarName() + " : " + "-".repeat(car.getForwardCount()));
+        }
+    }
 
 }

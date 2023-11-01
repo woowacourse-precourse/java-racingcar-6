@@ -18,6 +18,9 @@ public class Validation {
         if(!roundInput.matches(pattern)){
             throw new IllegalArgumentException("횟수 입력은 숫자로만 하세요.");
         }
+        if(Integer.parseInt(roundInput) <= 0){
+            throw new IllegalArgumentException("횟수는 1 이상 입력하세요.");
+        }
         return roundInput;
     }
 }
