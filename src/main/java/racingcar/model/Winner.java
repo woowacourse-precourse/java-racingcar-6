@@ -6,8 +6,6 @@ import java.util.stream.Collectors;
 
 public class Winner {
 
-    private List<String> winnerCarList = new ArrayList<>();
-
     public List<String> determineWinner(List<Car> carList) {
         int maxMove = getMaxMoveCount(carList);
         return getWinnerCarNameList(carList, maxMove);
