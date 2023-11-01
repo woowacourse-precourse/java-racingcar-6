@@ -7,9 +7,8 @@ public class Car {
     private final int MIN_NUMBER = 0;
     private final int MAX_NUMBER = 9;
     private final int MOVE_MIN_NUMBER = 4;
-
-    private int position = 0;
     private final String name;
+    private int position = 0;
 
     public Car(String name) {
         this.name = name;

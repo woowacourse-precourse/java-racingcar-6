@@ -13,7 +13,6 @@ public class RacingCarGame {
     private final User user = new User();
     private final OutputView outputView = new OutputView();
 
-
     public void readyGame() {
         inputView.printCarNameInputMsg();
         user.inputCarName();

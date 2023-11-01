@@ -10,7 +10,6 @@ import racingcar.utils.UserInputValidator;
 public class User {
 
     private final String SEPERATE_NAME_CHAR = ",";
-
     private final UserInputValidator userInputValidator = new UserInputValidator();
     private List<String> carNames = new ArrayList<>();
     private int tryCount = 0;
