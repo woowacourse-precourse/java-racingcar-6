@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -16,6 +17,6 @@ public class Cars {
     }
 
     public List<Car> getCarList() {
-        return carList;
+        return Collections.unmodifiableList(carList);
     }
 }
