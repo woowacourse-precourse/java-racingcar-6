@@ -66,7 +66,7 @@ public class Application {
             System.out.println(result);
         }  catch (IllegalArgumentException e) {
             System.err.println("입력값이 잘못되었습니다. 애플리케이션을 종료합니다.");
-            throw new RuntimeException(e); // 예외 던지기
+            throw e; // 예외 던지기
         }
     }
 
