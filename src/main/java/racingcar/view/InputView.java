@@ -18,7 +18,12 @@ public class InputView {
         return convertCarName(getInput());
     }
 
-    private List<String> convertCarName(final String input) {
+    public int readGameRound() {
+        System.out.println(PRINT_READ_TRY_NUMBER_MESSAGE);
+        return convertGameRound(getInput());
+    }
+
+    private static List<String> convertCarName(final String input) {
         return Arrays.stream(splitWithComma(input))
                 .map(String::trim)
                 .toList();
@@ -26,11 +31,6 @@ public class InputView {
 
     private static String[] splitWithComma(final String input) {
         return input.split(CAR_NAME_DELIMITER);
-    }
-
-    public static int readGameRound() {
-        System.out.println(PRINT_READ_TRY_NUMBER_MESSAGE);
-        return convertGameRound(getInput());
     }
 
     private static int convertGameRound(final String input) {
