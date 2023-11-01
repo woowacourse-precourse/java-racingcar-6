@@ -31,6 +31,9 @@
     입력을 Game 클래스에 전달하기 위해 사용하는 클래스
 - [ ] RacingGamePrompter, RacingGame, RacingGameResponder 클래스의 기능을 중계한다.
 - [ ] racingcar.game 패키지 외부에서 패키지의 Racing Car 게임을 수행하고, 결과를 반환하는 API를 제공하는 클래스다.
+  - [ ] 게임을 초기화하는 메소드를 갖는다. 이 메소드는 차의 목록과 시도 횟수 입력을 포함한다.
+  - [ ] 게임을 진행하는 메소드를 갖는다. 이 메소드는 실행 결과 및 우승자 출력을 포함한다.
+
 
 ### RacingGamePrompter
     유저에게 입력 받는 클래스
