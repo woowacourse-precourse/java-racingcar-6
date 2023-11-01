@@ -1,13 +1,13 @@
 package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.constants.ValidatorConstant.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.constants.ValidatorConstant;
 
 public class TotalRoundValidatorTest {
     Validator totalRoundValidator = new TotalRoundValidator();
@@ -19,6 +19,6 @@ public class TotalRoundValidatorTest {
     void testCarNameGreaterThanFive(String totalRound) {
         IllegalArgumentException totalRoundError =
                 Assertions.assertThrows(IllegalArgumentException.class, () -> totalRoundValidator.validate(totalRound));
-        assertThat(totalRoundError.getMessage()).isEqualTo(ValidatorConstant.TOTAL_ROUND_ERROR_MESSAGE);
+        assertThat(totalRoundError.getMessage()).isEqualTo(TOTAL_ROUND_ERROR_MESSAGE);
     }
 }
