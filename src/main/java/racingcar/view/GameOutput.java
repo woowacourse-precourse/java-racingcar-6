@@ -19,6 +19,7 @@ public class GameOutput {
     public static void printErrorMessage(String str) {
         System.out.println(str);
     }
-
-
+    public static void printFinalWinner(String str) {
+        System.out.println(str);
+    }
 }

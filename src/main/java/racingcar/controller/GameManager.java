@@ -20,6 +20,7 @@ public class GameManager {
             int round = userInputHandler.getGameRound();
             List<Car> carList = createCarList(nameList);
             startGame(round, carList);
+            getFinalWinner(carList);
         }
         catch (Exception ex) {
             GameOutput.printErrorMessage(ex.getMessage());
@@ -45,5 +46,10 @@ public class GameManager {
         gameProgressService.moveCars(carList);
         String roundResult = gameProgressService.getRoundResults(carList);
         GameOutput.printRoundResult(roundResult);
+    }
+
+    private void getFinalWinner(List<Car> carList) {
+        String result = gameResultService.getFinalWinners(carList);
+        GameOutput.printFinalWinner(result);
     }
 }
