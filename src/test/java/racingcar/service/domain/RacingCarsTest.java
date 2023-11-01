@@ -48,7 +48,6 @@ class RacingCarsTest {
         }
     }
 
-    // TODO:우승자를 찾는 기능 테스트
     @Nested
     @DisplayName("우승자를 찾는 기능 테스트")
     class FindWinnersTest {
@@ -68,7 +67,6 @@ class RacingCarsTest {
         }
     }
 
-    // TODO:경주를 진행하는 기능 테스트
     @Nested
     @DisplayName("경주를 진행하는 기능 테스트")
     class DoRaceTest {

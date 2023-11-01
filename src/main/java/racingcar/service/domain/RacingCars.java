@@ -5,10 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.configuration.ConfigurationConstants;
 
-// TODO: for문 람다식으로 수정
-// TODO: RacingCars가 검증해야할 부분 방어 코드 작성 [V]
-// TODO: RacingCars public 메서드 단위 테스트
-// TODO: getter 없애도록 고민해볼 것
 public class RacingCars {
     private static final String DUPLICATE_EXISTS = "중복된 이름이 존재합니다.";
     private static final String OUT_OF_CAPACITY = "자동차 개수 범위가 맞지 않습니다.";

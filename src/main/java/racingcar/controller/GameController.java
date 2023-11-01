@@ -28,13 +28,13 @@ public class GameController {
 
     private RacingCars readyToCarRace() {
         List<String> carNames = GameUtil.splitByCommas(inputView.readCarNames());
-        return new RacingCars(carNames, new WootecoCarEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
+        return new RacingCars(carNames, new WootecoCarEngine());
     }
 
     private void processCarRace(RacingCars cars) {
         int totalRound = inputView.readTotalRound();
         outputView.printPlayResultText();
-        
+
         for (int round = 0; round < totalRound; round++) {
             OneGameResultsDto resultDto = racingGameService.playOneTimeCarRace(cars);
             deliverToOutputViewAboutOneGameResult(resultDto);

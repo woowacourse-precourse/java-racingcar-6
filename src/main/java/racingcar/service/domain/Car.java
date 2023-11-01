@@ -2,9 +2,6 @@ package racingcar.service.domain;
 
 import java.util.Objects;
 
-// TODO: Car가 검증해야할 부분 방어 코드 작성
-// TODO: public 메서드 단위 테스트
-// TODO: getter 없애도록 고민해볼 것
 public class Car {
     private static final int CAN_MOVE_MIN_CONDITION = 4;
     private final CarName name;
