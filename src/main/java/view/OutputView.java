@@ -22,6 +22,10 @@ public class OutputView {
         System.out.printf("%s : %s\n", name, movement);
     }
 
+    public void printNewLine(){
+        System.out.println();
+    }
+
     public void printWinner(String winnerName){
         System.out.printf("최종 우승자 : %s\n", winnerName);
     }
