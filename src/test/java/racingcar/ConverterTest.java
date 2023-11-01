@@ -49,17 +49,17 @@ class ConverterTest {
     }
 
     @Test
-    void matchWinnersConvention_메서드로_주어진_값_구분자로_연결() {
+    void matchWinnersNameConvention_메서드로_주어진_값_구분자로_연결() {
         List<String> input = List.of("aaa", "bbbb", "ccccc");
-        String result = Converter.matchWinnersConvention(input);
+        String result = Converter.matchWinnersNameConvention(input);
 
         assertThat(result).isEqualTo("aaa,bbbb,ccccc");
     }
 
     @Test
-    void matchWinnersConvention_메서드_사용시_입력된_값이_한개일_경우_구분자_없이_변환() {
+    void matchWinnersNameConvention_메서드_사용시_입력된_값이_한개일_경우_구분자_없이_변환() {
         List<String> input = List.of("aaa");
-        String result = Converter.matchWinnersConvention(input);
+        String result = Converter.matchWinnersNameConvention(input);
 
         assertThat(result).isEqualTo("aaa");
     }

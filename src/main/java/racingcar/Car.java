@@ -11,12 +11,12 @@ public class Car {
     }
 
     public void move(int number) {
-        if (judge(number)) {
+        if (isNumberAppropriateForMove(number)) {
             distance++;
         }
     }
 
-    private boolean judge(int number) {
+    private boolean isNumberAppropriateForMove(int number) {
         return number >= REFERENCE_NUMBER_VALUE;
     }
 

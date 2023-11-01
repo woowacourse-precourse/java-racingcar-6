@@ -16,7 +16,7 @@ public class OutputView {
 
     public static void printWinners(List<Car> winners) {
         List<String> convertedWinners = Converter.convertWinners(winners);
-        String winnersConvention = Converter.matchWinnersConvention(convertedWinners);
+        String winnersConvention = Converter.matchWinnersNameConvention(convertedWinners);
 
         System.out.print(NEW_LINE);
         System.out.println(WINNER_MESSAGE + COLON + winnersConvention);

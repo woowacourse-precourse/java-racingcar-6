@@ -32,7 +32,7 @@ public class Converter {
         return convertedWinners;
     }
 
-    public static String matchWinnersConvention(List<String> convertedWinners) {
+    public static String matchWinnersNameConvention(List<String> convertedWinners) {
         return String.join(CAR_NAME_DELIMITER, convertedWinners);
     }
 }
