@@ -71,7 +71,7 @@ public class RacingCarGame {
 
     public static void identifyWinners() {
         List<Integer> indices = indexOfWinners(Car.getMoves());
-        String result = nameOfWinners(indices).toString();
+        String result = nameOfWinners(indices);
         Output.printWinners(result);
     }
 
@@ -88,8 +88,8 @@ public class RacingCarGame {
         String result = "";
 
         for (int i = 0; i < indices.size(); i++) {
-            result += (cars.getNames()
-                    .get(indices.get(i)) + ", ");
+            String carName = cars.getNames().get(indices.get(i));
+            result += (carName + ", ");
         }
 
         int lengthForDeleteComma = result.length() - 2;

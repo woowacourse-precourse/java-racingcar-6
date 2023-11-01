@@ -1,9 +1,6 @@
 package racingcar.view;
 
-import java.util.Collections;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 import racingcar.model.Car;
 
 enum Messages {
