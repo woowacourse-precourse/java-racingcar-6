@@ -30,5 +30,12 @@ public class Application {
                     carNames[i] += "-";
                 }
             }
+
+            // 5. 우승자 결정
+            int maxDistance = 0;
+            for (String carName : carNames) {
+                int carDistance = carName.length();
+                maxDistance = Math.max(maxDistance, carDistance);
+            }
     }
 }
