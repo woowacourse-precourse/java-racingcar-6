@@ -19,6 +19,17 @@ public class Application {
     public static void printAttemptsPrompt() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+    public static void printResultPrompt() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+    public static void printProcessCar(String[] splitCarNames, String[] processCar){
+        for (int i = 0; i<splitCarNames.length; i++){
+            String process = String.format("%s : %s", splitCarNames[i], processCar[i]);
+            System.out.println(process);
+        }
+        System.out.println();
+    }
     public static void main(String[] args) {
         printCarNamePrompt();
         String inputCarNames = getUserInput();
@@ -27,6 +38,13 @@ public class Application {
         validateAndThrow(splitCarNames);
         printAttemptsPrompt();
         String inputAttempts = getUserInput();
+
+        printResultPrompt();
+        String[] processCar = new String[splitCarNames.length];
+        java.util.Arrays.fill(processCar, "");
+        for (int i = 0; i<Integer.parseInt(inputAttempts); i++) {
+            printProcessCar(splitCarNames, processCar);
+        }
 
     }
 }
