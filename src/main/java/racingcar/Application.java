@@ -1,175 +1,185 @@
 package racingcar;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class Application {
     public static void main(String[] args) {
-
-        // TODO: 프로그램 구현
-        raceStart();
+        Race race = new Race();
+        race.start();
     }
+}
 
-    private static void raceStart(){
+class Race {
+    public void start() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         raceReady();
     }
 
-    private static void raceReady(){
-
-        // 경주 할 자동차 이름 입력 받기
+    private void raceReady() {
         String carName = inputCarNames();
-
-        // 경주 할 자동차 입력 받은 문자열을 배열로 변환
         String[] carNamesArray = convertToCarNameArray(carName);
-
-        // 시도 할 횟수 입력
         askMoveCount();
-
-        String moveCount = inputMoveCount();
-
-        // 입력 받은 시도 횟수
-        int movementLimit = StringToIntMoveCount(moveCount);
-
-        makeForwardStatus(carNamesArray, movementLimit);
+        int movementLimit = stringToIntMoveCount(inputMoveCount());
+        Map<String, String> forwardStatusMap = makeForwardStatus(carNamesArray);
+        Racing race = new Racing();
+        race.race(carNamesArray, movementLimit, forwardStatusMap);
     }
 
-    private static void makeForwardStatus(String[] carNamesArray, int movementLimit){
-        Map<String, String> forwardStatusMap = createEmptyForwardStatus(carNamesArray);
-        racing(carNamesArray, movementLimit, forwardStatusMap);
+    private String inputCarNames() {
+        String inputCarNames = Console.readLine();
+        return inputCarNames;
     }
 
-    // 랜덤한 숫자에 따라 4이상이면 각 번호에 해당하는 자동차 하나씩 전진 -> 각 인덱스에 해당하는 문자열에 "-" 추가
-    private static void racing(String[] carNamesArray, int movementLimit, Map<String, String> forwardStatusMap){
-        for (int i = 0; i < movementLimit; i++) {
-            if (i == 0) {
-                System.out.println("실행 결과");
-            }
-            for (int j = 0; j < carNamesArray.length; j++) {
-                int moveDecision = Randoms.pickNumberInRange(0, 9);
-                if (moveDecision >= 4) {
-                    String forwardStatus = forwardStatusMap.get(carNamesArray[j]);
-                    forwardStatus += "-";
-                    forwardStatusMap.put(carNamesArray[j], forwardStatus);
-                }
-            }
-            printResult(forwardStatusMap);
-        }
-        raceEnd(forwardStatusMap,carNamesArray);
-
-    }
-
-    private static void raceEnd(Map<String, String> forwardStatusMap, String[] carNamesArray){
-        ArrayList<Integer> forwardCountArrayList = makeForwardCountArrayList();
-        caculateForwardCount(forwardCountArrayList,forwardStatusMap);
-        findWinners(forwardCountArrayList, carNamesArray);
-    }
-
-    private static void findWinners(ArrayList<Integer> forwardCountArrayList, String[] carNamesArray){
-        int winnerScore = Collections.max(forwardCountArrayList);
-
-        ArrayList<String> winnerNameArrayList = new ArrayList<>();
-
-        for (int i = 0; i < forwardCountArrayList.size(); i++) {
-            int forwardCount = forwardCountArrayList.get(i);
-            if (forwardCount == winnerScore){
-                winnerNameArrayList.add(carNamesArray[i]);
-            }
-        }
-
-        decisionWinner(winnerNameArrayList);
-    }
-
-    // 최종 우승자 출력
-    private static void decisionWinner(ArrayList<String> winnerNameArrayList){
-        if (winnerNameArrayList.size() > 1) {
-            StringBuilder result = new StringBuilder("최종 우승자 : ");
-            for (int i = 0; i < winnerNameArrayList.size(); i++) {
-                result.append(winnerNameArrayList.get(i));
-                if (i < winnerNameArrayList.size() - 1) {
-                    result.append(", ");
-                }
-
-            }
-            System.out.println(result);
-        }
-        else if(winnerNameArrayList.size() == 1){
-            System.out.println("최종 우승자 : "+winnerNameArrayList.get(0));
-        }
-    }
-
-    private static String inputCarNames(){
-        // Console.readLine();
-        return Console.readLine();
-    }
-
-    private static String[] convertToCarNameArray(String carName){
+    private String[] convertToCarNameArray(String carName) {
         String[] carNamesArray = carName.split(",");
+        validateinputCarNames(carNamesArray);
         containsNonStringElement(carNamesArray);
         return carNamesArray;
     }
 
-    private static void containsNonStringElement(String[] carNamesArray) {
-        for (String carName : carNamesArray) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("5글자 이하의 이름을 입력해주세요.");
+    private void validateinputCarNames(String[] carNamesArray){
+
+        for (int i = 0; i < carNamesArray.length; i++) {
+            if(carNamesArray[i].contains(" ")){
+                throw new IllegalArgumentException("유효하지 않은 자동차 이름을 입력하셨습니다.");
             }
         }
     }
 
-    private static void askMoveCount(){
+    private void containsNonStringElement(String[] carNamesArray) {
+        for (String carName : carNamesArray) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("5글자 이하의 자동차 이름을 입력해주세요.");
+            }
+        }
+    }
+
+    private void askMoveCount() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    private static String inputMoveCount(){
-        // Console.readLine();
-        return Console.readLine();
+    private String inputMoveCount() {
+        String inputMoveCount = Console.readLine();
+        try {
+            validateNumeric(inputMoveCount);
+        }
+        catch (NumberFormatException e){
+            System.out.println(e.getMessage());
+        }
+        return inputMoveCount;
     }
 
-    private static int StringToIntMoveCount(String moveCount){
-        int movementLimit = Integer.parseInt(moveCount);
-        return movementLimit;
+    public static void validateNumeric(String inputMoveCount) throws NumberFormatException {
+        if (!inputMoveCount.matches("-?\\d+(\\.\\d+)?")) {
+            throw new NumberFormatException("입력값이 숫자가 아닙니다: ");
+        }
     }
 
-    private static Map<String, String> createEmptyForwardStatus(String[] carNamesArray){
+    private int stringToIntMoveCount(String moveCount) {
+        return Integer.parseInt(moveCount);
+    }
+
+    private Map<String, String> makeForwardStatus(String[] carNamesArray) {
         Map<String, String> forwardStatusMap = new HashMap<>();
-        composeForwardStatus(forwardStatusMap, carNamesArray);
+        for (String carName : carNamesArray) {
+            forwardStatusMap.put(carName, "");
+        }
         return forwardStatusMap;
     }
+}
 
-    private static void composeForwardStatus(Map<String, String> forwardStatusMap, String[] carNamesArray){
-        for (int i = 0; i < carNamesArray.length; i++) {
-            forwardStatusMap.put(carNamesArray[i], "");
+class Racing {
+    public void race(String[] carNamesArray, int movementLimit, Map<String, String> forwardStatusMap) {
+        for (int i = 0; i < movementLimit; i++) {
+            if (i == 0) {
+                System.out.println("실행 결과");
+            }
+            forward(carNamesArray, forwardStatusMap);
+            printResult(forwardStatusMap);
         }
-
+        RaceEnd raceEnd = new RaceEnd();
+        raceEnd.end(forwardStatusMap, carNamesArray);
     }
 
-    private static void printResult(Map<String, String> forwardStatusMap){
-        for (Map.Entry<String, String> entry : forwardStatusMap.entrySet()){
+    private void forward(String[] carNamesArray, Map<String, String> forwardStatusMap) {
+        for (String carName : carNamesArray) {
+            int moveDecision = Randoms.pickNumberInRange(0, 9);
+            if (moveDecision >= 4) {
+                String forwardStatus = forwardStatusMap.get(carName);
+                forwardStatus += "-";
+                forwardStatusMap.put(carName, forwardStatus);
+            }
+        }
+    }
+
+    private void printResult(Map<String, String> forwardStatusMap) {
+        for (Map.Entry<String, String> entry : forwardStatusMap.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
             System.out.println(key + " : " + value);
         }
         System.out.println();
     }
+}
 
-    private static ArrayList<Integer> makeForwardCountArrayList(){
-        ArrayList<Integer> forwardCountArrayList = new ArrayList<>();
-        return forwardCountArrayList;
+class RaceEnd {
+    public void end(Map<String, String> forwardStatusMap, String[] carNamesArray) {
+        ArrayList<Integer> forwardCountArrayList = makeForwardCountArrayList(forwardStatusMap);
+        Winner winner = new Winner();
+        winner.findWinners(forwardCountArrayList, carNamesArray);
     }
 
-    private static void caculateForwardCount(ArrayList<Integer> forwardCountArrayList, Map<String, String> forwardStatusMap){
-        for (Map.Entry<String, String> entry : forwardStatusMap.entrySet()){
-            String value = entry.getValue();
-            forwardCountArrayList.add(value.length());
+    private ArrayList<Integer> makeForwardCountArrayList(Map<String, String> forwardStatusMap) {
+        return forwardStatusMap.values().stream().map(String::length).collect(Collectors.toCollection(ArrayList::new));
+    }
+}
+
+class Winner {
+    public void findWinners(ArrayList<Integer> forwardCountArrayList, String[] carNamesArray) {
+        int winnerScore = Collections.max(forwardCountArrayList);
+        ArrayList<String> winnerNameArrayList = composeWinnerNameArrayList(forwardCountArrayList, winnerScore, carNamesArray);
+        decisionWinner(winnerNameArrayList);
+    }
+
+    private ArrayList<String> composeWinnerNameArrayList(ArrayList<Integer> forwardCountArrayList, int winnerScore, String[] carNamesArray) {
+        ArrayList<String> winnerNameArrayList = new ArrayList<>();
+        for (int i = 0; i < forwardCountArrayList.size(); i++) {
+            int forwardCount = forwardCountArrayList.get(i);
+            if (forwardCount == winnerScore) {
+                winnerNameArrayList.add(carNamesArray[i]);
+            }
+        }
+        return winnerNameArrayList;
+    }
+
+    private void decisionWinner(ArrayList<String> winnerNameArrayList) {
+        StringBuilder gameResult = new StringBuilder("최종 우승자 : ");
+        if (winnerNameArrayList.size() > 1) {
+            pluralWinnerDecision(winnerNameArrayList, gameResult);
+        } else if (winnerNameArrayList.size() == 1) {
+            singleWinnerDecision(winnerNameArrayList.get(0), gameResult);
+        }
+        displayGameResult(gameResult.toString());
+    }
+
+    private void pluralWinnerDecision(ArrayList<String> winnerNameArrayList, StringBuilder gameResult) {
+        for (int i = 0; i < winnerNameArrayList.size(); i++) {
+            gameResult.append(winnerNameArrayList.get(i));
+            if (i < winnerNameArrayList.size() - 1) {
+                gameResult.append(", ");
+            }
         }
     }
 
+    private void singleWinnerDecision(String winnerName, StringBuilder gameResult) {
+        gameResult.append(winnerName);
+    }
+
+    private void displayGameResult(String gameResult) {
+        System.out.println(gameResult);
+    }
 }
-
-
