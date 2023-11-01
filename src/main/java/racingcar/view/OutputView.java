@@ -6,6 +6,7 @@ import racingcar.model.CarModel;
  * 출력 관리
  */
 public class OutputView {
+    private static final int DELETE_LAST_COMMA = 2;
     /**
      * 실행 결과 메세지 출력
      */
@@ -43,7 +44,7 @@ public class OutputView {
                     .append(", ");
         }
 
-        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+        stringBuilder.delete(stringBuilder.length() - DELETE_LAST_COMMA, stringBuilder.length());
 
         System.out.println("최종 우승자 : " + stringBuilder);
     }
