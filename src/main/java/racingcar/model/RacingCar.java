@@ -26,7 +26,7 @@ public class RacingCar {
         }
     }
 
-    public CarStatus apply(int condition){
+    public CarStatus decideMove(int condition){
         if(condition >= FORWARD_CONDITION){
             return CarStatus.FORWARD;
         }

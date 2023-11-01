@@ -49,11 +49,11 @@ class RacingCarTest {
     @DisplayName("자동차는 전진 또는 멈출 수 있다.")
     @ParameterizedTest
     @CsvSource(value = {"0,4", "1,5", "2,6", "3,7", "3,8", "2,9"})
-    void applyStatus(int stop, int forward){
+    void applyStatus(int stopCondition, int forwardCondition){
         RacingCar racingCar = new RacingCar("TEST");
         Assertions.assertAll(
-                () -> assertThat(racingCar.apply(stop)).isEqualTo(CarStatus.STOP),
-                () -> assertThat(racingCar.apply(forward)).isEqualTo(CarStatus.FORWARD)
+                () -> assertThat(racingCar.decideMove(stopCondition)).isEqualTo(CarStatus.STOP),
+                () -> assertThat(racingCar.decideMove(forwardCondition)).isEqualTo(CarStatus.FORWARD)
         );
     }
 
