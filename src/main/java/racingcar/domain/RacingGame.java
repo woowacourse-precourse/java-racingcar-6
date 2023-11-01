@@ -18,7 +18,7 @@ public class RacingGame {
 
     public void moveCarForward() {
         for (RacingCar car : cars) {
-            car.moveForward();
+            car.moveRandomForward();
         }
     }
 
@@ -70,5 +70,9 @@ public class RacingGame {
             }
         }
         return max;
+    }
+
+    public void moveForwardIndex(int i){
+        cars.get(i).moveForward();
     }
 }

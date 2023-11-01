@@ -16,11 +16,17 @@ public class RacingCar {
         return this.name;
     }
 
-    public void moveForward(){
+
+
+    public void moveRandomForward(){
         makeRandomNumber();
         if (isOverFour(randomNumber)){
-            move += 1;
+            moveForward();
         }
+    }
+
+    public void moveForward(){
+        move++;
     }
 
     public void makeRandomNumber(){
