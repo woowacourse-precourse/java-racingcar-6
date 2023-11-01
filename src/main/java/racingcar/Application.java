@@ -14,13 +14,20 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNames = Console.readLine().split(",");
         Map<String, Integer> carMap = new HashMap<>();
+        Map<String, Integer> sameName = new HashMap<>();
         List<String> carList = new ArrayList<>();
         for (String carName : carNames) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException();
             }
-            carMap.put(carName, 0);
-            carList.add(carName);
+            if (carMap.containsKey(carName)) {
+                sameName.put(carName, sameName.getOrDefault(carName, 0) + 1);
+                carMap.put(carName + " " + sameName.get(carName), 0);
+                carList.add(carName + " " + sameName.get(carName));
+            } else {
+                carMap.put(carName, 0);
+                carList.add(carName);
+            }
         }
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNum;
@@ -47,7 +54,8 @@ public class Application {
         }
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winner.size(); i++) {
-            System.out.print(winner.get(i));
+            String[] winnerSameName = winner.get(i).split(" ");
+            System.out.print(winnerSameName[0]);
             if (i != winner.size() - 1) {
                 System.out.print(", ");
             }
@@ -60,7 +68,8 @@ public class Application {
                 carMap.put(carName, carMap.get(carName) + 1);
             }
         }
-        System.out.print(carName + " : ");
+        String[] sameName = carName.split(" ");
+        System.out.print(sameName[0] + " : ");
         for (int i = 0; i < carMap.get(carName); i++) {
             System.out.print("-");
         }
