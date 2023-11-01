@@ -22,4 +22,20 @@ class GameTest {
 
         assertEquals(expected,result);
     }
+
+    @Test
+    void 공동_우승자_테스트() {
+        game.players.add(car1);
+        game.players.add(car2);
+
+        car1.state = "--";
+        car2.state = "--";
+        String expected = "최종 우승자 : car1,car2";
+        String result = "최종 우승자 : "+game.printWinners();
+
+        assertEquals(expected,result);
+    }
+
 }
+
+
