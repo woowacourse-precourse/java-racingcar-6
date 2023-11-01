@@ -3,21 +3,29 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.util.List;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.view.InputManager;
 
 class InputManagerTest {
 
+    private InputManager inputManager = new InputManager();
+
     void systemIn(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
+    }
+
+    @AfterEach
+    void tearDown() {
+        Console.close();
     }
 
     @Test
     void 여러_문자열을_쉼표를_기준으로_나누어_저장() {
         // given
-        InputManager inputManager = new InputManager();
         String name1 = "pobi";
         String name2 = "woni";
         String name3 = "harry";
@@ -34,7 +42,6 @@ class InputManagerTest {
     @Test
     void 양의_정수를_입력받아_저장() {
         // given
-        InputManager inputManager = new InputManager();
         int number = 5;
 
         // when
@@ -46,12 +53,9 @@ class InputManagerTest {
     @Test
     void 양의_정수가_아닌_값을_입력받을_때_예외_발생() {
         // given
-        InputManager inputManager = new InputManager();
-
-        // when
         systemIn("0");
 
-        // then
+        // when & then
         assertThatThrownBy(inputManager::getOnePositiveNumber)
                 .isInstanceOf(IllegalArgumentException.class);
     }
