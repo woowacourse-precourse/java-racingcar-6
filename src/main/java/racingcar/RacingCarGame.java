@@ -10,6 +10,7 @@ public class RacingCarGame {
 
     public RacingCarGame() {
         carNameList = new ArrayList<>();
+        carList = new ArrayList<>();
     }
 
     public void splitCarName(String carName) {
@@ -29,5 +30,9 @@ public class RacingCarGame {
 
     public List<String> getCarNameList() {
         return carNameList;
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 }
