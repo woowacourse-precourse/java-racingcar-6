@@ -8,8 +8,12 @@ public class ValidationUtil {
         }
     }
 
-    public void validateIsNumber() {
-
+    public void validateIsNumber(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
 }
