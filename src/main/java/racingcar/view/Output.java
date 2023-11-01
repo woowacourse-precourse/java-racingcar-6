@@ -14,7 +14,7 @@ public class Output {
     }
 
     public static void resultMessage() {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
     }
 
     public static void racingMessage(List<Car> carList) {
