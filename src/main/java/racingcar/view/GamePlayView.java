@@ -25,19 +25,19 @@ public class GamePlayView {
         return attemptsCount;
     }
 
-    public void showGameResult(List<Car> carList, int attempts) {
+    public void showResult(List<Car> carList, int attempts) {
         System.out.println(SHOW_GAME_RESULT);
 
         for (int i = 0; i < attempts; i++) {
             for (Car car : carList) {
-                car.controlCarMovement();
-                System.out.printf("%s : %s%n", car.getName(), car.reportCarMovement());
+                car.controlMovement();
+                System.out.printf("%s : %s%n", car.getName(), car.reportMovement());
             }
             System.out.println();
         }
     }
 
-    public void showGameWinner(List<String> winnerList) {
+    public void showWinner(List<String> winnerList) {
         String winner = winnerList.get(0);
 
         for (int i = 1; i < winnerList.size(); i++) {

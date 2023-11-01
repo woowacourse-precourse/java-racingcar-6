@@ -19,7 +19,7 @@ public class Car {
         return distance;
     }
 
-    public String reportCarMovement() {
+    public String reportMovement() {
         String movement = "";
 
         for (int i = 0; i < distance; i++) {
@@ -28,7 +28,7 @@ public class Car {
         return movement;
     }
 
-    public void controlCarMovement() {
+    public void controlMovement() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             distance++;
         }

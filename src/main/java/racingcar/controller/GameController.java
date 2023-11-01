@@ -2,32 +2,32 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.model.CarRaceModel;
+import racingcar.model.GameModel;
 import racingcar.model.Validator;
 import racingcar.view.GamePlayView;
 
 public class GameController {
 
-    CarRaceModel carRaceModel = new CarRaceModel();
+    GameModel gameModel = new GameModel();
     GamePlayView gamePlayView = new GamePlayView();
     Validator validator = new Validator();
 
-    public void gameStart() {
+    public void start() {
 
         String carNames = gamePlayView.inputCarName();
-        List<String> carNameList = carRaceModel.generateCarName(carNames);
+        List<String> carNameList = gameModel.generateCarName(carNames);
         validator.validateCarName(carNameList);
         validator.isCarNameUnique(carNameList);
 
-        List<Car> carList = carRaceModel.generateCar(carNameList);
+        List<Car> carList = gameModel.generateCar(carNameList);
 
         int attempts = gamePlayView.inputAttemptsCount();
         validator.validateAttemptInput(attempts);
 
-        gamePlayView.showGameResult(carList, attempts);
+        gamePlayView.showResult(carList, attempts);
 
-        List<String> winnerList = carRaceModel.findWinner(carList);
+        List<String> winnerList = gameModel.findWinner(carList);
 
-        gamePlayView.showGameWinner(winnerList);
+        gamePlayView.showWinner(winnerList);
     }
 }
