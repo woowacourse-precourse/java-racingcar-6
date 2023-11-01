@@ -3,7 +3,7 @@ package racingcar;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalArgumentException {
         RacingContest racingContest;
         List<String> winners;
         String result = "죄종 우승자 : ";
@@ -13,9 +13,14 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int round = Integer.parseInt(Console.readLine());
-
+        
         racingContest = new RacingContest(round);
         for(String racingCar :players.split(",")){
+            //사용자가 자동차 이름을 입력하지 않았거나 5글자보다 많이 입력한 경우 Exception
+            if(racingCar.length()==0||racingCar.length()>5){
+                throw new IllegalArgumentException();
+            }
+
             racingContest.insertCar(new RacingCar(racingCar));
         }
 
