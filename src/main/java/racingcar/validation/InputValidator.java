@@ -1,10 +1,13 @@
 package racingcar.validation;
 
 import racingcar.Constants;
+
+import static racingcar.Constants.CAR_NAME_MAX_LENGTH;
+
 public class InputValidator {
     public static void validateCarName(String name) {
-        if (name.length() > Constants.CAR_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름이 5글자를 초과해선 안됩니다.");
+        if (name.length() > CAR_NAME_MAX_LENGTH) {
+            throw new IllegalArgumentException("자동차 이름이 "+CAR_NAME_MAX_LENGTH+"글자를 초과해선 안됩니다.");
         }
 
         if (name.trim().isEmpty()) {
@@ -20,7 +23,7 @@ public class InputValidator {
 
     public static void validateInputFormat(String input) {
         if (input.endsWith(",")) {
-            throw new IllegalArgumentException("입력형식이 올바르지 않습니다.");
+            throw new IllegalArgumentException("입력형식이 올바르지 않습니다. 콤마(,)로 끝나면 안됩니다");
         }
     }
 }
