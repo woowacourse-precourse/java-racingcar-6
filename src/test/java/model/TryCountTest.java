@@ -40,7 +40,6 @@ class TryCountTest {
             });
             assertEquals(INVALID_RANGE.getMessage(), exception.getMessage());
         });
-
     }
 
     @Test
