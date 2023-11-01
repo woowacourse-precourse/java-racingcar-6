@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.OutputView.showStatusOfCar;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Iterator;
 import java.util.List;
@@ -40,7 +42,7 @@ public class RacingCarGame {
     public void repeatCarRace(List<Car> carList, int numberOfRace) {
         while (numberOfRace != 0) {
             carRace(carList);
-            System.out.println(carList);
+            showStatusOfCar(carList);
             numberOfRace--;
         }
     }
@@ -49,6 +51,10 @@ public class RacingCarGame {
         for (Car car : carList) {
             car.race();
         }
+    }
+
+    public void initializeWinnerList(List<Car> carList, List<Car> winnerList) {
+        winnerList.add(carList.get(0));
     }
 
     public void decideWinner(List<Car> carList, List<Car> winnerList) {
@@ -78,14 +84,14 @@ public class RacingCarGame {
         }
     }
 
-    public void printOutWinner(List<Car> winner) {
+    public StringBuilder printOutWinner(List<Car> winner) {
         StringBuilder sb = new StringBuilder();
         Iterator<Car> it = winner.iterator();
         while (it.hasNext()) {
             sb.append(it.next().getName());
             hasNext(sb, it);
         }
-        System.out.print(sb);
+        return sb;
     }
 
     private void hasNext(StringBuilder sb, Iterator<Car> it) {
