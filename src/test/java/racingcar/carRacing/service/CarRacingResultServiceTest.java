@@ -1,6 +1,7 @@
 package racingcar.carRacing.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.carRacing.service.CarRacingResultService.printRacingResult;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
