@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    List<Car> cars = new ArrayList<>();
+    List<Car> carsList = new ArrayList<>();
 
     public void addCarList(Car car) {
-        cars.add(car);
+        carsList.add(car);
     }
 }

@@ -9,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingcarControllerTest {
     private RacingcarGame racingcarController;
+
     @BeforeEach
     void beforeEach() {
         racingcarController = new RacingcarGame();
