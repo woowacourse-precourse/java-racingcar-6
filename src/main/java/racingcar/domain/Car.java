@@ -70,13 +70,13 @@ public class Car {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append(name).append(" : ");
+        StringBuilder builder = new StringBuilder();
+        builder.append(name).append(" : ");
 
         for (int i = 0; i < distance; i++) {
-            result.append(ONE_MOVING_MARK);
+            builder.append(ONE_MOVING_MARK);
         }
 
-        return result.toString().trim();
+        return builder.toString();
     }
 }

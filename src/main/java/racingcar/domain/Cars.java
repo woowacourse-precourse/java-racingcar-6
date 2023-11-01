@@ -36,10 +36,15 @@ public class Cars {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         cars.stream()
-                .forEach((car) -> result.append(car.toString()).append(LINE_BREAK));
+                .forEach((car) -> builder.append(car.toString()).append(LINE_BREAK));
 
-        return result.toString().trim();
+        return lastLineBreakRemovedResult(builder);
+    }
+
+    private static String lastLineBreakRemovedResult(StringBuilder builder) {
+        String result = builder.substring(0, builder.lastIndexOf(Cars.LINE_BREAK));
+        return result;
     }
 }
