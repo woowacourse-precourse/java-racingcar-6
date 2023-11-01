@@ -1,6 +1,7 @@
 package racingcar;
 
 import static constants.Constant.*;
+import static constants.StringError.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -49,6 +50,7 @@ public class RacingManager {
 
         playerNamesList = new ArrayList<String>(
                 Arrays.asList(playersNameString.split(SEP_COMMA_STRING)));
+        validatePlayerName(playerNamesList);
 
 //        for(String pl : playerNamesList){
 //            System.out.println(pl);
@@ -62,5 +64,14 @@ public class RacingManager {
 
         racingData.saveRacingData(playerNamesList, tryNumber);
     }
+    private void validatePlayerName(List<String> playerNamesList){
+        for(String name: playerNamesList){
+            int nameLength = name.length();
+            if(nameLength>5)
+                throw new IllegalArgumentException(wrongLengthError +
+                        "\nExpect : maximum nameLength is 5" +
+                        "\nInput : " +name + " Length : " + nameLength);
+        }
 
+    }
 }
