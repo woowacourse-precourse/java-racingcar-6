@@ -22,4 +22,10 @@ public class RacingGameWinner {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
+
+    public void printWinners() {
+        List<String> winners = findWinners(cars);
+        String result = String.join(",", winners);
+        System.out.print("최종 우승자 : " + result);
+    }
 }
