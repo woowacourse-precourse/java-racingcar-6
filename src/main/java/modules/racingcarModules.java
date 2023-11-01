@@ -11,6 +11,11 @@ public class racingcarModules {
     }
   }
 
+  public static void checked_car_name(String[] carNames) {
+    racingcarException.exception_len_0(carNames);
+    racingcarModules.checked_car_name_len(carNames);
+  }
+
   public static int checked_random_num_over_4(int random_num) {
     if (random_num >= 4) {
       return 1;
