@@ -14,25 +14,32 @@ public class CarNameValidator {
         this.NAMES = Utils.toArrayList(namesString);
         validate();
     }
-    public void validate() {
+
+    public boolean validate() {
         isRightNamesString();
         isRightNameSize();
         isNotDuplicated();
+
+        return true;
     }
+
     public void isRightNamesString() {
         // String 형식 확인 : 앞&뒤-문자, 중간-문자&구분자
         if (!Constants.nameStringPattern.matcher(NAMES_STRING).matches()) {
             throw new IllegalArgumentException(Constants.CAR_NAME_WRONG_ERROR);
         }
     }
+
     public void isRightNameSize() {
         if (NAMES.stream().anyMatch(name -> name.isEmpty() || name.length() > Constants.NAME_SIZE)) {
             throw new IllegalArgumentException(Constants.CAR_NAME_SIZE_ERROR);
         }
     }
+
     public void isNotDuplicated() {
         if (NAMES.size() != NAMES.stream().distinct().count()) {
             throw new IllegalArgumentException(Constants.CAR_NAME_DUPLICATED_ERROR);
         }
     }
 }
+
