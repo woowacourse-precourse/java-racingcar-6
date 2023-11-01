@@ -6,6 +6,7 @@ import racingcar.Domain.Car;
 import java.util.ArrayList;
 import java.util.List;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
 import static java.util.stream.Collectors.toList;
 
 public class Logic {
@@ -15,11 +16,13 @@ public class Logic {
     public static void doGame() {
         Output.printGuideCarName(); //4번 기능
 
-        List<String> carNames = Input.getCarNames(); //1번 기능
+        String input = readLine(); //1번 기능
+        List<String> carNames = Input.getCarNames(input); //1번 기능
 
         Output.printGuideTryCount(); //5번 기능
 
-        Long tryCount = Input.getTryCount(); //2번 기능
+        input = readLine();
+        Long tryCount = Input.getTryCount(input); //2번 기능
 
         Output.printResultMessage();
 
