@@ -12,4 +12,9 @@
   * 랜덤 값에 따른 위치 변경 메서드ㅇ
 * 리팩토링/리빌드
   * 클래스 분리해보기
-  * IllegalArgumentException throw 한거 main 에서 try{}catch{}받아서 다시 밖으로 처리해보기
+  * IllegalArgumentException throw 한거 main 으로 전파해서 try{}catch{}사용 다시 밖으로 처리해보기o
+    * validateCarName()->createCars()->main()->handleException()->main()-예외처리가 되지않아 프로그램 종료o
+    * getTryCount()->main()->handleException()->main()-예외처리가 되지않아 프로그램 종료o
+---
+* 추가
+  * 차량 1대 일 때 안돌아가게 하기

@@ -9,16 +9,26 @@ import java.util.List;
 public class Application {
 
     public static void main(String[] args) {
-        List<Car> cars = createCars(); // 차 리스트 생성
-        int tryCount = getTryCount(); // 시도 횟수
+        try {
+            List<Car> cars = createCars(); // 차 생성
+            int tryCount = getTryCount(); // 시도 횟수
 
-        for (int i = 0; i < tryCount; i++) { // 입력한 시도 횟수만큼 반복하여 게임, 출력
-            race(cars); // 자동차 무작위 값에 따라 전진 여부를 결정(1회전)하고 업데이트
-            printCurrentPositions(cars); // 차량 위치 업데이트 후 현재 자동차들의 위치를 출력
+            for (int i = 0; i < tryCount; i++) { // 입력한 시도 횟수만큼 반복
+                race(cars); // 자동차 무작위 값에 따라 전진 여부를 결정(1회전)하고 업데이트
+                printCurrentPositions(cars); // 차량 위치 업데이트 후 현재 자동차들의 위치를 출력
+            }
+
+            List<String> winners = getWinners(cars); // 우승자를 결정하여 반환
+            announceWinner(winners); // 우승자를 알림
+        } catch (IllegalArgumentException e) {
+            handleException(e); // 예외 처리 메서드 호출
         }
+    }
 
-        List<String> winners = getWinners(cars); // 우승자를 결정하여 반환
-        announceWinner(winners); // 우승자를 알림
+    // 예외 처리를 위한 메서드
+    private static void handleException(IllegalArgumentException e) {
+        System.out.println("예외가 발생했습니다: " + e.getMessage());
+        throw e; // 예외 다시 던지기
     }
 
     // 사용자로부터 입력받은 자동차 이름을 리스트에 추가하여 반환하는 메서드
@@ -29,8 +39,12 @@ public class Application {
         List<Car> cars = new ArrayList<>();
 
         for (String name : carNames) {
-            validateCarName(name);
-            cars.add(new Car(name.trim()));
+            try {
+                validateCarName(name);
+                cars.add(new Car(name.trim()));
+            } catch (IllegalArgumentException e) {
+                throw e; // 발생한 예외를 상위 메서드로 다시 던집니다
+            }
         }
 
         return cars;
