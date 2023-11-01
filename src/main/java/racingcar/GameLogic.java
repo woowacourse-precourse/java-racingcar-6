@@ -1,8 +1,5 @@
 package racingcar;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.AbstractMap.SimpleEntry;
 import java.util.Map.Entry;
 import camp.nextstep.edu.missionutils.Randoms;
 

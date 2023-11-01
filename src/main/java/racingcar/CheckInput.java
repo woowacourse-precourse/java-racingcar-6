@@ -12,7 +12,7 @@ public class CheckInput {
 
   public void carNamelength(String[] carNames) {
     for (String name : carNames) {
-      if(name.length() > 5) {
+      if(name.length() > GameConstant.MAXLENGTH) {
         throw new IllegalArgumentException(GameConstant.Output.CHECKLENGTH.print());
       }
     }

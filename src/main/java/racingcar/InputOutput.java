@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.AbstractMap.SimpleEntry;
 import java.util.Map.Entry;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -50,11 +49,13 @@ public class InputOutput {
   public void printWinners(List<Entry<String,Integer>> cars, Integer leadPosition) {
     System.out.print(GameConstant.Output.WINNER.print());
     List<String> winners = new ArrayList<>();
+
     for (Entry<String,Integer> car : cars) {
       if (car.getValue() == leadPosition) {
         winners.add(car.getKey());
       }
     }
+    
     System.out.println(String.join(", ",winners));
   }
 
