@@ -2,8 +2,10 @@ package racingcar;
 
 import racingcar.domain.Car;
 import racingcar.game.Race;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static racingcar.game.CarRaceExecutor.updateCarPosition;
 import static racingcar.view.InputView.askCarNames;
 import static racingcar.view.InputView.askRunningCnt;
@@ -25,7 +27,6 @@ public class Application {
 
         printWinners(racingGame.getCarNamesWithMaxPosition());
 
-
     }
 
     private static List<Car> createCarListFromUserInput() {
@@ -34,9 +35,9 @@ public class Application {
         List<Car> carList = new ArrayList<>();
 
         for (String carName : nameList) {
-            if(carList.stream().anyMatch(car -> car.getName().equals(carName))){
+            if (carList.stream().anyMatch(car -> car.getName().equals(carName))) {
                 throw new IllegalArgumentException("중복된 이름을 입력하셨습니다. : " + carName);
-            }else{
+            } else {
                 carList.add(new Car(carName));
             }
 

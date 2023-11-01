@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import racingcar.domain.Car;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,11 +36,6 @@ public class Race {
         }
     }
 
-    private int getMaxposition() {
-        List<Integer> maxPositionList = carList.stream().map(Car::getPosition).toList();
-        return Collections.max(maxPositionList);
-    }
-
     public String getCarNamesWithMaxPosition() {
         int maxPosition = getMaxposition();
         List<String> carNamesWithMaxPosition = carList.stream()
@@ -55,12 +51,16 @@ public class Race {
 
     }
 
+    private int getMaxposition() {
+        List<Integer> maxPositionList = carList.stream().map(Car::getPosition).toList();
+        return Collections.max(maxPositionList);
+    }
+
     private static void isPositiveNumber(int trial) {
         if (trial <= MIN_TRIAL_VALUE) {
             throw new IllegalArgumentException("양수만 입력하세요.");
         }
     }
-
 
 
 }

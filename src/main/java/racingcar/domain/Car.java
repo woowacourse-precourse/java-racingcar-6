@@ -5,12 +5,19 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     private final String name;
+    private final NumberGenerator numberGenerator;
     private int position;
 
     public Car(String name) {
+        this(name, () -> Randoms.pickNumberInRange(0, 9));
+    }
+
+    public Car(String name,
+               NumberGenerator numberGenerator) {
         vailidateName(name);
         this.name = name;
         this.position = 0;
+        this.numberGenerator = numberGenerator;
     }
 
     public String getName() {
@@ -22,7 +29,7 @@ public class Car {
     }
 
     public int randomSpeed() {
-        return Randoms.pickNumberInRange(0, 9);
+        return numberGenerator.generate();
     }
 
     public void move() {
