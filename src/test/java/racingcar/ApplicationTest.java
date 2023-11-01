@@ -63,13 +63,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 시도횟수_0번_이하_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,java", "0"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
 
     @Test
     void 이름_중복_예외_처리() {
@@ -87,6 +80,21 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 시도횟수_0번_이하_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수_숫자외_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "f"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
