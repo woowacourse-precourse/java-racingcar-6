@@ -31,7 +31,7 @@ public class Winners {
     private void validateWinners(Cars cars) {
         if(cars.getCars() == null)
             throw new IllegalArgumentException(ErrorMessages.NULL_ERROR.getMessage());
-        if(cars.getCars().size() < 1)
+        if(!CommonValidator.isPositive(cars.getCars().size()))
             throw new IllegalArgumentException(ErrorMessages.NULL_ERROR.getMessage());
     }
 }
