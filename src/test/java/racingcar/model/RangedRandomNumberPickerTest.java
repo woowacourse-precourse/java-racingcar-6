@@ -1,8 +1,9 @@
-package racingcar.util;
+package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.model.movingstrategy.RangedRandomNumberPicker;
 
 public class RangedRandomNumberPickerTest {
 

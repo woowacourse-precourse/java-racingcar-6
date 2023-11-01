@@ -1,7 +1,5 @@
 package racingcar.model.movingstrategy;
 
-import racingcar.util.RangedRandomNumberPicker;
-
 public class RandomRacingCarMovingStrategy implements RacingCarMovingStrategy {
 
     private static final int MOVING_STANDARD = 4;
