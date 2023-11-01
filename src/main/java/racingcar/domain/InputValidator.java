@@ -7,4 +7,12 @@ public class InputValidator {
         }
     }
 
+    public int convertToValidInteger(String input){
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("플레이 횟수는 정수가 입력되어야 합니다.", e);
+        }
+    }
+
 }
