@@ -5,7 +5,6 @@ import java.util.List;
 
 public class CarManager {
     public List<String> giveName(String inputNames) {
-
         Verification verification = new Verification();
 
         List<String> cars = new ArrayList<>();
@@ -16,6 +15,8 @@ public class CarManager {
                 throw new IllegalArgumentException();
             }
         }
+
+        verification.duplicate(cars);
         return cars;
     }
 }
