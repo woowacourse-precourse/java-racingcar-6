@@ -1,4 +1,4 @@
-package racingcar;
+package domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ public class CarRacing {
     int attemptCount;
     List<Car> cars;
 
-    CarRacing() {
+    public CarRacing() {
         this.attemptCount = 0;
         this.cars = new ArrayList<Car>();
     }
@@ -104,7 +104,7 @@ public class CarRacing {
 
     }
 
-    void execute() {
+    public void execute() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String[] carNames = (Console.readLine()).split(",");

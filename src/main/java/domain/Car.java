@@ -1,4 +1,4 @@
-package racingcar;
+package domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -6,7 +6,7 @@ public class Car {
     private final String name;
     private int step;
 
-    Car(String name) {
+    public Car(String name) {
         this.name = name;
         this.step = 0;
     }
@@ -15,13 +15,13 @@ public class Car {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    void run() {
+    public void run() {
         if (getRandomNum() >= 4) {
             goOneStep();
         }
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
@@ -29,7 +29,7 @@ public class Car {
         step += 1;
     }
 
-    int getStep() {
+    public int getStep() {
         return step;
     }
 }
