@@ -10,6 +10,9 @@ public enum Constants {
     FORWARD(1),
     ZERO(0),
     INITIAL_DISTANCE(0),
+    MOVE("-"),
+    SEPARATOR(" : "),
+    LINE_CHANGER("\n"),
     ;
 
     private int number;
