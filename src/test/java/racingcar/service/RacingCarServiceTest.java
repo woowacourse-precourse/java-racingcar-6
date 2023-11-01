@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
@@ -11,10 +12,16 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.domain.RacingCarConst.AHEAD_LIMIT;
 
 class RacingCarServiceTest {
 
     final GlobalExceptionHandler globalExceptionHandler = new GlobalExceptionHandler();
+
+    Car one = new Car("one");
+    Car two = new Car("two");
+    Car three = new Car("three");
+    Car four = new Car("four");
 
     @Test
     void 참가하는_자동차_이름_문자열_받아와_리스트로_변환() {
@@ -40,10 +47,6 @@ class RacingCarServiceTest {
             }
         }
 
-        Car one = new Car("one");
-        Car two = new Car("two");
-        Car three = new Car("three");
-        Car four = new Car("four");
         List<Car> result = new ArrayList<>(Arrays.asList(one, two, three, four));
         for (Car resultCar:result) {
             Car car = carList.get(result.indexOf(resultCar));
@@ -54,10 +57,6 @@ class RacingCarServiceTest {
     @Test
     void 자동차_경주_객체_생성하기() {
         final String racingCount = "4";
-        Car one = new Car("one");
-        Car two = new Car("two");
-        Car three = new Car("three");
-        Car four = new Car("four");
         List<Car> racingCarList = new ArrayList<Car>(Arrays.asList(one, two, three, four));
         Racing racingGame = null;
 
@@ -70,7 +69,17 @@ class RacingCarServiceTest {
     }
 
     @Test
-    void countAhead() {
+    void 전진_횟수_세기() {
+        Car car = new Car("one");
+        int[] randomList = {0, 8, 5, 3};
+
+        for (int random:randomList){
+            if (random>=AHEAD_LIMIT){
+                car.updateAheadCount();
+            }
+        }
+
+        assertThat(car.getAheadCount()).isEqualTo(2);
     }
 
     @Test
