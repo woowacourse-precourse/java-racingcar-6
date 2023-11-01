@@ -17,7 +17,7 @@ class StadiumTest {
         Stadium stadium = new Stadium();
         String input = "hundai";
 
-        assertThatThrownBy(() -> stadium.saveInputCars(input))
+        assertThatThrownBy(() -> stadium.saveRacers(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -32,9 +32,9 @@ class StadiumTest {
             cars.add(Car.create(name, 0));
         }
 
-        stadium.saveInputCars(input);
+        stadium.saveRacers(input);
 
-        List<Car> savedCars = stadium.getCars();
+        List<Racer> savedCars = stadium.getRacers();
         assertThat(nameList.size()).isEqualTo(savedCars.size());
         for (int i = 0; i < savedCars.size(); i++) {
             assertThat(nameList.get(i)).isEqualTo(cars.get(i).getName());

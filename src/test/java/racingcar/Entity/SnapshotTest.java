@@ -25,7 +25,7 @@ class SnapshotTest {
     @DisplayName("스냅샷__정상출력")
     void printSnapshot_메서드_정상출력_테스트() {
         int tryCount = 3;
-        List<Car> cars = List.of(
+        List<Racer> cars = List.of(
                 Car.create("car1", 1),
                 Car.create("car2", 0),
                 Car.create("car3", 3)
@@ -65,7 +65,7 @@ class SnapshotTest {
     @DisplayName("스냅샷__우승자_결과")
     void printWinner_메서드의_우승자_결과_테스트() {
         Snapshot snapshot = Snapshot.create(3);
-        List<Car> cars = List.of(
+        List<Racer> cars = List.of(
                 Car.create("car1", 5),
                 Car.create("car2", 5),
                 Car.create("car3", 2)

@@ -70,11 +70,11 @@ public class Snapshot {
         return new LinkedHashMap<>(this.snapshots.get(order));
     }
 
-    public void set(int order, List<Car> cars) {
+    public void set(int order, List<Racer> cars) {
         // 차량 순서를 유지하기 위해 LinkedHashMap을 사용한다.
         this.snapshots.add(order, new LinkedHashMap<>());
         Map<String, Integer> snapshot = this.snapshots.get(order);
-        for (Car car : cars) {
+        for (Racer car : cars) {
             snapshot.put(car.getName(), car.getLocation());
         }
     }
