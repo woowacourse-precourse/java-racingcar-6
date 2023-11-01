@@ -11,10 +11,10 @@ import racingcar.view.OutView;
 
 public class GameService {
     private List<Car> cars = new ArrayList<>();
-    private Integer tryCount = 0;
-    private static final Integer MAX_CAR_NAME_LENGTH = 5;
-    private static final Integer MAX_RANDOM_NUMBER = 9;
-    private static final Integer MIN_RANDOM_NUMBER = 0;
+    private int tryCount = 0;
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int MIN_RANDOM_NUMBER = 0;
 
     public void initGame() {
         // 사용자에게 carNames를 입력받아 cars를 초기화
@@ -32,7 +32,7 @@ public class GameService {
     public void playGame() {
         for(int i = 0; i < tryCount; i++) {
             for(Car car : cars) {
-                Integer randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+                int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
                 car.move(randomNumber);
             }
 
@@ -65,8 +65,8 @@ public class GameService {
         return carNameSet;
     }
 
-    private Integer convertInputToTryCount(String rawInputString){
-        Integer tryCount;
+    private int convertInputToTryCount(String rawInputString){
+        int tryCount;
 
         try{
             tryCount = Integer.parseInt(rawInputString);
@@ -83,7 +83,7 @@ public class GameService {
 
     private List<Car> getWinners(){
         List<Car> winners = new ArrayList<>();
-        Integer maxPosition = 0;
+        int maxPosition = 0;
 
         for(Car car : cars){
             if(car.getPosition() > maxPosition){

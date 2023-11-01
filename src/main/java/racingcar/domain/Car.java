@@ -2,7 +2,7 @@ package racingcar.domain;
 
 public class Car {
     private static final int MINIMUM_MOVABLE_NUMBER = 4;
-    private Integer position;
+    private int position;
     private String name;
 
     public Car(String name) {
@@ -10,13 +10,13 @@ public class Car {
         this.position = 0;
     }
 
-    public void move(Integer number) {
+    public void move(int number) {
         if (number >= MINIMUM_MOVABLE_NUMBER) {
             this.position++;
         }
     }
 
-    public Integer getPosition() {
+    public int getPosition() {
         return this.position;
     }
 
