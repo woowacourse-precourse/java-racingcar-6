@@ -50,4 +50,12 @@ public class RegistrationTest {
         assertThatThrownBy(() -> registration.getCarNames(input)).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void getCarNames_메서드가_validateNameLength_메서드를_호출해_자동차_이름이_5자를_넘으면_예외_발생() {
+        String input = "pobi,woni,saerayook";
+        Registration registration = new Registration();
+
+        assertThatThrownBy(() -> registration.getCarNames(input)).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }

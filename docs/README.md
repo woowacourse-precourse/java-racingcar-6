@@ -10,7 +10,7 @@
 - [X] 각 자동차의 이름과 위치값을 가진 클래스의 배열을 생성한다. - Registration#createCarList()
 - [ ] 잘못된 값을 입력할 경우 `IllegalArgumentException`을 던진다.
   - [X] 이름을 1개만 입력할 경우(쉼표 구분이 없는 경우) - Registration#validateCompetitor()
-  - [ ] 5자가 넘는 이름을 입력할 경우 - Registration#validateNameLength()
+  - [X] 5자가 넘는 이름을 입력할 경우 - Registration#validateNameLength()
   - [ ] 이름이 중복일 경우 - Registration#checkDuplicateName()
 
 
