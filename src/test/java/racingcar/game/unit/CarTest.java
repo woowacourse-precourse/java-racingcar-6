@@ -58,7 +58,7 @@ class CarTest {
 
 	@ParameterizedTest
 	@DisplayName("엔진 동력이 3이하일 때 정지")
-	@CsvSource(value = {"0", "1", "2", "3"}, delimiter = ',')
+	@CsvSource(value = {"0", "1", "2", "3"})
 	void 자동차_정지(int enginePower) {
 		assertRandomNumberInRangeTest(() -> {
 					Car car = Car.of("name");
@@ -71,7 +71,7 @@ class CarTest {
 
 	@ParameterizedTest
 	@DisplayName("엔진 동력이 4이상일 때 전진")
-	@CsvSource(value = {"4", "5", "6", "7", "8", "9"}, delimiter = ',')
+	@CsvSource(value = {"4", "5", "6", "7", "8", "9"})
 	void 자동차_전진(int enginePower) {
 		assertRandomNumberInRangeTest(() -> {
 					Car car = Car.of("name");
