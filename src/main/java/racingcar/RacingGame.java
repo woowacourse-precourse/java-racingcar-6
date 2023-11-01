@@ -7,6 +7,15 @@ import java.util.HashMap;
 
 public class RacingGame {
     static HashMap<String,Integer> scoreboard;
+
+    public static HashMap<String, Integer> getScoreboard() {
+        return scoreboard;
+    }
+
+    public static void setScoreboard(HashMap<String, Integer> scoreboard) {
+        RacingGame.scoreboard = scoreboard;
+    }
+
     public RacingGame() {
         scoreboard = new HashMap<String,Integer>();
     }
@@ -32,7 +41,7 @@ public class RacingGame {
         }
     }
 
-    static String scoretoString(int score){
+    public static String scoretoString(int score){
         StringBuffer stringBuffer = new StringBuffer();
         for(int i=0;i<score;i++){
             stringBuffer.append("-");
@@ -40,14 +49,14 @@ public class RacingGame {
         return stringBuffer.toString();
     }
 
-    private static void showScore() {
+    public static void showScore() {
         for(String key:scoreboard.keySet()){
             System.out.println(key + " : " + scoretoString(scoreboard.get(key)));
         }
         System.out.println();
     }
 
-    private void chooseWinner() {
+    public String chooseWinner() {
         StringBuffer stringBuffer = new StringBuffer();
         int maxScore = 0;
         for(String key:scoreboard.keySet()){
@@ -62,16 +71,21 @@ public class RacingGame {
             }
         }
         stringBuffer.setLength(stringBuffer.length()-2); // 마지막부분 쉼표 자르기
-        System.out.println("최종 우승자 : " + stringBuffer);
+        return stringBuffer.toString();
     }
 
-    private static void initScoreBoard(){
-        scoreboard.clear();
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputLine = Console.readLine();
-        String[] nameList = inputLine.split(",");
-        for (String name:nameList) {
+    public String[] getNameList(String input){
+        String[] namelist = input.split(",");
+        for (String name:namelist) {
             checkName(name);
+        }
+        return namelist;
+    }
+
+    public void initScoreBoard(String inputLine){
+        scoreboard.clear();
+        String[] nameList = getNameList(inputLine);
+        for(String name:nameList){
             scoreboard.put(name,0);
         }
     }
@@ -80,7 +94,9 @@ public class RacingGame {
         int tryCount;
         try{
             //게임 초기화
-            initScoreBoard();
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            String inputLine = Console.readLine();
+            initScoreBoard(inputLine);
 
             //시도 횟수 입력
             System.out.println("시도할 회수는 몇회인가요?");
@@ -90,11 +106,10 @@ public class RacingGame {
             raceProgress(tryCount);
 
             //최종 승자 계산
-            chooseWinner();
+            System.out.println("최종 우승자 : " + chooseWinner());
 
         }catch(NumberFormatException e){
             throw new IllegalArgumentException();
         }
     }
-
 }
