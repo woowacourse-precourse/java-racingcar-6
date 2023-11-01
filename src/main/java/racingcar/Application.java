@@ -12,7 +12,6 @@ public class Application {
         for (int i = 0; i < tryCount; i++) {
             isMove(carName);
         }
-
         printResult(carName);
     }
 
