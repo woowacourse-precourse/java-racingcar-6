@@ -12,7 +12,7 @@ public class ValidatorCheck {
 
     public void namingRacingCar_lengthCheck(List<String> players) {
 
-        for(int i=0; i<players.size(); i++) {
+        for (int i = 0; i < players.size(); i++) {
             if (players.get(i).length() > 5) {
                 throw new IllegalArgumentException("플레이어 이름은 5자 이하만 가능합니다.");
             }
