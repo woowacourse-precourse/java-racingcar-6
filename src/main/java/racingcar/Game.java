@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private final List<Car> cars;
+    public final List<Car> cars;
     private final int tryCount;
 
     public Game(List<String> carNames, int tryCount) {
