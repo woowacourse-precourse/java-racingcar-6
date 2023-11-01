@@ -63,4 +63,19 @@ class OutputViewTest {
                 }, TestConsts.STOP, TestConsts.STOP, TestConsts.FORWARD
         );
     }
+
+    @Test
+    @DisplayName("아무도 한 칸도 전진하지 않았으면 우승자가 없는 것으로 간주한다.(요구 사항 외의 사항)")
+    void printNoneFinalWinners() {
+        CarsDto carsDto = new CarsDto("pobi,woni,jun");
+        Client client = new Client(ROUND_USER_INPUTTED);
+        RacingService racingService = new RacingService(carsDto, client);
+        assertRandomNumberInRangeTest(
+                () -> {
+                    ResultDto resultDto = racingService.playCarRacing();
+                    outputView.printResult(resultDto);
+                    assertThat(output()).contains("실행 결과", "pobi : ", "woni : ", "jun : ", "최종 우승자 :");
+                }, TestConsts.STOP, TestConsts.STOP, TestConsts.STOP
+        );
+    }
 }

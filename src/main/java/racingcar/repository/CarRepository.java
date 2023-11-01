@@ -62,7 +62,8 @@ public class CarRepository {
     }
 
     private long calculateMaxDistance() {
-        long maxDistance = 0L;
+        long maxDistance = 1L;
+        // 아무도 한 칸도 전진하지 않았으면 우승자가 없는 것으로 간주하기 위해서 maxDistance를 1부터 시작한다.
         for (Car car : cars) {
             Car.CarResultDto carResult = car.createCarResultDto();
             long distance = carResult.getDistance();
