@@ -30,7 +30,7 @@ public class RacingGameController {
     private void playRacingGame(RacingGameService racingGameService, int tryCount) {
         printBeforeResultsMessage();
         for (int i = 0; i < tryCount; i++) {
-            List<Result> results = racingGameService.play();
+            List<Result> results = racingGameService.moveAllCars();
             printResults(results);
             if(i == tryCount - 1) printWinnerResults(racingGameService);
         }

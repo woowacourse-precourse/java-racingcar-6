@@ -36,7 +36,7 @@ public class RacingGameService {
         return new RacingGameService(inputNameString);
     }
 
-    public List<Result> play() {
+    public List<Result> moveAllCars() {
         return racingCarList.stream()
                 .map(car -> car.moveOrStop(RandomUtil.generateRandomValue(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE)))
                 .toList();
