@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Racing {
+public class Racing implements Comparable<Racing> {
     private String name;
     private int distance;
 
@@ -26,4 +26,16 @@ public class Racing {
         }
     }
 
+    public void printResult() {
+        String result = name + " : ";
+        for (int i = 0; i < distance; i++) {
+            result += "-";
+        }
+        System.out.println(result);
+    }
+
+    @Override
+    public int compareTo(Racing r) {
+        return r.getDistance() - distance;
+    }
 }
