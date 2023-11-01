@@ -1,11 +1,15 @@
 package racingcar.validation;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class InputException {
 
     public static String carNameValidation(String input){
         carNameLengthCheck(input);
         containBlank(input);
         black(input);
+        carNameCheckEqual(input);
         return input;
     }
     public static String numberValidation(String input){
@@ -41,7 +45,14 @@ public class InputException {
             throw new IllegalArgumentException("숫자값을 입력해주세요");
         }
     }
-
+    public static void carNameCheckEqual(String input){
+        Set<String> carName = new HashSet<>();
+        for(String name : input.split(",")){
+            if(!carName.add(name)){
+                throw new IllegalArgumentException("중복된 이름 입니다.");
+            }
+        }
+    }
     public static void underZeroNumber(String input){
         if(Integer.parseInt(input)<= 0){
             throw new IllegalArgumentException("0보다 큰 값을 입력해주세요");
