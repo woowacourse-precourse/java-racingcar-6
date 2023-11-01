@@ -8,19 +8,19 @@ import java.util.stream.Collectors;
 public class Racing {
     private List<Car> cars;
     private final int turn;
+    private List<Integer> distanceRecord;
     public Racing(List<Car> cars, int turn) {
         this.cars = cars;
         this.turn = turn;
+        this.distanceRecord = new ArrayList<>();
     }
 
-    public void startRacing() {
-        System.out.println("실행결과");
+    public void start() {
         for (int i = 0; i < turn; i++) {
             for (Car car : cars) {
                 car.move();
+                distanceRecord.add(car.getMovedDist());
             }
-            printTurnResult();
-            System.out.println();
         }
     }
 
@@ -38,12 +38,20 @@ public class Racing {
         return map.get(Collections.max(map.keySet()));
     }
 
-    private void printTurnResult() {
-        for (Car car : cars) {
-            String result = car.getName() + " : " +
-                    "-".repeat(Math.max(0, car.getMovedDist()));
+    public void printEachTurn() {
+        System.out.println("\n실행결과: ");
+        int carIndex = 0;
+        for (Integer movedDist : distanceRecord) {
+            if (carIndex == cars.size()) {
+                System.out.println();
+                carIndex = 0;
+            }
+            String result = cars.get(carIndex).getName() + " : " +
+                    "-".repeat(movedDist);
             System.out.println(result);
+            carIndex++;
         }
+        System.out.println();
     }
 
 
