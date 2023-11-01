@@ -21,5 +21,15 @@ class PrintWinnerTest {
         assertEquals(8, result);
     }
 
+    @Test
+    void testWinnerList_자동차_그룹_중_가장_멀리간_자동차_객체_리스트_반환() {
+
+        PrintWinner printWinner = new PrintWinner(racingCars);
+        List<String> result = printWinner.winnerList();
+        List<String> expected = Arrays.asList("우아한");
+
+        assertEquals(expected, result);
+    }
+
 
 }
