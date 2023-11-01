@@ -5,39 +5,79 @@
 ### Controller
 #### GameController
 - 게임의 전체적인 흐름을 통제한다.
-- [ ] 게임을 시작한다. GameController#startGame()
-- [ ] 게임을 완료한 후 우승자를 결정한다. - GameController #determineWinner()
+- [o] 게임을 시작한다. GameController#startGame()
+- [o] 게임을 완료한 후 우승자를 결정한다. - GameController #determineWinner()
+
+이후 추가 목록
+- [o] 레이스를 실행한다. GameController#conductRaces()
+
 
 #### Judgement
-- [ ] 무작위 값이 4이상인지 판별한다. - Judgement #isNumberMoreThan4()
+- [o] 무작위 값이 4이상인지 판별한다. - Judgement #isNumberMoreThan4()
+
+이후 추가 목록
+- [o] 승자를 판별한다. Judgement #determineWinner()
 
 
 ### View
 - 사용자가 입력하는 프롬포트를 구성하는 view 역할을 한다.
 #### RaceView
 - 차량 이름, 위치, 우승자를 표시하는 메서드
-- [ ] 우승자를 출력한다.(여러명일 경우 쉼표를 사용해 구분) -RaceView #displayWinner()
-- [ ] 회수 별 실행 결과를 출력한다. - RaceView #displayRaceResults()
+- [o] 우승자를 출력한다.(여러명일 경우 쉼표를 사용해 구분) -RaceView #displayWinner()
+- [o] 회수 별 실행 결과를 출력한다. - RaceView #displayWinner()
+
+이후 추가 목록
+- [o] 점수를 막대로 표시한다. RaceView#carScoreToBar
 
 
 ### Model
 #### Car
 - 자동차의 이름과 위치를 나타낸다
-#### Race
-- 레이스 로직을 나타내며, 자동차 목록과 시도 횟수를 보유하고 승자를 결정한다. => 승자 결정은 Judgement에서, 자동차 목록은 Controller 에서 관리함
+- [o] 자동차 전진하기. Car#moveForward()
+#### Race => 다른 클래스에 통합하였다.
+- 레이스 로직을 나타내며, 자동차 목록과 시도 횟수를 보유하고 승자를 결정한다. 
+- => 승자 결정은 Judgement에서, 자동차 목록은 Controller 에서 관리함
 #### NumberGenerator
 - 난수를 생성하는 기능
-- [ ] 0부터 9 까지의 임의의 수 를 자동차 개수만큼 생성한다. - NumberGenerator #createRandomNumbers()
+- [o] 0부터 9 까지의 임의의 수 를 자동차 개수만큼 생성한다. - NumberGenerator #setRandomNums()
 
 
 ### utils
 #### UserInputManager
 - 사용자 입력 및 유효성 검사를 처리한다.
-- [ ] 자동차의 이름을 입력받는다 - UserInputManager #inputCarNames()
-- [ ] 시도 횟수를 입력받는다 - UserInputManager #inputAttempts()
-- [ ] 자동차의 이름이 5자 이하인지 검증한다.- UserInputManager #verifyCarNameLength()
-- [ ] 입력이 잘못되면 IllegalArgumentException 을 발생시킨다. - UserInputManager #validateUserInput()
-- 
+- [o] 자동차의 이름을 입력받는다 - UserInputManager #inputCarNames()
+- [o] 시도 횟수를 입력받는다 - UserInputManager #inputAttempts()
+- [o] 자동차의 이름이 5자 이하인지 검증한다.- UserInputManager #validateUserInput()
+- [x] 입력이 잘못되면 IllegalArgumentException 을 발생시킨다. - UserInputManager #validateUserInput() 
+- => 다른 메소드에 try catch 로 넣었다.
+
+
+이후 추가목록
+- [o] 이름 입력을 ","를 기준으로 나누기 UserInputManager#parseCarNames
+- [o] 시도 입력을 Integer로 변환 UserInputManager #parseAttempts
+
+
+## 테스트 코드 목록
+### JudgementTest
+- [o] 부스트_결과가_0또는_4이상으로_구성되어있는지()
+- [o] winnerList_알맞게_추출하는지()
+
+### CarTest
+- [o] carBoost_4이상일때_moveForward()
+- [o] carBoost_4미만일때_moveForward()
+
+### NumberGeneratorTest
+- [o] 생성한_랜덤값을_검증()
+
+### UserInputManagerTest
+- [o] carName_5자를_초과할떄_Throw_IllegalArgumentException()
+- [o] parseCarNames_올바르게_작동하는가()
+- [o] carName_공백이_들어왔을때()
+- [o] carName_5글자를_입력받았을때()
+- [o] inputAttempts_올바른_입력받았을때()
+- [o] inputAttempts_올바르지않은_입력받았을때_Throw_IllegalArgumentException()
+
+
 ## 기능 요구 사항
 
 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
