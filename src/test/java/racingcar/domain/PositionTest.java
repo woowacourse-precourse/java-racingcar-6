@@ -29,4 +29,14 @@ class PositionTest {
         assertThat(position.getPosition()).isEqualTo(1);
     }
 
+    @Test
+    void 무작위_값이_4_이상이면_이동_가능() {
+        assertThat(position.isMovable(4)).isTrue();
+    }
+
+    @Test
+    void 무작위_값이_4_미만이면_이동_불가능() {
+        assertThat(position.isMovable(3)).isFalse();
+    }
+
 }
