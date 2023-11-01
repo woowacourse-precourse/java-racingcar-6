@@ -13,10 +13,7 @@ public class OutputView {
 
     public void writeOneRoundResult(List<Car> cars) {
         StringBuilder content = new StringBuilder();
-        for (Car car : cars) {
-            buildOneCarResult(content, car);
-        }
-
+        cars.forEach(car -> buildOneCarResult(content, car));
         writeNewlineMessage(content.toString());
     }
 
