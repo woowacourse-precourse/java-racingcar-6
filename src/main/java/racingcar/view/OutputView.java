@@ -51,7 +51,7 @@ public class OutputView {
 
     private void printGameResultMsgOnlyIfFirstRound() {
         if (isFirstRound) {
-            writer.write(GAME_RESULT);
+            writer.writeln(GAME_RESULT);
             isFirstRound = false;
         }
     }

@@ -20,7 +20,7 @@ public class InputView {
     }
 
     public Cars getCars() {
-        writer.write(INPUT_CAR_NAMES);
+        writer.writeln(INPUT_CAR_NAMES);
         String carNames = reader.readLine();
         List<String> carNameList = Parser.parseCarNames(carNames);
         CarsRequestDto carsRequestDto = new CarsRequestDto(carNameList);
@@ -28,7 +28,7 @@ public class InputView {
     }
 
     public int getTryTimes() {
-        writer.write(INPUT_TRY_TIMES);
+        writer.writeln(INPUT_TRY_TIMES);
         String tryTimes = reader.readLine();
         return Parser.parseTryTimes(tryTimes);
     }
