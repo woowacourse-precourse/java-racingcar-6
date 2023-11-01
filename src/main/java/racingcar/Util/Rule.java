@@ -15,11 +15,13 @@ public class Rule {
     public static final String ROUND_RESULT_DELIMETER = " : ";
 
     public static final Pattern namesStringPattern = Pattern.compile("^[가-힣\\w]+[가-힣\\w" + DELIMETER + "]*[가-힣\\w]$");
+    public static final Pattern namesNouNumPattern = Pattern.compile("^[가-힣a-zA-Z]+$");
     public static final Pattern roundNumPattern = Pattern.compile("^[1-9][0-9]*$");
 
     public static final String ERROR = "[ERROR] ";
     public static final String CAR_NAME_WRONG_ERROR = ERROR + "자동차 목록은 쉼표로 구분된 공백이 아닌 문자여야 한다.";
     public static final String CAR_NAME_SIZE_ERROR = ERROR + "자동차 목록은 5자 이하의 문자로 구성되어야 한다.";
+    public static final String CAR_NAME_NUMBER_ERROR = ERROR + "자동차 이름은 문자로 이루어져야한다.";
     public static final String CAR_NAME_DUPLICATE_ERROR = ERROR + "자동차 목록은 중복이 없어야 한다.";
     public static final String ROUND_NUM_WRONG_ERROR = ERROR + "시도 횟수는 1 이상의 숫자여야 한다.";
     public static final String DASH = "-";
