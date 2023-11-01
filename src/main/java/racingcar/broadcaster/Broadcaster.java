@@ -6,7 +6,7 @@ import java.util.Map;
 public class Broadcaster {
     public static void printWinner(List<String> carNames){
         String joinedNames = String.join(", ", carNames);
-        System.out.println(joinedNames);
+        System.out.println("최종 우승자 : " + joinedNames);
     }
     public static void printCurrentRace(Map<String, Integer> carLocations){
         for (Map.Entry<String, Integer> entry : carLocations.entrySet()) {
