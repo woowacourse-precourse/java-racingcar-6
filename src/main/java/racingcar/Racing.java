@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Map;
+
 public class Racing {
 
     private int count;
@@ -21,4 +23,13 @@ public class Racing {
         String str = Console.readLine();
         count = Integer.parseInt(str);
     }
+    
+    public void printRacing(Map<String, Integer> carInfo) {
+        for (Map.Entry<String, Integer> entry : carInfo.entrySet()) {
+            System.out.println(entry.getKey() + " : " + "-".repeat(entry.getValue()));
+        }
+    }
+
+
+
 }

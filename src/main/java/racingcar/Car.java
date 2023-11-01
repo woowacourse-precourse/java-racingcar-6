@@ -3,11 +3,12 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Car {
 
-    private Map<String, Integer> carInfo = new HashMap<String, Integer>();
+    private Map<String, Integer> carInfo = new LinkedHashMap<String, Integer>();
 
     public Map<String, Integer> getCarInfo() {
         return carInfo;
