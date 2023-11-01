@@ -4,6 +4,8 @@
 
 - [ ] 속성 : position, name
 - [ ] 자동차 이름 설정 (setName)
+- [ ] 자동차 이름 조회 (getName)
+- [ ] 자동차 위치 조회 (getPosition)
 - [ ] 전진 시도 (attemptGo)
 - [ ] 현재 위치 출력 (printPosition)
 
