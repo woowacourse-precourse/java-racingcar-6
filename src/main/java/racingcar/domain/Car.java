@@ -2,6 +2,9 @@ package racingcar.domain;
 
 import racingcar.validation.CarNameValidator;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Car {
     private static final int MOVE_THRESHOLD = 4;
     private final String name;
@@ -33,5 +36,11 @@ public class Car {
 
     public String getName(){
         return name;
+    }
+
+    public static List<Car> createCars(List<String> carNames) {
+        return carNames.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 }
