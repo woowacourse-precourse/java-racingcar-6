@@ -9,7 +9,7 @@ public class NameValidiator {
     public static final int NAME_MAX_SIZE = 5;
     public static final Pattern namesStringPattern = Pattern.compile("^[가-힣\\w]+[가-힣\\w" + "," + "]*[가-힣\\w]$");
 
-    NameValidiator(String inputCarNames) {
+    public NameValidiator(String inputCarNames) {
         checkEmpty(inputCarNames);
         checkEndDelimiter(inputCarNames);
     }
@@ -42,14 +42,11 @@ public class NameValidiator {
 
     public void checkRightName(String[] inputCarNamesArray) {
         for (String carName : inputCarNamesArray) {
-            try {
-                matches(carName);
-            } catch (IllegalArgumentException e) {
-                e.getMessage();
-            }
-
+            matches(carName);
         }
     }
+
+
 
     private void matches(String carName) {
         if (!namesStringPattern.matcher(carName).matches()) {

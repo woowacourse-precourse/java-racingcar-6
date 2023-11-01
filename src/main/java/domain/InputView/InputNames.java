@@ -13,7 +13,7 @@ public class InputNames {
         return ParsingInput(cars);
     }
 
-    private static String[] ParsingInput(String cars) {
+    public static String[] ParsingInput(String cars) {
         NameValidiator check = new NameValidiator(cars);
         String[] InputCarNamesArray = cars.split(",");
 
