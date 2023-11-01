@@ -26,6 +26,7 @@ class RacingGameTest {
     @BeforeEach
     void before() {
         MockitoAnnotations.openMocks(this);
+        //랜덤 숫자 생성 부분 모킹
         when(gameNumberGenerator.randomNumber()).thenReturn(5);
         racingGame = new RacingGame(gameNumberGenerator);
     }
@@ -52,8 +53,9 @@ class RacingGameTest {
         racingGame.setupGame(List.of("test1", "test2"), 3);
         racingGame.play();
 
+        //모든 경우 움직인다(랜덤 숫자 생성 부분 모킹)
         String result = outputBuffer.toString();
-        String expected = "test1 : - \ntest2 : - \n\ntest1 : -- \ntest2 : -- \n\ntest1 : --- \ntest2 : --- \n\n";
+        String expected = "\n실행 결과\ntest1 : - \ntest2 : - \n\ntest1 : -- \ntest2 : -- \n\ntest1 : --- \ntest2 : --- \n\n";
         assertThat(result).isEqualTo(expected);
 
         System.setOut(System.out);
@@ -68,6 +70,7 @@ class RacingGameTest {
                 .stream().map(Car::getForwardCount)
                 .toList();
 
+        //모두 1점씩 오른다
         for (Integer nowScore : carScore) {
             assertThat(nowScore).isEqualTo(1);
         }

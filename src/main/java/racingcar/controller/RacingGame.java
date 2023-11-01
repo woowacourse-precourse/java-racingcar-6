@@ -42,6 +42,7 @@ public class RacingGame {
     }
 
     public void play() {
+        outputView.printActionResult();
         for (int i = 0; i < repeatCount; i++) {
             oneRoundMove();
             outputView.printOneRoundResult(carRepository);

@@ -12,6 +12,7 @@ public class OutputView {
 
     public static final String OUTPUT_CAR_SCORE = "%s : %s \n";
     public static final String OUTPUT_SCORE_STRING = "-";
+    public static final String OUTPUT_ACTION_RESULT = "실행 결과";
 
     public void printOneRoundResult(CarRepository carRepository) {
         for (Car car : carRepository.getCars()) {
@@ -26,5 +27,10 @@ public class OutputView {
             System.out.print(OUTPUT_FINAL_WINNER_SPLITTER + maxCars.get(i));
         }
         System.out.println();
+    }
+
+    public void printActionResult() {
+        System.out.println();
+        System.out.println(OUTPUT_ACTION_RESULT);
     }
 }
