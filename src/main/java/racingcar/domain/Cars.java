@@ -38,6 +38,7 @@ public class Cars {
             }
             ConsolePrinter.printCarPosition(car);
         }
+        ConsolePrinter.printEmptyLine();
     }
 
     private int findMaxPosition() {

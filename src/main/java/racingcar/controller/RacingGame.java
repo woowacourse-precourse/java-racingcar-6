@@ -31,6 +31,7 @@ public class RacingGame {
     private void initiate() {
         initiateCars();
         initiateRound();
+        ConsolePrinter.printEmptyLine();
     }
 
     private void initiateCars() {
