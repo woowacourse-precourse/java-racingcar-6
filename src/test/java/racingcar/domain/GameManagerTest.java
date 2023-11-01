@@ -137,12 +137,26 @@ class GameManagerTest {
     @Test
     void instantiateRacingCars_메서드로_RacingCar_인스턴스_생성() {
         // given
+        // VALID_USER_INPUT
         // when
         GameManager.validateUserInput(VALID_USER_INPUT);
         GameManager.validateUserInputForTryCount("5");
         // then
         // check if the return list is equal to the list of RacingCar instances
         assertThat(GameManager.instantiateRacingCars()).isEqualTo(GameManager.racingCars);
+    }
+
+    @Test
+    void makeRacingCarsMove_메서드로_RacingCar_이동() {
+        // given
+        // VALID_USER_INPUT
+        // when
+        GameManager.validateUserInput(VALID_USER_INPUT);
+        GameManager.validateUserInputForTryCount("5");
+        GameManager.instantiateRacingCars();
+        // then
+        // check just it prints out the position of each RacingCar well
+        GameManager.makeRacingCarsMove();
     }
 
 }
