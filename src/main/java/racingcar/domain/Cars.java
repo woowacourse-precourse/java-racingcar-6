@@ -53,7 +53,8 @@ public class Cars {
     }
 
     public void checkCarNamesLength(List<String> carNames) {
-        if (carNames.stream().anyMatch(name -> name.length() == NAME_EMPTY_LENGTH || name.length() > NAME_MAXIMUM_LENGTH)) {
+        if (carNames.stream()
+                .anyMatch(name -> name.length() == NAME_EMPTY_LENGTH || name.length() > NAME_MAXIMUM_LENGTH)) {
             throw new IllegalArgumentException(LENGTH_EXCEPTION);
         }
     }
