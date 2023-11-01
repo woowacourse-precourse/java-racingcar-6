@@ -15,12 +15,15 @@ public class GameController {
 
     public void run() {
         int attemptNum;
-        List<String> carNames = inputName();
+        String inputString = inputName();
+        List<String> carNames;
 
+        gameService.emptyNameCheck(inputString);
+        carNames = gameService.parseName(inputString);
         gameService.nameCheck(carNames);
         gameService.createCars(carNames);
 
-        attemptNum = inputAttempt();
+        attemptNum = gameService.attemptValidCheck(inputAttempt());
         outputResult();
 
         while (attemptNum != 0) {

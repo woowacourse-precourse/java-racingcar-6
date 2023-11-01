@@ -1,7 +1,9 @@
 package racingcar.model.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.domain.Car;
 import racingcar.model.repository.CarRepository;
 
@@ -18,6 +20,7 @@ public class GameService {
     }
 
     public void nameCheck(List<String> carNames) {
+
         carNames.forEach(car -> {
             if (car.length() > NAME_LENGTH) {
                 throw new IllegalArgumentException("이름은 5자 이하여야 합니다");
@@ -31,5 +34,28 @@ public class GameService {
 
     public List<String> resultGame() {
         return carRepository.findAllMaxForward();
+    }
+
+    public void emptyNameCheck(String carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException("이름을 입력해주세요");
+        }
+    }
+
+    public List<String> parseName(String carNames) {
+        return Arrays.stream(carNames.split(","))
+                .collect(Collectors.toList());
+    }
+
+    public int attemptValidCheck(String attemptCount) {
+        if (attemptCount.isEmpty()) {
+            throw new IllegalArgumentException("시도할 회수를 입력해주세요");
+        }
+
+        try {
+            return Integer.parseInt(attemptCount);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요");
+        }
     }
 }
