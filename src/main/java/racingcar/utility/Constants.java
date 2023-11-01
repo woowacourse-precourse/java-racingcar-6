@@ -22,8 +22,4 @@ public final class Constants {
     public static final String ADVANCEMENT = "-";
     public static final String WINNER_ANNOUNCEMENT_MESSAGE = "최종 우승자";
     public static final String SEPARATOR = ", ";
-
-
-
-
 }
