@@ -3,7 +3,6 @@ package racingcar;
 public class Errors {
 
     public static void namingError(String userInput) {
-
         if(userInput.length() < 1 || userInput.isBlank()) {
             throw new IllegalArgumentException("Error: 자동차의 이름을 설정하지 않으셨습니다.");
         }
@@ -28,6 +27,10 @@ public class Errors {
         try {
             Integer.parseInt(userInputNumber);
         } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Error: 숫자만 입력 가능합니다.");
+        }
+
+        if(userInputNumber.isBlank()) {
             throw new IllegalArgumentException("Error: 숫자만 입력 가능합니다.");
         }
     }
