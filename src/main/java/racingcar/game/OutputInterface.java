@@ -3,7 +3,6 @@ package racingcar.game;
 import game.Game;
 import game.Output;
 import java.util.List;
-import racingcar.game.renderer.RacingCarGameRenderer;
 import racingcar.game.view.SimpleHeaderView;
 import racingcar.game.view.SimpleTagView;
 import racingcar.game.view.View;

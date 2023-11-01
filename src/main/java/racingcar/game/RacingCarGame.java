@@ -52,6 +52,7 @@ public class RacingCarGame implements Game {
         checkNames(names);
 
         return Arrays.stream(names)
+                .map(name -> name.trim())
                 .map(RacingCar::new)
                 .collect(toList());
     }
