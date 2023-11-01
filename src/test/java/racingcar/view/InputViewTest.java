@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.view.InputView.*;
 
 class InputViewTest {
     @AfterEach
@@ -20,7 +21,7 @@ class InputViewTest {
         systemIn("a,b,c");
         List<String> list = List.of("a", "b", "c");
 
-        List<String> joinCarsName = InputView.joinCarsName();
+        List<String> joinCarsName = inputJoinCarsName();
 
         assertThat(joinCarsName).isEqualTo(list);
     }
@@ -28,7 +29,7 @@ class InputViewTest {
     @Test
     void gameCount() {
         systemIn("6,2,5");
-        String result = InputView.gameCount();
+        String result = inputGameCount();
         assertThat(result).isEqualTo("6,2,5");
     }
 
