@@ -2,6 +2,7 @@ package racingcar.Entity;
 
 import racingcar.Config;
 import racingcar.IO.InputOutputHelper;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class Snapshot {
     private Snapshot(int tryCount) {
         this.snapshots = new ArrayList<>(tryCount + 1);
         this.snapshots.add(Config.CAR_START_LOCATION, null);
-        for(int i=1; i<=tryCount; i++) {
+        for (int i = 1; i <= tryCount; i++) {
             this.snapshots.add(i, new LinkedHashMap<>());
         }
         ioHelper = Config.getSystemIOHelper();
@@ -44,16 +45,16 @@ public class Snapshot {
         ioHelper.output(sb.toString());
     }
 
-    private String numberToHyphen(int number){
+    private String numberToHyphen(int number) {
         return "-".repeat(number);
     }
 
-    public void printWinner(int order){
+    public void printWinner(int order) {
         String winnerResult = "최종 우승자 : " + findWinner(order);
         ioHelper.output(winnerResult);
     }
 
-    private String findWinner(int order){
+    private String findWinner(int order) {
         List<String> result = new ArrayList<>();
         Map<String, Integer> snapshot = get(order);
         int max = Collections.max(snapshot.values());

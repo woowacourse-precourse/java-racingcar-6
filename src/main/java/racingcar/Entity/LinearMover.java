@@ -3,7 +3,7 @@ package racingcar.Entity;
 import racingcar.Config;
 import racingcar.Util;
 
-public class LinearMover implements Mover{
+public class LinearMover implements Mover {
     private int location;
 
     public LinearMover(int location) {
@@ -17,7 +17,7 @@ public class LinearMover implements Mover{
         }
     }
 
-    private boolean isMovable(){
+    private boolean isMovable() {
         int number = Util.getRandomSingleDigit();
         return Util.getBooleanByNumber(number);
     }

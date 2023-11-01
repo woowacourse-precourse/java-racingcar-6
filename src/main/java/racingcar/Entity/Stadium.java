@@ -3,6 +3,7 @@ package racingcar.Entity;
 import racingcar.Config;
 import racingcar.IO.ConsoleInputOutputHelper;
 import racingcar.IO.InputOutputHelper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Stadium {
     private final InputOutputHelper ioHelper;
 
     public Stadium() {
-         ioHelper = Config.getSystemIOHelper();
+        ioHelper = Config.getSystemIOHelper();
     }
 
     public void inputCars() {
@@ -24,7 +25,7 @@ public class Stadium {
     void saveInputCars(String inputCars) {
         List<String> carNames = List.of(inputCars.split(","));
         for (String name : carNames) {
-            if(name.length() > Config.MAX_NAME_LENGTH) {
+            if (name.length() > Config.MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException(String.format("각 자동차 이름은 %d자 이하여야 한다.", Config.MAX_NAME_LENGTH));
             }
             this.cars.add(Car.create(name, 0));

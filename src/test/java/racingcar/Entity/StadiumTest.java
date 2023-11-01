@@ -2,6 +2,7 @@ package racingcar.Entity;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +28,7 @@ class StadiumTest {
         String input = "yeny,kitty,pony";
         List<String> nameList = Arrays.asList(input.split(","));
         List<Car> cars = new ArrayList<>();
-        for(String name : nameList){
+        for (String name : nameList) {
             cars.add(Car.create(name, 0));
         }
 
@@ -35,14 +36,14 @@ class StadiumTest {
 
         List<Car> savedCars = stadium.getCars();
         assertThat(nameList.size()).isEqualTo(savedCars.size());
-        for (int i=0; i<savedCars.size(); i++) {
+        for (int i = 0; i < savedCars.size(); i++) {
             assertThat(nameList.get(i)).isEqualTo(cars.get(i).getName());
         }
     }
 
     @Test
     @DisplayName("경주장__시도횟수_숫자_예외")
-    void saveTryCount_메서드_파라미터_입력_예외(){
+    void saveTryCount_메서드_파라미터_입력_예외() {
         Stadium stadium = new Stadium();
         List<String> inputList = List.of("-4", "안녕");
 

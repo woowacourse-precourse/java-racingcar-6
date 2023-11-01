@@ -12,7 +12,7 @@ public class Application {
 
         // 경기 진행
         Snapshot snapshot = Snapshot.create(stadium.getTryCount());
-        for(int order = 1; order <= stadium.getTryCount(); order++){
+        for (int order = 1; order <= stadium.getTryCount(); order++) {
             stadium.runAllCars();
             snapshot.set(order, stadium.getCars());
             snapshot.print(order);
