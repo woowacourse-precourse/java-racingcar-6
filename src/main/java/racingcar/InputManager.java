@@ -22,6 +22,7 @@ public class InputManager {
         }
         validator.checkForWhitespace(carNames);
         validator.checkNameLength(carNames);
+        validator.checkForDuplicates(carNames);
         return carNames;
     }
 
