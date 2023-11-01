@@ -6,7 +6,8 @@ public enum Sentence {
     ALIGN_LINE("\n"),
     RESULT_START_MENTION("실행 결과"),
     COLON_FOR_LIST(" : "),
-    FINAL_WINNER("최종 우승자");
+    FINAL_WINNER("최종 우승자"),
+    COMMA_FOR_LIST(", ");
 
     private final String message;
 

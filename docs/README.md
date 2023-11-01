@@ -24,7 +24,7 @@
 - [x] 누가 우승했는지 계산 후 출력한다.
   - [x] 우승자는 한 명 이상일 수 있다.
   - [ ] 모두 한 칸도 전진 안 한 상태면 우승했다고 할 수 없다고 (스스로) 판단한다. => 공백으로 출력!
-  - [ ] 출력 형식 : "\n최종 우승자 : [$자동차 이름][, [$자동차 이름]].."
+  - [x] 출력 형식 : "최종 우승자 : [$자동차 이름][, [$자동차 이름]].."
 
 
 # 객체 모델
@@ -93,6 +93,7 @@
 - CarResultDto
   - String name
   - long distance
+  - String toString()
 
 ### Behavior
 - Car createCar(BigInteger id, String name)
