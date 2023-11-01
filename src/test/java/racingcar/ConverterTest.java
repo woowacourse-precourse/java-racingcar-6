@@ -12,7 +12,6 @@ class ConverterTest {
         String input = "aaa,bbb,ccc";
         List<String> result = Converter.separateCarNames(input);
 
-        assertThat(result).contains("bbb", "ccc", "aaa");
         assertThat(result).containsExactly("aaa", "bbb", "ccc");
     }
 
