@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,6 +32,17 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 입력값_나누기_및_저장() {
+        RacingCar racingCar = new RacingCar(new Validate());
+        String input = "pobi,woni";
+        HashMap<String, String> result = new HashMap<String, String>();
+        result.put("pobi", "");
+        result.put("woni", "");
+
+        assertThat(racingCar.splitCarName(input)).isEqualTo(result);
     }
 
     @Override
