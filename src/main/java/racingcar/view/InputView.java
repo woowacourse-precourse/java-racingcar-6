@@ -14,6 +14,7 @@ public class InputView {
     private void isCorrectName(String[] nameList) {
         try {
             isCorrectLength(nameList);
+            isCorrectInput(nameList);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }
@@ -41,6 +42,12 @@ public class InputView {
             if (nameList[i].length() > 5 || nameList[i].isBlank()) {
                 throw new IllegalArgumentException();
             }
+        }
+    }
+
+    private void isCorrectInput(String[] nameList) {
+        if (nameList.length == 1) {
+            throw new IllegalArgumentException();
         }
     }
 
