@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 public class JudgeMovement {
     public int[] createRandomNumbers(int carCount) {
         int[] randomNumbers = new int[carCount];

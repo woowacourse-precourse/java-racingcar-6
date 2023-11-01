@@ -16,9 +16,14 @@ public class Result {
         System.out.println();
     }
 
-    public void pickWinners() {
-
+    private int pickWinners(int[] positions) {
+        int winner = 0;
+        for (int position : positions) {
+            winner = Math.max(winner, position);
+        }
+        return winner;
     }
+
 
     public void printWinner() {
 

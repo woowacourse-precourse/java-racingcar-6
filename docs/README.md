@@ -9,5 +9,5 @@
 4. []결과 출력하기 Result
     - [V]경기 결과 출력하기 Result#printRapResult()
     - [V]전진한 칸수 출력하기 Result#printCarPosition()
-    - []우승자 선정하기 Result#pickWinners()
+    - [V]우승자 선정하기 Result#pickWinners()
     - []우승자 출력하기 Result#printWinner()
