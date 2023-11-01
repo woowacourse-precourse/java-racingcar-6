@@ -30,7 +30,6 @@ public class Application {
         Scanner sc = new Scanner(System.in);
         input = sc.nextLine();
 
-
         String[] carsArray;
         List<String> carsList;
         try {
