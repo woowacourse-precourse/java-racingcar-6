@@ -14,8 +14,12 @@ public class Movement {
     }
 
     public void moveCar(Car car) {
-        if (generator.randomNumberGenerate() >= MIN_MOVEMENT_VALUE) {
+        if (isMovable()) {
             car.move();
         }
+    }
+
+    private boolean isMovable() {
+        return generator.randomNumberGenerate() >= MIN_MOVEMENT_VALUE;
     }
 }
