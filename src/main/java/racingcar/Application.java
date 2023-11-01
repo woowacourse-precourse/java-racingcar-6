@@ -59,7 +59,10 @@ public class Application {
     }
 
     private static void printCars(List<Car> cars) {
-
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + car.printPosition());
+        }
+        System.out.println();
     }
 
     private static void announceWinner(List<Car> cars) {
