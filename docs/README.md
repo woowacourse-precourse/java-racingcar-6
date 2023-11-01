@@ -42,6 +42,7 @@ CommandLineController 객체의 start 메서드를 실행한다.
 - 메서드
   - addCars(String input) 사용자의 입력을 받아 자동차들을 추가
   - moveCars() 자동차들을 이동
+  - moveCar(int index, boolean shouldMove) true면 index의 자동차를 이동
   - shouldMoveForward() 자동차가 이동할지 말지 boolean으로 리턴
   - getCarName() 자동차의 이름을 반환
   - getCarLocation() 자동차의 위치를 반환

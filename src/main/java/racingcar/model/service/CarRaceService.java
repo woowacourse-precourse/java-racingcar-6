@@ -21,10 +21,15 @@ public class CarRaceService {
 
     public void moveCars() {
         for (int i = 0; i < carManager.size(); i++) {
-            if (shouldMoveForward()) {
-                carManager.moveCar(i);
-            }
+            moveCar(i, shouldMoveForward());
         }
+    }
+
+    private void moveCar(int index, boolean shouldMove) {
+        if (!shouldMove) {
+            return;
+        }
+        carManager.moveCar(index);
     }
 
     private boolean shouldMoveForward() {
