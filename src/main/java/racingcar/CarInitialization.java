@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CarInitialization {
+public class CarInitialization {//TESTese
     public static List<Car> initializeCars() {
         Scanner scanner = new Scanner(System.in);
         List<Car> cars = new ArrayList<>();
