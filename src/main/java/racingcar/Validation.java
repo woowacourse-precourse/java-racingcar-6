@@ -11,4 +11,12 @@ public class Validation {
             throw new IllegalArgumentException("빈 이름이 있습니다.");
         }
     }
+
+    public static void validateIsNumber(String number) {
+        try {
+            Integer.parseInt(number);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("입력 값이 숫자가 아닙니다.");
+        }
+    }
 }
