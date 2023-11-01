@@ -1,7 +1,15 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.*;
+
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.ArrayList;
+import camp.nextstep.edu.missionutils.test.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class Car{
     String name;
@@ -29,22 +37,51 @@ class Car{
 
 }
 
-class InputException{
+class UserNameInput{
 
-    static void checkNameLenth(ArrayList<String> nameList){
+    static int CarTotal;
+    static int CarRacingTotal;
+    static ArrayList<String> InputNameToList(){
 
-        for(String Name : nameList){
-
-            if(Name.length()>5){
-
-                throw new IllegalArgumentException();
-
-            }
-
-        }
+        String inputName = Console.readLine();
+        String[] nameArray= inputName.split(",");
+        return new ArrayList<>(Arrays.asList(nameArray));
 
     }
+
+    static void InputRacingCount(){
+
+        String inputCount = Console.readLine();
+        CarRacingTotal = Integer.parseInt(inputCount);
+
+    }
+
+
+
 }
+
+class RacingCarTest extends NsTest{
+
+    @Test
+    @DisplayName("자동차 게임이 입력값에 따라 잘 구현 되는지 확인")
+    public void testValidInput(){
+        run("car1,car2,car3,car4,car5,car6,car7","5");
+
+        String expectedOutput = "";
+    }
+
+
+
+    @Override
+    protected void runMain(){
+
+    }
+
+
+
+
+}
+
 
 
 public class Application {
@@ -54,14 +91,12 @@ public class Application {
         ArrayList<Car> carList= new ArrayList<>();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputName = Console.readLine();
-        String[] nameArray= inputName.split(",");
-        ArrayList<String> nameList= new ArrayList<>(Arrays.asList(nameArray));
-        InputException.checkNameLenth(nameList);
+        ArrayList<String> nameList = UserNameInput.InputNameToList();
+
+
 
         System.out.println("시도할 회수는 몇회인가요?");
-        String inputCount=Console.readLine();
-        int racingCount=Integer.parseInt(inputCount);
+        UserNameInput.InputRacingCount();
 
 
         for(int i=0;i<nameList.size();i++){
@@ -73,7 +108,7 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
 
-        for(int j=0;j<racingCount;j++){
+        for(int j=0;j<UserNameInput.CarRacingTotal;j++){
 
             for(int k=0;k<carList.size();k++){
 
