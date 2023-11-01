@@ -16,8 +16,6 @@ public class CarGenerator {
         String input = Console.readLine();
         carNames = Arrays.asList(input.split(","));
 
-        int lengthCarNames = input.length();
-
         validateCarNameNull(input);
 
         // if(input.charAt(0) == ',' || 
