@@ -50,13 +50,31 @@ public class Input {
         return uniqueCarNames;
     }
 
-    // TODO : 시도할 회수를 입력받습니다.
+    // 시도할 회수를 입력받습니다.
     public int getInputTryCount()
     {
         output.promptForTryCount();
         String playerInput = getPlayerInput();
-        return Integer.parseInt(playerInput);
+        return validateTryCount(playerInput);
     }
 
-    // TODO : 시도할 회수가 유효한지 검사합니다.
+    // 시도할 회수가 유효한지 검사합니다.
+    public int validateTryCount(String input)
+    {
+        int tryCount = 0;
+
+        try {
+            tryCount = Integer.parseInt(input);
+
+            if (tryCount <= 0) {
+                Exception.invaildTryCount();
+            }
+
+            return tryCount;
+        } catch (NumberFormatException e) {
+            Exception.notNumber();
+        }
+
+        return tryCount;
+    }
 }
