@@ -33,6 +33,7 @@ public class Controller {
         initGame();
         gameStart();
         gameEnd();
+        printWinner();
     }
 
     private void inputCarName() {
@@ -93,7 +94,6 @@ public class Controller {
 
     private void gameEnd() {
         values.determineWinners();
-        printWinner();
     }
 
     private void printWinner() {
