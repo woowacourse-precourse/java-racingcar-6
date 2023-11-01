@@ -48,6 +48,20 @@ public class CarTest {
                         ,actual -> assertThat(actual).isEqualTo(1));
     }
 
-    
+    @DisplayName("자동차 현재 위치 출력 테스트")
+    @Test
+    void distanceConvertStringTest(){
+        //given
+        final Car car = new Car("hello");
+        car.stopOrMoveForward();
+
+        //when then
+        if(car.measureDistance()>0){
+            assertThat(car.distanceConvertString()).as("자동차의 위치가 문자열 형태로 변환되지 않았습니다.").contains("hello : ","-");
+        }
+        else {
+            assertThat(car.distanceConvertString()).as("자동차의 위치가 문자열 형태로 변환되지 않았습니다.").contains("hello : ");
+        }
+    }
 
 }
