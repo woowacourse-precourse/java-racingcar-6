@@ -1,15 +1,18 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.StaticRacingCar.eachRoundResult;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.StaticRacingCar.NumberGenerator;
+import racingcar.StaticRacingCar.User;
 import racingcar.car.Car;
 
 public class NewRacingCarTest {
-    List<Car> racingCarList;
+    static List<Car> racingCarList;
 
     @BeforeEach
     void setUp() {
@@ -17,49 +20,34 @@ public class NewRacingCarTest {
     }
 
 
-    static class User {
-        public static String[] carNames() {
-            return new String[]{"A", "B", "C"};
-        }
-
-        public static String racingRound() {
-            return "3";
-        }
-    }
-
-    static class NumberGenerator {
-        public static int generateNumber() {
-            return 4;
-        }
-    }
-
-
-    @Test
-    void addRacingCarTest() {
-        // when
+    private static void initializeCars() {
         String[] carNames = User.carNames();
         for (String carName : carNames) {
             racingCarList.add(new Car(carName));
         }
-        // then
+    }
+
+    @Test
+    void addRacingCarTest() {
+        //given
+        initializeCars();
+        // when, then
         assertThat(racingCarList.size()).isEqualTo(3);
     }
 
     @Test
     void racingRoundTest() {
         // when
-        String racingRound = User.racingRound();
+        initializeCars();
         // then
-        assertThat(racingRound).isEqualTo("3");
+        assertThat(User.racingRound()).isEqualTo("3");
     }
 
     @Test
     void runOneRoundTest() {
         // given
-        String[] carNames = User.carNames();
-        for (String carName : carNames) {
-            racingCarList.add(new Car(carName));
-        }
+        initializeCars();
+
         // when, then
         for (Car car : racingCarList) {
             car.move(NumberGenerator.generateNumber());
@@ -69,6 +57,23 @@ public class NewRacingCarTest {
             assertThat(car.getCurrentPosition()).isEqualTo(1);
         }
     }
+    @Test
+    void printEachRoundResult() {
+        // given
+        initializeCars();
 
+        // when
+        for (Car car : racingCarList) {
+            car.move(NumberGenerator.generateNumber());
+        }
+        String result = eachRoundResult(racingCarList);
+
+        // then
+        String expectedOutputResult =
+                "A : -" + "\n" +
+                "B : -" + "\n"
+                + "C : -" + "\n";
+        assertThat(result).isEqualTo(expectedOutputResult);
+    }
 }
 
