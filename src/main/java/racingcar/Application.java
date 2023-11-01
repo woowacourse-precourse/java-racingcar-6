@@ -15,12 +15,9 @@ public class Application {
 
         moveCar(count, carname);
 
-
-
-
-
-
     }
+
+    static ArrayList<Integer> carDistances = new ArrayList<>();
 
     static ArrayList<String> generateCarname() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -38,7 +35,7 @@ public class Application {
                 throw new IllegalArgumentException();
             }
         }
-        Console.close();
+
 
         StringJoiner joiner = new StringJoiner(", ");
         for (String name : carNamelist) {
@@ -46,6 +43,9 @@ public class Application {
         }
 
         System.out.println(joiner);
+        for (int i = 0; i < carNamelist.size(); i++) {
+            carDistances.add(0);
+        }
         return carNamelist;
     }
 
@@ -69,41 +69,37 @@ public class Application {
         }
     }
 
-    static String  score(){
-
-        boolean goCount = goStop();
-
-        if (goCount == true){
-
-            return
-
-
+    static String score() {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        if (randomNum >= 4) {
+            return "-";
+        } else {
+            return "";
         }
-        else {
-            return ;
-        }
-
     }
 
     static void moveCar(String count, ArrayList<String> carname) {
-        
         System.out.println();
         System.out.println("실행 결과");
-        
+
         int countNum = Integer.parseInt(count);
-        int i = 1;
-        while (i <= countNum){
 
-            for (String name: carname) {
-                String theScore = score(name);
-                System.out.println("name : "+ theScore);
+        for (int i = 0; i < countNum; i++) {
+            for (int j = 0; j < carname.size(); j++) {
+                String name = carname.get(j);
+                String theScore = score();
 
+
+                int currentDistance = carDistances.get(j);
+                if (theScore.equals("-")) {
+                    currentDistance++;
+                }
+                carDistances.set(j, currentDistance);
+
+                System.out.println(name + " : " + theScore);
             }
-
             System.out.println();
         }
-
-
     }
 
 
