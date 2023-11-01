@@ -16,6 +16,17 @@ public class RacingGame {
         this.raceCountInput = raceCountInput;
     }
 
+    private static int getRandomNumber() {
+        RandomNumberGenerator numberGenerator = RandomNumberGenerator.createNumberGenerator();
+        return numberGenerator.getRandomNumber();
+    }
+
+    private static void printCurrent(Car car) {
+        String name = car.getName();
+        int currentNum = car.getCurrentLocation();
+        OutputView.currentLocation(name, currentNum);
+    }
+
     public void startGame() {
         System.out.println();
         for (int i = loopMin(); i < raceCountInput.getRaceCount(); i++) {
@@ -38,17 +49,6 @@ public class RacingGame {
             printCurrent(car);
         }
         System.out.println();
-    }
-
-    private static int getRandomNumber() {
-        RandomNumberGenerator numberGenerator = RandomNumberGenerator.createNumberGenerator();
-        return numberGenerator.getRandomNumber();
-    }
-
-    private static void printCurrent(Car car) {
-        String name = car.getName();
-        int currentNum = car.getCurrentLocation();
-        OutputView.currentLocation(name, currentNum);
     }
 
     private void printWinner() {

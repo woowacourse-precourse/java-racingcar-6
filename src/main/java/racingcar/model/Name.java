@@ -20,7 +20,6 @@ public class Name {
     }
 
     private static void validLength(String userInputList) {
-
         if (userInputList.length() > nameMax()) {
             throw new IllegalArgumentException("길이는 5자 이하여야합니다.");
         }

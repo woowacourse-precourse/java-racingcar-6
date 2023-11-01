@@ -41,5 +41,4 @@ public class OutputView {
     private static String getLocationString(String name, int currentNum) {
         return name + COLON + HYPHEN.repeat(currentNum);
     }
-
 }
