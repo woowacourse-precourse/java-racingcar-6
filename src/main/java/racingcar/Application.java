@@ -11,16 +11,12 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        try {
-            User user = new User();
-            Racing racing = new Racing(user);
-            Application app = new Application(user, racing);
+        User user = new User();
+        Racing racing = new Racing(user);
+        Application app = new Application(user, racing);
 
-            app.user.input();
-            app.racing.race();
-        } catch (IllegalAccessException e) {
-            System.out.println("Error: " + e);
-        }
+        app.user.input();
+        app.racing.race();
     }
 
 }

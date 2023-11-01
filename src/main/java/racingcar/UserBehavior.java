@@ -2,6 +2,6 @@ package racingcar;
 
 public interface UserBehavior {
 
-    void input() throws IllegalAccessException;
+    void input() throws IllegalArgumentException;
     void saveCarNameToMap();
 }
