@@ -82,9 +82,19 @@ public class ValidatePlayerInput {
         }
     }
 
+
     public List<String> convertStringToListCarNames() {
         final List<String> convertedValues = Arrays.stream(this.splitsCarNamesInput).toList();
 
         return convertedValues;
+    }
+    public int convertStringToIntRaceCount(String raceCountInput) {
+        if (raceCountInput.equals("0")) {
+            throw new IllegalArgumentException("레이스 시도 횟수는 1 이상입니다");
+        }
+
+        final int raceCount = Integer.parseInt(raceCountInput);
+
+        return raceCount;
     }
 }

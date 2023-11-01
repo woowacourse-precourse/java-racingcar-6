@@ -180,4 +180,17 @@ class ValidatePlayerInputTest {
         List<String> convertedValues = validatePlayerInput.convertStringToListCarNames();
         assertThat(convertedValues).isEqualTo(carNamesList);
     }
+
+    @DisplayName("레이스 시도 횟수가 0일 경우에 대한 테스트")
+    @Test
+    void convertRaceCountToIntTest() {
+        //when
+        ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+        //given
+        String raceCountInput = "0";
+        //then
+        assertThatThrownBy(() -> validatePlayerInput.convertStringToIntRaceCount(raceCountInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("레이스 시도 횟수는 1 이상입니다");
+    }
 }
