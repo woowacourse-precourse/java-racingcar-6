@@ -11,11 +11,11 @@ public class CarRankingCalculatorTest {
         CarRankingCalculator carRankingCalculator = new CarRankingCalculator();
 
         LinkedHashMap<String, String> carAndDistance = new LinkedHashMap<>();
-        carAndDistance.put("dokgo","__");
-        carAndDistance.put("may","_");
-        carAndDistance.put("cat","___");
-        carAndDistance.put("uncle","____");
-        carAndDistance.put("king","_____");
+        carAndDistance.put("dokgo","--");
+        carAndDistance.put("may","--");
+        carAndDistance.put("cat","---");
+        carAndDistance.put("uncle","----");
+        carAndDistance.put("king","-----");
 
         assertThat(carRankingCalculator.rankingCheck(carAndDistance)).isEqualTo("king");
     }
@@ -25,11 +25,11 @@ public class CarRankingCalculatorTest {
         CarRankingCalculator carRankingCalculator = new CarRankingCalculator();
 
         LinkedHashMap<String, String> carAndDistance = new LinkedHashMap<>();
-        carAndDistance.put("dokgo","__");
-        carAndDistance.put("may","_");
-        carAndDistance.put("cat","_____");
-        carAndDistance.put("uncle","_____");
-        carAndDistance.put("king","_____");
+        carAndDistance.put("dokgo","--");
+        carAndDistance.put("may","-");
+        carAndDistance.put("cat","-----");
+        carAndDistance.put("uncle","-----");
+        carAndDistance.put("king","-----");
 
         assertThat(carRankingCalculator.rankingCheck(carAndDistance)).isEqualTo("cat,uncle,king");
     }

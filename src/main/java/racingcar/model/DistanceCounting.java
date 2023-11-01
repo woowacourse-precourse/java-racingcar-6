@@ -7,7 +7,7 @@ public class DistanceCounting {
 
     public String passCheck(int pass) {
         if(pass >= 4) {
-            plusDistance("_");
+            plusDistance("-");
             return totalDistance();
         }else {
             return totalDistance();

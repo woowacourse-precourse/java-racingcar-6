@@ -29,14 +29,14 @@ public class CarAndDistanceTest {
         String distance2 = "";
 
         for(int i = 0; i < 5; i++) {
-            distance1 += "_";
-            distance2 += "_";
+            distance1 += "-";
+            distance2 += "-";
             carAndDistance.setCarAndDistance("dokgo", distance1);
             carAndDistance.setCarAndDistance("may",distance2);
         }
 
-        assertThat(carAndDistance.carAndDistanceResult(0)).isEqualTo("dokgo : _____");
-        assertThat(carAndDistance.carAndDistanceResult(1)).isEqualTo("may : _____");
+        assertThat(carAndDistance.carAndDistanceResult(0)).isEqualTo("dokgo : -----");
+        assertThat(carAndDistance.carAndDistanceResult(1)).isEqualTo("may : -----");
     }
 
     @Test
@@ -46,7 +46,7 @@ public class CarAndDistanceTest {
         String distance1 = "";
 
         for(int i = 0; i < 5; i++) {
-            distance1 += "_";
+            distance1 += "-";
             carAndDistance.setCarAndDistance("dokgo", distance1);
             assertThat(carAndDistance.carAndDistanceResult(0)).isEqualTo("dokgo : " + distance1);
         }
