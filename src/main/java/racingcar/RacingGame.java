@@ -32,4 +32,14 @@ public class RacingGame {
         return Integer.parseInt(Console.readLine());
 
     }
+
+    public void eachResult(){
+
+        for(Car car: carList) {
+            int pickNumber = Randoms.pickNumberInRange(0,9);
+            if(pickNumber >= 4) {
+                car.setGameResult();
+            }
+        }
+    }
 }
