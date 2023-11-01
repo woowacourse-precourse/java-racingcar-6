@@ -11,14 +11,16 @@ import racingcar.domain.forwardMethod.ForwardMethod;
 public class RacingCars implements Iterable<RacingCar> {
 
     private static final int REQUIRED_NUMBER_RACINGCAR = 2;
+    private static final String NOT_ENOUGH_MESSAGE = "경주를 위해 최소 두 대의 RacingCar 가 필요합니다.";
+    private static final String DUPLICATE_MESSAGE = "중복된 이름을 가진 RacingCar 가 함께 경주할 수 없습니다.";
     private final List<RacingCar> racingCars;
 
     public RacingCars(List<RacingCar> racingCars) {
         if (isNotEnoughCars(racingCars)) {
-            throw new IllegalArgumentException("경주를 위해 최소 두 대의 RacingCar 가 필요합니다.");
+            throw new IllegalArgumentException(NOT_ENOUGH_MESSAGE);
         }
         if (isDuplicateName(racingCars)) {
-            throw new IllegalArgumentException("중복된 이름을 가진 RacingCar 가 함께 경주할 수 없습니다.");
+            throw new IllegalArgumentException(DUPLICATE_MESSAGE);
         }
         this.racingCars = racingCars;
     }
