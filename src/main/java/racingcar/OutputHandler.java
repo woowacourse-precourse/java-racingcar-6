@@ -1,7 +1,8 @@
-package racingcar.io;
+package racingcar;
 
 public class OutputHandler {
     public static void printCarStatus(String name, int position) {
+        System.out.println("\n" +"실행 결과");
         System.out.print(name + " : ");
         for (int i = 0; i < position; i++) {
             System.out.print("-");

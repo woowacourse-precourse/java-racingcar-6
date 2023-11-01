@@ -1,4 +1,4 @@
-package racingcar.io;
+package racingcar;
 
 import java.util.Scanner;
 import camp.nextstep.edu.missionutils.Console;
@@ -15,7 +15,7 @@ public class InputHandler {
         return input.split(",");
     }
 
-    private static void validateCarNames(String input) {
+    public static void validateCarNames(String input) {
         String[] carNames = input.split(",");
         for (String carName : carNames) {
             if (carName.length() > 5) {
