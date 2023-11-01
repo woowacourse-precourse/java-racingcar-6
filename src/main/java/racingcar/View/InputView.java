@@ -2,6 +2,9 @@ package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class InputView {
 
 
@@ -11,6 +14,7 @@ public class InputView {
     public String getCarsName(){
         System.out.println(CARS_NAME_INPUT_GUIDE);
         String carsName = Console.readLine();
+        checkCarsNameValidation(carsName);
 
         return carsName;
     }
@@ -24,6 +28,35 @@ public class InputView {
 
         return tryCount;
     }
-    private void checkCarsNameValidation(String carsName){}
-    private void checkTryCountValidation(String tryCount){}
+    private void checkCarsNameValidation(String carsName){
+        checkInputIsBlank(carsName);
+        checkCarsNameLength(carsName);
+    }
+
+    private void checkInputIsBlank(String input){
+        if(input.isBlank()){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void checkCarsNameLength(String carsName){
+
+        List<String> carNames = Arrays.asList(carsName.split(","));
+
+        for(String carName : carNames){
+            if(carName.length() >= 6){
+                throw new IllegalArgumentException();
+            }
+            else if(carName.isEmpty()){
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+
+    private void checkTryCountValidation(String tryCount){
+
+    }
+
+
 }
