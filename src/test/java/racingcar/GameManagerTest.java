@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
-import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +38,26 @@ public class GameManagerTest extends NsTest {
 
         // then
         assertThat(winners).hasSize(0);
+    }
+
+    @Test
+    public void 가장_많이_이동한_참가자가_승리() {
+        // given
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("car1"));
+        cars.add(new Car("car2"));
+        cars.add(new Car("car3"));
+        cars.add(new Car("car4"));
+
+        // when
+        GameManager gameManager = new GameManager();
+        cars.get(0).move(MOVING_FORWARD);
+        List<Car> winners = gameManager.getMaxDistanceCars(cars);
+
+        // then
+        String assertedName = winners.get(0).getName();
+        String expected = "car1";
+        assertThat(assertedName).isEqualTo(expected);
     }
 
     @Override
