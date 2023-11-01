@@ -44,4 +44,4 @@ class ApplicationTest extends NsTest {
 //        move(location);
 //        assertThat(location).isEqualTo(3);
 //    }
-//}
+}
