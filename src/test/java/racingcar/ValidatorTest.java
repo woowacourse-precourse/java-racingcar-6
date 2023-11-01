@@ -18,8 +18,8 @@ public class ValidatorTest {
     private Validator validator = new Validator();
 
     @Test
-    void validateInput_입력값이_영문자_한글_쉼표로_이루어져있는지() {
-        String invalidInput = "한국,pobi,MYCAR,ahn, ";
+    void validateInput_입력값이_영문자_한글_쉼표로만_이루어져있는지() {
+        String invalidInput = "한국,pobi,MYCAR,ahn!";
 
         assertThatThrownBy(() -> validator.validateInput(invalidInput))
                 .isInstanceOf(IllegalArgumentException.class)
