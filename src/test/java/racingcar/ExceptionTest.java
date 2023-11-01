@@ -58,4 +58,17 @@ public class ExceptionTest {
             exception.validateNumberOfCarName(carNames2);
         });
     }
+
+    @Test
+    void 자동차이름_중복_X() {
+        String[] splitCarName1 = {"a", "b", "c"};
+        Assertions.assertDoesNotThrow(() -> {
+            exception.validateDuplicateCarName(splitCarName1);
+        });
+
+        String[] splitCarName2 = {"a", "b", "a"};
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            exception.validateDuplicateCarName(splitCarName2);
+        });
+    }
 }
