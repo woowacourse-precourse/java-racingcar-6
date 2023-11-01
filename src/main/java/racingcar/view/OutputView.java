@@ -2,9 +2,9 @@ package racingcar.view;
 
 import java.util.List;
 
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
-import racingcar.util.StringHandler;
 
 public class OutputView {
 
@@ -19,7 +19,7 @@ public class OutputView {
     }
 
     public void printWinner(List<Car> cars) {
-        String winner = StringHandler.joinBy(cars, SPLITTER);
+        String winner = joinBy(cars, SPLITTER);
         String result = String.format("%s%s",WINNER_PHRASE,winner);
 
         System.out.println(result);
@@ -29,7 +29,7 @@ public class OutputView {
         List<Car> cars = game.getCars();
         for(Car car : cars) {
             String progress = new StringBuilder()
-                    .append(car.toString())
+                    .append(car.getName())
                     .append(COLON_WITH_SPACE)
                     .append(stackPositionString(car.getPosition()))
                     .toString();
@@ -42,6 +42,12 @@ public class OutputView {
         presentPosition.append(POSITION_STRING.repeat(position));
 
         return presentPosition.toString();
+    }
+
+    public String joinBy(List<Car> input, String splitter) {
+        return input.stream()
+                .map(car -> car.getName())
+                .collect(Collectors.joining(splitter));
     }
 
     public void wrapLine() {
