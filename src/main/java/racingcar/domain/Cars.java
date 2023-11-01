@@ -17,6 +17,10 @@ public class Cars {
         this.cars = cars;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     private void validateEmptyList(List<Car> cars){
         if(cars.size()==0) throw new IllegalArgumentException(InputError.INPUT_EMPTY_ERROR_MESSAGE);
     }
