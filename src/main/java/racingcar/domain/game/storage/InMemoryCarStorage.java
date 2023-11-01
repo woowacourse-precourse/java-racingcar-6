@@ -21,4 +21,9 @@ public class InMemoryCarStorage implements CarStorage {
 				.map(this::save)
 				.toList();
 	}
+	@Override
+	public List<Car> findAll(){
+		return cars.values().stream()
+				.toList();
+	}
 }
