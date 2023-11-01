@@ -7,8 +7,6 @@ import java.util.List;
 
 public class Cars {
 
-    private static final int MAX_NUMBER = 9;
-    private static final int MIN_NUMBER = 0;
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -35,6 +33,8 @@ public class Cars {
     }
 
     private void movableCar(int pivotNumber, Car car) {
+        final int MAX_NUMBER = 9;
+        final int MIN_NUMBER = 0;
         int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
         if(randomNumber >= pivotNumber) {
             car.moveForward();
