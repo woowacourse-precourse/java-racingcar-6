@@ -31,12 +31,6 @@ public class RacingCarException {
 
     }
 
-//    public void validateMinimumValue(int cnt) {
-//        if (cnt < 1) {
-//            throw new IllegalArgumentException("1보다 작은 수 는 입력 하실 수 없습니다.");
-//        }
-//    }
-
     public void validateCarName(List<String> carName) {
         carName.stream().filter(String::isEmpty).forEach(s -> {
             throw new IllegalArgumentException("자동차 이름은 문자를 입력 해야 합니다.");
