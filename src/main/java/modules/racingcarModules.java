@@ -12,7 +12,7 @@ public class racingcarModules {
   }
 
   public static void checked_car_name(String[] carNames) {
-    racingcarException.exception_len_0(carNames);
+    racingcarException.exception_len_under_2(carNames);
     racingcarException.exception_same_name(carNames);
     racingcarModules.checked_car_name_len(carNames);
   }

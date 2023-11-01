@@ -10,7 +10,7 @@ public class racingcarExceptionTest {
   void car_개수가_0인_경우_예외_처리() {
     String[] input = {""};
     assertSimpleTest(() ->
-            assertThatThrownBy(() -> modules.racingcarException.exception_len_0(input))
+            assertThatThrownBy(() -> modules.racingcarException.exception_len_under_2(input))
                     .isInstanceOf(IllegalArgumentException.class)
     );
   }
