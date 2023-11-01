@@ -1,6 +1,6 @@
-package racingcar.domain.vo;
+package racingcar.domain.dto;
 
-public class CarVO {
+public class CarDTO {
   private String car;
   private int move;
   public String getCar() {

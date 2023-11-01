@@ -1,24 +1,24 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.vo.CarVO;
+import racingcar.domain.dto.CarDTO;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingService {
   public RacingService() {}
-  public List<CarVO> setCarListName(List<String> carList){
-    List<CarVO> list = new ArrayList<>();
+  public List<CarDTO> setCarListName(List<String> carList){
+    List<CarDTO> list = new ArrayList<>();
     for(String name : carList){
-      CarVO car = new CarVO();
+      CarDTO car = new CarDTO();
       car.setCar(name);
       list.add(car);
     }
     return list;
   }
-  public void gamePlay(int tryCycleChoice,List<CarVO> racingCarList){
+  public void gamePlay(int tryCycleChoice,List<CarDTO> racingCarList){
     for (int i = 0; i < tryCycleChoice; i++) {
-      for(CarVO car : racingCarList){
+      for(CarDTO car : racingCarList){
         int randomNumber = Randoms.pickNumberInRange(1,9);
         if(randomNumber > 3){
           car.setMove(1 + car.getMove());
@@ -35,14 +35,14 @@ public class RacingService {
       System.out.println();
     }
   }
-  public void selectMaxMove(List<String> champions,List<CarVO> racingCarList){
+  public void selectMaxMove(List<String> champions,List<CarDTO> racingCarList){
     int maxMove = -1;
-    for (CarVO car : racingCarList){
+    for (CarDTO car : racingCarList){
       if (car.getMove() > maxMove){
         maxMove = car.getMove();
       }
     }
-    for (CarVO car : racingCarList){
+    for (CarDTO car : racingCarList){
       if (car.getMove() == maxMove){
         champions.add(car.getCar());
       }

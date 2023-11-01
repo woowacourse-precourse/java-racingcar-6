@@ -3,14 +3,14 @@ package racingcar;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RacingService;
-import racingcar.domain.vo.CarVO;
+import racingcar.domain.dto.CarDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SneakPeekTest {
   private static RacingService rs = new RacingService();
-  private static List<CarVO> racingCarList = new ArrayList<>();
+  private static List<CarDTO> racingCarList = new ArrayList<>();
   private static int tryCycleChoice;
 
   @BeforeAll
@@ -19,9 +19,9 @@ public class SneakPeekTest {
     // 한번만 설정해주려면 @BeforeAll 을 사용하고
     // @Before 의 기능을 사용하려면 @BeforeEach가 적합하다고 함
     tryCycleChoice = 1;
-    CarVO car1 = new CarVO();
+    CarDTO car1 = new CarDTO();
     car1.setCar("pobi");
-    CarVO car2 = new CarVO();
+    CarDTO car2 = new CarDTO();
     car2.setCar("jeson");
 
     racingCarList.add(car1);
