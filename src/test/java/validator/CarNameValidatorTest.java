@@ -3,12 +3,14 @@ package validator;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import message.ErrorMessages;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarNameValidatorTest {
 
+    @DisplayName("자동차 이름은 5자 이하만 가능하다")
     @Test
-    void 자동차_이름이_5자가_넘는_경우_예외발생() {
+    void validateCarNameLength() {
         String[] carNames = {"abcdef", "ghi", "jkl"};
 
         assertThatThrownBy(() -> CarNameValidator.validateCarNameLength(carNames))
@@ -17,8 +19,9 @@ class CarNameValidatorTest {
 
     }
 
+    @DisplayName("자동차 이름에 중복이 있으면 안된다.")
     @Test
-    void 자동차_이름에_중복이_있는_경우_예외발생() {
+    void validateCarNameDuplicate() {
         String[] carNames = {"abc", "def", "abc"};
 
         assertThatThrownBy(() -> CarNameValidator.validateCarNameDuplicate(carNames))

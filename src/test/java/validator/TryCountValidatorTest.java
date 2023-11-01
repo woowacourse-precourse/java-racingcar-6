@@ -1,28 +1,29 @@
 package validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static validator.TryCountValidator.validateTryCountMin;
-import static validator.TryCountValidator.validateTryCountNumber;
 
 import message.ErrorMessages;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class TryCountValidatorTest {
 
+    @DisplayName("시도 횟수는 숫자여야 한다.")
     @Test
-    void 시도횟수가_숫자가_아니면_예외발생() {
+    void validateTryCountNumber() {
         String tryCount = "";
 
-        assertThatThrownBy(() -> validateTryCountNumber(tryCount))
+        assertThatThrownBy(() -> TryCountValidator.validateTryCountNumber(tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessages.COUNT_NOT_NUMBER_ERROR);
     }
 
+    @DisplayName("시도 횟수는 0보다 커야한다.")
     @Test
-    void 시도횟수가_1회_이상이_아니면_예외발생() {
+    void validateTryCountMin() {
         String tryCount = "0";
 
-        assertThatThrownBy(() -> validateTryCountMin(tryCount))
+        assertThatThrownBy(() -> TryCountValidator.validateTryCountMin(tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessages.TRY_COUNT_MIN_ERROR);
 

@@ -2,12 +2,14 @@ package view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class InputViewTest {
 
+    @DisplayName("자동차 이름은 쉼표(,)를 기준으로 구분한다.")
     @Test
-    void 자동차_이름이_구분자를_통해_구분되는지_테스트() {
+    void getCarNames() {
         String inputCarNames = "abc,def,ghi";
         String[] carNames = inputCarNames.split(",");
 
@@ -15,8 +17,9 @@ class InputViewTest {
         assertThat(carNames).containsExactly("abc", "def", "ghi");
     }
 
+    @DisplayName("시도 횟수는 String으로 입력받는다.")
     @Test
-    void 시도횟수가_올바르게_저장되는지_테스트() {
+    void getTryCount() {
         String tryCount = "5";
 
         assertThat(tryCount).isEqualTo("5");
