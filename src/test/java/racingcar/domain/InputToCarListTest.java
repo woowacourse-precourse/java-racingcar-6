@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Test;
    3. ",,," : 성공 (길이가 작습니다.)
    4. ",!123,#1123" : 성공 (자동차의 이름은 공백이 불가능합니다.)
    5. ",,12" 성공 (자동차의 이름은 공백이 불가능합니다.)
-   6. "1,2,3, " 성공 (자동차의 이름은 공백이 불가능합니다.)
+   6. "1,2,3 " 성공 (자동차의 이름은 공백이 불가능합니다.)
+   7. "1,2,2" 성공 (중복되는 이름이 있습니다.)
+   8. "1,2,3," "성공 (문장의 마지막 문자는 컴마(',') 를 허용하지 않습니다.)"
  */
 
 class InputToCarListTest {
@@ -75,4 +77,18 @@ class InputToCarListTest {
                 IllegalArgumentException.class);
 
     }
+
+    @DisplayName("문장의 마지막 문자는 컴마(',')를 허용하지 않는다.")
+    @Test
+    void noPermitEndOfSentenceCharacter() {
+        //given
+        InputToCarList instance = InputToCarList.getInstance();
+        String input = "김민수,홍길동,";
+
+        //then
+        Assertions.assertThatThrownBy(() -> instance.askCarNameToCarList(input)).isInstanceOf(
+                IllegalArgumentException.class);
+
+    }
+
 }
