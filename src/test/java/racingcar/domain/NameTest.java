@@ -12,8 +12,7 @@ public class NameTest {
     @Test
     void create(){
         Name name = new Name("pobi");
-
-        assertThat(name).isEqualTo(new Name("pobi"));
+        assertThat(name.getValue()).isEqualTo("pobi");
     }
 
     @ParameterizedTest
