@@ -25,6 +25,11 @@ public class Application {
         }
     }
 
+    static void attemptAllRacer(Racer[] racers) {
+        for(Racer racer : racers){
+            attemptOnceWithRacer(racer);
+        }
+    }
 
     static void attemptOnceWithRacer(Racer racer){
         if (Randoms.pickNumberInRange(0,9) >= 4) {
