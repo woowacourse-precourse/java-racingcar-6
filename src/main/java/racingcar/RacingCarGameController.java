@@ -18,9 +18,10 @@ public class RacingCarGameController {
     }
 
     private static String[] processCarNames() {
-        String userInput = receiveCarNames();
-        String[] carNames = userInput.split(DELIMITER);
-        checkCarNamesLength(carNames);
+        String[] carNames = receiveCarNames().split(DELIMITER);
+        trimCarName(carNames);
+        replaceNoName(carNames);
+        checkCarNames(carNames);
         return carNames;
     }
 
@@ -38,12 +39,38 @@ public class RacingCarGameController {
         return Console.readLine();
     }
 
+    private static void checkCarNames(String[] carNames) {
+        checkEmpty(carNames);
+        checkCarNamesLength(carNames);
+    }
+
+    private static void checkEmpty(String[] carNames) {
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+        }
+    }
+
     protected static void checkCarNamesLength(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
             }
         }
+    }
+
+    private static void trimCarName(String[] carNames) {
+        for (int i = 0; i < carNames.length; i++) {
+            carNames[i] = carNames[i].trim();
+        }
+    }
+
+    private static void replaceNoName(String[] carNames) {
+        for (int i = 0; i < carNames.length; i++) {
+            if (carNames[i].isEmpty()) {
+                carNames[i] = "null";
+            }
+        }
+
     }
 
     private static int processNumOfMoves() {
