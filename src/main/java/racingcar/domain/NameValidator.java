@@ -7,6 +7,15 @@ public class NameValidator {
     public NameValidator() {
     }
 
+    public static List<String> validate(String names) {
+        List<String> nameList = splitComma(names);
+        correctNumberOfChar(nameList);
+        hasOnlyAlphabets(nameList);
+        hasUniqueName(nameList);
+        isUnderTen(nameList);
+        return nameList;
+    }
+
     public static List<String> splitComma(String names) {
         List<String> nameList = new ArrayList<>();
         for (String name : names.split(",")) {
@@ -21,29 +30,26 @@ public class NameValidator {
         return nameList;
     }
 
-    public static boolean correctNumberOfChar(List<String> carNameList) {
+    public static void correctNumberOfChar(List<String> carNameList) {
         for (String name : carNameList) {
             if (name.length() > 5) {
-                return false;
+                throw new IllegalArgumentException("글자 수를 초과 입력하여 게임을 종료합니다. (자동차 이름 글자 수는 1자 이상 5자 이하)");
             }
         }
-        return true;
     }
 
-    public static boolean hasOnlyAlphabets(List<String> carNameList) {
+    public static void hasOnlyAlphabets(List<String> carNameList) {
         for (String name : carNameList) {
             if (!name.matches("^[a-zA-Z]*$")) {
-                return false;
+                throw new IllegalArgumentException("영문자 외의 값을 입력하여 게임을 종료합니다.");
             }
         }
-        return true;
     }
 
-    public static boolean isNotRedundant(List<String> carNameList) {
+    public static void hasUniqueName(List<String> carNameList) {
         if (carNameList.size() != carNameList.stream().distinct().count()) {
-            return false;
+            throw new IllegalArgumentException("중복된 값을 입력하여 게임을 종료합니다.");
         }
-        return true;
     }
 
     public static void isUnderTen(List<String> carNameList) {
