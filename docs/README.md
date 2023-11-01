@@ -31,7 +31,7 @@
      - String getName()
      - int getPosition()
   2. 속성
-     - private String name
+     - private final String name
      - private int position
   3. 생성자
      - Car(String name)
