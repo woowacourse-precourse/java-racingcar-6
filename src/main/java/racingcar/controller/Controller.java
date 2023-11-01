@@ -17,7 +17,7 @@ public class Controller {
     private final Parser parser = new Parser();
     private final GameService gameService = new GameService();
 
-    public void run() {
+    public void run() throws IllegalArgumentException {
         saveCars(parser.parseCarNames(getCarNamesByUserInput()));
         play(createGame());
     }
@@ -37,7 +37,7 @@ public class Controller {
         return cars;
     }
 
-    private int getNumberOfTrial() {
+    private int getNumberOfTrial() throws IllegalArgumentException {
         return parser.parseNumberOfTrial(getTrialByUserInput());
     }
 

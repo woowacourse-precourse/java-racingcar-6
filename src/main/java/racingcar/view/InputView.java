@@ -7,6 +7,6 @@ public class InputView {
     }
 
     public static void requestNumberOfTrialMessage() {
-        System.out.print("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 }
