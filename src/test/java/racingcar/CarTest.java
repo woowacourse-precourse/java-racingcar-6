@@ -16,6 +16,24 @@ import org.mockito.MockedStatic;
 import racingcar.model.Car;
 
 public class CarTest {
+    private static Stream<Arguments> provideRandomNumbersForIsGreaterThanAndEqualFour() {
+        final int START_INCLUSIVE = 1;
+        final int END_INCLUSIVE = 9;
+        final int CONDITION_MOVING_FORWARD = 4;
+        return IntStream
+                .range(START_INCLUSIVE, END_INCLUSIVE)
+                .mapToObj(number -> Arguments.of(number, number >= CONDITION_MOVING_FORWARD));
+    }
+
+    private static Stream<Arguments> provideRandomNumbersForIsLessThanFour() {
+        final int START_INCLUSIVE = 1;
+        final int END_INCLUSIVE = 9;
+        final int CONDITION_MOVING_FORWARD = 4;
+        return IntStream
+                .range(START_INCLUSIVE, END_INCLUSIVE)
+                .mapToObj(number -> Arguments.of(number, number < CONDITION_MOVING_FORWARD));
+    }
+
     @Test
     void Car_객체는_이름_속성을_가짐() {
         final String expected = "jun";
@@ -43,15 +61,6 @@ public class CarTest {
         }
     }
 
-    private static Stream<Arguments> provideRandomNumbersForIsGreaterThanAndEqualFour() {
-        final int START_INCLUSIVE = 1;
-        final int END_INCLUSIVE = 9;
-        final int CONDITION_MOVING_FORWARD = 4;
-        return IntStream
-                .range(START_INCLUSIVE, END_INCLUSIVE)
-                .mapToObj(number -> Arguments.of(number, number >= CONDITION_MOVING_FORWARD));
-    }
-
     @ParameterizedTest
     @MethodSource("provideRandomNumbersForIsLessThanFour")
     void canStop_메서드_무작위_값이_4미만인_경우에_정지(final int randomNumber, final boolean expected) {
@@ -63,15 +72,6 @@ public class CarTest {
             final boolean actual = car.canStop();
             assertThat(actual).isEqualTo(expected);
         }
-    }
-
-    private static Stream<Arguments> provideRandomNumbersForIsLessThanFour() {
-        final int START_INCLUSIVE = 1;
-        final int END_INCLUSIVE = 9;
-        final int CONDITION_MOVING_FORWARD = 4;
-        return IntStream
-                .range(START_INCLUSIVE, END_INCLUSIVE)
-                .mapToObj(number -> Arguments.of(number, number < CONDITION_MOVING_FORWARD));
     }
 
     @Test
