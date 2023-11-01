@@ -18,4 +18,10 @@ class InputHandlerTest {
         String input = "5";
         assertDoesNotThrow(() -> InputHandler.getRaceCount(input));
     }
+
+    @Test
+    void invalidRaceCount() {
+        String input = "invalid";
+        assertThrows(IllegalArgumentException.class, () -> InputHandler.getRaceCount(input));
+    }
 }
