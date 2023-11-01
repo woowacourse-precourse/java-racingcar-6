@@ -15,4 +15,8 @@ public class RacingCars {
     public List<Car> getCars() {
         return cars;
     }
+
+    public void allCarMove() {
+        this.cars.forEach(Car::move);
+    }
 }
