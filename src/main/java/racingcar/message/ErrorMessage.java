@@ -6,7 +6,7 @@ public enum ErrorMessage {
     INPUT_BLANK("입력값이 공백입니다."),
     IS_NOT_NUMBER("입력값이 숫자가 아닙니다."),
     DUPLICATE_NAME("중복된 이름입니다."),
-    PROGRESS_RESULT("실행 결과");
+    EMPTY_CAR_LIST("자동차 목록이 비어 있습니다.");
 
     private final String message;
 

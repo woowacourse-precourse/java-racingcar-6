@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.message.ErrorMessage;
 
 public class Referee {
     private List<String> winners;
@@ -11,7 +12,7 @@ public class Referee {
         int max = racingCars.stream()
                 .mapToInt(Car::getMoveCnt)
                 .max()
-                .orElseThrow(() -> new IllegalStateException("자동차 목록이 비어 있습니다."));
+                .orElseThrow(() -> new IllegalStateException(ErrorMessage.EMPTY_CAR_LIST.getMessage()));
 
         winners = racingCars.stream()
                 .filter(car -> car.getMoveCnt() == max)
