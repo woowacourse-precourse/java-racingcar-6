@@ -10,7 +10,7 @@ public class CarManager {
 
         List<String> cars = new ArrayList<>();
         for (String car : inputNames.split(",")) {
-            if (verification.isLessThanFive(car)) {
+            if (verification.isFiveOrLess(car)) {
                 cars.add(car);
             } else {
                 throw new IllegalArgumentException();
