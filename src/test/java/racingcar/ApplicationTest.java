@@ -26,11 +26,15 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> cars.addCar("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
+
+
+
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
