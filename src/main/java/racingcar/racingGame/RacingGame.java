@@ -43,27 +43,33 @@ public class RacingGame {
 
     public void printResult() {
 
+        StringBuilder sb = new StringBuilder();
+
         int winnerDistance = -1;
         List<String> winnerList = new ArrayList<>();
 
         for(Car car : carList) {
-
             if(car.getDistance() > winnerDistance) {
-                //신기록 갱신시 리스트를 다시만들고 신기록 세운 자동차만 저장
                 winnerList = new ArrayList<>();
                 winnerDistance = car.getDistance();
                 winnerList.add(car.getName());
             } else if(car.getDistance() == winnerDistance) {
-                //같은 거리의 자동차가 발견되면 리스트에 해당 자동차를 추가
                 winnerList.add(car.getName());
             }
         }
 
-        System.out.print("최종 우승자 : ");
-        for(String winner : winnerList) {
-            System.out.print(winner + ", ");
+        sb.append("최종 우승자 : ");
+
+        for(int i=0; i<winnerList.size(); i++) {
+
+            if(i != winnerList.size() - 1) {
+                sb.append(winnerList.get(i) + ", ");
+            } else {
+                sb.append(winnerList.get(i));
+            }
         }
 
+        System.out.println(sb.toString());
     }
 
 }
