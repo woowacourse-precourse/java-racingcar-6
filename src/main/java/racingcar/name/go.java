@@ -15,7 +15,7 @@ public class go {
     public int getRepeat() {
         System.out.println("시도할 회수는 몇회인가요?");
         Scanner scanner = new Scanner(System.in);
-        String repeatNumber = scanner.next();
+        String repeatNumber = scanner.nextLine();
         System.out.println(repeatNumber);
         int check = 0;
         try {

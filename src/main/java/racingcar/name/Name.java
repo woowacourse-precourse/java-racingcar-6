@@ -9,35 +9,17 @@ public class Name {
         String carname = scanner.nextLine();
         int check = 0;
         if (carname.contains(" ")) {
-            System.out.println("자동차 이름을 잘못 입력하셨습니다. 프로그램을 종료합니다.");
+            throw new IllegalArgumentException("입력 문자열에 공백이 포함되어 있습니다.");
         }
-        else {
-            scanner.close();
-            check = 1;
-        }
-        if (check == 0) {
-            return "";
-        }
-        else {
-            return String.valueOf(carname);
-        }
-    }
-
-    public static String[] validateStringLength(String[] now) {
-        if (now.length == 0) {
-            throw new IllegalArgumentException("자동차의 이름 또는 시도 회수를 잘못 입력하셨습니다.");
-        }
-        else {
-            return now;
-        }
+        return String.valueOf(carname);
     }
 
     public String[] NameList(String wow) {
         String[] now = wow.split(",");
         try {
-            validateStringLength(now);
+            now = now;
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            throw new IllegalArgumentException("자동차의 이름 또는 시도 회수를 잘못 입력하셨습니다.");
         }
         return now;
     }
