@@ -14,10 +14,14 @@ public class InputView {
     public Cars inputCarName() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String input = Console.readLine();
-        List<Car> cars = Stream.of(input.split(DELIMITER))
+        List<Car> cars = parseCarList(input);
+        return new Cars(cars);
+    }
+
+    private List<Car> parseCarList(String input) {
+        return Stream.of(input.split(DELIMITER))
                 .map(Car::new)
                 .toList();
-        return new Cars(cars);
     }
 
     public int inputCount() {
