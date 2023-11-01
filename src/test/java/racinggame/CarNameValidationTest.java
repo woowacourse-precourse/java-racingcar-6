@@ -4,10 +4,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 import racingcar.GameDetail;
-
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * 자동차 이름에 대한 검증 테스트
+ */
 public class CarNameValidationTest {
 
     @Test

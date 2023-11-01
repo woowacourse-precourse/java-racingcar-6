@@ -6,11 +6,12 @@ import racingcar.GameResult;
 import racingcar.RacingCar;
 import racingcar.RacingGame;
 import racingcar.enums.GameStatus;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * 게임 결과에 대한 테스트
+ */
 public class GameResultTest {
 
     @Test
@@ -34,13 +35,13 @@ public class GameResultTest {
     @Test
     @DisplayName("게임 결과 공동 우승 성공")
     void game_result_multiple_winners_success() {
-        RacingCar winner1 = new RacingCar("c", 3);
-        RacingCar winner2 = new RacingCar("d", 3);
+        RacingCar winnerC = new RacingCar("c", 3);
+        RacingCar winnerD = new RacingCar("d", 3);
         List<RacingCar> racingCars = List.of(
                 new RacingCar("a", 1),
                 new RacingCar("b", 2),
-                winner1,
-                winner2
+                winnerC,
+                winnerD
         );
 
         RacingGame game = new RacingGame(GameStatus.READY);
@@ -48,20 +49,20 @@ public class GameResultTest {
         GameResult gameResult = game.chooseWinners();
 
         assertEquals(2, gameResult.getWinners().size());
-        assertEquals(winner1.getName(), gameResult.getWinners().get(0).getName());
-        assertEquals(winner2.getName(), gameResult.getWinners().get(1).getName());
+        assertEquals(winnerC.getName(), gameResult.getWinners().get(0).getName());
+        assertEquals(winnerD.getName(), gameResult.getWinners().get(1).getName());
     }
 
     @Test
     @DisplayName("누구도 전진하지 못한 경우 전부 우승 성공")
     void game_result_all_winners_success() {
-        RacingCar winner1 = new RacingCar("c", 0);
-        RacingCar winner2 = new RacingCar("d", 0);
+        RacingCar winnerC = new RacingCar("c", 0);
+        RacingCar winnerD = new RacingCar("d", 0);
         List<RacingCar> racingCars = List.of(
                 new RacingCar("a", 0),
                 new RacingCar("b", 0),
-                winner1,
-                winner2
+                winnerC,
+                winnerD
         );
 
         RacingGame game = new RacingGame(GameStatus.READY);
