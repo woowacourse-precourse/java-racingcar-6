@@ -14,14 +14,12 @@ public class GameController {
     public void run() {
         racingGame.setGame();
         playGame();
-        printWinner();
     }
 
     void playGame() {
         for (int i = 0; i < racingGame.getCoin(); i++) {
             gameRule.playRound();
         }
-
         printWinner();
     }
 
