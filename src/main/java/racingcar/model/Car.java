@@ -2,7 +2,6 @@ package racingcar.model;
 
 import static racingcar.model.ActionType.GO;
 
-import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.vo.CarName;
 import racingcar.vo.CarPosition;
@@ -13,12 +12,12 @@ public class Car {
     private static final Integer THRESHOLD = 4;
 
     private final CarName carName;
-    private final NumberGenerator numberGenerator;
+    private final RandomNumberGenerator randomNumberGenerator;
     private CarPosition carPosition;
 
     protected Car(final CarName carName) {
         this.carName = carName;
-        this.numberGenerator = new RandomNumberGenerator();
+        this.randomNumberGenerator = new RandomNumberGenerator();
         this.carPosition = new CarPosition(START_POINT);
     }
 
@@ -30,7 +29,7 @@ public class Car {
     }
 
     private boolean isMovingRequired() {
-        Integer randomNumber = numberGenerator.pickNumber();
+        Integer randomNumber = randomNumberGenerator.pickNumber();
         if (randomNumber >= THRESHOLD) {
             return true;
         }
