@@ -7,35 +7,36 @@ import java.util.List;
 import racingcar.validation.Validator;
 
 public class InputView {
-
-  private static final String NAME_DELIMITER = ",";
   private Validator inputValidator;
 
   public InputView() {
     this.inputValidator = new Validator();
   }
 
-  public List<String> getCarName() {
+  public String readCarName() {
     String names = readLine();
-    return validateCarName(names);
+    names = removeBlank(names);
+    validateCarName(names);
+    return names;
   }
 
-  private List<String> validateCarName(String names) {
-    inputValidator.validateNullValue(names);
-    List<String> nameList = List.of(names.split(NAME_DELIMITER));
-    inputValidator.validateNameLength(nameList);
-    inputValidator.validateDuplicatedName(nameList);
-    return nameList;
-  }
-
-  public int getCount() {
+  public int readCount() {
     String count = readLine();
     validateCount(count);
     return Integer.parseInt(count);
   }
 
+  private String removeBlank(String name) {
+    return name.replaceAll("\\s", "");
+  }
+
+  private void validateCarName(String names) {
+    inputValidator.isNull(names);
+  }
+
   private void validateCount(String count) {
-    inputValidator.validateNullValue(count);
-    inputValidator.validateNum(count);
+    inputValidator.isNull(count);
+    inputValidator.isContainLetter(count);
+    inputValidator.isNotNaturalNum(count);
   }
 }
