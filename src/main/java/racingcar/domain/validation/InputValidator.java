@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class InputValidator {
     public void validateCarNames(String carNames) {
-        if (Arrays.stream(carNames.split(",")).allMatch(s -> s.length() <= 5)) {
+        if (Arrays.stream(carNames.split(",")).allMatch(s -> s.length() <= 5 && !s.equals(" "))) {
             return;
         }
         throw new IllegalArgumentException();
