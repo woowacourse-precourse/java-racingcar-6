@@ -1,10 +1,11 @@
 package racingcar;
 
 import java.util.HashSet;
+import java.util.List;
 
 public class InputValidator {
 
-    public static void carsName(String carsName, String[] names) {
+    public static void carsName(String carsName, List<String> names) {
         isBlankSpace(carsName);
         isValidNameLength(names);
         isDuplicatedName(names);
@@ -18,7 +19,7 @@ public class InputValidator {
         return;
     }
 
-    private static void isValidNameLength(String[] names) throws IllegalArgumentException {
+    private static void isValidNameLength(List<String> names) throws IllegalArgumentException {
         for (String name : names) {
             if (name.length() == 0 || name.length() >= 6) {
                 throw new IllegalArgumentException();
@@ -27,7 +28,7 @@ public class InputValidator {
         return;
     }
 
-    private static void isDuplicatedName(String[] names) throws IllegalArgumentException {
+    private static void isDuplicatedName(List<String> names) throws IllegalArgumentException {
         HashSet<String> nameSet = new HashSet<>();
         for (String name : names) {
             if (nameSet.contains(name)) {

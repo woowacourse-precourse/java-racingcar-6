@@ -6,12 +6,12 @@ import java.util.List;
 public class CarList {
     private List<Car> carList;
 
-    public CarList(String[] names) {
+    public CarList(List<String> names) {
         this.carList = new ArrayList<>();
         setCarIntoCarList(names);
     }
 
-    private void setCarIntoCarList(String[] names) {
+    private void setCarIntoCarList(List<String> names) {
         for (String name : names) {
             this.carList.add(new Car(name));
         }
@@ -43,7 +43,7 @@ public class CarList {
     }
 
 
-    public int[] findMaxCarPositionIndex() {
+    public List<Integer> findMaxCarPositionIndex() {
         int carPosition;
         int maxCarPosition = -1;
         List<Integer> maxCarPositionIndex = new ArrayList<>();
@@ -58,15 +58,7 @@ public class CarList {
                 maxCarPositionIndex.add(index);
             }
         }
-        return ListToIntArray(maxCarPositionIndex);
-    }
-
-    private static int[] ListToIntArray(List<Integer> intList) {
-        int[] intArray = new int[intList.size()];
-        for (int index = 0; index < intArray.length; index++) {
-            intArray[index] = intList.get(index);
-        }
-        return intArray;
+        return maxCarPositionIndex;
     }
 
 }

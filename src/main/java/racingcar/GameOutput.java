@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class GameOutput {
 
     public static void printRaceProgress(CarList racingCarList) {
@@ -15,15 +17,15 @@ public class GameOutput {
     }
 
     public static void printWinners(CarList carList) {
-        int[] maxCarPositionIndex = carList.findMaxCarPositionIndex();
+        List<Integer> maxCarPositionIndex = carList.findMaxCarPositionIndex();
         String maxCarPositionName;
 
         System.out.printf("최종 우승자 : ");
-        for (int index = 0; index < maxCarPositionIndex.length; index++) {
+        for (int index = 0; index < maxCarPositionIndex.size(); index++) {
             if (index >= 1) {
                 System.out.printf(", ");
             }
-            maxCarPositionName = carList.getName(maxCarPositionIndex[index]);
+            maxCarPositionName = carList.getName(maxCarPositionIndex.get(index));
             System.out.printf(maxCarPositionName);
         }
 
