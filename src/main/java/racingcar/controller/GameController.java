@@ -31,7 +31,13 @@ public class GameController {
         resultGame(playerList, count);
     }
 
-    public void resultGame(List<CarPlayer> playerList, int count){
-
+    public void resultGame(List<CarPlayer> playersList, int count){
+        System.out.println("실행 결과");
+        for(int i = 0; i < count; i++){
+            gameService.updateCarScore(playersList);
+            outputView.outputRaceProgress(playersList);
+        }
+        String winner = gameService.checkFinalScores(playersList);
+        outputView.outputWinners(winner);
     }
 }
