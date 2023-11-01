@@ -8,13 +8,14 @@ import racingcar.utils.RandomGenerator;
 
 public class Car {
     private static final int MAX_MOVE_DISTANCE = 1;
+    private static final int INITIAL_DISTANCE = 0;
     private final String name;
     private Integer distance;
 
     public Car(String name) {
         validateCarNameInput(name);
         this.name = name;
-        this.distance = 0;
+        this.distance = INITIAL_DISTANCE;
     }
 
     public String getName() {
@@ -25,9 +26,9 @@ public class Car {
         return distance;
     }
 
-    public void moveForwardByRandom() { // TODO:
+    public void moveForwardByRandom() {
         NumberGenerator randomGenerator = new RandomGenerator();
-        int randomNumber = randomGenerator.generateNumber(Common.MIN_NUMBER.getIntValue(), Common.MAX_NUMBER.getIntValue());
+        int randomNumber = randomGenerator.generateNumber();
         if (randomNumber >= Common.STANDARD_NUMBER.getIntValue())
             distance += MAX_MOVE_DISTANCE;
     }
