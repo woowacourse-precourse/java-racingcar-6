@@ -1,6 +1,6 @@
 package racingcar.validate;
 
-import racingcar.utils.Constants;
+import racingcar.domain.Constants;
 
 public class CarNameValidate {
     public static void validateCarName(String name) {
