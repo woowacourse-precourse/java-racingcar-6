@@ -9,19 +9,13 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public void printInitialPositions(List<Racer> racers) {
-        for (Racer racer : racers) {
-            System.out.println(racer.getName() + " : -");
-        }
-    }
-
     public void printPositions(List<Racer> racers) {
         for (Racer racer : racers) {
             StringBuilder positionString = new StringBuilder(racer.getName() + " : ");
             for (int i = 0; i < racer.getPosition(); i++) {
                 positionString.append("-");
             }
-            System.out.println(positionString.toString());
+            System.out.println(positionString);
         }
         System.out.println();
     }
