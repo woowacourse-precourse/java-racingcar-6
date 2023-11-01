@@ -40,24 +40,19 @@ public class NameValidiator {
         }
     }
 
-    public void checkRightName(String [] inputCarNamesArray)
-    {
-        for(String carName : inputCarNamesArray){
-            try{
+    public void checkRightName(String[] inputCarNamesArray) {
+        for (String carName : inputCarNamesArray) {
+            try {
                 matches(carName);
-            }
-            catch(IllegalArgumentException e)
-            {
+            } catch (IllegalArgumentException e) {
                 e.getMessage();
             }
 
         }
     }
 
-    private void matches(String carName)
-    {
-        if(!namesStringPattern.matcher(carName).matches())
-        {
+    private void matches(String carName) {
+        if (!namesStringPattern.matcher(carName).matches()) {
             throw new IllegalArgumentException(WRONG_INPUT_ERROR);
         }
 
