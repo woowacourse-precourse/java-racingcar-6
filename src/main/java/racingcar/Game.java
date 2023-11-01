@@ -20,7 +20,7 @@ public class Game {
 
         // 최소 자동차 2대 에러처리
         if (carNames.length<2){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차는 최소 2대 이상이어야합니다.");
         }
         for(String name : carNames){
             Car car = new Car(name.trim());
