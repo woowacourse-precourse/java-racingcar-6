@@ -16,7 +16,7 @@ class RaceLogicTest {
     void attemptOnceWithRacer() {
         Racer racer = new Racer("pobi");
 
-        RaceLogic.attemptOnceWithRacer(racer);
+        RaceLogic.attemptOnceWithRacer(racer, true);
 
         assertEquals(1, racer.getProgress());
     }
