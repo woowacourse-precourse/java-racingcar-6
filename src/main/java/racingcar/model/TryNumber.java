@@ -11,13 +11,8 @@ public class TryNumber {
         this.tryNumber = Integer.parseInt(number);
     }
 
-
     public boolean isNotOver(int tryCount) {
-        if (tryNumber == tryCount) {
-            return false;
-        }
-        return true;
+        return tryNumber != tryCount;
     }
-
 
 }
