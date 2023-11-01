@@ -94,4 +94,19 @@ public class CarTest {
         assertThat(car1.compareTo(car2)).isEqualTo(1);
         assertThat(car2.compareTo(car1)).isEqualTo(-1);
     }
+
+    @Test
+    public void equal_동작확인() {
+        Car car1 = new Car("Car1");
+        Car car2 = new Car("Car2");
+
+        assertThat(car1.equals(car2)).isEqualTo(true);
+
+        car1.forward();
+        assertThat(car1.equals(car2)).isEqualTo(false);
+
+        car2.forward();
+        assertThat(car2.equals(car1)).isEqualTo(true);
+
+    }
 }

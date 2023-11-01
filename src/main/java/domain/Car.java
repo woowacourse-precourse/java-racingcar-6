@@ -5,6 +5,7 @@ public class Car implements Comparable<Car>{
     private static final String PROGRESS = "-";
     private String name;
     private int distance;
+    private CarActionGenerator carActionGenerator;
 
     public Car(String name) {
         validateNameLength(name);
@@ -34,6 +35,20 @@ public class Car implements Comparable<Car>{
         return result.toString();
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Car otherCar = (Car) obj;
+
+        return distance == otherCar.distance;
+    }
     @Override
     public int compareTo(Car otherCar) {
         return Integer.compare(this.distance, otherCar.distance);
