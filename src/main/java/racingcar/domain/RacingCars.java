@@ -9,7 +9,6 @@ public class RacingCars {
     public RacingCars(String carNames) {
        initRacingCars(carNames);
     }
-
     public void initRacingCars(String carNames){
         String[] carNameIndexs = carNames.split(",");
         racingCars = new ArrayList<>();
@@ -18,11 +17,12 @@ public class RacingCars {
             racingCars.add(new Car(car));
         }
     }
-
     public void movingRacingCars(){
         for(Car car : racingCars){
             car.moveCar();
         }
     }
-
+    public Car[] getCars() {
+        return racingCars.toArray(new Car[0]);
+    }
 }
