@@ -12,7 +12,7 @@
 - 이름 수 만큼 자동차 생성하기 (CarManager)
 
 - 경기 횟수만큼 아래의 행위 반복하기 (Race)
-  - 모든 자동차“(List<Car>)가 아래의 행위 반복하기 (CarManager)
+  - 모든 자동차(List<Car>)가 아래의 행위 반복하기 (CarManager)
     - 랜덤한 숫자 생성하기 (NumberMaker)
     - 기준값을 넘었는지 판단하기 (Car)
     - 기준값을 넘은 경우 전진하기 (Car)
