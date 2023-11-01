@@ -5,6 +5,7 @@ import racingcar.model.Car;
 import racingcar.constant.GameSettingCharacter;
 import racingcar.constant.GameSettingNumber;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,17 +60,13 @@ public class RaceController {
     }
 
     private String getMultipleWinnerNames(List<Car> winner) {
-        StringBuilder winnerNames = new StringBuilder();
+        List<String> winnerNames = new ArrayList<>();
 
         for (int i = 0; i < winner.size(); i++) {
-            winnerNames.append(winner.get(i).getName());
-            if (i == winner.size() - 1) {
-                continue;
-            }
-            winnerNames.append(", ");
+            winnerNames.add(winner.get(i).getName());
         }
 
-        return winnerNames.toString();
+        return String.join(", ", winnerNames);
     }
 
     private String getSingleWinnerName(List<Car> winner) {
