@@ -23,7 +23,7 @@ class OutputViewTest {
     }
 
     @Test
-    @DisplayName("게임 상태 출력 테스트")
+    @DisplayName("printStatus: 게임 상태 출력 테스트")
     void printStatus() {
         GameStatus state = new GameStatus("test", 10L);
         String result = "test : ----------\n";
@@ -33,7 +33,7 @@ class OutputViewTest {
     }
 
     @Test
-    @DisplayName("우승자 출력 테스트 - 우승자 한명인 경우")
+    @DisplayName("printWinner: 우승자 출력 테스트 - 우승자 한명인 경우")
     void printWinner_한명() {
         List<String> winners = Arrays.asList("test1");
         String result = "최종 우승자 : test1\n";
@@ -43,7 +43,7 @@ class OutputViewTest {
     }
 
     @Test
-    @DisplayName("우승자 출력 테스트 - 우승자 여러명인 경우")
+    @DisplayName("printWinner: 우승자 출력 테스트 - 우승자 여러명인 경우")
     void printWinner_여러명() {
         List<String> winners = Arrays.asList("test1", "test2", "test3");
         String result = "최종 우승자 : test1, test2, test3\n";
