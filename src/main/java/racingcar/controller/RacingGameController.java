@@ -10,12 +10,12 @@ public class RacingGameController {
 
     public void ready() {
         racingGameView.raceStartMessage();
-        final String carNames = getInputLine();
+        final String carNames = racingGameView.getInputLine();
 
         racingGame.createCarsAfterValidation(carNames);
 
         racingGameView.raceCountMessage();
-        final String raceCount = getInputLine();
+        final String raceCount = racingGameView.getInputLine();
 
         racingGame.setRaceCountAfterValidation(raceCount);
     }
@@ -26,9 +26,5 @@ public class RacingGameController {
 
         final String winners = racingGame.getWinners();
         racingGameView.winners(winners);
-    }
-
-    public String getInputLine() {
-        return Console.readLine();
     }
 }

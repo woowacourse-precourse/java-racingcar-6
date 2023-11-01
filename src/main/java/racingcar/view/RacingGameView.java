@@ -1,8 +1,13 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.RacingGameMessage;
 
 public class RacingGameView {
+
+    public String getInputLine() {
+        return Console.readLine();
+    }
 
     public void raceStartMessage() {
         System.out.println(RacingGameMessage.START_MESSAGE.getStartMessage());
