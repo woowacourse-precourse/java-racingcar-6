@@ -49,17 +49,11 @@ public class Attempt {
     }
 
     public boolean isForward(int number) {
-        if (number >= FORWARD_THRESHOLD) {
-            return true;
-        }
-        return false;
+        return number >= FORWARD_THRESHOLD;
     }
 
     public boolean isStop(int number) {
-        if (number < FORWARD_THRESHOLD) {
-            return true;
-        }
-        return false;
+        return number < FORWARD_THRESHOLD;
     }
 
     public List<String> getWinners() {
