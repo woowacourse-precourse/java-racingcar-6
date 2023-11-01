@@ -1,9 +1,10 @@
 package racingcar;
 
+import racingcar.Controller.RaceController;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        Race race = new Race();
+        RaceController race = new RaceController();
         race.start();
     }
 }
