@@ -1,7 +1,6 @@
-package racingcar;
+package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.code.Message;
 import racingcar.utils.InputUtils;
 import racingcar.utils.PrintUtils;
 
@@ -9,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static racingcar.code.Message.*;
 
 /**
  * Game
@@ -20,39 +21,34 @@ import java.util.Map;
  */
 public class Game {
     public void play() {
-        PrintUtils.print(Message.GAME_START);
+        PrintUtils.print(GAME_START);
         List<String> carNameList = InputUtils.inputCarName();
 
-        PrintUtils.print(Message.TRY_COUNT);
+        PrintUtils.print(TRY_COUNT);
         int tryCount = InputUtils.inputTryCount();
 
         PrintUtils.print("");
 
-        Map<String, String> result = new HashMap<>();
+        PrintUtils.print(RESULT);
+
         List<String> winner = new ArrayList<>();
         int max = 0;
         for (int i = 0; i < tryCount; i++) {
-            for (String car : carNameList) {
-                String moveRecord = moveCar(result, car);
-                result.put(car, moveRecord);
-
-                max = checkWinner(winner, max, car, moveRecord);
-            }
-            PrintUtils.print("");
+            max = playCarGame(carNameList, winner, max);
         }
 
-        PrintUtils.print("");
-        PrintUtils.print("최종 우승자 : " + String.join(",", winner));
+        PrintUtils.print(WINNER.getDescription() + String.join(",", winner));
     }
 
-    private int checkWinner(List<String> winner, int max, String car, String moveRecord) {
-        if (moveRecord.length() > max) {
-            winner.clear();
-            winner.add(car);
-            max = moveRecord.length();
-        } else if (moveRecord.length() == max) {
-            winner.add(car);
+    private int playCarGame(List<String> carNameList, List<String> winner, int max) {
+        Map<String, String> result = new HashMap<>();
+        for (String car : carNameList) {
+            String moveRecord = moveCar(result, car);
+            result.put(car, moveRecord);
+
+            max = checkWinner(winner, max, car, moveRecord);
         }
+        PrintUtils.print("");
         return max;
     }
 
@@ -69,5 +65,16 @@ public class Game {
         }
         PrintUtils.print(car + " : " + move);
         return move;
+    }
+
+    private int checkWinner(List<String> winner, int max, String car, String moveRecord) {
+        if (moveRecord.length() > max) {
+            winner.clear();
+            winner.add(car);
+            max = moveRecord.length();
+        } else if (moveRecord.length() == max) {
+            winner.add(car);
+        }
+        return max;
     }
 }
