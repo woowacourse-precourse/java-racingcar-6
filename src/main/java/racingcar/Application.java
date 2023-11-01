@@ -3,7 +3,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.CarRegistration;
-import racingcar.race.MoveCount;
+import racingcar.race.RoundCount;
 import racingcar.race.Race;
 import racingcar.race.rule.RandomRaceRule;
 
@@ -21,9 +21,9 @@ public class Application {
 
             System.out.println(MOVE_COUNT_MESSAGE);
             String line = Console.readLine();
-            MoveCount moveCount = new MoveCount(line);
+            RoundCount roundCount = new RoundCount(line);
 
-            Race race = new Race(carRegistration, moveCount, new RandomRaceRule());
+            Race race = new Race(carRegistration, roundCount, new RandomRaceRule());
             System.out.println(RESULT_MESSAGE);
             race.start();
 

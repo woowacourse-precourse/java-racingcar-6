@@ -2,17 +2,17 @@ package racingcar.race;
 
 import racingcar.utils.ErrorMessage;
 
-public class MoveCount {
-    private int moveCount;
+public class RoundCount {
+    private int roundCount;
 
-    public MoveCount(String moveCount) throws IllegalArgumentException {
-        validateMoveCount(moveCount);
-        this.moveCount = Integer.parseInt(moveCount);
+    public RoundCount(String roundCount) throws IllegalArgumentException {
+        validateRoundCount(roundCount);
+        this.roundCount = Integer.parseInt(roundCount);
     }
 
-    private void validateMoveCount(String moveCount) throws IllegalArgumentException {
+    private void validateRoundCount(String roundCount) throws IllegalArgumentException {
         try {
-            int inputNumber = Integer.parseInt(moveCount);
+            int inputNumber = Integer.parseInt(roundCount);
             if (inputNumber < 1) {
                 throw new IllegalArgumentException(ErrorMessage.MINIMUM_TRY_NEEDED);
             }
@@ -21,24 +21,24 @@ public class MoveCount {
         }
     }
 
-    public int getMoveCount() {
-        return moveCount;
+    public int getRoundCount() {
+        return roundCount;
     }
 
     public void decreaseCount() {
         if (isRemained()) {
-            moveCount--;
+            roundCount--;
         }
     }
 
     public boolean isRemained() {
-        return moveCount > 0;
+        return roundCount > 0;
     }
 
     @Override
     public String toString() {
-        return "MoveCount{" +
-                "moveCount=" + moveCount +
+        return "RoundCount{" +
+                "roundCount=" + roundCount +
                 '}';
     }
 }
