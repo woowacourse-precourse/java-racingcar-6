@@ -8,8 +8,8 @@
     - [X] 자동차가 전진할 수 있는지 알 수 있다. Refree#isForward()
     - [X] 자동차의 이름과 전진 상황을 출력할 수 있다 - Car#printStatus()
     - [X] 자동차는 전진할 수 있다. Car#moveForward()
-- [ ] 대회의 우승자를 판단할 수 있다. Refree#getWinner()
-- [ ] 대회의 우승자를 출력할 수 있다. Refree#printWinner()
+- [X] 대회의 우승자를 판단할 수 있다. Refree#getWinners()
+- [ ] 대회의 우승자를 출력할 수 있다. Refree#printWinners()
 
 
 ## 기능 요구 사항

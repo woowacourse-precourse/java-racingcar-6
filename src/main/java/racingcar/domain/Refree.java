@@ -4,6 +4,7 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 public class Refree {
     public List<Car> cars;
+    public List<String> winners;
     public void playRace() {
         CarGenerator carGenerator = new CarGenerator();
 
@@ -32,4 +33,20 @@ public class Refree {
             car.printStatus();
         }
     }
+
+    public void getWinners() {
+        int max_count = 0;
+        for (Car car : cars) {
+            if(max_count < car.forward_count) {
+                max_count = car.forward_count;
+            }
+        }
+
+        for (Car car : cars) {
+            if(max_count == car.forward_count) {
+                winners.add(car.name);
+            }
+        }
+    }
+
 }
