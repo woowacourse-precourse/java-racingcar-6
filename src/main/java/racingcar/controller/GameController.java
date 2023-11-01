@@ -33,6 +33,7 @@ public class GameController {
             System.out.println();
         }
     }
+
     private void finishGame(List<Car> carList) {
         List<Car> winner = gameService.winRacing(carList);
         GameView.printWinMessage(winner);

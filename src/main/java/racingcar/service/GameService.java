@@ -25,7 +25,6 @@ public class GameService {
     public List<Car> createCars(String carNames) {
         String[] names = carNames.split(",");
         List<Car> cars = new ArrayList<>();
-
         for (String name : names) {
             cars.add(new Car(name.trim()));
         }
@@ -43,17 +42,20 @@ public class GameService {
     }
 
     public List<Car> winRacing(List<Car> carList) {
-        if (carList.isEmpty()) {
-            throw new NoSuchElementException();
-        }
+        int maxMoveCount = getMaxMoveCount(carList);
+        return pickWinner(carList, maxMoveCount);
+    }
 
-        int maxCount = carList.stream()
+    private int getMaxMoveCount(List<Car> carList) {
+        return carList.stream()
                 .mapToInt(Car::moveCount)
                 .max()
                 .orElseThrow(NoSuchElementException::new);
+    }
 
+    private List<Car> pickWinner(List<Car> carList, int maxMoveCount) {
         return carList.stream()
-                .filter(car -> car.moveCount() == maxCount)
+                .filter(car -> car.moveCount() > maxMoveCount)
                 .collect(Collectors.toList());
     }
 }
