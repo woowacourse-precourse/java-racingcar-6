@@ -9,7 +9,7 @@ import java.util.Map;
 import static racingcar.view.Message.*;
 
 public class Play {
-    private Map<String, Integer> racerInformation = new HashMap<>();
+    Map<String, Integer> racerInformation = new HashMap<>();
     private int gameTryNumber;
 
 
@@ -96,8 +96,8 @@ public class Play {
 
     //예외처리
     public void varifyCarNameLength(String[] carNameStringArray) {
-        for (String charName : carNameStringArray) {
-            if (charName.length() > 5) {
+        for (String carName : carNameStringArray) {
+            if (carName.length() > 5) {
                 throw new IllegalArgumentException(wrongInputLength);
             }
         }
