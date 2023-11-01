@@ -25,5 +25,22 @@ public class Race {
 
     }
 
+    public List<Car> runRace(){
+        for(int playCount=0; playCount<countOfPlays;playCount++){
+            playOnce();
+            System.out.println();
+        }
+
+        return cars;
+
+    }
+
+    private void playOnce() {
+        for (Car car: cars) {
+            car.goForward();
+            System.out.println(car.printResult());
+        }
+    }
+
 
 }
