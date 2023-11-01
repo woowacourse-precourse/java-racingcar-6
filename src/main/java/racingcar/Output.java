@@ -16,6 +16,6 @@ public class Output {
         String winner = winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
-        System.out.println("최종 우승자: " + winner);
+        System.out.println("최종 우승자 : " + winner);
     }
 }
