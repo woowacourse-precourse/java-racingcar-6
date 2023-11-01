@@ -3,16 +3,17 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.regex.Pattern;
 import racingcar.enums.ErrorMessages;
+import racingcar.enums.Instructions;
 
 public class InputView {
     public String readCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Instructions.CAR_NAMES.getInstruction());
         String input = Console.readLine();
         return input;
     }
 
     public int readCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Instructions.TRY_COUNT.getInstruction());
         String input = Console.readLine();
         validateCount(input);
         return Integer.parseInt(input);

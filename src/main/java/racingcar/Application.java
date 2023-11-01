@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.enums.Instructions;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,7 +14,7 @@ public class Application {
 
         int count = inputView.readCount();
         RacingGame racingGame = new RacingGame(racingCars);
-        System.out.println("실행 결과");
+        System.out.println(Instructions.RESULT.getInstruction());
         while (count > 0) {
             racingGame.play();
             outputView.printResult(racingCars.getRacingCars());
