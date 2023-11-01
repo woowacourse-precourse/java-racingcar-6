@@ -3,6 +3,7 @@ package racingcarv2.view;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import racingcarv2.controller.RacingCarController;
 import racingcarv2.model.Car;
 import racingcarv2.model.Name;
 import racingcarv2.model.Position;
@@ -18,28 +19,28 @@ public class OutputView {
     private static final String WINNER_DELIMITER = ", ";
 
     public static void printInputCarNames() {
-        System.out.println(INPUT_CAR_NAMES_MESSAGE);
+        printMessage(INPUT_CAR_NAMES_MESSAGE);
     }
 
     public static void printInputRoundTotal() {
-        System.out.println(INPUT_ROUND_TOTAL_MESSAGE);
+        printMessage(INPUT_ROUND_TOTAL_MESSAGE);
     }
 
     public static void printRoundStatus() {
-        System.out.println(RACE_STATUS_START_MESSAGE);
-        System.out.println();
+        printMessage(RACE_STATUS_START_MESSAGE);
+        printNewLine();
     }
 
     public static void printEachRound(List<Car> moveAllCars) {
         moveAllCars.stream()
                 .forEach((car) -> System.out.printf(EACH_ROUND_STATUS_FORMAT, car.getName().getNameValue(),
                         displayPositionWithDash(car.getPosition())));
-        System.out.println();
+        printNewLine();
     }
 
     private static String displayPositionWithDash(Position position) {
         StringBuilder stringBuilder = new StringBuilder();
-        IntStream.range(0, position.getPositionValue())
+        IntStream.range(RacingCarController.START_INCLUSIVE, position.getPositionValue())
                 .forEach((num) -> stringBuilder.append(DASH));
         return stringBuilder.toString();
     }
@@ -49,5 +50,13 @@ public class OutputView {
                 .map(Name::getNameValue)
                 .collect(Collectors.toList());
         System.out.printf(EACH_ROUND_STATUS_FORMAT, FINAL_WINNER, String.join(WINNER_DELIMITER, nameList));
+    }
+
+    private static void printMessage(String message) {
+        System.out.println(message);
+    }
+
+    private static void printNewLine() {
+        System.out.println();
     }
 }

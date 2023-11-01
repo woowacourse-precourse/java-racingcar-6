@@ -9,13 +9,18 @@ import racingcarv2.view.InputView;
 import racingcarv2.view.OutputView;
 
 public class RacingCarController {
-    private static final int START_INCLUSIVE = 0;
+    public static final int START_INCLUSIVE = 0;
 
     public void run() {
-        RacingCars racingCars = registerRacingCars();
-        RoundTotal roundTotal = registerRoundTotal();
-        displayRacingStatus(roundTotal, racingCars);
-        displayWinner(racingCars);
+        try {
+            RacingCars racingCars = registerRacingCars();
+            RoundTotal roundTotal = registerRoundTotal();
+            displayRacingStatus(roundTotal, racingCars);
+            displayWinner(racingCars);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            throw new IllegalArgumentException();
+        }
     }
 
     private RoundTotal registerRoundTotal() {

@@ -3,16 +3,17 @@ package racingcarv2.model;
 import java.util.Objects;
 
 public class Car implements Comparable<Car> {
+    public static final int MOVE_FORWARD_CRITERIA = 4;
     private final Name name;
     private Position position;
 
-    public Car(Name name, Position position) {
+    public Car(final Name name, final Position position) {
         this.name = name;
         this.position = position;
     }
 
     public void move(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVE_FORWARD_CRITERIA) {
             moveForward();
         }
     }

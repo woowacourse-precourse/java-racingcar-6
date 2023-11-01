@@ -5,7 +5,7 @@ import racingcarv2.exception.ErrorException;
 public class RoundTotal {
     private final int roundTotalValue;
 
-    public RoundTotal(int roundTotal) {
+    public RoundTotal(final int roundTotal) {
         validateNumberRange(roundTotal);
         this.roundTotalValue = roundTotal;
     }

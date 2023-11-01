@@ -10,7 +10,7 @@ public class RacingCars {
     private static final int START_INCLUSIVE = 0;
     private final List<Car> racingCars;
 
-    public RacingCars(List<Car> racingCars) {
+    public RacingCars(final List<Car> racingCars) {
         this.racingCars = new ArrayList<>(racingCars);
     }
 

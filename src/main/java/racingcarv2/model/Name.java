@@ -6,9 +6,10 @@ import racingcarv2.exception.ErrorException;
 
 public class Name {
     public static final String SEPARATOR_COMMA = ",";
+    public static final int STANDARD_NAME_LENGTH = 5;
     private final String nameValue;
 
-    public Name(String name) {
+    public Name(final String name) {
         validateName(name.split(SEPARATOR_COMMA));
         this.nameValue = name;
     }
@@ -24,7 +25,7 @@ public class Name {
     }
 
     private void isOutOfRange(String name) {
-        if (name.length() > 5) {
+        if (name.length() > STANDARD_NAME_LENGTH) {
             throw new IllegalArgumentException(ErrorException.OUT_OF_RANGE.getDescription());
         }
     }
