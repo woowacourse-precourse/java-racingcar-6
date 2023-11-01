@@ -20,6 +20,48 @@
    - 자동차 이름으로 출력한다.
 6. 예외가 발생하면 어플리케이션을 종료시킨다.
 
+## 파일 구조
+```bash
+├── main
+│   └── java
+│       └── racingcar
+│           ├── Application.java
+│           ├── constant
+│           │   ├── ExceptionMessage.java
+│           │   ├── NumberConstant.java
+│           │   └── OutputConstant.java
+│           ├── controller
+│           │   ├── InitController.java
+│           │   └── ProgressController.java
+│           ├── domain
+│           │   └── Car.java
+│           ├── dto
+│           │   └── GameSettingDto.java
+│           ├── exception
+│           │   ├── InvalidValueException.java
+│           │   └── LengthExceedException.java
+│           ├── repository
+│           │   ├── CarRepositoryImpl.java
+│           │   └── Repository.java
+│           ├── service
+│           │   ├── InputService.java
+│           │   ├── InputServiceImpl.java
+│           │   ├── RacingService.java
+│           │   └── RacingServiceImpl.java
+│           ├── validate
+│           │   └── InputValueValidate.java
+│           └── view
+│               ├── InputView.java
+│               └── OutputView.java
+└── test
+    └── java
+        ├── racingcar
+        │   ├── ApplicationTest.java
+        │   └── CustomTest.java
+        └── study
+            └── StringTest.java
+```
+
 ## 커밋 컨벤션
 **태그** : 제목의 형태이며, :뒤에만 space가 있도록 한다.
 
