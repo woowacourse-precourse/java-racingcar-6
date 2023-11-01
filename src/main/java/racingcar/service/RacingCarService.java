@@ -53,9 +53,9 @@ public class RacingCarService {
 //    }
 
     public static void printPlayerScore(RacingCar car){
-        System.out.println(car.getCarName() + " : ");
+        System.out.print(car.getCarName() + " : ");
         for(int i = 0; i< car.getScore(); i++){
-            System.out.println("-");
+            System.out.print("-");
         }
         System.out.println("");
     }
@@ -82,11 +82,13 @@ public class RacingCarService {
             System.out.println(winners.get(0));
             System.out.println();
         }
-        System.out.println(PRINT_WINNER.getMessage());
-        for(int i=0;i< winners.size();i++){
-            System.out.println(winners.get(i));
-            if(i != winners.size() -1){
-                System.out.println(", ");
+        if(winners.size() != 1) {
+            System.out.println(PRINT_WINNER.getMessage());
+            for (int i = 0; i < winners.size(); i++) {
+                System.out.println(winners.get(i));
+                if (i != winners.size() - 1) {
+                    System.out.println(", ");
+                }
             }
         }
         System.out.println();
