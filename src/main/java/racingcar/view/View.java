@@ -52,8 +52,6 @@ public class View {
     }
 
     public void printWinnerNames(List<String> names) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자 : ").append(String.join(", ", names));
-        System.out.println(sb);
+        System.out.println("최종 우승자 : " + String.join(", ", names));
     }
 }
