@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CarTest {
 
@@ -34,5 +33,29 @@ public class CarTest {
     void initCar_이름_0글자_예외발생() {
         assertThatThrownBy(() -> new Car(""))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("4 이상일 경우 전진 확인")
+    void moveForwardOrNotTest_전진() {
+        Car car = new Car("asdf");
+
+        assertAll(
+                () -> car.moveForwardOrNot(4),
+                () -> assertEquals(1, car.getCarDistance()),
+                () -> car.moveForwardOrNot(9),
+                () -> assertEquals(2, car.getCarDistance())
+        );
+    }
+
+    @Test
+    @DisplayName("4 미만일 경우 전진 안함")
+    void moveForwardOrNotTest_전진안함() {
+        Car car = new Car("asdf");
+
+        assertAll(
+                () -> car.moveForwardOrNot(3),
+                () -> assertEquals(0, car.getCarDistance())
+        );
     }
 }
