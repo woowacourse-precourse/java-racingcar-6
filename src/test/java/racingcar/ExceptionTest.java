@@ -31,6 +31,14 @@ public class ExceptionTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_공백_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,   ,ker", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
