@@ -25,11 +25,17 @@ public class RacingCarController {
         if (racingCarService.startRace(racingCarCount, racingCarList)!=null){
             final Racing racingGame = racingCarService.startRace(racingCarCount, racingCarList);
 
-            racingCarService.startRacingRound(racingGame);
-            racingCarView.printAheadCount(racingGame.getRacingCarList());
+            raceRound(racingGame);
 
             racingCarService.updateWinnerList(racingGame);
             racingCarView.printWinner(racingGame.getWinnerList());
+        }
+    }
+
+    public void raceRound(Racing racingGame){
+        for (int i=0; i<racingGame.getRacingCount(); i++){
+            racingCarService.startRacingRound(racingGame);
+            racingCarView.printAheadCount(racingGame.getRacingCarList());
         }
     }
 

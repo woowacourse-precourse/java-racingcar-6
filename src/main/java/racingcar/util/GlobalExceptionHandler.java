@@ -5,7 +5,7 @@ import racingcar.domain.RacingCarConst;
 public class GlobalExceptionHandler implements RacingCarConst {
 
     public boolean isValidCarArray(String carArray) {
-        if (!",".contains(carArray)) {
+        if (!carArray.contains(",")) {
             throw new IllegalArgumentException();
         }
         return true;

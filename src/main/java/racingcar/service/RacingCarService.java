@@ -66,9 +66,7 @@ public class RacingCarService implements RacingCarConst {
     }
 
     public void startRacingRound(Racing racingGame){
-        for (int i=0; i<racingGame.getRacingCount(); i++){
-            countAhead(racingGame);
-        }
+        countAhead(racingGame);
     }
 
     public HashMap<String, Integer> getAheadCountList(Racing racingGame) {
