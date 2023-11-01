@@ -17,6 +17,10 @@ public class Cars {
         this.cars = new ArrayList<>(cars);
     }
 
+    public int size() {
+        return this.cars.size();
+    }
+
     /**
      * 우승자의 이름들를 반환하는 함수
      *
@@ -72,7 +76,7 @@ public class Cars {
     /**
      * 현재 멤버들 중 가장 많이 전진한 position 값 반환
      *
-     * @return int: Cars의 멤버 중 가장 높은 position을 반환
+     * @return int: Cars 의 멤버 중 가장 높은 position 을 반환
      */
     private int getMaxPosition() {
         return this.cars
