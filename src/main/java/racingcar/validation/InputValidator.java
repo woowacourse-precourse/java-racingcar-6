@@ -1,9 +1,12 @@
 package racingcar.validation;
 
 import java.util.List;
+import java.util.regex.Pattern;
 import racingcar.message.ErrorMessage;
+import racingcar.message.GameMessage;
 
 public class InputValidator {
+    private final static String PATTERN_IS_NUM = "^[1-9]$";
     public static void validateLength(String input, int limit){
         if(input.length() > limit){
             throw new IllegalArgumentException(ErrorMessage.LENGTH_LIMIT.getMessage());
@@ -29,9 +32,8 @@ public class InputValidator {
     }
 
     public static void validateNumber(String input){
-        try{
-            Integer.parseInt(input);
-        } catch (NumberFormatException e){
+        boolean result = Pattern.matches(PATTERN_IS_NUM, input);
+        if (!result) {
             throw new IllegalArgumentException(ErrorMessage.IS_NOT_NUMBER.getMessage());
         }
     }
