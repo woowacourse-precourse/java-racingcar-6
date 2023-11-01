@@ -21,14 +21,14 @@ import racingcar.io.CarRacingOutputView;
 public class RacingCarTest {
 
     @Test
-    void 자동차_객체_생성_기능_단일() {
+    void 자동차_객체_생성_단일() {
         Car car = Car.fromName("john");
         assertThat("john").isEqualTo(car.getName());
         assertThat(0).isEqualTo(car.getPosition());
     }
 
     @Test
-    void 자동차_정보_입력_기능_단체() {
+    void 자동차_객체_생성_단체() {
         String carNames = "jamy,risa,jun";
         Cars cars = Cars.fromCarNames(carNames);
         List<Car> currentStatus = cars.getCurrentStatus();
@@ -39,7 +39,7 @@ public class RacingCarTest {
     }
 
     @Test
-    void 자동차_이름_길이_5자_제한_기능_단일() {
+    void 자동차_이름_길이_5자_제한_단일() {
         List<String> fiveLengthOverName = List.of("abcdef", "aifhiawkgha", "awhdfaighkwuhgakhgka", "asdfakhfkah",
                 "adwlafla");
         for (String name : fiveLengthOverName) {
@@ -50,7 +50,7 @@ public class RacingCarTest {
     }
 
     @Test
-    void 자동차_이름_길이_5자_제한_기능_단체() {
+    void 자동차_이름_길이_5자_제한_단체() {
         String carNames = "jamiiaa,risa,jun";
         assertThatThrownBy(() -> Cars.fromCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -58,8 +58,8 @@ public class RacingCarTest {
     }
 
     @Test
-    void 자동차_이름_예외_공백() {
-        List<String> blankCarNames = List.of("", " ", " , ", ",", ", ", " ,");
+    void 자동차_이름_공백_제한() {
+        List<String> blankCarNames = List.of("", " ", " , ", ",", ", ", " ,", ",,", ", , ");
         for (String blankCarName : blankCarNames) {
             assertThatThrownBy(() -> Cars.fromCarNames(blankCarName))
                     .isInstanceOf(IllegalArgumentException.class)
@@ -74,43 +74,17 @@ public class RacingCarTest {
     }
 
     @Test
-    void 이동_시도_횟수_입력_실패_문자열_처리() {
+    void 이동_시도_횟수_입력_문자열_제한() {
         assertThatThrownBy(() -> Turn.fromTryCount("abc"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 이동_시도_횟수_입력_실패_공백_처리() {
+    void 이동_시도_횟수_입력_공백_제한() {
         List<String> blanks = List.of(" ", "");
         for (String blank : blanks) {
             assertThatThrownBy(() -> Turn.fromTryCount(blank))
                     .isInstanceOf(IllegalArgumentException.class);
-        }
-    }
-
-    @Test
-    void 이동_시도_출력_형식() {
-        PrintStream originalOut = System.out;
-        try {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            System.setOut(new PrintStream(outputStream));
-
-            String carNames = "jamy,risa,jun";
-            Cars cars = Cars.fromCarNames(carNames);
-
-            CarRacingOutputView outputView = new CarRacingOutputView();
-            for (Car car : cars.tryToMove()) {
-                outputView.printCarPosition(car.getName(), car.getPosition());
-            }
-
-            List<String> expectedOutputs = List.of("jamy : ", "risa : ", "jun : ");
-            String actualOutput = outputStream.toString();
-
-            assertThat(actualOutput).contains(expectedOutputs);
-
-
-        } finally {
-            System.setOut(originalOut);
         }
     }
 
@@ -140,9 +114,7 @@ public class RacingCarTest {
                     car3 : --
                     """;
             String actualOutput = outputStream.toString();
-
             assertThat(actualOutput).isEqualTo(expectedOutput);
-
 
         } finally {
             System.setOut(originalOut);
