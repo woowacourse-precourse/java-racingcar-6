@@ -176,4 +176,19 @@ class RaceCarTest {
         // then
         assertThat(list).allSatisfy(raceCar -> raceCar.getCntMovement().compareTo(3));
     }
+
+    @DisplayName("차동차의 이동을 할때 차의 이동량과 이동을 위한 출력문자를 수정, 이동시 전진 카운터 증가._5")
+    @Test
+    void moveForward_5() {
+        // given
+        List<RaceCar> list = List.of(raceCar1, raceCar2, raceCar3);
+
+        // when
+        for (int i = 0; i < 3; i++) {
+            list.forEach(raceCar -> raceCar.moveForward());
+        }
+
+        // then
+        assertThat(list).extracting(RaceCar::toString).containsExactly("Test", "seung", "chan");
+    }
 }
