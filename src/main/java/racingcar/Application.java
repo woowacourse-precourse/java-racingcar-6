@@ -74,12 +74,22 @@ public class Application {
         String[] carName = cars.keySet().toArray(new String[cars.size()]);
         for (int i = 0; i < carName.length; i++) {
             int count = cars.get(carName[i]);
-            if (count >= max) {
+            if (count > max) {
+                winners = new ArrayList<>();
                 max = count;
+                winners.add(carName[i]);
+            } else if (count == max) {
                 winners.add(carName[i]);
             }
         }
         return winners;
     }
+
+//    public static void printWinners() {
+//        List<String> winners = winnersOf();
+//        System.out.print("최종 우승자 : ");
+//        System.out.println("winner");
+//        for()
+//    }
 
 }
