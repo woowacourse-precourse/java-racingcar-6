@@ -26,4 +26,12 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름에 공백이 존재합니다.");
     }
+    @Test
+    @DisplayName("이름이 중복될 경우에 대한 예외처리 테스트")
+    void validate_Name_When_Duplicate_Name() {
+        List<String> testNameList = Arrays.asList("pobi","pobi");
+        assertThatThrownBy(() -> validator.validateNameDuplication(testNameList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 이름이 존재합니다.");
+    }
 }
