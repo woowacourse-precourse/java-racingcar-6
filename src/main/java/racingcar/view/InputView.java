@@ -33,7 +33,7 @@ public class InputView {
     }
 
     private static void validateNumber(String line) {
-        if(!line.matches(ONLY_NUMBER_REGEX)) throw new IllegalArgumentException(ERR_NOT_NUMBER);
+        if (!line.matches(ONLY_NUMBER_REGEX)) throw new IllegalArgumentException(ERR_NOT_NUMBER);
     }
 
 }
