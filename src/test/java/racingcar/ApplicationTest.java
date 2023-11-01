@@ -34,6 +34,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 객체_전진() {
         Car car = new Car("test");
@@ -81,8 +82,6 @@ class ApplicationTest extends NsTest {
         });
         System.out.println("예외가 발생해서 테스트가 성공했습니다.");
     }
-
-
 
     @Override
     public void runMain() {
