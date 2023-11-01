@@ -16,6 +16,7 @@ public class RacingGameResultReport {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void announceWinners(Map<String, Integer> racingStateMap) {
