@@ -28,7 +28,6 @@ public class GameResultServiceTest {
     @Test
     void 우승자_출력_메시지_단일우승 () {
         //given
-        GameProgressService gameProgressService = new GameProgressService();
         //when
         Car car1 = cars.get(1);
         car1.addPosition();

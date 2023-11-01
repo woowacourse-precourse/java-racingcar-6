@@ -1,5 +1,4 @@
 package racingcar.controller;
-import racingcar.constants.AppConstants;
 import racingcar.domain.Car;
 import racingcar.service.GameProgressService;
 import racingcar.service.GameResultService;
@@ -29,7 +28,7 @@ public class GameManager {
     }
 
     public List<Car> createCarList (List<String> nameList) {
-        List<Car> carList = new ArrayList<Car>();
+        List<Car> carList = new ArrayList<>();
         for(String name: nameList) {
             Car car = new Car(name);
             carList.add(car);

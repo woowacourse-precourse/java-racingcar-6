@@ -13,12 +13,6 @@ import java.util.List;
 
 public class UserInputTest {
 
-    private UserInputHandler userInputHandler;
-
-    @BeforeEach
-    void setUp() {
-        userInputHandler = new UserInputHandler();
-    }
 
     @ParameterizedTest
     @ValueSource(strings = {"istoLongMessage", "car1,car123,car3", "car3,car5,car666"})
