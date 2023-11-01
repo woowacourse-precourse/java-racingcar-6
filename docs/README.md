@@ -1,6 +1,6 @@
 ## 목표
 - [ ] MVC 패턴 적용해보기
-  - [ ] Model - Car, Referee
+  - [ ] Model - Car, Referee, RandomNumber
   - [ ] View - InputView, OutputView
   - [ ] Controller - RaceGameController
 
