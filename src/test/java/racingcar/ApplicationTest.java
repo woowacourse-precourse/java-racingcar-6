@@ -22,7 +22,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차_생성_주행_테스트() {
         CarGenerator generator = new CarGenerator("car1,car2");
-        List<Car> carList = generator.makeCars();
+        List<Car> carList = generator.loadCars();
 
         for (Car car : carList) {
             int pickNumber = Randoms.pickNumberInRange(0, 9);
@@ -39,7 +39,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차_이름_길이_예외_처리() {
         CarGenerator generator = new CarGenerator("apple,applePie");
-        assertThatThrownBy(() -> generator.makeCars())
+        assertThatThrownBy(() -> generator.loadCars())
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
