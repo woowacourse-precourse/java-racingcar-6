@@ -1,9 +1,10 @@
 package racingcar.car;
 
-import static racingcar.system.SystemConstant.*;
+import static racingcar.system.SystemConstant.POSITION_EXPRESSION;
+import static racingcar.system.SystemConstant.WAIT_LINE_POSITION;
+import static racingcar.system.SystemConstant.WIN_NUMBER_AT_LEAST;
 
 import racingcar.assist.RandomNumberGenerator;
-import racingcar.system.SystemConstant;
 
 public class Car {
 
@@ -21,10 +22,12 @@ public class Car {
         }
     }
 
-    public CarPositionDto wrapCarPosition() {
-        return new CarPositionDto(position);
+    @Override
+    public String toString(){
+        return carName;
     }
-    public boolean isNameEquals(CarNameDto carNameDto) {
-        return carName.equals(carNameDto.getCarName());
+
+    public String getPosition(){
+        return position;
     }
 }
