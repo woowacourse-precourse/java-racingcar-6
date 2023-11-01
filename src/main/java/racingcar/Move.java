@@ -1,4 +1,5 @@
 package racingcar;
+
 import java.util.Collections;
 import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.Randoms;

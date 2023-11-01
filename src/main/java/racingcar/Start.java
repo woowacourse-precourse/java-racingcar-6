@@ -1,4 +1,5 @@
 package racingcar;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Console;
@@ -9,7 +10,7 @@ public class Start {
         String[] raw = Console.readLine().split(",");
         ArrayList<String> names = new ArrayList<>(Arrays.asList(raw));
 
-        for (String name: names) {
+        for (String name : names) {
             if (name.length() < 1 || name.length() > 5) {
                 throw new IllegalArgumentException("잘못된 이름입니다.");
             }
