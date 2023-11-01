@@ -12,6 +12,7 @@ public class Racing {
     }
 
     public void play(){
+        setting.settingStart();
         cars = setting.getCars();
         System.out.println("\n실행 결과");
 
