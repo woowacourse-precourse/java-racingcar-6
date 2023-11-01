@@ -10,26 +10,44 @@ import racingcar.view.OutputView;
 import java.util.List;
 
 public class RacingController {
+    private final InputView inputView;
+    private final OutputView outputView;
+    private Cars cars;
+    private int count;
+
+    public RacingController() {
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
+    }
+
+    public void run() {
+        cars = new Cars(generateRacersFromNames(inputView.readCarNames()));
+        count = inputView.readTryGame();
+        startRace();
+    }
 
     public void startRace() {
-        Cars cars = new Cars(generateRacersFromNames(InputView.readCarNames()));
-        List<Car> carList = cars.getCars();
-        int count = InputView.readTryGame();
-
         Message.result();
         for (int i = 1; i <= count; i++) {
             cars.moveCars();
-            for (Car car : carList) {
-                OutputView.printInfo(car.getName(), car.getPosition());
-            }
+            printCarInfo(cars.getCars());
             Message.insertSpace();
         }
-
-        List<String> winners = cars.findWinners();
-        OutputView.racingWinners(winners);
+        findWinners(cars);
     }
 
-    public String[] generateRacersFromNames(String input) {
+    private void printCarInfo(List<Car> cars) {
+        for (Car car : cars) {
+            outputView.printInfo(car.getName(), car.getPosition());
+        }
+    }
+
+    private void findWinners(Cars cars) {
+        List<String> winners = cars.findWinners();
+        outputView.racingWinners(winners);
+    }
+
+    private String[] generateRacersFromNames(String input) {
         return input.split(",");
     }
 
