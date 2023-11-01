@@ -18,7 +18,7 @@ public class ServicePrinter {
         }
 
         public void printWinnerMessage(List<String> winners) {
-            System.out.println(ServiceMessage.WINNER.serviceMessage + String.join(", ", winners));
+            System.out.print(ServiceMessage.WINNER.serviceMessage + String.join(", ", winners));
         }
 
         public static void printRaceStatus(String[] names, int[] countsByName) {
