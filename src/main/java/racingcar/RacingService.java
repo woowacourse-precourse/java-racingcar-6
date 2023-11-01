@@ -11,7 +11,7 @@ public class RacingService {
     int randomNum = Randoms.pickNumberInRange(0, 9);
     int distance;
 
-    if (randomNum > 4) {
+    if (randomNum >= 4) {
       distance = 1;
     } else {
       distance = 0;
