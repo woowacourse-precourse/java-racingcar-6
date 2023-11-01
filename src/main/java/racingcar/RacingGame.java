@@ -7,7 +7,7 @@ public class RacingGame {
         List<Car> cars = InputView.inputCarsInfo();
         int round = InputView.inputRound();
 
-        System.out.println("실행 결과");
+        OutputView.printExecutionResultText();
 
         for (int count = 1; count <= round; count++) {
             proceedRound(cars);
@@ -26,7 +26,7 @@ public class RacingGame {
     private void proceedRound(List<Car> cars) {
         for (Car car : cars) {
             car.move();
-            System.out.println(car.makeMoveResult());
+            OutputView.printRoundResult(car.makeMoveResult());
         }
     }
 
