@@ -31,8 +31,19 @@ public class PrintAll {
         }
     }
 
-    public void outputFinalPrint(String winner){
+    public void outputFinalPrint(List<String> nameList){
         System.out.print("최종 우승자 : ");
-        System.out.println(winner);
+        System.out.print(nameList.get(0));
+        if (nameList.size()==1){
+            System.out.println();
+        }
+        else{multiWinner(nameList);}
+
+    }
+    public void multiWinner(List<String> nameList){
+        for (String name : nameList){
+            System.out.print(", ");
+            System.out.print(name);
+        }
     }
 }

@@ -1,23 +1,26 @@
 package racingcar.domain;
 
 public class Car{
-    private String carName;
-    private int progressbar = 0;
+    private final String carName;
+    private int progressbar;
 
-
-
-    public void progressPlusOne(int bar) {
-        progressbar+=bar;
+    public Car(String carName){
+        this.carName=carName;
+        this.progressbar=0;
     }
 
-    public String getName(){
+     public String getName(){
         return carName;
     }
-    public void setName(String carName){this.carName = carName;}
 
     public int getProgressbar(){
         return progressbar;
     }
+
+    public void progressPlusOne(){
+        progressbar++;
 }
+}
+
 
 

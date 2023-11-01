@@ -1,45 +1,78 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarList;
 import racingcar.repository.SaveCarList;
+import racingcar.repository.UpdateProgress;
 import racingcar.service.*;
 import racingcar.view.PrintAll;
 
+
+
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Controller {
-    private int tryNumber;
-    private final InputCarName inputCarName = new InputCarName();
-    private final ParsingCarName parsingCarName = new ParsingCarName();
-    private final InputTryNumber inputTryNumber = new InputTryNumber();
-    private final GetRandomNumber getRandomNumber = new GetRandomNumber();
+    private final InputCarName inputCarName;
+    private final InputTryNumber inputTryNumber;
+    private final GetRandomNumber getRandomNumber;
+    private final PrintAll printAll;
+    private final UpdateProgress updateProgress;
+    private final Winner winner;
+   // boolean trueOrFalse;
+    private final SaveCarList saveCarList;
+    private final ParsingCarName parsingCarName;
+    CarList carListNew;
+    int tryNumber;
 
-    private final PrintAll printAll = new PrintAll();
+    public Controller(InputCarName inputCarName, InputTryNumber inputTryNumber,
+                      GetRandomNumber getRandomNumber, PrintAll printAll,
+                      UpdateProgress updateProgress, Winner winner, ParsingCarName parsingCarName, SaveCarList saveCarList, CarList carList) {
+        this.inputCarName = inputCarName;
+        this.inputTryNumber = inputTryNumber;
+        this.getRandomNumber = getRandomNumber;
+        this.printAll = printAll;
+        this.updateProgress = updateProgress;
+        this.winner = winner;
+        this.saveCarList=saveCarList;
+        this.parsingCarName=parsingCarName;
+        this.carListNew = carList; //수정 필요
+        this.tryNumber = 0; // 초기값
+  }
 
     //게임 시작
     public void start() {
+        InputCarName inputCarName = new InputCarName();
         run(inputCarName.getCarName(), inputTryNumber.getTryNumber());
+             }
 
-        printAll.outputResultPrint();
-    }
-        SaveCarList saveCarList = new SaveCarList();
-
-    public void run(List<Car> getCarName, int tryNumber) {
+    public void run(CarList carListNew, int tryNumber) {
         this.tryNumber = tryNumber;
-        printAll.outputResultPrint();
+        this.carListNew = carListNew;
+        System.out.println(tryNumber);
+        printAll.outputResultPrint(); //실행 결과
+        System.out.println(tryNumber);
 
-        List<Car> CarList = saveCarList.entireCarList();
+        //List<Car> CarList = saveCarList.entireCarList();
+        //System.out.println(getCarName.get(0).getName());
+        //System.out.println(getCarName.get(1).getName());
+        //error: System.out.println(CarList.get(0));
+        System.out.println(carListNew.getCarList().get(0).getName());
+        System.out.println(carListNew.getCarList().get(1).getName());
+        while (this.tryNumber > 0) {
+            System.out.println("hereTryNumber");
+            for (Car car :carListNew.getCarList()) {
 
-        while (tryNumber > 0) {
-            for (Car car : CarList) {
-                trueOrFalse = ForwardOrNot(getRandomNumber);
-                updateProgress(trueOrFalse);
+                System.out.println("for문 car");
+                boolean trueOrFalse = getRandomNumber.getTrueOrFalse();
+                System.out.println(trueOrFalse);
+                updateProgress.plusOrNot(car, trueOrFalse);
             }
-            printAll.printProgress(CarList);
-            tryNumber--;
+            printAll.printProgress(carListNew.getCarList());
+            this.tryNumber--;
         }
         //Winner;
-        printAll.outputFinalPrint(winner);
+        winner.finalResult(carListNew.getCarList());
 
     }
 }
