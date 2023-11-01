@@ -6,6 +6,8 @@ import static racingcar.utils.validate.InputValidator.validateRoundNum;
 
 import java.util.Arrays;
 import racingcar.utils.dto.Names;
+import racingcar.utils.validate.GameValidator;
+import racingcar.utils.validate.InputValidator;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
@@ -28,8 +30,10 @@ public class IOManager {
 
     public int getRoundNum() {
         String roundNumStr = input.getRound();
-        validateRoundNum(roundNumStr);
-        return Integer.parseInt(roundNumStr);
+        InputValidator.validateRoundNum(roundNumStr);
+        int roundNum = Integer.parseInt(roundNumStr);
+        GameValidator.validateRoundNum(roundNum);
+        return roundNum;
     }
 
     public void printGameResultInit() {

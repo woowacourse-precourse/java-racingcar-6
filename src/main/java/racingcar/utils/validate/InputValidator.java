@@ -3,7 +3,6 @@ package racingcar.utils.validate;
 import static racingcar.constant.ExceptionMessage.NAME_CONTAINS_BLANK;
 import static racingcar.constant.ExceptionMessage.NAME_LENGTH_NOT_IN_RANGE;
 import static racingcar.constant.ExceptionMessage.ROUND_CONTAIN_NOT_ONLY_NUM;
-import static racingcar.constant.ExceptionMessage.ROUND_MUST_BE_POSITIVE;
 import static racingcar.constant.InputNumConstant.MAX_NAME_LENGTH;
 import static racingcar.constant.InputNumConstant.MIN_NAME_LENGTH;
 
@@ -27,10 +26,6 @@ public class InputValidator {
         if (!checkOnlyNumInString(roundNum)) {
             throw new IllegalArgumentException(ROUND_CONTAIN_NOT_ONLY_NUM.getMessage());
         }
-
-        if (!checkNumIsZeroOrNegative(roundNum)) {
-            throw new IllegalArgumentException(ROUND_MUST_BE_POSITIVE.getMessage());
-        }
     }
 
     private static boolean checkNameLengthInRange(String name) {
@@ -44,10 +39,6 @@ public class InputValidator {
             return false;
         }
         return true;
-    }
-
-    private static boolean checkNumIsZeroOrNegative(String num) {
-        return Integer.parseInt(num) < 0;
     }
 
     private static boolean checkContainBlank(String input) {
