@@ -1,20 +1,19 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import racingcar.model.Car;
 
 public class InputManager {
     private final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private final String INPUT_TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 
-    public String[] inputCarNames() {
+    public List<Car> inputCarNames() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String[] carNames = Console.readLine().split(",");
         Console.close();
-        return carNames;
+        return convertToCarList(carNames);
     }
 
     public Integer inputTryCount() {
@@ -27,11 +26,11 @@ public class InputManager {
 
 
     public void isValidateCarName(String carName, List<Car> cars) {
-        if (isBlankCarName(carName)){
+        if (isBlankCarName(carName)) {
             throw new IllegalArgumentException("INVALID carName : carName is empty");
-        }else if (isInvalidCarNameLength(carName)){
+        } else if (isInvalidCarNameLength(carName)) {
             throw new IllegalArgumentException("INVALID carName : carName length is over then 5");
-        }else if (isContainedCarName(carName, cars)) {
+        } else if (isContainedCarName(carName, cars)) {
             throw new IllegalArgumentException("INVALID carName : carName already exists.");
         }
     }
@@ -52,16 +51,14 @@ public class InputManager {
         return cars.stream().anyMatch(car -> car.getCarName().equals(carName));
     }
 
-//    public Map<String, Integer> convertToCarMap(String[] carNames) {
-//        Map<String, Integer> carMap = new LinkedHashMap<>();
-//        for (String carName : carNames) {
-//            if (!isValidateCarName(carName, carMap)) {
-//                throw new IllegalArgumentException("Invalid CarName");
-//            }
-//            carMap.put(carName, 0);
-//        }
-//        return carMap;
-//    }
+    public List<Car> convertToCarList(String[] carNames) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            isValidateCarName(carName, cars);
+            cars.add(new Car(carName));
+        }
+        return cars;
+    }
 
     public Boolean isValidateTryCount(String tryCount) {
         if (!isNumber(tryCount)) {
