@@ -1,16 +1,30 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GameManager {
-    public int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+    User user = new User();
+    public void start() {
+        List<String> carNames = user.setCar();
+        List<Car> carList = listOfCars(carNames);
+        int cnt = user.setMoves();
+
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < cnt; i++) {
+            List<Integer> randomNumbers = RandomNumberGenerator.generateRandomNumber(carList.size());
+            move(carList, randomNumbers);
+            user.listOfResult(carList);
+        }
     }
 
-    public void printResult(String[] cars, int[] distance) {
-        System.out.println("실행 결과");
-        for(int i = 0; i < cars.length; i++) {
-            System.out.println(cars[i] + " : " + distance[i]);
-        }
+    public List<Car> listOfCars(List<String> carNames) {
+
+    }
+
+    public void move(List<Car> carList, List<Integer> randomNumbers) {
+
     }
 }
