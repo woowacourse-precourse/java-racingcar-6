@@ -11,6 +11,10 @@ public class CarName {
     }
 
     private void validateName(final String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("자동차 이름이 잘못되었습니다.");
+        }
+
         if (name.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름이 잘못되었습니다.");
         }
