@@ -19,4 +19,10 @@ class GameServiceTest {
         List<String> expectedResult = Arrays.asList("pobi","woni");
         assertEquals(expectedResult, gameService.splitCarNames("pobi,woni"));
     }
+    @Test
+    @DisplayName("1~9 사이의 수를 return 하는지 테스트")
+    void test_Get_Random_Number() {
+        int expectedResult = gameService.getRandomNumber();
+        assertTrue(expectedResult >= 1 && expectedResult <= 9);
+    }
 }
