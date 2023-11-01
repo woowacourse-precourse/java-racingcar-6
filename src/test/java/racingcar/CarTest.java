@@ -1,8 +1,11 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +20,8 @@ class CarTest {
     @Test
     @DisplayName("자동차 이름 Null이면 예외")
     void validateNull() {
-        Car car = new Car(null);
-        assertThat(car.getName()).isEqualTo(null);
+        assertThatThrownBy(() -> new Car(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("null을 입력하지 마세요.");
     }
-
 }
