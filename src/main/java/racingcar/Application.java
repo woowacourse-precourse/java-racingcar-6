@@ -21,8 +21,9 @@ public class Application {
 
         System.out.println("실행 결과");
         List<Integer> raceResult = playCarRace(numberOfRaces, carNamesList);
+
         List<String> winnerNameList = decideWinner(raceResult, carNamesList);
-        printWinner(winnerNameList);
+        System.out.println(printWinner(winnerNameList));
     }
 
     public static List<String> splitCarNames(String carNames) {
@@ -48,7 +49,6 @@ public class Application {
 
     public static List<Integer> playCarRace(int numberOfRaces, List<String> carNamesList) {
         List<Integer> recordStorage = new ArrayList<>(Collections.nCopies(carNamesList.size(), 0));
-
         for (int i = 0; i < numberOfRaces; i++) {
             recordStorage = recordCarAction(carNamesList, recordStorage);
             printCarRace(carNamesList, recordStorage);
@@ -105,14 +105,13 @@ public class Application {
         return winnerIndexList;
     }
 
-    public static void printWinner(List<String> winnerNameList) {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winnerNameList.size(); i++) {
-            String winnerName = String.valueOf(winnerNameList.get(i));
-            System.out.print(winnerName);
-            if (i + 1 < winnerNameList.size()) {
-                System.out.print(", ");
-            }
+    public static String printWinner(List<String> winnerNameList) {
+        String winner = "";
+        if (winnerNameList.size() == 1) {
+            winner = String.valueOf(winnerNameList.get(0));
+        } else if (winnerNameList.size() > 1) {
+            winner = String.join(", ", winnerNameList);
         }
+        return "최종 우승자 : " + winner;
     }
 }

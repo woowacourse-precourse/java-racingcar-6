@@ -118,22 +118,14 @@ class MethodsTest extends NsTest {
 
     @Test
     void printWinnerTest_단독_우승자() {
-        assertSimpleTest(
-                () -> {
-                    Application.printWinner(Arrays.asList("woni"));
-                    assertThat(output()).isEqualTo("최종 우승자 : woni");
-                }
-        );
+        String winner = Application.printWinner(Arrays.asList("woni"));
+        assertThat(winner).isEqualTo("최종 우승자 : woni");
     }
 
     @Test
     void printWinnerTest_공동_우승자() {
-        assertSimpleTest(
-                () -> {
-                    Application.printWinner(Arrays.asList("woni", "kiki"));
-                    assertThat(output()).isEqualTo("최종 우승자 : woni, kiki");
-                }
-        );
+        String winner = Application.printWinner(Arrays.asList("woni", "kiki"));
+        assertThat(winner).isEqualTo("최종 우승자 : woni, kiki");
     }
 
     @Override
