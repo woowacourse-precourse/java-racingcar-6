@@ -1,17 +1,15 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
-import org.assertj.core.api.Assert;
-import org.assertj.core.api.Assertions;
 
 class UserTest {
     //    @Test
