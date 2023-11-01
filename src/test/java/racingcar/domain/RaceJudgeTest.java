@@ -18,16 +18,14 @@ class RaceJudgeTest {
     void addCars() {
         // given
         List<String> names = List.of("pobi", "jason");
+        Cars cars = Cars.from(names);
 
         // when
         raceJudge.addCars(names);
         Cars findCars = carsRepository.findCars().get();
-        List<String> savedNames = findCars.cars().stream()
-                .map(Car::getName)
-                .toList();
 
         // then
-        assertThat(savedNames).containsExactly("pobi", "jason");
+        assertThat(findCars).isEqualTo(cars);
     }
 
     @DisplayName("자동차 이름은 중복될 수 없습니다.")
