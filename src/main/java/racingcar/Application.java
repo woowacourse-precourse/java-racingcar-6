@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.Car;
 import racingcar.domain.CarFactory;
+import racingcar.domain.Participants;
 import racingcar.domain.Race;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public class Application {
         Integer round = askRound();
 
         List<Car> cars = CarFactory.makeCars(carNames);
-        Race race = new Race(cars, round);
+        Participants participants = new Participants(cars);
+        Race race = new Race(participants, round);
         race.run();
     }
 

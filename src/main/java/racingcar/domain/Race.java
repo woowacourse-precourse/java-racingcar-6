@@ -1,18 +1,15 @@
 package racingcar.domain;
 
-import java.util.List;
-import java.util.NoSuchElementException;
-
 public class Race {
     private static final String RESULT_MESSAGE = "\n실행 결과";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String DELIMITER = ", ";
 
-    private final List<Car> cars;
+    private final Participants participants;
     private final Integer round;
 
-    public Race(List<Car> cars, Integer round) {
-        this.cars = cars;
+    public Race(Participants participants, Integer round) {
+        this.participants = participants;
         this.round = round;
     }
 
@@ -29,7 +26,7 @@ public class Race {
     }
 
     private void round() {
-        for (Car car : cars) {
+        for (Car car : participants.getParticipants()) {
             if (RandomNumberGenerator.generate() >= 4) {
                 car.forward();
             }
@@ -40,20 +37,9 @@ public class Race {
 
     private void result() {
         System.out.println(WINNER_MESSAGE +
-                String.join(DELIMITER, getWinners().stream()
+                String.join(DELIMITER, participants.getWinners().stream()
                         .map(Car::getName)
                         .toList())
         );
-    }
-
-    private List<Car> getWinners() {
-        int maxPosition = cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElseThrow(NoSuchElementException::new);
-
-        return cars.stream()
-                .filter(car -> maxPosition == car.getPosition())
-                .toList();
     }
 }
