@@ -18,11 +18,11 @@ public class Car {
         this.score += ONE_STEP.getValue();
     }
 
-    public String getCarName(){
+    String getCarName(){
         return this.name;
     }
 
-    public Integer getScore(){
+    Integer getScore(){
         return this.score;
     }
 }
