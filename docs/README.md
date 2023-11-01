@@ -49,3 +49,7 @@
 
 ### RacingGame 클래스
 - [ ] race
+
+### Winner 클래스
+- [ ] findWinners
+- [ ] findMaxProgress

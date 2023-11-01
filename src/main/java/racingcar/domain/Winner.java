@@ -28,7 +28,7 @@ public class Winner {
         return maxProgress;
     }
 
-    public void printResult(List<String> winner) {
+    private void printResult(List<String> winner) {
         String result = String.join(",", winner);
         System.out.println("최종 우승자 : " + result);
     }
