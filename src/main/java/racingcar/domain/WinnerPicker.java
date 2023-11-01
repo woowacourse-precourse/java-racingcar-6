@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,7 +10,7 @@ public class WinnerPicker {
 
         List<String> winnerNames = cars.getCars().stream()
                 .filter(racingCar -> racingCar.getForwardDistance() == winnerDistance)
-                .map(car -> car.getName())
+                .map(Car::getName)
                 .collect(Collectors.toList());
 
         CarNames winnersName = new CarNames(winnerNames);

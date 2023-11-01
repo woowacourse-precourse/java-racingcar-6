@@ -1,11 +1,9 @@
 package racingcar.input;
 
-import org.junit.jupiter.api.Test;
-import racingcar.domain.CarName;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 class InputValidatorTest {
 

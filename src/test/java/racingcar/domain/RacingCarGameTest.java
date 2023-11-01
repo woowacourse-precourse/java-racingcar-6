@@ -3,40 +3,36 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.platform.commons.util.ToStringBuilder;
+
 import org.mockito.MockedStatic;
 import racingcar.input.Input;
 import racingcar.output.Output;
 
-import java.io.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
 class RacingCarGameTest {
 
-    private Output output;
-    private Input input;
-    private WinnerPicker winnerPicker;
-    private RacingCarGame game;
-    private ByteArrayOutputStream outputStream;
     private static final String CAR_NAME_USER_INPUT = "pobi,wooni,jun";
     private static final String ROUND_COUNT_USER_INPUT = "2";
     private static final int STOP = 3;
     private static final int FORWARD = 4;
 
+    private RacingCarGame game;
+    private ByteArrayOutputStream outputStream;
+
     @BeforeEach
     void setUp() {
-        output = new Output();
-        input = new Input(output);
-        winnerPicker = new WinnerPicker();
+        Output output = new Output();
+        Input input = new Input(output);
+        WinnerPicker winnerPicker = new WinnerPicker();
         game = new RacingCarGame(output, input, winnerPicker);
     }
 

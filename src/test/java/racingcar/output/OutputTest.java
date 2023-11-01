@@ -1,17 +1,18 @@
 package racingcar.output;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class OutputTest {
+
+    private static final String MESSAGE = "출력 테스트 메세지입니다.";
+
     private Output output;
     private ByteArrayOutputStream outputStream;
-    private static final String MESSAGE = "출력 테스트 메세지입니다.";
 
     @BeforeEach
     void setUp() {

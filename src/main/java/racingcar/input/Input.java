@@ -6,10 +6,9 @@ import racingcar.output.Output;
 
 public class Input {
 
-    private final Output output;
-
     private static final String CAR_NAMES_PROMPT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String ROUND_COUNT_PROMPT = "시도할 회수는 몇회인가요?";
+    private final Output output;
 
     public Input(Output output) {
         this.output = output;

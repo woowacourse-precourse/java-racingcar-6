@@ -7,9 +7,10 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
 
-    private Car car1;
     private static final String CAR1_NAME = "pobi";
     private static final int FORWARD = 4;
+
+    private Car car1;
     private NumberGenerator numberGenerator;
     private ForwardChecker forwardChecker;
 

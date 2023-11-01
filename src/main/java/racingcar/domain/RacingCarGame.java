@@ -5,7 +5,6 @@ import racingcar.input.InputParser;
 import racingcar.input.InputValidator;
 import racingcar.output.Output;
 
-
 public class RacingCarGame {
 
     private final Output output;

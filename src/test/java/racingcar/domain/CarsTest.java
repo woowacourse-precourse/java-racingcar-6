@@ -11,19 +11,18 @@ import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
-import org.mockito.Mockito;
 
 class CarsTest {
 
-    private Cars cars;
-    private CarNames carNames;
-    private NumberGenerator numberGenerator;
-    private ForwardChecker forwardChecker;
     private static final String CAR1_NAME = "pobi";
     private static final String CAR2_NAME = "woni";
     private static final String CAR3_NAME = "jun";
     private static final int STOP = 3;
     private static final int FORWARD = 4;
+
+    private Cars cars;
+    private CarNames carNames;
+    private ForwardChecker forwardChecker;
 
     @BeforeEach
     void setUp() {
@@ -47,7 +46,7 @@ class CarsTest {
     @Test
     void runRound메서드로_3대_자동차_모두_한번_전진() {
         //when
-        numberGenerator = () -> FORWARD;
+        NumberGenerator numberGenerator = () -> FORWARD;
         forwardChecker = new ForwardChecker();
         cars.runRound(numberGenerator, forwardChecker);
 

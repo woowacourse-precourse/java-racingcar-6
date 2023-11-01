@@ -1,12 +1,11 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.output.Output;
-
-import java.util.Arrays;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class RoundManagerTest {
 

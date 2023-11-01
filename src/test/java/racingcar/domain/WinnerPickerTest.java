@@ -1,29 +1,29 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.mockStatic;
+
+import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
-import java.util.Arrays;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.mockStatic;
-
 class WinnerPickerTest {
 
-    private WinnerPicker winnerPicker;
-    private Cars cars;
-    private CarNames carNames;
-    private RandomNumberGenerator randomNumberGenerator;
-    private ForwardChecker forwardChecker;
     private static final String CAR1_NAME = "pobi";
     private static final String CAR2_NAME = "woni";
     private static final String CAR3_NAME = "jun";
     private static final String CAR4_NAME = "umi";
     private static final int STOP = 3;
     private static final int FORWARD = 4;
+
+    private WinnerPicker winnerPicker;
+    private Cars cars;
+    private CarNames carNames;
+    private RandomNumberGenerator randomNumberGenerator;
+    private ForwardChecker forwardChecker;
 
     @BeforeEach
     void setUp() {
@@ -69,8 +69,10 @@ class WinnerPickerTest {
             Winners winners = winnerPicker.pickWinner(cars);
 
             //then
-            assertThat(winners.getWinnersName().getCarNames().size()).isEqualTo(2);
-            assertThat(winners.getWinnersName().getCarNames()).contains(CarName.from(CAR3_NAME), CarName.from(CAR4_NAME));
+            assertThat(winners.getWinnersName().getCarNames().size())
+                    .isEqualTo(2);
+            assertThat(winners.getWinnersName().getCarNames())
+                    .contains(CarName.from(CAR3_NAME), CarName.from(CAR4_NAME));
         }
     }
 }
