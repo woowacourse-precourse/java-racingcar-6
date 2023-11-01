@@ -13,6 +13,10 @@ public class Car {
         return new Car(name);
     }
 
+    public int getMoveForwardCount() {
+        return moveForwardCount;
+    }
+
     public void moveForward() {
 
     }

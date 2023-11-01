@@ -19,7 +19,14 @@ public class CarManager {
     }
 
     public void orderCarsMoveForward() {
-        cars.forEach(Car::moveForward);
+        cars.forEach(car -> {
+            car.moveForward();
+            updateMaxCount(car.getMoveForwardCount());
+        });
+    }
+
+    private void updateMaxCount(int count) {
+        this.maxCount = Math.max(count, this.maxCount);
     }
 
 }
