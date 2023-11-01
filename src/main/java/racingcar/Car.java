@@ -5,9 +5,14 @@ public class Car {
     private String name;
     private int score;
 
-    public Car(String name, int score) {
+    public Car(String name) {
+        nameCheck(name);
         this.name = name;
-        this.score = score;
     }
 
+    public void nameCheck(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
