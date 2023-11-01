@@ -9,17 +9,17 @@ public class OutputView {
     private static final String COLON = " : ";
     private static final String COMMA = ", ";
 
-    public void printResultIntroduction(){
+    public void printResultIntroduction() {
         System.out.println(RESULT_INTRODUCTION);
     }
 
-    public void printEachGameResult(List<Car> cars){
-        for(Car car : cars){
+    public void printEachGameResult(List<Car> cars) {
+        for (Car car : cars) {
             System.out.println(car.getName() + COLON + car.getCarMovedResult());
         }
     }
 
-    public void printWinnerCars(List<String> winnerCars){
+    public void printWinnerCars(List<String> winnerCars) {
         System.out.println(WINNER_MESSAGE + COLON + String.join(COMMA, winnerCars));
     }
 }

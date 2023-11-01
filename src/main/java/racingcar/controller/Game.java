@@ -18,17 +18,17 @@ public class Game {
     private final OutputView outputView = new OutputView();
     private final List<Car> cars;
 
-    public Game(){
-        cars  = new ArrayList<>();
+    public Game() {
+        cars = new ArrayList<>();
         player.setCarName(inputView.askCarName());
         player.setAttemptNumber(inputView.askAttemptNumber());
     }
 
-    public void playGame(){
+    public void playGame() {
         setCars();
         outputView.printResultIntroduction();
 
-        for(int i = 0; i < player.getAttemptNumber(); i++){
+        for (int i = 0; i < player.getAttemptNumber(); i++) {
             moveCar();
             outputView.printEachGameResult(cars);
         }
@@ -36,21 +36,21 @@ public class Game {
         outputView.printWinnerCars(winnerCar.getWinner());
     }
 
-    public void setCars(){
+    public void setCars() {
         player.getCarName()
                 .forEach(name -> cars.add(new Car(name)));
     }
 
-    public void moveCar(){
-        for(Car car : cars){
-            if(canMove()){
+    public void moveCar() {
+        for (Car car : cars) {
+            if (canMove()) {
                 car.setCarState();
                 car.setCarMovedResult();
             }
         }
     }
 
-    public boolean canMove(){
+    public boolean canMove() {
         return Randoms.pickNumberInRange(FIRST_BOUND, LAST_BOUND) >= MOVE_LEAST_BOUND;
     }
 }

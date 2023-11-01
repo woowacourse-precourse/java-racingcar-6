@@ -13,42 +13,42 @@ public class CarNameValidator {
     private static final int CAR_NAME_MAX_LENGTH = 5;
     private static List<String> carName;
 
-    public static List<String> validateCarName(String carNames){
-        if(hasSpace(carNames)){
+    public static List<String> validateCarName(String carNames) {
+        if (hasSpace(carNames)) {
             throw new IllegalArgumentException(INPUT_HAS_SPACE);
         }
         carName = convertCarName(carNames);
-        if(hasZeroLength(carName)){
+        if (hasZeroLength(carName)) {
             throw new IllegalArgumentException(INPUT_HAS_ZERO_LENGTH);
         }
-        if(hasOverFiveLength(carName)){
+        if (hasOverFiveLength(carName)) {
             throw new IllegalArgumentException(INPUT_HAS_OVER_FIVE_LENGTH);
         }
-        if(hasDuplicatedName(carName)){
+        if (hasDuplicatedName(carName)) {
             throw new IllegalArgumentException(INPUT_HAS_DUPLICATED_NAME);
         }
         return carName;
     }
 
-    private static List<String> convertCarName(String carNames){
+    private static List<String> convertCarName(String carNames) {
         return List.of(carNames.split(COMMA));
     }
 
-    private static boolean hasSpace(String carNames){
+    private static boolean hasSpace(String carNames) {
         return carNames.contains(SPACE);
     }
 
-    private static boolean hasZeroLength(List<String> carNames){
+    private static boolean hasZeroLength(List<String> carNames) {
         return carNames.stream()
                 .anyMatch(car -> car.length() < CAR_NAME_MIN_LENGTH);
     }
 
-    private static boolean hasOverFiveLength(List<String> carNames){
+    private static boolean hasOverFiveLength(List<String> carNames) {
         return carNames.stream()
                 .anyMatch(car -> car.length() > CAR_NAME_MAX_LENGTH);
     }
 
-    private static boolean hasDuplicatedName(List<String> carNames){
+    private static boolean hasDuplicatedName(List<String> carNames) {
         return carNames.stream()
                 .distinct()
                 .count() != carNames.size();

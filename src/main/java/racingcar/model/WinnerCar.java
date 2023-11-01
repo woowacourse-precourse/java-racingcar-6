@@ -7,7 +7,7 @@ public class WinnerCar {
     private List<String> winnerCarNames;
     private final int winnerStateValue;
 
-    public WinnerCar(List<Car> cars){
+    public WinnerCar(List<Car> cars) {
         winnerStateValue = cars.stream()
                 .sorted(Comparator.comparing(Car::getCarState).reversed())
                 .toList()
@@ -17,11 +17,11 @@ public class WinnerCar {
         setWinner(cars);
     }
 
-    public List<String> getWinner(){
+    public List<String> getWinner() {
         return winnerCarNames;
     }
 
-    public void setWinner(List<Car> cars){
+    public void setWinner(List<Car> cars) {
         winnerCarNames = cars.stream()
                 .filter(car -> car.getCarState() == winnerStateValue)
                 .map(Car::getName)

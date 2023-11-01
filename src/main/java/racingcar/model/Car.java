@@ -7,29 +7,29 @@ public class Car {
     private String carMovedResult;
     private int carState;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = name;
         carState = 0;
         carMovedResult = "";
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getCarState(){
+    public int getCarState() {
         return carState;
     }
 
-    public void setCarState(){
+    public void setCarState() {
         carState = carState + MOVE;
     }
 
-    public String getCarMovedResult(){
+    public String getCarMovedResult() {
         return carMovedResult;
     }
 
-    public void setCarMovedResult(){
+    public void setCarMovedResult() {
         carMovedResult = carMovedResult + MOVE_FORWARD;
     }
 }

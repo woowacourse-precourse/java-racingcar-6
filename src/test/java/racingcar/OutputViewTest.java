@@ -11,7 +11,7 @@ public class OutputViewTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
 
     @Test
-    void 이동을_잘_하는지_확인(){
+    void 이동을_잘_하는지_확인() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "2");
@@ -33,7 +33,7 @@ public class OutputViewTest extends NsTest {
     }
 
     @Test
-    void 모두_우승자일때_잘_출력하는지_확인(){
+    void 모두_우승자일때_잘_출력하는지_확인() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "1");
