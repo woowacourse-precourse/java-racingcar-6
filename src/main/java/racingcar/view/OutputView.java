@@ -20,4 +20,9 @@ public class OutputView {
         String winnerNamesMessage = String.join(NAME_DELIMITER, winnersNames);
         System.out.print(FINAL_WINNER + LOCATION_AND_NAME_DELIMITER + winnerNamesMessage);
     }
+
+    public void displayStart() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
 }

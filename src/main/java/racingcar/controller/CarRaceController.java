@@ -16,8 +16,8 @@ public class CarRaceController {
 
         int iteration = inputView.readNumberInput();
         CarRace carRace = new CarRace(cars, iteration);
-        System.out.println();
-        System.out.println("실행 결과");
+
+        outputView.displayStart();
         for (int i = 0; i < carRace.getIteration(); i++) {
             carRace.runRace();
             outputView.displayPerRace(cars);
