@@ -17,11 +17,12 @@ public class RacingCarTest {
     @Test
     void determineWinnerTest() {
 
-        RacingCar racingCar = new RacingCar(new ArrayList<String>(Arrays.asList("냠냠","뭐뭐")));
+        RacingCar racingCar = new RacingCar(new ArrayList<String>(Arrays.asList("냠냠", "뭐뭐")));
         racingCar.stopOrMoveForward();
 
-        assertThat(racingCar.determineWinner()).as("경주의 우승자가 예상한 값이 아닙니다.")
-                .containsAnyOf("냠냠","뭐뭐");
+        assertThat(racingCar.determineWinner())
+                .as("경주의 우승자가 예상한 값이 아닙니다.")
+                .containsAnyOf("냠냠", "뭐뭐");
 
 
     }

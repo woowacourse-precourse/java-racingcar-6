@@ -42,7 +42,7 @@ public class InputView {
 
     }
 
-    public static void  checkMinimumRacingCount(Integer playerNumber){
+    public static void checkMinimumRacingCount(Integer playerNumber) {
         if (playerNumber < RACING_COUNT_MINIMUM) {
             throw new NumberFormatException();
         }

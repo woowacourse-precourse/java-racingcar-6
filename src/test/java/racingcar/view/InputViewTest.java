@@ -50,12 +50,10 @@ public class InputViewTest extends IOTest {
     }
 
 
-
-
     @DisplayName("플레이어 경주 횟수 입력 정상 테스트")
     @ParameterizedTest
     @MethodSource("provideNormalInputRacingCount")
-    void inputRacingCountNormalTest(String playerInput, int expectedRacingCount){
+    void inputRacingCountNormalTest(String playerInput, int expectedRacingCount) {
         //given
         final InputView inputView = new InputView();
         systemInAndEnd(playerInput);
@@ -71,9 +69,9 @@ public class InputViewTest extends IOTest {
 
     private static Stream<Arguments> provideNormalInputRacingCount() {
         return Stream.of(
-                Arguments.of("34",34),
-                Arguments.of("    34    ",34),
-                Arguments.of("  09 ",9)
+                Arguments.of("34", 34),
+                Arguments.of("    34    ", 34),
+                Arguments.of("  09 ", 9)
         );
     }
 
@@ -81,13 +79,15 @@ public class InputViewTest extends IOTest {
     @DisplayName("플레이어 경주 횟수 입력 에러 테스트")
     @ParameterizedTest
     @MethodSource("provideExceptionInputRacingCount")
-    void inputRacingCountExceptionTest(String playerInput){
+    void inputRacingCountExceptionTest(String playerInput) {
         //given
         final InputView inputView = new InputView();
         systemInAndEnd(playerInput);
 
         //when then
-        assertThatIllegalArgumentException().isThrownBy(() -> {inputView.inputRacingCount();});
+        assertThatIllegalArgumentException().isThrownBy(() -> {
+            inputView.inputRacingCount();
+        });
 
 
     }
@@ -100,13 +100,6 @@ public class InputViewTest extends IOTest {
                 Arguments.of("-4")
         );
     }
-
-
-
-
-
-
-
 
 
 }
