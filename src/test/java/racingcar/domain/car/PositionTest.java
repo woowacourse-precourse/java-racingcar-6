@@ -22,6 +22,6 @@ class PositionTest {
 		Position movedPosition = position.add(1);
 
 		// then
-        assertEquals(1, movedPosition.getPosition());
+		assertEquals(1, movedPosition.getPosition());
 	}
 }
