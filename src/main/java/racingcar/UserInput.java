@@ -39,10 +39,25 @@ public class UserInput {
         }
     }
 
+    private void checkOverlap(String[] strings){
+        for(int i = 0; i < strings.length; i++){
+            checkSameName(strings, i+1, strings[i]);
+        }
+    }
+
+    private void checkSameName(String[] strings, int idx, String name){
+        for(int i = idx; i < strings.length; i++){
+            if(strings[i] == name){
+                throw new IllegalArgumentException("이름은 중복될 수 없습니다");
+            }
+        }
+    }
+
     private void checkName(String[] str){
         checkLength(str);
         checkNull(str);
         checkBlank(str);
+        checkOverlap(str);
     }
 
     public int inputCount(){
