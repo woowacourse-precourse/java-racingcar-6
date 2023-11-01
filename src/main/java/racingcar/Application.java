@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Application {
@@ -21,7 +22,7 @@ public class Application {
         for (int i = 0; i < round; i++) {
             playOneRound(cars);
         }
-        ist<String> winners = determineWinners(cars);
+        List<String> winners = determineWinners(cars);
         printWinners(winners);
     }
 
@@ -65,6 +66,22 @@ public class Application {
             car.printDistance();
         }
         System.out.println();
+    }
+
+    private static List<String> determineWinners(Car[] cars) {
+        List<String> winners = new LinkedList<>();
+        int maxDistance = -1;
+        for (Car car : cars) {
+            if (car.getCurrentDistance() > maxDistance) {
+                maxDistance = car.getCurrentDistance();
+                winners.clear();
+                winners.add(car.getCarName());
+            }
+            if (car.getCurrentDistance() == maxDistance) {
+                winners.add(car.getCarName());
+            }
+        }
+        return winners;
     }
 
     private static void printWinners(List<String> winners) {
