@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Judgement {
-    public void whoisWinner(ArrayList<String> cars, ArrayList<Integer> progress){
+    public String whoisWinner(ArrayList<String> cars, ArrayList<Integer> progress){
         int maxPoint = 0;
         for(int i=0; i<cars.size(); i++){
             maxPoint = Math.max(maxPoint, progress.get(i));
@@ -17,6 +17,7 @@ public class Judgement {
             }
         }
         String result = String.join(", ", winners);
-        System.out.println("최종 우승자 : " + result);
+
+        return result;
     }
 }

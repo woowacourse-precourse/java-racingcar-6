@@ -6,7 +6,6 @@ import java.util.Arrays;
 
 public class Userconsole {
     public ArrayList<String> makingCarList(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carname = Console.readLine();
         if(carname.equals("")){
             throw new IllegalArgumentException();
@@ -24,7 +23,6 @@ public class Userconsole {
     }
 
     public int askRounds(){
-        System.out.println("시도할 횟수는 몇회인가요?");
         String input = Console.readLine();
         int rounds = Integer.parseInt(input);
         return rounds;

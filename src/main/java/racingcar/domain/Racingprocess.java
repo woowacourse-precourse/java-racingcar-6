@@ -10,19 +10,21 @@ public class Racingprocess {
             progress.set(carindex, progress.get(carindex) + 1);
         }
     }
-    public static void printRacingStatus(ArrayList<String> cars, ArrayList<Integer> progress, int carindex){
+    public String printRacingStatus(ArrayList<String> cars, ArrayList<Integer> progress, int carindex){
         String progressbar = "";
         for(int i=0; i<progress.get(carindex); i++){
             progressbar += "-";
         }
-        System.out.println(cars.get(carindex) + " : " + progressbar);
+
+        String result = cars.get(carindex) + " : " + progressbar;
+        return result;
     }
 
     public void doRace(int rounds, ArrayList<String> cars, ArrayList<Integer> progress){
         for(int i=0; i<rounds; i++){
             for(int j=0; j<cars.size(); j++){
                 randomForward(progress, j);
-                printRacingStatus(cars, progress, j);
+                System.out.println(printRacingStatus(cars, progress, j));
             }
             System.out.println(" ");
         }
