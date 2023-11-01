@@ -32,7 +32,7 @@ class ApplicationTest extends NsTest {
 //            "pobi,javaji"                                             // 3. 이름 길이 예외처리
 //    })
     @Test
-    void 이름에_대한_예외_처리(String input) {
+    void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
