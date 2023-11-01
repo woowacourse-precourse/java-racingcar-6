@@ -67,19 +67,6 @@ class CarCollectionTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_리스트_반환() {
-        List<String> expectCarNameStringList = List.of("mooso", "woni", "pobi", "jun");
-        CarCollection givenCarCollect = CarCollection.initCarCollect();
-
-        expectCarNameStringList.stream()
-                .forEach(carName -> givenCarCollect.add(Car.fromString(carName)));
-        List<Name> carNameList = givenCarCollect.getCarNameList();
-        List<String> givenCarNameStringList = carNameList.stream()
-                .map(Name::getName).collect(Collectors.toList());
-        assertThat(givenCarNameStringList).isEqualTo(expectCarNameStringList);
-    }
-
-    @Test
     void 자동차_개수_반환() {
         List<String> givenCarNameStringList = List.of("mooso", "woni", "pobi", "jun");
         CarCollection givenCarCollect = CarCollection.initCarCollect();

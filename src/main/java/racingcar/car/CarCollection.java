@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import racingcar.constant.RacingCarGameText;
-import racingcar.name.Name;
 import racingcar.number.Location;
 
 public class CarCollection {
@@ -44,8 +43,7 @@ public class CarCollection {
     private List<String> getWinners(Location maxLocation) {
         return this.collection.stream()
                 .filter(car -> car.isSameLocation(maxLocation))
-                .map(Car::getCarName)
-                .map(Name::getName)
+                .map(Car::getCarNameString)
                 .collect(Collectors.toList());
     }
 
@@ -53,11 +51,6 @@ public class CarCollection {
         return this.collection.stream()
                 .map(Car::getCarLocation)
                 .max(Location::compareTo).orElse(Location.fromInteger(0));
-    }
-
-    public List<Name> getCarNameList() {
-        return this.collection.stream().map(Car::getCarName)
-                .collect(Collectors.toList());
     }
 
     public void addFromString(String carNameString) {
