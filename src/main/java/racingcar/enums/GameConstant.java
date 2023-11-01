@@ -1,23 +1,31 @@
 package racingcar.enums;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public enum GameConstant {
-    TRUE("true"),
-    FALSE("false"),
     MAXIMUM_LENGTH_OF_CAR_NAME("5"),
-    NUMBERS("(+|-)?[0-9]+"),
-    POSITIVE_NUMBERS("+?[0-9]+"),
     DELIMITER(",");
 
     private final String content;
+    public static final Pattern NUMBER_PATTERN = Pattern.compile("(\\+|-)?[0-9]+");
+    public static final Pattern POSITIVE_NUMBER_PATTERN = Pattern.compile("\\+?[0-9]+");
+    public static final Pattern TRUE_PATTERN = Pattern.compile("true");
+    public static final Pattern FALSE_PATTERN = Pattern.compile("false");
 
     GameConstant(String content) {
         this.content = content;
     }
 
     public Boolean getContentToBoolean() {
-        if (this.content.equals("true")) {
+        Matcher trueMatcher = TRUE_PATTERN.matcher(this.content);
+        Matcher falseMatcher = FALSE_PATTERN.matcher(this.content);
+
+        if (trueMatcher.matches()) {
             return true;
-        } else if (this.content.equals("false")) {
+        }
+
+        if (falseMatcher.matches()) {
             return false;
         }
 
@@ -25,9 +33,9 @@ public enum GameConstant {
     }
 
     public Integer getContentToInteger() {
-        String numbersPattern = GameConstant.NUMBERS.getContent();
+        Matcher matcher = NUMBER_PATTERN.matcher(this.content);
 
-        if (this.content.matches(numbersPattern)) {
+        if (matcher.matches()) {
             return Integer.parseInt(this.content);
         }
 
