@@ -44,9 +44,18 @@ class OutputTest {
         cars.get(0).setPosition(1L);
         cars.get(1).setPosition(2L);
         cars.get(2).setPosition(3L);
-        Output.printResult(cars);
 
+        Output.printResult(cars);
         String expectedOutput = "pobi : -\ncrong : --\nhonux : ---";
         assertEquals(expectedOutput, outputStreamCaptor.toString().trim().replaceAll("\r\n", "\n"));
+    }
+
+    @Test //7번 기능 테스트
+    void printWinner() {
+        List<Car> winnerCars = List.of(new Car("pobi"), new Car("honux"));
+
+        Output.printWinner(winnerCars);
+        String expectedOutput = "최종 우승자 : pobi, honux";
+        assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
     }
 }
