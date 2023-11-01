@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 
-public class InputController {
+public class InputException {
     private final Parser parser = new Parser();
     public void checkCarNames(String input){
         checkEmpty(input);
@@ -33,7 +33,7 @@ public class InputController {
     }
 
     private void checkCarNameLength(String carName){
-        if (carName.length() > 5){
+        if (carName.length() > 4){
             maxLengthException();
         }
         if (carName.length() < 1){
@@ -42,7 +42,7 @@ public class InputController {
     }
 
     private void maxLengthException(){
-        throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+        throw new IllegalArgumentException("자동차 이름은 5글자 미만여야 합니다.");
     }
 
     private void minLengthException(){
