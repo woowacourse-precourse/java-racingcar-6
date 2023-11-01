@@ -1,15 +1,15 @@
 package racingcar.domain;
 
-public class Car implements Comparable<Car>{
-
+public class Car {
+    private static final int START_POSITION = 0;
     private static final int MOVE_CONDITION = 4;
     private final String name;
     private int position;
 
-    public Car(String name, int position) {
+    public Car(String name) {
         validateCarName(name);
         this.name = name;
-        this.position = position;
+        this.position = START_POSITION;
     }
 
     private void validateCarName(String name) {
@@ -31,14 +31,8 @@ public class Car implements Comparable<Car>{
     public boolean isSamePosition(Car other) {
         return this.position == other.position;
     }
-
-    @Override
-    public int compareTo(Car other) {
-        return this.position - other.position;
-    }
-
-    @Override
-    public String toString() {
-        return this.name;
+    
+    public String getName() {
+        return name;
     }
 }
