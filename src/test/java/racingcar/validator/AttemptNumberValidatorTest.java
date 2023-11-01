@@ -1,11 +1,10 @@
-package racingcar.model;
+package racingcar.validator;
 
 import org.junit.jupiter.api.Test;
-import racingcar.validator.AttemptNumberValidator;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-class RaceTest {
+class AttemptNumberValidatorTest {
     @Test
     void validateNumber_should_throw_exception_when_attempts_is_not_a_number() {
         assertThatThrownBy(() -> AttemptNumberValidator.validateNumber("abc"))
