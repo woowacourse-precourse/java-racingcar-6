@@ -14,7 +14,7 @@ public class RacingCarGame implements Game {
 
     @Override
     public void play(String[] args) {
-        if (args.length > 0) {
+        if (args != null && args.length > 0) {
             makeCars(args[0]);
             validateAttempts(args[1]);
         }
