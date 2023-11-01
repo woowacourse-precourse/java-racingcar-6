@@ -16,7 +16,7 @@ public class CarLocation {
     }
 
     public int getValue() {
-        return this.carLocation;
+        return carLocation;
     }
 
     @Override

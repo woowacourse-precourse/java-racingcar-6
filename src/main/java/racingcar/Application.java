@@ -2,7 +2,6 @@ package racingcar;
 
 import controller.CarRace;
 import controller.Race;
-import domain.CarRaceResultEvaluator;
 import domain.OneStepMoveStrategy;
 import domain.RandomMoveJudgement;
 import view.ConsoleInput;

@@ -9,20 +9,20 @@ public class CarName {
     private final String carName;
 
     public CarName(String carName) {
-        StringLengthValidator.validateMaxLength(carName,MAX_LENGTH);
+        StringLengthValidator.validateMaxLength(carName, MAX_LENGTH);
         this.carName = carName;
     }
 
-    public String getValue(){
+    public String getValue() {
         return carName;
     }
 
     @Override
-    public boolean equals(Object o){
-        if(this == o){
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if(o == null || getClass() != o.getClass()){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         CarName name = (CarName) o;
@@ -30,7 +30,7 @@ public class CarName {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hashCode(carName);
     }
 }

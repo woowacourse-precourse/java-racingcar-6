@@ -84,8 +84,8 @@ public class CarRace implements Race {
 
     private void displayRoundResults(Cars cars) {
         List<RoundResultDto> carsInformation = cars.getCarsInformation();
-        String roundDto = RoundResultFormatter.format(carsInformation);
-        output.print(roundDto);
+        String roundResult = RoundResultFormatter.format(carsInformation);
+        output.print(roundResult);
     }
 
     private void displayRaceWinners(Cars cars) {
