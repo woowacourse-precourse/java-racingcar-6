@@ -2,9 +2,11 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Engine;
 
+@DisplayName("엔진 객체 테스트")
 public class EngineTest {
 
     @Test
