@@ -8,31 +8,40 @@ import java.util.List;
 import java.util.Map;
 
 public class RacingGame {
-    private List<Car> carList;
-    private RacingSetting racingSetting;
+    private final List<Car> carList;
+    private MoveNum moveNum;
 
     RacingGame() {
-        racingSetting = new RacingSetting();
-        carList = new ArrayList<Car>();
+        carList = new ArrayList<>();
     }
 
     void start() {
-        initializeGameSettings();
+        inputRacingCars();
+        inputMoveNum();
         startRace();
-        printWinner(checkWinner(checkScore()));
+        OutputPrinter.printWinner(checkWinner(checkScore()));
     }
 
-    private void initializeGameSettings() {
-        String[] CarNames = racingSetting.getCarName();
-        for (String currentName: CarNames) {
+    private void inputRacingCars() {
+        OutputPrinter.printRacingCarsInputRequestMessage();
+        RacingCars racingCars = new RacingCars(Util.getUserInput());
+        initalizeCarList(racingCars.getCarName());
+    }
+
+    private void initalizeCarList(String [] carNames) {
+        for (String currentName: carNames) {
             carList.add(new Car(currentName));
         }
-        racingSetting.getMoveNum();
+    }
+
+    private void inputMoveNum() {
+        OutputPrinter.printMoveNumInputRequestMessage();
+        moveNum = new MoveNum(Util.getUserInput());
     }
 
     private void startRace() {
-        System.out.println(System.lineSeparator() + "실행 결과");
-        for (int currentMoveNum = 0; racingSetting.isInRange(currentMoveNum); currentMoveNum++) {
+        OutputPrinter.printMoveResultPrintMessage();
+        for (int currentMoveNum = 0; moveNum.isInRange(currentMoveNum); currentMoveNum++) {
             moveCars();
             printMovingResult();
         }
@@ -57,29 +66,16 @@ public class RacingGame {
 
     private Map<Integer, List<String>> checkScore() {
         Map<Integer, List<String>> scoreBoard = new HashMap<>();
-        addScoreboard(scoreBoard, carList);
+        addScoreboard(scoreBoard);
         return (scoreBoard);
     }
 
     private List<String> checkWinner(Map<Integer, List<String>> scoreboard) {
-        int maxScore = Collections.max(scoreboard.keySet());
-
-        return (scoreboard.get(maxScore));
+        return (scoreboard.get(Collections.max(scoreboard.keySet())));
     }
 
-    private void printWinner(List<String> winnerNames) {
 
-        System.out.print("최종 우승자 : ");
-        for (String currentName: winnerNames) {
-            System.out.print(currentName);
-            if (!currentName.equals(winnerNames.get(winnerNames.size() - 1))) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
-    }
-
-    private void addScoreboard(Map<Integer, List<String>> scoreboard, List<Car> carList) {
+    private void addScoreboard(Map<Integer, List<String>> scoreboard) {
         for (Car currentCar: carList) {
             scoreboard.computeIfAbsent(currentCar.getDestination(), k -> new ArrayList<>()).add(currentCar.getName());
         }

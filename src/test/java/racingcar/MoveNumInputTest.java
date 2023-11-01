@@ -3,13 +3,10 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import java.io.ByteArrayInputStream;
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Field;
-
-import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -94,13 +91,8 @@ public class MoveNumInputTest {
     @Test
     @DisplayName("자동차 이동횟수 입력 안내 메시지 출력 확인")
     void canPrintMoveNumInputInformationTest() throws Exception{
-        String lineSeparator = System.lineSeparator();
-        InputStream input = new ByteArrayInputStream("10".getBytes());
-
-        System.setIn(input);
-        RacingSetting racingSetting = new RacingSetting();
-        racingSetting.getMoveNum();
+        OutputPrinter.printMoveNumInputRequestMessage();
         assertThat(output.toString())
-                .isEqualTo("시도할 회수는 몇회인가요?" + lineSeparator);
+                .isEqualTo("시도할 회수는 몇회인가요?" + System.lineSeparator());
     }
 }

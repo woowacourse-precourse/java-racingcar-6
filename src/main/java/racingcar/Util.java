@@ -12,7 +12,7 @@ public class Util {
         try {
             return (Console.readLine());
         } catch (NoSuchElementException exception) {
-            throw new IllegalArgumentException("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
+            throw new IllegalArgumentException("Error : 입력값이 제대로 들어오지 않았습니다");
         }
     }
 }

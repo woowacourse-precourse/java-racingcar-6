@@ -2,7 +2,7 @@ package racingcar;
 
 public class Information {
     private final static int MAX_CAR_NAME = 5;
-    private String name;
+    private final String name;
     private int Distance;
 
     Information(String name) {

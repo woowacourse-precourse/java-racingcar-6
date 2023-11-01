@@ -10,7 +10,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -45,9 +44,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame();
 
         List<String> winners = Arrays.asList(testWinner.split(","));
-        Method method = racingGame.getClass().getDeclaredMethod("printWinner", List.class);
-        method.setAccessible(true);
-        method.invoke(racingGame, winners);
+        OutputPrinter.printWinner(winners);
         assertThat(output.toString()).isEqualTo("최종 우승자 : 부릉이" + lineSeparator);
     }
     @ParameterizedTest
@@ -57,9 +54,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame();
 
         List<String> winners = Arrays.asList(testWinner.split(","));
-        Method method = racingGame.getClass().getDeclaredMethod("printWinner", List.class);
-        method.setAccessible(true);
-        method.invoke(racingGame, winners);
+        OutputPrinter.printWinner(winners);
         assertThat(output.toString()).isEqualTo("최종 우승자 : 부릉이, 따릉이"+ lineSeparator);
     }
 

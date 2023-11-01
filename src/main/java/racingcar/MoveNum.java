@@ -13,7 +13,7 @@ public class MoveNum {
         return (value > currentNum);
     }
 
-    void isValidMoveNum(String moveNumString) throws IllegalArgumentException {
+    private void isValidMoveNum(String moveNumString) throws IllegalArgumentException {
         if (moveNumString == null || moveNumString.isBlank()) {
             throw new IllegalArgumentException("Error : 시도할 회수에 값이 들어오지 않았습니다");
         }

@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Car {
-    private Information information;
+    private final Information information;
     Car (String name) {
         information = new Information(name);
     }
