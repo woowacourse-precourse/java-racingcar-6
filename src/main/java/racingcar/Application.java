@@ -1,11 +1,10 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Application {
-    private static final Scanner scanner = new Scanner(System.in);
 
     private static void validateCarNames(String carNamesInput) {
         if (carNamesInput == null || carNamesInput.isEmpty()) {
@@ -38,11 +37,11 @@ public class Application {
 
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-        String carNamesInput = scanner.nextLine();
+        String carNamesInput = Console.readLine();
         validateCarNames(carNamesInput);
 
         System.out.println("시도할 회수는 몇회인가요?");
-        String attemptsInput = scanner.nextLine();
+        String attemptsInput = Console.readLine();
         int attempts = parseAttempts(attemptsInput); // 문자열을 숫자로 변환할 수 있는지 검증
         validateAttempts(attempts); // 변환된 숫자를 검증
 
