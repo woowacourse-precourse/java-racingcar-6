@@ -16,6 +16,13 @@ public class Game {
     public void start() {
         for (int i = 0; i < attemptNumber; i++) {
             race.run();
+            printCarStatus();
+        }
+    }
+
+    private void printCarStatus() {
+        for (Car car: race.getCars()) {
+            car.printStatus();
         }
     }
 }

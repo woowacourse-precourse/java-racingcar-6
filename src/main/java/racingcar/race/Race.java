@@ -20,4 +20,8 @@ public class Race {
             car.move(randomNumber);
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
