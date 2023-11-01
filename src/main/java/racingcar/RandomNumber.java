@@ -17,8 +17,8 @@ public class RandomNumber {
         if (randomNum >= GO_RANDOM_NUMBER) {
             location += 1;
         }
-        for (int i = 0; i < location; i++) {
+        /*for (int i = 0; i < location; i++) {
             System.out.print("-");
-        }
+        }*/
     }
 }

@@ -16,6 +16,8 @@ public class Car {
     // 사용자로부터 입력받은 자동차 이름을 쉼표 기준으로 구분하기
     public static List<String> sortCarName() {
         String cars = getCarName();
+        System.out.println(cars);
+
         String[] carsArr = cars.split(",");
         for(String name: carsArr){
             checkCarNameLength(name);
