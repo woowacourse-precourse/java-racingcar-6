@@ -1,0 +1,57 @@
+자동차경주 기능명세서
+
+- [x] 자동차 이름을 입력받는다.
+    - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
+    - [x] 자동차 이름은 5자 이하만 가능하다.
+    - [x] 자동차 이름은 중복될 수 없다.
+- [x] 시도할 횟수를 입력받는다.
+    - [x] 시도할 횟수는 숫자만 가능하다.
+    - [x] 시도할 횟수는 1이상이어야 한다.
+- [x] 자동차 경주를 시작한다.
+    - [x] "실행 결과"를 출력한다.
+- [x] 자동차 경주를 진행한다.
+    - [x] 각 자동차는 0~9 사이의 랜덤 값을 얻는다.
+    - [x] 랜덤 값이 4이상일 경우 전진하고, 아니면 멈춘다.
+    - [x] 각 자동차의 전진 상태를 출력한다.
+    - [x] 위 과정을 시도할 횟수만큼 반복한다.
+- [x] 자동차 경주가 종료된 후 우승자를 출력한다.
+    - [x] 우승자는 한 명 이상일 수 있다.
+    - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
+
+패키지 및 클래스 구성
+
+- view
+    - InputView
+        - getCarNames
+        - getTryCount
+    - OutputView
+        - printRacingResult
+        - printWinners
+- validator
+    - validateCarName
+        - validateCarNameLength
+        - validateCarNameDuplicate
+    - validateTryCount
+        - validateTryCountNumber
+        - validateTryCountMin
+- controller
+    - RacingGameController
+        - play
+        - startRace
+        - createCars
+        - validateCarNames
+        - validateTryCount
+- model
+    - Car
+        - getName
+        - getPosition
+        - move
+        - createRandomNumber
+    - Winner
+        - getMaxPosition
+        - getWinners
+- constants
+    - Constants
+    - ErrorMessages
+    - InputMessages
+    - OutputMessages
