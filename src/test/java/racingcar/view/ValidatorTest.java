@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class ValidatorTest {
 
     @Test
-    void 사용자의_올바른_입력을_받는다() {
+    void 사용자의_올바른_이름_입력을_받는다() {
         Validator.validateNameInput("abc");
         Validator.validateNameInput("a,b,c");
     }
@@ -38,5 +38,17 @@ public class ValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> Validator.validateNameInput("1,abc"));
         assertThrows(IllegalArgumentException.class, () -> Validator.validateNameInput("cde.abc"));
     }
-}
 
+    @Test
+    void 사용자의_올바른_시도_입력을_받는다() {
+        Validator.validateTryCountInput("1");
+        Validator.validateTryCountInput("10");
+    }
+
+    @Test
+    void 잘못된_시도를_검사한다() {
+        assertThrows(IllegalArgumentException.class, () -> Validator.validateTryCountInput("0"));
+        assertThrows(IllegalArgumentException.class, () -> Validator.validateTryCountInput("-1"));
+        assertThrows(IllegalArgumentException.class, () -> Validator.validateTryCountInput("a"));
+    }
+}

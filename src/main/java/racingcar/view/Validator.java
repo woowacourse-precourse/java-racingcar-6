@@ -9,7 +9,21 @@ import java.util.Arrays;
  */
 public class Validator {
     /**
-     * 사용자의 이름을 검사하는 메소드
+     * 사용자의 시도 입력값을 검사하는 메소드
+     *
+     * @param input 사용자가 입력한 시도 횟수
+     */
+    public static void validateTryCountInput(String input) {
+        if (!input.matches("^\\d*$")) {
+            throw new IllegalArgumentException("숫자만 입력해주세요.");
+        }
+        if (Integer.parseInt(input) <= 0) {
+            throw new IllegalArgumentException("0보다 큰 숫자를 입력해주세요.");
+        }
+    }
+
+    /**
+     * 사용자의 이름 입력값을 검사하는 메소드
      * <p>
      * 알파벳 이외의 문자가 들어오는지, 공백이 아니고 5자 이하인지 확인
      *
