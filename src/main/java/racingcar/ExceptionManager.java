@@ -10,31 +10,31 @@ public class ExceptionManager {
     public static final int MAX_NUM_OF_CAR_NAME = 5;
     public static final String RIGHT_NUM_OF_RACE = "[1-9]\\d*";
 
-    public void checkCarsNameException(String carsName) {
-        isEmpty(carsName);
-        isEndWithComma(carsName);
+    public void checkCarsNameException(String namesOfCars) {
+        isEmpty(namesOfCars);
+        isEndWithComma(namesOfCars);
     }
 
-    public void checkCarNameException(String[] carName) {
-        for (String eachName : carName) {
+    public void checkCarNameException(String[] arrayOfCarName) {
+        for (String eachName : arrayOfCarName) {
             isEmpty(eachName);
             isRightSize(eachName);
         }
     }
 
-    public void checkNumberOfRace(String st) {
-        isEmpty(st);
-        isRightNumber(st);
+    public void checkNumberOfRace(String numberOfRace) {
+        isEmpty(numberOfRace);
+        isRightNumber(numberOfRace);
     }
 
-    private void isEmpty(String eachName) {
-        if (eachName.equals("")) {
+    private void isEmpty(String inputValue) {
+        if (inputValue.equals("")) {
             throw new IllegalArgumentException(ERROR_NOT_EMPTY);
         }
     }
 
-    private void isEndWithComma(String carsName) {
-        if (carsName.charAt(carsName.length() - 1) == ',') {
+    private void isEndWithComma(String namesOfCars) {
+        if (namesOfCars.charAt(namesOfCars.length() - 1) == ',') {
             throw new IllegalArgumentException(ERROR_WRONG_CARS_NAME);
         }
     }
@@ -45,8 +45,8 @@ public class ExceptionManager {
         }
     }
 
-    private void isRightNumber(String st) {
-        if (!st.matches(RIGHT_NUM_OF_RACE)) {
+    private void isRightNumber(String numberOfRace) {
+        if (!numberOfRace.matches(RIGHT_NUM_OF_RACE)) {
             throw new IllegalArgumentException(ERROR_WRONG_NUMBER_OF_RACE);
         }
     }

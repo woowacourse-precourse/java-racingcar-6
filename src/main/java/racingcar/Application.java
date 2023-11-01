@@ -1,10 +1,9 @@
 package racingcar;
 
+import static racingcar.OutputView.askNamesOfCars;
 import static racingcar.OutputView.askNumberOfRace;
-import static racingcar.OutputView.showResultOfEachRaceText;
+import static racingcar.OutputView.showResultOfRace;
 import static racingcar.OutputView.showWinner;
-import static racingcar.OutputView.showWinnerText;
-import static racingcar.OutputView.startGame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,21 +14,20 @@ public class Application {
         CustomArrayList<Car> carList = new CustomArrayList<>();
         List<Car> winnerList = new ArrayList<>();
 
-        startGame();
-        String carsName = racingCarGame.getCarsName();
-        String[] carName = racingCarGame.extractCarName(carsName);
+        askNamesOfCars();
+        String namesOfCars = racingCarGame.readNamesOfCars();
+        String[] arrayOfCarName = racingCarGame.splitNamesOfCars(namesOfCars);
+        racingCarGame.generateCarList(arrayOfCarName, carList);
 
         askNumberOfRace();
-        racingCarGame.generateCarList(carName, carList);
-        int numberOfRace = racingCarGame.getCountOfRace();
+        int numberOfRace = racingCarGame.readNumberOfRace();
 
-        showResultOfEachRaceText();
+        showResultOfRace();
         racingCarGame.repeatCarRace(carList, numberOfRace);
         racingCarGame.initializeWinnerList(carList, winnerList);
-        racingCarGame.decideWinner(carList, winnerList);
+        racingCarGame.judgeWinner(carList, winnerList);
 
-        showWinnerText();
-        StringBuilder sb = racingCarGame.printOutWinner(winnerList);
-        showWinner(sb);
+        showWinner();
+        racingCarGame.printOutWinner(winnerList);
     }
 }

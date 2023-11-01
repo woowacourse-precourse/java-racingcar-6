@@ -1,5 +1,6 @@
 package racingcar;
 
+import static racingcar.OutputView.showNameOfWinner;
 import static racingcar.OutputView.showStatusOfCar;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -13,39 +14,32 @@ public class RacingCarGame {
     public RacingCarGame() {
     }
 
-    public String getCarsName() {
-        String carsName = Console.readLine();
-        exceptionManager.checkCarsNameException(carsName);
-        return carsName;
+    public String readNamesOfCars() {
+        String namesOfCars = Console.readLine();
+        exceptionManager.checkCarsNameException(namesOfCars);
+        return namesOfCars;
     }
 
-    public String[] extractCarName(String carsName) {
-        String[] carName = carsName.split("\\s*,\\s*");
-        exceptionManager.checkCarNameException(carName);
-        return carName;
+    public String[] splitNamesOfCars(String namesOfCars) {
+        String[] arrayOfCarName = namesOfCars.split("\\s*,\\s*");
+        exceptionManager.checkCarNameException(arrayOfCarName);
+        return arrayOfCarName;
     }
 
-    public void generateCarList(String[] carName, CustomArrayList<Car> carList) {
-        int repeatNumber = carName.length;
-        int nameOrder = 0;
-        addCarsToCarList(carName, carList, repeatNumber, nameOrder);
-    }
-
-    private void addCarsToCarList(String[] carName,
-                                  CustomArrayList<Car> carList,
-                                  int repeatNumber,
-                                  int nameOrder) {
-        while (repeatNumber != 0) {
-            carList.add(new Car(carName[nameOrder]));
-            repeatNumber--;
-            nameOrder++;
+    public void generateCarList(String[] arrayOfCarName, CustomArrayList<Car> carList) {
+        int countOfRepeat = arrayOfCarName.length;
+        int indexOfArrayOfCarName = 0;
+        while (countOfRepeat != 0) {
+            carList.add(new Car(arrayOfCarName[indexOfArrayOfCarName]));
+            countOfRepeat--;
+            indexOfArrayOfCarName++;
         }
     }
 
-    public int getCountOfRace() {
-        String countOfRace = Console.readLine();
-        exceptionManager.checkNumberOfRace(countOfRace);
-        return Integer.parseInt(countOfRace);
+    public int readNumberOfRace() {
+        String numberOfRace = Console.readLine();
+        exceptionManager.checkNumberOfRace(numberOfRace);
+        return Integer.parseInt(numberOfRace);
     }
 
     public void repeatCarRace(List<Car> carList, int numberOfRace) {
@@ -66,44 +60,44 @@ public class RacingCarGame {
         winnerList.add(carList.get(0));
     }
 
-    public void decideWinner(List<Car> carList, List<Car> winnerList) {
-        int countOfRepeat = 0;
-        while (countOfRepeat < carList.size() - 1) {
-            replaceOrAddWinner(countOfRepeat, carList, winnerList);
-            countOfRepeat++;
-        }
-    }
-
-    private void replaceOrAddWinner(int countOfRepeat, List<Car> carList, List<Car> winnerList) {
+    public void judgeWinner(List<Car> carList, List<Car> winnerList) {
         int baseDistance = winnerList.get(0).getDistance().length();
-        replaceWinner(countOfRepeat, carList, winnerList, baseDistance);
-        addWinner(countOfRepeat, carList, winnerList, baseDistance);
+        int countOfComparison = 0;
+        while (countOfComparison < carList.size() - 1) {
+            replaceWinnerList(baseDistance, countOfComparison, carList, winnerList);
+            addWinnerList(baseDistance, countOfComparison, carList, winnerList);
+            countOfComparison++;
+        }
     }
 
-    private void replaceWinner(int countOfRepeat, List<Car> carList, List<Car> winnerList, int baseDistance) {
-        if (baseDistance < carList.get(countOfRepeat + 1).getDistance().length()) {
+    private void replaceWinnerList(int baseDistance, int indexOfCarList, List<Car> carList, List<Car> winnerList) {
+        if (baseDistance < carList.get(indexOfCarList + 1).getDistance().length()) {
             winnerList.clear();
-            winnerList.add(carList.get(countOfRepeat + 1));
+            winnerList.add(carList.get(indexOfCarList + 1));
         }
     }
 
-    private void addWinner(int index, List<Car> carList, List<Car> winnerList, int distance) {
-        if (distance == carList.get(index + 1).getDistance().length()) {
-            winnerList.add(carList.get(index + 1));
+    private void addWinnerList(int baseDistance, int indexOfCarList, List<Car> carList, List<Car> winnerList) {
+        if (baseDistance == carList.get(indexOfCarList + 1).getDistance().length()) {
+            winnerList.add(carList.get(indexOfCarList + 1));
         }
     }
 
-    public StringBuilder printOutWinner(List<Car> winner) {
-        StringBuilder sb = new StringBuilder();
-        Iterator<Car> it = winner.iterator();
+    public void printOutWinner(List<Car> winnerList) {
+        StringBuilder stringOfWinners = new StringBuilder();
+        Iterator<Car> it = winnerList.iterator();
+        appendNameOfWinner(stringOfWinners, it);
+        showNameOfWinner(stringOfWinners);
+    }
+
+    private void appendNameOfWinner(StringBuilder stringOfWinners, Iterator<Car> it) {
         while (it.hasNext()) {
-            sb.append(it.next().getName());
-            hasNext(sb, it);
+            stringOfWinners.append(it.next().getName());
+            appendCommaBeforeNextName(stringOfWinners, it);
         }
-        return sb;
     }
 
-    private void hasNext(StringBuilder sb, Iterator<Car> it) {
+    private void appendCommaBeforeNextName(StringBuilder sb, Iterator<Car> it) {
         if (it.hasNext()) {
             sb.append(", ");
         }
