@@ -3,9 +3,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    String name;
-    int count;
-    boolean win;
+    public String name;
+    public int count;
+    public boolean win;
+
+    public static final int THRESHOLD = 4;
 
     public Car(String name) {
         this.name = name;
@@ -14,7 +16,7 @@ public class Car {
     }
 
     public void move() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(0, 9) >= THRESHOLD) {
             this.count++;
         }
     }
