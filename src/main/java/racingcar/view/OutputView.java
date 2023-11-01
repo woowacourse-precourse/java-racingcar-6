@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import racingcar.domain.Car;
-
 public class OutputView {
 
     private static final String PLAY_RESULT_MESSAGE = "실행 결과";
@@ -16,9 +14,9 @@ public class OutputView {
         System.out.println(PLAY_RESULT_MESSAGE);
     }
 
-    public static void showCarsByRound(Car car) {
-        System.out.print(car.getName() + COLON);
-        for (int distance = 0; distance < car.getPosition(); distance++) {
+    public static void printStatus(String name, int position) {
+        System.out.print(name + COLON);
+        for (int distance = 0; distance < position; distance++) {
             System.out.print(DISTANCE_MARK);
         }
         printNewLine();
