@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.sevice.Race;
+import racingcar.service.Race;
 
 public class RaceTest {
 
@@ -34,7 +34,7 @@ public class RaceTest {
     }
 
     @Test
-    void executeRace_우승자_판별() {
+    void 우승자_판별() {
         when(car1.getPosition()).thenReturn(5);
         when(car2.getPosition()).thenReturn(3);
 
@@ -46,7 +46,7 @@ public class RaceTest {
 
 
     @Test
-    void 최대_위치() {
+    void 최대_전진_위치_판별() {
         when(car1.getPosition()).thenReturn(3);
         when(car2.getPosition()).thenReturn(5);
 
