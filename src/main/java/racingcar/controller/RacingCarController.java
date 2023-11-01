@@ -38,6 +38,7 @@ public class RacingCarController {
             cars.moveAll(racingCarRandomMoveUtils);
             outputView.printRoundByExecutionResults(cars);
         }
+        outputView.printRacingCarWinnerResult(cars);
     }
 
 
