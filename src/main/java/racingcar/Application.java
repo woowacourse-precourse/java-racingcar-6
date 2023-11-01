@@ -21,7 +21,7 @@ public class Application {
         userInput.setAttemptsNumber(attempsNumber);
         userInput.checkAttempsNumberValidity();
 
-        Cars cars = new Cars(userInput);
+        Cars cars = new Cars(userInput.getCarArray());
 
         System.out.println("실행 결과");
 

@@ -4,14 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private final UserInput userInput;
     private List<Car> carList = new ArrayList<>();
 
-    public Cars(UserInput userInput) {
-        this.userInput = userInput;
-
-        String[] carArray = userInput.getCarArray();
-
+    public Cars(String[] carArray) {
         for (int i = 0; i < carArray.length; i++) {
             carList.add(new Car(carArray[i]));
         }
