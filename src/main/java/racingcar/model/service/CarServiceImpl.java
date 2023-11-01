@@ -2,6 +2,7 @@ package racingcar.model.service;
 
 import static racingcar.messages.ViewMessage.SEPARATOR;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.dto.Car;
 import racingcar.model.dao.CarDao;
@@ -64,5 +65,15 @@ public class CarServiceImpl implements CarService {
     @Override
     public boolean isRacingcarStop() {
         return carDao.getTryCount() < 1;
+    }
+
+    @Override
+    public List<String> selectWinnerNames() {
+        List<String> winnerNames = new ArrayList<>();
+        List<Car> winners = carDao.selectCarsByTopMoveCount();
+        for (Car winner : winners) {
+            winnerNames.add(winner.getName());
+        }
+        return winnerNames;
     }
 }

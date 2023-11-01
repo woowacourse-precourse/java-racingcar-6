@@ -9,4 +9,5 @@ public interface CarService {
     void goOrStop();
     List<Car> showCarLineupInfo();
     boolean isRacingcarStop();
+    List<String> selectWinnerNames();
 }
