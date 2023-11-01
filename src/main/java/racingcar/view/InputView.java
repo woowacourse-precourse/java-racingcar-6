@@ -9,7 +9,7 @@ public class InputView {
     private static final String HOW_MANY_TRY_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String PERMIT_ONLY_NUMBER = "입력값은 오직 숫자만 허용합니다.";
     private static final String PERMIT_START_INCLUSIVE_ONE = "입력값은 1 이상부터 허용합니다.";
-    private static final char LEAST_NUMBER_OVER = '1';
+    private static final int LEAST_NUMBER_OVER = 1;
 
     public String inputCarNames() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
@@ -28,17 +28,16 @@ public class InputView {
         return validInputType(Console.readLine());
     }
 
-    // 1이상의 정수값만 허용합니다.
     private Integer validInputType(String input) {
         try {
-            Integer.parseInt(input);
+            int intValue = Integer.parseInt(input);
+
+            if (intValue < LEAST_NUMBER_OVER) {
+                throw new IllegalArgumentException(PERMIT_START_INCLUSIVE_ONE);
+            }
+            return intValue;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(PERMIT_ONLY_NUMBER, e);
         }
-
-        if (LEAST_NUMBER_OVER > input.charAt(0)) {
-            throw new IllegalArgumentException(PERMIT_START_INCLUSIVE_ONE);
-        }
-        return Integer.parseInt(input);
     }
 }
