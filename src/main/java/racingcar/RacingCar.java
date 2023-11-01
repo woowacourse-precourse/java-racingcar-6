@@ -23,7 +23,8 @@ public class RacingCar implements Comparable<RacingCar> {
             count++;
         }
     }
-    
+
+    @Override
     public int compareTo(RacingCar other) {
         return Integer.compare(this.count, other.count);
     }
