@@ -5,13 +5,13 @@ import racingcar.utils.RandomNumberGenerater;
 import java.util.List;
 
 public class Race {
-    int count;
-    int times;
+    long count;
+    long times;
     Cars cars;
 
     private final RandomNumberGenerater randomNumberGenerater = new RandomNumberGenerater();
 
-    public Race(Cars cars, int times) {
+    public Race(Cars cars, long times) {
         this.cars = cars;
         this.times = times;
         this.count = 0;
