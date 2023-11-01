@@ -44,6 +44,10 @@ public class RaceController {
             gameResult.append('\n');
         }
 
+        if (!anyCarMove) {
+            gameResult.append(OutputView.redLight()).append('\n').append('\n');
+        }
+
         return gameResult;
     }
 }

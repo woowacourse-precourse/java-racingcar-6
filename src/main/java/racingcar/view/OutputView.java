@@ -58,5 +58,9 @@ public class OutputView {
         String name = car.getName();
         return name + DELIMITER;
     }
+
+    public static String redLight() {
+        return "빨간 불 입니다...";
+    }
 }
 
