@@ -8,8 +8,8 @@ import racingcar.domain.wrapper.RaceRound;
 public class RaceService {
     private final RefereeService refereeService;
 
-    public RaceService() {
-        refereeService = new RefereeService();
+    public RaceService(RefereeService refereeService) {
+        this.refereeService = refereeService;
     }
 
     public Cars createCars(String carNames) {

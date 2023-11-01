@@ -23,8 +23,8 @@ public class RaceController {
     public RaceController() {
         inputView = new InputView();
         outputView = new OutputView();
-        raceService = new RaceService();
         refereeService = new RefereeService();
+        raceService = new RaceService(refereeService);
     }
 
     public void race() {
