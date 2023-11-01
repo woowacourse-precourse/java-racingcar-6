@@ -16,7 +16,7 @@ public class CarViewValidationTest {
 
         input.add("pobi");
         input.add("woni");
-        input.add("jun112");
+        input.add("jun12");
 
         assertThat(carViewValidation.greaterThanFiveLetter(input)).isFalse();
     }
