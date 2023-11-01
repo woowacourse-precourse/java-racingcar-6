@@ -33,13 +33,14 @@ public class InputView {
     }
 
     // 시도 횟수 입력 받기
-    public int inputTrialNumber() {
+    public String inputTrialNumber() {
         System.out.println(INPUT_TRIAL_NUMBER);
-        String trialNumber = Console.readLine();
+        return Console.readLine();
+    }
+    public int convertInputTrialNumber() {
+        String trialNumber = inputTrialNumber();
+        inputValidator.validateTrialNumber(trialNumber);
 
-        inputValidator.isNumberOnly(trialNumber);
-        inputValidator.isPositiveOnly(trialNumber);
-
-        return inputParser.parseTrialNumber(trialNumber);
+        return inputParser.convertTrialNumber(trialNumber);
     }
 }
