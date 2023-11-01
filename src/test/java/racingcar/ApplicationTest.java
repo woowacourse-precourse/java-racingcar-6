@@ -86,6 +86,7 @@ class ApplicationTest extends NsTest {
     
     @Test @DisplayName("우승자 찾기_findWinner()")
     void testFindWinner1() {
+        
         List<Car> cars = new ArrayList<>();
         List<String> winner;
         Car car1 = new Car("이름1");
@@ -96,6 +97,7 @@ class ApplicationTest extends NsTest {
 
         winner = executor.findWinner(cars);
         assertThat(winner.get(0)).isEqualTo("이름1");
+        assertThat(winner).hasSize(1);
     }
     
     @Test @DisplayName("우승자_찾기_여러명_findWinner()")
