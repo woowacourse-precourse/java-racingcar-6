@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -39,7 +40,22 @@ public class Application {
                 cars.get(j).step = goStep(cars.get(j).step);
                 System.out.println(cars.get(j).name + " : " + printStep(cars.get(j).step));
             }
+            System.out.println();
         }
+
+        Collections.sort(cars, ((o1, o2) -> {
+            return o2.step - o1.step;
+        }));
+
+        System.out.print("최종 우승자 : ");
+        List<String> winners = new ArrayList<>();
+        winners.add(cars.get(0).name);
+        for(int i=1; i<cars.size(); i++) {
+            if(cars.get(0).step == cars.get(i).step) {
+                winners.add(cars.get(i).name);
+            }
+        }
+        System.out.println(String.join(", ", winners));
     }
 
     public static int goStep(int step) {
