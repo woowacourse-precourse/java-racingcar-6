@@ -21,8 +21,8 @@
 
 ### 입력 유효성 검사
 #### 이동 횟수 입력 확인하기
-- [ ] 입력이 '숫자' 인가?
-- [ ] 입력이 잘못된 값이면 "IllegalArgumentException" 발생 후 종료
+- [x] 입력이 '숫자' 인가?
+- [x] 입력이 잘못된 값이면 "IllegalArgumentException" 발생 후 종료
 #### 자동차 이름 입력값 확인하기
 - [x] 각 이름이 5자 이하인가?
 - [x] 입력이 잘못된 값이면 "IllegalArgumentException" 발생 후 종료

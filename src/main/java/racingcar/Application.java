@@ -27,7 +27,12 @@ public class Application {
 
         System.out.println(TRY_COUNT_INPUT_MESSAGE);
         String tryCountInput = camp.nextstep.edu.missionutils.Console.readLine();
-        int tryCount = Integer.parseInt(tryCountInput);
+        int tryCount;
+        try {
+            tryCount = Integer.parseInt(tryCountInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
 
         System.out.println(RESULT_TITLE_MESSAGE);
         for (int nowCount = 1; nowCount <= tryCount; nowCount++) {
