@@ -32,8 +32,15 @@ public class RacingGame {
         }
     }
 
+    private static int getAttempts() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        return Integer.parseInt(input);
+    }
+
     public void startGame() {
         List<Car> cars = createCars();
+        int attempt = getAttempts();
     }
 
 }
