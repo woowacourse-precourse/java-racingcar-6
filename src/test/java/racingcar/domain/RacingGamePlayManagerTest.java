@@ -45,4 +45,17 @@ class RacingGamePlayManagerTest {
         // then
         assertThat(racingCar.getMoveCount()).isEqualTo(moveCount);
     }
+
+    @Test
+    @DisplayName("차량의 이동 결과를 출력한다.")
+    void 차량_움직인만큼_심볼출력() {
+        // given
+        RacingCar racingCar = new RacingCar("jong", 2);
+
+        // when
+        String moveResult = racingGamePlayManager.getMoveResult(racingCar);
+
+        // then
+        assertThat(moveResult).isEqualTo("jong : --");
+    }
 }
