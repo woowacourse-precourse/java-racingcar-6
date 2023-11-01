@@ -18,4 +18,8 @@ public class Car {
         return this.carName;
     }
 
+    public String movementHistory() {
+        return this.steps.toString();
+    }
+
 }
