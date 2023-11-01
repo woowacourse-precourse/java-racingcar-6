@@ -5,7 +5,7 @@ import racingcar.Validator;
 import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.service.GameService;
-import racingcar.view.View;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +21,11 @@ public class GameController {
 
         while (!finishedGame(trialNum, game.getTriedNum())) {
             gameService.play(game);
-            View.printScore(game.getCars());
+            OutputView.printScore(game.getCars());
         }
 
         List<String> winner = gameService.getWinner(game);
-        View.printWinner(winner);
+        OutputView.printWinner(winner);
     }
 
     private List<Car> createCarList() {
