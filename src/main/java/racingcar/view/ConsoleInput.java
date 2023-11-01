@@ -14,7 +14,6 @@ public class ConsoleInput {
     public static List<Car> carNamesInput() {
         System.out.println(REQUEST_CAR_NAMES_SENTENCE.getText());
         String carNames = Console.readLine();
-        Console.close();
         return parseSentence(carNames);
     }
 
