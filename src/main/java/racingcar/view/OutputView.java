@@ -17,7 +17,10 @@ public class OutputView {
     }
 
     public static void printMove(int distance, String name) {
-        String dash = DASH.repeat(distance);
-        System.out.println(name + " : " + dash);
+        System.out.println(name + " : " + formatDistance(distance));
+    }
+
+    public static String formatDistance(int distance){
+        return DASH.repeat(distance);
     }
 }
