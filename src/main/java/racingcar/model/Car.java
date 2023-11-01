@@ -5,6 +5,8 @@ import java.util.Objects;
 public class Car {
     private String name;
     private int distance;
+    private final int MAX_NAME_LENGTH = 5;
+    private final String MAX_NAME_ERROR_MESSAGE = "자동차의 이름은 최대 5글자 입니다.";
     public Car(String name) {
         this.name = name;
         this.distance = 0;
@@ -29,6 +31,11 @@ public class Car {
     public void move(int randomNumber) {
         if (randomNumber >= 4) {
             distance++;
+        }
+    }
+    private void checkMaxNameLength(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(MAX_NAME_ERROR_MESSAGE);
         }
     }
 
