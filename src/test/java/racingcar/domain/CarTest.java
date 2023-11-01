@@ -3,10 +3,9 @@ package racingcar.domain;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.vo.CarId;
 
 import java.lang.reflect.Field;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CarTest {
 
@@ -19,23 +18,18 @@ public class CarTest {
     }
 
     @Test
-    public void Car_객체_성생시_정적변수_ID_증가하면서_초기화1() {
-        // Car 객체를 생성
+    public void Car_객체_성생시_정적변수_ID_증가하면서_초기화() throws NoSuchFieldException, IllegalAccessException {
         Car car1 = new Car("Car1");
-        assertEquals(0L, car1.getId());
-
         Car car2 = new Car("Car2");
-        assertEquals(1L, car2.getId());
-    }
 
-    @Test
-    public void Car_객체_성생시_정적변수_ID_증가하면서_초기화2() {
-        // Car 객체를 생성
-        Car car1 = new Car("Car1");
-        assertEquals(0L, car1.getId());
+        Field idField = Car.class.getDeclaredField("id");
+        idField.setAccessible(true);
 
-        Car car2 = new Car("Car2");
-        assertEquals(1L, car2.getId());
+        CarId car1Id = (CarId) idField.get(car1);
+        CarId car2Id = (CarId) idField.get(car2);
+
+        Assertions.assertThat(car1Id.value()).isEqualTo(0L);
+        Assertions.assertThat(car2Id.value()).isEqualTo(1L);
     }
 
     @Test

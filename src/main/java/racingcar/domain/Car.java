@@ -17,10 +17,6 @@ public class Car {
         this.position = 0;
     }
 
-    public long getId() {
-        return id.value();
-    }
-
     public String getName() {
         return name.toString();
     }
