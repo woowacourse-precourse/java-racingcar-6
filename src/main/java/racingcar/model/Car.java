@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 	String name;
 	int count;
@@ -17,7 +19,9 @@ public class Car {
 		return count;
 	}
 
-	public void setCountPlus() {
-		this.count++;
+	public void carDrive(int randomNum) {
+		if (randomNum >= 4) {
+			this.count++;
+		}
 	}
 }
