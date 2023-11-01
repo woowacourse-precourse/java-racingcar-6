@@ -41,3 +41,57 @@
 
 - [x]  자동차 이름은 5자 이하만 출력 가능하게 하기
 - [x]  자동차 생성 시 2대 이상으로 생성
+
+## 🛠️ 클래스 설명
+
+### **Controller**
+
+`GameController` 클래스
+
+- `runGame()`: 게임을 실행하는 메서드. 게임 초기화, 라운드 진행, 우승자 출력을 담당
+- `initializeGame()`: 게임 시작 전, 사용자 입력을 받아 자동차 목록 초기화
+- `determineWinners()`: 레이스에서 최종 우승자를 결정하는 메서드. 우승한 차량 이름 목록을 반환
+- `getMaxPosition()`: 레이스에서 가장 멀리 이동한 차량의 위치를 반환하는 메서드
+- `showWinners()`: 레이스에서 우승한 차량 목록을 출력
+- `createCars(List<String> carNames)`: 사용자 입력으로부터 받은 자동차 이름 목록을 `Car` 객체로 생성하여 자동차 목록을 반환
+
+ `Round` 클래스
+
+- `play()`: 라운드를 실행하고 차량의 이동 상황을 출력
+
+### Domain
+
+ `Car` 클래스
+
+- **`Car(String carName)`**: 자동차의 이름을 인자로 받아 초기화하는 생성자
+- **`Car(String carName, int position)`**: 자동차의 이름과 초기 위치를 인자로 받아 초기화하는 생성자
+- **`moveForward()`**: 자동차를 전진시키는 메서드로, 0부터 9 사이의 랜덤한 값을 추출하고, 추출된 값이 4 이상일 때 위치를 1만큼 증가시킴
+- **`getPosition()`**: 현재 자동차의 위치를 반환하는 메서드
+- **`getCarName()`**: 자동차의 이름을 반환하는 메서드
+
+ `Cars` 클래스
+
+- `cars`: `Car` 객체들의 목록을 저장하는 리스트
+- `public Cars(List<Car> cars)`: `Car` 객체들의 목록을 입력받아 `cars` 리스트를 초기화하는 생성자
+- `public List<String> getCarNames()`: 현재 자동차들의 이름 목록을 가져옴
+- `public List<Integer> getCarPositions()`: 현재 자동차들의 위치 목록을 가져와 각 자동차의 `getPosition()` 메서드를 호출하여 위치를 추출하고, 추출된 위치들을 리스트에 저장하여 반환
+- `public void moveCars()`: 모든 자동차를 전진시킵니다. 각 자동차의 `moveForward()` 메서드를 호출하여 전진시킴
+
+### View
+
+ `Input` 클래스
+
+- `inputCarNames()`: 사용자로부터 자동차 이름을 입력받는 메서드
+- `inputTryCount()`: 사용자로부터 시도할 회수를 입력받는 메서드
+
+ `Output` 클래스
+
+- `printCurrentPositions(List<String> carNames, List<Integer> carPositions)`: 현재 자동차들의 위치를 출력하는 메서드
+- `printFinalWinners(List<String> winnerNames)`: 최종 우승자를 출력하는 메서드
+
+### utils
+
+ `ValidationUtils` 클래스
+
+- `validateCarNames(String carNames)`: 자동차 이름을 검증하는 메서드, 각 이름의 길이가 5를 초과하는지 확인
+- `validateUserInput(String userInput)`: 사용자 입력값을 검증하는 메서드. 입력이 숫자로만 이루어져 있는지 확인
