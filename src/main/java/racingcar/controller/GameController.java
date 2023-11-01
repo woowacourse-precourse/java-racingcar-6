@@ -8,14 +8,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.game.Game;
-import racingcar.validator.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
-
-    Validator validator = new Validator();
-
     private Game game;
 
     public void run() {
@@ -45,8 +41,14 @@ public class GameController {
     private List<String> inputCarNames() {
         String carNames = InputView.askCarNames();
         List<String> carName = splitCarNames(carNames);
-        validator.validateCarNameLength(carName);
+        validateCarNameLength(carName);
         return carName;
+    }
+
+    private static void validateCarNameLength(List<String> carName) {
+        if(carName.stream().anyMatch(name -> name.length() >= 5)) {
+            throw new IllegalArgumentException("입력한 자동차 이름중에 5자가 넘는 이름이 있습니다.");
+        }
     }
 
     private void moveCars(List<Car> carList) {
