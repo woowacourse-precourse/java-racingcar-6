@@ -22,6 +22,11 @@ public class GameReferee {
         this.totalRound = carRaceInputService.getInstance().askUserGameRound();
     }
 
+    public void setMaxScore(int score) {
+        if(maxScore < score)
+            this.maxScore = score;
+    }
+
     public ArrayList<Car> setUpCars() {
         ArrayList<Car> cars = new ArrayList<>();
 
@@ -38,5 +43,16 @@ public class GameReferee {
         return Game.getInstance().getRound() < totalRound;
     }
 
+    public ArrayList<Car> selectWinners(ArrayList<Car> cars) {
+        ArrayList<Car> winners = new ArrayList<>();
+
+        for (Car car : cars
+        ) {
+            if (car.getMoves() == this.maxScore) {
+                winners.add(car);
+            }
+        }
+        return cars;
+    }
 
 }
