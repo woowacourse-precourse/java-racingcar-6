@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 public class CarRaceResultEvaluator {
 
+    private static final int DEFAULT_MAX_VALUE = 0;
+
     public WinnerDto getWinners(Cars cars) {
         int maxLocation = getMaxLocation(cars.getAllCars());
         List<String> winnerNames = cars.getAllCars().stream()
@@ -19,7 +21,7 @@ public class CarRaceResultEvaluator {
         return cars.stream()
                 .mapToInt(car -> car.getCarLocation().getValue())
                 .max()
-                .getAsInt();
+                .orElse(DEFAULT_MAX_VALUE);
     }
 
     private boolean isCarAtMaxLocation(Car car, int maxLocation) {
