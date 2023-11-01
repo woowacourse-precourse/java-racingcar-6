@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 
 import racingcar.dto.Car;
+import racingcar.global.Validator;
 
 public class Race {
     public static final int MIN_NUMBER = 1;
@@ -16,10 +17,10 @@ public class Race {
 
     public void init() {
         RaceIO.announceGetCarName();
-        List<String> carName = RaceIO.getCarNameAsList();
+        List<String> carName = Validator.carName(RaceIO.getCarNameAsList());
         this.cars = RaceHelper.setCars(carName);
 
         RaceIO.announceGetCount();
-        count = Integer.parseInt(RaceIO.getCount());
+        count = Validator.count(RaceIO.getCount());
     }
 }
