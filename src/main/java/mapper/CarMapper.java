@@ -35,11 +35,9 @@ public class CarMapper {
     }
 
     private List<CarDto> carsToDto(List<Car> cars) {
-        List<CarDto> carDtoList = new ArrayList<>();
-        for (Car car : cars) {
-            carDtoList.add(new CarDto(car.getName(), car.getPosition()));
-        }
-        return carDtoList;
+        return cars.stream()
+                .map(car -> new CarDto(car.getName(), car.getPosition()))
+                .toList();
     }
 
     public boolean isEnd() {

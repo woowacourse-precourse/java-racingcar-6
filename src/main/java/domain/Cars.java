@@ -3,8 +3,9 @@ package domain;
 import constant.ExceptionMessage;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
@@ -20,11 +21,9 @@ public class Cars {
     }
 
     Cars(List<String> names, List<Integer> position) {
-        List<Car> newCarList = new ArrayList<>();
-        for (int i = 0; i < names.size(); i++) {
-            newCarList.add(new Car(names.get(i), position.get(i)));
-        }
-        carList = Collections.unmodifiableList(newCarList);
+        carList = IntStream.range(0, names.size())
+                .mapToObj(i -> new Car(names.get(i), position.get(i)))
+                .collect(Collectors.toUnmodifiableList());
     }
 
     public void moveCars() {
