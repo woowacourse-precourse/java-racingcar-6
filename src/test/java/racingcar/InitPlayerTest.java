@@ -43,5 +43,4 @@ public class InitPlayerTest {
                 .containsEntry("bb","")
                 .containsEntry("cc","");
     }
-
 }

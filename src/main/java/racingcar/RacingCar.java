@@ -38,11 +38,21 @@ public class RacingCar {
         saveCars(cars);
     }
 
+    public Integer checkRoundsInput(String input) {
+
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public void run(){
         System.out.println(Notification.inputCarsName);
         initPlayer(Console.readLine());
 
         System.out.println(Notification.inputNumOfRounds);
+        int numOfRounds = checkRoundsInput(Console.readLine());
 
         System.out.println(Notification.result);
 
