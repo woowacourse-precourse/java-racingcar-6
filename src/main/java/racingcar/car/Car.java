@@ -1,4 +1,9 @@
-package racingcar;
+package racingcar.car;
+
+import racingcar.name.Name;
+import racingcar.number.Location;
+import racingcar.number.RandomNumber;
+import racingcar.output.OutputView;
 
 public class Car {
     Name carName;
@@ -16,7 +21,7 @@ public class Car {
         this.carStatus = Status.STOP;
     }
 
-    static Car fromString(String carName) {
+    public static Car fromString(String carName) {
         return new Car(carName);
     }
 

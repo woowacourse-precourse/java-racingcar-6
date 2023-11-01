@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.constant;
 
 public interface ErrorText {
     String ERROR_FORMAT_TEXT_NOT_LONGER_THAN = "문자열 자릿수가 %d 이상 넘길 수 없습니다.";

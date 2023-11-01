@@ -8,6 +8,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import racingcar.car.Car;
+import racingcar.car.CarCollection;
+import racingcar.name.Name;
 
 import java.util.stream.Collectors;
 import java.util.List;
@@ -32,6 +35,7 @@ class CarCollectionTest extends NsTest {
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR]");
     }
+
 
     @Test
     void 자동차_일괄_전진_후_출력() {

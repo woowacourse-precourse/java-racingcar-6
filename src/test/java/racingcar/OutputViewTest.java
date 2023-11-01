@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import racingcar.output.OutputView;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

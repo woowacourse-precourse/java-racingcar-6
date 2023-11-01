@@ -1,5 +1,7 @@
 package racingcar.input;
 
+import racingcar.constant.ErrorText;
+
 public class ValidateInput {
     public static void validateStringCount(String input, int maxStringLength) {
         if (input.length() > maxStringLength) {

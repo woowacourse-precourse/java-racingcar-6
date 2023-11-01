@@ -1,8 +1,12 @@
-package racingcar;
+package racingcar.car;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import racingcar.constant.RacingCarGameText;
+import racingcar.name.Name;
+import racingcar.number.Location;
 
 public class CarCollection {
     private ArrayList<Car> collection;
@@ -54,5 +58,10 @@ public class CarCollection {
     public List<Name> getCarNameList() {
         return this.collection.stream().map(Car::getCarName)
                 .collect(Collectors.toList());
+    }
+
+    public void addFromString(String carNameString) {
+        Car newCar = Car.fromString(carNameString);
+        this.collection.add(newCar);
     }
 }

@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.output;
+
+import racingcar.constant.RacingCarGameText;
 
 public class OutputView implements RacingCarGameText {
     private static void printOutput(String outputMessage) {

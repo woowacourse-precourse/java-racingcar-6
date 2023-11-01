@@ -7,6 +7,10 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import racingcar.car.CarCollection;
+import racingcar.game.RacingCarGame;
+import racingcar.number.TryCount;
+import racingcar.output.OutputView;
 
 import java.io.ByteArrayInputStream;
 

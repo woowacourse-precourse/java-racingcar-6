@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.number;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.input.ValidateInput;
 
-class RandomNumber {
+public class RandomNumber {
     private final int start;
     private final int end;
 

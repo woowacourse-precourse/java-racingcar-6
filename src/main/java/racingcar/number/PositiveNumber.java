@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.number;
 
 import racingcar.input.ValidateInput;
 

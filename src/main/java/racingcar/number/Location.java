@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.number;
+
+import racingcar.constant.RacingCarGameText;
 
 public class Location implements Comparable<Location> {
     private PositiveNumber position;

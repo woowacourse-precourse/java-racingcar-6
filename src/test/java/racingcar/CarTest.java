@@ -10,6 +10,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import racingcar.car.Car;
+import racingcar.car.Status;
+import racingcar.number.Location;
 
 class CarTest extends NsTest {
     @CsvSource({

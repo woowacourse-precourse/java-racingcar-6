@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.number;
 
-class TryCount {
+public class TryCount {
     private PositiveNumber count;
 
     private TryCount(String number) {
