@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private List<Car> carList;
+    private final List<Car> carList;
     private static Cars instance;
 
     private Cars(List<Car> carList) {
@@ -21,9 +21,7 @@ public class Cars {
     }
 
     public void racingCar() {
-        for (Car car : carList) {
-            car.dashByRandNum();
-        }
+        carList.forEach(Car::dashByRandNum);
     }
 
     public String getRacingResult() {
