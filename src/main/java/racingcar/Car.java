@@ -1,20 +1,17 @@
 package racingcar;
 
+import static racingcar.Validation.*;
+
 public class Car {
-    private String name;
-    private int position;
+    public String name;
+    public int position;
 
     public Car(String name) {
         this.name = name;
         this.position = 0;
-    }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public int getPosition() {
-        return this.position;
+        checkMaxNameLength(this.name);
+        checkNameIsEmpty(this.name);
     }
 
 }

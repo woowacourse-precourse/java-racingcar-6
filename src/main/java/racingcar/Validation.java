@@ -1,7 +1,9 @@
 package racingcar;
 
+import static racingcar.constants.BoundaryValues.*;
+
 public class Validation {
-    public static void checkCarName(String Input){
+    public static void checkCarNameInput(String Input){
         String userInput = Input.trim();
         checkEmpty(userInput);
         checkFirstComma(userInput, userInput.length() - 1);
@@ -30,6 +32,18 @@ public class Validation {
     public static void checkConsecutiveCommas(String userInput) {
         if (userInput.contains(",,") || userInput.contains(", ,")) {
             throw new IllegalArgumentException("쉼표(,)가 연속으로 입력되었습니다.");
+        }
+    }
+
+    public static void checkMaxNameLength(String carName) {
+        if (carName.length() > maxCarNameLength) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    public static void checkNameIsEmpty(String carName) {
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 1자 이상만 가능합니다.");
         }
     }
 
