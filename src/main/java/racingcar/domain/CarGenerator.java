@@ -20,10 +20,11 @@ public class CarGenerator {
 
         validateCarNameNull(input);
 
-        if(input.charAt(0) == ',' || 
-                input.charAt(lengthCarNames-1) == ','){
-            validateCarNameBlank(input, ",");
-        }
+        // if(input.charAt(0) == ',' || 
+        //         input.charAt(lengthCarNames-1) == ','){
+        //     validateCarNameBlank(input, ",");
+        // }
+        validateCarNameBlank(carNames);
 
         for(int i = 0 ; i < carNames.size(); i++){
             String checkCarNameLength = (String) carNames.get(i);
@@ -41,9 +42,11 @@ public class CarGenerator {
         }
     }
 
-    private void validateCarNameBlank(String input, String checkblank){
-        if (input.isBlank() || checkblank.equals(",")){
-            throw new IllegalArgumentException("공백을 입력 하였습니다.");
+    private void validateCarNameBlank(List<String> carNames){
+        for(int i = 0 ; i < carNames.size(); i++){
+            if (carNames.get(i).isBlank()){
+                throw new IllegalArgumentException("공백을 입력 하였습니다.");
+            }
         }
     }
 
