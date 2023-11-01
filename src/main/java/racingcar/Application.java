@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import static Service.RaceInputCount.raceInputCount;
 import static Service.RaceState.state;
 
 public class Application {
@@ -22,26 +23,16 @@ public class Application {
             carList.add(new Car(token.nextToken()));
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
-
-        int gameCount;
-
-        try {
-            gameCount = Integer.parseInt(Console.readLine());
-            if (gameCount <= 0) {
-                throw new IllegalArgumentException("시도할 회수는 0 이하일 수 없습니다.");
-            }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("올바른 숫자 형식이 아닙니다.");
-        }
+        // 게임 회수 입력
+        int gameCount = raceInputCount();
 
         System.out.println("\n실행 결과");
         /**
          * 게임 회수만큼 레이스 진행
          */
         for (int i = 0; i < gameCount; i++) {
-            for (int j = 0; j < carList.size(); j++) {
-                carList.get(j).race();
+            for (Car car : carList) {
+                car.race();
             }
             state(carList);
         }
