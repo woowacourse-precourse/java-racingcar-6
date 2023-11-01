@@ -1,5 +1,7 @@
 package racingcar.utils;
 
+import java.util.List;
+
 public class Validator {
     final static int MAX_NAME_LENGTH = 5;
     final static int MIN_ATTEMPT_COUNT = 0;
@@ -11,6 +13,18 @@ public class Validator {
 
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("5자 이하의 이름을 입력해주세요.");
+        }
+    }
+
+    public static void carNameNumber(List<String> car_name) {
+        if (car_name.size() < 2) {
+            throw new IllegalArgumentException("자동차 이름을 두 개 이상 입력하세요.");
+        }
+    }
+
+    public static void carNameDuplicateCheck(List<String> car_name) {
+        if (car_name.size() != car_name.stream().distinct().count()) {
+            throw new IllegalArgumentException("자동차 이름이 중복되었습니다.");
         }
     }
 
