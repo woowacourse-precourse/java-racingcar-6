@@ -17,7 +17,7 @@ class CarsTest {
 
     @ParameterizedTest
     @MethodSource("provideForCarNamesIsDuplicate")
-    @DisplayName("자동차 이름 중복일 경우 예외 처리")
+    @DisplayName("자동차 이름 중복일 경우 예외 처리 테스트")
     void carNamesIsDuplicatedErrorTest(final List<String> names) {
         final String message = ErrorMessages.CAR_NAME_IS_DUPLICATED.getMessage();
         assertThatThrownBy(() -> new Cars(names))

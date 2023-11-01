@@ -14,7 +14,7 @@ class CarTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"abcdef", "ghijkl", "mnopqrs"})
-    @DisplayName("자동차 이름 입력 다섯 자 초과인 경우 예외 처리")
+    @DisplayName("자동차 이름 입력 다섯 자 초과인 경우 예외 처리 테스트")
     void carNameIsTooLongErrorTest(final String name) {
         final String message = ErrorMessages.CAR_NAME_IS_TOO_LONG.getMessage();
         assertThatThrownBy(() -> new Car(name))
@@ -25,7 +25,7 @@ class CarTest {
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {" ", "\t", "\n"})
-    @DisplayName("자동차 이름 입력 NULL 혹은 공백일 경우 예외 처리")
+    @DisplayName("자동차 이름 입력 NULL 혹은 공백일 경우 예외 처리 테스트")
     void carNameIsNullOrBlankErrorTest(final String name) {
         final String message = ErrorMessages.CAR_NAME_IS_NULL_OR_BLANK.getMessage();
         assertThatThrownBy(() -> new Car(name))
