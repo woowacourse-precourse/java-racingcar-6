@@ -8,7 +8,7 @@ public class RoundValidator {
         int naturalNumber;
         try {
             naturalNumber = Integer.parseInt(number);
-            if (naturalNumber < 1 || naturalNumber > 10) {
+            if (naturalNumber < 1 || naturalNumber > 20) {
                 throw new Exception();
             }
         } catch (Exception e) {
