@@ -98,6 +98,39 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_최대_위치_탐색_1명() {
+        String[] names = {
+                "abc", "def", "ghi"
+        };
+        CarList carList = new CarList(names);
+        carList.plusOnePosition(0);
+        carList.plusOnePosition(0);
+        int[] maxPositionIndexArray = carList.findMaxCarPositionIndex();
+        assertThat(maxPositionIndexArray)
+                .containsExactly(0);
+
+        carList = new CarList(names);
+        carList.plusOnePosition(1);
+        maxPositionIndexArray = carList.findMaxCarPositionIndex();
+        assertThat(maxPositionIndexArray)
+                .containsExactly(1);
+    }
+
+    @Test
+    void 자동차_별_최대_위치_탐색_다수() {
+        String[] names = {
+                "abc", "def", "ghi"
+        };
+        CarList carList = new CarList(names);
+        carList.plusOnePosition(0);
+        carList.plusOnePosition(1);
+        int[] maxPositionIndexArray = carList.findMaxCarPositionIndex();
+        assertThat(maxPositionIndexArray)
+                .containsExactly(0, 1);
+    }
+
+
+    @Test
     void 다수_승리자_출력() {
         assertRandomNumberInRangeTest(
                 () -> {
