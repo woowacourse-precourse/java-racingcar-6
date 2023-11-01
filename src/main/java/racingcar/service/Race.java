@@ -12,6 +12,8 @@ public class Race {
 
     public void start() {
         initializeCars();
+        int rounds = getRounds();
+        startRace(rounds);
     }
 
     private void initializeCars() {
@@ -19,5 +21,13 @@ public class Race {
         for (String name : carNames.split(",")) {
             cars.add(new Car(name.trim()));
         }
+    }
+
+    private int getRounds() {
+        return Input.getRounds();
+    }
+
+    private void startRace(int rounds) {
+
     }
 }
