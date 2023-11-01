@@ -2,8 +2,8 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
+import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.ExceptionConstants;
@@ -18,7 +18,7 @@ class CarTest {
     String validName = "차1";
 
     // when
-    Car car = Car.from(validName);
+    Car car = Car.from(new CarName(validName), new Location());
 
     // then
     assertThat(car.getCarName()).isEqualTo(validName);
@@ -31,8 +31,7 @@ class CarTest {
     String invalidName = "이름길이제한5글자";
 
     // when & then
-    assertThrows(RacingCarGameException.class, () -> Car.from(invalidName));
-    assertThatThrownBy(() -> Car.from(invalidName))
+    assertThatThrownBy(() -> Car.from(new CarName(invalidName), new Location()))
         .isInstanceOf(RacingCarGameException.class)
         .hasMessageContaining(ExceptionConstants.INVALID_SCOPE_NAME);
   }
@@ -44,7 +43,7 @@ class CarTest {
     String invalidName = "";
 
     // when & then
-    assertThatThrownBy(() -> Car.from(invalidName))
+    assertThatThrownBy(() -> Car.from(new CarName(invalidName), new Location()))
         .isInstanceOf(RacingCarGameException.class)
         .hasMessageContaining(ExceptionConstants.EMPTY_CAR_NAME);
   }
@@ -56,7 +55,7 @@ class CarTest {
     String invalidName = null;
 
     // when & then
-    assertThatThrownBy(() -> Car.from(invalidName))
+    assertThatThrownBy(() -> Car.from(new CarName(invalidName), new Location()))
         .isInstanceOf(RacingCarGameException.class)
         .hasMessageContaining(ExceptionConstants.EMPTY_CAR_NAME);
   }
@@ -67,7 +66,7 @@ class CarTest {
     // given
     String invalidName = "!@#*";
     // when & then
-    assertThatThrownBy(() -> Car.from(invalidName))
+    assertThatThrownBy(() -> Car.from(new CarName(invalidName), new Location()))
         .isInstanceOf(RacingCarGameException.class)
         .hasMessageContaining(ExceptionConstants.UNALLOWED_SPECIAL_SYMBOL);
   }
