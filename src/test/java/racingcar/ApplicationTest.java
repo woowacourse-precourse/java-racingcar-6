@@ -31,6 +31,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    public void 모든_자동차가_한번도_움직이지_않으면_우승자_없음() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "3");
+                    assertThat(output()).contains("pobi : ", "woni : ", "자동차가 전진하지 않아 우승자가 없습니다.");
+                },
+                STOP, STOP, STOP, STOP, STOP, STOP
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
