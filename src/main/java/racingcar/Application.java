@@ -20,6 +20,7 @@ public class Application {
 
         List<String> carNames = Arrays.stream(carNameInput.split(",")).toList();
         for (String carName : carNames) {
+            validateCarName(carName);
             Car car = new Car(carName);
             cars.add(car);
         }
@@ -75,5 +76,11 @@ public class Application {
         List<String> winners = getWinners();
         System.out.print(FINAL_WINNERS_MESSAGE);
         System.out.println(String.join(", ", winners));
+    }
+
+    static void validateCarName(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 }

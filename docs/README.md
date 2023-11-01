@@ -24,8 +24,8 @@
 - [ ] 입력이 '숫자' 인가?
 - [ ] 입력이 잘못된 값이면 "IllegalArgumentException" 발생 후 종료
 #### 자동차 이름 입력값 확인하기
-- [ ] 각 이름이 5자 이하인가?
-- [ ] 입력이 잘못된 값이면 "IllegalArgumentException" 발생 후 종료
+- [x] 각 이름이 5자 이하인가?
+- [x] 입력이 잘못된 값이면 "IllegalArgumentException" 발생 후 종료
 
 ### 각 차수 진행 기능 (모든 자동차에 대해 반복)
 - [x] 0~9 사이 랜덤 값 생성
