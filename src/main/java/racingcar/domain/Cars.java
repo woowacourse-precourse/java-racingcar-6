@@ -10,7 +10,7 @@ import java.util.List;
 public class Cars {
     private final List<Car> carList;
 
-    public Cars(List<String> carNameList) {
+    private Cars(List<String> carNameList) {
         this.carList = carNameList.stream()
                 .map(Car::new)
                 .toList();
@@ -49,7 +49,7 @@ public class Cars {
         return car.getPosition() == maxPosition;
     }
 
-    public int getMaxPosition() {
+    private int getMaxPosition() {
         return carList.stream()
                 .mapToInt(Car::getPosition)
                 .max()
