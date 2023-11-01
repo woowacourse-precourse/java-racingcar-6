@@ -7,13 +7,13 @@
   - 사용자가 잘못된 값을 입력하는 경우 `IllegalArguemntExceptopn`을 발생시킨다.
     - 공백을 입력하는 경우
     - 이름이 5글자를 초과하는 경우
-- [ ] 0에서 9사이에서 랜덤숫자 n개를 생성한다. - `NumberGenerator#createRandomNumbers(n)`
-- [ ] 차를 한 칸 전진한다. `Car#move()`
+- [x] 0에서 9사이에서 랜덤숫자 n개를 생성한다. - `NumberGenerator#createRandomNumbers(n)`
+- [x] 차를 한 칸 전진한다. `Car#move()`
   -  주어진 숫자가 4이상이면 자동차의 위치를 1 증가 시키고, 그렇지 않으면 변화시키지 않는다.
-- [ ] 자동차의 이름과 위치를 보고 상태를 출력한다. - `IOService#printCarState()`
+- [x] 자동차의 이름과 위치를 보고 상태를 출력한다. - `IOService#printCarState()`
   - "carName : - * car.pos" 형식
-- [ ] 게임이 끝나면 자동차의 위치를 보고 우승자 리스트를 생성한다. - `GameService#selectWiners()`
-- [ ] 우승자 목록을 출력한다. - `IOService#printWiners()`
+- [x] 게임이 끝나면 자동차의 위치를 보고 우승자 리스트를 생성한다. - `GameService#selectWinners()`
+- [x] 우승자 목록을 출력한다. - `IOService#printWinners()`
   - 문자열 리스트를 인자로 받으면, 해당 리스트 내부에 문자열을 ', '로 구분하여 출력한다.
 
 ## 기능 요구 사항ㅕ
