@@ -1,13 +1,35 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
 public class RaceExecutor {
+
     private final MovementDecider movementDecider = new MovementDecider();
+    private final RaceDto raceDto;
 
-    private HashMap<String, Integer> cars = new HashMap<>();
-
-    private void singleAttempt(){
+    RaceExecutor(RaceDto raceDto) {
+        this.raceDto = raceDto;
     }
-    // Dto를 입력받고, 회수에 해당하는 만큼 무브먼트 디사이더를 실행한다.
+
+    public RaceDto singleAttempt() {
+        Set<String> nameSet = raceDto.getCars().keySet();
+        for (String name : nameSet) {
+            moveCarAtIfPossible(name);
+        }
+        return raceDto;
+    }
+
+    private void moveCarAtIfPossible(String name) {
+        if (movementDecider.decide()) {
+            moveCarByName(name);
+        }
+    }
+
+    private void moveCarByName(String name) {
+        int originalValue = raceDto.getCars().get(name);
+        raceDto.getCars().put(name, originalValue + 1);
+    }
 }
