@@ -16,6 +16,8 @@ public class Application {
             }
             System.out.println("");
         }
+        List<String> winners = determineWinners(cars);
+        System.out.print("최종 우승자: " + String.join(", ", winners));
     }
 
     private static List<Car> inputCarNames() {
@@ -52,6 +54,22 @@ public class Application {
         }
         return 0;
     }
+    private static List<String> determineWinners(List<Car> cars) {
+        int maxPosition = 0;
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+                winners.clear();
+                winners.add(car.getName());
+            } else if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
 }
 
 class Car {
@@ -61,6 +79,13 @@ class Car {
     public Car(String name) {
         this.name = name;
         this.position = 0;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
     public void moveForwardOrStop() {
         int randomValue = Randoms.pickNumberInRange(0, 9);
