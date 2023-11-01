@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.validator.CarNameInputValidator;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.validator.GameCountInputValidator;
 
 public class InputView {
     public static int carsNum;
@@ -21,6 +22,10 @@ public class InputView {
     }
 
     public static int inputGameCount() {
-        return Integer.parseInt(Console.readLine());
+        String gameCount = Console.readLine();
+        GameCountInputValidator gameCountInputValidator = new GameCountInputValidator();
+        gameCountInputValidator.validate(gameCount);
+
+        return Integer.parseInt(gameCount);
     }
 }
