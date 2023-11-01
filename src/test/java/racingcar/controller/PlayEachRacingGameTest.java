@@ -3,6 +3,7 @@ package racingcar.controller;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.AppConfig;
 import racingcar.model.Car;
 
 import java.util.ArrayList;
@@ -14,7 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PlayEachRacingGameTest {
 
     List<Car> cars;
-    PlayEachRacingGame playEachRacingGame=new PlayEachRacingGameImpl();
+    AppConfig appConfig=new AppConfig();
+    PlayEachRacingGame playEachRacingGame= appConfig.playEachRacingGame();
 
     @BeforeEach
     void setCars(){

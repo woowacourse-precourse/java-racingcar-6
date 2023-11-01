@@ -2,16 +2,22 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.view.InputView;
+import racingcar.view.InputViewImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ValidCarsImpl implements ValidCars{
 
+    private final InputView inputView;
+
+    public ValidCarsImpl(InputView inputView){
+        this.inputView=inputView;
+    }
+
     public List<Car> getValidCars() {
 
-        InputView inputView=new InputView();
-        String s=inputView.inputCarsName();
+        String s= inputView.inputCarsName();
 
         String[] carNames=s.split(",");
 

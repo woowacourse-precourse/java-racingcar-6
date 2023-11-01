@@ -8,7 +8,8 @@ public class Application {
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        PlayRacingGame playRacingGame = new PlayRacingGameImpl();
+        AppConfig appConfig = new AppConfig();
+        PlayRacingGame playRacingGame= appConfig.playRacingGame();
         playRacingGame.playRacingGame();
     }
 }

@@ -2,11 +2,17 @@ package racingcar.controller;
 
 import racingcar.model.RemainRacingCount;
 import racingcar.view.InputView;
+import racingcar.view.InputViewImpl;
 
 public class ValidRacingCountImpl implements ValidRacingCount{
 
+    private final InputView inputView;
+
+    public ValidRacingCountImpl(InputView inputView){
+        this.inputView=inputView;
+    }
     public RemainRacingCount getValidRacingCount() {
-        InputView inputView=new InputView();
+
         String s= inputView.inputRacingCount();
         int remainRacingCountNum;
         try{

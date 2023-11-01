@@ -4,10 +4,15 @@ import racingcar.model.Car;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.OutputView;
+import racingcar.view.OutputViewImpl;
 
 public class PlayEachRacingGameImpl implements PlayEachRacingGame{
 
-    OutputView outputView = new OutputView();
+    private final OutputView outputView;
+
+    public PlayEachRacingGameImpl(OutputView outputView){
+        this.outputView = outputView;
+    }
     public List<Car> getPlayEachRacingGame(List<Car> cars) {
         Car car;
 

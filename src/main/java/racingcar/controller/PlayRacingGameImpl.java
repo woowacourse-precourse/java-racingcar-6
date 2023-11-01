@@ -1,21 +1,34 @@
 package racingcar.controller;
 
+import racingcar.AppConfig;
 import racingcar.model.Car;
 import racingcar.model.RemainRacingCount;
 import racingcar.view.InputView;
+import racingcar.view.InputViewImpl;
 import racingcar.view.OutputView;
+import racingcar.view.OutputViewImpl;
 
 import java.util.List;
 
 public class PlayRacingGameImpl implements PlayRacingGame{
 
-    FindWinners findWinners=new FindWinnersImpl();
-    PlayEachRacingGame playEachRacingGame=new PlayEachRacingGameImpl();
-    ValidCars validCars=new ValidCarsImpl();
-    ValidRacingCount validRacingCount=new ValidRacingCountImpl();
-    OutputView outputView=new OutputView();
+    FindWinners findWinners;
+    PlayEachRacingGame playEachRacingGame;
+    ValidCars validCars;
+    ValidRacingCount validRacingCount;
+    OutputView outputView;
 
-    InputView inputView=new InputView();
+    InputView inputView;
+
+    public PlayRacingGameImpl(FindWinners findWinners, PlayEachRacingGame playEachRacingGame, ValidCars validCars,
+                              ValidRacingCount validRacingCount, OutputView outputView, InputView inputView){
+        this.findWinners=findWinners;
+        this.playEachRacingGame=playEachRacingGame;
+        this.validCars=validCars;
+        this.validRacingCount=validRacingCount;
+        this.outputView=outputView;
+        this.inputView=inputView;
+    }
 
     public void playRacingGame() {
         List<Car> cars=validCars.getValidCars();

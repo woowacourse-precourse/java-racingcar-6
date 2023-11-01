@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
+import racingcar.AppConfig;
 import racingcar.model.Car;
 
 import java.io.ByteArrayInputStream;
@@ -14,9 +15,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ValidCarsTest {
 
+    AppConfig appConfig=new AppConfig();
+    ValidCars validCars= appConfig.validCars();
     @Test
     void 올바른_여러_자동차_이름_입력(){
-        ValidCars validCars=new ValidCarsImpl();
+
         String s="pobi,woni,jun";
         InputStream inputStream=new ByteArrayInputStream(s.getBytes());
         System.setIn(inputStream);
@@ -35,7 +38,7 @@ public class ValidCarsTest {
 
     @Test
     void 올바른_하나의_자동차_이름_입력(){
-        ValidCars validCars=new ValidCarsImpl();
+
         String s="pobi";
         InputStream inputStream=new ByteArrayInputStream(s.getBytes());
         System.setIn(inputStream);
@@ -54,7 +57,7 @@ public class ValidCarsTest {
 
     @Test
     void 올바르지않은_여러개의_자동차_이름_입력(){
-        ValidCars validCars=new ValidCarsImpl();
+
         String s="pobi,chaerin";
         InputStream inputStream=new ByteArrayInputStream(s.getBytes());
         System.setIn(inputStream);
@@ -68,7 +71,7 @@ public class ValidCarsTest {
 
     @Test
     void 올바르지않은_하나의_자동차_이름_입력(){
-        ValidCars validCars=new ValidCarsImpl();
+
         String s="chaerin";
         InputStream inputStream=new ByteArrayInputStream(s.getBytes());
         System.setIn(inputStream);

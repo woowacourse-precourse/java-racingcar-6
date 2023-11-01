@@ -3,6 +3,7 @@ package racingcar.controller;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.AppConfig;
 import racingcar.model.Car;
 
 import java.util.ArrayList;
@@ -12,8 +13,9 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 
 public class FindWinnerTest {
 
+    AppConfig appConfig = new AppConfig();
     List<Car> cars;
-    PlayEachRacingGame playEachRacingGame=new PlayEachRacingGameImpl();
+    PlayEachRacingGame playEachRacingGame= appConfig.playEachRacingGame();
     FindWinners findWinners = new FindWinnersImpl();
 
     @BeforeEach
