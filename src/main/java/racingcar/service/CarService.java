@@ -8,6 +8,9 @@ import static racingcar.constant.Constants.NUMBER_START;
 import static racingcar.constant.Constants.STARTING_POSITION;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarRecord;
 import racingcar.repository.CarRepository;
@@ -34,6 +37,13 @@ public class CarService {
         if (MOVEMENT_CONDITION <= Randoms.pickNumberInRange(NUMBER_START, NUMBER_END)) {
             setCarStatus(car);
         }
+    }
+
+    public List<Car> carOneRound() {
+        for (Car car : getAllCar()) {
+            carMovement(car);
+        }
+        return getAllCar();
     }
 
     public void setCarStatus(Car car) {
