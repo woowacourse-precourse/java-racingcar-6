@@ -17,7 +17,6 @@ class StateMakerTest {
         StateMaker.getGoOrStop(testRacer);
 
         // When
-
         // Then
         assertRandomNumberInRangeTest(
                 () -> {
@@ -35,7 +34,6 @@ class StateMakerTest {
         StateMaker.getGoOrStop(testRacer);
 
         // When
-
         // Then
         assertRandomNumberInRangeTest(
                 () -> {
