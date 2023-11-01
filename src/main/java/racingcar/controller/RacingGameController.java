@@ -9,6 +9,7 @@ import racingcar.view.OutputView;
 public class RacingGameController {
     InputView inputView;
     OutputView outputView;
+
     public RacingGameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
