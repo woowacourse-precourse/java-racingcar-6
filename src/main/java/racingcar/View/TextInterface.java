@@ -28,8 +28,7 @@ public class TextInterface {
     public void printResult() {
         System.out.print("최종 우승자 : ");
     }
-
-
+    
     public void printWinner(String name) {
         System.out.print(name);
     }
