@@ -14,4 +14,8 @@ public class Game {
         this.completedRounds = 0;
     }
 
+    public void playOneRound() {
+        cars.forEach(Car::moveIfPossible);
+        completedRounds++;
+    }
 }
