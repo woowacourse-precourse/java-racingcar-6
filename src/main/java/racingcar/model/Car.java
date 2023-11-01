@@ -13,7 +13,7 @@ import racingcar.util.generator.RandomNumberGenerator;
 public class Car implements CarModel {
     private final String name;
     private final List<Observer> observerList;
-    private final NumberGenerator numberGenerator;
+    private NumberGenerator numberGenerator;
     private int distance = 0;
 
     public Car(final String name) {
@@ -29,6 +29,10 @@ public class Car implements CarModel {
         }
 
         throw RacingCarException.of(ExceptionMessages.LIMIT_CAR_NAME_SIZE);
+    }
+
+    public void setNumberGenerator(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
     }
 
     @Override

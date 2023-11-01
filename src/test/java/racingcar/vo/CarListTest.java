@@ -2,9 +2,9 @@ package racingcar.vo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,9 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.ArgumentMatchers;
-import org.mockito.MockedStatic;
 import racingcar.model.Car;
+import racingcar.util.generator.RandomNumberGenerator;
 
 public class CarListTest {
     private static final int MOVING_FORWARD = 4;
@@ -48,19 +47,18 @@ public class CarListTest {
         final CarList carList = CarListFactory.create("pobi, woni, jun");
         final List<Integer> expected = List.of(1, 1, 0);
 
-        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        final RandomNumberGenerator mockGenerator = mock(RandomNumberGenerator.class);
+        when(mockGenerator.generate()).thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        carList.getCarList().stream().forEach(car -> car.setNumberGenerator(mockGenerator));
 
-            carList.moveForward();
+        carList.moveForward();
 
-            final List<Integer> actual = carList.getCarList()
-                    .stream()
-                    .map(Car::getDistance)
-                    .collect(Collectors.toList());
+        final List<Integer> actual = carList.getCarList()
+                .stream()
+                .map(Car::getDistance)
+                .collect(Collectors.toList());
 
-            assertThat(actual).isEqualTo(expected);
-        }
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
@@ -69,15 +67,14 @@ public class CarListTest {
         final CarList carList = CarListFactory.create(cars);
         final List<Car> expected = List.of(cars.get(0), cars.get(1));
 
-        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        final RandomNumberGenerator mockGenerator = mock(RandomNumberGenerator.class);
+        when(mockGenerator.generate()).thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        carList.getCarList().stream().forEach(car -> car.setNumberGenerator(mockGenerator));
 
-            carList.moveForward();
-            final List<Car> actual = carList.getCarListWithLongestDistance();
+        carList.moveForward();
+        final List<Car> actual = carList.getCarListWithLongestDistance();
 
-            assertThat(actual).isEqualTo(expected);
-        }
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
@@ -85,15 +82,14 @@ public class CarListTest {
         final CarList carList = CarListFactory.create("pobi, woni, jun");
         final String expected = "pobi, woni";
 
-        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        final RandomNumberGenerator mockGenerator = mock(RandomNumberGenerator.class);
+        when(mockGenerator.generate()).thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        carList.getCarList().stream().forEach(car -> car.setNumberGenerator(mockGenerator));
 
-            carList.moveForward();
-            final String actual = carList.getWinners();
+        carList.moveForward();
+        final String actual = carList.getWinners();
 
-            assertThat(actual).isEqualTo(expected);
-        }
+        assertThat(actual).isEqualTo(expected);
     }
 
     @ParameterizedTest

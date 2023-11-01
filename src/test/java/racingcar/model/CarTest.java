@@ -2,9 +2,9 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
@@ -12,9 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.ArgumentMatchers;
-import org.mockito.MockedStatic;
 import racingcar.exception.ExceptionMessages;
+import racingcar.util.generator.RandomNumberGenerator;
 
 public class CarTest {
     private static Stream<Arguments> provideRandomNumbersForIsGreaterThanAndEqualFour() {
@@ -57,12 +56,12 @@ public class CarTest {
     void canMoveForward_메서드_무작위_값이_4이상인_경우에_전진이_가능(final int randomNumber, final boolean expected) {
         final Car car = new Car("jun");
 
-        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(randomNumber);
-            final boolean actual = car.canMoveForward();
-            assertThat(actual).isEqualTo(expected);
-        }
+        final RandomNumberGenerator mockGenerator = mock(RandomNumberGenerator.class);
+        when(mockGenerator.generate()).thenReturn(randomNumber);
+        car.setNumberGenerator(mockGenerator);
+
+        final boolean actual = car.canMoveForward();
+        assertThat(actual).isEqualTo(expected);
     }
 
     @ParameterizedTest
@@ -71,12 +70,12 @@ public class CarTest {
     void canStop_메서드_무작위_값이_4미만인_경우에_정지(final int randomNumber, final boolean expected) {
         final Car car = new Car("jun");
 
-        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(randomNumber);
-            final boolean actual = car.canStop();
-            assertThat(actual).isEqualTo(expected);
-        }
+        final RandomNumberGenerator mockGenerator = mock(RandomNumberGenerator.class);
+        when(mockGenerator.generate()).thenReturn(randomNumber);
+        car.setNumberGenerator(mockGenerator);
+
+        final boolean actual = car.canStop();
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
@@ -86,14 +85,13 @@ public class CarTest {
         final int CONDITION_MOVING_FORWARD = 4;
         final int expected = 1;
 
-        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(CONDITION_MOVING_FORWARD);
+        final RandomNumberGenerator mockGenerator = mock(RandomNumberGenerator.class);
+        when(mockGenerator.generate()).thenReturn(CONDITION_MOVING_FORWARD);
+        car.setNumberGenerator(mockGenerator);
 
-            car.moveForward();
+        car.moveForward();
 
-            final int actual = car.getDistance();
-            assertThat(actual).isEqualTo(expected);
-        }
+        final int actual = car.getDistance();
+        assertThat(actual).isEqualTo(expected);
     }
 }

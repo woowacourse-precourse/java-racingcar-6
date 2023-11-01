@@ -2,17 +2,14 @@ package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 import static racingcar.constants.CarRandomCondition.MOVING_FORWARD;
 import static racingcar.constants.CarRandomCondition.STOP;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
-import org.mockito.MockedStatic;
 import racingcar.PrintOutputTest;
+import racingcar.util.generator.RandomNumberGenerator;
 import racingcar.view.input.ConsoleInputView;
 import racingcar.view.output.ConsoleOutputView;
 import racingcar.vo.CarList;
@@ -58,15 +55,14 @@ public class GameControllerImplTest extends PrintOutputTest {
         final CarList carList = CarListFactory.create("pobi, woni, jun");
         gameController.createCarViews(carList);
 
-        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        final RandomNumberGenerator mockGenerator = mock(RandomNumberGenerator.class);
+        when(mockGenerator.generate()).thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        carList.getCarList().stream().forEach(car -> car.setNumberGenerator(mockGenerator));
 
-            final int expectedTryCount = 1;
-            gameController.printExecutionResult(expectedTryCount, carList);
+        final int expectedTryCount = 1;
+        gameController.printExecutionResult(expectedTryCount, carList);
 
-            assertThat(output()).isEqualTo("실행 결과\npobi : -\nwoni : -\njun : ".trim());
-        }
+        assertThat(output()).isEqualTo("실행 결과\npobi : -\nwoni : -\njun : ".trim());
     }
 
     @Test
@@ -78,14 +74,13 @@ public class GameControllerImplTest extends PrintOutputTest {
 
         final CarList carList = CarListFactory.create("pobi, woni, jun");
 
-        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        final RandomNumberGenerator mockGenerator = mock(RandomNumberGenerator.class);
+        when(mockGenerator.generate()).thenReturn(MOVING_FORWARD, MOVING_FORWARD, STOP);
+        carList.getCarList().stream().forEach(car -> car.setNumberGenerator(mockGenerator));
 
-            carList.moveForward();
-            gameController.printWinners(carList);
+        carList.moveForward();
+        gameController.printWinners(carList);
 
-            assertThat(output()).isEqualTo("최종 우승자 : pobi, woni");
-        }
+        assertThat(output()).isEqualTo("최종 우승자 : pobi, woni");
     }
 }
