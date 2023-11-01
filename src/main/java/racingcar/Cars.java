@@ -1,11 +1,13 @@
 package racingcar;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Cars {
     private final static String RESULT_MESSAGE = "실행 결과";
+    private final static String WINNER_MESSAGE = "최종 우승자 : ";
 
     private List<Car> list;
 
@@ -82,9 +84,41 @@ public class Cars {
         printResultByCar();
     }
 
-    public void printResultByCar() {
+    private void printResultByCar() {
         for (Car car : list) {
             car.printPositionWithName();
         }
+    }
+
+    public void printWinner() {
+        System.out.print(WINNER_MESSAGE);
+        System.out.println(createWinner());
+    }
+
+    public String createWinner() {
+        int position = findFrontPosition();
+        List<String> winner = findWinnerName(position);
+        return String.join(" ,", winner);
+    }
+
+    private int findFrontPosition() {
+        int position = 0;
+        for (Car car : list) {
+            if (position < car.getPosition()) {
+                position = car.getPosition();
+            }
+        }
+        return position;
+    }
+
+    private List<String> findWinnerName(int position) {
+        List<String> winner = new ArrayList<>();
+        for (Car car : list) {
+            if (position == car.getPosition()) {
+                String carName = car.getName();
+                winner.add(carName);
+            }
+        }
+        return winner;
     }
 }
