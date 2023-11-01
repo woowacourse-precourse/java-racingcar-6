@@ -12,8 +12,8 @@ public class CarNameValidator {
     }
 
     public void checkBlankCarName(String name) {
-        if (name.contains(" ")) {
-            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+        if (name.contains(" ") || name.isBlank()) {
+            throw new IllegalArgumentException("자동차 이름은 공백이거나 빈 값일 수 없습니다.");
         }
     }
 
