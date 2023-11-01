@@ -43,4 +43,18 @@ public class RacingCarTest {
         });
     }
 
+    @Test
+    void 자동차의_이름이_5이상일경우(){
+        String userInput = "junho,bang";
+        List<String> userInputList = new ArrayList<>();
+        for (String s : userInput.split(",")) {
+            if (s.length()>=5){
+                assertThatThrownBy(() -> s.charAt(5))
+                        .isInstanceOf(StringIndexOutOfBoundsException.class)
+                        .hasMessageContaining("String index out of range: 5");
+            }else{
+                userInputList.add(s);
+            }
+        }
+    }
 }
