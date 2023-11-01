@@ -12,7 +12,7 @@ public class OutputView {
     }
 
     public static void requestRound() {
-        System.out.println("시도할 회수는 몇 회인가요?");
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 
     public static void printNewLine() {
@@ -20,17 +20,17 @@ public class OutputView {
     }
 
     public static void displayCar(Car car) {
-        printNewLine();
         System.out.print(car.getName() + " : ");
 
         for (int i = 0; i < car.getPosition(); i++) {
             System.out.print("-");
         }
+        printNewLine();
     }
 
     public static void displayWinner(List<String> winners) {
+        printNewLine();
         String winnersStr = String.join(", ", winners);
         System.out.printf("최종 우승자 : %s", winnersStr);
     }
-
 }

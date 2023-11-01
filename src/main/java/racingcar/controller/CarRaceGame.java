@@ -38,6 +38,7 @@ public class CarRaceGame {
     }
 
     private void displayCars() {
+        OutputView.printNewLine();
         for (Car car : cars) {
             OutputView.displayCar(car);
         }
