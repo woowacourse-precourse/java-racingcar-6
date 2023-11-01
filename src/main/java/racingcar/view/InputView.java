@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 import racingcar.constant.ErrorMessage;
+import racingcar.constant.InputConstant;
 import racingcar.validation.Validation;
 
 public class InputView {
-    private static final String DELIMITER = ",";
     private static final Validation validation = new Validation();
 
     public List<String> getCarNames() {
@@ -20,7 +20,7 @@ public class InputView {
 
             validation.validateCarNames(carNames);
 
-            return Arrays.stream(carNames.split(DELIMITER)).toList();
+            return Arrays.stream(carNames.split(InputConstant.DELIMITER.getValue())).toList();
         } catch (Exception e) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
         }

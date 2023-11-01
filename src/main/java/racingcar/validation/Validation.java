@@ -4,15 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 import racingcar.constant.ErrorMessage;
+import racingcar.constant.InputConstant;
 
 public class Validation {
-    private static final String DELIMITER = ",";
-    private static final String NUMERIC_PATTERN = "^[0-9]*$";
-
     public void validateCarNames(String carNames) {
         validateNull(carNames, ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
         validateBlank(carNames, ErrorMessage.CAR_NAME_INPUT_EXCEPTION.getMessage());
-        validateLengthAndDuplication(carNames.split(DELIMITER));
+        validateLengthAndDuplication(carNames.split(InputConstant.DELIMITER.getValue()));
     }
 
     public void validateMovementTime(String movementTime) {
@@ -55,7 +53,7 @@ public class Validation {
     }
 
     private void validateNumericValue(String movementTime) {
-        if (!Pattern.matches(NUMERIC_PATTERN, movementTime)) {
+        if (!Pattern.matches(InputConstant.NUMERIC_PATTERN.getValue(), movementTime)) {
             throw new IllegalArgumentException(ErrorMessage.MOVEMENT_TIME_TYPE_EXCEPTION.getMessage());
         }
     }
