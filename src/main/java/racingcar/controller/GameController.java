@@ -26,8 +26,10 @@ public class GameController {
             OutputView.printForwardResult();
         }
 
-        List<String> winners = Winner.compareWinner();
+        Winner.compareWinner();
 
         OutputView.printWinners();
+
+
     }
 }

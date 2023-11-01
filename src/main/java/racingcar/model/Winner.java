@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Winner {
-    public static List<String> compareWinner() {
+    static List<String> maxCountCars = new ArrayList<>();
+
+    public static void compareWinner() {
         int maxCount = 0;
-        List<String> maxCountCars = new ArrayList<>();
 
         for (int i = 0; i < forwardCountInt.length; i++) {
             if (forwardCountInt[i] > maxCount) {
@@ -21,6 +22,17 @@ public class Winner {
                 maxCountCars.add(cars[i]);
             }
         }
-        return maxCountCars;
+    }
+
+    public static String finalWinner() {
+        if (!maxCountCars.isEmpty()) {
+            System.out.print("최종 우승자 : ");
+            for (int i = 0; i < maxCountCars.size(); i++) {
+                System.out.print(maxCountCars.get(i));
+                if (i < maxCountCars.size() - 1) {
+                    System.out.print(", ");
+                }
+            }
+        }
     }
 }
