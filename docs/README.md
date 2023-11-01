@@ -23,6 +23,8 @@
 
 - 사용자로부터 경주할 자동차 이름을 입력 받음
     - 쉼표를 기준으로 구분
+- 이름이 1자 이상인지 확인
+    - 0자일 시 예외(IllegalArgumentException) 발생
 - 이름이 5자 이하인지 확인
     - 5자를 초과할 시 예외(IllegalArgumentException) 발생
 - 중복된 이름인지 확인

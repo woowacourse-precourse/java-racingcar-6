@@ -4,19 +4,31 @@ import java.util.HashSet;
 import racingcar.view.InputView;
 
 public class UserInput {
-    static final int NAME_LENGTH = 5;
+    static final int MIN_NAME_LENGTH = 1;
+    static final int MAX_NAME_LENGTH = 5;
 
     public static String[] getCarNames() {
         String[] carNames = InputView.setUserInput().split(",");
+        checkEmpty(carNames);
         checkNameLength(carNames);
         checkDuplicates(carNames);
         return carNames;
     }
 
+    public static void checkEmpty(String[] nameList) {
+        if (nameList.length == 0) {
+            throw new IllegalArgumentException
+                    (String.format("이름을 %d자 이상, %d자 이내로 입력해주세요.", MIN_NAME_LENGTH, MAX_NAME_LENGTH));
+        }
+    }
+
     public static void checkNameLength(String[] nameList) {
         for (String name : nameList) {
-            if (name.length() > NAME_LENGTH) {
-                throw new IllegalArgumentException(String.format("자동차의 이름을 %s자 이내로 입력해주세요.", NAME_LENGTH));
+            if (name.length() < MIN_NAME_LENGTH) {
+                throw new IllegalArgumentException(String.format("이름을 %d자 이상 입력해주세요.", MIN_NAME_LENGTH));
+            }
+            if (name.length() > MAX_NAME_LENGTH) {
+                throw new IllegalArgumentException(String.format("이름을 %d자 이내로 입력해주세요.", MAX_NAME_LENGTH));
             }
         }
     }
