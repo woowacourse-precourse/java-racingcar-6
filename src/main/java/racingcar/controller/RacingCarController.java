@@ -6,11 +6,12 @@ import racingcar.entity.RacingCar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingCarController {
-    public RacingCarController(String inputCarNameList, String iterStr) {
-        int iter = Integer.parseInt(iterStr);   // 시도할 횟수
+    List<RacingCar> racingCarList = new ArrayList<>();
+    int iter;   // 시도할 횟수
 
+    public RacingCarController(String inputCarNameList, String iterStr) {
+        this.iter = Integer.parseInt(iterStr);
         String[] carNameList = inputCarNameList.split(",");
-        List<RacingCar> racingCarList = new ArrayList<>();
 
         for (int i = 0; i < carNameList.length; i++) {
             // 자동차 이름이 5자 이하가 아닌 경우 Exception 발생
@@ -18,15 +19,12 @@ public class RacingCarController {
                 throw new IllegalArgumentException();
             }
 
-            racingCarList.add(new RacingCar(carNameList[i]));
+            this.racingCarList.add(new RacingCar(carNameList[i]));
         }
-
-        // 게임 시작(작동)
-        startGame(racingCarList, iter);
     }
 
     // 최종 우승자 판단 및 출력
-    private void printWinner(List<RacingCar> racingCarList) {
+    private void printWinner() {
         String winner = "";
         int maxLength = -1;
 
@@ -49,7 +47,7 @@ public class RacingCarController {
     }
 
     // 실행 결과 출력
-    private void printResult(List<RacingCar> racingCarList) {
+    private void printResult() {
         for (int carNum = 0; carNum < racingCarList.size(); carNum++) {
             System.out.println(
                     racingCarList.get(carNum).getCarName() + " : " + racingCarList.get(carNum).getProgress());
@@ -67,7 +65,7 @@ public class RacingCarController {
     }
 
     // 게임 진행
-    private void startGame(List<RacingCar> racingCarList, int iter) {
+    public void startGame() {
         System.out.println("\n실행 결과");
 
         // 시도 횟수만큼 반복
@@ -78,10 +76,10 @@ public class RacingCarController {
             }
 
             // 실행 결과 출력
-            printResult(racingCarList);
+            printResult();
         }
 
         // 최종 우승자 출력
-        printWinner(racingCarList);
+        printWinner();
     }
 }

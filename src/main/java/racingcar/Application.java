@@ -13,5 +13,6 @@ public class Application {
         String iterStr = Console.readLine();
 
         RacingCarController racingCarController = new RacingCarController(inputCarNameList, iterStr);
+        racingCarController.startGame();
     }
 }
