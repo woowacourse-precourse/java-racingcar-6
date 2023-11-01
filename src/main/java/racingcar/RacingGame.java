@@ -2,14 +2,15 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingGame {
 
     private final RacingGameView racingGameView;
+    private final RacingGameLogic racingGameLogic;
 
     public RacingGame() {
         this.racingGameView = new RacingGameView();
+        this.racingGameLogic = new RacingGameLogic();
     }
 
     public void start() {
@@ -21,18 +22,7 @@ public class RacingGame {
             racingCars.add(new RacingCar(name));
         }
         playRounds(gameRounds, racingCars);
-        racingGameView.printWinners(getWinners(racingCars));
-    }
-
-    private List<RacingCar> getWinners(List<RacingCar> racingCars) {
-        int maxLength = racingCars.stream()
-                .mapToInt(car -> car.getMovement().length())
-                .max()
-                .orElse(0);
-
-        return racingCars.stream()
-                .filter(car -> car.getMovement().length() == maxLength)
-                .collect(Collectors.toList());
+        racingGameView.printWinners(racingGameLogic.getWinners(racingCars));
     }
 
     private void playRounds(int gameRounds, List<RacingCar> racingCars) {
