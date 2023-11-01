@@ -1,5 +1,7 @@
 package racingcar.carRacing.service;
 
+import static racingcar.carRacing.service.CarRacingResultService.printCurrentState;
+
 import java.util.List;
 import racingcar.car.model.Car;
 import racingcar.car.service.CarMoveService;
@@ -31,6 +33,7 @@ public class CarRacingGameService {
             for (Car car : carRacing.getCarList()) {
                 carMoveService.move(car);
             }
+            printCurrentState(carRacing.getCarList());
         }
     }
 
