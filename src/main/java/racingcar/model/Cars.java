@@ -9,9 +9,7 @@ public class Cars {
 
     public List<Car> setPlayer(String rawCarList) {
         String[] carNameArray = spiltPlayer(rawCarList);
-
-        addCarNametoCarList(carNameArray);
-
+        addCarNameCarList(carNameArray);
         return carList;
     }
 
@@ -19,7 +17,7 @@ public class Cars {
         return rawCarList.split(",");
     }
 
-    private void addCarNametoCarList(String[] carNameArray) {
+    private void addCarNameCarList(String[] carNameArray) {
         for (int i = 0; i < carNameArray.length; i++) {
             carList.add(new Car(carNameArray[i], Car.INIT_MOVE));
         }
