@@ -16,18 +16,7 @@ public class Game {
                 inputTryCount();
                 play(count);
                 getWinnerList();
-                //winnerList Car.name 전부 출력
-                System.out.print("최종 우승자 : "+ String.join(", ",winnerList));
-
-                // position을 비교
-
-                // 가장 큰 position을 가진 자동차가 우승
-                // 우승자 출력
-
-
-
-
-//                play(count);
+                printWinner(winnerList);
         }
         public List<Car> inputCarName(){
                 System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -74,6 +63,9 @@ public class Game {
                         }
                 }
                 return winnerList;
+        }
+        public void printWinner(List<String> winnerList){
+                System.out.print("최종 우승자 : "+ String.join(", ",winnerList));
         }
 
 }
