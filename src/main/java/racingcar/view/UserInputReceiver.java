@@ -1,14 +1,13 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.game.CarList;
 
 /**
  * 입출력을 담당하는 클래스
  *
  * @author gemstoneyang
  */
-public class DataIOHandler {
+public class UserInputReceiver {
 
     /**
      * 사용자의 이름 입력을 받고 검증하는 메소드

@@ -1,6 +1,6 @@
 package racingcar.game;
 
-import racingcar.view.DataIOHandler;
+import racingcar.view.UserInputReceiver;
 
 /**
  * 시뮬레이션을 담당하는 클래스
@@ -15,9 +15,8 @@ public class Simulator {
      * 사용자의 입력값을 받아 저장
      */
     public void getUserInput() {
-        String commaSeparatedNames = DataIOHandler.getNameInput();
-        tryCount = DataIOHandler.getTryCountInput();
-        carList = new CarList(commaSeparatedNames);
+        carList = new CarList(UserInputReceiver.getNameInput());
+        tryCount = UserInputReceiver.getTryCountInput();
     }
 
     /**
@@ -31,6 +30,9 @@ public class Simulator {
         }
     }
 
+    /**
+     * 최종 우승자의 이름을 출력
+     */
     public void printWinners() {
         System.out.println("\n최종 우승자 : " + carList.getLongestDistanceNames());
     }
