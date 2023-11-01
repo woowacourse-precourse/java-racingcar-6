@@ -2,6 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -10,8 +11,9 @@ import static camp.nextstep.edu.missionutils.Console.close;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.Application.askCarNames;
+import static racingcar.domain.CarFactory.makeCars;
 
-public class CarNameTest {
+public class CarNameInputTest {
     void setInputStream(String carNames) {
         System.setIn(new ByteArrayInputStream(carNames.getBytes()));
     }
@@ -27,23 +29,26 @@ public class CarNameTest {
         setInputStream("char,int,for,bool");
 
         // when
-        List<String> carNames = askCarNames();
+        String carNamesInput = askCarNames();
+        List<Car> cars = makeCars(carNamesInput);
 
         // then
-        assertThat(carNames).containsExactly("char", "int", "for", "bool");
+        assertThat(cars.stream().map(Car::getName).toList())
+                .containsExactly("char", "int", "for", "bool");
     }
 
     @Test
     void 정상_테스트_차_이름_긴_입력() {
         // given
-        String carNamesInput = "char,int,for,bool,class,input,text,read,java,test,build";
-        setInputStream(carNamesInput);
+        setInputStream("char,int,for,bool,class,input,text,read,java,test,build");
 
         // when
-        List<String> carNames = askCarNames();
+        String carNamesInput = askCarNames();
+        List<Car> cars = makeCars(carNamesInput);
 
         // then
-        assertThat(carNames).containsExactly("char", "int", "for", "bool", "class", "input", "text", "read", "java", "test", "build");
+        assertThat(cars.stream().map(Car::getName).toList())
+                .containsExactly("char", "int", "for", "bool", "class", "input", "text", "read", "java", "test", "build");
     }
 
     @Test
@@ -52,7 +57,8 @@ public class CarNameTest {
         setInputStream("char,,int");
 
         // when, then
-        assertThatThrownBy(Application::askCarNames)
+        String carNamesInput = askCarNames();
+        assertThatThrownBy(() -> makeCars(carNamesInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -62,7 +68,8 @@ public class CarNameTest {
         setInputStream("string,int");
 
         // when, then
-        assertThatThrownBy(Application::askCarNames)
+        String carNamesInput = askCarNames();
+        assertThatThrownBy(() -> makeCars(carNamesInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

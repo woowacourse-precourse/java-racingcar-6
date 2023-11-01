@@ -1,9 +1,13 @@
 package racingcar.domain;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class CarFactory {
-    public static List<Car> makeCar(List<String> carNames) {
-        return carNames.stream().map(Car::new).toList();
+    private final static String DELIMITER = ",";
+
+    public static List<Car> makeCars(String carNames) {
+        return Arrays.stream(carNames.split(DELIMITER))
+                .map(Car::new).toList();
     }
 }
