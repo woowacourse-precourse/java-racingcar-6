@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static racingcar.global.GameIntConstant.MAGIC_NUMBER;
+
 public class RandomMoveStrategy implements MoveStrategy {
     private final RandomGenerator randomGenerator;
 
@@ -20,6 +22,6 @@ public class RandomMoveStrategy implements MoveStrategy {
 
     private Boolean decideMovement() {
         int randomNumber = randomGenerator.generate();
-        return randomNumber >= 4;
+        return randomNumber >= MAGIC_NUMBER.getValue();
     }
 }

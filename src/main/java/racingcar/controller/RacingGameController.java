@@ -18,7 +18,8 @@ public class RacingGameController {
     private final TriesCountValidator triesCountValidator;
     private final WinnerService winnerService;
 
-    public RacingGameController(MoveStrategy moveStrategy, CarNameValidator carNameValidator, TriesCountValidator triesCountValidator, WinnerService winnerService) {
+    public RacingGameController(MoveStrategy moveStrategy, CarNameValidator carNameValidator,
+                                TriesCountValidator triesCountValidator, WinnerService winnerService) {
         this.moveStrategy = moveStrategy;
         this.carNameValidator = carNameValidator;
         this.triesCountValidator = triesCountValidator;
@@ -60,6 +61,6 @@ public class RacingGameController {
 
     private void displayWinners(List<Car> racingCars) {
         List<Car> winners = winnerService.findWinners(racingCars);
-        OutputView.printWinners(winners); //winner 객체로 뺄 지 고민 해보기
+        OutputView.printWinners(winners);
     }
 }
