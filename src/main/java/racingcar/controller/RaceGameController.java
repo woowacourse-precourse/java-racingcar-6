@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.RacingCars;
+import racingcar.model.Result;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -19,6 +20,9 @@ public class RaceGameController {
         RacingCars racingCars = initializeGame();
         int inputLoop = getInputLoopCount();
         playGameMultipleTimes(racingCars, inputLoop);
+
+        Result result = new Result(racingCars);
+        announceWinners(result);
     }
 
     private RacingCars initializeGame() {
@@ -45,5 +49,9 @@ public class RaceGameController {
             outputView.printRaceStatusMessage(car);
         });
         outputView.printSpaceMessage();
+    }
+
+    private void announceWinners(Result result) {
+        outputView.printWinnerResultMessage(result.getWinnerNames());
     }
 }
