@@ -16,8 +16,8 @@
 - 사용자가 입력하는 프롬포트를 구성하는 view 역할을 한다.
 #### RaceView
 - 차량 이름, 위치, 우승자를 표시하는 메서드
-- [ ] 우승자를 출력한다.(여러명일 경우 쉼표를 사용해 구분) -RaceView #printWinner()
-- [ ] 회수 별 실행 결과를 출력한다. - RaceView #printExecutionResults()
+- [ ] 우승자를 출력한다.(여러명일 경우 쉼표를 사용해 구분) -RaceView #displayWinner()
+- [ ] 회수 별 실행 결과를 출력한다. - RaceView #displayRaceResults()
 
 
 ### Model

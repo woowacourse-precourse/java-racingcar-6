@@ -45,10 +45,8 @@ public class GameController {
             for (Car car : cars) {
                 car.moveForward(carBoosts.get(i));
             }
-            raceView.displayRaceProcess(cars);
+            raceView.displayRaceResults(cars);
         }
-
-
     }
 
     public void determineWinner() {
