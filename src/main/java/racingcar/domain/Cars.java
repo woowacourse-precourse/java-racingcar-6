@@ -34,6 +34,7 @@ public class Cars {
                 .filter(car -> car.isSamePosition(findMaxPosition()))
                 .map(Car::getName)
                 .toList();
+
         return String.join(", ", winners);
     }
 

@@ -11,6 +11,7 @@ public class InputView {
         System.out.println(CAR_NAME_INPUT);
         String carsName = Console.readLine();
         Validator.validateNullInput(carsName);
+        Validator.validateCarsName(carsName);
         return carsName;
     }
 
@@ -21,4 +22,6 @@ public class InputView {
         Validator.validateAttemptNumber(attemptNumber);
         return Integer.parseInt(attemptNumber);
     }
+
+
 }

@@ -1,8 +1,5 @@
 package racingcar.service;
 
-import static racingcar.utill.Validator.validateCarName;
-import static racingcar.utill.Validator.validateDuplicatedCarName;
-
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
@@ -29,12 +26,9 @@ public class CarRacingService {
         String[] splitName = carsName.split(",", -1);
 
         for (String name : splitName) {
-            validateCarName(name);
             cars.add(new Car(name));
         }
-
-        validateDuplicatedCarName(cars);
-
+        
         return cars;
     }
 
