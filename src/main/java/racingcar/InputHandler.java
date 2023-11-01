@@ -23,6 +23,10 @@ public class InputHandler {
         return carList;
     }
 
+    public static int getTrialNumberFromInput() {
+        return convertToNumber(userInput());
+    }
+
     public static String userInput() {
         return Console.readLine();
     }
