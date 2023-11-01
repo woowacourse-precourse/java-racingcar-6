@@ -38,6 +38,10 @@ public class PickWinnerServiceTest {
 						Arguments.of(
 								new Cars(List.of(new Car("one", 1), new Car("two", 1), new Car("three", 1))),
 								"one, two, three"
+								),
+						Arguments.of(
+								new Cars(List.of(new Car("one", 0), new Car("two", 0), new Car("three", 0))),
+								"one, two, three"
 								)
 						);
 	}

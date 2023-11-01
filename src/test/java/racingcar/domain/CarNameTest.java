@@ -20,14 +20,14 @@ public class CarNameTest {
 	}
 	
 	@DisplayName("자동차 이름의 길이가 5이하일 때 정삭적으로 작동하는 지 확인한다.")
-	@ValueSource(strings = { "nnaa", "jjaa" })
+	@ValueSource(strings = { "nnaa", "a" })
 	@ParameterizedTest
 	void checkNomalOperation1(String str) {
 		new CarName(str);
 	}
 	
 	@DisplayName("자동차 이름에 숫자가 포함되어 있다면 예외를 발생시킨다.")
-	@ValueSource(strings = { "jaa22", "12sa" })
+	@ValueSource(strings = { "jaa22", "12sa", "a1bc", "1abc2", "a1b2c" })
 	@ParameterizedTest
 	void checkContainNumber(String str) {
 		assertThatThrownBy(() -> new CarName(str))
