@@ -8,19 +8,15 @@ import racingcarv2.util.converter.StringToNumber;
 import racingcarv2.view.InputView;
 import racingcarv2.view.OutputView;
 
-public class RacingCarController {
+public class RacingCarController extends AbstractController{
     public static final int START_INCLUSIVE = 0;
 
+    @Override
     public void run() {
-        try {
-            RacingCars racingCars = registerRacingCars();
-            RoundTotal roundTotal = registerRoundTotal();
-            displayRacingStatus(roundTotal, racingCars);
-            displayWinner(racingCars);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw new IllegalArgumentException();
-        }
+        RacingCars racingCars = registerRacingCars();
+        RoundTotal roundTotal = registerRoundTotal();
+        displayRacingStatus(roundTotal, racingCars);
+        displayWinner(racingCars);
     }
 
     private RoundTotal registerRoundTotal() {

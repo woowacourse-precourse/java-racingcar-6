@@ -53,7 +53,7 @@ public class OutputView {
         System.out.printf(EACH_ROUND_STATUS_FORMAT, FINAL_WINNER, String.join(WINNER_DELIMITER, nameList));
     }
 
-    private static void printMessage(String message) {
+    public static void printMessage(String message) {
         System.out.println(message);
     }
 
