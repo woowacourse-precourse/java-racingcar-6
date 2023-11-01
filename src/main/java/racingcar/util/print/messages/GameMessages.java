@@ -1,10 +1,13 @@
-package racingcar.messages;
+package racingcar.util.print.messages;
 
-import static racingcar.constants.RacingGameConstants.RACE_START_MESSAGE;
-import static racingcar.constants.RacingGameConstants.REQUEST_FOR_CAR_NAMES_MESSAGE;
-import static racingcar.constants.RacingGameConstants.REQUEST_FOR_RACING_ROUNDS_MESSAGE;
+import static racingcar.util.print.constants.RacingGameConstants.RACE_START_MESSAGE;
+import static racingcar.util.print.constants.RacingGameConstants.REQUEST_FOR_CAR_NAMES_MESSAGE;
+import static racingcar.util.print.constants.RacingGameConstants.REQUEST_FOR_RACING_ROUNDS_MESSAGE;
 
 public abstract class GameMessages {
+    private GameMessages() {
+    }
+
     private static void printer(String message) {System.out.println(message);}
 
     public static void printRequestForCarNames() {
