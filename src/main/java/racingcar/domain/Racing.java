@@ -9,9 +9,9 @@ public class Racing {
         this.racingCar = racingList;
     }
 
-    public void run(Judgment judgment, Integer randomNumber) {
+    public void run(Judgment judgment, NumberGenerator generator) {
         racingCar.forEach(car -> {
-            car.forward(judgment, randomNumber);
+            car.forward(judgment, generator.createRandomNumber());
             printCarLocation(car);
         });
         System.out.println();

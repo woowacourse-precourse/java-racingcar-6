@@ -10,6 +10,7 @@ class RacingTest {
     @Test
     void run() {
         Judgment judgment = new Judgment();
+        NumberGenerator numberGenerator = new NumberGenerator();
 
         List<Car> cars = new ArrayList<>();
         Car car1 = new Car("Car1");
@@ -18,8 +19,11 @@ class RacingTest {
         cars.add(car2);
 
         Racing racing = new Racing(cars);
-        racing.run(judgment, 5);
-        Assertions.assertThat(car1.currentLocation()).isEqualTo("Car1 : -");
-        Assertions.assertThat(car2.currentLocation()).isEqualTo("Car2 : -");
+        racing.run(judgment, numberGenerator);
+        String car1CurrentLocation = car1.currentLocation();
+        String car2CurrentLocation = car2.currentLocation();
+
+        Assertions.assertThat(car1CurrentLocation).isIn("Car1 : -", "Car1 : ");
+        Assertions.assertThat(car2CurrentLocation).isIn("Car2 : -", "Car2 : ");
     }
 }

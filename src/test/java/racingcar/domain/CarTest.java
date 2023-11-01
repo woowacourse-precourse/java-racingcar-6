@@ -13,6 +13,7 @@ class CarTest {
     private Car car2;
     private Car car3;
     private Judgment judgment;
+    private NumberGenerator generator;
 
     @BeforeEach
     void init() {
@@ -20,6 +21,7 @@ class CarTest {
         car2 = new Car("Car2");
         car3 = new Car("Car3");
         judgment = new Judgment();
+        generator = new NumberGenerator();
     }
 
     @Test

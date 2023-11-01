@@ -28,7 +28,7 @@ public class Application {
         NumberGenerator numberGenerator = new NumberGenerator();
 
         System.out.println("\n" + PLAY_RESULT);
-        IntStream.range(0, playRound).forEach(i -> racing.run(judgment, numberGenerator.createRandomNumber()));
+        IntStream.range(0, playRound).forEach(i -> racing.run(judgment, numberGenerator));
 
         referee.announcementWinners(racingCars);
     }
