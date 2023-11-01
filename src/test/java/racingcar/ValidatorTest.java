@@ -81,7 +81,7 @@ public class ValidatorTest {
     }
 
     @Test
-    void validateMovingNumber_자동차이동횟수가_숫자인지_확인() {
+    void validateMovingNumber_자동차이동횟수가_int타입인지_확인() {
         String input = "1.1";
 
         assertThatThrownBy(() -> validator.validateMovingNumber(input))
