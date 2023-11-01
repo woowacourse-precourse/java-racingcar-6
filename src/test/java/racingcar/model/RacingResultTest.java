@@ -24,7 +24,7 @@ public class RacingResultTest {
     }
 
     @Test
-    void 최대_전진_횟수를_가진_자동차를_우승_자동차로_결정() {
+    void 최대_전진_횟수를_가진_자동차를_우승_자동차로_결정한다() {
         Cars cars = Cars.fromCars(List.of(winner, nonWinner));
 
         cars.move();
@@ -36,7 +36,7 @@ public class RacingResultTest {
     }
 
     @Test
-    void 최대_전진_횟수를_가진_자동차가_여러대일때_공동으로_우승_자동차를_결정() {
+    void 최대_전진_횟수를_가진_자동차가_여러대일때_공동으로_우승_자동차를_결정한다() {
         Cars cars = Cars.fromCars(List.of(winner, coWinner, nonWinner));
 
         cars.move();
