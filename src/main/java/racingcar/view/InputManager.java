@@ -15,11 +15,11 @@ public class InputManager {
         return carNames;
     }
 
-    public String inputTryCount() {
+    public Integer inputTryCount() {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
         String tryCount = Console.readLine();
         Console.close();
-        return tryCount;
+        return Integer.valueOf(tryCount);
     }
 
 
