@@ -9,5 +9,7 @@ public class Application {
         RacingInfo racinginfo = RacingInfo.enter();
         Racing racing = Racing.create(racinginfo);
         racing.start();
+        Racing.printEachTurn(racing);
+        Racing.printWinners(racing);
     }
 }

@@ -19,9 +19,7 @@ public class Racing {
 
     public void start() {
         iterateEachTurn();
-        printEachTurn();
         selectWinners();
-        printWinners();
     }
 
     private void iterateEachTurn() {
@@ -31,22 +29,6 @@ public class Racing {
                 distanceRecord.add(car.getMovedDist());
             }
         }
-    }
-
-    private void printEachTurn() {
-        System.out.println("\n실행결과: ");
-        int carIndex = 0;
-        for (Integer movedDist : distanceRecord) {
-            if (carIndex == cars.size()) {
-                System.out.println();
-                carIndex = 0;
-            }
-            String result = cars.get(carIndex).getName() + " : " +
-                    "-".repeat(movedDist);
-            System.out.println(result);
-            carIndex++;
-        }
-        System.out.println();
     }
 
     private void selectWinners() {
@@ -59,17 +41,33 @@ public class Racing {
         }
     }
 
-    private void printWinners() {
-        List<String> winnersName = winners
-                .stream().map(Car::getName).toList();
-        System.out.println("최종 우승자 : " + String.join(", ", winnersName));
-    }
-
     public static Racing create(RacingInfo racingInfo) {
         List<Car> cars = new ArrayList<>();
         for (String name : racingInfo.getCarNames()) {
             cars.add(new Car(name));
         }
         return new Racing(cars, racingInfo.getTurn());
+    }
+
+    public static void printEachTurn(Racing racing) {
+        System.out.println("\n실행결과: ");
+        int carIndex = 0;
+        for (Integer movedDist : racing.distanceRecord) {
+            if (carIndex == racing.cars.size()) {
+                System.out.println();
+                carIndex = 0;
+            }
+            String result = racing.cars.get(carIndex).getName() + " : " +
+                    "-".repeat(movedDist);
+            System.out.println(result);
+            carIndex++;
+        }
+        System.out.println();
+    }
+
+    public static void printWinners(Racing racing) {
+        List<String> winnersName = racing.winners
+                .stream().map(Car::getName).toList();
+        System.out.println("최종 우승자 : " + String.join(", ", winnersName));
     }
 }
