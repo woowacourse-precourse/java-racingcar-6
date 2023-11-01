@@ -9,10 +9,18 @@ public class RacingcarGame {
     private List<String> winners = new ArrayList<>();
     private int tryCount;
 
-    public void run() throws IllegalArgumentException {
+    public void start() throws IllegalArgumentException {
+        set();
+        run();
+    }
+
+    private void set() throws IllegalArgumentException {
         String[] carNames = getCarNames();
         tryCount = getTryCount();
         makeCars(carNames);
+    }
+
+    private void run() {
         runRounds(tryCount);
         calculateWinners(racingcars);
         InputOutput.printWinner(winners);
