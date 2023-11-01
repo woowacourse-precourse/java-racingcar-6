@@ -16,9 +16,20 @@ public class Application {
     public void carName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String cars = Console.readLine();
+        if (cars.contains(" ")) {
+            System.out.println("자동차 이름은 공백 없이 입력해주세요.");
+            throw new IllegalArgumentException();
+        } else if(String.valueOf(cars.charAt(cars.length()-1)).equals(",")) {
+            System.out.println("자동차 이름을 1자 이상 입력해주세요.");
+            throw new IllegalArgumentException();
+        }
         carList = Arrays.asList(cars.split(","));
         for (String str : carList) {
             if (str.length() > 5) {
+                System.out.println("자동차 이름은 5자 이하로 입력해주세요.");
+                throw new IllegalArgumentException();
+            } else if(str.length() < 1) {
+                System.out.println("자동차 이름을 1자 이상 입력해주세요.");
                 throw new IllegalArgumentException();
             }
         }
