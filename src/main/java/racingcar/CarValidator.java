@@ -10,6 +10,8 @@ public class CarValidator {
     String carNames =  input.inputCarName();
     String tryNumbers = input.inputTryNumber();
 
+    final static String pattern = "^[0-9]*$";
+
 
 
     public ArrayList<String> CarList () {
@@ -23,16 +25,14 @@ public class CarValidator {
         ArrayList<String> carList = CarList();
 
         for (String car:carList) {
-            if (car.length() > NumbersUtil.carNameMax) {
-                throw new IllegalArgumentException();
-            }
+            errorInTry(car.length() > NumbersUtil.carNameMax);
 
             if (car.contains(" ")) {
                 System.out.println(MessageUtil.Empty_Error_Message);
                 throw new IllegalArgumentException();
             }
 
-            if (carList.size() != carList.stream().distinct().count()) {
+            if (carNameDistinct(carList)) {
                 System.out.println(MessageUtil.Same_Name_Message);
                 throw new IllegalArgumentException();
             }
@@ -41,15 +41,22 @@ public class CarValidator {
         return carList;
     }
 
+    public boolean carNameDistinct(ArrayList<String> carList) {
+        return carList.size() != carList.stream().distinct().count();
+    }
+
     public void tryValid() {
-        String pattern = "^[0-9]*$";
+
         boolean numberCheck = Pattern.matches(pattern, tryNumbers);
 
-        if(tryNumbers.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
+        errorInTry(tryNumbers.isEmpty());
 
-        if (!numberCheck) {
+        errorInTry(!numberCheck);
+        
+    }
+
+    public void errorInTry(boolean tryNumbers) {
+        if (tryNumbers) {
             throw new IllegalArgumentException();
         }
     }
