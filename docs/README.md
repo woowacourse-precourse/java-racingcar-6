@@ -24,7 +24,7 @@
 
 ### GameOutputView
 
-- [ ] 실행 결과 메시지 출력 기능
+- [X] 실행 결과 메시지 출력 기능
 - [ ] 최종 우승자 메시지 출력 기능
 
 ### InputValidator

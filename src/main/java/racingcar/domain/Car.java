@@ -20,4 +20,12 @@ public class Car {
             nowNum++;
         }
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getNowNum() {
+        return this.nowNum;
+    }
 }
