@@ -2,13 +2,16 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.model.RacingGame;
 
 public class NumberGenerator {
 
-    public int goChance(){
+    RacingGame racinggame = new RacingGame();
+
+    public void goChance(){
         String chance = Console.readLine();
         validateGameChanceNumbers(chance);
-        return Integer.parseInt(chance);
+        racinggame.setGameChance(Integer.parseInt(chance));
     }
 
     private void validateGameChanceNumbers(String input){
@@ -19,8 +22,8 @@ public class NumberGenerator {
         }
     }
 
-    public int createRandomNumbers(){
+    public void createRandomNumbers(){
         int randomNumber = Randoms.pickNumberInRange(1, 9);
-        return randomNumber;
+        racinggame.setrandomNumber(randomNumber);
     }
 }

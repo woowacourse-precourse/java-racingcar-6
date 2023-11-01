@@ -5,10 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.RacingGame;
 
 public class CarGenerator {
     
-    public List<Object> inputCarNames(){
+    RacingGame racinggame = new RacingGame();
+    
+    public void inputCarNames(){
         List<Object> carNames = new ArrayList<Object>();
         String input = Console.readLine();
         carNames = Arrays.asList(input.split(","));
@@ -29,7 +32,7 @@ public class CarGenerator {
 
         validateCarNameDistint(carNames);
 
-        return carNames;
+        racinggame.setCarNames(carNames);
     }
 
     private void validateCarNameNull(String input){
@@ -51,9 +54,7 @@ public class CarGenerator {
     }
 
     private void validateCarNameDistint(List<Object> input){
-        long inputCarName= input.stream()
-                                .distinct()
-                                .count();
+        long inputCarName= input.stream().distinct().count();
         if(input.size()!= inputCarName){
             throw new IllegalArgumentException("중복값 입력");
         }
