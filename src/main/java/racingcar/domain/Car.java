@@ -2,6 +2,8 @@ package racingcar.domain;
 
 
 public class Car {
+
+    private static final int INCREASE_DISTANCE_COUNT = 1;
     private final Name name;
     private int distance = 0;
 
@@ -22,6 +24,6 @@ public class Car {
     }
 
     public void advance() {
-        distance++;
+        distance = distance + INCREASE_DISTANCE_COUNT;
     }
 }
