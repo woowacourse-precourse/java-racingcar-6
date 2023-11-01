@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Cars;
+import racingcar.domain.GameResult;
 
 public class OutputView {
 
@@ -11,5 +12,9 @@ public class OutputView {
     public static void printMovingResults(Cars cars) {
         System.out.println(cars);
         System.out.println();
+    }
+
+    public static void printWinners(GameResult result) {
+        System.out.println(result);
     }
 }

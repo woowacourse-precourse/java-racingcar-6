@@ -1,9 +1,7 @@
 package racingcar.controller;
 
 import racingcar.config.GameConfig;
-import racingcar.domain.Attempt;
-import racingcar.domain.Cars;
-import racingcar.domain.MovingStrategy;
+import racingcar.domain.*;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -22,17 +20,25 @@ public class RacingCarGame {
     }
 
     public void play() {
-        InputView.printDemandCarNames();
-        Cars cars = new Cars(readCarNames());
-
-        InputView.printDemandAttemptCount();
-        Attempt attempt = new Attempt(readInt());
+        Cars cars = getCars();
+        Attempt attempt = getAttempt();
 
         race(cars, attempt);
+        OutputView.printWinners(getGameResult(cars));
+    }
+
+    private Cars getCars() {
+        InputView.printDemandCarNames();
+        return new Cars(readCarNames());
     }
 
     private List<String> readCarNames() {
         return carNamesToNameList(readExistLine());
+    }
+
+    private static Attempt getAttempt() {
+        InputView.printDemandAttemptCount();
+        return new Attempt(readInt());
     }
 
     private void race(Cars cars, Attempt attempt) {
@@ -42,5 +48,10 @@ public class RacingCarGame {
             cars.tryToMove(movingStrategy);
             OutputView.printMovingResults(cars);
         }
+    }
+
+    private GameResult getGameResult(Cars cars) {
+        GameReferee referee = new GameReferee();
+        return referee.totalGame(cars);
     }
 }
