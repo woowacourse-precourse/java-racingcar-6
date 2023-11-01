@@ -43,4 +43,12 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 음수_입력에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,jun", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
