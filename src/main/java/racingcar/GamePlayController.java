@@ -35,4 +35,9 @@ public class GamePlayController {
             outputHandler.printSubResult(car);
         }
     }
+
+    private void endGame() {
+        List<String> finalWinners = judge.getFinalWinner(gameSetting.getCars());
+        outputHandler.printFinalResult(finalWinners);
+    }
 }
