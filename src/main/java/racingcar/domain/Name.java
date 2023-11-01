@@ -10,7 +10,11 @@ public class Name {
         this.value = value;
     }
 
-    public static Name of(Object value) {
+    public String getValue() {
+        return this.value;
+    }
+
+    public static Name from(Object value) {
         if (!RacingCarGameUtil.validNameType(value)) {
             throw new IllegalArgumentException("잘못된 입력 값 입니다.");
         }
