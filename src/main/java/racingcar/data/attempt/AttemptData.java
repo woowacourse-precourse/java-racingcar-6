@@ -24,14 +24,15 @@ public class AttemptData {
 
     public void moveRacingCars() {
         gameAttempts.apply(attemptIndex.toInt());
+        attemptIndex.increase();
     }
 
     public Attempt findLastAttemptByIndex() {
-        return gameAttempts.findAttemptByIndex(attemptIndex.toInt());
+        return gameAttempts.findAttemptByIndex(attemptIndex.toInt() - 1);
     }
 
     public String findWinners() {
-        List<String> Winners =  gameAttempts.findWinnersByIndex(attemptIndex.toInt());
+        List<String> Winners =  gameAttempts.findWinnersByIndex(attemptIndex.toInt() - 1);
         return String.join(WINNER_DELIMITER, Winners);
     }
 }
