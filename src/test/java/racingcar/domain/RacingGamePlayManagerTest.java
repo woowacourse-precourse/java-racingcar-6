@@ -4,6 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import domain.RacingCar;
 import domain.RacingGamePlayManager;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -57,5 +60,39 @@ class RacingGamePlayManagerTest {
 
         // then
         assertThat(moveResult).isEqualTo("jong : --");
+    }
+
+    @Test
+    @DisplayName("최종 우승자가 한 명일 때 출력")
+    void 최종우승자_한명() {
+        // given
+        Set<RacingCar> racingCarSet = new LinkedHashSet<>(Arrays.asList(
+                new RacingCar("jong1", 1),
+                new RacingCar("jong2", 2),
+                new RacingCar("jong3", 3)
+        ));
+
+        // when
+        String racingGameResult = racingGamePlayManager.getRacingGameResult(racingCarSet);
+
+        // then
+        assertThat(racingGameResult).isEqualTo("최종 우승자 : jong3");
+    }
+
+    @Test
+    @DisplayName("최종 우승자가 여러 명일 때 출력")
+    void 최종우승자_여러명() {
+        // given
+        Set<RacingCar> racingCarSet = new LinkedHashSet<>(Arrays.asList(
+                new RacingCar("jong1", 1),
+                new RacingCar("jong2", 3),
+                new RacingCar("jong3", 3)
+        ));
+
+        // when
+        String racingGameResult = racingGamePlayManager.getRacingGameResult(racingCarSet);
+
+        // then
+        assertThat(racingGameResult).isEqualTo("최종 우승자 : jong2, jong3");
     }
 }
