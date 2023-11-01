@@ -1,4 +1,4 @@
-package racingcar.domain.validator;
+package racingcar.domain.util.validator;
 
 public class ChallengeValidator {
     public static void validate(String input) {

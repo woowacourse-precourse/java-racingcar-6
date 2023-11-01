@@ -1,6 +1,6 @@
-package racingcar.domain.valueobject;
+package racingcar.domain.entity.valueobject;
 
-import racingcar.domain.validator.ChallengeValidator;
+import racingcar.domain.util.validator.ChallengeValidator;
 
 public class Challenge {
     private int number;

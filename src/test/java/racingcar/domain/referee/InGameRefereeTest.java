@@ -4,7 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.Car;
+import racingcar.domain.entity.Car;
+import racingcar.domain.util.referee.InGameReferee;
 
 class InGameRefereeTest {
     @Test

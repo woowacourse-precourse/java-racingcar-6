@@ -2,17 +2,18 @@ package racingcar.domain.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.car.Car;
-import racingcar.domain.generator.NumberGenerator;
-import racingcar.domain.inputer.CarInputer;
-import racingcar.domain.outputer.IntermediateCourseOuter;
-import racingcar.domain.referee.InGameReferee;
+import racingcar.domain.entity.Car;
+import racingcar.domain.util.generator.RandomNumberGenerator;
+import racingcar.domain.util.validator.CarNameValidator;
+import racingcar.domain.view.inputer.CarInputer;
+import racingcar.domain.view.printer.IntermediateCoursePrinter;
+import racingcar.domain.util.referee.InGameReferee;
 
 public class RacingService {
     public void getResult(List<Car> carList) {
-        List<Integer> randomList = NumberGenerator.createListNumber(carList.size());
+        List<Integer> randomList = RandomNumberGenerator.createListNumber(carList.size());
         runRacing(carList, randomList);
-        IntermediateCourseOuter.printResult(carList);
+        IntermediateCoursePrinter.printResult(carList);
     }
 
     public List<Car> getCars() {
@@ -22,11 +23,12 @@ public class RacingService {
             Car car = new Car(name);
             cars.add(car);
         }
+        CarNameValidator.checkDuplication(cars);
         return cars;
     }
 
     /**
-     * 생성된 무작위 값이 4이상이면 전진
+     * 생성된 무작위 값이 LOWER_LIMIT 이상이면 전진
      *
      * @param carList    입력받은 자동차들
      * @param randomList 생성된 랜덤 숫자들

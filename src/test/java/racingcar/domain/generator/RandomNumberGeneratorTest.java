@@ -4,12 +4,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.util.generator.RandomNumberGenerator;
 
-class NumberGeneratorTest {
+class RandomNumberGeneratorTest {
     @Test
     public void createListNumber_0부터9사이의_숫자_생성() {
-        NumberGenerator numberGenerator = new NumberGenerator();
-        List<Integer> result = numberGenerator.createListNumber(3);
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        List<Integer> result = randomNumberGenerator.createListNumber(3);
 
         assertThat(result).isNotNull();
         assertThat(result).hasSize(3);

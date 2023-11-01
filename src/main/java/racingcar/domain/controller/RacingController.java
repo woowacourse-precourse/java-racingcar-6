@@ -1,12 +1,12 @@
 package racingcar.domain.controller;
 
 import java.util.List;
-import racingcar.domain.car.Car;
-import racingcar.domain.inputer.ChallengeInputer;
-import racingcar.domain.outputer.WinnerOuter;
-import racingcar.domain.referee.InGameReferee;
+import racingcar.domain.entity.Car;
+import racingcar.domain.view.inputer.ChallengeInputer;
+import racingcar.domain.view.printer.WinnerPrinter;
+import racingcar.domain.util.referee.InGameReferee;
 import racingcar.domain.service.RacingService;
-import racingcar.domain.valueobject.Challenge;
+import racingcar.domain.entity.valueobject.Challenge;
 
 public class RacingController {
     public void startRacing() {
@@ -19,6 +19,6 @@ public class RacingController {
         }
 
         List<Car> winners = InGameReferee.findWinner(cars);
-        WinnerOuter.printWinner(winners);
+        WinnerPrinter.printWinner(winners);
     }
 }

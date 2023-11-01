@@ -1,10 +1,13 @@
-package racingcar.domain.valueobject;
+package racingcar.domain.entity.valueobject;
+
+import racingcar.domain.config.GameConfig;
 
 public class CarLocation {
+    private static final int START_LOCATION = GameConfig.START_LOCATION;
     private int location;
 
     public CarLocation() {
-        this.location = 0;
+        this.location = START_LOCATION;
     }
 
     public int getInteger() {
