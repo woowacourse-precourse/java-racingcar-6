@@ -1,53 +1,74 @@
 package racingcar.utils;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayInputStream;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.Application;
+import racingcar.exception.RacingCarException;
 
-class UserInputValidatorTest extends NsTest {
+class UserInputValidatorTest {
+
+    private final UserInputValidator userInputValidator = new UserInputValidator();
+
+    protected void systemIn(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+    }
+
+    private static List<String> convertToList(String input) {
+        return asList(input.split(","));
+    }
 
     @DisplayName("이름은 5자를 초과하지 않아야 한다.")
     @Test
     void nameDoesNotExceedLimit() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        //given
+        String input = "pobi,javaji";
+        List<String> carNames = convertToList(input);
+
+        //then
+        assertThatThrownBy(() -> userInputValidator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(RacingCarException.INVALID_CAR_NAME_LENGTH_MSG);
     }
 
     @DisplayName("이름은 공백이어서는 안된다.")
     @Test
     void nameShouldNotBeBlank() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi, ,good", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        //given
+        String input = "pobi, ,jun";
+        List<String> carNames = convertToList(input);
+
+        //then
+        assertThatThrownBy(() -> userInputValidator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(RacingCarException.INVALID_BLANK_NAME_MSG);
     }
 
     @DisplayName("시도횟수는 숫자이어야 한다.")
     @Test
     void tryCountShouldBeNumeric() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "ABC"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        //given
+        String input = "A";
+        systemIn(input);
+
+        //then
+        assertThatThrownBy(() -> userInputValidator.validateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(RacingCarException.INVALID_NUMBER_MSG);
     }
 
     @DisplayName("시도횟수는 공백이어서는 안 된다.")
     @Test
     void tryCountShouldBeProvided() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", ""))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
+        //given
+        String input = " ";
+        systemIn(input);
 
-    @Override
-    protected void runMain() {
-        Application.main(new String[]{});
+        //then
+        assertThatThrownBy(() -> userInputValidator.validateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
