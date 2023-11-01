@@ -16,12 +16,15 @@ public class RacingCarGame {
     }
 
     public void addRacingCar(String carNames) {
-        List<String> carNameStringList = List
-                .of(carNames.split(RacingCarGameText.RACINGCAR_SPLIT_DELIMITER, ALLOW_EMPTY_CARNAME_OPTION));
+        List<String> carNameStringList = getCarNameStringList(carNames);
 
         carNameStringList.stream()
                 .map(String::strip)
                 .forEach(carNameString -> this.racingCarCollection.add(Car.fromString(carNameString)));
+    }
+
+    private List<String> getCarNameStringList(String carNames) {
+        return List.of(carNames.split(RacingCarGameText.RACINGCAR_SPLIT_DELIMITER, ALLOW_EMPTY_CARNAME_OPTION));
     }
 
     public CarCollection getCarCollection() {
@@ -64,7 +67,7 @@ public class RacingCarGame {
         addRacingCar(getCarNameFromPrompt());
         setTryCount(getTryCountFromPrompt());
         displayRacingCarGameResult();
-        while(!racingCarTryCount.isFinished()){
+        while (!racingCarTryCount.isFinished()) {
             racingCarCollection.batchMoveCarOnRandomCondition();
             displayCurrentCarStatus();
             racingCarTryCount.consumeTry();
