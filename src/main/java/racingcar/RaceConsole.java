@@ -28,7 +28,7 @@ public class RaceConsole {
 
     public <String, R> R getInput(String message, Predicate<String> predicate, Function<String, R> function) {
         System.out.println(message);
-        String answer = (String) Console.readLine();
+        @SuppressWarnings("unchecked") String answer = (String) Console.readLine();
         if (predicate.test(answer)) {
             throw new IllegalArgumentException("invalid input");
         }
