@@ -38,11 +38,11 @@ public class RacingcarGameController {
         Printer.printResultHeadMessage();
 
         while (gameStatus.isGamePlaying()) {
-            proceedEachRound(cars, gameStatus);
+            proceedEachRound(cars);
         }
     }
 
-    private static void proceedEachRound(Cars cars, GameStatus gameStatus) {
+    private static void proceedEachRound(Cars cars) {
         RandomNumbers randomNumbers = new RandomNumbers(RandomNumberGenerator.generateRandomNumbers(cars.size()));
         racingcarGameService.playOneRound(cars, randomNumbers);
         PrintHandler.printResultOfGame(cars);
