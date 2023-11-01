@@ -23,9 +23,13 @@ public class RacingCar {
 		List<Car> sortedCars = new ArrayList<>(this.cars);
 		sortCarsByLocation(sortedCars);
 
-		Car carWithMostMovement = sortedCars.get(0);
+		Car carWithMostMovement = getCarWithMostMovement(sortedCars);
 
 		return carWithMostMovement.getLocation();
+	}
+
+	public Car getCarWithMostMovement(List<Car> sortedCars) {
+		return sortedCars.get(0);
 	}
 
 	public void sortCarsByLocation(List<Car> sortedCars) {
