@@ -19,43 +19,39 @@ public class Scanner {
     public List<String> inputCarNames() {
         List<String> carNames = new ArrayList<>();
         String inputString = Console.readLine();
-        validate(isNoInput(inputString));
+        validateNoInput(inputString);
         StringTokenizer tokenizedInputString = new StringTokenizer(inputString, delimiter);
         while (tokenizedInputString.hasMoreTokens()) {
             String nextCarName = tokenizedInputString.nextToken();
-            validate(isInvalidCarName(nextCarName));
+            validateCarName(nextCarName);
             carNames.add(nextCarName);
         }
         return carNames;
     }
 
     public Integer inputNumberOfRound() {
-        String inputString = Console.readLine();
-        validate(isInvalidNumber(inputString));
-        return Integer.parseInt(inputString);
+        String numberOfRounds = Console.readLine();
+        validateInputNumber(numberOfRounds);
+        return Integer.parseInt(numberOfRounds);
     }
 
-    private Boolean isNoInput(String input){
-        return input.isEmpty();
-    }
-    private Boolean isInvalidCarName(String carName) {
-        validate(isNoInput(carName));
-        return (carName.length() > maximumNameLength);
-    }
-
-    private Boolean isInvalidNumber(String inputString) {
-        validate(isNoInput(inputString));
-        return (inputString.charAt(0) < '0' || inputString.charAt(0) > '9');
-    }
-    private void validate(Boolean condition) {
-        if (condition) {
+    private void validateNoInput(String inputString) {
+        if (inputString.isEmpty()) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void validate(Boolean condition, String message) {
-        if (condition) {
-            throw new IllegalArgumentException(message);
+    private void validateCarName(String carName) {
+        validateNoInput(carName);
+        if (carName.length() > maximumNameLength) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateInputNumber(String number) {
+        validateNoInput(number);
+        if (number.charAt(0) < '0' || number.charAt(0) > '9') {
+            throw new IllegalArgumentException();
         }
     }
 }
