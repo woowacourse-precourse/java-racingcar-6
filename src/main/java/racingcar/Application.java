@@ -9,5 +9,10 @@ public class Application {
         InputCarName inputCarName = new InputCarName();
         inputCarName.inputCar(carNames);
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        String inputTurn = Console.readLine();
+        InputTurnNum inputTurnNum = new InputTurnNum();
+        inputTurnNum.inputTurn(inputTurn);
+
     }
 }
