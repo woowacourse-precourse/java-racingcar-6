@@ -9,7 +9,8 @@
   - [x] 가장 많이 전진한 자동차의 인덱스를 구한다. - WinnerManager#getIndexOfMaxForwardCount()
   - [x] 동점인 우승자가 있는지 구한다. - WinnerManager#findValuesEqualToMax()
   - [x] 최종 우승자 명단 List를 반환한다. - WinnerManager#returnWinnerList()
-- [x] 각 차수별 실행 결과를 출력한다. - RaceGameManager#noticeRacingResult()
+- [x] 각 차수별 모든 자동차의 실행 결과를 출력한다. - RaceGameManager#noticeRacingResult()
+  - [x] 하나의 자동차 진행 상태를 출력한다. - RaceGameManager#displayCarStatus()
 - [x] 누가 우승했는지 출력 - RaceGameManager#noticeWinner()
  
 
