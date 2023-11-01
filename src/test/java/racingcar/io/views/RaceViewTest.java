@@ -16,6 +16,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.collaborator.race.Racer;
 import racingcar.io.racing.RaceRandoms;
+import racingcar.io.views.enums.RaceViewMessage;
 
 class RaceViewTest {
 
@@ -56,7 +57,8 @@ class RaceViewTest {
         customSetIn(input);
 
         Assertions.assertThatThrownBy(() -> new RaceView().askRacersNames())
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(RaceViewMessage.EXCEPTION_DUPLICATE_NAME.get());
     }
 
     @Test
