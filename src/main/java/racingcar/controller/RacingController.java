@@ -10,13 +10,16 @@ import racingcar.view.OutputView;
 public class RacingController {
 	private final OutputView outputView = new OutputView();
 	private final InputView inputView = new InputView();
-
+	private List<Car> carNames;
+	private RacingCount racingCount;
+	
 	public void start() {
 		// TODO Auto-generated method stub
 		outputView.printInputCarName();
-		List<Car> carNames = inputView.inputCarNames();
+		carNames = inputView.inputCarNames();
 		outputView.printInputRaceCount();
-		RacingCount racingCount = inputView.inputRacingCount();
+		racingCount = inputView.inputRacingCount();
 	}
-
+	
+	
 }

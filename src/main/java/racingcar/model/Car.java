@@ -37,4 +37,18 @@ public class Car {
 		}
 	}
 	
+	public String getName(){
+		return name;
+	}
+	
+	public int getPosition() {
+		return position;
+		
+	}
+	
+	public String Result() {
+		return this.name + " : " + "-".repeat(this.position);
+		
+	}
+	
 }
