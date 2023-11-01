@@ -21,8 +21,12 @@ public class View {
 
     public int printInputRacingTime() {
         System.out.println("시도할 회수는 몇회인가요?");
+        return parseRacingTime(ioManager.readString());
+    }
+
+    private int parseRacingTime(String input) {
         try {
-            return Integer.parseInt(ioManager.readString());
+            return Integer.parseInt(input);
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException("");
         }
