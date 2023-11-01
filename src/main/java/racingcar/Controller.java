@@ -103,17 +103,20 @@ class Game {
     }
 
     static void checkException(final String str){
-        if(!Game.checkInput(str)) {
+        if(!Game.isNumeric(str)) {
             throw new IllegalArgumentException();
         }
+
     }
 
-    static boolean checkInput(String isNumber){
-        try {
-            int inputValue = Integer.parseInt(isNumber);
-        }
-        catch (NumberFormatException e){
+    static boolean isNumeric(String isNumber){
+        if(isNumber == null || isNumber.isEmpty()){
             return false;
+        }
+        for(char c : isNumber.toCharArray()) {
+            if(!Character.isDigit(c)){
+                return false;
+            }
         }
         return true;
     }
