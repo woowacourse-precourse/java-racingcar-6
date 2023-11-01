@@ -1,56 +1,56 @@
-/*package racingcar.controller;
+package racingcar.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import racingcar.model.Car;
+import racingcar.model.CarList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RandomGameRuleTest {
+
+    private RandomGameRuleImpl gameRule;
     private CarList carList;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         carList = new CarList();
+
+        carList.addCar(new Car("Car1"));
+        carList.addCar(new Car("Car2"));
+        carList.addCar(new Car("Car3"));
+
+        gameRule = new RandomGameRuleImpl(carList);
     }
 
     @Test
-    void testInputUserValue() {
-        userController.registerCar("Car1,Car2,Car3");
+    public void testProgressCar() {
+        gameRule.progressCar(carList.get(0), 0);
+        gameRule.progressCar(carList.get(1), 1);
+        gameRule.progressCar(carList.get(2), 9);
 
-        assertThat(carList.size()).isEqualTo(3);
-        assertThat(carList.get(0).getName()).isEqualTo("Car1");
-        assertThat(carList.get(1).getName()).isEqualTo("Car2");
-        assertThat(carList.get(2).getName()).isEqualTo("Car3");
-
-        assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> userController.registerCar("InvalidCarName"));
+        assertEquals(0, carList.get(0).getDistance());
+        assertEquals(0, carList.get(1).getDistance());
+        assertEquals(1, carList.get(2).getDistance());
     }
 
     @Test
-    void testInputCarToList() {
-        userController.inputCarToList("Car1");
+    public void testCalculateWinner() {
+        gameRule.progressCar(carList.get(0), 9);
+        gameRule.progressCar(carList.get(1), 9);
+        gameRule.progressCar(carList.get(2), 9);
 
-        assertThat(carList.size()).isEqualTo(1);
-        assertThat(carList.get(0).getName()).isEqualTo("Car1");
+        String winner1 = gameRule.calculateWinner();
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> userController.inputCarToList("InvalidCarName"));
-    }
+        assertEquals("Car1, Car2, Car3", winner1);
 
-    @Test
-    void testValidateNameLength() {
-        userController.validateNameLength("Car1");
+        gameRule.progressCar(carList.get(0), 9);
+        gameRule.progressCar(carList.get(1), 0);
+        gameRule.progressCar(carList.get(2), 0);
 
-        assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> userController.validateNameLength("InvalidCarName"));
-    }
+        String winner2 = gameRule.calculateWinner();
 
-    @Test
-    void testRegisterCoin() {
-        userController.registerCoin("11");
-
-        assertThat(userController.getCoin()).isEqualTo(11);
+        assertEquals("Car1", winner2);
     }
 }
-*/
