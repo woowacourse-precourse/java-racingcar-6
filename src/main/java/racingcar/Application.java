@@ -5,4 +5,14 @@ public class Application {
         // TODO: 프로그램 구현
 
     }
+
+    public static void askName(){
+
+    }
+    public static void askCount(){
+
+    }
+    public static void printResult(){
+
+    }
 }
