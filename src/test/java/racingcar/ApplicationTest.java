@@ -35,10 +35,20 @@ class ApplicationTest extends NsTest {
     void 이름_빈칸_제거_처리_후_정상작동_확인() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi,    woni,  eugen ", "1");
+                    run("po  bi,    won i,  eugen ", "1");
                     assertThat(output()).contains("pobi : ", "woni : ", "eugen : ", "최종 우승자 : pobi, woni, eugen");
                 },
                 STOP, STOP, STOP
+        );
+    }
+
+    @Test
+    void 한명_일_경우_게임_불가() {
+        assertSimpleTest(
+                () -> {
+                    assertThatThrownBy(() -> runException("pobi", "1"))
+                            .isInstanceOf(IllegalArgumentException.class);
+                } // 혼자..게임은 슬프니까..
         );
     }
 
