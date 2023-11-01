@@ -9,16 +9,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RaceTest extends NsTest {
 
-    private static final int MOVING_FOWARD = 4;
+    private static final int MOVING_FORWARD = 4;
     private Game game = new Game();
 
     @Test
+
     void 자동차_경주_결과_출력() {
         assertRandomNumberInRangeTest(() -> {
                     run("youth", "1");
                     assertThat(output()).contains("실행 결과", "youth : -");
                 },
-                MOVING_FOWARD, MOVING_FOWARD
+                MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
