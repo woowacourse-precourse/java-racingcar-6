@@ -4,6 +4,7 @@ import racingcar.controller.RacingController;
 import racingcar.model.Car;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
 
@@ -28,6 +29,17 @@ public class OutputView {
         System.out.println();
         if (currentRound == totalRound) {
             racingController.decideWinner();
+        }
+    }
+
+    public void printWinners(List<Car> winners) {
+        List<String> winnerNames = winners.stream().map(Car::getName).collect(Collectors.toList());
+        System.out.print("최종 우승자 : ");
+        if (winnerNames.size() == 1) {
+            System.out.print(winnerNames.get(0));
+        }
+        else {
+            System.out.print(String.join(", ",winnerNames));
         }
     }
 

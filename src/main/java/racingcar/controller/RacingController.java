@@ -41,6 +41,6 @@ public class RacingController {
 
     public void decideWinner() {
         List<Car> winners = racingService.decideWinner();
-        // TODO: output view 에서 우승자 출력
+        outputView.printWinners(winners);
     }
 }
