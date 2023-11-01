@@ -32,8 +32,6 @@ public class Application {
 
         CarMoveGenrator moveGenrator = new CarMoveGenrator();
 
-        // List<Integer> moves = new ArrayList<>(Collections.nCopies(carNames.size(), 0));
-
         for (int i = 0; i < numAttempts; i++) {
             for (int j = 0; j < carNames.size(); j++) {
                 int move = moveGenrator.generateRandomMove();
