@@ -30,16 +30,13 @@ public class Car {
 		this.name = name;
 		this.position = 0;
 	}
-	
+
 	public void move() {
-		int ran = Randoms.pickNumberInRange(0,9);
-		
+
+		int ran = Randoms.pickNumberInRange(0, 9);
+
 		if (ran >= 4) {
 			position++;
 		}
-	
 	}
-	
-	
-
 }
