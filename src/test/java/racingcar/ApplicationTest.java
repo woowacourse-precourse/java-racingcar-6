@@ -22,6 +22,37 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
+    @Test
+    void 동명이인() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("a, a", "1");
+                    assertThat(output()).contains("a : -", "a : ", "최종 우승자 : a");
+                },
+                MOVING_FORWARD, STOP
+        );
+    }
+    @Test
+    void 입력의_컴마가_여러개_일때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,,,,,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 입력이_컴마로_시작할때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 입력이_컴마로_끝날때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Test
     void 이름에_대한_예외_처리() {
@@ -31,6 +62,13 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 횟수에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
