@@ -56,8 +56,8 @@ public class RapsResult {
         return num;
     }
 
-    //랜덤값을 생성하여 전진할지 멈출지 결정하고, 최종 결과를 반환합니다.
-    public String forwardOrNot() {
+    //랜덤값을 생성하여 전진할지 멈출지 결정하고, 경기 1회 끝난 후 결과를 반환합니다.
+    public String raceResult() {
 
         int num = generateNumber();
         boolean forward = reader(num);

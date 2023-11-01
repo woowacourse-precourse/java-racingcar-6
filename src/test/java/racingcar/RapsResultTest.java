@@ -56,7 +56,7 @@ class RapsResultTest {
     }
 
     @Test
-    void forwardOrNot_자동차_1경기_결과_출력() {
+    void testㄲaceResult_자동차_1경기_결과_출력() {
 
 
     }
