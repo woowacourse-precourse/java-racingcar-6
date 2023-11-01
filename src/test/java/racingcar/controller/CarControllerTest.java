@@ -28,4 +28,17 @@ class CarControllerTest {
         });
     }
 
+    @Test
+    @DisplayName("입력값 테스트 2 - 이름 입력 값을 구분하는 ,가 2개 이상일 경우 테스트")
+    void inputTest2() {
+        //given
+        String userCars = "boot, jpa,, sql";
+        String userCount = "5";
+
+        // when & then
+        assertThrows(IllegalArgumentException.class, () -> {
+            carController.createRacingGame(userCars, userCount);
+        });
+    }
+
 }
