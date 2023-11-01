@@ -79,7 +79,6 @@ public class RacingCar {
         for (Car car : cars.getCars()) {
             RaceResult raceResult = car.generateResult();
             OutputView.printRaceResult(raceResult);
-            OutputView.printEnter();
         }
     }
 }

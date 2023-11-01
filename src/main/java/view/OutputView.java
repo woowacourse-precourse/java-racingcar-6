@@ -29,6 +29,7 @@ public class OutputView {
         for (int i = 0; i < progress; i++) {
             System.out.print("-");
         }
+        printEnter();
     }
 
     public static void printWinnerIntroduction() {
