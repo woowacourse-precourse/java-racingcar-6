@@ -15,7 +15,6 @@ public class Game{
         setInputMembers();
         makeMembers();
         setAttempts();
-        checker.checkNumber(inputAttempts);
     }
     public void setInputMembers(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -24,13 +23,15 @@ public class Game{
     }
     public void makeMembers(){
         for(String member:inputMembers.split(",")) {
-            Car tmp = new Car(member);
-            members.add(tmp);
+            checker.checkMember(member);
+            Car car = new Car(member);
+            members.add(car);
         }
     }
     public void setAttempts(){
         System.out.println("시도할 회수는 몇회인가요?");
         inputAttempts = Console.readLine();
+        checker.checkNumber(inputAttempts);
     }
 
     public void setWinners(){
