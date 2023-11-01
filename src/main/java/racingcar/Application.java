@@ -16,17 +16,13 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         List<String> car = inputCarNames();
-        int tryCount;
+        int tryCount = inputTryCount();
         List<Integer> position = new ArrayList<>();
         int maxPosition;
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
         if (!NUMBER_PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException("시도할 회수는 숫자만 가능");
         }
-
-        tryCount = Integer.parseInt(input);
 
         if (tryCount <= 0) {
             throw new IllegalArgumentException("1 이상의 양수만 입력 가능.");
@@ -79,10 +75,16 @@ public class Application {
 
         List<String> carNames = toList(input);
 
-        validateCarNames(carNames);
+        validateNamePattern(carNames);
         validateNoDuplicate(carNames);
 
         return carNames;
+    }
+
+    private static int inputTryCount() {
+        String input = getInput("시도할 회수는 몇회인가요?");
+
+        return Integer.parseInt(input);
     }
 
     private static String getInput(String message) {
@@ -104,7 +106,7 @@ public class Application {
         }
     }
 
-    private static void validateCarNames(List<String> carNames) {
+    private static void validateNamePattern(List<String> carNames) {
         for (String carName : carNames) {
             if (!ALPHABET_AND_HANGUL_PATTERN.matcher(carName).matches()) {
                 throw new IllegalArgumentException("차 이름은 영어 또는 한글만 가능");
