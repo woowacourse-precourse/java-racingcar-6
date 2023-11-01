@@ -13,9 +13,10 @@ public class GameService {
     private static final int MAX_NUMBER = 9;
     private static final int FORWARD_NUMBER = 4;
     private static final int INITIAL_MAX_VALUE = -1;
+    private static final String CAR_NAME_SEPARATOR = ",";
 
     public List<String> parseCarName(String input) {
-        return new ArrayList<>(Arrays.asList(input.split(",")));
+        return new ArrayList<>(Arrays.asList(input.split(CAR_NAME_SEPARATOR)));
     }
 
     public void play(Game game) {
