@@ -12,4 +12,16 @@ public class Car {
     public void moveCar() {
         this.position++;
     }
+
+    public void printPositionWithName() {
+        System.out.println(name + " : " + createPosition());
+    }
+
+    private String createPosition() {
+        String line = "";
+        for (int move = 1; move <= position; move++) {
+            line += "-";
+        }
+        return line;
+    }
 }

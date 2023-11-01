@@ -5,6 +5,8 @@ import java.util.*;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Cars {
+    private final static String RESULT_MESSAGE = "실행 결과";
+
     private List<Car> list;
 
     public void inputCarName(String input) {
@@ -73,5 +75,16 @@ public class Cars {
 
     private boolean canMove() {
         return pickNumberInRange(1, 9) >= 4;
+    }
+
+    public void printResult() {
+        System.out.println(RESULT_MESSAGE);
+        printResultByCar();
+    }
+
+    public void printResultByCar() {
+        for (Car car : list) {
+            car.printPositionWithName();
+        }
     }
 }
