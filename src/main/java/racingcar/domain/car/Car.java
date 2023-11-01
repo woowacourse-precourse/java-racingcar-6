@@ -2,15 +2,15 @@ package racingcar.domain.car;
 
 public class Car implements Comparable<Car> {
     private final Name name;
-    private MoveCount moveCount;
+    private int moveCount;
 
     public Car(String name) {
         this.name = new Name(name);
-        this.moveCount = new MoveCount();
+        moveCount = 0;
     }
 
     public void controlMovement(int controlValue) {
-        moveCount.controlMovement(controlValue);
+        this.moveCount = SupportedMove.controlMovement(moveCount, controlValue);
     }
 
     public String getName() {
@@ -18,16 +18,16 @@ public class Car implements Comparable<Car> {
     }
 
     public int getMoveCount() {
-        return moveCount.getMoveCount();
+        return moveCount;
     }
 
     @Override
     public int compareTo(Car other) {
-        return moveCount.compareTo(other.moveCount);
+        return this.moveCount - other.moveCount;
     }
 
     public boolean findSameCar(Car other) {
-        return moveCount.findSameMoveCount(other.moveCount);
+        return this.moveCount == other.moveCount;
     }
 
 }
