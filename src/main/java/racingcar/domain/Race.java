@@ -9,12 +9,12 @@ import racingcar.util.RandomNumberGenerator;
 
 public class Race {
     private final List<Car> cars;
-    private final int totalTime;
+    private final int totalRound;
     private int bestScore;
 
-    public Race(int totalTime) {
+    public Race(int totalRound) {
         this.cars = new ArrayList<>();
-        this.totalTime = totalTime;
+        this.totalRound = totalRound;
         this.bestScore = 0;
     }
 
@@ -31,7 +31,7 @@ public class Race {
     public void start() {
         System.out.println();
         System.out.println(Console.RESULT.message());
-        for (int time = 0; time < totalTime; time++) {
+        for (int time = 0; time < totalRound; time++) {
             moveCars();
             printStatus();
         }
