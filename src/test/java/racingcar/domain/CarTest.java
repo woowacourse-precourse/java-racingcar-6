@@ -34,8 +34,8 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("Drive 시 값이 제대로 올라가는 지 확인")
-    void driveTest() throws Exception {
+    @DisplayName("Drive 시 값이 제대로 올라가는 지 확인 - DeclaredField")
+    void driveTestUsingDeclaredField() throws Exception {
         Field driveCountField = Car.class.getDeclaredField("driveCount");
         driveCountField.setAccessible(true);
 
@@ -43,5 +43,14 @@ class CarTest {
         assertThat(driveCountField.get(car)).isEqualTo(0);
         car.drive();
         assertThat(driveCountField.get(car)).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("Drive 시 값이 제대로 올라가는 지 확인 - CarStatus")
+    void driveTestUsingCarStatus() throws Exception {
+        Car car = new Car("테스트차량");
+        assertThat(car.getStatus().getDriveCount()).isEqualTo(0);
+        car.drive();
+        assertThat(car.getStatus().getDriveCount()).isEqualTo(1);
     }
 }
