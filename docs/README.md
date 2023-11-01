@@ -10,10 +10,9 @@
 ## PlayGame
 
 - method
-  - statusPrint : 현재 각 차량의 진행 상황을 출력합니다.
-  - createRandomNumber : 0~9사이의 무작위 값을 생성합니다.
+  - RunTurn : 게임을 한턴 진행합니다.
   - playGame : 게임을 진행합니다.
-  - getResult : 게임의 결과를 반환합니다.
+  - generateCarList : Car 리스트를 생성합니다.
 
 ## UserInput
 
@@ -25,6 +24,12 @@
 
 - method
     - carName : 입력 받은 차량의 이름을 조건에 맞나 검증합니다.
+
+## Print
+
+- method
+  - status : 차량의 현재 위치를 출력
+  - result : 게임의 결과를 출력
 
 ## Application
 
