@@ -40,14 +40,15 @@ public class OutputView {
     }
 
     public static String countToMileage(Car car) {
-        String Mileage = "-";
+        int distance = car.getDistance();
 
-        Integer distance1 = car.getDistance();
-
-        for (int i = 0; i < distance1; i++) {
-            Mileage += Mileage;
+        if (distance <= 0) {
+            return "";
         }
-        return Mileage;
+
+        String mileage = "-".repeat(distance);
+
+        return mileage;
     }
 }
 
