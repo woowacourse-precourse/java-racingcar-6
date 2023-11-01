@@ -19,4 +19,13 @@ public class InputValidatorTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(LESS_THEN_FIVE_LETTERS.getMessage());
     }
+
+    @ParameterizedTest
+    @DisplayName("정수 입력이 아닐 경우 예외 발생")
+    @ValueSource(strings = {"1.1", "car", "3word"})
+    void inputMustBeInteger(String input){
+        assertThatThrownBy(()-> InputValidator.inputMustBeInteger(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(VALUE_MUST_BE_INTEGER.getMessage());
+    }
 }
