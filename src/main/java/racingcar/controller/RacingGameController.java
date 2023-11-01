@@ -3,7 +3,7 @@ package racingcar.controller;
 import static racingcar.view.IOMessage.PRINT_RESULT;
 
 import java.util.List;
-import racingcar.model.RacingGame;
+import racingcar.service.RacingGameService;
 import racingcar.model.Result;
 import racingcar.view.InputView;
 import racingcar.view.OutPutView;
@@ -12,27 +12,27 @@ public class RacingGameController {
     public void run() {
 
         String inputCarNames = InputView.inputCarNames();
-        RacingGame racingGame = RacingGame.from(inputCarNames);
+        RacingGameService racingGameService = RacingGameService.from(inputCarNames);
         int tryCount = InputView.inputTryCount();
 
-        playRacingGame(racingGame, tryCount);
+        playRacingGame(racingGameService, tryCount);
     }
     private void printResults(List<Result> results) {
         results.forEach(OutPutView::printResult);
         OutPutView.println();
     }
 
-    private void printWinnerResults(RacingGame racingGame) {
-        List<String> winnerNameList = racingGame.determineRaceWinners();
+    private void printWinnerResults(RacingGameService racingGameService) {
+        List<String> winnerNameList = racingGameService.determineRaceWinners();
         OutPutView.printWinner(winnerNameList);
     }
 
-    private void playRacingGame(RacingGame racingGame, int tryCount) {
+    private void playRacingGame(RacingGameService racingGameService, int tryCount) {
         printBeforeResultsMessage();
         for (int i = 0; i < tryCount; i++) {
-            List<Result> results = racingGame.play();
+            List<Result> results = racingGameService.play();
             printResults(results);
-            if(i == tryCount - 1) printWinnerResults(racingGame);
+            if(i == tryCount - 1) printWinnerResults(racingGameService);
         }
     }
 
