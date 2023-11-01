@@ -16,8 +16,6 @@ public class InputView {
         this.inputValidator = inputValidator;
     }
 
-
-    // 자동차 입력만 받기
     public String inputCarName() {
         System.out.println(INPUT_CAR_NAME);
         return Console.readLine();

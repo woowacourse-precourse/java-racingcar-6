@@ -1,16 +1,16 @@
 package racingcar.domain;
 
-
-import static racingcar.util.Util.blankLine;
 import racingcar.service.RandomGenerator;
 import racingcar.view.Input.InputView;
 import racingcar.view.Output.OutputView;
 
+import static racingcar.util.Util.blankLine;
+
 public class RacingGame {
     private InputView inputView;
     private OutputView outputView;
-    private Cars cars;
     private RandomGenerator randomGenerator;
+    private Cars cars;
 
     public RacingGame(InputView inputView, OutputView outputView, RandomGenerator randomGenerator) {
         this.inputView = inputView;
@@ -34,11 +34,11 @@ public class RacingGame {
 
     public void getCar() {
         String input = inputView.inputCarName();
-        cars = new Cars(inputView.convertInputCarName(input)); // Car > Cars
+        cars = new Cars(inputView.convertInputCarName(input));
     }
 
     public int geteTrialNumber() {
-        return inputView.convertInputTrialNumber(); // 시도 횟수 입력 받기
+        return inputView.convertInputTrialNumber();
     }
 
     public void moveCarIfRandomOver4() {
@@ -54,6 +54,4 @@ public class RacingGame {
                     outputView.printResultFormat(car.carName, dashes);
                 });
     }
-
-
 }

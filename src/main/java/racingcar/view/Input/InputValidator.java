@@ -8,7 +8,6 @@ import static racingcar.view.ExceptionMessage.ExceprionMessage.IS_POSITIVE_ONLY;
 public class InputValidator {
     private final String NUMBER_REGX = "^[0-9]+$";
 
-
     public void isNull(String input) {
         if (input.trim().length() == INVALID_NUMBER) {
             throw new IllegalArgumentException("");

@@ -12,7 +12,6 @@ public class Cars {
         validateDuplicate(cars);
         this.cars = cars;
     }
-
     public void validateDuplicate(List<Car> cars) {
         int hasDuplicate = (int)cars.stream().
                 map(car -> car.carName).

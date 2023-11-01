@@ -7,18 +7,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class racingResultTest {
+    Car BMW = new Car("BMW");
+    Car Audi = new Car("Audi");
+    Car Tesla = new Car("Tesla");
     @Test
     @DisplayName("우승자 찾기")
-    void find_max_location() {
-        Car BMW = new Car("BMW");
-        Car Audi = new Car("Audi");
-        Car Tesla = new Car("Tesla");
-
-        BMW.forward();
-        Audi.forward();
-        Audi.forward();
-        Tesla.forward();
-        Tesla.forward();
+    void find_winner() {
+        BMW.location = 1;
+        Audi.location = 3;
+        Tesla.location = 3;
 
         Cars cars = new Cars(List.of(BMW,Audi, Tesla));
 
