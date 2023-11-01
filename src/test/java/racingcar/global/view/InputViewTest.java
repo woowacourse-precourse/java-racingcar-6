@@ -1,18 +1,17 @@
 package racingcar.global.view;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 class InputViewTest {
 
-    private InputStream inputStream;
-
-    @BeforeEach
-    void setUp() {
-        inputStream = System.in;
+    @AfterEach
+    void tearDown() {
+        Console.close();
     }
 
     @Test
@@ -25,7 +24,7 @@ class InputViewTest {
         String actualInput = InputView.getUserInput();
 
         //then
-        Assertions.assertThat(actualInput).isEqualTo(expectedInput);
+        assertThat(actualInput).isEqualTo(expectedInput);
     }
 
 }
