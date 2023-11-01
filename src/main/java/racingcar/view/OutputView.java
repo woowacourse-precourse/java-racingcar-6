@@ -10,6 +10,7 @@ public class OutputView {
      * 실행 결과 메세지 출력
      */
     public static void printResult() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
@@ -40,6 +41,6 @@ public class OutputView {
             stringBuilder.append(car.getName()).append(", ");
         }
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
-        System.out.println(stringBuilder + "가 최종 우승했습니다.");
+        System.out.println("최종 우승자 : " + stringBuilder);
     }
 }
