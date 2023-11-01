@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) {
@@ -54,12 +55,7 @@ public class Application {
     }
 
     private static void determineWinners(String[] carNames, int[] positions) {
-        int maxPosition = -1;
-        for (int position : positions) {
-            if (position > maxPosition) {
-                maxPosition = position;
-            }
-        }
+        int maxPosition = Arrays.stream(positions).max().orElse(-1);
 
         StringBuilder winners = new StringBuilder();
         for (int i = 0; i < carNames.length; i++) {
