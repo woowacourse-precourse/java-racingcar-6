@@ -12,4 +12,12 @@ public class CarNameValidateTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5글자 이하로만 입력해주세요.");
     }
+
+    @Test
+    void isCommaPresentTest() {
+
+        assertThatThrownBy(() -> CarNameValidate.validateCarName("1 "))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름에 공백을 제외해주세요.");
+    }
 }
