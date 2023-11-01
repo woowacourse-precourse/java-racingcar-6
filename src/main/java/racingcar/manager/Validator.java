@@ -6,6 +6,7 @@ import java.util.Set;
 public class Validator {
 
     public static final int MAXIMUM_CAR_NAME = 5;
+    public static final String BLANK = " ";
 
     public int validateGameRound(String input) throws IllegalArgumentException {
         return Integer.parseInt(input);
@@ -26,6 +27,10 @@ public class Validator {
         if (carName.contains(" ")){
             throw new IllegalArgumentException("자동차 이름에 공백이 존재합니다.");
         }
+    }
+
+    private boolean isCarNameContainsBlank(String carName) {
+        return carName.contains(BLANK);
     }
 
     public void validateCarNamesDuplicated(String[] cars) {
