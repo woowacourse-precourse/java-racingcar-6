@@ -4,15 +4,16 @@ import static racingcar.controller.InputController.nameInput;
 import static racingcar.controller.InputController.roundNumberInput;
 import static racingcar.view.OutputView.gameResultOutputPrint;
 import static racingcar.view.OutputView.gameRoundResultPrint;
+import static racingcar.view.OutputView.gameWinnerPrint;
 
 import java.util.List;
 import racingcar.model.CarList;
 
 public class GameController {
     public GameController(){
-        gameStart();
+        game();
     }
-    public void gameStart(){
+    public void game(){
         List<String> nameList = nameInput();
         int roundNumber = roundNumberInput();
         CarList carList = new CarList(nameList);
@@ -21,5 +22,7 @@ public class GameController {
             carList.carListMove();
             gameRoundResultPrint(carList);
         }
+        List<String> winners = carList.carListWinners();
+        gameWinnerPrint(winners);
     }
 }
