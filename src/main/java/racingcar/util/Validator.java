@@ -3,9 +3,16 @@ package racingcar.util;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarNameValidator {
+public class Validator {
     private final static int MAX_CARNAME = 5;
 
+    public static int validateNumericInput(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("입력 값이 정수가 아닙니다.");
+        }
+    }
     public static List<String> validateCarNameInput(String input) {
         checkIsEmptyInput(input);
         checkInputFormat(input);
