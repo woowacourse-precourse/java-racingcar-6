@@ -24,12 +24,12 @@ public class Game {
         }
     }
 
-    public static ArrayList<Car> getWinner(ArrayList<Car> cars) {
-        ArrayList<Car> winners = new ArrayList<Car>();
+    public static ArrayList<String> getWinner(ArrayList<Car> cars) {
+        ArrayList<String> winners = new ArrayList<String>();
         int maxPosition = getMaxPosition(cars);
         for (Car car : cars) {
             if (car.position == maxPosition) {
-                winners.add(car);
+                winners.add(car.name);
             }
         }
         return winners;
