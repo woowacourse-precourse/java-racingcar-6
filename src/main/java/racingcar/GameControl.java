@@ -9,7 +9,7 @@ public class GameControl {
         Car[] cars = moveCar.CreateCar(carNames);
         Winner winner = new Winner();
         System.out.println("");
-        System.out.println("실행결과");
+        System.out.println("실행 결과");
         int i = 0;
         while(i<trying){
             moveCar.PrintPosition(cars,moveCar);

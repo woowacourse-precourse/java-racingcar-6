@@ -15,7 +15,7 @@ public class Winner {
             winners += car;
             i+=1;
             if(i!=size){
-                winners += ",";
+                winners += ", ";
             }
         }
         return winners;
