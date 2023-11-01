@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.carmove.CarMoveReader;
+import racingcar.service.CarService;
 import racingcar.util.RandomMoveGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -16,21 +17,21 @@ public class GameController {
     }
 
     public void doGame() {
-        CarController carController = getCarController();
+        CarService carService = getCarController();
         outputView.printResult();
-        moveCarsAndPrintResult(carController);
-        outputView.printWinCars(carController.getWinner());
+        moveCarsAndPrintResult(carService);
+        outputView.printWinCars(carService.getWinner());
     }
 
-    private CarController getCarController() {
+    private CarService getCarController() {
         Cars cars = inputView.inputCarNames();
         CarMoveReader carMoveReader = inputView.inputTotalMoveNumber();
-        return new CarController(cars, carMoveReader);
+        return new CarService(cars, carMoveReader);
     }
 
-    private void moveCarsAndPrintResult(CarController carController) {
-        while (carController.isMovable()) {
-            String moveResult = carController.moveCarsAndGetResult(RandomMoveGenerator.randomCarMoveGenerator());
+    private void moveCarsAndPrintResult(CarService carService) {
+        while (carService.isMovable()) {
+            String moveResult = carService.moveCarsAndGetResult(RandomMoveGenerator.randomCarMoveGenerator());
             outputView.printMoveResult(moveResult);
         }
     }

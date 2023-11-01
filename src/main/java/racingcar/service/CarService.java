@@ -1,14 +1,14 @@
-package racingcar.controller;
+package racingcar.service;
 
 import java.util.function.Supplier;
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.carmove.CarMoveReader;
 
-public class CarController {
+public class CarService {
     private final Cars cars;
     private final CarMoveReader carMoveReader;
 
-    public CarController(Cars cars, CarMoveReader carMoveReader) {
+    public CarService(Cars cars, CarMoveReader carMoveReader) {
         this.cars = cars;
         this.carMoveReader = carMoveReader;
     }
