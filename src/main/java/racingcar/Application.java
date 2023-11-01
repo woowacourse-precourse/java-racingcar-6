@@ -48,9 +48,10 @@ public class Application {
     }
 
     public static List<Integer> playCarRace(int numberOfRaces, List<String> carNamesList) {
+        // 각 자동차의 전진 횟수가 모두 초기값 0인 기록 저장소(recordStorage) 생성
         List<Integer> recordStorage = new ArrayList<>(Collections.nCopies(carNamesList.size(), 0));
         for (int i = 0; i < numberOfRaces; i++) {
-            recordStorage = recordCarAction(carNamesList, recordStorage);
+            recordStorage = recordCarAction(carNamesList, recordStorage); // 기록 저장소 업데이트
             printCarRace(carNamesList, recordStorage);
         }
         return recordStorage;
@@ -59,7 +60,7 @@ public class Application {
     public static List<Integer> recordCarAction(List<String> carNamesList, List<Integer> recordStorage) {
         for (String car : carNamesList) {
             int i = carNamesList.indexOf(car);
-            int action = recordStorage.get(i) + generateAction();
+            int action = recordStorage.get(i) + generateAction(); // 이전 기록(초기값은 0) + 현재 기록
             recordStorage.set(i, action);
         }
         return recordStorage;
