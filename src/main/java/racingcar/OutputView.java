@@ -1,7 +1,7 @@
 package racingcar;
 
 public class OutputView implements RacingCarGameText {
-
+    private static final String NEW_LINE = "\n";
     private static void printOutput(String outputMessage) {
         System.out.println(outputMessage);
     }
@@ -27,5 +27,9 @@ public class OutputView implements RacingCarGameText {
             carDistance = RACINGCAR_DOES_NOT_MOVE;
         }
         printOutput(String.format(RACINGCAR_FORMAT_STATUS, carName, carDistance));
+    }
+
+    public static void printNewLine(){
+        printOutput(NEW_LINE);
     }
 }

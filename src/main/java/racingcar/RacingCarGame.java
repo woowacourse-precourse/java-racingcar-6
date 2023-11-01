@@ -50,13 +50,13 @@ public class RacingCarGame {
     }
 
     public void displayRacingCarGameResult() {
-        System.out.println();
+        OutputView.printNewLine();
         OutputView.printExecuteResult();
     }
 
     public void displayCurrentCarStatus() {
         this.racingCarCollection.batchDisplayCarStatus();
-        System.out.println();
+        OutputView.printNewLine();
     }
 
     public void displayWinners() {
