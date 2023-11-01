@@ -14,7 +14,7 @@ public class RacingService {
         raceParticipants.getParticipantCars().forEach(car -> car.goForwardOrStop(pickNumber()));
     }
 
-    public int pickNumber(){
+    public static int pickNumber(){
         return Randoms.pickNumberInRange(0,9);
     }
 
