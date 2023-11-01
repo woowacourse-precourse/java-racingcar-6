@@ -65,11 +65,15 @@ public class Cars {
   }
 
   private String generateWinnerFormat(final List<String> winnerList) {
-    if (winnerList.size() == 1) {
+    if (hasSingleWinner(winnerList)) {
       return winnerList.get(0);
     }
 
     return joinStringWithComma(winnerList).toString();
+  }
+
+  private boolean hasSingleWinner(List<String> winnerList) {
+    return winnerList.size() == 1;
   }
 
   @Override
