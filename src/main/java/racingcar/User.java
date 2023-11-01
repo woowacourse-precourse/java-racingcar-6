@@ -2,10 +2,13 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.HashMap;
+
 public class User implements UserBehavior{
 
     private int tryNum;
     private String[] carNames;
+    private final HashMap<String, Integer> map = new HashMap<>();
 
     public int getTryNum() {
         return tryNum;
@@ -13,6 +16,10 @@ public class User implements UserBehavior{
 
     public String[] getCarNames() {
         return carNames;
+    }
+
+    public HashMap<String, Integer> getMap() {
+        return map;
     }
 
     @Override
@@ -26,9 +33,17 @@ public class User implements UserBehavior{
                 throw new IllegalAccessException("이름은 5자리 이하만 가능합니다.");
             }
         }
-        System.out.println("시도할 회수는 몇회인가요?" + "\n");
-        tryNum = Integer.parseInt(Console.readLine());
-        System.out.println("실행 결과");
+        saveCarNameToMap();
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        tryNum = Integer.parseInt(Console.readLine());
+        System.out.println("\n" + "실행 결과");
+    }
+
+    @Override
+    public void saveCarNameToMap() {
+        for (String carName : carNames) {
+            map.put(carName, 0);
+        }
     }
 }
