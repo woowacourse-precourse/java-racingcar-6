@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -53,4 +54,65 @@ class UserInputTest {
         // Then
         assertFalse(result);
     }
+
+    @Test
+    public void testConvertStringToArraySplitByComma() {
+        // Given
+        UserInput userInput = new UserInput("car1,car2,car3");
+
+        // When
+        String[] result = userInput.convertStringToArraySplitByComma("car1,car2,car3");
+
+        // Then
+        assertThat(result).containsExactly("car1", "car2", "car3");
+    }
+
+    @Test
+    public void testConvertStringToArraySplitByComma_SingleValue() {
+        // Given
+        UserInput userInput = new UserInput("car1");
+
+        // When
+        String[] result = userInput.convertStringToArraySplitByComma("car1");
+
+        // Then
+        assertThat(result).containsExactly("car1");
+    }
+
+    @Test
+    public void testIsContainComma_ArrayLengthGreaterThanOne() {
+        // Given
+        UserInput userInput = new UserInput("car1,car2");
+
+        // When
+        boolean result = userInput.isContainComma(2);
+
+        // Then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void testIsContainComma_ArrayLengthEqualsOne() {
+        // Given
+        UserInput userInput = new UserInput("car1");
+
+        // When
+        boolean result = userInput.isContainComma(1);
+
+        // Then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void testIsContainComma_ArrayLengthZero() {
+        // Given
+        UserInput userInput = new UserInput("");
+
+        // When
+        boolean result = userInput.isContainComma(0);
+
+        // Then
+        assertThat(result).isFalse();
+    }
+
 }

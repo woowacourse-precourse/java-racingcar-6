@@ -45,7 +45,7 @@ public class UserInput {
             }
         }
     }
-    
+
     public String[] convertStringToArraySplitByComma(String string) {
         return string.split(",", -1);
     }
@@ -74,7 +74,7 @@ public class UserInput {
     }
 
     public boolean isContainComma(int arrayLength) {
-        if (arrayLength == 1) {
+        if (arrayLength <= 1) {
             return false;
         }
 
