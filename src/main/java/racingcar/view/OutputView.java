@@ -1,13 +1,15 @@
 package racingcar.view;
 
-import racingcar.Car;
+import racingcar.domain.Car;
 
 import java.util.ArrayList;
+
+import static racingcar.message.InformationMessage.*;
 
 public class OutputView {
     public static void ResultGame(ArrayList<Car> cars, int number) {
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(RESULT_MESSAGE);
 
         for (int j=0; j<number; j++) {
             for(Car car : cars){
@@ -21,7 +23,7 @@ public class OutputView {
             maxScore = Math.max(maxScore, car.getPosition());
         }
         boolean oneWinner = true;
-        System.out.print("최종 우승자 : ");
+        System.out.print(WINNER_MESSAGE);
         for(Car car : cars){
             if(car.getPosition() == maxScore){
                 if (!oneWinner) {

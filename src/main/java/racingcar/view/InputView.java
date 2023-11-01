@@ -1,18 +1,19 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Car;
+import racingcar.domain.Car;
 
 import java.util.ArrayList;
 
-import static racingcar.Validation.*;
+import static racingcar.utils.Validation.*;
+import static racingcar.message.InformationMessage.*;
 
 public class InputView {
 
     static ArrayList<Car> cars = new ArrayList<>();
 
     public static String[] InputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.이름은 쉼표(,) 기준으로 구분한다.");
+        System.out.println(ASK_CAR_NAME_MESSAGE);
         String carsString = Console.readLine();
         validateNoComma(carsString); //쉼표 없으면 오류
         String[] carList = carsString.split(",");
@@ -29,7 +30,7 @@ public class InputView {
     }
 
     public static Integer InputPlayTime(){
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(ASK_Play_Turn_MESSAGE);
         String inputNumber = Console.readLine();
         validateNaturalNumber(inputNumber);
         return Integer.parseInt(inputNumber);
