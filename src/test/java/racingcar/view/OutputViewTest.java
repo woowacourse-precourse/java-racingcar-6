@@ -102,4 +102,14 @@ class OutputViewTest {
         Assertions.assertThat(OutputView.nameConcatDelim(car))
                 .isEqualTo("홍길동 : ");
     }
+
+    @DisplayName("붉은 색 신호등 출력")
+    @Test
+    void printRedLight() {
+        //given
+        String redLight = OutputView.redLight();
+
+        //then
+        Assertions.assertThat(redLight).isEqualTo("빨간 불 입니다!! [이동하는 차량이 없습니다.] ");
+    }
 }
