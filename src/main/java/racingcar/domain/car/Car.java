@@ -34,7 +34,7 @@ public class Car implements Comparable<Car> {
 
     public void tryToMove(int number) {
         if (number >= MIN_NUMBER_TO_MOVE) {
-            this.position += 1;
+            position += 1;
         }
     }
 
@@ -43,11 +43,11 @@ public class Car implements Comparable<Car> {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public CarDto getStatus() {
-        return new CarDto(this.name, this.position);
+        return new CarDto(name, position);
     }
 
     @Override

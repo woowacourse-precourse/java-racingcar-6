@@ -22,22 +22,22 @@ public class RacingGame {
     }
 
     public void race() {
-        this.rounds.next();
-        this.cars.race(randomNumberGenerator);
+        rounds.next();
+        cars.race(randomNumberGenerator);
         this.recordLog();
     }
 
     private void recordLog() {
-        List<CarDto> status = this.cars.getStatus();
-        this.logs.add(status);
+        List<CarDto> status = cars.getStatus();
+        logs.add(status);
     }
 
     public boolean isEnd() {
-        return this.rounds.isEnd();
+        return rounds.isEnd();
     }
 
     public GameResultDto getResult() {
-        List<String> winners = this.cars.findTopCarNames();
-        return new GameResultDto(this.logs, winners);
+        List<String> winners = cars.findTopCarNames();
+        return new GameResultDto(logs, winners);
     }
 }
