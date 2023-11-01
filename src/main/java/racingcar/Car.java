@@ -27,6 +27,7 @@ public class Car {
     }
 
     public void move(int roundCount) {
+        System.out.println();
         System.out.println(START_RACE.getMessage());
 
         for (int i = 0; i < roundCount; i++) {
