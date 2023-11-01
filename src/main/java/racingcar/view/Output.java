@@ -1,41 +1,77 @@
 package racingcar.view;
 
 import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.model.Car;
 
-public class Output {
+enum Messages {
+    START_MESSAGE("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
+    ATTEMPT_NUMBER_MESSAGE("시도할 회수는 몇회인가요?"),
+    RESULT_MESSAGE("\n실행 결과"),
+    FINAL_WINNER("최종 우승자 : ");
 
+    private final String message;
+
+    Messages(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}
+
+
+public class Output {
     public static void printStartMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Messages
+                .START_MESSAGE
+                .getMessage());
     }
 
     public static void printAttemptNumberMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Messages
+                .ATTEMPT_NUMBER_MESSAGE
+                .getMessage());
     }
 
-    public static void printResult() {
-        System.out.println("\n실행 결과");
+    public static void printResultMessage() {
+        System.out.println(Messages
+                .RESULT_MESSAGE
+                .getMessage());
     }
 
-    public static void printRacing() {
-        List<String> str = Car.getNames();
-        for (int i = 0; i < str.size(); i++) {
-            System.out.print(str.get(i) + " : ");
-            if (Car.getMoves().size() != 0) {
-                for (int j = 0; j < Car.getMoves().get(i); j++) {
-                    System.out.print("-");
-                }
-            }
-            System.out.println();
+    public static void printRacingProgress() {
+        List<String> carNames = Car.getNames();
+
+        for (int i=0;i<carNames.size();i++){
+            printPlayerScore(carNames, i);
         }
+
+        System.out.println();
     }
 
-    public static void printWinners() {
-        List<Integer> winnerMove = Car.getMoves();
-        int winner = Collections.max(winnerMove);
-        int index = winnerMove.indexOf(winner);
-        String name = Car.getNames().get(index);
-        System.out.println("최종 우승자 : " + name);
+    public static void printPlayerScore(List<String> carNames, int index) {
+        System.out.print(carNames.get(index) + " : ");
+        printDistance(index);
+    }
+
+    public static void printDistance(int index) {
+        StringBuilder distance = new StringBuilder();
+        List<Integer> carMoves = Car.getMoves();
+
+        for (int i = 0; i < carMoves.get(index); i++) {
+            distance.append("-");
+        }
+
+        System.out.println(distance);
+    }
+
+    public static void printWinners(String result) {
+        System.out.println(Messages
+                .FINAL_WINNER
+                .getMessage() + result);
     }
 }

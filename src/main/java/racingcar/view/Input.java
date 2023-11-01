@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Input {
-
+    private static final String NON_NUMERIC_EXCEPTION = "숫자만을 입력해주십시오.";
 
     public static List<String> inputCarName() {
-        String userInput = Console.readLine();
+        return inputCarNameToArray(Console.readLine());
+    }
+
+    private static List<String> inputCarNameToArray(String userInput) {
         List<String> cars = new ArrayList<>();
 
         for (String car : userInput.split(",")) {
@@ -18,7 +21,15 @@ public class Input {
         return cars;
     }
 
-    public static String inputNumberMove() {
-        return Console.readLine();
+    public static int inputNumberForMove() {
+        return inputNumberToInteger(Console.readLine());
+    }
+
+    public static int inputNumberToInteger(String number) {
+        try {
+            return Integer.parseInt(number);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NON_NUMERIC_EXCEPTION);
+        }
     }
 }

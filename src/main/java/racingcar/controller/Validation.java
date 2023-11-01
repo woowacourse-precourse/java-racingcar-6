@@ -1,67 +1,88 @@
 package racingcar.controller;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import racingcar.model.Car;
 
-public class Validation {
+enum ValidationMessage {
+    LENGTH_EXCEPTION("자동차의 이름은 5자 이하여야 합니다."),
+    NON_INPUT_EXCEPTION("자동차의 이름을 입력해주세요."),
+    DUPLICATION_EXCEPTION("중복된 자동차가 있습니다."),
+    NON_CHARACTER_EXCEPTION("자동차의 이름은 알파벳으로만 구성되야 합니다."),
+    NON_NUMERIC_EXCEPTION("시도 횟수는 1~9까지의 숫자를 입력해주세요.");
 
-    public static void validateLength(Car cars) {
-        List<String> carName = cars.getNames();
-        for (String car : carName) {
+    private final String message;
+
+    ValidationMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}
+
+public class Validation {
+    public static void validateLength() {
+        for (String car : Car.getNames()) {
             if (car.length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
+                throw new IllegalArgumentException(ValidationMessage
+                        .LENGTH_EXCEPTION
+                        .getMessage());
             }
         }
     }
 
-    public static void validateEmtpy(Car cars) {
-        List<String> carName = cars.getNames();
-        if (carName.isEmpty()) {
-            throw new IllegalArgumentException("자동차의 이름을 입력해주세요.");
+    public static void validateEmtpy() {
+        if (Car.getNames().isEmpty()) {
+            throw new IllegalArgumentException(ValidationMessage
+                    .NON_INPUT_EXCEPTION
+                    .getMessage());
         }
     }
 
-    public static void validateDuplicate(Car cars) {
-        List<String> carName = cars.getNames();
-        Set<String> checkForDuplicates = makeLowercase(carName);
+    public static void validateDuplicate() {
+        Set<String> checkForDuplicates = makeLowercase();
 
-        if (checkForDuplicates.size() != carName.size()) {
-            throw new IllegalArgumentException("중복된 자동차가 있습니다.");
+        if (checkForDuplicates.size() != Car.getSize()) {
+            throw new IllegalArgumentException(ValidationMessage
+                    .DUPLICATION_EXCEPTION
+                    .getMessage());
         }
     }
 
-    public static Set<String> makeLowercase(List<String> cars) {
+    public static Set<String> makeLowercase() {
         Set<String> lowercaseCars = new HashSet<>();
 
-        for (String car : cars) {
+        for (String car : Car.getNames()) {
             lowercaseCars.add(car.toLowerCase());
         }
 
         return lowercaseCars;
     }
 
-    public static void validateCharacters(Car cars) {
-        List<String> carName = cars.getNames();
-        for (String car : carName) {
+    public static void validateCharacters() {
+        for (String car : Car.getNames()) {
             if (!car.matches("[a-zA-Z]*")) {
-                throw new IllegalArgumentException("자동차의 이름은 알파벳으로만 구성되야 합니다.");
+                throw new IllegalArgumentException(ValidationMessage
+                        .NON_CHARACTER_EXCEPTION
+                        .getMessage());
             }
         }
     }
 
-    public static void validateCarName(Car cars) {
-        validateCharacters(cars);
-        validateLength(cars);
-        validateDuplicate(cars);
-        validateEmtpy(cars);
+    public static void validateCarName() {
+        validateCharacters();
+        validateLength();
+        validateDuplicate();
+        validateEmtpy();
     }
 
-    public static void validateNumber(String inputNumber) {
-        if (!inputNumber.matches("[1-9]")) {
-            throw new IllegalArgumentException();
+    public static void validateOneToNine(int inputNumber) {
+        if (inputNumber == 0) {
+            throw new IllegalArgumentException(ValidationMessage
+                    .NON_NUMERIC_EXCEPTION
+                    .getMessage());
         }
     }
-
 }
