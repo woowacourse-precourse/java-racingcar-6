@@ -32,7 +32,7 @@ class OutputHandlerTest {
     @ParameterizedTest
     @MethodSource("getAllPrintMessages")
     void 각종_메세지가_콘솔에_출력_되는지_확인한다(String message) {
-        OutputHandler.showMessage(message);
+        OutputHandler.showMessageWithNewLine(message);
         String expectedMessage = message + newLine;
 
         String actualedMessage = outputCaptor.toString();
