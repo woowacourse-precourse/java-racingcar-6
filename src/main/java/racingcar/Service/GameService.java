@@ -14,8 +14,8 @@ public class GameService {
     }
 
     private List<String> enterCar() {
-        String userInput = textInterface.enterPlayer();
-        return Arrays.asList(userInput.split(","));
+        String carNameString = textInterface.enterPlayer();
+        return Arrays.asList(carNameString.split(","));
     }
 
     private int enterRepetition() {

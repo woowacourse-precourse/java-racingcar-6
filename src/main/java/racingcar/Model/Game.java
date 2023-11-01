@@ -20,12 +20,12 @@ public class Game {
     }
 
     private void findException(List<String> carNames, int repetition) {
+        Exceptions.isPositiveNumber(repetition);
         Exceptions.isDuplicated(carNames);
         for (String carName : carNames) {
             Exceptions.isBlank(carName);
             Exceptions.isLessThanMaxLength(carName);
         }
-        Exceptions.isPositiveNumber(repetition);
     }
 
     private void addList(List<String> carNames) {
@@ -44,6 +44,7 @@ public class Game {
     private void advance() {
         for (Car car : carList) {
             car.go(Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM));
+            car.printAdvance();
         }
         System.out.println();
     }
@@ -74,4 +75,8 @@ public class Game {
             return car2.getDistance() - car1.getDistance();
         }
     };
+
+    public void addCar(Car car) {
+        carList.add(car);
+    }
 }

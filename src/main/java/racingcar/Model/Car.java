@@ -22,6 +22,9 @@ public class Car {
         if (num >= GO_OR_NOT) {
             distance++;
         }
+    }
+
+    public void printAdvance() {
         textInterface.printDistance(name, distance);
     }
 
