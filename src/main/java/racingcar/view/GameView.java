@@ -33,7 +33,7 @@ public class GameView {
         System.out.print(TRIES_INPUT_MESSAGE);
     }
 
-    public void printResultMessage(String gameResult) {
+    public void printResultMessage(final String gameResult) {
         System.out.print(RESULT_MESSAGE);
         System.out.print(gameResult);
     }
