@@ -53,22 +53,32 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(readLine());
     }
-    public static void printResult(List<Car> cars){
-        int maxValue = Integer.MIN_VALUE;
-        List<String> winers = new ArrayList<>();
-        for (int i = 0; i < cars.size(); i++) {
-            int moveCount = cars.get(i).getMoveCount();
-            if (moveCount > maxValue){
-                maxValue = moveCount;
-                winers.clear();
-                winers.add(cars.get(i).getName());
-            }
-            else if (moveCount == maxValue){
-                winers.add(cars.get(i).getName());
+    public static void printResult(List<Car> cars) {
+        List<String> winners = findWinners(cars);
+
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
+    }
+
+    private static List<String> findWinners(List<Car> cars) {
+        int maxValue = findMaxMoveCount(cars);
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getMoveCount() == maxValue) {
+                winners.add(car.getName());
             }
         }
 
-        System.out.print("최종 우승자 : "+String.join(", ",winers));
+        return winners;
     }
 
+    private static int findMaxMoveCount(List<Car> cars) {
+        int maxValue = Integer.MIN_VALUE;
+        for (Car car : cars) {
+            if (car.getMoveCount() > maxValue) {
+                maxValue = car.getMoveCount();
+            }
+        }
+        return maxValue;
+    }
 }
