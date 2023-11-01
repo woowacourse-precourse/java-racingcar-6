@@ -32,7 +32,7 @@ public class RaceCar {
 
 
     public void currentPosition(){
-        String underBar = "_";
+        String underBar = "-";
         System.out.println(name+" : "+ underBar.repeat(position));
     }
 
