@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.utils.RandomUtils;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +19,19 @@ public class Cars {
                 .map(Car::new)
                 .collect(Collectors.toList());
         return carList;
+    }
+
+    public StringBuilder roundCarResult() {
+        stringBuilder.setLength(0);
+        for (Car car : carList) {
+            stringBuilder.append("\n").append(eachCarResult(car));
+        }
+        return stringBuilder;
+    }
+
+    private String eachCarResult(Car car) {
+        car.forwardPosition(RandomUtils.generateRandomNumber());
+        return car.getCurrentResultPosition();
     }
 
 }
