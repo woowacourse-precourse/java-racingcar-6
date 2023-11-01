@@ -49,7 +49,6 @@ public class Race {
     }
 
 
-
     public void startRace(Car car) {
         // 입력한 시도 횟수에 따른 경주 진행
         if (isAbleToMove()) {
