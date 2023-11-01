@@ -18,7 +18,7 @@ public class RacingController {
     List<String> carNameList;
     List<Car> carList;
     int movingCount;
-    public void start() {
+    public void run() {
         carNameList = readCarName();
         carList = makeCarList(carNameList);
         movingCount = readMovingCount();
@@ -32,7 +32,7 @@ public class RacingController {
         OutputView.printWinnerName(winnerNameList);
     }
 
-    public List<String> readCarName() {
+    private List<String> readCarName() {
         return carNameParser.parseCarName(InputView.readCarName());
     }
 
@@ -41,7 +41,7 @@ public class RacingController {
         return carNameParser.stringToCarName(carNameList);
     }
 
-    public void printAllRacingResult(int movingCount, List<Car> carList) {
+    private void printAllRacingResult(int movingCount, List<Car> carList) {
         for (int i = 0; i < movingCount; i++) {
             printCarListResult(carList);
         }
@@ -55,7 +55,7 @@ public class RacingController {
         System.out.println();
     }
 
-    public void printOneCarResult(Car car) {
+    private void printOneCarResult(Car car) {
         OutputView.printOneCarResult(car.getName(), car.getDistance());
     }
 }

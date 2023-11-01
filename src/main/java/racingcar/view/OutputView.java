@@ -4,9 +4,9 @@ import java.util.List;
 
 public class OutputView {
 
-    public static final String RACE_RECORD = "실행 결과";
-    public static final String WINNER_IS = "최종 우승자 : ";
-    public static final String DASH = "-";
+    private static final String RACE_RECORD = "실행 결과";
+    private static final String WINNER_IS = "최종 우승자 : ";
+    private static final String DASH = "-";
 
     public static void printCarNameFormat(String carName) {
         System.out.print(carName + " : ");

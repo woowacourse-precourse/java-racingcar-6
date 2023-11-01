@@ -9,7 +9,7 @@ public class GoStopDecider {
     private static final int MIN_RANDOM_RANGE = 0;
     private static final int MAX_RANDOM_RANGE = 9;
 
-    public int getRandomNumber() {
+    private int getRandomNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE);
     }
 
