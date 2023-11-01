@@ -1,5 +1,15 @@
 package racingcar;
 
+import static racingcar.Constant.CAR_NAMES_DELIMITER;
+import static racingcar.Constant.WHITESPACE_PATTERN;
+import static racingcar.ErrorMessage.BLANK_ERROR_MESSAGE;
+import static racingcar.ErrorMessage.CAR_COUNT_ERROR_MESSAGE;
+import static racingcar.ErrorMessage.CAR_NAME_DELIMITER_ERROR_MESSAGE;
+import static racingcar.ErrorMessage.CAR_NAME_DUPLICATE_ERROR_MESSAGE;
+import static racingcar.ErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
+import static racingcar.ErrorMessage.TRY_COUNT_NUMERIC_ERROR_MESSAGE;
+import static racingcar.ErrorMessage.TRY_COUNT_RANGE_ERROR_MESSAGE;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -21,7 +31,7 @@ public class InputView {
     }
 
     protected void validateCarNames(String carNames) {
-        List<String> nameList = List.of(carNames.split(Constant.CAR_NAMES_DELIMITER));
+        List<String> nameList = List.of(carNames.split(CAR_NAMES_DELIMITER));
         validateNotBlank(carNames);
         validateNotEndWithDelimiter(carNames);
         validateMinimumCount(nameList);
@@ -37,25 +47,25 @@ public class InputView {
 
     private void validateNotBlank(String input) {
         if (input == null || input.isBlank() || containsWhitespace(input)) {
-            throw new IllegalArgumentException("공백은 입력할 수 없습니다.");
+            throw new IllegalArgumentException(BLANK_ERROR_MESSAGE);
         }
     }
 
     private boolean containsWhitespace(String input) {
-        Pattern pattern = Pattern.compile(Constant.WHITESPACE_PATTERN);
+        Pattern pattern = Pattern.compile(WHITESPACE_PATTERN);
         Matcher matcher = pattern.matcher(input);
         return matcher.find();
     }
 
     private void validateNotEndWithDelimiter(String carNames) {
-        if (carNames.endsWith(Constant.CAR_NAMES_DELIMITER)) {
-            throw new IllegalArgumentException("자동차 이름은 구분자(,)로 끝날 수 없습니다.");
+        if (carNames.endsWith(CAR_NAMES_DELIMITER)) {
+            throw new IllegalArgumentException(CAR_NAME_DELIMITER_ERROR_MESSAGE);
         }
     }
 
     private void validateMinimumCount(List<String> inputList) {
         if (inputList.size() < Constant.MINIMUM_CAR_COUNT) {
-            throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
+            throw new IllegalArgumentException(CAR_COUNT_ERROR_MESSAGE);
         }
     }
 
@@ -66,13 +76,13 @@ public class InputView {
 
     private void validateLength(String input) {
         if (input.length() < Constant.MINIMUM_CAR_NAME_LENGTH || input.length() > Constant.MAXIMUM_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 1~5자 이내여야 합니다.");
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
         }
     }
 
     private void validateNotDuplicated(List<String> inputList) {
         if (inputList.stream().distinct().count() != inputList.size()) {
-            throw new IllegalArgumentException("중복된 이름이 존재합니다.");
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_ERROR_MESSAGE);
         }
     }
 
@@ -80,14 +90,14 @@ public class InputView {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도할 횟수로 숫자를 입력해주세요.");
+            throw new IllegalArgumentException(TRY_COUNT_NUMERIC_ERROR_MESSAGE);
         }
     }
 
     private void validateInputInRange(String input) {
         int tryCount = Integer.parseInt(input);
         if (tryCount < Constant.MINIMUM_TRY_COUNT || tryCount > Constant.MAXIMUM_TRY_COUNT) {
-            throw new IllegalArgumentException("시도할 횟수는 1회 이상이어야 합니다.");
+            throw new IllegalArgumentException(TRY_COUNT_RANGE_ERROR_MESSAGE);
         }
     }
 }
