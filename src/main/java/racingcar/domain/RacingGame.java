@@ -34,7 +34,10 @@ public class RacingGame {
     public void play() {
         messagePrinter.requestPlayTimesMessage();
 
-        final int playTimes = validator.playTimes(Console.readLine());
+        final String input = Console.readLine();
+        validator.playTimes(input);
+
+        final int playTimes = Integer.parseInt(input);
         playRound(cars, playTimes);
         Console.close();
 
