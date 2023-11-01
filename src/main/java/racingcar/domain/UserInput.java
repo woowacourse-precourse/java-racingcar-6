@@ -35,27 +35,31 @@ public class UserInput {
         for (int i = 0; i < carArray.length; i++) {
             String name = carArray[i];
 
-            if (isStringEmpty(name)) {
-                throw new IllegalArgumentException("None of the names can be blank.");
-            }
-
-            if (name.length() > MAX_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException("The length of the name must be 5 or less.");
-            }
-
-            for (int c = 0; c < name.length(); c++) {
-                if (isAlphabet(name.charAt(c)) || isNumber(name.charAt(c)) || isHyphenSign(name.charAt(c))) {
-                    continue;
-                }
-
-                throw new IllegalArgumentException(
-                        "Only English letters, numbers, and '-' symbol are allowed in the name.");
-            }
+            checkEachCharacter(name);
 
             transferTohashSetFrom(carArray);
             if (containsDuplicates()) {
                 throw new IllegalArgumentException("Car names cannot be duplicated.");
             }
+        }
+    }
+
+    private void checkEachCharacter(String name) {
+        if (isStringEmpty(name)) {
+            throw new IllegalArgumentException("None of the names can be blank.");
+        }
+
+        if (name.length() > MAX_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException("The length of the name must be 5 or less.");
+        }
+
+        for (int c = 0; c < name.length(); c++) {
+            if (isAlphabet(name.charAt(c)) || isNumber(name.charAt(c)) || isHyphenSign(name.charAt(c))) {
+                continue;
+            }
+
+            throw new IllegalArgumentException(
+                    "Only English letters, numbers, and '-' symbol are allowed in the name.");
         }
     }
 
