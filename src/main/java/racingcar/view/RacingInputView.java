@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 import racingcar.util.validator.RacingInputValidator;
 import racingcar.util.validator.Validator;
 
-public class InputView implements View {
+public class RacingInputView implements View {
     private final RacingInputValidator racingInputValidator;
 
-    InputView(final Validator inputValidator) {
+    RacingInputView(final Validator inputValidator) {
         this.racingInputValidator = (RacingInputValidator) inputValidator;
     }
 

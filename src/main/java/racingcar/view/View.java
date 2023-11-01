@@ -4,10 +4,10 @@ import racingcar.util.validator.Validator;
 
 public interface View {
     static View generateInputView(final Validator inputValidator) {
-        return new InputView(inputValidator);
+        return new RacingInputView(inputValidator);
     }
 
     static View generateOutputView() {
-        return new OutputView();
+        return new RacingOutputView();
     }
 }

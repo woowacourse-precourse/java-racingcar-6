@@ -6,10 +6,10 @@ import static racingcar.view.ConstantMessage.WINNER_IS;
 
 import java.util.List;
 
-public class OutputView implements View {
+public class RacingOutputView implements View {
     private final StringBuilder result;
 
-    OutputView() {
+    RacingOutputView() {
         result = new StringBuilder();
         result.append(RESULT_MESSAGE_START.message());
     }

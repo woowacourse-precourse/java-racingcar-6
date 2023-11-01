@@ -8,17 +8,17 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Model;
 import racingcar.model.CarRank;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.view.RacingInputView;
+import racingcar.view.RacingOutputView;
 import racingcar.view.View;
 
 public class RacingController implements Controller {
-    private final InputView inputView;
-    private final OutputView outputView;
+    private final RacingInputView racingInputView;
+    private final RacingOutputView racingOutputView;
 
     RacingController(final View inputView, final View outputView) {
-        this.inputView = (InputView) inputView;
-        this.outputView = (OutputView) outputView;
+        this.racingInputView = (RacingInputView) inputView;
+        this.racingOutputView = (RacingOutputView) outputView;
     }
 
     /**
@@ -31,11 +31,11 @@ public class RacingController implements Controller {
 
         judgeWinner(cars);
 
-        outputView.printResult();
+        racingOutputView.printResult();
     }
 
     private List<String> getParticipantsFromUser() {
-        return inputView.getUserInputName();
+        return racingInputView.getUserInputName();
     }
 
     private List<Car> generateCarList() {
@@ -51,10 +51,10 @@ public class RacingController implements Controller {
     }
 
     private void updateRaceStatus(final List<Car> cars) {
-        int tryCount = inputView.getUserInputCount();
+        int tryCount = racingInputView.getUserInputCount();
         while (tryCount-- > MINIMUM_TRY_COUNT.number()) {
             cars.forEach(Car::moveOrStop);
-            outputView.recordStatus(getCurrentStatuses(cars));
+            racingOutputView.recordStatus(getCurrentStatuses(cars));
         }
     }
 
@@ -69,6 +69,6 @@ public class RacingController implements Controller {
 
     private void judgeWinner(final List<Car> cars) {
         CarRank carRank = (CarRank) Model.generateRank(cars);
-        outputView.recordWinner(carRank.getWinnerList());
+        racingOutputView.recordWinner(carRank.getWinnerList());
     }
 }
