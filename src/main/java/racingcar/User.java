@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class User {
+    private static final String CARNAMES_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String CARMOVING_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
+
     private final Validator validator;
 
     public User() {
@@ -22,14 +25,14 @@ public class User {
     }
 
     public String inputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CARNAMES_INPUT_MESSAGE);
         String inputCarNames = Console.readLine();
         validator.validateInput(inputCarNames);
         return inputCarNames;
     }
 
     public String inputNumber() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(CARMOVING_INPUT_MESSAGE);
         String inputMovings = Console.readLine();
         validator.validateMovingNumber(inputMovings);
         return inputMovings;
