@@ -55,8 +55,8 @@ public class RacingGameResponderTest {
                 + "bbb : --\n"
                 + "234 : -\n"
                 + "hw : -----\n"
-                + "\n", outContent.toString());
-
+                + "\n", outContent.toString()
+        );
     }
 
     Car initializeCarForTesting(String name, int pos) {
