@@ -16,8 +16,6 @@ public final class IOView implements ConsoleView{
         System.out.print(givenMessage);
     }
     public String readUserInput() {
-        String userInput = Console.readLine();
-        //Console.close();
-        return userInput;
+        return Console.readLine();
     }
 }
