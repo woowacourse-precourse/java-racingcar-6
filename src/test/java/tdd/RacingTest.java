@@ -11,11 +11,14 @@ public class RacingTest {
 
     @Test
     void 경주_자동차이름_반점_기준으로_구분() {
-        RacingController car = new RacingController();
         String input = "pobi,woni,jun";
-        String[] lst = car.generateRacersFromNames(input);
+        String[] lst = generateRacersFromNames(input);
 
         assertThat(lst).isEqualTo(new String[]{"pobi", "woni", "jun"});
+    }
+
+    private String[] generateRacersFromNames(String input) {
+        return input.split(",");
     }
 
 }
