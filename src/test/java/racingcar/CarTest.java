@@ -13,6 +13,9 @@ import racingcar.car.Car;
 import racingcar.car.CarFactory;
 
 public class CarTest extends NsTest {
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
     @Test
     void 차_생성_테스트() {
         String testCarName = "찬";
@@ -24,7 +27,7 @@ public class CarTest extends NsTest {
 
     @Test
     void 복수의_차_생성_테스트() {
-        List<String> carNames = Arrays.asList("java", "spring", "gradle");
+        List<String> carNames = Arrays.asList("java", "tech", "study");
 
         String testCarNames = String.join(",", carNames);
         List<Car> cars = CarFactory.createCar(testCarNames);
@@ -55,6 +58,29 @@ public class CarTest extends NsTest {
     void 차_이름을_입력하지_않은_입력값_테스트() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("", "1"))
                 .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 숫자가_아닌_이동_횟수_입력값_테스트() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("chan", "a"))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 음수인_이동_횟수__입력값_테스트() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("chan", "-1"))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 우승자가_여럿인_경우_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,chan", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "chan : -", "최종 우승자 : pobi,chan");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
     }
 
     @Override
