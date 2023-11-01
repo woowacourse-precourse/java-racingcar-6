@@ -12,10 +12,25 @@ public class CarsFactory {
 
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
+            checkCarNameIsValid(carName);
+
             Car car = new Car(carName);
             cars.add(car);
         }
 
+        checkCarsEmpty(cars);
         return new Cars(cars);
+    }
+
+    //==검증 로직==//
+
+    private void checkCarNameIsValid(String name) {
+        if (name.isEmpty() || name.length() > MAX_NAME_LENGTH)
+            throw new IllegalArgumentException(ERROR_INPUT_NAME);
+    }
+
+    private void checkCarsEmpty(List<Car> cars) {
+        if (cars.isEmpty())
+            throw new IllegalArgumentException(ERROR_EMPTY_CAR_LIST);
     }
 }

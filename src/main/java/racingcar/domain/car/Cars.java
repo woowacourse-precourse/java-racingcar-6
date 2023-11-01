@@ -1,7 +1,5 @@
 package racingcar.domain.car;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,16 +9,12 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        checkEmpty(cars);
         this.cars = cars;
     }
 
     //==비즈니스 로직==//
     public void move() {
-        cars.forEach(car -> {
-            int randomNumber = Randoms.pickNumberInRange(START, END);
-            CarController.move(car, randomNumber, MOVING_FORWARD);
-        });
+        cars.forEach(CarController::move);
     }
 
     public String getWinnersString() {
@@ -42,12 +36,6 @@ public class Cars {
 
     private boolean isWinner(int carPoint, int winnerPoint) {
         return carPoint == winnerPoint;
-    }
-
-    //==검증 로직==//
-    private void checkEmpty(List<Car> cars) {
-        if (cars.isEmpty())
-            throw new IllegalArgumentException(ERROR_EMPTY_CAR_LIST);
     }
 
     //==출력==//

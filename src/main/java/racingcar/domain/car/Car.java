@@ -9,18 +9,11 @@ public class Car {
     private int point;
 
     public Car(String name) {
-        checkValid(name);
         this.name = name;
     }
 
     void forward() {
         point++;
-    }
-
-    //==검증 로직==//
-    private void checkValid(String name) {
-        if (name.isEmpty() || name.length() > MAX_NAME_LENGTH)
-            throw new IllegalArgumentException(ERROR_INPUT_NAME);
     }
 
     //==get 메서드==//

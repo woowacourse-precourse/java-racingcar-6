@@ -10,10 +10,7 @@ public class RoundFactory {
         return new Round(round);
     }
 
-    private void checkNegative(int round) {
-        if (round < 0)
-            throw new IllegalArgumentException(ERROR_INPUT_ROUND);
-    }
+    //==검증로직==//
 
     private int toInt(String input) {
         int round;
@@ -23,5 +20,10 @@ public class RoundFactory {
             throw new IllegalArgumentException(ERROR_INPUT_ROUND);
         }
         return round;
+    }
+
+    private void checkNegative(int round) {
+        if (round < 0)
+            throw new IllegalArgumentException(ERROR_INPUT_ROUND);
     }
 }

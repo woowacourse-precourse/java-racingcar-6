@@ -19,7 +19,7 @@ public class GameManager {
     }
 
     public void play() {
-        Cars cars = getCarList();
+        Cars cars = getCars();
 
         Round round = getRound();
 
@@ -28,7 +28,7 @@ public class GameManager {
         System.out.print(cars.getWinnersString());
     }
 
-    private Cars getCarList() {
+    private Cars getCars() {
         System.out.println(MESSAGE_INPUT_CAR_NAMES);
         String input = Console.readLine();
 
