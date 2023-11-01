@@ -32,7 +32,7 @@
     우승자를 결정하는 decideWinner 메서드 구현  
     단계별 결과를 추가하는 addRoundResult 메서드 구현  
   - feat(Game): Add GameResult class to manage game results
-- [ ] Application 클래스 구현
+- [x] Application 클래스 구현
   - 메인 메서드에서 게임 시작을 위한 코드 작성
   - feat(Application): Implement the application's main execution flow
 - ####   각 테스트별

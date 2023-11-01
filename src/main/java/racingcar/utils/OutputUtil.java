@@ -3,6 +3,7 @@ package racingcar.utils;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.car.Car;
+import racingcar.race.Race;
 
 public class OutputUtil {
     public static void printStatus(Car car) {
@@ -26,5 +27,16 @@ public class OutputUtil {
 
     public static void printAttemptMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    public static void printCarStatus(Race race) {
+        for (Car car: race.getCars()) {
+            OutputUtil.printStatus(car);
+        }
+        System.out.println();
+    }
+
+    public static void printExecutionResultMessage() {
+        System.out.println("\n실행 결과");
     }
 }

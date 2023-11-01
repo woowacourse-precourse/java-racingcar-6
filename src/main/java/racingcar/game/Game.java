@@ -15,15 +15,10 @@ public class Game {
     }
 
     public void start() {
+        OutputUtil.printExecutionResultMessage();
         for (int i = 0; i < attemptNumber; i++) {
             race.run();
-            printCarStatus();
-        }
-    }
-
-    private void printCarStatus() {
-        for (Car car: race.getCars()) {
-            OutputUtil.printStatus(car);
+            OutputUtil.printCarStatus(race);
         }
     }
 }
