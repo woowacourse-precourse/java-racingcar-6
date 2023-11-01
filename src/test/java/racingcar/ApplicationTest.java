@@ -35,6 +35,7 @@ class ApplicationTest extends NsTest {
                 STOP, MOVING_FORWARD
         );
     }
+
     @Test
     void 우승자_여러명일_시_출력_테스트() {
         assertRandomNumberInRangeTest(
@@ -42,7 +43,8 @@ class ApplicationTest extends NsTest {
                     run("pobi,woni,jun", "5");
                     assertThat(output()).contains("pobi : -----", "woni : ", "jun : -----", "최종 우승자 : pobi, jun");
                 },
-                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP,
+                MOVING_FORWARD,
                 MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD,
                 STOP, MOVING_FORWARD
         );

@@ -12,10 +12,10 @@ public class ValidateInput {
         }
     }
 
-    public static void numberFormatException(String numberString){
+    public static void numberFormatException(String numberString) {
         for (int i = 0; i < numberString.length(); i++) {
             char number = numberString.charAt(i);
-            if (number < '0' || number > '9'){
+            if (number < '0' || number > '9') {
                 throw new IllegalArgumentException(ConstantUtil.NUMBER_FORMAT_ERROR_MESSGE);
             }
         }
