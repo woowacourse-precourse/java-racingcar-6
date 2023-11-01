@@ -8,7 +8,7 @@ public class RaceDto {
     private final int attemptTimes;
     private final List<String> carNameList;
 
-    private RaceDto(HashMap<String, String> carNameToAdvanceMap, int attemptTimes){
+    public RaceDto(HashMap<String, String> carNameToAdvanceMap, int attemptTimes){
         this.carNameToAdvanceMap = carNameToAdvanceMap;
         this.attemptTimes = attemptTimes;
         this.carNameList = getCarNameToAdvanceMap().keySet().stream().toList();
