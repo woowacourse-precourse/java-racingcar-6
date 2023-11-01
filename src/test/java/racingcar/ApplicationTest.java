@@ -60,6 +60,17 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이름_정상동작_쉼표_뒤_공백() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi, ", "2");
+                    assertThat(output()).contains("pobi : -", " : -","최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, STOP, STOP
+        );
+    }
+
+    @Test
     void 이동횟수_입력_알림() {
         assertRandomNumberInRangeTest(
                 () -> {
