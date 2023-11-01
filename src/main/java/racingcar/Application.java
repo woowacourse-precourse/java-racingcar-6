@@ -13,7 +13,7 @@ public class Application {
     private static final String FINAL_WINNERS_MESSAGE = "최종 우승자 : ";
 
 
-    private static List<Car> cars = new ArrayList<>();
+    private static final List<Car> cars = new ArrayList<>();
     public static void main(String[] args) {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String carNameInput = camp.nextstep.edu.missionutils.Console.readLine();
