@@ -2,11 +2,15 @@ package manager;
 
 import custom_object.Car;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -20,6 +24,18 @@ import camp.nextstep.edu.missionutils.Console;
 
 
 public class GameManagerTest {
+    ByteArrayOutputStream captor = new ByteArrayOutputStream();
+    PrintStream standardOut = System.out;
+
+    @BeforeEach
+    void init() {
+        System.setOut(new PrintStream(captor));
+    }
+
+    @AfterEach
+    void printOutput() {
+        System.setOut(standardOut);
+    }
 
     @ParameterizedTest
     @MethodSource("progressMatchTestArguments")
@@ -39,7 +55,6 @@ public class GameManagerTest {
                         result[i] = carList.get(i).getPosition();
                     }
                     assertThat(result).isEqualTo(answerArray);
-//                assertThat(output).contains("test1 : -", "test2 : ", "최종 우승자 : test1");
                 },
                 4,3,3,3,4,4
         );
@@ -52,4 +67,35 @@ public class GameManagerTest {
                 Arguments.of( 3, new int[]{2,1})
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("outputCurrentPositionTestArguments")
+    @DisplayName("outputCurrentPositionTest")
+    public void outputCurrentPositionTest(int numberOfMatch, String answer) {
+        List<Car> carList = new ArrayList<>(Arrays.asList(new Car("test1"), new Car("test2")));
+        GameManager gameManager = new GameManager(carList);
+
+        assertRandomNumberInRangeTest(
+            () -> {
+                for (int i = 0; i < numberOfMatch; i++) {
+                    gameManager.progressMatch();
+                }
+
+                gameManager.outputCurrentPosition();
+
+                assertThat(captor.toString().trim().replaceAll("(\r\n|\r|\n|\n\r)", ",")).isEqualTo(answer);
+            },
+            4,3,3,3,4,4
+        );
+    }
+
+    public static Stream<Arguments> outputCurrentPositionTestArguments() {
+        return Stream.of(
+                Arguments.of( 1, "test1 : -,test2 :"),
+                Arguments.of( 2, "test1 : -,test2 :"),
+                Arguments.of( 3, "test1 : --,test2 : -")
+        );
+    }
+
+
 }
