@@ -7,7 +7,7 @@ public class viewInputNumber {
 
     public int viewInputNumber(){
         System.out.println("시도할 회수는 몇회인가요?");
-        String movementTimeStr = Console.readline();
+        String movementTimeStr = Console.readLine();
         if(!Pattern.matches(NUMERIC_PATTERN, movementTimeStr)){
             throw new IllegalArgumentException(ErrorMessage.MOVEMENT_TIME_TYPE_EXCEPTION.getMessage());
         }
