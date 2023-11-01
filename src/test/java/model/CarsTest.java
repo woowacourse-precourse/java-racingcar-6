@@ -13,14 +13,9 @@ import racingcar.model.Cars;
 public class CarsTest {
     @Test
     void 자동차이름_중복() {
-        List<Car> cars = new ArrayList<>();
-        Car test = new Car("test");
-        Car duplicated = new Car("test");
+        String carsList = "test,test";
 
-        cars.add(test);
-        cars.add(duplicated);
-
-        assertThatThrownBy(() -> new Cars(cars))
+        assertThatThrownBy(() -> Cars.createCarsFromInputString(carsList))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 자동차 이름을 넣었습니다.");
     }
