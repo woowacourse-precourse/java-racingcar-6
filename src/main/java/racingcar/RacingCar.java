@@ -1,24 +1,22 @@
 package racingcar;
 
-import racingcar.util.RangedRandomNumberPicker;
-
 public class RacingCar {
 
-    private static final int MOVING_STANDARD = 4;
     private static final int STARTING_POSITION = 0;
 
     private final String name;
-    private int position;
-    private final RangedRandomNumberPicker rangedRandomNumberPicker;
+    private final RacingCarMovingStrategy racingCarMovingStrategy;
 
-    public RacingCar(String name, RangedRandomNumberPicker rangedRandomNumberPicker) {
+    private int position;
+
+    public RacingCar(String name, RacingCarMovingStrategy racingCarMovingStrategy) {
         this.name = name;
         this.position = STARTING_POSITION;
-        this.rangedRandomNumberPicker = rangedRandomNumberPicker;
+        this.racingCarMovingStrategy = racingCarMovingStrategy;
     }
 
     public void race() {
-        if (canMoveForward()) {
+        if (racingCarMovingStrategy.canMoveForward()) {
             position += 1;
         }
     }
@@ -29,9 +27,5 @@ public class RacingCar {
 
     public String getName() {
         return name;
-    }
-
-    private boolean canMoveForward() {
-        return rangedRandomNumberPicker.pickNumber() >= MOVING_STANDARD;
     }
 }
