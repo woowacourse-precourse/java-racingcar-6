@@ -35,15 +35,22 @@ class ApplicationTest extends NsTest {
     
     @Test @DisplayName("띄어쓰기로_이름_구분한_경우")
     void testCarName1() {
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("this That what", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+
+        );
         
-        InputManager inputManager = new InputManager();
-        String testInput = "car1 car2 car3";
-        
-        List<Car> cars = inputManager.makeCars(testInput);
-        cars.forEach(car -> {
-            assertThat(car.getName()).contains("car1 ");
-        });
-        
+    }
+    
+    @Test @DisplayName("차_아름이_5글자가_넘어가는_경우")
+    void testCarName2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("thisIsName,isThatName", "5"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                
+        );
     }
     
 
