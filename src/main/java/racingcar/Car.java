@@ -18,6 +18,7 @@ public class Car {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         userInput = Console.readLine();
         this.car = Arrays.stream(userInput.split(",")).toList();
+        validateCarNameLength(this.car);    //각 자동차 이름은 5자이하
         initCarDist(this.car);
     }
 
@@ -37,5 +38,13 @@ public class Car {
 
     public HashMap<String, Integer> getCarDist() {
         return carDist;
+    }
+
+    private void validateCarNameLength(List<String> car){
+        for (String carName : car){
+            if (carName.length()>5){
+                throw new IllegalArgumentException("5자 이하로 입력해주세요.");
+            }
+        }
     }
 }
