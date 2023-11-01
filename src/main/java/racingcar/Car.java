@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int MOVING_THRESHOLD = 4;
     private static final int MINIMUM_RANDOM_VALUE = 0;
     private static final int MAXIMUM_RANDOM_VALUE = 0;
@@ -21,6 +21,20 @@ public class Car {
     public void setCurrentLocation(int locationValue) {
         this.currentLocation = locationValue;
     }
+
+    public int getCurrentLocation() {
+        return this.currentLocation;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.getCurrentLocation() - this.currentLocation;
+    }
+
 
     public String getCurrentStatus() {
         return this.name + ": " + "-".repeat(this.currentLocation);
