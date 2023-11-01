@@ -17,10 +17,10 @@ public class Game {
 
         //사용자로부터 시도 회수 입력
         int count = User.input();
-        play(names, count);
+        System.out.println(play(names, count));
     }
 
-    public static void play(String[] names, int count){
+    public static String play(String[] names, int count){
         System.out.println("실행 결과");
         Map<String, String> score = new LinkedHashMap<>();
 
@@ -38,7 +38,7 @@ public class Game {
         }
 
         //게임 종료로 이동
-        end(score);
+        return end(score);
 
     }
 
@@ -58,7 +58,7 @@ public class Game {
         System.out.println();
     }
 
-    private static void end(Map<String, String> score){
+    public static String end(Map<String, String> score){
         //Map의 value에서 최대 길이 구하기
         int highScore = 0;
         String[] keys = score.keySet().toArray(new String[0]);
@@ -80,6 +80,7 @@ public class Game {
 
         //승자 출력
         StringBuilder temp = new StringBuilder();
+        temp.append("최종 우승자 : ");
         int idx = 1;
         for(String name : winner){
             temp.append(name);
@@ -89,8 +90,7 @@ public class Game {
             }
         }
 
-        System.out.print("최종 우승자"+" : "+temp);
-
+        return temp.toString();
     }
 
 }
