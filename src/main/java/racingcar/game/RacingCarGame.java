@@ -18,9 +18,17 @@ public class RacingCarGame {
     }
 
     public void play() {
+        initializeCars();
+        runRace();
+        selectWinner();
+    }
+
+    private void initializeCars() {
         List<String> carsName = InputView.enterCarsName();
         racing.generateCars(carsName);
+    }
 
+    private void runRace() {
         int movesNumber = InputView.enterMovesNumber();
         validateMovesNumber(movesNumber);
 
@@ -30,7 +38,9 @@ public class RacingCarGame {
             List<Car> cars = racing.getCars();
             OutputView.printRaceResult(cars);
         }
+    }
 
+    private void selectWinner() {
         List<Car> winingCars = racing.getWiningCars();
         OutputView.printWiningResult(winingCars);
     }
