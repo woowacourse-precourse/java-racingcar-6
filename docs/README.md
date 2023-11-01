@@ -44,6 +44,10 @@
 - 🎰 **generator**
   - [x] 📝 **NumberGenerator**: 0~9 사이의 랜덤 값 생성
 
+- 🎨 **formatter** 
+  - [x] 📝 **RoundResultFormatter**: RoundResultDto 출력 형식 변환
+  - [x] 📝 **WinnerFormatter**: WinnerDto 출력 형식 변환
+
 ### 🏢 domain
 
 - [x] 🚗 **Cars**: 자동차들의 정보를 저장
@@ -55,9 +59,6 @@
   - [x] 📝 **RandomMoveJudgment**: MoveJudgement 구현
   - [x] 📝 **MoveStrategy**: 자동차 움직임 전략 인터페이스
   - [x] 📝 **OneStepMoveStrategy**: MoveStrategy 구현
-  - [x] 📝 **RoundResultFormatter**: RoundResultDto 출력 형식 변환
-  - [x] 📝 **WinnerFormatter**: WinnerDto 출력 형식 변환
-
 ### 🚥 **Controller**
 
 - [x] 📝 **CarRacing**: Racing 구현
