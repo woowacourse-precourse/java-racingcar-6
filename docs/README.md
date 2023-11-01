@@ -1,7 +1,8 @@
 ## 기능
-- [X] 경주할 자동차 입력 
-  - 입력 하는 자동차 수는 제한이 없다. 
-  - 자동차 이름은 5자 이하.
+
+- [X] 경주할 자동차 입력
+    - 입력 하는 자동차 수는 제한이 없다.
+    - 자동차 이름은 5자 이하.
 - [X] 사용자가 입력한 자동차를 쉼표를 기준으로 구분.
 - [X] 자동차 후보를 저장
 - [X] 시도 횟수 입력
@@ -10,54 +11,65 @@
 - [X] 전진 결과 출력
 - [X] 최종 우승자 판단
 - [X] 최종 우승자 출력
+
 ---
 
 ## 메서드
-- inputCarNames() : 경주할 자동차 이름 입력 
-- splitByComma() : 컴마를 기준으로 string구분 
-- ListUpRacingCar() : 경주할 자동차 후보를 저장 
-- showCarList() : 경주할 자동차 후보를 출력 
-- inputRaceCount() : 시도 횟수 입력 
-- getRandomNumberInRange() : 랜덤값 추출 
-- updateRacingStatus() : 경주 현황 갱신 
-- showRacingStatus() : 경주 현황 출력 
-- whoIsWinner() : 우승자 판단 
-- showWinners() : 우승자 출력 
+
+- gameStart() : 게임 시작점
+- getRacingCarNames() : 경주할 자동차 이름 입력
+- splitByComma() : 컴마를 기준으로 string구분
+- getAttemptCount() : 시도 횟수 입력
+- startRacing() : 경주 시작점
+- getRandomNumber() : 랜덤값 추출
+- updateRacingStatus() : 경주 현황 갱신
+- printRaceStatus() : 경주 현황 출력
+- getWinnerNames() : 우승자 판단
+- showWinners() : 우승자 출력
+
 ---
 
 ## MVC
+
 ### [Model]
+
 #### class :
-- RacingGameModel <br/>
-  ㄴ data <br/>
-  ㄴ ListUpRacingCar() <br/>
-  ㄴ updateRacingStatus() <br/>
-  ㄴ whoIsWinner() <br/>
+
+- GameModel <br/>
+  ㄴ updateRaceStatus() <br/>
+  ㄴ getWinnerNames() <br/>
 - UtilityModel <br/>
   ㄴ splitByComma() <br/>
-  ㄴ getRandomNumberInRange() <br/>
-#### data :
-- 자동차 후보
-- 시도 횟수
-- 경주 진행 현황
-- 우승자 명단
+  ㄴ getRandomNumber() <br/>
+- RacingCarInfo <br/>
+- Number <br/>
+
 ### [View]
+
 #### class :
+
 - GuideMessageView <br/>
   ㄴ 안내문구
     - 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
     - 시도할 회수는 몇회인가요?
     - 실행 결과
     - 최종 우승자 :
-- RacingView <br/>
-  ㄴ showCarList() <br/>
-  ㄴ showRacingStatus() <br/>
+- ExceptionMessage <br/>
+- RaceStatus <br/>
+  ㄴ printRaceStatus() <br/>
+- RaceResult <br/>
   ㄴ showWinners() <br/>
 
 ### [Controller]
+
 #### class
-- UserInputController<br/>
-  ㄴ inputCarNames() <br/>
-  ㄴ inputRaceCount()
+
+- UserInput<br/>
+  ㄴ getRaceCarNames() <br/>
+  ㄴ getAttemptCount() <br/>
+- RacingGame <br/>
+  ㄴ gameStart() <br/>
+  ㄴ startRacing() <br/>
+  ㄴ endRacing() <br/>
 
 
