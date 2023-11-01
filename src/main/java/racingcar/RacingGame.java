@@ -42,9 +42,19 @@ public class RacingGame {
         }
     }
 
+    private void race(List<Car> cars) {
+        for (Car car : cars) {
+            car.moveForward();
+        }
+    }
+
     public void startGame() {
         List<Car> cars = createCars();
         int attempt = getAttempts();
+
+        for (int i = 0; i < attempt; i++) {
+            race(cars);
+        }
     }
 
 }
