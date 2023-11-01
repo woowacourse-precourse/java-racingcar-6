@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class Cars {
-    private List<Car> cars = new ArrayList<>();
+public final class Cars {
+    private final List<Car> cars = new ArrayList<>();
 
     public Cars(String[] carNames) {
         for (String carName : carNames) {
