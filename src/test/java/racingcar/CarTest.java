@@ -31,4 +31,18 @@ class CarTest {
         //when, then
         assertThatIllegalArgumentException().isThrownBy(() -> new Car(name));
     }
+
+    @Test
+    @DisplayName("자동차는 전진한다.")
+    void test3() {
+        //given
+        final Car car = new Car("고민석");
+        final int position = 1;
+
+        //when
+        car.move(5);
+
+        //then
+        assertThat(car.getPosition()).isEqualTo(position);
+    }
 }
