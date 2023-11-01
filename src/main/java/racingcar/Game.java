@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +12,23 @@ public class Game {
         String[] names = input.split(",");
         List<Car> cars = validateCarName(names);
         System.out.println("시도할 회수는 몇회인가요?");
-        String tryCnt = Console.readLine();
+        int tryCnt = Integer.parseInt(Console.readLine());
+        while(tryCnt-- > 0){
+            judgeMoving(cars);
+            //출력
+
+        }
 
     }
 
-    private List<Car> validateCarName(String[] names){
+    public void judgeMoving(List<Car> cars){
+        for(Car car : cars){
+            int randomNum = Randoms.pickNumberInRange(0, 9);
+            if(randomNum >= 4) car.moveForward();
+        }
+    }
+
+    public List<Car> validateCarName(String[] names){
         List<Car> cars = new ArrayList<>();
         for(String name: names){
             if(name.length() > 5) throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
