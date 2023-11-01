@@ -1,11 +1,16 @@
 package study;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import racingcar.Game;
+import racingcar.model.Car;
 
 public class StringTest {
+
 
     @Test
     void split_메서드로_주어진_값을_구분() {
@@ -47,5 +52,6 @@ public class StringTest {
                 .isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
     }
+
 
 }
