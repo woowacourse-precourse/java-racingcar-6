@@ -1,12 +1,17 @@
 package racingcar.util;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class InputParser {
     public static List<String> parseNames(String input) {
         List<String> names;
         names = Arrays.stream(input.trim().split(Constants.PARSER_REGEX)).toList();
-        if (!validateList(names)) throw new IllegalArgumentException(ExceptionMessages.DUPLICATE_NAME_EXCEPTION);
+        if (!validateList(names)) {
+            throw new IllegalArgumentException(ExceptionMessages.DUPLICATE_NAME_EXCEPTION);
+        }
         return names;
     }
 

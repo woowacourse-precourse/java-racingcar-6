@@ -1,11 +1,13 @@
 package racingcar.controller;
 
-import racingcar.model.*;
-import racingcar.util.Constants;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import racingcar.model.Information;
+import racingcar.model.RacingCar;
+import racingcar.model.RacingCars;
+import racingcar.model.RandomNumberGenerator;
+import racingcar.util.Constants;
 
 public class RacingController {
     public final RacingCars racingCars;
@@ -31,12 +33,12 @@ public class RacingController {
     }
 
     public List<RacingCar> getMaxs() {
-        int max= Constants.RANDOM_NUM_START;
+        int max = Constants.RANDOM_NUM_START;
         HashMap<Integer, List<RacingCar>> map = new HashMap<>();
 
         for (RacingCar car : racingCars.getRacingCars()) {
             max = Math.max(car.getDistance(), max);
-            if(map.containsKey(car.getDistance())){
+            if (map.containsKey(car.getDistance())) {
                 List<RacingCar> values = map.get(car.getDistance());
                 values.add(car);
                 map.put(car.getDistance(), values);

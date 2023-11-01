@@ -1,9 +1,9 @@
 package racingcar.model;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 import org.junit.jupiter.api.Test;
 import racingcar.util.Constants;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class RandomNumberGeneratorTest {
 

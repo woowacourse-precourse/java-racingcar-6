@@ -1,10 +1,8 @@
 package racingcar.model;
 
-import racingcar.util.ExceptionMessages;
-
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
+import racingcar.util.ExceptionMessages;
 
 public enum PlayType {
     STOP(1, Arrays.asList(0, 1, 2, 3)),

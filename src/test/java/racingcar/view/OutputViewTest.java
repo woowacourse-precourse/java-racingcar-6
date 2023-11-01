@@ -1,17 +1,14 @@
 package racingcar.view;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
 import racingcar.model.GONumberGenerator;
 import racingcar.model.NumberGenerator;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
-
-import java.util.ArrayList;
-import java.util.List;
 
 class OutputViewTest {
     private static final String ENTER_REGEX = "\n";
@@ -40,7 +37,7 @@ class OutputViewTest {
         result.append(ENTER_REGEX)
                 .append(WINNER_MSG)
                 .append(COLON_REGEX);
-        for (RacingCar car : winners){
+        for (RacingCar car : winners) {
             result.append(car.getName())
                     .append(COMMA_REGEX);
         }
@@ -68,7 +65,7 @@ class OutputViewTest {
     }
 
     @Test
-    void round_출력결과_테스트(){
+    void round_출력결과_테스트() {
         //given
         NumberGenerator numberGenerator = new GONumberGenerator();
         List<RacingCar> list = new ArrayList<>();

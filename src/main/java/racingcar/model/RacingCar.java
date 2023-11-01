@@ -1,18 +1,17 @@
 package racingcar.model;
 
 
-import racingcar.util.Constants;
-import racingcar.util.ExceptionMessages;
-
-import javax.print.attribute.standard.MediaSize;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import racingcar.util.Constants;
+import racingcar.util.ExceptionMessages;
 
 public class RacingCar {
 
     private int distance;
     private String name;
-    private static final Pattern NAME = Pattern.compile(Constants.COMMA_MATCH_REGEX + Constants.PARSER_REGEX + Constants.COMMA_MATCH_REGEX);
+    private static final Pattern NAME = Pattern.compile(
+            Constants.COMMA_MATCH_REGEX + Constants.PARSER_REGEX + Constants.COMMA_MATCH_REGEX);
 
     public int getDistance() {
         return this.distance;

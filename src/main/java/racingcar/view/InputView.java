@@ -15,17 +15,18 @@ public class InputView {
         }
         return instance;
     }
-    public Information getInformation(){
+
+    public Information getInformation() {
         return Information.of(getInput(NAME_MESSAGE), getInput(TIMES_MESSAGE));
     }
 
-    private String getInput(String messeage){
+    private String getInput(String messeage) {
         System.out.println(messeage);
         return validateInput(Console.readLine());
     }
 
     public String validateInput(String input) {
-        if(! checkNullString(input)&&checkEmpty(input) ) {
+        if (!checkNullString(input) && checkEmpty(input)) {
             throw new IllegalArgumentException(ExceptionMessages.INPUT_NULL_EXCEPTION);
         }
         return input;

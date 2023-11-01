@@ -1,9 +1,8 @@
 package racingcar.model;
 
+import java.util.List;
 import racingcar.util.InputConverter;
 import racingcar.util.InputParser;
-
-import java.util.List;
 
 public class Information {
     private final List<String> names;

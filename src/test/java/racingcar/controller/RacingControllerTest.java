@@ -1,20 +1,16 @@
 package racingcar.controller;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.GONumberGenerator;
 import racingcar.model.NumberGenerator;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
 import racingcar.util.Constants;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RacingControllerTest {
     private RacingCars init(List<String> names) {
@@ -24,13 +20,14 @@ class RacingControllerTest {
         }
         return RacingCars.from(racingCars);
     }
+
     public List<RacingCar> getMaxs(RacingCars racingCars) {
-        int max= Constants.RANDOM_NUM_START;
+        int max = Constants.RANDOM_NUM_START;
         HashMap<Integer, List<RacingCar>> map = new HashMap<>();
 
         for (RacingCar car : racingCars.getRacingCars()) {
             max = Math.max(car.getDistance(), max);
-            if(map.containsKey(car.getDistance())){
+            if (map.containsKey(car.getDistance())) {
                 List<RacingCar> values = map.get(car.getDistance());
                 values.add(car);
                 map.put(car.getDistance(), values);
@@ -56,7 +53,7 @@ class RacingControllerTest {
     }
 
     @Test
-    void getMaxs_정상동작_테스트(){
+    void getMaxs_정상동작_테스트() {
         //given
         NumberGenerator numberGenerator = new GONumberGenerator();
         List<RacingCar> list = new ArrayList<>();

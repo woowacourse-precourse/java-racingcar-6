@@ -1,9 +1,8 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
-
-import java.util.List;
 
 public class OutputView {
     private static final String ENTER_REGEX = "\n";
@@ -41,7 +40,7 @@ public class OutputView {
         result.append(ENTER_REGEX)
                 .append(WINNER_MSG)
                 .append(COLON_REGEX);
-        for (RacingCar car : winners){
+        for (RacingCar car : winners) {
             result.append(car.getName())
                     .append(COMMA_REGEX);
         }
