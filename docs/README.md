@@ -25,4 +25,13 @@
 
 8. 경주 실행 method
 
-9. 주사위 돌리는 (pickNumberInRange(1,9))
+9. ~~주사위 돌리는 (pickNumberInRange(1,9))~~ 
+
+9. Name class 분리
+
+10. Car class 분리
+
+Application -> 애플리케이션 실행
+RacingcarGame -> 게임 룰 관리
+Car -> 객체 관리
+Name -> 이름 관리
