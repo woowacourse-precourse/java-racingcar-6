@@ -12,6 +12,11 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
+    private static final String ERROR_MESSAGE = "[ERROR]";
+
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
@@ -25,9 +30,11 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
+        assertSimpleTest(
+            () -> {
+                runException("pobi,javaji");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
         );
     }
 
