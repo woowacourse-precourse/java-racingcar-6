@@ -2,33 +2,36 @@ package racingcar;
 
 import static racingcar.InputReader.*;
 import static racingcar.MessagePrinter.*;
-
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class RacingGame {
     private List<String> carNameList;
     private List<Car> cars;
     private int repetitions;
 
+    public void run() {
+        init();
+        play();
+    }
 
-    public void play() {
+    public void init() {
         askCarNameList();
         carNameList = inputCarNames();
         cars = new ArrayList<>();
+
         for (String car : carNameList) {
             cars.add(new Car(car));
         }
+
         askRepetitions();
         repetitions = inputRepetitions();
+    }
 
+    public void play() {
         printResultMessage();
+
         for (int i = 0; i < repetitions; i++) {
             moveForward();
             printCurrentPosition(cars);
