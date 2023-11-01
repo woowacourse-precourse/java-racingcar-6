@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Validator {
+    public static final int MIN_NUMBER_OF_CARS = 1;
     public static final int MAX_CAR_NAME_LENGTH = 5;
     public static final int MAX_FREQUENCY = 1;
     public static final int MIN_TRY_NUMBER = 1;
@@ -13,6 +14,9 @@ public class Validator {
     }
 
     public static void validate(List<String> names) {
+        if (names.size() == MIN_NUMBER_OF_CARS) {
+            throw new IllegalArgumentException(MessageConstant.MIN_NUMBER_OF_CARS_MESSAGE);
+        }
         for (String name : names) {
             if (name.isBlank()) {
                 throw new IllegalArgumentException(MessageConstant.BLANK_MESSAGE);

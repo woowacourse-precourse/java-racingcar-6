@@ -10,6 +10,7 @@ public final class MessageConstant {
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
 
     // Error Message
+    public static final String MIN_NUMBER_OF_CARS_MESSAGE = "두 대 이상의 자동차를 입력해 주세요.";
     public static final String BLANK_MESSAGE = "공백인 자동차 이름이 존재합니다.";
     public static final String MAX_CAR_NAME_LENGTH_MESSAGE = "자동차 이름은 5자 이하로 입력해 주세요.";
     public static final String MAX_FREQUENCY_MESSAGE = "중복된 자동차 이름이 존재합니다.";
