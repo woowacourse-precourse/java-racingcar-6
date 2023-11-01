@@ -3,9 +3,10 @@ package racingcar.domain;
 import racingcar.wrapper.CarName;
 import racingcar.wrapper.CarPosition;
 
+import java.util.Objects;
 import static racingcar.domain.constant.CarConstant.CAR_FORWARD_NUMBER;
 
-public class Car {
+public class Car implements Comparable<Car> {
     
     private final CarName name;
     
@@ -16,7 +17,7 @@ public class Car {
         this.position = CarPosition.create();
     }
 
-    private static Car create(final String name) {
+    public static Car create(final String name) {
         return new Car(name);
     }
 
@@ -30,6 +31,27 @@ public class Car {
         return diffCar.getPosition() == position.getPosition();
     }
 
+    @Override
+    public boolean equals(final Object diffCar) {
+        if (this == diffCar) {
+            return true;
+        }
+        if (diffCar == null || getClass() != diffCar.getClass()) {
+            return false;
+        }
+        Car car = (Car) diffCar;
+        return Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public int compareTo(Car diffCar) {
+        return position.getPosition() - diffCar.position.getPosition();
+    }
     public int getPosition() {
         return position.getPosition();
     }
