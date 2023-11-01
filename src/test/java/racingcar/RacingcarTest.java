@@ -10,7 +10,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class PlayRacingcarGameTest extends NsTest {
+public class RacingcarTest extends NsTest {
 
     /* 자동차 이름 입력 테스트 */
     @Test
@@ -106,7 +106,7 @@ public class PlayRacingcarGameTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    void moving_froward_or_stop() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "1");
