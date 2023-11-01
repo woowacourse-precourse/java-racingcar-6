@@ -1,6 +1,6 @@
 package racingcar.car;
 
-import static racingcar.constants.RacingGameConstants.MIN_VALUE_FOR_MOVE;
+import static racingcar.util.print.constants.RacingGameConstants.MIN_VALUE_FOR_MOVE;
 
 public class Car {
     private String name;
@@ -16,7 +16,7 @@ public class Car {
         }
     }
 
-    public String getName() {
+    public String getCarName() {
         return name;
     }
 
