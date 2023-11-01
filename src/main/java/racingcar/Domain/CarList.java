@@ -47,4 +47,8 @@ public class CarList {
             throw new IllegalArgumentException();
         }
     }
+
+    private List<Car> getCars() {
+        return this.cars;
+    }
 }
