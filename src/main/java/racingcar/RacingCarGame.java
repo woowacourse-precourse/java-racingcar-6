@@ -110,7 +110,7 @@ public class RacingCarGame {
         }
     }
     private void checkCarNameValid(String carName){
-        if (carName.length()>6){
+        if (carName.length()>5){
             throw new IllegalArgumentException();
         }
     }
