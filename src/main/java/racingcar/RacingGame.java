@@ -47,7 +47,7 @@ public class RacingGame {
         }
     }
 
-    private void printResult() {
+    public void printResult() {
         cars.forEach(car -> {
             outputView.print(car.getName());
             outputView.print(PRINT_DISTANCE_SEPARATOR);
@@ -57,7 +57,7 @@ public class RacingGame {
         outputView.lineBreak();
     }
 
-    private void printWinner() {
+    public void printWinner() {
         outputView.print(FINAL_WINNER_MESSAGE);
         int winnerDistance = getMaxDistance();
         List<String> winners = cars.stream()
