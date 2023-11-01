@@ -14,27 +14,30 @@ public class CarService {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
-    public String[] checkCarsNameLength(String input_cars_name){
-        if(input_cars_name == null){
+    public List<String> checkCarsNameLength(String input_cars_name){
+        if(input_cars_name.isEmpty()){
             throw new IllegalArgumentException("입력값이 없습니다. 자동차 이름을 입력해주세요.");
         }
 
+        List<String> final_cars_name = new ArrayList<>();
         String[] cars_name = input_cars_name.split(",");
         for(String name : cars_name){
-            name = name.strip();
+            String striped_name = name.strip();
 
-            if(name.length() > 5) {
+            if(striped_name.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 1~5자만 가능합니다.");
-            } else if(name.length() < 1) {
-                throw new IllegalArgumentException("공백만을 이름으로 지정할 수 없습니다.");
+            } else if(striped_name.length() < 1) {
+                throw new IllegalArgumentException("자동차 이름으로 공백만을 지정할 수 없습니다.");
             }
+
+            final_cars_name.add(striped_name);
         }
-        return cars_name;
+        return final_cars_name;
     }
 
     public List<Car> inputCarsName(){
         String input_cars_name = readLine();
-        String[] cars_name = checkCarsNameLength(input_cars_name);
+        List<String> cars_name = checkCarsNameLength(input_cars_name);
 
         List<Car> carList = new ArrayList<>();
         for(String name : cars_name){
@@ -49,7 +52,7 @@ public class CarService {
     }
 
     public void printCarStatus(List<Car> carList) {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for (Car car : carList) {
             System.out.println(car.getName() + " : " + car.getStatus());
         }
@@ -59,11 +62,9 @@ public class CarService {
         for(Car car : carList){
             int move_count = pickNumberInRange(0 ,9);
             if(move_count >= 4){
-                String append_status = "-".repeat(move_count);
-                appendCarStatus(car, append_status);
+                appendCarStatus(car, "-");
             }
         }
-        printCarStatus(carList);
     }
 
     public List<String> checkWinner(List<Car> carList){
@@ -83,7 +84,7 @@ public class CarService {
     }
 
     public void printWinners(List<Car> carList){
-        System.out.print("최종 우승자 : ");
+        System.out.print("\n최종 우승자 : ");
         List<String> winners_name = checkWinner(carList);
 
         System.out.println(String.join(", ", winners_name));
