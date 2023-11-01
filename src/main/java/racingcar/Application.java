@@ -14,11 +14,11 @@ public class Application {
         String[] carNames = input.split(",");
 
         for (int i = 0; i < carNames.length; i++) {
-            if (carNames[i].length() > 5) {
+            if (carNames[i].length() >= 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하로 입력해 주세요");
             }
             if (!isOnlyAlphabet(carNames[i])) {
-                throw new IllegalArgumentException("자동차 이름은 영어로만 이루어져야 하고, 쉼표로 구분돼야 합니다: " + carNames[i]);
+                throw new IllegalArgumentException("자동차 이름은 영어로만 이루어져야 합니다");
             }
         }
         return carNames;
@@ -33,4 +33,11 @@ public class Application {
         }
         return true;
     }
+
+    public static int tryTime(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Integer.parseInt(Console.readLine());
+    }
+
+
 }
