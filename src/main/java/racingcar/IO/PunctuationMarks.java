@@ -1,11 +1,10 @@
-package racingcar.output.contents;
+package racingcar.IO;
 
 public enum PunctuationMarks {
   NEW_LINE("\n"),
   EMPTY(""),
-  SPACE(" "),
   COMMA(","),
-  COLON(":"),
+  COMMA_SPACE(", "),
   EMPTY_COLON_EMPTY(" : "),
   MINUS("-");
 
