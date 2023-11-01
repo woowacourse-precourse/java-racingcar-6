@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class ScoreBoardTest {
     @Test
     @DisplayName("스코어보드에 스코어가 잘 입력되는지 확인")
-    public void recordScore() {
+    void recordScore() {
         ScoreDto pobiScore = new ScoreDto("pobi", 3);
         ScoreDto dobiScore = new ScoreDto("dobi", 4);
         ScoreDto robiScore = new ScoreDto("dobi", 4);
@@ -22,7 +22,7 @@ class ScoreBoardTest {
 
     @Test
     @DisplayName("스코어보드의 라운드에 따른 스코어 리스트를 잘 반환하는지 확인")
-    public void getScoreForRound() {
+    void getScoreForRound() {
         ScoreDto pobiScore = new ScoreDto("pobi", 3);
         ScoreDto dobiScore = new ScoreDto("dobi", 4);
         ScoreDto robiScore = new ScoreDto("dobi", 4);

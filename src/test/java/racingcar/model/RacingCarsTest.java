@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 class RacingCarsTest {
     @Test
     @DisplayName("RacingCars가 잘 생성되는지 확인")
-    public void createRacingCars() {
+    void createRacingCars() {
         List<String> carNames = Arrays.asList("pobi", "dobi");
         RacingCars racingCars = new RacingCars(carNames);
 
@@ -20,7 +20,7 @@ class RacingCarsTest {
 
     @Test
     @DisplayName("중복된 이름 입력 시 예외 처리")
-    public void checkForDuplicates() {
+    void checkForDuplicates() {
         List<String> carNames = Arrays.asList("pobi", "pobi");
 
         assertThatThrownBy(() -> {
@@ -31,7 +31,7 @@ class RacingCarsTest {
 
     @Test
     @DisplayName("두 개 미만의 자동차 입력 시 예외 처리")
-    public void checkCarCountValidity() {
+    void checkCarCountValidity() {
         List<String> carNames = Arrays.asList("pobi");
 
         assertThatThrownBy(() -> {
@@ -42,14 +42,14 @@ class RacingCarsTest {
 
     @Test
     @DisplayName("리스트 숫자에 따라 자동차가 잘 움직이는지 확인")
-    public void moveRacingCars() {
+    void moveRacingCars() {
         List<String> carNames = Arrays.asList("pobi", "dobi");
         RacingCars racingCars = new RacingCars(carNames);
         racingCars.moveRacingCars(Arrays.asList(1, 5));
 
         Car pobiCar = racingCars.getRacingCars().get(0);
         Car dobiCar = racingCars.getRacingCars().get(1);
-        
+
         assertThat(pobiCar.getDistance()).isEqualTo(0);
         assertThat(dobiCar.getDistance()).isEqualTo(1);
     }

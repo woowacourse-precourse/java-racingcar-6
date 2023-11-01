@@ -10,7 +10,7 @@ import racingcar.model.ScoreDto;
 class RacingCarServiceTest {
     @Test
     @DisplayName("RaingCars리스트를 ScoreDto리스트로 반환하는지 확인")
-    public void testConvertToScoreDtoList() {
+    void testConvertToScoreDtoList() {
         String carNames = "pobi,dobi";
         RacingCarService racingCarService = new RacingCarService(carNames);
 
