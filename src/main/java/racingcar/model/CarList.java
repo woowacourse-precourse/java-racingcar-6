@@ -17,17 +17,13 @@ public class CarList {
     }
 
     public int getMaxPosition() {
-        List<Integer> positions = carList.stream()
-                .map(Car::getPosition)
-                .collect(Collectors.toList());
+        List<Integer> positions = carList.stream().map(Car::getPosition).collect(Collectors.toList());
         return Collections.max(positions);
     }
 
     public List<String> getWinners() {
         int maxPosition = getMaxPosition();
-        return carList.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .map(Car::getName)
+        return carList.stream().filter(car -> car.getPosition() == maxPosition).map(Car::getName)
                 .collect(Collectors.toList());
     }
 
