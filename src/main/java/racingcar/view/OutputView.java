@@ -9,10 +9,10 @@ public class OutputView {
 
     private static final String START_MESSAGE = "실행 결과";
 
-    public static void printStartMessage() {
+    public void printStartMessage() {
         System.out.println(START_MESSAGE);
     }
-    public static void printRoundResult(Cars cars) {
+    public void printRoundResult(Cars cars) {
         List<Car> carList = cars.getCars();
         for(int i=0;i<carList.size();++i){
             String result = carList.get(i).getName()+" : ";

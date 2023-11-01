@@ -2,7 +2,6 @@ package racingcar.model;
 
 import racingcar.errormessage.InputError;
 import racingcar.domain.Car;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
