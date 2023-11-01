@@ -13,16 +13,14 @@ public class InputView {
         String userInput = Console.readLine();
         GameInputValidator.validationCarNames(userInput);
 
-        List<String> carNameList = Arrays.asList(userInput.split(DELIMITER));
-        return carNameList;
+        return Arrays.asList(userInput.split(DELIMITER));
     }
 
     public int totalAttemptsInput() {
         String userInput = Console.readLine();
         GameInputValidator.validateIsPositiveInteger(userInput);
 
-        int totalAttempts = Integer.parseInt(userInput);
-        return totalAttempts;
+        return Integer.parseInt(userInput);
     }
 
 }
