@@ -1,5 +1,7 @@
 package domain;
 
+import constant.ExceptionMessage;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -49,9 +51,16 @@ public class Cars {
     }
 
     public int getMaxPosition() {
+        validateCarList();
         return carList.stream()
                 .max(Car::compareTo)
                 .get()
                 .getPosition();
+    }
+
+    private void validateCarList() {
+        if (carList.isEmpty()) {
+            throw new RuntimeException(ExceptionMessage.CARLIST_IS_EMPTY.getMessage());
+        }
     }
 }
