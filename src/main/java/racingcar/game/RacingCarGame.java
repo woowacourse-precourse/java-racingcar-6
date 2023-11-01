@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-`import java.util.stream.IntStream;
 import racingcar.car.Car;
 import racingcar.utils.randomGenerator.RandomNumberGenerator;
 import racingcar.utils.result.ResultGenerator;
