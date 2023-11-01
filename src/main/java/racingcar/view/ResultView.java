@@ -17,6 +17,7 @@ public class ResultView {
     private static final String NAME_SEPARATOR = ",";
 
     public static void printResultCoverMessage() {
+        System.out.println();
         System.out.println(RESULT_COVER_MESSAGE);
     }
 
