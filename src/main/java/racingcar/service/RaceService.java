@@ -20,14 +20,10 @@ public class RaceService {
 
     private void moveProcess(List<Car> cars, List<String> recordResult) {
         for (Car car : cars) {
-            moveProcess(car);
+            if (numberGenerator.generate() >= MIN_RESTRICT_NUMBER.getNumber()) {
+                car.move();
+            }
             recordResult.add(recordService.madeCarResult(car));
-        }
-    }
-
-    private void moveProcess(Car car) {
-        if (numberGenerator.generate() >= MIN_RESTRICT_NUMBER.getNumber()) {
-            car.move();
         }
     }
 }
