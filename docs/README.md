@@ -29,7 +29,8 @@
    - Race (입출력을 담당. 한 경기를 횟수만큼 반복 시행)
    - CarManager (경기에 참여할 자동차 생성. 한 경기(match)시행. 경기 우승자 구하기.)
    - Car (이름, 거리 상태 저장. 주어진 값에 맞춰 전진.)
-   - NumberMaker (임의의 숫자를 생성한다.)
+   - RandomNumberMaker (임의의 숫자를 생성.)
+   - (interface)NumberMaker(공유하는 메서드명 저장)
 - UI
    - InputView (입력값 받기. "검증자"를 이용해 검증. 가공하여 반환.)
    - OutputView (출력문의 가공.)
