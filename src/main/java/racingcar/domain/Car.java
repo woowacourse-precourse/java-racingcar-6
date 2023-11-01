@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -6,7 +6,7 @@ public class Car {
 
     private static final int MAX_LENGTH_OF_NAME = 5;
     private static final int CRITICAL_OF_MOVING = 4;
-    private String name;
+    private final String name;
     private int distance;
     public static int maxDistance;
 
