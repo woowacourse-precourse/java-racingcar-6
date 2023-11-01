@@ -55,4 +55,11 @@ public class RacingCarGameTest {
         assertThat(racingCars.get(0).getName()).isEqualTo("dadi");
         assertThat(racingCars.get(1).getName()).isEqualTo("dodi");
     }
+    @Test
+    void setPlayers_글자수_5이상_예외_처리() {
+        RacingCarGame game = new RacingCarGame();
+
+        assertThatThrownBy(() -> game.setPlayers("dodi, dadidudedo"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
