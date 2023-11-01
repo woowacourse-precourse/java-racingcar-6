@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,11 @@ public class UserServiceTest {
     public static void init() {
         userService = UserService.getInstance();
         mockedConsole = mockStatic(Console.class);
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        mockedConsole.close();
     }
 
     @Test
