@@ -26,4 +26,11 @@ class RaceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("유효하지 않은 시도 횟수입니다.");
     }
+
+    @Test
+    void validateNumber_should_throw_exception_when_attempts_is_zero() {
+        assertThatThrownBy(() -> AttemptNumberValidator.validateNumber("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("유효하지 않은 시도 횟수입니다.");
+    }
 }
