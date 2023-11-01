@@ -1,16 +1,14 @@
 package racingcar.model;
 
 public class Car {
+
     private String name;
-    private Integer advanceCount;
+
+    private int advanceCount;
 
     public Car(String name) {
         this.name = name;
         this.advanceCount = 0;
-    }
-
-    public Integer getAdvanceCount() {
-        return advanceCount;
     }
 
     public void advance(int randomNumber) {
@@ -18,4 +16,13 @@ public class Car {
             this.advanceCount++;
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAdvanceCount() {
+        return advanceCount;
+    }
+
 }
