@@ -98,7 +98,7 @@ public class CarStateTest {
                 .findFirst()
                 .ifPresent(hyun -> hyun.setCarPosition(3));
 
-        HashMap<String, Integer> carStates = cars.carsStates();
+        HashMap<String, Integer> carStates = cars.getCarStates();
 
         LinkedHashMap<String, Integer> expectedStates = new LinkedHashMap<>();
         expectedStates.put("Hyun", 3);

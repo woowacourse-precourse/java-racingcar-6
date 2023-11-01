@@ -37,7 +37,7 @@ public class GameController {
     }
 
     public void updateCarStates() {
-        carStates = cars.carsStates();
+        carStates = cars.getCarStates();
         OutputView.carsStateShow(carStates);
     }
 }

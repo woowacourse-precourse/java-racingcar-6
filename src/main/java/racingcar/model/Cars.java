@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Cars {
 
-    private ArrayList<Car> cars = new ArrayList<Car>();
+    private ArrayList<Car> cars = new ArrayList<>();
 
     public Cars(String input) {
         CarNameValidator validator = new CarNameValidator(input);
@@ -41,7 +41,7 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public HashMap<String, Integer> carsStates() {
+    public HashMap<String, Integer> getCarStates() {
         LinkedHashMap<String, Integer> carsState = new LinkedHashMap<>();
         for (Car car : cars) {
             carsState.put(car.getCarName(), car.getCarPosition());
@@ -52,5 +52,4 @@ public class Cars {
     public ArrayList<Car> getCars() {
         return cars;
     }
-
 }
