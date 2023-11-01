@@ -18,6 +18,12 @@ class Car {
         this.moveForwardCount++;
     }
 
+    void printExecuteResult() {
+        for (int i = 0; i < this.moveForwardCount; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
 
 public class Application {
@@ -57,6 +63,7 @@ public class Application {
         System.out.println("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
             moveForward(cars);
+            printExecuteResults(cars);
         }
         return cars;
     }
@@ -68,6 +75,14 @@ public class Application {
                 cars[j].updateCount();
             }
         }
+    }
+
+    private static void printExecuteResults(Car[] cars) {
+        for (int i = 0; i < cars.length; i++) {
+            System.out.print(cars[i].name + " : ");
+            cars[i].printExecuteResult();
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
