@@ -50,13 +50,13 @@ class ApplicationTest extends NsTest {
         assertFalse(output().contains(ERROR_MESSAGE));
     }
 
-//    @Test
-//    void 이름에_대한_예외_처리_이름에_문자열이_아닌_경우(){
-//        Exception exception = assertThrows(Exception.class, ()->{
-//            runException("pobi,123","1");
-//        });
-//        assertFalse(output().contains(ERROR_MESSAGE));
-//    }
+    @Test
+    void 이름에_대한_예외_처리_이름에_문자열이_아닌_경우(){
+        Exception exception = assertThrows(Exception.class, ()->{
+            runException("pobi,123","1");
+        });
+        assertFalse(output().contains(ERROR_MESSAGE));
+    }
 
     @Test
     void 자동차에_대한_예외_처리(){
