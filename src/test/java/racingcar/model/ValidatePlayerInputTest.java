@@ -15,8 +15,10 @@ class ValidatePlayerInputTest {
     void containSpaceInPlayerInputTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String playerInput = "pobi wonbi";
+
         //then
         assertThatThrownBy(() -> validatePlayerInput.validateContainSpace(playerInput))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -28,9 +30,11 @@ class ValidatePlayerInputTest {
     void notContainCarName() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String playerInput = "pobi,suhwp,,";
         validatePlayerInput.convertStringToArray(playerInput);
+
         //then
         assertThatThrownBy(validatePlayerInput::validateNotContainCarName)
                 .isInstanceOf(IllegalArgumentException.class)
@@ -42,9 +46,11 @@ class ValidatePlayerInputTest {
     void carNameOverLengthTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String playerInput = "pobi,suark,watermelon";
         validatePlayerInput.convertStringToArray(playerInput);
+
         //then
         assertThatThrownBy(validatePlayerInput::validateCarNameLength)
                 .isInstanceOf(IllegalArgumentException.class)
@@ -56,9 +62,11 @@ class ValidatePlayerInputTest {
     void carNameDuplicatedTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String playerInput = "pobi,suark,pobi";
         validatePlayerInput.convertStringToArray(playerInput);
+
         //then
         assertThatThrownBy(validatePlayerInput::validateDuplicateCarNames)
                 .isInstanceOf(IllegalArgumentException.class)
@@ -70,9 +78,11 @@ class ValidatePlayerInputTest {
     void containKoreanCarName() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String playerInput = "수환,abc,qwer";
         validatePlayerInput.convertStringToArray(playerInput);
+
         //then
         assertThatThrownBy(validatePlayerInput::validateAlphaCarName)
                 .isInstanceOf(IllegalArgumentException.class)
@@ -84,9 +94,11 @@ class ValidatePlayerInputTest {
     void containDigitCarName() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String playerInput = "pobi,pobi2,qwer";
         validatePlayerInput.convertStringToArray(playerInput);
+
         //then
         assertThatThrownBy(validatePlayerInput::validateAlphaCarName)
                 .isInstanceOf(IllegalArgumentException.class)
@@ -98,9 +110,11 @@ class ValidatePlayerInputTest {
     void containSpecialSignInCarName() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String playerInput = "pobi,pobi@,qwer";
         validatePlayerInput.convertStringToArray(playerInput);
+
         //then
         assertThatThrownBy(validatePlayerInput::validateAlphaCarName)
                 .isInstanceOf(IllegalArgumentException.class)
@@ -112,8 +126,10 @@ class ValidatePlayerInputTest {
     void containSpaceInTryCountTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String tryInput = "2 1";
+
         //then
         assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(tryInput))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -125,8 +141,10 @@ class ValidatePlayerInputTest {
     void containCommaInTryCountTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String tryInput = "2,1";
+
         //then
         assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(tryInput))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -138,9 +156,11 @@ class ValidatePlayerInputTest {
     void containKoreanOrEnglishInTryCountTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String containKorean = "2ㅁ";
         String containEnglish = "4d";
+
         //then
         assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(containKorean))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -155,9 +175,11 @@ class ValidatePlayerInputTest {
     void containSpecialSignInTryCountTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String containAt = "2@";
         String containSemiColon = "4;";
+
         //then
         assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(containAt))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -172,10 +194,12 @@ class ValidatePlayerInputTest {
     void convertCarNameToListTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String carNames = "pobi,suhwp,jnam,namzi";
         validatePlayerInput.convertStringToArray(carNames);
         List<String> carNamesList = Arrays.asList("pobi", "suhwp", "jnam", "namzi");
+
         //then
         List<String> convertedValues = validatePlayerInput.convertStringToListCarNames();
         assertThat(convertedValues).isEqualTo(carNamesList);
@@ -186,8 +210,10 @@ class ValidatePlayerInputTest {
     void convertRaceCountToIntTest() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
+
         //given
         String raceCountInput = "0";
+
         //then
         assertThatThrownBy(() -> validatePlayerInput.convertStringToIntRaceCount(raceCountInput))
                 .isInstanceOf(IllegalArgumentException.class)

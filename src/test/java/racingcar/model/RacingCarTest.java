@@ -3,7 +3,6 @@ package racingcar.model;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -15,6 +14,7 @@ public class RacingCarTest {
         //given
         String carName = "pobi";
         RacingCar racingCar = new RacingCar(carName);
+
         //then
         assertThat(racingCar.getRacingCarName()).isEqualTo(carName);
     }
@@ -25,9 +25,11 @@ public class RacingCarTest {
         //when
         String carName = "pobi";
         RacingCar racingCar = new RacingCar(carName);
+
         //given
         int randomNumber = 5;
         racingCar.move(randomNumber);
+
         //then
         int racingCarMove = racingCar.getMoveCount();
         assertThat(racingCarMove).isEqualTo(1);
@@ -39,9 +41,11 @@ public class RacingCarTest {
         //when
         String carName = "pobi";
         RacingCar racingCar = new RacingCar(carName);
+
         //given
         int randomNumber = 2;
         racingCar.move(randomNumber);
+
         //then
         int racingCarMove = racingCar.getMoveCount();
         assertThat(racingCarMove).isEqualTo(0);
@@ -53,10 +57,12 @@ public class RacingCarTest {
         //when
         String carName = "pobi";
         RacingCar racingCar = new RacingCar(carName);
+
         //given
         for (int randomNumber = 3; randomNumber < 8; randomNumber++) {
             racingCar.move(randomNumber);
         }
+
         //then
         String gameResult = racingCar.getRaceResult();
         assertThat(gameResult).isEqualTo("----");
@@ -68,10 +74,12 @@ public class RacingCarTest {
         //when
         String carName = "pobi";
         RacingCar racingCar = new RacingCar(carName);
+
         //given
         for (int randomNumber = 0; randomNumber < 4; randomNumber++) {
             racingCar.move(randomNumber);
         }
+
         //then
         String gameResult = racingCar.getRaceResult();
         assertThat(gameResult).isEqualTo("");
@@ -83,10 +91,12 @@ public class RacingCarTest {
         //when
         String carName = "pobi";
         RacingCar racingCar = new RacingCar(carName);
+
         //given
         for (int randomNumber = 3; randomNumber < 8; randomNumber++) {
             racingCar.move(randomNumber);
         }
+
         //then
         String racingCartoString = "pobi : ----\n";
         assertThat(racingCar.toString()).isEqualTo(racingCartoString);

@@ -13,6 +13,7 @@ public class ErrorMessageTest {
     void delimiterErrorTest() {
         //given
         String delimiterError = "자동차 이름 구분은 ','로 하셔야합니다";
+
         //then
         assertThat(ErrorMessage.DELIMITER_ERROR.getDelimiterError()).isEqualTo(delimiterError);
     }
@@ -22,6 +23,7 @@ public class ErrorMessageTest {
     void noCarNamesErrorTest() {
         //given
         String noCarNameError = "레이싱 자동차 이름이 없습니다";
+
         //then
         assertThat(ErrorMessage.NO_NAME_ERROR.getNoCarsNameError()).isEqualTo(noCarNameError);
     }
@@ -31,6 +33,7 @@ public class ErrorMessageTest {
     void alphaCarNameErrorTest() {
         //given
         String alphaCarNameError = "레이싱 자동차 이름은 영어만 허용됩니다";
+
         //then
         assertThat(ErrorMessage.ALPHA_NAME_ERROR.getAlphaCarNameError()).isEqualTo(alphaCarNameError);
     }
@@ -40,6 +43,7 @@ public class ErrorMessageTest {
     void carNameLengthErrorTest() {
         //given
         String carNameLengthError = "자동차 이름 길이는 5이하 입니다";
+
         //then
         assertThat(ErrorMessage.NAME_LENGTH_ERROR.getCarNameLengthError()).isEqualTo(carNameLengthError);
     }
@@ -49,6 +53,7 @@ public class ErrorMessageTest {
     void duplicatedCarNameErrorTest() {
         //given
         String duplicatedCarNameError = "중복된 자동차 이름이 있습니다";
+
         //then
         assertThat(ErrorMessage.DUPLICATED_NAME_ERROR.getDuplicatedCarNamesError()).isEqualTo(duplicatedCarNameError);
     }
@@ -58,6 +63,7 @@ public class ErrorMessageTest {
     void digitRaceCountErrorTest() {
         //given
         String digitRaceCountError = "숫자만 입력해주시길 바랍니다";
+
         //then
         assertThat(ErrorMessage.DIGIT_RACE_COUNT_ERROR.getDigitRaceCountError()).isEqualTo(digitRaceCountError);
     }
@@ -67,6 +73,7 @@ public class ErrorMessageTest {
     void emptyRaceCountErrorTest() {
         //given
         String emptyRaceCountError = "레이스 횟수를 입력하시길 바랍니다";
+
         //then
         assertThat(ErrorMessage.EMPTY_RACE_COUNT_ERROR.getEmptyRaceCountError()).isEqualTo(emptyRaceCountError);
     }
@@ -76,6 +83,7 @@ public class ErrorMessageTest {
     void zeroRaceCountErrorTest() {
         //given
         String zeroRaceCountError = "레이스 시도 횟수는 1 이상입니다";
+
         //then
         assertThat(ErrorMessage.ZERO_RACE_COUNT_ERROR.getZeroRaceCountError()).isEqualTo(zeroRaceCountError);
     }

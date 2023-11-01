@@ -15,11 +15,13 @@ public class RacingGameTest {
     void constructorRacingCarWithCarNamesTest() {
         //when
         RacingGame racingGame = new RacingGame();
+
         //given
         String carsName = "pobi,namzi,jnam,jonh";
 
         racingGame.createCarsAfterValidation(carsName);
         List<RacingCar> racingCars = racingGame.getRacingCars();
+
         //then
         assertThat(racingCars.size()).isEqualTo(4);
         assertThat(racingCars.get(0).getRacingCarName()).isEqualTo("pobi");
@@ -33,6 +35,7 @@ public class RacingGameTest {
     void OneWinnerTest() {
         //when
         RacingGame racingGame = new RacingGame();
+
         //given
         String carsName = "pobi,namzi,jnam,jonh";
         racingGame.createCarsAfterValidation(carsName);
@@ -58,6 +61,7 @@ public class RacingGameTest {
         jonh.move(2);
         jonh.move(4);
         jonh.move(6);
+
         //then
         List<String> winners = racingGame.findWinners();
         String joinString = racingGame.getWinners();
@@ -72,6 +76,7 @@ public class RacingGameTest {
     void MoreOneWinnerTest() {
         //when
         RacingGame racingGame = new RacingGame();
+
         //given
         String carsName = "pobi,namzi,jnam,jonh";
         racingGame.createCarsAfterValidation(carsName);
