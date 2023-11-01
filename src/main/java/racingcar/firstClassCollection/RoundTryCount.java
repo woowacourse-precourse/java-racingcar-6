@@ -8,6 +8,14 @@ public class RoundTryCount {
         this.count = roundTryCount;
     }
 
+    public boolean isRemainRound(){
+        return count > 0;
+    }
+
+    public void consumeRound(){
+        count--;
+    }
+
 
     private void checkValidRoundTryCount(int count) {
         checkZero(count);
