@@ -14,19 +14,12 @@ public class CarTest {
     void ofTest(String input) {
         Car racer = Car.of(input);
 
-        assertThat(racer.name).isEqualTo(input);
+        assertThat(racer.getName()).isEqualTo(input);
     }
 
     @Test
     void ofExceptionTest() {
         assertThatThrownBy(() -> Car.of("invaildName"))
                 .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void moveRandomDistanceTest() {
-        Car racer = Car.of("pobi");
-
-        assertThat(racer.moveRandomDistance()).isLessThanOrEqualTo(5);
     }
 }

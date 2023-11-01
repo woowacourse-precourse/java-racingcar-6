@@ -1,13 +1,15 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Map.Entry;
 
 public class Car {
 
     private static final int MAX_LENGTH_OF_NAME = 5;
     private static final int CRITICAL_OF_MOVING = 4;
-    String name;
-    int distance;
+    private String name;
+    private int distance;
+    public static int maxDistance;
 
     private Car(String carName) {
         name = carName;
@@ -27,6 +29,29 @@ public class Car {
 
         if (randomNumber >= CRITICAL_OF_MOVING) {
             this.distance++;
+            renewMaxDistance(this.distance);
         }
+    }
+
+    private void renewMaxDistance(int distance) {
+        if (distance > maxDistance) {
+            maxDistance = distance;
+        }
+    }
+
+    public void printSticks() {
+        System.out.print(this.name+ " : ");
+        for (int i = 0; i < this.distance; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    public int getDistance() {
+        return this.distance;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

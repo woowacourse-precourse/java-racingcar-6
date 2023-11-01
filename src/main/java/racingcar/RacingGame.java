@@ -3,16 +3,11 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 public class RacingGame {
 
     List<Car> participants = new ArrayList<>();
-    List<Score> scores = new ArrayList<>();
     List<String> winners = new ArrayList<>();
     int times;
 
@@ -23,13 +18,13 @@ public class RacingGame {
         System.out.println("시도할 회수는 몇회인가요?");
         times = readRacingTimes(readLine());
 
-        for (int i = 0; i < times; i++) {
-            scores.add(moving(participants));
-        }
-
         System.out.println("\n실행 결과");
-        for (Score score : scores) {
-            score.printScore();
+        for (int i = 0; i < times; i++) {
+            for (Car participant : participants) {
+                participant.moveOrStay();
+                participant.printSticks();
+            }
+            System.out.println();
         }
 
         checkWinner();
@@ -66,29 +61,12 @@ public class RacingGame {
             throw new IllegalArgumentException("숫자를 입력해주세요. (입력 : " + input + ")");
         }
     }
-
-    private Score moving(List<Car> participants) {
-        Map<String, Integer> movingDistance = new LinkedHashMap<>();
-        for (Car participant : participants) {
-            movingDistance.put(participant.name, participant.moveRandomDistance());
-        }
-        return new Score(movingDistance);
-    }
-
     private void checkWinner() {
-        Map<String, Integer> sumOfDistance = new LinkedHashMap<>();
         for (Car participant : participants) {
-            int sum = 0;
-            for (Score score : scores) {
-                sum += score.movingDistance.get(participant.name);
-            }
-            sumOfDistance.put(participant.name, sum);
-        }
-        int maxValue = Collections.max(sumOfDistance.values());
-        for (Entry<String, Integer> entrySet : sumOfDistance.entrySet()) {
-            if (entrySet.getValue().equals(maxValue)) {
-                winners.add(entrySet.getKey());
+            if (Car.maxDistance == participant.getDistance()) {
+                winners.add(participant.getName());
             }
         }
+
     }
 }
