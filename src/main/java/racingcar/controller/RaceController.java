@@ -52,7 +52,7 @@ public class RaceController {
 
     private List<Car> findWinner(List<Car> racingCars) {
         int maxDistance = getWinnerRecord(racingCars);
-        return racingCars.stream().filter(car -> car.getRecord() == maxDistance).collect(Collectors.toList());
+        return racingCars.stream().filter(car -> car.isMaxDistance(maxDistance)).collect(Collectors.toList());
     }
 
     private boolean isWinnerMultiple(List<Car> winner) {

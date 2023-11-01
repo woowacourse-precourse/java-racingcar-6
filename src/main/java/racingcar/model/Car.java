@@ -24,5 +24,11 @@ public class Car {
                 GameSettingCharacter.MOVED_LETTER.get().repeat(record) + "\n";
     }
 
-    public int getRecord() { return record; }
+    public boolean isMaxDistance(int maxDistance) {
+        return record == maxDistance;
+    }
+
+    public int getRecord() {
+        return record;
+    }
 }
