@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -21,8 +20,9 @@ public class Cars {
         return new Cars(cars);
     }
 
-    public static void validateDuplicateCarName(final List<Car> cars) {
-        long distinctCarSize = Arrays.stream(cars.toArray())
+    public static void validateDuplicateCarName(List<Car> cars) {
+        int distinctCarSize = (int) cars.stream()
+                .map(Car::getName)
                 .distinct()
                 .count();
 

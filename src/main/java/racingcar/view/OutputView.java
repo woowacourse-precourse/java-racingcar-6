@@ -33,6 +33,7 @@ public class OutputView {
 
     private void printExecutionResult(List<CarPositionResponse> executionResult) {
         executionResult.forEach(this::printCarPosition);
+        System.out.println();
     }
 
     private void printCarPosition(CarPositionResponse carPositionResponse) {
