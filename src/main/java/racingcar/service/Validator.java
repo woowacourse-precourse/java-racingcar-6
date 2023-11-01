@@ -5,12 +5,15 @@ import java.util.List;
 import java.util.Set;
 
 public class Validator {
-    TypeConverter typeConverter = new TypeConverter();
+    private TypeConverter typeConverter = new TypeConverter();
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름의 길이가 5보다 큽니다.";
     private static final String NAME_SPACE_ERROR_MESSAGE = "이름에 공백이 존재합니다.";
     private static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 존재합니다.";
     private static final String TRIAL_NUMBER_ZERO_ERROR_MESSAGE = "입력값은 0보다 커야 합니다.";
     private static final String TRIAL_NUMBER_NON_INT_ERROR_MESSAGE = "반복 횟수는 정수 혹은 양수만 가능합니다.";
+    private static final int LENGTH_CONDITION = 5;
+    private static final String SPACE = " ";
+    private static final int ZERO = 0;
     public void validateCarNames(List<String> input){
         validateNameLength(input);
         validateNameSpace(input);
@@ -18,14 +21,14 @@ public class Validator {
     }
     public void validateNameLength(List<String> input){
         for(String carName : input){
-            if(carName.length() > 5){
+            if(carName.length() > LENGTH_CONDITION){
                 throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
             }
         }
     }
     public void validateNameSpace(List<String> input){
         for(String carName : input){
-            if(carName.contains(" ")){
+            if(carName.contains(SPACE)){
                 throw new IllegalArgumentException(NAME_SPACE_ERROR_MESSAGE);
             }
         }
@@ -45,12 +48,12 @@ public class Validator {
     }
     public void validateZeroTrialNumber(String input){
         int trialNum = typeConverter.stringToInt(input);
-        if(trialNum == 0){
+        if(trialNum == ZERO){
             throw new IllegalArgumentException(TRIAL_NUMBER_ZERO_ERROR_MESSAGE);
         }
     }
     public void validateNonIntTrialNumber(String input){
-        for(int i = 0 ; i < input.length(); i++){
+        for(int i = ZERO ; i < input.length(); i++){
             if(!Character.isDigit(input.charAt(i))){
                 throw new IllegalArgumentException(TRIAL_NUMBER_NON_INT_ERROR_MESSAGE);
             }
