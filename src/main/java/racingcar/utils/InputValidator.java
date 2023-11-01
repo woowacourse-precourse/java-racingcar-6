@@ -12,17 +12,16 @@ public class InputValidator {
     private static final String NOT_INTEGER = "0 이상의 숫자를 입력해주세요";
 
     private static final Pattern NOT_INTEGER_REG_EXP = Pattern.compile("^[1-9][\\d]*$");
-    private static final Pattern INVALID_SEPARATOR_REG_EXP = Pattern.compile(",+");
-    private static final Pattern DELETE_STRING_AND_SPACE_REG_EXP = Pattern.compile("[\\s\\w가-힣]");
+    private static final Pattern REMAIN_SEPARATOR_REG_EXP = Pattern.compile("[\\s\\w\\dㄱ-ㅎㅏ-ㅣ가-힣]");
+    private static final Pattern CAR_NAMES_INPUT_REG_EXP = Pattern.compile("([\\w\\dㄱ-ㅎㅏ-ㅣ가-힣]*,)*");
 
     private static final int MAX_LENGTH = 5;
 
     public static void checkCarNames(List<String> carNames, String carInput) {
+        checkSeparator(carInput);
         checkNameLength(carNames);
         checkNameIsDuplicated(carNames);
-        checkNameIsDuplicated(carNames);
         checkNameIsExist(carNames);
-        checkSeparator(carInput);
     }
 
     public static void checkNameLength(List<String> carNames) {
@@ -32,8 +31,10 @@ public class InputValidator {
     }
 
     public static void checkSeparator(String carInput) {
-        String c = DELETE_STRING_AND_SPACE_REG_EXP.matcher(carInput).replaceAll("");
-        if (!INVALID_SEPARATOR_REG_EXP.matcher(c).matches()) {
+        String carNames = CAR_NAMES_INPUT_REG_EXP.matcher(carInput).replaceAll("");
+        String remainSeparator = REMAIN_SEPARATOR_REG_EXP.matcher(carNames).replaceAll("");
+
+        if (!remainSeparator.isEmpty()) {
             throw new IllegalArgumentException(INVALID_SEPARATOR);
         }
     }

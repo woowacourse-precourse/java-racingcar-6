@@ -6,7 +6,7 @@ import java.util.List;
 public class StringConvertor {
 
     public static List<String> convertStringToList(String input) {
-        return Arrays.stream(removeSpace(input).split(",")).toList();
+        return Arrays.stream(input.split(",")).toList();
     }
 
     public static int convertStringToInt(String input) {

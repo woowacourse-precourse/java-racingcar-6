@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.RacingCar;
 import racingcar.utils.InputValidator;
+import racingcar.utils.RandomNumberGenerator;
 import racingcar.utils.StringConvertor;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -24,6 +25,7 @@ public class Game {
 
     public List<String> getCarNames() {
         String carInput = InputView.inputCarNames();
+        carInput = StringConvertor.removeSpace(carInput);
         List<String> carNames = StringConvertor.convertStringToList(carInput);
         InputValidator.checkCarNames(carNames, carInput);
 
