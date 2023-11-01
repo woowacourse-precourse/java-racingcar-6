@@ -45,7 +45,7 @@ class CarsTest {
     @Test
     void 우승자_리스트_얻기(){
         //given
-        cars.getCars().get(0).goForward(1);
+        cars.getCars().get(0).goForward(7);
         cars.getCars().get(1).goForward(7);
         cars.getCars().get(2).goForward(3);
 
@@ -53,12 +53,22 @@ class CarsTest {
         List<String> mvp = cars.getMVP();
 
         //then
-        assertThat(mvp).containsExactly("jun");
+        assertThat(mvp).containsExactlyInAnyOrder("jun","pobi");
     }
 
     @Test
     void 전진_상태_얻기(){
+        //given
+        cars.getCars().get(0).goForward(1);
+        cars.getCars().get(1).goForward(7);
+        cars.getCars().get(2).goForward(7);
+        //when
+        LinkedHashMap<String,Integer> forwardState = cars.getForwardState();
 
+        //then
+        assertThat(forwardState.get("pobi")).isEqualTo(0);
+        assertThat(forwardState.get("jun")).isEqualTo(1);
+        assertThat(forwardState.get("woni")).isEqualTo(1);
     }
 
     @Test
