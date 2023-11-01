@@ -6,7 +6,7 @@ public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
         RacingContest racingContest;
         List<String> winners;
-        String result = "죄종 우승자 : ";
+        String result = "최종 우승자 : ";
 
         //input
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -31,6 +31,7 @@ public class Application {
         }
 
         //경기 시작 및 승자 확인
+        System.out.println("실행 결과");
         racingContest.playGame();
         winners = racingContest.returnWinner();
         for(String winner:winners){
