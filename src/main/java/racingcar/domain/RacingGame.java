@@ -25,6 +25,7 @@ public class RacingGame {
 
         System.out.println("\n실행 결과");
 
+        runGame();
     }
 
     private void inputName() {
@@ -54,5 +55,11 @@ public class RacingGame {
             Car car = new Car(name);
             cars.add(car);
         }
+    }
+    private void printResult() {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println();
     }
 }
