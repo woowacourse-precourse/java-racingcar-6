@@ -49,7 +49,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void getMoveDistance_테스트() {
+    void 이동거리_변화_여부() {
         Car car = new Car("test");
         car.tryMove(4); // 자동차를 한 번 전진시킵니다.
         assertThat(car.getMoveDistance()).isEqualTo("-");
@@ -59,6 +59,14 @@ class ApplicationTest extends NsTest {
 
         car.tryMove(3); // 자동차를 정지시킵니다. 이동 거리는 변하지 않습니다.
         assertThat(car.getMoveDistance()).isEqualTo("--");
+    }
+
+    @Test
+    public void 이동횟수_증가_여부() {
+        Car car = new Car("test");
+        int initialMoveCount = car.getMoveCount();
+        car.tryMove(Randoms.pickNumberInRange(0, 9));
+        assertTrue(car.getMoveCount() >= initialMoveCount);
     }
 
     @Test
