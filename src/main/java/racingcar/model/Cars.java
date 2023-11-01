@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Cars {
 
     private final List<Car> carList;
-    private static String DUPLICATE_NAME_ERROR = "중복된 이름이 입력되었습니다.";
+    private final static String DUPLICATE_NAME_ERROR = "중복된 이름이 입력되었습니다.";
 
     public Cars(List<String> inputs) {
         validateSameName(inputs);

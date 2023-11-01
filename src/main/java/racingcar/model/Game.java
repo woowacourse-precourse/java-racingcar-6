@@ -20,10 +20,7 @@ public class Game {
     }
 
     public boolean isPlayable() {
-        if (gameCount.getCount() < GAME_COUNT_LOWER_LIMIT) {
-            return false;
-        }
-        return true;
+        return gameCount.getCount() >= GAME_COUNT_LOWER_LIMIT;
     }
 
     public String getCurrentCarPositions() {
