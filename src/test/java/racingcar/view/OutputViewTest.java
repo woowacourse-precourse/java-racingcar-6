@@ -60,7 +60,7 @@ class OutputViewTest {
     }
 
     @Test
-    void printResultStartMessage() {
+    void printResultStartMessage_결과_출력_시작_메시지_출력() {
         //given
 
         //when
