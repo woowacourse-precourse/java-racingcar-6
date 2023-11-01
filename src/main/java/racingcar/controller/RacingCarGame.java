@@ -26,6 +26,14 @@ public class RacingCarGame {
 
         InputView.printDemandAttemptCount();
         Attempt attempt = new Attempt(readInt());
+
+        race(cars, attempt);
+    }
+
+    private void race(Cars cars, Attempt attempt) {
+        for (int i = 0; i < attempt.count(); i++) {
+            cars.tryToMove(movingStrategy);
+        }
     }
 
     private static List<String> readCarNames() {

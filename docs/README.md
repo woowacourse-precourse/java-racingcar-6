@@ -26,7 +26,7 @@
   - RacingCarGame의 MovingStrategy를 설정하는 GameConfig 파일 생성
 - [x] Cars 이동 기능 구현
   - Car들이 모두 이동을 시도하는 기능 구현
-- [ ] 자동차 경주 기능 구현
+- [x] 자동차 경주 기능 구현
   - 각 자동차가 주어진 시도회수만큼 이동을 시도하는 기능 구현
 - [ ] 전진하는 자동차 출력 기능 구현
   - OutPutView에 출력 기능 구현
