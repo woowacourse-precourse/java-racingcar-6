@@ -31,5 +31,31 @@ public class Application {
             }
             OutputView.printNewLine();
         }
+
+        List<Car> winnerCars = getWinnerCars(cars);
+
+        OutputView.printWinner(winnerCars);
+    }
+
+    private static List<Car> getWinnerCars(List<Car> cars) {
+        int max = findMax(cars);
+
+        List<Car> winnerCars = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == max) {
+                winnerCars.add(car);
+            }
+        }
+        return winnerCars;
+    }
+
+    private static int findMax(List<Car> cars) {
+        int max = 0;
+
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
+
+        return max;
     }
 }
