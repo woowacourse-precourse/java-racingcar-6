@@ -13,15 +13,13 @@ public enum PlayType {
     private int result;
     private List<Integer> randomNumbers;
 
-    private Function<Integer, Integer> expression;
-
     PlayType(int result, List<Integer> randomNumbers) {
         this.result = result;
         this.randomNumbers = randomNumbers;
 
     }
 
-    public static PlayType findByNum(int number){
+    public static PlayType findByNum(int number) {
         return Arrays.stream(PlayType.values())
                 .filter(playType -> playType.hasType(number))
                 .findAny()
