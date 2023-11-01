@@ -29,16 +29,6 @@ public class GameController {
         printWinners(playCars);
     }
 
-    private void playGameUntilEnd(final Cars playCars, final PlayCount playCount) {
-        outputView.printResult();
-
-        while (!playCount.isGameEnd()) {
-            playCars.race(randomNumber);
-            printEachStatus(playCars);
-            playCount.endOneRound();
-        }
-    }
-
     private Cars createPlayCars() {
         outputView.askCarNames();
         return Cars.from(inputView.readLine());
@@ -47,6 +37,16 @@ public class GameController {
     private PlayCount createPlayCount() {
         outputView.askPlayCount();
         return PlayCount.createDefault(inputView.readLine());
+    }
+
+    private void playGameUntilEnd(final Cars playCars, final PlayCount playCount) {
+        outputView.printResult();
+
+        while (!playCount.isGameEnd()) {
+            playCars.race(randomNumber);
+            printEachStatus(playCars);
+            playCount.endOneRound();
+        }
     }
 
     private void printEachStatus(final Cars cars) {
