@@ -23,7 +23,7 @@ class CarServiceTest {
 
         List<Car> cars = carService.findCars();
 
-        Assertions.assertThat(cars).contains(new Car("json"),new Car("jade"),new Car("lily"));
+        Assertions.assertThat(cars).containsExactly(new Car("json"),new Car("jade"),new Car("lily"));
     }
 
 
