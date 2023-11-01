@@ -1,10 +1,9 @@
-package racingcar;
+package racingcarv2;
 
 import racingcarv2.controller.RacingCarController;
 
-public class Application {
+public class MainApplication {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
         RacingCarController racingCarController = new RacingCarController();
         racingCarController.run();
     }
