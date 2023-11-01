@@ -36,23 +36,4 @@ public class Car {
     public int getPosition() {
         return position.getPosition();
     }
-
-    @Override
-    public boolean equals(final Object other) {
-        if (this == other) {
-            return true;
-        }
-
-        if (other == null || getClass() != other.getClass()) {
-            return false;
-        }
-
-        Car car = (Car) other;
-        return Objects.equals(name.getName(), car.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name.getName());
-    }
 }

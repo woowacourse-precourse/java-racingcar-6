@@ -3,6 +3,8 @@ package racingcar.model;
 import static racingcar.view.exception.ExceptionMessage.NAME_LENGTH_EXCEPTION;
 import static racingcar.view.exception.ExceptionMessage.NAME_VALUE_BLANK_EXCEPTION;
 
+import java.util.Objects;
+
 public class Name {
 
     private static final int MINIMUM_LENGTH = 1;
@@ -34,5 +36,24 @@ public class Name {
     
     public String getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        if (this == other) {
+            return true;
+        }
+
+        if (other == null || getClass() != other.getClass()) {
+            return false;
+        }
+
+        Name otherName = (Name) other;
+        return Objects.equals(this.getName(), otherName.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

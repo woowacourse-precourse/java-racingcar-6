@@ -1,6 +1,7 @@
 package racingcar.model;
 
-import racingcar.model.exception.ExceptionMessage;
+import static racingcar.view.exception.ExceptionMessage.DUPLICATE_NAME_EXCEPTION;
+
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -30,7 +31,7 @@ public class Names {
                 .toList();
 
         if (uniqueNames.size() != names.size()) {
-            throw new IllegalArgumentException(ExceptionMessage.DUPLICATE_CAR_EXCEPTION.getMessage());
+            throw new IllegalArgumentException(DUPLICATE_NAME_EXCEPTION.getMessage());
         }
     }
 
