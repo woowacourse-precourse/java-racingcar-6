@@ -1,8 +1,6 @@
 package game;
 
-import camp.nextstep.edu.missionutils.Console;
 import car.Car;
-import util.GamePrinter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +8,13 @@ import java.util.List;
 public class GameInput {
 
     private static final int MORE_THAN_ZERO = 0;
+    private static final String COMMA = ",";
+
 
     public List<Car> inputCarNames(String input) {
         List<Car> carList = new ArrayList<>();
 
-        String[] carNames = input.split(",");
+        String[] carNames = input.split(COMMA);
 
         for (int i = 0; i < carNames.length; i++) {
             carList.add(new Car(carNames[i]));
@@ -39,7 +39,7 @@ public class GameInput {
     }
 
     private void validateNumberRange(String number) {
-        if (Integer.parseInt(number) < MORE_THAN_ZERO){
+        if (Integer.parseInt(number) < MORE_THAN_ZERO) {
             throw new IllegalArgumentException();
         }
     }
