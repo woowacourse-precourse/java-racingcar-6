@@ -4,14 +4,29 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.util.CarUtil;
 import racingcar.view.InputView;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class StringTest {
 
     @Test
     void inputViewTest() {
         InputView.requestCarName();
-        InputView.requestTryCount();
+        InputView.requestMoveTime();
+    }
+
+    @Test
+    void testCar() {
+        String input = "1,2";
+        List<Car> cars = CarUtil.createCar(input);
+
+        List<String> result = cars.stream().map(c -> c.getName()).toList();
+        assertThat(result).contains("2", "1");
+        assertThat(result).containsExactly("1", "2");
     }
     @Test
     void split_메서드로_주어진_값을_구분() {
