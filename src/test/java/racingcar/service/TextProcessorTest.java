@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import static org.assertj.core.api.Assertions.*;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -34,9 +35,21 @@ public class TextProcessorTest {
         String input = "";
 
         assertThatThrownBy(
-                        () -> textProcessor.parseTryNumber(input))
+                () -> textProcessor.parseTryNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.EMPTY_TRY_COUNT
+                        .getErrorMessage());
+    }
+
+    @Test
+    @DisplayName("이동횟수_미입력_예외")
+    void tryCountInputNegativeValueException() {
+        String input = "-230";
+
+        assertThatThrownBy(
+                () -> textProcessor.parseTryNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.NEGATIVE_VALUE_TRY_COUNT
                         .getErrorMessage());
     }
 
@@ -46,7 +59,7 @@ public class TextProcessorTest {
         String input = "12t";
 
         assertThatThrownBy(
-                        () -> textProcessor.parseTryNumber(input))
+                () -> textProcessor.parseTryNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INVALID_INTEGER_FORMAT
                         .getErrorMessage());
