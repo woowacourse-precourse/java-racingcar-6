@@ -41,9 +41,9 @@ public class RacingcarGameController {
         Round round = new Round();
 
         while (gameStatus.isGamePlaying()) {
+            round.addRound();
             proceedEachRound(cars);
 
-            round.addRound();
             gameStatus = round.checkIfGameIsOver(roundToRace);
         }
     }

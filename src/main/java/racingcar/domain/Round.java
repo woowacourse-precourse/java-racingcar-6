@@ -7,12 +7,13 @@ public class Round {
 
     private int round;
 
+
     public void addRound() {
         ++round;
     }
 
     public GameStatus checkIfGameIsOver(int roundToRace) {
-        if (round > roundToRace) {
+        if (round == roundToRace) {
             return GAME_OVER;
         }
 
