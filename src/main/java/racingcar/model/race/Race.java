@@ -9,13 +9,13 @@ public class Race {
     private final GameCount gameCount;
     private final RaceResult result;
 
-    private Race(Cars cars, GameCount gameCount) {
+    private Race(final Cars cars, final GameCount gameCount) {
         this.cars = cars;
         this.gameCount = gameCount;
         result = RaceResult.create();
     }
 
-    public static Race of(Cars cars, GameCount gameCount) {
+    public static Race of(final Cars cars, final GameCount gameCount) {
         return new Race(cars, gameCount);
     }
 

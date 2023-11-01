@@ -18,17 +18,17 @@ public class ResultView {
 
     private static final String DELIMITER_COMMA = ", ";
 
-    public void printResult(RaceResult result) {
+    public void printResult(final RaceResult result) {
         System.out.println(GAME_RESULT);
         result.stream().forEach(this::printRecords);
     }
 
-    private void printRecords(CarRaceRecords records) {
+    private void printRecords(final CarRaceRecords records) {
         records.stream().forEach(this::printRecord);
         System.out.println();
     }
 
-    private void printRecord(CarRaceRecord record) {
+    private void printRecord(final CarRaceRecord record) {
         System.out.printf(
                 RESULT_FORMAT,
                 record.carName(),
@@ -36,11 +36,11 @@ public class ResultView {
         );
     }
 
-    public void printWinners(Winners winners) {
+    public void printWinners(final Winners winners) {
         System.out.println(WINNERS + getWinnersAsString(winners));
     }
 
-    private String getWinnersAsString(Winners winners) {
+    private String getWinnersAsString(final Winners winners) {
         StringJoiner winnerNamesWithCommas = new StringJoiner(DELIMITER_COMMA);
         winners.stream()
                 .map(CarName::toString)

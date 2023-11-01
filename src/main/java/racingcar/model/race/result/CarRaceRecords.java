@@ -9,13 +9,13 @@ public class CarRaceRecords {
 
     private final List<CarRaceRecord> carRaceRecords;
 
-    private CarRaceRecords(Cars cars) {
+    private CarRaceRecords(final Cars cars) {
         carRaceRecords = cars.stream()
                 .map(CarRaceRecord::of)
                 .toList();
     }
 
-    public static CarRaceRecords from(Cars cars) {
+    public static CarRaceRecords from(final Cars cars) {
         return new CarRaceRecords(cars);
     }
 

@@ -17,7 +17,7 @@ public class RaceResult {
         return new RaceResult();
     }
 
-    public void captureCars(Cars cars) {
+    public void captureCars(final Cars cars) {
         result.add(CarRaceRecords.from(cars));
     }
 
