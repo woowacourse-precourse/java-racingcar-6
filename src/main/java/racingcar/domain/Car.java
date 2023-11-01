@@ -14,14 +14,6 @@ public class Car {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Integer getPosition() {
-        return position;
-    }
-
     public boolean checkRandomNumber() {
         int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         return randomNumber >= CRITERIA;
@@ -29,5 +21,13 @@ public class Car {
 
     public void moveForward() {
         position++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
     }
 }
