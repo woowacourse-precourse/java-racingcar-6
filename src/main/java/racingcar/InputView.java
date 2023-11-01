@@ -2,10 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class InputView {
     public static List<Car> inputCarsInfo() {
@@ -18,44 +15,16 @@ public class InputView {
         String[] carNames = input.split(",");
 
         for (String carName : carNames) {
-            validateCarName(carName);
+            Validator.validateCarName(carName);
         }
-        validateDuplicate(carNames);
+        Validator.validateDuplicate(carNames);
 
         return convertStringArrayToCarList(carNames);
     }
 
-    public static void validateCarName(String carName) {
-        validateLength(carName);
-        validateBlank(carName);
-    }
-
-    public static void validateLength(String carName) {
-        if (!isValidLength(carName)) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public static boolean isValidLength(String carName) {
-        return carName.length() >= 1 && carName.length() <= 5;
-    }
-
-    public static void validateBlank(String carName) {
-        if (carName.contains(" ")) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public static void validateDuplicate(String[] carNames) {
-        Set<String> uniqueCarNames = new HashSet<>(Arrays.asList(carNames));
-
-        if (uniqueCarNames.size() != carNames.length) {
-            throw new IllegalArgumentException();
-        }
-    }
-
     public static List<Car> convertStringArrayToCarList(String[] carNames) {
         List<Car> cars = new ArrayList<>();
+
         for (String carName : carNames) {
             cars.add(new Car(carName, 0));
         }
@@ -69,26 +38,6 @@ public class InputView {
 
     public static int getRound() {
         String input = Console.readLine();
-        return validateRound(input);
-    }
-
-    public static int validateRound(String input) {
-        int round = validateRoundType(input);
-        isValidRoundRange(round);
-        return round;
-    }
-
-    public static int validateRoundType(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public static void isValidRoundRange(int round) {
-        if (round <= 0) {
-            throw new IllegalArgumentException();
-        }
+        return Validator.validateRound(input);
     }
 }
