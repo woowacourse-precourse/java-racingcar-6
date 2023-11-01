@@ -14,6 +14,14 @@ public class Car {
         this.position = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     public void moveForwardRandomly() {
         if (Randoms.pickNumberInRange(0, 9) >= MOVE_FORWARD_CRITERION) {
             this.position++;
