@@ -1,4 +1,4 @@
-package racingcar.domain.generator;
+package racingcar.domain.util.generator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

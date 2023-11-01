@@ -1,4 +1,4 @@
-package racingcar.domain.referee;
+package racingcar.domain.util.referee;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
