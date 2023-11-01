@@ -5,9 +5,9 @@ import racingcar.utils.RandomNumberGenerater;
 import java.util.List;
 
 public class Race {
-    long count;
-    long times;
-    Cars cars;
+    private long count;
+    private long times;
+    private Cars cars;
 
     private final RandomNumberGenerater randomNumberGenerater = new RandomNumberGenerater();
 

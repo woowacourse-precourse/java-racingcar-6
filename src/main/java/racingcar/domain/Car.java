@@ -13,6 +13,10 @@ public class Car implements Comparable {
         return carName;
     }
 
+    public int getProcess() {
+        return process;
+    }
+
     public void increaseProcess(){
         process++;
     }
@@ -20,10 +24,6 @@ public class Car implements Comparable {
     public String info(){
         String processString = "-".repeat(process);
         return String.format("%s : %s\n", carName, processString);
-    }
-
-    public int getProcess() {
-        return process;
     }
 
     @Override
