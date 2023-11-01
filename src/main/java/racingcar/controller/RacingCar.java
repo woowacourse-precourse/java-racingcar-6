@@ -12,7 +12,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RacingCar {
 
-    private RacingCarView racingCarView;
+    private final RacingCarView racingCarView;
     private Cars cars;
 
     public RacingCar() {
@@ -20,15 +20,28 @@ public class RacingCar {
     }
 
     public void start() {
-        racingCarView.printInputCarNameMessage();
+        List<String> nameList = inputCarName();
+        createCarList(nameList);
 
+        inputTryCount();
+    }
+
+    private List<String> inputCarName() {
+        racingCarView.printInputCarNameMessage();
         String nameString = readLine();
+
         List<String> nameList = Converter.separatedStringToList(nameString, ",");
         Validator.validateCarsName(nameList);
 
+        return nameList;
+    }
+
+    private void createCarList(List<String> nameList) {
         List<Car> carList = Converter.nameListToCarList(nameList);
         cars = new Cars(carList.size(), carList);
+    }
 
+    private void inputTryCount() {
         racingCarView.printInputTryCountMessage();
 
         String countString = readLine();
