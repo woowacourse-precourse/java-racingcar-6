@@ -6,7 +6,6 @@ public class Output {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String FINAL_RESULT_MESSAGE = "최종 우승자 : ";
 
-
     public void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
     }

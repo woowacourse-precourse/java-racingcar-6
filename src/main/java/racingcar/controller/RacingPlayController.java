@@ -31,5 +31,4 @@ public class RacingPlayController {
             output.printRacingResult(playing.getRacingCarsStatus());
         }
     }
-
 }

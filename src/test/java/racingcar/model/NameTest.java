@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class NameTest {
-
     @Test
     void name_공백이_입력됐을_경우_테스트() {
         final String inputRacingCarNames = "ab ";
@@ -28,5 +27,4 @@ class NameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 이름이 있습니다.");
     }
-
 }
