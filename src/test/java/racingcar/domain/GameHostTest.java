@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.array2D;
 
 class GameHostTest {
     private final int MOVE = 4;
@@ -128,6 +129,31 @@ class GameHostTest {
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_1, raceCar_2, raceCar_3));
+    }
+
+    @DisplayName("자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다._7 ")
+    @Test
+    void knowWinRaceCarsTest_7() {
+        // given
+        moveRaceCar(raceCar_1);
+        moveRaceCar(raceCar_1);
+        moveRaceCar(raceCar_1);
+
+        moveRaceCar(raceCar_2);
+        moveRaceCar(raceCar_2);
+        moveRaceCar(raceCar_2);
+
+        moveRaceCar(raceCar_3);
+        moveRaceCar(raceCar_3);
+        moveRaceCar(raceCar_3);
+
+        // when
+        List<RaceCar> result = gameHost.giveWinnerList(progressRaceCarList);
+
+        // than
+        assertThat(result).containsOnly(raceCar_1, raceCar_2, raceCar_3);
+        assertThat(result).containsExactly(raceCar_1, raceCar_2, raceCar_3);
+        assertThat(result).allMatch((raceCar -> raceCar.getCntMovement() == 3));
     }
 
     @DisplayName("현제 레이싱을 하는 자동차의 움직인 횟수중에 최고로 많은 횟수를 알려준다.")
