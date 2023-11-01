@@ -28,7 +28,7 @@ class CarTest {
         Car c2 = new Car(new Name("test2"));
         assertEquals(c1.compareTo(c2), 0);
 
-        c1.move();
+        camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(c1::move, 4);
         assertEquals(c1.compareTo(c2), 1);
         assertEquals(c2.compareTo(c1), -1);
     }
