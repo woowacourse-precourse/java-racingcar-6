@@ -43,7 +43,7 @@ public class CarsTest {
         for (int i = 0; i < 5; i++) {
             cars.driveAll();
         }
-        List<String> winners = cars.getWinners();
+        List<String> winners = cars.getWinnersName();
         List<Integer> result = cars.getTotalDistances();
         List<String> names = cars.getNames();
         int maxDistance = Collections.max(result);

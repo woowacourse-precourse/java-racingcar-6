@@ -16,10 +16,10 @@ public class Cars {
         cars.forEach(Car::drive);
     }
 
-    public List<String> getWinners() {
+    public List<String> getWinnersName() {
         List<String> winners = new ArrayList<>();
-        for (Car car : this.cars) {
-            if (car.getTotalDistance() == this.getMaxDistance()) {
+        for (Car car : cars) {
+            if (car.getTotalDistance() == getMaxDistance()) {
                 winners.add(car.getName());
             }
         }

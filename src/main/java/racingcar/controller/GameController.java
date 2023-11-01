@@ -37,6 +37,6 @@ public class GameController {
     }
 
     private void endGame() {
-        OUTPUT_VIEW.printWinner(cars.getWinners());
+        OUTPUT_VIEW.printWinner(cars.getWinnersName());
     }
 }
