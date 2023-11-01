@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 
-public class Service {
+public class CarService {
 
     // 자동차 이름 입력
     public String[] inputCarName() {
@@ -14,23 +14,20 @@ public class Service {
     }
 
     // Car 객체 생성
-    public ArrayList<Car> createCarImpl() {
+    public ArrayList<Car> createCarImpl(String[] carNames) {
         ArrayList<Car> carList = new ArrayList<>();
-        for (String carName : inputCarName()) {
+        for (String carName : carNames) {
             if (carName.length() > 5) throw new IllegalArgumentException("자동차의 이름이 5자리 이상입니다.");
             carList.add(new Car(carName));
         }
         return carList;
     }
 
-    // 매 회수마다 출력
-    public void resultPrint(ArrayList<Car> carList) {
+    // 시도 회수 입력
+    public int tryingNumber() {
         System.out.print("시도할 회수는 몇회인가요? : ");
         try {
-            int tryingNumber = Integer.parseInt(Console.readLine());
-            System.out.println();
-            System.out.println("실행 결과");
-            for (int k = 0; k < tryingNumber; k++) carDistancePrint(carList);
+            return Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력해주세요");
         }
@@ -48,6 +45,13 @@ public class Service {
         System.out.println();
     }
 
+    // 매 회수마다 출력
+    public void resultPrint(ArrayList<Car> carList, int tryNum) {
+            System.out.println();
+            System.out.println("실행 결과");
+            for (int k = 0; k < tryNum; k++) carDistancePrint(carList);
+    }
+
     // 게임 종료 후 우승자를 출력
     public void findWinner(ArrayList<Car> carList) {
         int maxDistance = 0;
@@ -63,6 +67,6 @@ public class Service {
         // List 에 값을 출력
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size() - 1; i++) System.out.print(winners.get(i) + ", ");
-        System.out.println(winners.get(winners.size()-1));
+        System.out.print(winners.get(winners.size()-1));
     }
 }
