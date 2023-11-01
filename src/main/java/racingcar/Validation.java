@@ -75,10 +75,4 @@ public class Validation {
         }
     }
 
-    public static void checkRound(String round) {
-        if (round.isEmpty()) {
-            throw new IllegalArgumentException("시도할 회수를 입력해주세요.");
-        }
-    }
-
 }
