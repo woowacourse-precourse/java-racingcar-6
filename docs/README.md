@@ -1,3 +1,5 @@
+https://github.com/woowacourse-precourse/java-racingcar-6
+
 이번 과제에서 중심적으로 적용 해볼 것들
 1. SRP Single Responsibility Principle 단일 책임 원칙
 2. Singleton 패턴
@@ -56,3 +58,5 @@ Enum
 exceptionalCar
 exceptionalTry
 exceptionalCarNameRangeout
+
+리팩터링 이후
