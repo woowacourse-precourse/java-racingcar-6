@@ -16,6 +16,7 @@ class ValidatorTest {
         //given
         List<String> invalidNames = Arrays.asList("Car123456", "Car2", "Car3");
 
+        // When and Then
         assertThatThrownBy(() -> Validator.validateCarName(invalidNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.NOT_MORE_THAN_FIVE.getMessage());
@@ -26,6 +27,7 @@ class ValidatorTest {
         //given
         List<String> invalidNames = Arrays.asList("Car 1", "Car2", "Car3");
 
+        // When and Then
         assertThatThrownBy(() -> Validator.validateCarName(invalidNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.NO_SPACE_ALLOWED.getMessage());
@@ -36,8 +38,20 @@ class ValidatorTest {
         //given
         List<String> invalidNames = Arrays.asList("Car1", "", "Car3");
 
+        // When and Then
         assertThatThrownBy(() -> Validator.validateCarName(invalidNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.NOT_EMPTY_ALLOWED.getMessage());
+    }
+
+    @Test
+    void 시도할_회수가_숫자가_아닐때_예외_발생() {
+        //given
+        String invalidCnt = "abc123";
+
+        // When and Then
+        assertThatThrownBy(() -> Validator.validateTryCnt(invalidCnt))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.NOT_NUMERIC.getMessage());
     }
 }
