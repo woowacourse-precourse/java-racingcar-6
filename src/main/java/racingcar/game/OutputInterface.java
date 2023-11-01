@@ -1,5 +1,8 @@
 package racingcar.game;
 
+import static racingcar.game.TextResourceManager.GAME_STAGE_VIEW_HEADER;
+import static racingcar.game.TextResourceManager.GAME_WINNER_VIEW_TAG;
+
 import game.Game;
 import game.Output;
 import java.util.List;
@@ -14,8 +17,8 @@ public class OutputInterface implements Output {
 
     public OutputInterface(Output out) {
         this.out = out;
-        gameStageView = new SimpleHeaderView(out, "실행 결과");
-        gameWinnerView = new SimpleTagView(out, "최종 우승자");
+        gameStageView = new SimpleHeaderView(out, GAME_STAGE_VIEW_HEADER);
+        gameWinnerView = new SimpleTagView(out, GAME_WINNER_VIEW_TAG);
     }
 
     public void printStage(Game game) {

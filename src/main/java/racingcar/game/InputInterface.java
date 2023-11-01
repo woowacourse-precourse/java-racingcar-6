@@ -1,5 +1,8 @@
 package racingcar.game;
 
+import static racingcar.game.TextResourceManager.INPUT_NAMES_TEXT;
+import static racingcar.game.TextResourceManager.INPUT_TRIAL_TEXT;
+
 import game.Input;
 import game.Output;
 
@@ -13,7 +16,7 @@ public class InputInterface implements Input {
     }
 
     public String[] getNames() {
-        out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        out.println(INPUT_NAMES_TEXT);
         String input = in.readLine();
         if ("".equals(input)) {
             throw new IllegalArgumentException("자동차 이름을 입력하지 않았습니다.");
@@ -22,7 +25,7 @@ public class InputInterface implements Input {
     }
 
     public int getTrial() {
-        out.println("시도할 회수는 몇회인가요?");
+        out.println(INPUT_TRIAL_TEXT);
         String input = in.readLine();
         try {
             return Integer.parseInt(input);
