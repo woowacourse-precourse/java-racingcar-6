@@ -14,7 +14,7 @@ public class GameController {
     }
 
     public void start() {
-        Players players = generatePlayers();
+        Players players = createPlayers();
         RaceRound raceRound = initializeRaceRound(players);
         RaceCount raceCount = InputView.InputRaceCount();
 
@@ -29,7 +29,7 @@ public class GameController {
 
     private void playRace(final RaceRound raceRound, final RaceCount raceCount) {
         RacingGame racingGame = RacingGame.init(raceRound);
-        OutputView.printMoveResultMessage();
+        OutputView.printPreResultMessage();
         do {
             racingGame.move();
             printMoveResult(raceRound);
@@ -40,7 +40,7 @@ public class GameController {
         List<MoveResultDto> moveResultDtoList = raceRound.getPlayerMoveList().stream()
                 .map(MoveResultDto::from)
                 .toList();
-        OutputView.printPlayerMoveResult(moveResultDtoList);
+        OutputView.printMoveResult(moveResultDtoList);
     }
 
     private RaceRound initializeRaceRound(final Players players) {
@@ -50,7 +50,7 @@ public class GameController {
         return RaceRound.of(playerMoveList, moveFactory);
     }
 
-    private Players generatePlayers() {
+    private Players createPlayers() {
         PlayerNamesDto playerNamesDto = InputView.InputPlayerNames();
         List<Player> players = playerNamesDto.getPlayerNames().stream()
                 .map(Player::from)

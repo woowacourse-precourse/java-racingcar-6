@@ -4,10 +4,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class RaceRound {
+    private static final int DEFAULT_MAX_DISTANCE = 0;
     private final List<PlayerMove> playerMoveList;
     private final MoveFactory moveFactory;
 
-    public RaceRound(final List<PlayerMove> playerMoveList, final MoveFactory moveFactory) {
+    private RaceRound(final List<PlayerMove> playerMoveList, final MoveFactory moveFactory) {
         this.playerMoveList = playerMoveList;
         this.moveFactory = moveFactory;
     }
@@ -18,22 +19,23 @@ public class RaceRound {
 
     public void move() {
         for (PlayerMove playerMove : playerMoveList) {
-            playerMove.move(moveFactory.isMove());
+            boolean isMove = moveFactory.isMove();
+            playerMove.move(isMove);
         }
     }
 
-    public int getMaxDistance() {
-        int max = 0;
+    private int getMaxDistance() {
+        int presentMax = DEFAULT_MAX_DISTANCE;
         for (PlayerMove playerMove : playerMoveList) {
-            max = playerMove.getMaxDistance(max);
+            presentMax = playerMove.getMaxDistance(presentMax);
         }
-        return max;
+        return presentMax;
     }
 
     public void checkWinner() {
-        int maxDistacne = getMaxDistance();
+        int maxDistance = getMaxDistance();
         for (PlayerMove playerMove : playerMoveList) {
-            playerMove.checkWinner(maxDistacne);
+            playerMove.checkWinner(maxDistance);
         }
     }
 

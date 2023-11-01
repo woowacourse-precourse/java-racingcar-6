@@ -13,24 +13,19 @@ public class InputValidator {
     private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_FORMAT);
 
     public static void validatePlayerNames(final String rawName) {
-        if (!isNamesFormat(rawName)) {
+        if (!isValidFormat(rawName, PLAYER_NAMES_PATTERN)) {
             throw new IllegalArgumentException(PLAYER_NAMES_IS_INVALID_FORMAT);
         }
     }
 
-    private static boolean isNamesFormat(final String rawNames) {
-        Matcher matcher = PLAYER_NAMES_PATTERN.matcher(rawNames);
-        return matcher.matches();
-    }
-
     public static void validateRaceCount(final String count) {
-        if (!isNumber(count)) {
+        if (!isValidFormat(count, NUMBER_PATTERN)) {
             throw new IllegalArgumentException(RACE_COUNT_IS_NOT_NUMBER);
         }
     }
 
-    private static boolean isNumber(final String count) {
-        Matcher matcher = NUMBER_PATTERN.matcher(count);
+    private static boolean isValidFormat(final String input, Pattern pattern) {
+        Matcher matcher = pattern.matcher(input);
         return matcher.matches();
     }
 }

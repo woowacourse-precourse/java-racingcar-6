@@ -9,13 +9,14 @@ public class MoveFactory {
     }
 
     public boolean isMove() {
-        if (isOverFour(numberGenerator)) {
+        int randomNumber = numberGenerator.generate();
+        if (isOverOrFour(randomNumber)) {
             return true;
         }
         return false;
     }
 
-    private boolean isOverFour(final NumberGenerator numberGenerator) {
-        return numberGenerator.generate() >= 4;
+    private boolean isOverOrFour(final int randomNumber) {
+        return randomNumber >= 4;
     }
 }

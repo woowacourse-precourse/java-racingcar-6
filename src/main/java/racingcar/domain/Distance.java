@@ -6,7 +6,7 @@ public class Distance {
 
     private int value;
 
-    public Distance(final int value) {
+    private Distance(final int value) {
         this.value = value;
     }
 
@@ -18,7 +18,7 @@ public class Distance {
         value++;
     }
 
-    public int getMaxDistance(final int presentMax) {
+    public int getMax(final int presentMax) {
         if (isMax(presentMax)) {
             return value;
         }

@@ -7,7 +7,7 @@ public class RacingGame {
     private final RaceRound raceRound;
     private final RaceCount raceCount;
 
-    public RacingGame(final RaceRound raceRound, final RaceCount raceCount) {
+    private RacingGame(final RaceRound raceRound, final RaceCount raceCount) {
         this.raceRound = raceRound;
         this.raceCount = raceCount;
     }
@@ -25,8 +25,8 @@ public class RacingGame {
         raceCount.increase();
     }
 
-    public boolean isSameCount(final RaceCount endCount) {
-        return raceCount.equals(endCount);
+    public boolean isSameCount(final RaceCount finishCount) {
+        return raceCount.equals(finishCount);
     }
 
     @Override

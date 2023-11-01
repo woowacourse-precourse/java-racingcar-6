@@ -5,7 +5,7 @@ public class Player {
     private final PlayerName playerName;
     private boolean isWinner;
 
-    public Player(final String playerName, final boolean isWinner) {
+    private Player(final String playerName, final boolean isWinner) {
         this.playerName = PlayerName.from(playerName);
         this.isWinner = isWinner;
     }

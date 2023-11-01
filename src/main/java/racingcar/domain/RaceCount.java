@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.domain.Constant.DEFAULT_RACE_COUNT;
 import static racingcar.domain.Constant.MINIMUM_RACE_COUNT;
 import static racingcar.domain.ErrorMessage.RACE_COUNT_IS_NOT_IN_RANGE;
 
@@ -9,7 +10,7 @@ public class RaceCount {
 
     private int value;
 
-    public RaceCount(final int count) {
+    private RaceCount(final int count) {
         this.value = count;
     }
 
@@ -19,7 +20,7 @@ public class RaceCount {
     }
 
     public static RaceCount init() {
-        return new RaceCount(0);
+        return new RaceCount(DEFAULT_RACE_COUNT);
     }
 
     private static void validateRange(final int count) {

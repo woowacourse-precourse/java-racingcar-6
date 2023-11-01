@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.domain.Constant.DEFAULT_DISTANCE;
+
 import java.util.Objects;
 
 public class PlayerMove {
@@ -7,13 +9,13 @@ public class PlayerMove {
     private final Player player;
     private final Distance distance;
 
-    public PlayerMove(final Player player, final Distance distance) {
+    private PlayerMove(final Player player, final Distance distance) {
         this.player = player;
         this.distance = distance;
     }
 
     public static PlayerMove init(final Player player) {
-        return new PlayerMove(player, Distance.from(0));
+        return new PlayerMove(player, Distance.from(DEFAULT_DISTANCE));
     }
 
     public static PlayerMove of(final Player player, Distance distance) {
@@ -31,7 +33,7 @@ public class PlayerMove {
     }
 
     public int getMaxDistance(final int presentMax) {
-        return distance.getMaxDistance(presentMax);
+        return distance.getMax(presentMax);
     }
 
     public void checkWinner(final int presentMax) {

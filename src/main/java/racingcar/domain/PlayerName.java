@@ -7,7 +7,7 @@ public class PlayerName {
 
     private final String value;
 
-    public PlayerName(final String value) {
+    private PlayerName(final String value) {
         this.value = value;
     }
 

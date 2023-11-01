@@ -6,7 +6,7 @@ public class MoveResultDto {
     private final String playerName;
     private final int distance;
 
-    public MoveResultDto(final String playerName, final int distance) {
+    private MoveResultDto(final String playerName, final int distance) {
         this.playerName = playerName;
         this.distance = distance;
     }
