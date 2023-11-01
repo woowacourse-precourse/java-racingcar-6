@@ -105,7 +105,7 @@ class ApplicationTest extends NsTest {
         }
         cars.get(0).move();
         RacingGame racingGame = new RacingGame();
-        assertThat(racingGame.getWinnerList(cars)).isEqualTo(Arrays.asList("pobi"));
+        assertThat(racingGame.getWinnerList(cars)).isEqualTo(List.of("pobi"));
     }
 
     @Override
