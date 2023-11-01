@@ -10,8 +10,10 @@ public class InputManager {
     private final InputValidator validator = new InputValidator();
 
     public void startGame() {
-        getCarNames();
-        getRaceRounds();
+        List<String> carNames = getCarNames();
+        int raceRound = getRaceRound();
+        GameLogic gameLogic = new GameLogic();
+        gameLogic.runGame(carNames, raceRound);
     }
 
     public List<String> getCarNames() {
@@ -26,10 +28,10 @@ public class InputManager {
         return carNames;
     }
 
-    public int getRaceRounds() {
+    public int getRaceRound() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int raceRounds = Integer.parseInt(Console.readLine());
-        validator.validateRaceRounds(raceRounds);
-        return raceRounds;
+        int raceRound = Integer.parseInt(Console.readLine());
+        validator.validateraceRound(raceRound);
+        return raceRound;
     }
 }
