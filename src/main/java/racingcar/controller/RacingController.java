@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import org.junit.platform.commons.function.Try;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.TryCountValidator;
 import racingcar.view.InputView;
@@ -14,12 +12,14 @@ public class RacingController {
     public void start() {
         set();
         race();
-        
+
     }
 
     private void race() {
+        int nowTryCount = 0;
         OutputView.printPlayMessage();
-        while (tryCount != tryCount++){
+
+        while (tryCount + 1 != nowTryCount++){
             cars.move();
             OutputView.printRoundResult(cars.getCars());
         }
