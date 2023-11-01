@@ -1,9 +1,5 @@
 package racingcar;
 
-import java.security.SecureRandomSpi;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Application {
     public static void main(String[] args) {
         IllegalArgumentException ee = new IllegalArgumentException();
@@ -54,7 +50,7 @@ public class Application {
         System.out.println();
     }
 
-    private static void determineWinners(String[] name, int[] dis) {
+    public static String determineWinners(String[] name, int[] dis) {
         int maxDis = 0;
         for (int i = 0; i < dis.length; i++) {
             maxDis = Math.max(maxDis, dis[i]);
@@ -69,5 +65,6 @@ public class Application {
 
         System.out.print("최종 우승자 : ");
         System.out.println(winMembers.substring(0, winMembers.length() - 1));
+        return winMembers.substring(0, winMembers.length() - 1);
     }
 }
