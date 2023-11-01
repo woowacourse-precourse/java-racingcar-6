@@ -2,6 +2,7 @@ package racingcar;
 
 public class Error {
     static Error check = new Error();
+
     private Error() {
     }
 
