@@ -4,14 +4,11 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingGameTest extends NsTest{
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-
-    private GameManager GM = new GameManager();
 
     @Test
     void 전진_테스트() {
@@ -44,6 +41,14 @@ public class RacingGameTest extends NsTest{
                 },
                 MOVING_FORWARD, MOVING_FORWARD
         );
+    }
+
+    @Test
+    void Car_객체_생성_테스트(){
+        Car car1 = new Car("pobi");
+        Car car2 = new Car("woni");
+
+        assertThat(car1).isNotEqualTo(car2);
     }
 
     @Override
