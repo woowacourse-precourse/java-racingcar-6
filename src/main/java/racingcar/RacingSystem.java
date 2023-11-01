@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.lang.reflect.Array;
 import java.rmi.server.RemoteRef;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 
 public class RacingSystem {
@@ -26,29 +27,37 @@ public class RacingSystem {
         int tempCount = 0;
         int raceStep = 0;
         ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();
+        ArrayList<ArrayList<String>> winnerCheckList = new ArrayList<>();
         EvaluateSystem raceCount = new EvaluateSystem();
-
+        addRecord(winnerCheckList, carList);
         while (tempCount < count) {
-            addRecord(carRecordSheet, tempCount);
+            addRecord(carRecordSheet,tempCount);
+
             addRecord(carRecordSheet, raceStep, raceStep, raceCount.racingCondition());
             raceStep++;
             tempCount += 0;
-            displaySystem(carRecordSheet, carList);
-
         }
+        displaySystem(carRecordSheet, carList);
+
 
 
         return 0;
     }
-    public void addRecord(ArrayList<ArrayList<Integer>> recordSheet, int inputCount) {
+    public void addRecord(ArrayList<ArrayList<Integer>> raceSheet, int inputCount) {
         ArrayList<Integer> tempList = new ArrayList<>();
         tempList.add(inputCount);
-        recordSheet.add(tempList);
+        raceSheet.add(tempList);
+    }
+    public void addRecord(ArrayList<ArrayList<String>> resultSheet, String[]ownerList) {
+        ArrayList<String> tempName = new ArrayList<>(Arrays.asList(ownerList));
+        resultSheet.add(tempName);
+    }
 
+    public void addRecord(ArrayList<ArrayList<Integer>> raceSheet, int inputCount, int raceNum, ArrayList<Integer> raceValue) {
+        raceSheet.get(inputCount).add(raceValue.get(raceNum));
     }
-    public void addRecord(ArrayList<ArrayList<Integer>> recordSheet, int inputCount, int raceNum, ArrayList<Integer> raceValue) {
-        recordSheet.get(inputCount).add(raceValue.get(raceNum));
-    }
+
+
 
     public int sequence(String[] carList, int inputCount) {
         EvaluateSystem raceResult = new EvaluateSystem();
