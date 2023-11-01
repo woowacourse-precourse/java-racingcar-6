@@ -47,7 +47,8 @@ class ApplicationTest extends NsTest {
 
     // Custom
     @ParameterizedTest
-    @CsvSource(value = {"1,2,:이름은 1자 이상 5자 이하", "1,2,123456:이름은 1자 이상 5자 이하", "na,me,na:중복된 자동차 이름"}, delimiter = ':')
+    @CsvSource(value = {"1,2,:이름은 1자 이상 5자 이하", "1,2,123456:이름은 1자 이상 5자 이하", "na,me,na:중복된 자동차 이름",
+            "1,2,\t3:공백이 포함"}, delimiter = ':')
     public void 자동차_이름_입력_예외_테스트(String arg, String errorMessage) {
         final byte[] buf = arg.getBytes();
         InputStream inputStream = new ByteArrayInputStream(buf);
