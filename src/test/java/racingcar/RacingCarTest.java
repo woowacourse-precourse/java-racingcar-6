@@ -11,5 +11,11 @@ class RacingCarTest {
         assertEquals(name, car.getName());
     }
 
+    @Test
+    void moveRacingCar() {
+        RacingCar car = new RacingCar("test");
+        car.move(5); // 전진 조건에 만족한다고 가정할 때
+        assertEquals(1, car.getPosition());
+    }
 
 }
