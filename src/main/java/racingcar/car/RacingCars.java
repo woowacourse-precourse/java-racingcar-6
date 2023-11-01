@@ -3,7 +3,6 @@ package racingcar.car;
 import racingcar.random.Random;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingCars {
