@@ -14,7 +14,7 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void carListSize(){
+    void testcarListSize(){
         assertThrows(IllegalArgumentException.class, () -> {
             run("", "1");
         });
@@ -24,6 +24,13 @@ class ApplicationTest extends NsTest {
     void testCarNameSize(){
         assertThrows(IllegalArgumentException.class, () -> {
             run("aaaaaa", "1");
+        });
+    }
+
+    @Test
+    void testNoNameOfCarList(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            run(",,,", "1");
         });
     }
 

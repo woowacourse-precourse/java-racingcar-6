@@ -1,5 +1,6 @@
 package racingcar.exception;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,10 +20,16 @@ public class InputException {
 
     public List<String> carListException(String input) {
         checkInputIsNull(input);
-        String[] values = input.split(",");
 
-// 배열을 리스트로 변환
-        List<String> carList = Arrays.asList(values);
+        String[] values = input.split(",");
+        List<String> carList = new ArrayList<>();
+
+        for (String value : values) {
+            if (!value.isEmpty()) {
+                carList.add(value);
+            }
+        }
+
         for (String car : carList) {
             car = car.trim();
             carNameSizeException(car);
@@ -40,7 +47,7 @@ public class InputException {
     }
 
     public List<String> carListSizeException(List<String> carList) {
-        if(carList.size()>2000000000){
+        if (carList.size() > 2000000000) {
             throw new IllegalArgumentException(Car_List_MAX_Exception);
         }
         if (carList.size() > 0) {
@@ -65,8 +72,7 @@ public class InputException {
     public int numOfRoundException(int input) {
         if (input < 0) {
             throw new IllegalArgumentException(Num_Of_Round_Exception);
-        }
-        else if(input >2000000000){
+        } else if (input > 2000000000) {
             throw new IllegalArgumentException(Num_Of_Round_MAX_Exception);
         }
         return input;
