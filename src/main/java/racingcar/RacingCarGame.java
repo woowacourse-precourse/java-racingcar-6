@@ -83,14 +83,14 @@ public class RacingCarGame {
 
     void computeWinners() {
         int maxScore = Integer.MIN_VALUE;
-        for (RacingCar player : racingCars) {
-            int playerScore = player.getScore();
-            if (playerScore > maxScore) {
-                maxScore = playerScore;
+        for (RacingCar racingCar : racingCars) {
+            int racingCarScore = racingCar.getScore();
+            if (racingCarScore > maxScore) {
+                maxScore = racingCarScore;
                 winners.clear();
-                winners.add(player);
-            } else if (playerScore == maxScore) {
-                winners.add(player);
+                winners.add(racingCar);
+            } else if (racingCarScore == maxScore) {
+                winners.add(racingCar);
             }
         }
     }
