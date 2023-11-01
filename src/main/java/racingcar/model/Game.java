@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.view.Output;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +15,13 @@ public class Game {
 
     private void initializeCars(String carNames) {
         String[] names = carNames.split(",");
-        for (int i = 0; i < names.length; i++) {
-            cars.add(new Car(names[i]));
+        for (String name: names) {
+            cars.add(new Car(name));
         }
     }
 
-    public void startGame() {
-        System.out.println("실행 결과");
+    public void start() {
+        Output.attemptResultMessage();
         for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
             for (Car car : cars) {
                 car.move();
