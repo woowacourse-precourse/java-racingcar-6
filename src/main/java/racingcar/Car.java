@@ -23,6 +23,14 @@ public class Car{
             if(car.get(i) == null ||car.get(i).isBlank()||car.get(i).length()>5){
                 throw new IllegalArgumentException("에러가 발생했습니다.");
             }
+            TestSame(i);
+        }
+    }
+    void TestSame(int j){
+        for(int i=0;i<car.size();i++){
+            if(car.get(i).equals(car.get(j))){
+                throw new IllegalArgumentException("에러가 발생했습니다.");
+            }
         }
     }
     void InputTry(){
