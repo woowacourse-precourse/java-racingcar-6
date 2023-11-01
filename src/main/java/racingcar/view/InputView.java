@@ -19,7 +19,7 @@ public class InputView {
 
     private void runNameValidator(String input) {
         NameValidation nameValidation = new NameValidation();
-        nameValidation.checkWord(input);
+        nameValidation.validate(input);
     }
 
     private void runTryValidator(String input) {

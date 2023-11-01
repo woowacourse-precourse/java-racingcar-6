@@ -20,25 +20,26 @@ public class GameSystem {
         showWinner(output);
     }
 
-    public void saveCarInputs(InputView input, OutputView output) {
+    private void saveCarInputs(InputView input, OutputView output) {
         CarsInputManage carManage = new CarsInputManage();
         output.write(Message.NAME_MESSAGE);
         totalCar = carManage.makeCars(input);
     }
 
-    public void saveTryInput(InputView input, OutputView output) {
+    private void saveTryInput(InputView input, OutputView output) {
         TryInputManage tryManage = new TryInputManage();
         output.write(Message.TRY_MESSAGE);
+        output.write(Message.LINE);
         attempt = tryManage.makeTryNumber(input);
         output.write(Message.LINE);
     }
 
-    public void runGame(OutputView output) {
+    private void runGame(OutputView output) {
         CarGame game = new CarGame(output);
         game.run(attempt, totalCar);
     }
 
-    public void showWinner(OutputView output) {
+    private void showWinner(OutputView output) {
         FinalWinner finalWinner = new FinalWinner(output);
         finalWinner.showCars(totalCar);
     }

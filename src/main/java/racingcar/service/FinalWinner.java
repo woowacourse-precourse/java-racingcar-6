@@ -15,10 +15,10 @@ public class FinalWinner {
     public void showCars(TotalCar totalCar) {
         output.write(Message.WINNER_MESSAGE);
         output.write(Message.COLON);
-        showOneCar(totalCar);
+        showCarList(totalCar);
     }
 
-    public void showOneCar(TotalCar totalCar) {
+    private void showCarList(TotalCar totalCar) {
         List<String> winnerList = makeWinnerList(totalCar);
         for (int name = 0; name < winnerList.size(); name++) {
             output.write(winnerList.get(name));
@@ -30,7 +30,7 @@ public class FinalWinner {
 
     }
 
-    public List<String> makeWinnerList(TotalCar totalCar) {
+    private List<String> makeWinnerList(TotalCar totalCar) {
         Winner winner = new Winner();
         winner.carCompare(totalCar.distanceList());
         return winner.findWinner(totalCar.nameList(), totalCar.distanceList());

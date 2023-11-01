@@ -21,11 +21,11 @@ public class CarGame {
         }
     }
 
-    public void saveResult(TotalCar totalCar) {
+    private void saveResult(TotalCar totalCar) {
         totalCar.moveDistance();
     }
 
-    public void showResult(TotalCar totalCar) {
+    private void showResult(TotalCar totalCar) {
         List<String> names = totalCar.nameList();
         List<Integer> distances = totalCar.distanceList();
         for (int result = 0; result < names.size(); result++) {

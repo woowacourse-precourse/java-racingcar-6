@@ -14,12 +14,12 @@ public class CarsInputManage {
         return saveCarList(nameList);
     }
 
-    public ArrayList<String> makeCarNames(InputView input, InputManufacture manufacture) {
+    private ArrayList<String> makeCarNames(InputView input, InputManufacture manufacture) {
         String names = input.readCarNames();
         return manufacture.makeNameList(names);
     }
 
-    public TotalCar saveCarList(List<String> nameList) {
+    private TotalCar saveCarList(List<String> nameList) {
         TotalCar totalCar = new TotalCar();
 
         for (String name : nameList) {

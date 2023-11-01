@@ -12,13 +12,13 @@ public class NameValidation {
         checkCount(input);
     }
 
-    public void checkWord(String input) {
+    private void checkWord(String input) {
         if (!input.matches("^([a-zA-Z]{1,5})(,[a-zA-Z]{1,5})*$")) {
             throw new IllegalArgumentException();
         }
     }
 
-    public void checkDuplicate(String input) {
+    private void checkDuplicate(String input) {
         InputManufacture inputManufacture = new InputManufacture();
         List<String> carCheckList = inputManufacture.makeNameList(input);
         for (String s : carCheckList) {
@@ -28,7 +28,7 @@ public class NameValidation {
         }
     }
 
-    public void checkCount(String input) {
+    private void checkCount(String input) {
         String[] carCheckList = input.split((","));
         if (carCheckList.length < 2) {
             throw new IllegalArgumentException();
