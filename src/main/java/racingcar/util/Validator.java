@@ -19,4 +19,10 @@ public class Validator {
             throw new IllegalArgumentException("유효하지 않은 이름 입력(공백)");
         }
     }
+
+    private static void validateMaxLength(String name) {
+        if (name.length() > INPUT_NAME_MAX_LENGTH) {
+            throw new IllegalArgumentException("유효하지 않은 이름 입력(길이 초과)");
+        }
+    }
 }

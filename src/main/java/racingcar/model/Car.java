@@ -29,5 +29,4 @@ public class Car {
     protected int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
-
 }
