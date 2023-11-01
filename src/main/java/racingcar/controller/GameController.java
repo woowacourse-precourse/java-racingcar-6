@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.controller;
 
+import racingcar.model.Car;
 import racingcar.view.InputView;
 import racingcar.view.ResultView;
 
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Game {
+public class GameController {
     private static ArrayList<Car> cars;
     private static ArrayList<String> winners;
     private Integer gameRound;
