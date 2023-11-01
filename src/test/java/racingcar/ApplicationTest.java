@@ -21,6 +21,16 @@ class ApplicationTest extends NsTest {
                 MOVING_FORWARD, STOP);
     }
 
+    @Test
+    void ManyWinnersIfMaxTotalInputIsSame() {
+        assertRandomNumberInRangeTest(() -> {
+                    run("pobi,woni", "3");
+                    assertThat(output()).contains("pobi : --", "woni : --", "최종 우승자 : pobi, woni");
+                },
+                STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP,
+                MOVING_FORWARD, MOVING_FORWARD);
+    }
     }
 
     @Test
