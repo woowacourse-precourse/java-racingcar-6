@@ -8,12 +8,10 @@ public class Application {
     public static void main(String[] args) {
         ResultView.printEnterNameGuide();
         InputFactory inputFactory = new InputFactory();
-        String names = Console.readLine();
-        List<Car> carNames = inputFactory.getCars(names);
+        List<Car> carNames = inputFactory.getCars(Console.readLine());
 
         ResultView.printRoundQuestion();
-        String round = Console.readLine();
-        int racingRound = inputFactory.getRacingRound(round);
+        int racingRound = inputFactory.getRacingRound(Console.readLine());
 
         Race race = new Race(carNames, racingRound);
         race.start();
