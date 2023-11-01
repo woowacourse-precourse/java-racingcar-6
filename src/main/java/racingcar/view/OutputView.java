@@ -25,12 +25,6 @@ public class OutputView {
     }
 
     public static void printGameRoundResultMessage(List<String> winnerList) {
-        StringBuffer sb = new StringBuffer();
-        sb.append(WINNER_MESSAGE);
-        for (String winner : winnerList) {
-            sb.append(winner);
-            sb.append(", ");
-        }
-        System.out.println(sb.substring(0, sb.length() - 2));
+        System.out.println(WINNER_MESSAGE + String.join(", ", winnerList));
     }
 }
