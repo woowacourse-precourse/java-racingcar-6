@@ -30,6 +30,7 @@ public class RacingGameResponder {
     public void informGameResult(List<String> names) {
         StringBuilder sb = new StringBuilder(WINNER_INFORMING_LABEL);
         sb.append(String.join(", ", names));
+        System.out.println(sb);
     }
 
 }
