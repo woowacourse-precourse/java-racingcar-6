@@ -1,0 +1,24 @@
+package racingcar.model;
+
+import static racingcar.util.Constants.MAX_NAME_SIZE;
+import static racingcar.util.Constants.MIN_NAME_SIZE;
+
+public class Car {
+    // 전진 후진
+    String name;
+
+    public void createCar(String name){
+        validateSize(name);
+        this.name = name;
+    }
+
+    private void validateSize(String name){
+        if(name.length() > MAX_NAME_SIZE || name.length() < MIN_NAME_SIZE){
+            throw new IllegalArgumentException("이름은 1자 이상 5자 이하만 가능합니다.");
+        }
+    }
+
+    public String getName(){
+        return name;
+    }
+}
