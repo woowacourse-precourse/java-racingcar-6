@@ -20,13 +20,13 @@ public class StringTest {
     }
 
     @Test
-    void testCar() {
-        String input = "1,2";
+    void testCarName() {
+        String input = "pobi,woni";
         List<Car> cars = CarUtil.createCar(input);
 
         List<String> result = cars.stream().map(c -> c.getName()).toList();
-        assertThat(result).contains("2", "1");
-        assertThat(result).containsExactly("1", "2");
+        assertThat(result).contains("woni", "pobi");
+        assertThat(result).containsExactly("pobi", "woni");
     }
     @Test
     void split_메서드로_주어진_값을_구분() {

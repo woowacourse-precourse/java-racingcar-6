@@ -11,6 +11,7 @@ public class CarUtil {
 
     public static List<Car> createCar(String cars) {
         List<String> carName = new ArrayList<>(Arrays.asList(cars.split(",")));
-        return carName.stream().map(name -> new Car(name)).collect(Collectors.toList());
+        return carName.stream().map(name ->
+                new Car(CarValidate.checkCarName(name))).collect(Collectors.toList());
     }
 }
