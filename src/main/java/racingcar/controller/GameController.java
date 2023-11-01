@@ -6,18 +6,20 @@ import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
+
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public GameController(){
+    public GameController() {
         inputView = new InputView();
         outputView = new OutputView();
     }
-    public void carRacing(){
+
+    public void carRacing() {
         List<Car> cars = newCars();
         int RoundCount = inputView.inputCount();
-        for (int i=0; i< RoundCount; i++){
+        for (int i = 0; i < RoundCount; i++) {
             roundCar(cars);
             outputView.displayResults(cars);
             System.out.println();
@@ -26,16 +28,15 @@ public class GameController {
     }
 
 
-
-    private List<Car> newCars(){
-        String[] carNames=inputView.inputCarNames();
+    private List<Car> newCars() {
+        String[] carNames = inputView.inputCarNames();
         return Arrays.stream(carNames)
                 .map(Car::new)
                 .toList();
     }
 
-    public static void roundCar(List<Car> cars){
-        for(Car car : cars){
+    public static void roundCar(List<Car> cars) {
+        for (Car car : cars) {
             car.updatePosition();
         }
     }
