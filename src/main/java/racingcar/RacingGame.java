@@ -13,12 +13,7 @@ public class RacingGame {
 
         Integer gameTimes = inputGameTimes();
 
-        System.out.println("");
-        System.out.println("실행 결과");
-
-        for (int i = 0; i < gameTimes; i++) {
-            racingProgress = eachRace(racingProgress);
-        }
+        racingProgress = racingWhileGameTimes(racingProgress, gameTimes);
 
         racingResult(racingProgress, gameTimes);
 
@@ -27,7 +22,9 @@ public class RacingGame {
     private LinkedHashMap<String, String> inputCarNames() {
         LinkedHashMap<String, String> racingProgress = new LinkedHashMap<String, String>();
         String[] readlineCarNames;
+
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
         try {
             readlineCarNames = Console.readLine().split(",");
         } catch (Exception e) {
@@ -56,6 +53,7 @@ public class RacingGame {
         } catch (Exception e) {
             throw new IllegalArgumentException(Integer.MAX_VALUE + "이하의 자연수만 입력하세요.");
         }
+
         if (gameTimes <= 0) {
             throw new IllegalArgumentException(Integer.MAX_VALUE + "이하의 자연수만 입력하세요.");
         }
@@ -71,12 +69,27 @@ public class RacingGame {
         });
 
         System.out.println("");
+
+        return racingProgress;
+    }
+
+    private LinkedHashMap<String, String> racingWhileGameTimes(LinkedHashMap<String, String> racingProgress,
+            Integer gameTimes) {
+
+        System.out.println("");
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < gameTimes; i++) {
+            racingProgress = eachRace(racingProgress);
+        }
+
         return racingProgress;
     }
 
     private void racingResult(LinkedHashMap<String, String> racingProgress, Integer gameTimes) {
         int winnerDriveLength = 0;
         ArrayList<String> winner = new ArrayList<>();
+
         for (String carName : racingProgress.keySet()) {
             if (winnerDriveLength < racingProgress.get(carName).length()) {
                 winner.clear();
@@ -86,6 +99,7 @@ public class RacingGame {
                 winner.add(carName);
             }
         }
+
         String result = String.join(",", winner);
         System.out.println("최종 우승자 : " + result);
     }
