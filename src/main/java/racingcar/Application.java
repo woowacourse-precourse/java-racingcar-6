@@ -5,8 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-import camp.nextstep.edu.missionutils.Console;
-
 
 public class Application {
     private static final int MAX_NAME_LENGTH = 5;
