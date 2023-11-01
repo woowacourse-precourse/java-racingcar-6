@@ -16,6 +16,14 @@ public class Racing {
     private final List<Car> participants = new ArrayList<>();
     private int playCount;
 
+    public Set<String> getCarNames() {
+        return carNames;
+    }
+
+    public List<Car> getParticipants() {
+        return participants;
+    }
+
     void initParticipants(String[] names) {
 
         carNames.clear();
