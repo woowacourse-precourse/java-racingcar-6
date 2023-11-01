@@ -13,7 +13,7 @@ public class Validation {
         try {
             Integer.valueOf(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorConstants.OVER_FIVE_LENGTH_ERROR);
+            throw new IllegalArgumentException(ErrorConstants.IS_NOT_NUMBER_ERROR);
         }
     }
 }
