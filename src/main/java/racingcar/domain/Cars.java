@@ -5,6 +5,7 @@ import racingcar.Utils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private final String DELIMITER = ",";
@@ -29,6 +30,21 @@ public class Cars {
 
     public List<Car> getCars(){
         return cars;
+    }
+
+    public List<String> getWinners() {
+        int maxPosition = getMaxPosition();
+        return new ArrayList<>(cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList()));
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 
     private void validateDuplicateName(List<String> carNames) {
