@@ -18,3 +18,4 @@
 4. Game 내에 있는 함수를 클래스로 분리하고 각 클래스와 함수 이름 리펙토링
 5. MoveCheckerTester를 생성하여 MoveChecker를 테스트함
 6. MaxIndexFinderTester를 생성하여 MaxIndexFinder를 테스트함
+7. ReaderTester를 생성하여 Reader를 테스트함
