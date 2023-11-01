@@ -2,9 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import utils.validator;
-import utils.carRaceLog;
-import utils.findWinner;
+import utils.Validator;
+import utils.CarRaceLog;
+import utils.FindWinner;
 
 import java.util.ArrayList;
 
@@ -15,8 +15,8 @@ public class Application {
         String carNameInput = Console.readLine();
         ArrayList<String> carDistanceList;
 
-        if (validator.isCarNameValid(carNameInput)){
-            carDistanceList = carRaceLog.initCarDistanceList(carNameInput);
+        if (Validator.isCarNameValid(carNameInput)){
+            carDistanceList = CarRaceLog.initCarDistanceList(carNameInput);
         } else {
             throw new IllegalArgumentException();
         }
@@ -25,7 +25,7 @@ public class Application {
         String tryCountInput = Console.readLine();
         int tryCount;
 
-        if (validator.isTryCountNumberValid(tryCountInput)) {
+        if (Validator.isTryCountNumberValid(tryCountInput)) {
             tryCount = Integer.parseInt(tryCountInput.trim());
         } else {
             throw new IllegalArgumentException();
@@ -34,7 +34,7 @@ public class Application {
         System.out.println("\n실행 결과");
         Racing.startGame(tryCount, carDistanceList);
 
-        String result = findWinner.getRaceResult(carDistanceList);
+        String result = FindWinner.getRaceResult(carDistanceList);
         System.out.println(result);
     }
 }

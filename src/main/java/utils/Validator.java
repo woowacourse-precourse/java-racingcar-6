@@ -1,6 +1,6 @@
 package utils;
 
-public class validator {
+public class Validator {
     public static boolean isCarNameValid(String carNameInput) {
         String [] carNames = carNameInput.split(",");
 

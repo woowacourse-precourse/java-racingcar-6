@@ -2,7 +2,7 @@ package utils;
 
 import java.util.ArrayList;
 
-public class carRaceLog {
+public class CarRaceLog {
     // 참가자 리스트 생성
     public static ArrayList<String> initCarDistanceList(String carNameInput) {
         ArrayList<String> carDistanceList = new ArrayList<>();

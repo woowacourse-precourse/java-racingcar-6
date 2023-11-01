@@ -1,15 +1,15 @@
 package racingcar;
 
-import utils.carRaceLog;
-import utils.randomMovement;
+import utils.CarRaceLog;
+import utils.RandomMovement;
 
 import java.util.ArrayList;
 
 public class Racing {
     public static void runRace(ArrayList<String> carDistanceList) {
         for (int i = 0 ; i < carDistanceList.size(); i++) {
-            if (randomMovement.moveForwardOrNot()) {
-                carRaceLog.updateCarDistanceList(i, carDistanceList);
+            if (RandomMovement.moveForwardOrNot()) {
+                CarRaceLog.updateCarDistanceList(i, carDistanceList);
             }
             System.out.println(carDistanceList.get(i));
         }

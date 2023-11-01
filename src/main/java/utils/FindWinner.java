@@ -2,7 +2,7 @@ package utils;
 
 import java.util.ArrayList;
 
-public class findWinner {
+public class FindWinner {
     public static ArrayList<String> getMostMovedCar(ArrayList<String> carDistanceList) {
         String longestDistance = "";
         ArrayList<String> mostMovedCar = new ArrayList<>();

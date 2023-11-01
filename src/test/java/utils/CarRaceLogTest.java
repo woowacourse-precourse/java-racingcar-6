@@ -10,7 +10,7 @@ public class CarRaceLogTest {
     @Test
     void initCarDistanceListValidInputTest() {
         String carNameInput = "a, b";
-        ArrayList<String> result = carRaceLog.initCarDistanceList(carNameInput);
+        ArrayList<String> result = CarRaceLog.initCarDistanceList(carNameInput);
 
         ArrayList<String> expected = new ArrayList<>();
         expected.add("a : ");
@@ -22,7 +22,7 @@ public class CarRaceLogTest {
     @Test
     void initCarDistanceListEmptyInputTest() {
         String carNameInput = "";
-        ArrayList<String> result = carRaceLog.initCarDistanceList(carNameInput);
+        ArrayList<String> result = CarRaceLog.initCarDistanceList(carNameInput);
 
         assertThat(result).isEmpty();
     }
@@ -32,7 +32,7 @@ public class CarRaceLogTest {
         int index = 0;
         ArrayList<String> carDistanceList = new ArrayList<>();
         carDistanceList.add("a : ");
-        ArrayList<String> result = carRaceLog.updateCarDistanceList(index, carDistanceList);
+        ArrayList<String> result = CarRaceLog.updateCarDistanceList(index, carDistanceList);
 
         ArrayList<String> expected = new ArrayList<>();
         expected.add("a : -");
