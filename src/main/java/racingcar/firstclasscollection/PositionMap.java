@@ -11,7 +11,7 @@ import racingcar.model.Car;
 public class PositionMap {
     private Map<Car, Integer> positionMap;
 
-    public PositionMap(Supplier<Map> mapSupplier) {
+    public PositionMap(Supplier<Map<Car, Integer>> mapSupplier) {
         positionMap = mapSupplier.get();
     }
 
