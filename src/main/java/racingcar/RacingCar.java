@@ -76,6 +76,10 @@ public class RacingCar {
     //움직일 횟수 입력
     public Integer checkRoundsInput(String input) {
 
+        if(input.contains("-") || input.equals("0")){
+            throw new IllegalArgumentException();
+        }
+
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {

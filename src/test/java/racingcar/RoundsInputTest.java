@@ -13,11 +13,20 @@ public class RoundsInputTest {
     void testCheckRoundsInput(){
 
         String trueValue = "10";
-        String falseValue = "aa";
+        String charValue = "aa";
+        String pointValue = "6.0";
+        String minusValue = "-10";
+        String zeroValue = "0";
 
         assertThatCode(() -> test.checkRoundsInput(trueValue))
                 .doesNotThrowAnyException();
-        assertThatThrownBy(()->test.checkRoundsInput(falseValue))
+        assertThatThrownBy(()->test.checkRoundsInput(charValue))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(()->test.checkRoundsInput(pointValue))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(()->test.checkRoundsInput(minusValue))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(()->test.checkRoundsInput(zeroValue))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
