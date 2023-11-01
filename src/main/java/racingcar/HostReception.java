@@ -6,32 +6,27 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.TreeSet;
 
 public class HostReception {
     List<RacingCar> participants = new ArrayList<>();
 
-    public TreeSet<RacingCar> getParticipant () {
+    public void getParticipant () {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String participants = Console.readLine();
         List<String>  participant= Arrays.stream(participants.split(",")).toList();
 
         participant.forEach(this::checkValidCarName);
 
-        return createRacingCarSetFromParticipantList(participant);
+        createRacingCarSetFromParticipantList(participant);
     }
 
-    private TreeSet<RacingCar> createRacingCarSetFromParticipantList (List<String> names) {
-        TreeSet<RacingCar> participants = new TreeSet<>();
+    private void createRacingCarSetFromParticipantList (List<String> names) {
 
         for (String name : names) {
             RacingCar applicant = new RacingCar(name);
 
             this.participants.add(applicant);
-            participants.add(applicant);
         }
-
-        return participants;
     }
 
     public int getRoundFromUser () {

@@ -11,13 +11,13 @@ public class Application {
     static int round;
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        car = host.getParticipant();
-
+        host.getParticipant();
         round = host.getRoundFromUser();
 
         while (round-- > 0){
             host.proceedARound();
             System.out.println();
         }
+
     }
 }
