@@ -15,11 +15,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class RacingInfoTest extends NsTest {
     @Test
     void setNamesAndNum_차량이름_시도횟수_예외처리(){
+        // 이름을 5글자를 초과하여 적은 경우
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("jiji,min,minjung"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
 
+        // 횟수가 음수로 입력될 경우
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("jiji,min,minji", "-5"))
                         .isInstanceOf(IllegalArgumentException.class)
