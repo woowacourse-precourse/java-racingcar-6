@@ -31,7 +31,8 @@ public class TryCountValidatorTest {
     @ValueSource(strings = {" ", "  ", "   ", "    ", "     "})
     void 시도_횟수가_공백을_포함하는_경우_예외처리_발생_테스트(String tryCount) {
         Assertions.assertThatThrownBy(() -> TryCountValidator.validateTryCountIncludeEmpty(tryCount))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력값이 공백을 포함하고 있습니다. 애플리케이션을 종료합니다.");
     }
 
     @ParameterizedTest
