@@ -30,7 +30,7 @@ public class OutputView {
     }
 
     public static void printFinalWinnerMsg() {
-        System.out.println(FINAL_WINNER_MSG);
+        System.out.print(FINAL_WINNER_MSG);
     }
 
     public static void printRaceProgress(Cars cars) {
