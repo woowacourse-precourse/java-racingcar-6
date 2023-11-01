@@ -8,7 +8,7 @@ import racingcar.domain.Car;
 
 public class InputUtils {
     public static List<Car> promptForCar() {
-        List<Car> cars = Arrays.stream(Console.readLine().split(","))
+        List<Car> cars = Arrays.stream(promptString().split(","))
                 .map(name -> new Car(name, 0))
                 .collect(Collectors.toList());
         ValidationUtils.validateCars(cars);
@@ -16,8 +16,14 @@ public class InputUtils {
     }
 
     public static int promptForInt() {
-        String round = Console.readLine();
+        String round = promptString();
         ValidationUtils.validateRound(round);
         return Integer.parseInt(round);
+    }
+
+    private static String promptString() {
+        String input = Console.readLine();
+        ValidationUtils.validateInputExist(input);
+        return input;
     }
 }

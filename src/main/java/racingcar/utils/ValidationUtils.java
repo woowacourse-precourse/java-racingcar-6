@@ -16,6 +16,12 @@ public class ValidationUtils {
         validateRoundIsPositive(round);
     }
 
+    public static void validateInputExist(String input) {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     private static void validateCarNamesLength(List<Car> cars) {
         for (Car car : cars) {
             if (!car.isNameLengthValid()) {
