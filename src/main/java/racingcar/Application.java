@@ -1,10 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.CarInformation;
 import racingcar.domain.GameManagement;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +16,7 @@ public class Application {
         int roundCount = getRoundCount();
 
         GameManagement game = new GameManagement(carNames);
+        System.out.println("\n실행결과");
 
         for (int i = 0; i < roundCount; i++) {
             game.playRound();
@@ -44,13 +45,15 @@ public class Application {
     }
 
     private static void printRoundResult(GameManagement game) {
-        for (CarInformation car : game.getWinners()) {
+        for (CarInformation car : game.getCars()) {
             System.out.print(car.getName() + " : ");
-            for (int i = 0; i < car.getPosition(); i++) {
+            int position = car.getPosition();
+            for (int i = 0; i < position; i++) {
                 System.out.print("-");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     private static List<String> getWinners(GameManagement game) {

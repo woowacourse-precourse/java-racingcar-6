@@ -18,6 +18,10 @@ public class GameManagement {
         }
     }
 
+    public List<CarInformation> getCars() {
+        return cars;
+    }
+
     public List<CarInformation> getWinners(){
         List<CarInformation> winners = new ArrayList<>();
         int maxPosition = 0;
