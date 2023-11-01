@@ -42,9 +42,11 @@ public class GameController {
     }
 
     public void conductRaces() {
-        for(int i=0; i<attempt; i++) {
+        for (int i = 0; i < attempt; i++) {
             carBoosts = numberGenerator.getRandomNumbers();
-            race.updateCarsPositions(carBoosts);
+            for (Car car : cars) {
+                car.moveForward(carBoosts.get(i));
+            }
             raceView.displayRaceProcess(cars);
         }
 
