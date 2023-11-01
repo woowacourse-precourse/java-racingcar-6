@@ -4,7 +4,10 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -63,6 +66,34 @@ class ApplicationTest extends NsTest {
                             name
                                     + " : "
                                     + "-".repeat(cnt));
+                },
+                MOVING_FORWARD, moveArr
+        );
+    }
+
+    @Test
+    void 우승자_목록_생성() {
+        int carCnt = 5;
+        int moveCnt = 3;
+        List<Car> carList = new ArrayList<>();
+        Integer[] moveArr = new Integer[carCnt * moveCnt - 1];
+
+        Arrays.fill(moveArr, MOVING_FORWARD);
+        moveArr[0] = STOP;
+        moveArr[2] = STOP;
+        for (int i = 0; i < carCnt; i++) {
+            carList.add(new Car(Integer.toString(i), i));
+        }
+        assertRandomNumberInRangeTest(
+                () -> {
+                    for (int i = 0; i < moveCnt; i++) {
+                        for (Car car : carList) {
+                            car.move();
+                        }
+                    }
+                    Collections.sort(carList);
+                    assertThat(Car.winnerString(carList))
+                            .isEqualTo("0, 2, 4");
                 },
                 MOVING_FORWARD, moveArr
         );
