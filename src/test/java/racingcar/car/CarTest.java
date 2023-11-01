@@ -36,6 +36,20 @@ public class CarTest {
     }
 
     @Test
+    public void 결과_출력() throws Exception{
+        // given
+        Car car = new Car("brian");
+
+        // when
+        car.moveForward(4);
+        car.moveForward(4);
+        car.moveForward(4);
+
+        // then
+        assertThat(car.getRoundResult()).isEqualTo("brian : ---");
+    }
+
+    @Test
     public void 유효한_숫자_검증() throws Exception{
         String input = "a";
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
