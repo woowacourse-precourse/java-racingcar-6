@@ -19,4 +19,19 @@ public class Round {
             throw new IllegalArgumentException("이동 횟수가 0보다 작거나 같습니다.");
         }
     }
+
+    public boolean canPlay() {
+        return this.round != LAST_ROUND;
+    }
+
+    public void nextRound() {
+        if (this.round <= LAST_ROUND) {
+            throw new IllegalStateException("이동 횟수는 0보다 커야 합니다.");
+        }
+        this.round--;
+    }
+
+    public int getRound() {
+        return round;
+    }
 }
