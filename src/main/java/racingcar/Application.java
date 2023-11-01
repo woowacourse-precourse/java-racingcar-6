@@ -8,7 +8,6 @@ import java.util.List;
 public class Application {
 
     public void checkCarNameValidation(String[] cars) throws IllegalArgumentException{
-
         for (String car : cars) {
             if (car.length() > 5) {
                 throw new IllegalArgumentException();
@@ -17,11 +16,10 @@ public class Application {
     }
 
     public String[] inputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String answer = Console.readLine();
         String[] cars = answer.split(",");
         checkCarNameValidation(cars);
-
         return cars;
     }
 
@@ -31,7 +29,6 @@ public class Application {
     }
 
     public Map<String, Integer> startCarRace(String[] cars, int number) {
-
         Integer[] raceList = new Integer[cars.length];
         Arrays.fill(raceList, 0);
 
@@ -45,12 +42,14 @@ public class Application {
                 if (eligibility > 3) {
                     raceList[j] += 1;
                 }
+
                 System.out.println("-".repeat(raceList[j]));
             }
         }
+
         Map<String, Integer> carRaces = new HashMap<>();
 
-        for (int i = 0; i< cars.length; i++) {
+        for (int i = 0; i < cars.length; i++) {
                 carRaces.put(cars[i], raceList[i]);
         }
 
@@ -58,11 +57,9 @@ public class Application {
     }
 
     public void showRaceResult(String[] cars, int number) {
-
-        Map<String, Integer> carRaces = startCarRace(cars, number);
-
-        int maxValue = Collections.max(carRaces.values());
         List<String> winnerName = new ArrayList<>();
+        Map<String, Integer> carRaces = startCarRace(cars, number);
+        int maxValue = Collections.max(carRaces.values());
 
         for(Map.Entry<String, Integer> m : carRaces.entrySet()) {
             if (m.getValue() == maxValue) {
@@ -75,11 +72,11 @@ public class Application {
         if(winnerName.size() == 1) {
             System.out.print(winnerName.get(0));
         } else {
-
             for(int i = 0; i < winnerName.size()-1; i++) {
                 System.out.print(winnerName.get(i));
                 System.out.print(", ");
             }
+
             System.out.println(winnerName.get(winnerName.size()-1));
         }
     }
