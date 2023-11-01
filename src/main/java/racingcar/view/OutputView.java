@@ -2,7 +2,7 @@ package racingcar.view;
 
 import racingcar.model.Car;
 import racingcar.model.GameState;
-import racingcar.model.GameViewMessage;
+import racingcar.view.Message.GameViewMessage;
 
 import java.util.ArrayList;
 

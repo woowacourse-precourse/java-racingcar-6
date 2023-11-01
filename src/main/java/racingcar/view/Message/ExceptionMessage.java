@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.view.Message;
 
 public enum ExceptionMessage {
     INPUT_INTEGER_ROUND_ERROR_MESSAGE("시도할 횟수는 1이상이어야 합니다."),

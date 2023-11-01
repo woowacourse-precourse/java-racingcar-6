@@ -3,7 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
-import racingcar.model.ExceptionMessage;
+import racingcar.view.Message.ExceptionMessage;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;

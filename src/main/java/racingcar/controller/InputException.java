@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.model.ExceptionMessage;
+import racingcar.view.Message.ExceptionMessage;
 
 import java.util.ArrayList;
 import java.util.HashSet;
