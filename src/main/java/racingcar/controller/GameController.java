@@ -7,83 +7,78 @@ import racingcar.domain.Car;
 import racingcar.util.RandomNumberGenerator;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 public class GameController {
     int totalRound;
     List<Car> cars = new ArrayList<>();
-    List<String> carNames = new ArrayList<>();
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     InputValidation inputValidation = new InputValidation();
     RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-    public void startGame() {
 
-        // 자동차 이름 입력 요청
-        String inputCarNames = inputView.CarName();
-        inputValidation.isVaildCarName(inputCarNames);
-        // 시도할 회수 입력 요청
-        String inputGameRound = inputView.GameRound();
-        // 입력값 검증
-        inputValidation.isVaildGameRound(inputGameRound);
-
-        setGame(inputCarNames, inputGameRound);
+    public void run() {
+        setGame();
         playGame();
+        endGame();
+    }
+    private void setGame() {
+        String inputCarNames = inputView.CarName();
+        setCars(inputCarNames);
+        String inputGameRound = inputView.GameRound();
+        setRound(inputGameRound);
     }
     public void playGame() {
+        int runRound = 0;
         outputView.result();
-        // 회차별 게임 진행
-        int runRound= 0;
         while (runRound < totalRound) {
             playCarRace();
-            outputView.lineBreak();
+            outputView.divideLine();
             runRound++;
         }
-        // endGame();
     }
-
+    public void endGame() {
+        outputView.winner(getWinners());
+    }
+    private void setCars(String inputCarNames) {
+        String[] arrCarNames = inputCarNames.split(",");
+        inputValidation.isVaildCarName(inputCarNames, arrCarNames);
+        for (String carName : arrCarNames) {
+            Car car = new Car(carName);
+            this.cars.add(car);
+        }
+    }
+    private void setRound(String inputGameRound) {
+        inputValidation.isVaildGameRound(inputGameRound);
+        this.totalRound = Integer.parseInt(inputGameRound);
+    }
     private void playCarRace() {
-            for(Car car : cars) {
-                // 1.난수 발생
-                if (randomNumberGenerator.getRandomNumber() > 4) {
-                    // 2.자동차 이동
-                    car.moveForward();
-                }
-                String printDinstance = MarkToMove(car.getMoveDistance());
-                outputView.resultByRound(car.getName(), printDinstance);
+        for (Car car : cars) {
+            if (randomNumberGenerator.getRandomNumber() > 4) {
+                car.moveForward();
             }
+            String printDinstance = MarkToMove(car.getMoveDistance());
+            outputView.resultByRound(car.getName(), printDinstance);
+        }
     }
-
     private String MarkToMove(Integer moveDistance) {
         String marking = "-";
         return marking.repeat(moveDistance);
     }
-
-    public void endGame() {
-        // 최종 우승자 선발
-        // 최종 우승자 출력
+    private String getWinners() {
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getMoveDistance() == maxDistance()) {
+                winners.add(car.getName());
+            }
+        } return String.join(", ", winners);
     }
-
-    private void setGame(String inputCarNames, String inputGameRound) {
-        setCars(inputCarNames);
-        setRound(inputGameRound);
-    }
-
-    private void setCars(String inputCarNames) {
-        String[] arrCarNames = inputCarNames.split(",");
-        this.carNames = Arrays.asList(arrCarNames);
-
-        for (String carName: carNames) {
-            Car car = new Car(carName);
-            cars.add(car);
+    private int maxDistance() {
+        List<Integer> listMoveDistances = new ArrayList<>();
+        for (Car car : cars) {
+            listMoveDistances.add(car.getMoveDistance());
         }
+        return Collections.max(listMoveDistances);
     }
-    private void setRound(String inputGameRound) {
-        this.totalRound = Integer.parseInt(inputGameRound);
-    }
-
-
 }
