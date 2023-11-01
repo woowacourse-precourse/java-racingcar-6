@@ -8,17 +8,18 @@
 
 # 구현 할 기능 목록 (순서도)
 1. [ ] 자동차 경주 게임 시작
-2. [ ] 경주 할 자동차들의 이름을 camp.nextstep.edu.missionutils.Console의 readLine()을 통해 입력 받는다.
-    - [ ] 입력받은 값은 쉼표(,)를 기준으로 구분한다.
-    - [ ] (예외처리) 아래 항목과 같은 상황이 발생시 IllegalArgumentException을 발생시키고 종료한다.
-        - [ ] 입력받은 값이 5자를 초과할 경우
-3. [ ] 시도할 회수를 입력 받는다
-    - [ ] (예외처리) 아래 항목과 같은 상황이 발생시 IllegalArgumentException을 발생시키고 종료한다.
-        - [ ] 입력받은 값이 정수 숫자가 아닌 경우
-4. [ ] 회차별로 자동차를 전진 또는 정지한다.
-    - [ ] 0에서 9까지 무작위 값을 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용하여 구한다.
-        - [ ] 4 이상이 나온 경우 자동차를 전진한다.
-        - [ ] 4 미만이 나온 경우 자동차를 정지한다.
+2. [v] 경주 할 자동차들의 이름을 camp.nextstep.edu.missionutils.Console의 readLine()을 통해 입력 받는다.
+    - [v] 입력받은 값은 쉼표(,)를 기준으로 구분한다.
+    - [v] (예외처리) 아래 항목과 같은 상황이 발생시 IllegalArgumentException을 발생시키고 종료한다.
+        - [v] 입력받은 값이 5자를 초과할 경우
+        - [v] 영문, 한글, 숫자, 빈칸, 쉼표(,) 외의 값을 입력 받은 경우
+3. [v] 시도할 회수를 입력 받는다
+    - [v] (예외처리) 아래 항목과 같은 상황이 발생시 IllegalArgumentException을 발생시키고 종료한다.
+        - [v] 입력받은 값이 1 이상이 아닌 경우
+4. [v] 회차별로 자동차를 전진 또는 정지한다.
+    - [v] 0에서 9까지 무작위 값을 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용하여 구한다.
+        - [v] 4 이상이 나온 경우 자동차를 전진한다.
+        - [v] 4 미만이 나온 경우 자동차를 정지한다.
 5. [v] 회차별로 실행결과를 출력한다.
     - [v] 자동차 별로 이름과 전진한 칸을 출력한다.
         - [v] 입력 받은 순서대로 출력한다.

@@ -9,6 +9,7 @@ public final class Race {
     private static final int RANDOM_MIN_VALUE = 0;
     private static final int RANDOM_MAX_VALUE = 9;
     private static final int MOVE_CARS_THRESHOLD = 4;
+    private static final int ZERO_POSITION = 0
     private final List<Car> cars;
     private final int numberOfTurns;
 
@@ -28,6 +29,15 @@ public final class Race {
     }
 
     private List<String> judgmentWinners() {
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(ZERO_POSITION);
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
 
     }
 
