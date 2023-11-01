@@ -8,13 +8,13 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class ApplicationTest  {
+class ApplicationTest extends NsTest {
     @Test
     void 입력이름_예외_처리(){
         ErrorOccur errorOccur = new ErrorOccur();
         String carName = "moreThanFive";
 
-        assertThatThrownBy(() -> errorOccur.returnError(carName))
+        assertThatThrownBy(() -> errorOccur.returnCarError(carName))
                 .hasCauseInstanceOf(IllegalArgumentException.class);
     }
 
@@ -27,5 +27,8 @@ class ApplicationTest  {
     }
 
 
-
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
+    }
 }
