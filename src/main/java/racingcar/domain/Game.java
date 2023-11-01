@@ -8,6 +8,8 @@ public class Game {
     private final Cars cars;
 
     private static final int MIN_RUNNABLE_VALUE = 4;
+    private final static int RANDOM_NUMBER_LOWER_BOUND = 0;
+    private final static int RANDOM_NUMBER_HIGHER_BOUND = 9;
 
     public Game(Cars cars) {
         this.cars = cars;
@@ -25,7 +27,7 @@ public class Game {
     }
 
     public void runCar(Car car) {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_LOWER_BOUND, RANDOM_NUMBER_HIGHER_BOUND);
 
         if (isRunnable(randomNumber)) {
             car.setDrawingMovement(car.getDrawingMovement() + "-");
