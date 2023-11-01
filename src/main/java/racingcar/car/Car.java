@@ -1,6 +1,6 @@
 package racingcar.car;
 
-public class Car implements Comparable {
+public class Car {
 
     public static final int FORWARD_MOVE_INIT_COUNT = 0;
     public static final String COLON = " : ";
@@ -22,11 +22,11 @@ public class Car implements Comparable {
     }
 
     public String makeResult() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(name);
-        stringBuilder.append(COLON);
-        stringBuilder.append(DASH.repeat(forwardMoveCount));
-        return stringBuilder.toString();
+        return new StringBuilder()
+            .append(name)
+            .append(COLON)
+            .append(DASH.repeat(forwardMoveCount))
+            .toString();
     }
 
     public String getName() {
