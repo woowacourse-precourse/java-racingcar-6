@@ -8,7 +8,6 @@ public class racingCar {
     private static final int FORWARD_POINT = 4;
     public String racingCarName;
     private int forwardCount;
-    private int randomNumber;
 
     public racingCar(String racingCarName) {
         this.racingCarName = racingCarName;
@@ -16,7 +15,7 @@ public class racingCar {
     }
 
     public void randomRace() {
-        randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+        int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
         if (randomNumber >= FORWARD_POINT) forwardCount++;
     }
 
