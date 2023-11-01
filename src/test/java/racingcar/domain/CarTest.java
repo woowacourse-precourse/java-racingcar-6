@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class CarTest {
@@ -9,18 +11,18 @@ public class CarTest {
     @Test
     void isMoreThanDigit_num이_digit_이상() {
         assertThat(car.isMoreThanDigit(3, 4))
-                .isEqualTo(true);
+                .isTrue();
     }
 
     @Test
     void isMoreThanDigit_num이_digit과_동일() {
         assertThat(car.isMoreThanDigit(3, 3))
-                .isEqualTo(true);
+                .isTrue();
     }
 
     @Test
     void isMoreThanDigit_num이_digit_이하() {
         assertThat(car.isMoreThanDigit(4, 3))
-                .isEqualTo(false);
+                .isFalse();
     }
 }
