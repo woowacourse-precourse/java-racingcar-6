@@ -27,7 +27,7 @@ public class Application {
       }
 
         System.out.println(INPUT_TRY_COUNT_COMMENT);
-        int tryCount = Integer.parseInt(Console.readLine());
+        long tryCount = Long.parseLong(Console.readLine());
         if(tryCount < 1 || tryCount > Integer.MAX_VALUE) {
           throw new IllegalArgumentException(TRYCOUNT_RANGE_EXCEPTION_COMMENT);
         }
