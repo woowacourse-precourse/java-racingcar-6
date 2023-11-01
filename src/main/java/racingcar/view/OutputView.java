@@ -13,9 +13,9 @@ public class OutputView {
 	public static void printCurrentRacingResults(List<String> players, List<Integer> results) {
 		for (int i = 0; i < players.size(); i++) {
 			System.out.printf("%s : ", players.get(i));
-			IntStream.range(0, results.get(i))
-					.map(j -> '-')
-					.forEach(System.out::print);
+			IntStream.range(0, results.get(i)).forEach(j -> {
+				System.out.print('-');
+			});
 			System.out.println();
 		}
 	}
