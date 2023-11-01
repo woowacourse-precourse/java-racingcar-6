@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
+import static racingcar.error.ErrorType.INVALID_ATTEMPT_COUNT_INPUT;
 import static racingcar.error.ErrorType.INVALID_CAR_NAME_LENGTH;
 
 public class GameInputView {
@@ -24,7 +25,17 @@ public class GameInputView {
     }
 
     public static int inputAttemptCount() {
-        return -1;
+        System.out.println(INPUT_ATTEMPT_COUNT_MESSAGE);
+
+        String input = Console.readLine();
+        int attemptCount;
+        try {
+            attemptCount = Integer.parseInt(input);
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT_INPUT.getMessage(), ex);
+        }
+        validateAttemptCountPositive(attemptCount);
+        return attemptCount;
     }
 
     private static void validateAllCarNamesFiveOrLess(String... carNames) {
@@ -33,6 +44,12 @@ public class GameInputView {
                 .anyMatch(s -> s.length() > 5);
         if (existsOverFive) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH.getMessage());
+        }
+    }
+
+    private static void validateAttemptCountPositive(int attemptCount) {
+        if (attemptCount < 0) {
+            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT_INPUT.getMessage());
         }
     }
 }
