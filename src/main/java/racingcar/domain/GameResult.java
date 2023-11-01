@@ -13,10 +13,12 @@ public class GameResult {
 
     public void generateResult(final Cars cars) {
         cars.getCar()
-                .forEach(car -> result.append(
-                        String.format(MESSAGE_FORM, car.getName(), convertPositionToSign(car.getPosition()))
-                ));
+                .forEach(this::appendResult);
         result.append(ENTER);
+    }
+
+    private void appendResult(final Car car) {
+        result.append(String.format(MESSAGE_FORM, car.getName(), convertPositionToSign(car.getPosition())));
     }
 
     public String getResult() {
