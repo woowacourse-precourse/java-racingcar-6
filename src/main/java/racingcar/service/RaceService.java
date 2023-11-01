@@ -39,7 +39,6 @@ public class RaceService {
         return raceProgress.getWinners();
     }
 
-    //TODO: 이 함수에 대해서는 분리를 할 수 있을 것 같음
     private boolean canMoveForward() {
         int random = Randoms.pickNumberInRange(MOVE_MIN_RANGE.getValue(), MOVE_MAX_RANGE.getValue());
         return random >= MOVE_THRESHOLD.getValue();
