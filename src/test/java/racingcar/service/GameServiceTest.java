@@ -31,4 +31,11 @@ class GameServiceTest {
         List<String> expectedCarList = Arrays.asList("woni");
         assertEquals(expectedCarList, gameService.calcWinner(testCarList));
     }
+    @Test
+    @DisplayName("우승자가 여러명일경우 다수 우승자 이름 return")
+    void test_Winner_Name_Return_Over_2() {
+        List<Car> testCarList = Arrays.asList(new Car("pobi",5),new Car("woni",5),new Car("jun", 5));
+        List<String> expectedCarList = Arrays.asList("pobi", "woni", "jun");
+        assertEquals(expectedCarList, gameService.calcWinner(testCarList));
+    }
 }
