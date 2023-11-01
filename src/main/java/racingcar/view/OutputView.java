@@ -13,13 +13,9 @@ public class OutputView {
 
     public void displayPerResults(List<Car> cars) {
         for (Car car : cars) {
-            System.out.print(car.getName() + LOCATION_AND_NAME_DELIMITER);
-            for (int i = 0; i < car.getLocation(); i++) {
-                System.out.print(LOCATION);
-            }
-            System.out.println();
-            System.out.println();
+            System.out.println(car.toString());
         }
+        System.out.println();
     }
 
     public void displayResults(List<Car> cars) {

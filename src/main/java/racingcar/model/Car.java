@@ -3,6 +3,8 @@ package racingcar.model;
 import static racingcar.view.ExceptionMessage.NOT_NULL;
 import static racingcar.view.ExceptionMessage.NOT_OVER_FIVE;
 import static racingcar.view.ExceptionMessage.NOT_KOREAN_OR_ENGLISH;
+import static racingcar.view.OutputView.LOCATION;
+import static racingcar.view.OutputView.LOCATION_AND_NAME_DELIMITER;
 
 import racingcar.view.ExceptionMessage;
 
@@ -15,6 +17,15 @@ public class Car {
     public Car(String name) {
         validateName(name);
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        String result = name + LOCATION_AND_NAME_DELIMITER;
+        for (int i = 0; i < location; i++) {
+            result += LOCATION;
+        }
+        return result;
     }
 
     private static void validateName(String name) {
