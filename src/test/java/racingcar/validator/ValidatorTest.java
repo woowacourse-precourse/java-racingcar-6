@@ -20,4 +20,14 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.NOT_MORE_THAN_FIVE.getMessage());
     }
+
+    @Test
+    void 자동차_이름에_공백이_있을때_예외_발생() {
+        //given
+        List<String> invalidNames = Arrays.asList("Car 1", "Car2", "Car3");
+
+        assertThatThrownBy(() -> Validator.validateCarName(invalidNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.NO_SPACE_ALLOWED.getMessage());
+    }
 }
