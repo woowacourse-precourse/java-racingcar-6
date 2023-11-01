@@ -1,9 +1,9 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCar {
 	private final List<Car> cars = new ArrayList<>();
@@ -30,7 +30,9 @@ public class RacingCar {
 	}
 
 	public void sortCarsByLocation(List<Car> sortedCars) {
-		Collections.sort(sortedCars, Collections.reverseOrder(Comparator.comparingInt(Car::getLocation)));
+		sortedCars.stream()
+				.sorted(Comparator.comparingInt(Car::getLocation).reversed())
+				.collect(Collectors.toList());
 	}
 
 	public List<Car> findCarWithMaxLocation(int maxLocation) {
