@@ -3,7 +3,7 @@ package racingcar.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-public class utils {
+public class Utils {
 
     private static final int CAR_NAME_LENGTH_MIN = 1;
     private static final int CAR_NAME_LENGTH_MAX = 5;

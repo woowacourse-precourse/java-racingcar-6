@@ -31,7 +31,6 @@ public class RacingService {
     }
 
     public Long save(Racing racing) {
-
         return racingRepository.save(racing);
     }
 
