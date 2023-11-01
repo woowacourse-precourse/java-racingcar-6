@@ -8,5 +8,6 @@ public class Constant {
     public static final String CMD_WINNER_RESULT = "최종 우승자 : ";
 
     public static final Integer START_RANDOM_NUM = 0;
-    public static final Integer END_RANDOM_NUM = 0;
+    public static final Integer END_RANDOM_NUM = 9;
+    public static final Integer Pivot_FOR_GO_NUM = 4;
 }

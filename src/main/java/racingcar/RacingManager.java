@@ -5,27 +5,29 @@ import static constants.Constant.*;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Map;
-import java.util.List;
-import java.util.Arrays;
-
-import java.util.Scanner;
+import java.util.*;
 
 public class RacingManager {
 
     private static final RacingData racingData = new RacingData();
-    private static final RacingController racingController = new RacingController();
-    private static final RacingView racingView = new RacingView();
+    private static final Map<String, Integer> playerResultMap = new HashMap<String, Integer>();
 
     public void run() {
         initSettingForPlaying();
 
+        RacingController racingController = new RacingController(racingData);
+        RacingView racingView = new RacingView();
+
+        racingController.initSetting(playerResultMap);
+        System.out.println(CMD_PLAY_RESULT);
+
         do {
-            Map<String, Integer> tempResultMap = racingController.play();
-            racingView.render(tempResultMap);
+           racingController.play(playerResultMap);
+           racingView.render(playerResultMap);
         }
-        while(!racingController.checkEnd());
-        List<String> winnerString = racingController.getWinner();
+        while(!racingController.checkEnd(playerResultMap));
+
+        List<String> winnerString = racingController.getWinnerList();
         printWinnerString(winnerString);
     }
 
@@ -42,21 +44,21 @@ public class RacingManager {
         Scanner sc = new Scanner(System.in);
 
         System.out.println(CMD_QUESTION_NAME);
-        playersNameString = Console.readLine();
-//        playersNameString = sc.next();
+//        playersNameString = Console.readLine();
+        playersNameString = sc.next();
 
         playerNamesList = new ArrayList<String>(
                 Arrays.asList(playersNameString.split(SEP_PLAYER_STRING)));
 
-//        for(String pl : playerNamesList){
-//            System.out.println(pl);
-//        }
+        for(String pl : playerNamesList){
+            System.out.println(pl);
+        }
 
         System.out.println(CMD_QUESTION_NUMBER);
-        tryNumber = Integer.parseInt(Console.readLine());
+//        tryNumber = Integer.parseInt(Console.readLine());
 
-//        tryNumber = Integer.parseInt(sc.next());
-//        System.out.println(tryNumber);
+        tryNumber = Integer.parseInt(sc.next());
+        System.out.println(tryNumber);
 
         racingData.saveRacingData(playerNamesList, tryNumber);
     }
