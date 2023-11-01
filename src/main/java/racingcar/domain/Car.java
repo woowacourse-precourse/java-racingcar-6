@@ -34,4 +34,11 @@ public class Car {
         }
         return positionString.toString();
     }
+
+    public int getPosition() {
+        return position;
+    }
+    public String getCarName(){
+        return carName.getName();
+    }
 }

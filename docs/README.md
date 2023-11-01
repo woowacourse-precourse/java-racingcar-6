@@ -3,8 +3,8 @@
 ### Game
 - [ ]  게임을 시작합니다. - startGame()
 ### GameManager
-- [ ]  시도할 횟수를 입력 받습니다. - receiveRoundTryCount()
-- [ ]  라운드를 진행합니다. - proceedRound()
+- [x]  시도할 횟수를 입력 받습니다. - receiveRoundTryCount()
+- [x]  라운드를 진행합니다. - proceedRound()
 - [ ]  우승자를 출력합니다 - printWinner() → GameManager
 ### CarFactory
 - [x]  경주 자동차를 N개 생성합니다. - createCar()
@@ -25,6 +25,6 @@
 - [x]  입력받은 횟수가 valid한지 확인합니다 - isValidRoundTryCount()
   - [x]  예외) Null인지 확인합니다. - isNull()
   - [x]  예외) 마이너스인지 확인합니다 - isNegativeNumber()
-- [ ]  라운드가 남아있는 지 확인합니다 - isRemainRound()
-- [ ]  라운드 하나를 소모합니다. - consumeRound()
+- [x]  라운드가 남아있는 지 확인합니다 - isRemainRound()
+- [x]  라운드 하나를 소모합니다. - consumeRound()
 

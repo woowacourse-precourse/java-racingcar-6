@@ -16,6 +16,10 @@ public class IoManager {
         System.out.println(string);
     }
 
+    public static void print(String string){
+        System.out.print(string);
+    }
+
     public static void printEmptyLine(){
         System.out.println();
     }
