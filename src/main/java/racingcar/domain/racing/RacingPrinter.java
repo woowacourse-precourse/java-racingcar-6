@@ -13,10 +13,7 @@ public class RacingPrinter {
 
     public void updateRacingResult(RacingCars cars) {
         for(RacingCar car : cars.getCars()) {
-            sb.append(car.getName())
-                    .append(" : ")
-                    .append("-".repeat(car.getPosition()))
-                    .append("\n");
+            sb.append(car.getName()).append(" : ").append("-".repeat(car.getPosition())).append("\n");
         }
         sb.append("\n");
     }

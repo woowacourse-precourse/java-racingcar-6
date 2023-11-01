@@ -1,9 +1,13 @@
 package racingcar.domain.raingcar;
 
-import racingcar.constant.Constant;
+import java.util.regex.Pattern;
 import racingcar.constant.ErrorMessage;
 
 public class RacingCar {
+
+    public static final Integer CAR_NAME_MIN_SIZE = 1;
+    public static final Integer CAR_NAME_MAX_SIZE = 5;
+    public static final String CAR_NAME_REGEX_EXPRESSION = "[^A-Za-z]+";
     private String name;
     private Integer position;
 
@@ -24,18 +28,24 @@ public class RacingCar {
     public void moveForward() {
         this.position++;
     }
+
     public String getName() {
         return this.name;
     }
-    public Integer getPosition() { return this.position; }
+
+    public Integer getPosition() {
+        return this.position;
+    }
 
     private void verify(String name) {
 
-        if (name.length() < Constant.CAR_NAME_MIN_SIZE || name.length() > Constant.CAR_NAME_MAX_SIZE) {
+        if (name.length() < CAR_NAME_MIN_SIZE ||
+                name.length() > CAR_NAME_MAX_SIZE) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR);
         }
 
-        if (name.matches(Constant.CAR_NAME_REGEX_EXPRESSION)) {
+        Pattern pattern = Pattern.compile(CAR_NAME_REGEX_EXPRESSION);
+        if (pattern.matcher(name).find()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INVALID_CHARACTER_ERROR);
         }
     }

@@ -18,10 +18,9 @@ public class RacingGameOutputView {
     public void printRacingRoundInputMessage() {
         println("시도할 회수는 몇회인가요?");
     }
-    public void printRacingResultAnnouncedMessage() { println("실행 결과");}
 
-    public void printFinalWinnerAnnouncedMessage(List<String> winnerCarNames) {
+    public void printFinalWinnerAnnouncedMessage(List<String> winners) {
         print("최종 우승자 : ");
-        println(String.join(", ", winnerCarNames));
+        println(String.join(", ", winners));
     }
 }
