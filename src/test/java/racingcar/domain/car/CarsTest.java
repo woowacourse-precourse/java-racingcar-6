@@ -12,15 +12,19 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.constant.errorMessage.ErrorMessages;
 import racingcar.constant.errorMessage.InvalidArgumentException;
+import racingcar.utils.RandomNumber;
+import racingcar.utils.RandomNumberGenerator;
 
 class CarsTest {
+
+    private static final RandomNumber randomNumber = new RandomNumberGenerator();
 
     @ParameterizedTest
     @MethodSource("provideForCarNamesIsDuplicate")
     @DisplayName("자동차 이름 중복일 경우 예외 처리 테스트")
     void carNamesIsDuplicatedErrorTest(final List<String> names) {
         final String message = ErrorMessages.CAR_NAME_IS_DUPLICATED.getMessage();
-        assertThatThrownBy(() -> new Cars(names))
+        assertThatThrownBy(() -> new Cars(names, randomNumber))
                 .isInstanceOf(InvalidArgumentException.class)
                 .hasMessageContaining(message);
     }
@@ -38,7 +42,7 @@ class CarsTest {
     @MethodSource("provideForCarsObjectCreationTest")
     @DisplayName("자동차 리스트 객체 생성 테스트")
     void carsObjectCreationTest(final List<String> names) {
-        assertDoesNotThrow(() -> new Cars(names));
+        assertDoesNotThrow(() -> new Cars(names, randomNumber));
     }
 
     static Stream<Arguments> provideForCarsObjectCreationTest() {
