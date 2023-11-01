@@ -4,9 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.constant.ErrorMessage;
 import racingcar.constant.ServiceMessage;
 import racingcar.input.count.CountValidator;
 import racingcar.input.name.NameReader;
+import racingcar.input.name.NameValidator;
 import racingcar.output.ServicePrinter;
 
 public class RacingGame {
@@ -27,7 +29,7 @@ public class RacingGame {
         // 횟수 입력 받기
         String inputCount = Console.readLine();
         if(!CountValidator.isValid(inputCount)) {
-            throw new IllegalArgumentException(getErrorMessage("count"));
+            throw new IllegalArgumentException(ErrorMessage.getErrorMessage("count"));
         }
 
         int n = Integer.parseInt(inputCount);
