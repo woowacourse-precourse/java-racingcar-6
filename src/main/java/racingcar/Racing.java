@@ -9,11 +9,13 @@ import java.util.ArrayList;
 public class Racing {
     private List<Car> cars = new ArrayList<>();
     private int numberOfRacing;
+    private final int MOVE_THRESHOLD = 4;
     public void gameStart() {
         init();
         for (int i = 0; i < this.numberOfRacing; i++) {
             race();
         }
+        String result = getWinner();
         System.out.println(result);
     }
 
@@ -35,7 +37,7 @@ public class Racing {
     private void race() {
         for (Car car : cars) {
             int dice = Randoms.pickNumberInRange(0,9);
-            if(dice >= 4) {
+            if(dice >= MOVE_THRESHOLD) {
                 car.moveForward(); //4 이상 나오면 move
             }
             int stepLength = car.movementHistory().length();
