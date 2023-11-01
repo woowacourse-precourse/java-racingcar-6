@@ -53,6 +53,7 @@ public class GameService {
             carNames.add(carName);
         }
 
+        exceptionHandler.playerIsOnly(carNames);
         exceptionHandler.isDuplicationName(carNames);
 
         carList = new Car(carNames);

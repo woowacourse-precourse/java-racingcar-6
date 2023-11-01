@@ -92,6 +92,19 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining(Error.NOT_ALLOW_SPACES);
     }
 
+    @DisplayName("GameService - setCarName (When there is only one player)")
+    @Test
+    void 참가자가_한_명일_경우_예외_처리() {
+        // given
+        String carNames = "hyun";
+
+        // when
+        assertThatThrownBy(() -> runException(carNames))
+                // then
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(Error.ONLY_PLAYER);
+    }
+
     @DisplayName("GameService - setTryNumber (attempt == 1)")
     @Test
     void 시도_횟수가_자연수() {

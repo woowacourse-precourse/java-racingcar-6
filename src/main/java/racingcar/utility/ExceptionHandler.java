@@ -48,14 +48,20 @@ public class ExceptionHandler {
     public void isDuplicationName(List<String> carNames) {
         Set<String> nonoverlappingList = new HashSet<>(carNames);
 
-        if(nonoverlappingList.size() != carNames.size()) {
+        if (nonoverlappingList.size() != carNames.size()) {
             throw new IllegalArgumentException(Error.DUPLICATED_NAME);
         }
     }
 
     public void isContainSpaces(String carNames) {
-        if(carNames.contains(" ")){
+        if (carNames.contains(" ")) {
             throw new IllegalArgumentException(Error.NOT_ALLOW_SPACES);
+        }
+    }
+
+    public void playerIsOnly(List<String> carNames) {
+        if (carNames.size() == 1) {
+            throw new IllegalArgumentException(Error.ONLY_PLAYER);
         }
     }
 
