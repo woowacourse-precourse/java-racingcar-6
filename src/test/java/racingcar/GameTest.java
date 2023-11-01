@@ -77,4 +77,20 @@ public class GameTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void roundNumberEnglish() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,dong", "agew"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void roundNumberKorean() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,dong", "ㅎ이팅"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
