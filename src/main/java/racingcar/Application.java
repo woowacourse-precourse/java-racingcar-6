@@ -45,4 +45,12 @@ public class Application {
         }
     }
 
+    private static void printCarStatus(String name, int distance) {
+        System.out.print(name + " : ");
+        for (int k = 0; k < distance; k++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
 }
