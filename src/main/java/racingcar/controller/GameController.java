@@ -1,8 +1,6 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
-import racingcar.view.OutputView;
-
 import java.util.List;
 
 import static racingcar.view.InputView.*;

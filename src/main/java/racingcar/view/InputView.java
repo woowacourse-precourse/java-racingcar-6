@@ -2,6 +2,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import static racingcar.validator.Validator.validatePosition;
+
 public class InputView {
 
     private static final String RACING_CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -16,6 +18,9 @@ public class InputView {
     public static int getAttemptNumber() {
         System.out.println(NUMBER_ATTEMPTS_INPUT_MESSAGE);
 
-        return Integer.parseInt(Console.readLine());
+        String position = Console.readLine();
+        validatePosition(position);
+
+        return Integer.parseInt(position);
     }
 }
