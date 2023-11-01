@@ -31,7 +31,7 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    private String printMoving() {
+    protected String printMoving() {
         return "-".repeat(Math.max(0, totalForward));
     }
 
