@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.domain.Car;
+import racingcar.domain.car.Car;
 import racingcar.domain.RacingGame;
 
 public class ConsoleOutputView implements OutputView {

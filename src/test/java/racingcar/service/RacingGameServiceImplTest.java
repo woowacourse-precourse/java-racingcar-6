@@ -9,18 +9,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
-import racingcar.domain.Car;
+import racingcar.domain.car.Car;
 import racingcar.domain.Participations;
 import racingcar.domain.RacingGame;
 import racingcar.domain.Winners;
 import racingcar.repository.CarRepository;
-import racingcar.repository.RacingGameRepository;
 
 public class RacingGameServiceImplTest {
 
     Config config = AppConfig.getInstance();
     private CarRepository carRepository = config.carRepository();
-    RacingGameService racingGameService = config.racingService();
+    private RacingGameService racingGameService = config.racingService();
 
     @BeforeEach
     public void setUp() {

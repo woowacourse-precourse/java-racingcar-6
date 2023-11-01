@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.car.Car;
 
 public class Winners { // 일급컬렉션
 

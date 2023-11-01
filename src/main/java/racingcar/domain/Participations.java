@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import racingcar.domain.car.Car;
 import racingcar.util.ExceptionUtil;
 
 public class Participations { // 일급컬렉션

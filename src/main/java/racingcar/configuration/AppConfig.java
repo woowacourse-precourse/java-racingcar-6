@@ -54,7 +54,7 @@ public class AppConfig implements Config {
     }
 
     /**
-     * RacingGameRepository를 반환하는 메소드입니다. RacingGameRepository는 레이싱 게임 관련 데이터를 저장하고 관리합니다.
+     * RacingGameRepository를 반환하는 메소드입니다. RacingGameRepository는 경주 게임 관련 데이터를 저장하고 관리합니다.
      *
      * @return RacingGameRepository 인스턴스
      */
@@ -67,7 +67,7 @@ public class AppConfig implements Config {
     }
 
     /**
-     * RacingGameService를 반환하는 메소드입니다. RacingGameService는 레이싱 게임의 비지니스 로직을 구현합니다.
+     * RacingGameService를 반환하는 메소드입니다. RacingGameService는 경주 게임의 비지니스 로직을 구현합니다.
      * RacingGameServiceImpl 인스턴스를 생성하기 위해선 racingRepository의 인스턴스가 필요합니다.
      * racingRepository의 인스턴스를 얻기 위해 racingRepository() 메서드를 호출하여 싱글톤 인스턴스를 얻습니다.
      *
