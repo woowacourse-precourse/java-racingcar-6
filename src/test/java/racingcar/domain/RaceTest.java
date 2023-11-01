@@ -17,6 +17,7 @@ class RaceTest {
 
         assertTrue(randomNumber >= min && randomNumber <= max);
     }
+
     @Test
     void 시도_횟수_도달_테스트() {
         Race race = new Race("3");
@@ -59,6 +60,15 @@ class RaceTest {
     @Test
     void trialNumber이_whitespace이면_에러를_던진다() {
         String trialNumber = "9 0";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Race(trialNumber);
+        });
+    }
+
+    @Test
+    void trialNumber이_음수이면_에러를_던진다() {
+        String trialNumber = "-3";
 
         assertThrows(IllegalArgumentException.class, () -> {
             new Race(trialNumber);
