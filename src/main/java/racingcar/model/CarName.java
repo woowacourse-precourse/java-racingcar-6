@@ -4,13 +4,14 @@ import java.util.Objects;
 import racingcar.constant.ExceptionMessage;
 
 public class CarName {
+    public static final int MAX_NAME_LENGTH = 5;
     private final String name;
 
     public CarName(String name) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_CANT_NOT_BLANK);
         }
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_IS_TOO_LONG);
         }
         this.name = name;
