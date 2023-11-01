@@ -4,11 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.util.RegexMatcher;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class Cars {
     private List<Car> cars;
