@@ -1,0 +1,90 @@
+package racingcar;
+
+import static constants.Constant.*;
+import static constants.StringError.*;
+
+import camp.nextstep.edu.missionutils.Console;
+
+import java.util.*;
+
+public class RacingManager {
+
+    private static final RacingData racingData = new RacingData();
+    private static Map<String, Integer> playerResultMap = new HashMap<String, Integer>();
+
+    public void run() {
+
+        initializeDataset();
+        initSettingForPlaying();
+        RacingController racingController = new RacingController(racingData);
+        RacingView racingView = new RacingView(racingData);
+
+        racingController.initSetting(playerResultMap);
+        System.out.println(CMD_PLAY_RESULT);
+
+        do {
+            racingController.play(playerResultMap);
+            racingView.render(playerResultMap);
+        }
+        while (!racingController.checkEnd(playerResultMap));
+
+        List<String> winnerString = racingController.getWinnerList();
+        String WinnerString = getWinnerString(winnerString);
+        System.out.println(WinnerString);
+    }
+
+    public String getWinnerString(List<String> inputString) {
+        String result = String.join(SEP_COMMA_ONESPACE_STRING, inputString);
+        return CMD_WINNER_RESULT + result;
+    }
+
+    private void initSettingForPlaying() {
+        String playersNameString;
+        List<String> playerNamesList;
+        Integer tryNumber;
+
+
+        System.out.println(CMD_QUESTION_NAME);
+        playersNameString = Console.readLine();
+
+        playerNamesList = new ArrayList<String>(
+                Arrays.asList(playersNameString.split(SEP_COMMA_STRING)));
+
+        validatePlayerName(playerNamesList);
+
+        System.out.println(CMD_QUESTION_NUMBER);
+        tryNumber = Integer.parseInt(Console.readLine());
+
+        validateTryNumber(tryNumber);
+
+
+        racingData.saveRacingData(playerNamesList, tryNumber);
+    }
+
+    public void initializeDataset() {
+        racingData.initTryNumber();
+        racingData.initPlayerStringList();
+        playerResultMap = new HashMap<String, Integer>();
+    }
+
+    private void validatePlayerName(List<String> playerNamesList) {
+        for (String name : playerNamesList) {
+            int nameLength = name.length();
+            if (nameLength > 5)
+                throw new IllegalArgumentException(wrongLengthError +
+                        "\nExpect : maximum nameLength is 5" +
+                        "\nInput : " + name + " Length : " + nameLength);
+        }
+
+    }
+
+    private void validateTryNumber(Integer tryNumber) {
+        if(tryNumber<0){
+            throw new IllegalArgumentException(wrongLengthError +
+                    "\nExpect : tryNumber is upper than -1" +
+                    "\nInput : " + tryNumber);
+        }
+    }
+
+
+}
