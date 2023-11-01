@@ -31,4 +31,9 @@ public class GameController {
             gameView.printMoveStatus(car);
         }
     }
+
+    public void printWinners() {
+        List<Car> winnerCars = gameView.checkWinners(cars);
+        gameView.printWinnerCars(winnerCars);
+    }
 }
