@@ -2,6 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constants.GameMessage;
+import racingcar.util.RandomNumber;
 
 public class RacingCar {
     public static final Integer MIN_RANDOM_NUMBER = 1;
@@ -18,7 +19,7 @@ public class RacingCar {
         this.advanceMarking += GameMessage.ADVANCE_MARK;
     }
     public boolean canAdvance() {
-        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        Integer randomNumber = RandomNumber.createRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         return randomNumber >= ADVANCE_THRESHOLD;
     }
     public String getAdvanceMarking() {
