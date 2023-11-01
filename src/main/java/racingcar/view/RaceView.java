@@ -28,4 +28,5 @@ public class RaceView {
         sb.append("-".repeat(Math.max(0, carBoost)));
     }
 
+
 }

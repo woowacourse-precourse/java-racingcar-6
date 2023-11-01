@@ -18,7 +18,10 @@ public class GameController {
 
     List<String> carNames;
     List<Integer> carBoosts;
+    List<Car> sortedCars;
+    List<String> raceWinner;
     int attempt;
+
 
 
     public GameController() {   //생성자
@@ -50,6 +53,11 @@ public class GameController {
     }
 
     public void determineWinner() {
+        sortedCars=cars.stream()
+                .sorted((car1,car2)-> Integer.compare(car2.getCarBoost(),car1.getCarBoost()))   //carBoost 내림차순으로 Car 객체정렬
+                .collect(Collectors.toList());
+        raceWinner = judgement.determineWinner(sortedCars);
+
 
     }
 
