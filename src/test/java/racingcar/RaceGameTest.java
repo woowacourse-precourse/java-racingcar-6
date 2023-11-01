@@ -1,18 +1,23 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import racingcar.controller.CarNameValidator;
 import racingcar.controller.GameController;
 import racingcar.model.RaceGame;
 
 public class RaceGameTest {
     RaceGame raceGame = new RaceGame();
     GameController gameController = new GameController();
+    CarNameValidator carNameValidator = new CarNameValidator();
 
     @Test
     void 공백_제거하여_자동차_입력_이름_저장하는지_확인() {
@@ -36,6 +41,16 @@ public class RaceGameTest {
         List<String> resultCarName = raceGame.getCarNames();
 
         assertThat(resultCarName).contains("pobi.", "woni", "jun*", "nila", "lala");
+    }
+
+    @Test
+    void 경주할_자동차_2대_이상인지_확인() {
+
+        List<String> inputCarName = new ArrayList<>(Arrays.asList("pobi"));
+
+        assertThatThrownBy(() -> carNameValidator.toValidateCarName(inputCarName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("2대 이상의 자동차 이름을 입력해주세요.");
     }
 
 }
