@@ -19,7 +19,7 @@ class InputTest {
 
     @Test
     @DisplayName("Cars 객체가 잘 생성되는지 확인하는 테스트")
-    void ReadCars() {
+    void testReadCars() {
         Input input = new Input();
         String userInput = "A,B,C";
         setSystemInput(userInput);
@@ -35,7 +35,7 @@ class InputTest {
 
     @Test
     @DisplayName("입력한 자연수가 Integer타입으로 변환이 잘 되는지 테스트")
-    void readRounds() {
+    void testReadRounds() {
         Input input = new Input();
         String userInput = "5";
         setSystemInput(userInput);
