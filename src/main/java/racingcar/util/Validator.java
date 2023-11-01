@@ -22,13 +22,13 @@ public class Validator {
 
     private static void checkInputFormat(String input) {
         if (input.split(",").length != input.chars().filter(c -> c == ',').count() + 1) {
-            throw new IllegalArgumentException("입력 값의 형식이 잘못되었습니다");
+            throw new IllegalArgumentException("입력 값의 형식이 잘못되었습니다.");
         }
     }
 
     private static void checkIsEmptyInput(String input) {
         if (input.isEmpty()) {
-            throw new IllegalArgumentException("입력 값이 없습니다");
+            throw new IllegalArgumentException("입력 값이 없습니다.");
         }
     }
 
