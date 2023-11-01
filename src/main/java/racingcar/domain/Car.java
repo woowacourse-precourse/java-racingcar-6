@@ -19,8 +19,16 @@ public class Car {
         handleMove(randomNumber);
     }
 
-    public void printCurrentLocation(){
-        Output.printCurrentLocation(name,forwardCount);
+    public void printCurrentLocation() {
+        Output.printCurrentLocation(name, forwardCount);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getForwardCount() {
+        return forwardCount;
     }
 
     private void handleMove(int randomNumber) {
@@ -32,14 +40,4 @@ public class Car {
     private void moveForward() {
         this.forwardCount++;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public Long getForwardCount() {
-        return forwardCount;
-    }
-
-
 }

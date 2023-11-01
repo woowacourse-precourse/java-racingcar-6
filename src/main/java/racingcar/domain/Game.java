@@ -75,5 +75,4 @@ public class Game {
                 .max(Long::compareTo)
                 .orElse(0L);
     }
-
 }
