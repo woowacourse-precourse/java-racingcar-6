@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class InitPlayerTest {
+public class InitCarTest {
 
     RacingCar test = new RacingCar();
 
@@ -24,11 +24,17 @@ public class InitPlayerTest {
     void testCheckCarsNameLength(){
 
         String [] trueValue = {"a", "aa", "aaa", "aaaa", "aaaaa"};
-        String [] falseValue = {"aa", "aaaaaa"};
+        String [] falseLengthValue = {"aa", "aaaaaa"};
+        String [] falseNullValue =  {""};
+        String [] falseBlankValue = {" "};
 
         assertThatCode(()-> test.checkCarsNameLength(trueValue))
                 .doesNotThrowAnyException();
-        assertThatThrownBy(() -> test.checkCarsNameLength(falseValue))
+        assertThatThrownBy(() -> test.checkCarsNameLength(falseLengthValue))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> test.checkCarsNameLength(falseNullValue))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> test.checkCarsNameLength(falseBlankValue))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

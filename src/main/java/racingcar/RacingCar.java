@@ -15,7 +15,7 @@ public class RacingCar {
 
     public void run(){
         System.out.println(Notification.inputCarsName);
-        initPlayer(Console.readLine());
+        initCar(Console.readLine());
 
         System.out.println(Notification.inputNumOfRounds);
         int numOfRounds = checkRoundsInput(Console.readLine());
@@ -28,7 +28,7 @@ public class RacingCar {
         endGame();
     }
 
-    public void initPlayer(String input){
+    public void initCar(String input){
         String [] cars = splitCarsName(input);
         checkCarsNameLength(cars);
         saveCars(cars);
@@ -59,7 +59,7 @@ public class RacingCar {
     public void checkCarsNameLength(String[] cars) {
 
         for (String car : cars) {
-            if (car.length() > 5) {
+            if (car.length() > 5 || car.trim().length() < 1) {
                 throw new IllegalArgumentException();
             }
         }
