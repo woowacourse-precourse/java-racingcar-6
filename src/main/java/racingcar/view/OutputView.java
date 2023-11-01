@@ -3,7 +3,6 @@ package racingcar.view;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarDto;
-import racingcar.vo.CarName;
 
 public class OutputView {
 
@@ -38,9 +37,8 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinners(List<CarName> winnerNames) {
+    public void printWinners(List<String> winnerNames) {
         String result = winnerNames.stream()
-                .map(CarName::name)
                 .collect(Collectors.joining(COMMA_SEPARATOR));
 
         System.out.print(WINNER_INFO_MESSAGE + SEPARATOR_COLON + result);

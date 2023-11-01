@@ -17,8 +17,10 @@ public class RacingGame {
         cars.updatePosition();
     }
 
-    public List<CarName> getWinners() {
+    public List<String> getWinners() {
         referee.decideWinner(cars.getCarList());
-        return referee.getWinnerNames();
+        List<CarName> winnerNames = referee.getWinnerNames();
+
+        return winnerNames.stream().map(carName -> carName.name()).toList();
     }
 }
