@@ -13,6 +13,10 @@ public class RaceCar {
         this.name = name;
         position =0;
     }
+    public RaceCar(String name, int pos){
+        this.name = name;
+        position =pos;
+    }
 
     public void raceForward(){
         if(Randoms.pickNumberInRange(0,9)>=4) position+=1;
