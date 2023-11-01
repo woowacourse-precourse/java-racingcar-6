@@ -1,4 +1,5 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,11 +11,11 @@ public class Car {
     private HashMap<String, Integer> carDist = new HashMap<>();
     private String userInput;
 
-    public Car(){
+    public Car() {
         inputCar();
     }
 
-    public void inputCar(){
+    public void inputCar() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         userInput = Console.readLine();
         this.car = Arrays.stream(userInput.split(",")).toList();
@@ -22,17 +23,17 @@ public class Car {
         initCarDist(this.car);
     }
 
-    public void  initCarDist(List<String> car){
-        for (String element : car){
+    public void initCarDist(List<String> car) {
+        for (String element : car) {
             carDist.put(element, 0);
         }
     }
 
-    public void goCar(String carName){
-        carDist.put(carName, carDist.get(carName)+1);
+    public void goCar(String carName) {
+        carDist.put(carName, carDist.get(carName) + 1);
     }
 
-    public List<String> getCar(){
+    public List<String> getCar() {
         return car;
     }
 
@@ -40,9 +41,9 @@ public class Car {
         return carDist;
     }
 
-    private void validateCarNameLength(List<String> car){
-        for (String carName : car){
-            if (carName.length()>5){
+    private void validateCarNameLength(List<String> car) {
+        for (String carName : car) {
+            if (carName.length() > 5) {
                 throw new IllegalArgumentException("5자 이하로 입력해주세요.");
             }
         }

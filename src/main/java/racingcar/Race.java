@@ -29,24 +29,25 @@ public class Race {
         }
         return false;
     }
-    public void startRace(){
+
+    public void startRace() {
         System.out.println("\n실행 결과");
-        for (int i = 0; i < inputMove; i++){
+        for (int i = 0; i < inputMove; i++) {
             racingCar();
             printDist();
         }
     }
 
-    private void racingCar(){
-        for (String carName : car.getCar()){
-            if (isGo()){
+    private void racingCar() {
+        for (String carName : car.getCar()) {
+            if (isGo()) {
                 car.goCar(carName);
             }
         }
     }
 
-    private void printDist(){
-        for (String carName : car.getCar()){
+    private void printDist() {
+        for (String carName : car.getCar()) {
             System.out.println(carName + " : " + "-".repeat(car.getCarDist().get(carName)));
         }
         System.out.println();
@@ -62,6 +63,6 @@ public class Race {
             }
         }
 
-        System.out.println("최종 우승자 : " + String.join(",",maxValueKeys));
+        System.out.println("최종 우승자 : " + String.join(",", maxValueKeys));
     }
 }
