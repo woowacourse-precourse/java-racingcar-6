@@ -23,8 +23,8 @@ public class MainController {
     }
 
     private void generateCars() {
-        List<String> carsList = inputView.getCarNamesInput();
-        race.registerCar(carsList);
+        List<String> carNamesArray = inputView.getCarNamesInput();
+        race.registerCar(carNamesArray);
     }
 
     private void registerMoveCounts() {
