@@ -50,7 +50,7 @@ public class RacingCarMethodTest {
     }
 
     @Test
-    void printRacingState_메서드는_전달받은_요소의_key값과_value만큼의_전진을_출력(){
+    void printRacingState_메서드는_전달받은_Map의_key값과_value만큼의_전진을_출력(){
 
         Map<String, Integer> carMap = new HashMap<>();
         String testCar = "testCar";
@@ -67,4 +67,31 @@ public class RacingCarMethodTest {
         assertThat(result).isEqualTo(expectedOutput);
     }
 
+    @Test
+    void decideWinners_메서드는_전달받은_Map에서_최대값을_가진_key를_String으로_반환(){
+
+        Map<String, Integer> carMap = new HashMap<>();
+        carMap.put("firstCar", 5);
+        carMap.put("secondCar", 4);
+        carMap.put("thirdCar", 3);
+        carMap.put("fourthCar", 1);
+
+        String result = Application.decideWinners(carMap);
+
+        assertThat(result).isEqualTo("firstCar");
+    }
+
+    @Test
+    void decideWinners_메서드는_최대값을_가진_key가_여러개일_경우_알파벳_순서의_리스트를_String으로_변환하여_반환(){
+
+        Map<String, Integer> carMap = new HashMap<>();
+        carMap.put("firstCar", 5);
+        carMap.put("anotherFirstCar", 5);
+        carMap.put("thirdCar", 3);
+        carMap.put("fourthCar", 1);
+
+        String result = Application.decideWinners(carMap);
+
+        assertThat(result).isEqualTo("anotherFirstCar, firstCar");
+    }
 }
