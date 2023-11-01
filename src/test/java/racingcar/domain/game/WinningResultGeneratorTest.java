@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.random_generator.FakeRandomMove;
-import racingcar.domain.game.WinningResultGenerator;
+import racingcar.domain.game.generator.WinningResultGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
