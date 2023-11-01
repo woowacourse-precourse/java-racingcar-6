@@ -18,6 +18,11 @@ public class InputView {
         return convertCarName(getInput());
     }
 
+    public static String readGameRound() {
+        System.out.println(PRINT_READ_TRY_NUMBER_MESSAGE);
+        return getInput();
+    }
+
     private List<String> convertCarName(final String input) {
         return Arrays.stream(splitWithComma(input))
                 .map(String::trim)
