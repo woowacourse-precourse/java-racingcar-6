@@ -40,6 +40,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_이름_중복_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("hi,hi"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("[중복 불가] 자동차 이름은 서로 다르게 입력해주세요."));
+    }
+
+
+    @Test
     void 자동차_이름_특수문자_입력시_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("!@#!"))
