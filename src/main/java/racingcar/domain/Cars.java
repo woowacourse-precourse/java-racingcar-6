@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -10,6 +8,7 @@ public class Cars {
 
     private Cars(List<Car> cars) {
         validateCars(cars);
+        validateDuplication(cars);
         this.cars = cars;
     }
 
@@ -68,5 +67,17 @@ public class Cars {
 
     private boolean isJustOneCar(List<Car> carList) {
         return carList.size() < 2;
+    }
+
+    private void validateDuplication(List<Car> carList) {
+        Set<Car> carSet = new HashSet<>(carList);
+
+        throwErrorIfDuplicated(carList, carSet);
+    }
+
+    private void throwErrorIfDuplicated(List<Car> carList, Set<Car> carSet) {
+        if (carList.size() != carSet.size()) {
+            throw new IllegalArgumentException("서로 중복되는 이름은 입력할 수 없습니다.");
+        }
     }
 }
