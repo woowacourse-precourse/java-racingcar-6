@@ -4,23 +4,26 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 
 class CarsTest {
-    @Test
-    void 문자열을_Car_리스트로_변환한다() {
-        String carName = "pobi,woni,jun";
-        Cars cars = new Cars(carName);
-        assertThat(cars.getCars().size()).isEqualTo(3);
+    List<Car> carList;
+    Cars cars;
+    NumberGenerator numberGenerator;
+
+    @BeforeEach
+    void setUp() {
+         carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
+         cars = new Cars(carList);
+        numberGenerator = new RandomNumberGenerator();
     }
 
     @Test
     void 전진한다() {
-        String carNames = "pobi,woni,jun";
-        Cars cars = new Cars(carNames);
-        NumberGenerator numberGenerator = new RandomNumberGenerator();
         assertRandomNumberInRangeTest(
                 () -> {
                     cars.forward(numberGenerator);
