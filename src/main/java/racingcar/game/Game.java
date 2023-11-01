@@ -14,7 +14,7 @@ public class Game {
     private String numberOfTry;
     private int tryNumber;
 
-    public Game() throws IllegalArgumentException {
+    public void setGame() {
         printPhrasesCarName();
         inputCarName();
         printPhraseNumberOfTry();
