@@ -22,8 +22,7 @@ public class GameManager {
             gameEngine.processTurn();
             OutputView.printBlankLine(ONE_BLANK_LINE);
         }
-        
-        OutputView.printGameWinner(gameEngine.findWinner());
+        gameEngine.findWinner();
     }
 
     public void saveTotalRoundOfGame(Integer round) {
