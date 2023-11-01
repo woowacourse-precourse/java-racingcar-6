@@ -29,6 +29,8 @@ public class Race {
     }
 
     public void start() {
+        System.out.println();
+        System.out.println(Console.RESULT.message());
         for (int time = 0; time < totalTime; time++) {
             moveCars();
             printStatus();
