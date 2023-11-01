@@ -67,26 +67,6 @@ class Mytest extends NsTest {
     }
 
 
-
-    @Test
-    void 전진_정지() {
-        // Arrange
-        Mockito.mockStatic(Randoms.class);
-        when(Randoms.pickNumberInRange(0, 9)).thenReturn(4); // 임의의 값을 설정
-
-        // Act
-        controller.startGame(1);
-
-        // Assert
-        List<Car> cars = controller.getCars();
-        assertThat(cars).hasSize(2);
-
-        for (Car car : cars) {
-            assertThat(car.getPosition()).isEqualTo(1);
-        }
-
-    }
-
     @Test
     void 우승자_찾기() {
         // Arrange

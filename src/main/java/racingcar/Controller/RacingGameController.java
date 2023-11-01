@@ -1,6 +1,5 @@
 package racingcar.Controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Model.Car;
 import racingcar.Model.RandomNumberGenerator;
 import racingcar.View.RacingGameView;
@@ -49,16 +48,6 @@ public class RacingGameController {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
-
-    public List<String> getWinners() {
-        return findWinner(cars);
-    }
-
-    public List<Car> getCars() {
-        return cars;
-    }
-
-
 }
 
 
