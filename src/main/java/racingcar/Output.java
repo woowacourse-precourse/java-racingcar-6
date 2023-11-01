@@ -6,12 +6,12 @@ public class Output {
 
 
     // 커맨드 출력
-    public void startOutput() {
+    public void startGamePrompt() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     // 시도할 횟수 출력
-    public void timeOutput() {
+    public void roundsPrompt() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
@@ -19,7 +19,7 @@ public class Output {
     public void printNow(List<Car> cars) {
         cars.stream()
                 .forEach(car -> {
-                    int dashesCount = car.getCurrentPlace();
+                    int dashesCount = car.getPosition();
                     String dashes = "-".repeat(dashesCount);
                     System.out.println(car.getName() + " : " + dashes);
                 });
@@ -29,13 +29,13 @@ public class Output {
     // 최종 우승자 출력
     public void printWinner(List<Car> cars) {
         int maxDistance = cars.stream()
-                .mapToInt(Car::getCurrentPlace)
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
         StringBuilder sb = new StringBuilder();
         cars.stream()
                 .forEach(car -> {
-                    if (car.getCurrentPlace() == maxDistance) {
+                    if (car.getPosition() == maxDistance) {
                         if (sb.length() > 0) {
                             sb.append(",\n   ");
                         }

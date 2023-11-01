@@ -11,7 +11,7 @@ class InputTest {
         //given
         Input input = new Input("pobi,woni,jun");
         //when
-        String[] result = input.inputCars();
+        String[] result = input.inputCarNames();
         //then
         Assertions.assertThat(result).contains("pobi", "woni", "jun");
     }
@@ -23,7 +23,7 @@ class InputTest {
         Input input = new Input("fjiejifjei");
         //when and then
         Assertions.assertThatThrownBy(() -> {
-            input.inputCars();
+            input.inputCarNames();
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -32,7 +32,7 @@ class InputTest {
         //given
         Input input = new Input("3");
         //when
-        String result = input.inputTime();
+        String result = input.inputRounds();
         //then
         Assertions.assertThat(result).isEqualTo("3");
     }
@@ -43,7 +43,7 @@ class InputTest {
         Input input = new Input("안녕");
         //when and then
         Assertions.assertThatThrownBy(() -> {
-            input.inputTime();
+            input.inputRounds();
         }).isInstanceOf(IllegalArgumentException.class);
 
     }

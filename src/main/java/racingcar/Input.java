@@ -4,9 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 
 public class Input {
-    private String input;
-
     private final Validation validation = new Validation();
+    private String input;
 
     public Input() {
 
@@ -22,7 +21,7 @@ public class Input {
     }
 
     //자동차 이름 입력
-    public String[] inputCars() {
+    public String[] inputCarNames() {
         if (validation.validateInput(Constant.CARS_VALIDATE, input)) {
             String[] carArray = input.split(",");
             return carArray;
@@ -32,7 +31,7 @@ public class Input {
     }
 
     // 몇번의 이동했는지 입력
-    public String inputTime() {
+    public String inputRounds() {
         if (validation.validateInput(Constant.TIME_VALIDATE, input)) {
             return input;
         } else {

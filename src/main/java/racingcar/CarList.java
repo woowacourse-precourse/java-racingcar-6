@@ -12,16 +12,17 @@ public class CarList {
     }
 
 
-    public void continueGame() {
+    public void moveCars() {
+
         cars.stream().forEach(car -> {
             if (Randoms.pickNumberInRange(Constant.NUMBER_RANGE_INCLUDE, Constant.NUMBER_RANGE_EXCLUDE) >= 4) {
-                car.plusCurrentPlace();
+                car.moveForward();
             }
         });
     }
 
 
-    public List<Car> getCars() {
+    public List<Car> getCarList() {
         return this.cars;
     }
 

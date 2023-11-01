@@ -10,7 +10,7 @@ public class GameManager {
     private final Input input;
     private final Output output;
     private CarList carList;
-    private int count;
+    private int rounds;
 
     public GameManager(Input input, Output output) {
         this.input = input;
@@ -18,40 +18,40 @@ public class GameManager {
     }
 
     public void startGame() {
-        obtainCars();
-        obtainTime();
+        initializeCars();
+        initializeRounds();
         System.out.println("실행 결과");
-        for (int i = 0; i < count; i++) {
-            carList.continueGame();
-            printNow();
+        for (int i = 0; i < rounds; i++) {
+            carList.moveCars();
+            printCurrentStatus();
         }
-        printWinner();
+        printWinners();
     }
 
 
-    private void obtainCars() {
-        output.startOutput();
+    private void initializeCars() {
+        output.startGamePrompt();
         input.input();
-        String[] carsArray = input.inputCars();
-        List<String> stringList = Arrays.stream(carsArray).toList();
-        List<Car> carObjects = stringList.stream()
+        String[] carsArray = input.inputCarNames();
+        List<String> carNameList = Arrays.stream(carsArray).toList();
+        List<Car> carObjects = carNameList.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
         carList = new CarList(carObjects);
     }
 
-    private void obtainTime() {
-        output.timeOutput();
+    private void initializeRounds() {
+        output.roundsPrompt();
         input.input();
-        count = Integer.parseInt(input.inputTime());
+        rounds = Integer.parseInt(input.inputRounds());
     }
 
-    private void printNow() {
-        output.printNow(carList.getCars());
+    private void printCurrentStatus() {
+        output.printNow(carList.getCarList());
     }
 
-    private void printWinner() {
-        output.printWinner(carList.getCars());
+    private void printWinners() {
+        output.printWinner(carList.getCarList());
     }
 
 }

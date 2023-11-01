@@ -33,6 +33,7 @@ public class Validation {
     }
 
     private boolean validateIsNumber(String input) {
+
         return input.matches("\\d+");
     }
 

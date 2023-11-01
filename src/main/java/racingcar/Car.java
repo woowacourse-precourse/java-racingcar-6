@@ -3,23 +3,26 @@ package racingcar;
 public class Car {
 
 
-    private String name;
+    private final String name;
 
-    private int currentPlace;
+    private int position;
 
     public Car(String name) {
         this.name = name;
-        this.currentPlace = 0;
+        this.position = 0;
     }
+
     public String getName() {
         return this.name;
     }
-    public int getCurrentPlace() {
-        return this.currentPlace;
+
+    public int getPosition() {
+        return this.position;
     }
 
-    public void plusCurrentPlace() {
-        currentPlace = currentPlace + 1;
+    public void moveForward() {
+
+        position = position + 1;
     }
 
 }
