@@ -15,14 +15,7 @@ public class Game {
     public Game(List<Car> cars, RandomNumberGenerator randomNumberGenerator, int remainStage) {
         this.cars = cars;
         this.randomNumberGenerator = randomNumberGenerator;
-        if (!isValidateStageNumber(remainStage)) {
-            throw new IllegalArgumentException();
-        }
         this.remainStage = remainStage;
-    }
-
-    private Boolean isValidateStageNumber(int stageNumber) {
-        return stageNumber >= 0;
     }
 
     private Boolean isSatisfyForwardCondition(int randomNumber) {

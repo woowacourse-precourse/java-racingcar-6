@@ -44,7 +44,7 @@ public class Controller {
     }
 
     public void run() {
-        outputView.printString(Constants.gameResultStartingState);
+        outputView.printString("\n" + Constants.gameResultStartingState);
         while (!game.isGameEnd()) {
             Map<String, Integer> result = game.runStage();
             outputView.printEachStageResult(result);

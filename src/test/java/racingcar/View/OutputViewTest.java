@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.Global.Constants;
 
 class OutputViewTest {
@@ -33,12 +35,14 @@ class OutputViewTest {
         assertThat(out.toString().contains(Constants.getCarsNameState));
     }
 
-    @Test
-    void 우승자_출력() {
+
+    @ParameterizedTest
+    @CsvSource(value = {"\"pobi\",\"woni\"-최종 우승자 : pobi, woni", "\"pobi\"-최종 우승자 : pobi"}, delimiter = '-')
+    void 우승자_출력(String input, String expected) {
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        outputView.printWinner(List.of("pobi"));
-        assertThat(out.toString().contains("최종 우승자 : pobi"));
+        outputView.printWinner(List.of(input));
+        assertThat(out.toString().contains(expected));
     }
 
 }

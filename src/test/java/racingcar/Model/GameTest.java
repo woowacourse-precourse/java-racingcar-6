@@ -1,8 +1,6 @@
 package racingcar.Model;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -47,11 +45,4 @@ class GameTest {
         assertThat(game.findWinner().get(0).equals(carNames.get(0)));
     }
 
-    @Order(4)
-    @Test
-    void 게임_생성_유효성() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> new Game(cars, new RandomNumberGenerator(), -1))
-                        .isInstanceOf(IllegalArgumentException.class));
-    }
 }

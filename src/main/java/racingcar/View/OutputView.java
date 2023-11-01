@@ -11,6 +11,7 @@ public class OutputView {
         results.forEach((name, step) -> {
             System.out.println(makeResultState(name, step));
         });
+        System.out.println();
     }
 
     private String makeResultState(String carName, int step) {
