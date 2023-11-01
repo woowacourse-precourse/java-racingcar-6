@@ -30,7 +30,7 @@ public class Car {
         return new Car(name);
     }
 
-    public void moveForward() {
+    protected void moveForward() {
         this.move++;
     }
 
