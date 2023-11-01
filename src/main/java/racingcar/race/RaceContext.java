@@ -2,6 +2,7 @@ package racingcar.race;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import racingcar.Input.RaceStartCommand;
 import racingcar.race.move.CarRaceRecord;
 import racingcar.race.move.Go;
 import racingcar.race.move.MoveContext;
@@ -26,7 +27,7 @@ public class RaceContext {
     MoveContext moveContext = new MoveContext();
     return moveContext.generateRaceRecords(
         command.getRoundCount().getRacingCount(),
-        command.getRacingCars(), RaceContext::moveRuleFunction);
+        command.getRacingCars().getNames(), RaceContext::moveRuleFunction);
   }
 
   private static Movement moveRuleFunction(int number) {
