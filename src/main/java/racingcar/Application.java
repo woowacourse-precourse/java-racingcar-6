@@ -55,11 +55,14 @@ public class Application {
 
     private static void run(){
         cars.forEach((name, go) -> {
+            int nextGo = go;
             if(Randoms.pickNumberInRange(0, 9) >= RANDOM){
-                cars.replace(name, go + 1);
+                nextGo++;
+
             }
+            cars.replace(name, nextGo);
             System.out.print(name + " : ");
-            for(int i=0; i<go; i++){
+            for(int i=0; i<nextGo; i++){
                 System.out.print('-');
             }
             System.out.println();
