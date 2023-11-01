@@ -11,16 +11,20 @@ public class MoveCarsService {
 	
 	public void moveCars(Cars cars) {
 		for(Car car : cars.getCars()) {
-			int randomNumber = GENERATOR.generate();
+			int randomNumber = getRandomNumber();
 			
 			moveCar(car, randomNumber);
 		}
 	}
 	
-	private void moveCar(Car car, int number) {
+	public void moveCar(Car car, int number) {
 		if(checkMoveCondition(number)) {
 			car.move();
 		}
+	}
+	
+	private int getRandomNumber() {
+		return GENERATOR.generate();
 	}
 	
 	private boolean checkMoveCondition(int number) {
