@@ -12,11 +12,53 @@ public class Application {
         int[] carsMove = new int[cars.length];// 0으로 기본세팅
 
 
-        //체크
-        for(String elem:cars)
-            System.out.println(elem);
+        //경주진행
+        //이용자로부터 시도 회수를 입력받음
+        int tryNum = setTryNum();
+
+        //입력받은 값만큼 반복문 돌리며 자동차 이동 시키기
+        for(int i =0 ; i<tryNum ; i++)
+        {
+            //조건을 따지고 자동차 이동시키는 함수 (carsMove 값이 올라감)
+            carsMove = changeMove(carsMove);
+        }
+
+
+
 
     }
+
+
+    //조건 따져서 자동차 이동시키는 함수
+    public static int [] changeMove(int[] carsMove){
+
+        for(int i =0 ; i <carsMove.length ; i++ )
+        {
+            //랜덤값 돌리기
+            int randNumb=Randoms.pickNumberInRange(0,9);
+
+            //값 변경
+            if (randNumb >= 4 )
+                carsMove[i] ++;
+
+        }
+
+        return carsMove;
+    }
+
+    //사용자로부터 이동 시도 회수 받기
+    public static int setTryNum() {
+        // 사용자로부터 숫자를 입력받기
+        try {
+            int number = Integer.parseInt(Console.readLine());
+            return number;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+
+
     //자동차이름 입력 받아 , 로 구분해서 배열 반환하는 함수
     public static String[] setCars() {
 
