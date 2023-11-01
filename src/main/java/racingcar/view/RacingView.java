@@ -1,9 +1,13 @@
 package racingcar.view;
 
+import static racingcar.constant.RacingMessage.getInputCarNameMessage;
+import static racingcar.constant.RacingMessage.getInputTryCountMessage;
+import static racingcar.constant.RacingMessage.getTryResultMessage;
+
 import racingcar.dto.request.CarNames;
-import racingcar.dto.response.RacingStatus;
 import racingcar.dto.request.TryCount;
-import racingcar.model.Racing;
+import racingcar.dto.response.RacingStatus;
+import racingcar.dto.response.WinnerNames;
 
 public class RacingView {
 
@@ -16,24 +20,28 @@ public class RacingView {
     }
 
     public CarNames inputCarNames() {
-        outputMaker.writeInputCarNameMessage();
+        write(getInputCarNameMessage());
         return inputView.readCarNames();
     }
 
     public TryCount inputTryCount() {
-        outputMaker.writeInputTryCountMessage();
+        write(getInputTryCountMessage());
         return inputView.readTryCount();
     }
 
     public void startPrintTryResult() {
-        outputMaker.writeTryResultMessage();
+        write(getTryResultMessage());
     }
 
     public void showRacingStatus(RacingStatus racingStatus) {
-        outputMaker.writeRacingStatus(racingStatus);
+        write(outputMaker.makeRacingStatusOutput(racingStatus));
     }
 
-    public void showRacingWinner(Racing racing) {
-        outputMaker.writeRacingWinner(racing);
+    public void showRacingWinner(WinnerNames winnerNames) {
+        write(outputMaker.makeRacingWinnerOutput(winnerNames));
+    }
+
+    private void write(String message) {
+        System.out.println(message);
     }
 }

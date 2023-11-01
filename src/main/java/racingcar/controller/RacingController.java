@@ -20,6 +20,6 @@ public class RacingController {
             racing.race();
             view.showRacingStatus(racing.getRacingStatus());
         }
-        view.showRacingWinner(racing);
+        view.showRacingWinner(racing.getWinnerNames());
     }
 }
