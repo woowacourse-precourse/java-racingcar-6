@@ -1,6 +1,7 @@
 package study;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -32,7 +33,8 @@ public class InputProcessorTest {
     void test2() {
         System.setIn(new ByteArrayInputStream("".getBytes()));
         InputProcessor inputProcessor = new InputProcessor();
-        assertThatCode(()->inputProcessor.getCarNames())
-                .doesNotThrowAnyException();
+        assertThatThrownBy(()->inputProcessor.getCarNames())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
     }
 }
