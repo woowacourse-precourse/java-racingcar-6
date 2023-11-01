@@ -2,6 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.message.ErrorMessage;
+import racingcar.message.GameMessage;
+
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -30,6 +34,87 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 게임_종료_전_우승자_확인_금지() {
+        //given
+        CarInput carInput = CarInput.of("test1,test2");
+        RacingGame racingGame = new RacingGame.Builder()
+                .carInput(carInput)
+                .tryCount(1)
+                .build();
+
+        // when + then
+        assertThatThrownBy(racingGame::getWinner)
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining(ErrorMessage.GAME_NOT_FINISHED);
+    }
+
+    @Test
+    void 우승자_판별_확인() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    // given
+                    CarInput carInput = CarInput.of("test1,test2,test3");
+                    RacingGame racingGame = new RacingGame.Builder()
+                            .carInput(carInput)
+                            .tryCount(1)
+                            .build();
+
+                    // when
+                    racingGame.play();
+                    printOutput();
+
+                    // then
+                    String winnerMsg = String.format(GameMessage.WINNER_FORMAT, "test1, test2");
+                    assertThat(output()).contains(winnerMsg);
+
+                },
+                5,5,2
+        );
+    }
+
+    @Test
+    void 승자_판별_실패시_예외처리() {
+        // given
+        List<Car> winners = List.of();
+
+        // when
+        assertThatThrownBy(() -> GameMessage.getWinnerMessage(winners))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.NO_WINNER_EXISTS);
+    }
+
+    @Test
+    void 랜덤수_기준이하_전진불가_확인() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                // given
+                CarInput carInput = CarInput.of("test1,test2,test3");
+                RacingGame racingGame = new RacingGame.Builder()
+                    .carInput(carInput)
+                    .tryCount(1)
+                    .build();
+
+                // when
+                racingGame.play();
+
+                // then
+                assertThat(output()).contains("test1 : ", "test2 : -", "test3 : -");
+            },
+            2, GameConfig.MOVE_CONDITION, 6
+        );
+    }
+
+    @Test
+    // atPosition
+    void 자동차_위치_확인() {
+        Car car = new Car("test");
+        car.moveForward();
+
+        assertThat(car.atPosition(1)).isTrue();
+    }
+
 
     @Override
     public void runMain() {
