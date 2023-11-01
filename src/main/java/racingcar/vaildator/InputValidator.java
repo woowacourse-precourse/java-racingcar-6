@@ -9,37 +9,26 @@ import static racingcar.Constant.*;
 
 public class InputValidator {
 
-    public static boolean isBlankInput(String input){
-        return removeTrimString(input).isBlank();
+    public static void validateNotBlankInput(String input){
+        if(input.trim().isBlank()) throw new IllegalArgumentException(BLANK_INPUT_EXCEPTION_MESSAGE);
     }
 
-
-    public static void isValidLengthCarNames(String... carNames){
-
-        for(String carName : carNames){
-            if(!isValidLengthCarName(carName)) {
-                throw new IllegalArgumentException(NAME_LENGTH_ERROR);
-            }
+    public static int validateNotNumericNumber(String input) {
+        try{
+            return Integer.parseInt(input);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException(IS_NOT_POSITIVE_INTEGER);
         }
-
     }
 
-    public static boolean isNotInteger(String input) {
-        for(int i=0; i<input.length(); i++){
-            if(!Character.isDigit(input.charAt(i))){
-                return true;
-            }
+    public static void validatePositiveNumber(int round){
+        if(round <= 0) throw new IllegalArgumentException(IS_NOT_POSITIVE_INTEGER);
+    }
+
+    public static void validateCarNameLength(String carName){
+        if(carName.length() < MINIMUM_NAME_LENGTH || carName.length() > MAXIMUM_NAME_LENGTH){
+            throw new IllegalArgumentException(NAME_LENGTH_ERROR);
         }
-        return false;
-    }
-
-
-    public static String removeTrimString(String input){
-        return input.trim();
-    }
-
-    private static boolean isValidLengthCarName(String name){
-        return name.length() >= MINIMUM_NAME_LENGTH && name.length() <= MAXIMUM_NAME_LENGTH;
     }
 
 }

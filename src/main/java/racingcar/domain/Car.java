@@ -11,10 +11,10 @@ public class Car {
     private int numberOfStep;
 
     public Car(String carName){
-        String trimCarName = removeTrimString(carName);
+        String trimCarName = carName.trim();
 
-        isBlankInput(trimCarName);
-        isValidLengthCarNames(trimCarName);
+        validateNotBlankInput(trimCarName);
+        validateCarNameLength(trimCarName);
 
         this.carName = trimCarName;
     }
