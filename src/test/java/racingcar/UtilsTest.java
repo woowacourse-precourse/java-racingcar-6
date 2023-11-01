@@ -140,4 +140,21 @@ public class UtilsTest {
         assertThat(result1).isEqualTo(rightResult1);
         assertThat(result2).isEqualTo(rightResult2);
     }
+
+    @Test
+    void 배열을_해시맵으로_옳게_변환하면_통과() {
+        final HashMap<String,String> rightResult = new HashMap<>();
+        rightResult.put("one",""); rightResult.put("two","");
+        //given
+        String[] case1 = {"one", "two"};
+        String[] case2 = {"one", "two", "three"};
+
+        //when
+        HashMap<String,String> result1 = Utils.arrayToHashMap(case1);
+        HashMap<String,String> result2 = Utils.arrayToHashMap(case2);
+
+        //then
+        assertThat(result1).isEqualTo(rightResult);
+        assertThat(result2).isNotEqualTo(rightResult);
+    }
 }
