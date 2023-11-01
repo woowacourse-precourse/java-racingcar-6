@@ -19,11 +19,11 @@ public class IoManager {
         System.out.println(string);
     }
 
-    public static void print(String string){
+    public static void print(String string) {
         System.out.print(string);
     }
 
-    public static void printEmptyLine(){
+    public static void printEmptyLine() {
         System.out.println();
     }
 
@@ -31,7 +31,7 @@ public class IoManager {
         System.out.println(ENTER_CAR_NAMES);
     }
 
-    public static void printWinner(List<String> winners){
+    public static void printWinner(List<String> winners) {
         System.out.println(WINNER_MESSAGE + String.join(", ", winners));
     }
 
