@@ -48,7 +48,6 @@ public class Racing {
     private void start(List<Car> cars, int turn) {
         int maxScore = 0;
 
-        System.out.println("실행 결과");
         for (int i = 0; i < turn; i++) {
             maxScore = cars.stream().mapToInt(Car::run).max().orElse(0);
             System.out.println();
@@ -70,6 +69,7 @@ public class Racing {
         final List<Car> cars = getCarList(Console.readLine());
         System.out.println("시도할 회수는 몇회인가요?");
         int turn = getTurn(Console.readLine());
+        System.out.println("실행 결과");
         start(cars, turn);
     }
 }
