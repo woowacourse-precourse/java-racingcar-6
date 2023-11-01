@@ -23,15 +23,12 @@ public class OutputImpo {
 	}
 	
 	public static int WinnerValue(List<Car> carList) {
-		int max = 0;
+		int max = carList.get(0).getForword();
 		for(int i = 0; i < carList.size() - 1; i++) {
-			int j = carList.get(i).getForword();
 			int k = carList.get(i + 1).getForword();
 			
-			if(j < k) {
+			if(max < k) {
 				max = k;
-			} else {
-				max = j;
 			}
 		}
 		return max;

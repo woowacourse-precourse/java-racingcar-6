@@ -29,11 +29,13 @@ public class OutView {
 			winnerList = out.addWinner(car, max);
 		}
 		
-		StringBuilder builder = new StringBuilder();
-		for(String winner : winnerList) {
-			builder.append(winner).append(", ");
+		for(int i = 0; i < winnerList.size(); i++) {
+			if(i == winnerList.size() - 1) {
+				System.out.println(winnerList.get(i));
+			} else {
+				System.out.println(winnerList.get(i) + ", ");
+			}
+			
 		}
-		String formatWinner = builder.toString();
-		System.out.println(formatWinner);
 	}
 }
