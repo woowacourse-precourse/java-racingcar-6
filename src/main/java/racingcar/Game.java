@@ -13,6 +13,7 @@ public class Game {
     public static int MAX_LENGTH_OF_NAME = 5;
     public static int MIN_LENGTH_OF_NAME = 1;
     public static int MIN_NUMBERS_OF_MOVES = 1;
+    public static int MIN_NUMBERS_OF_NAME = 1;
     public static final String NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
     public static final String MOVES_MESSAGE = "시도할 회수는 몇회인가요?\n";
     public static final String OUTPUT_MESSAGE = "\n실행 결과\n";
@@ -26,8 +27,8 @@ public class Game {
         if (input.charAt(input.length() - 1) == ',') {
             throw new IllegalArgumentException("이름 입력은 쉼표로 끝낼 수 없습니다.");
         }
-        if (nameList.size() == 1) {
-            throw new IllegalArgumentException("자동차 이름은 1개 이상 입력해야 합니다.");
+        if (nameList.size() == MIN_NUMBERS_OF_NAME) {
+            throw new IllegalArgumentException("자동차 이름은 " + MIN_NUMBERS_OF_NAME + "개 이상 입력해야 합니다.");
         }
         for (String name : nameList) {
             if (name.length() > MAX_LENGTH_OF_NAME) {
@@ -40,11 +41,12 @@ public class Game {
         return nameList;
     }
 
-    public void getNumberOfMoves() {
-        MOVES = Integer.parseInt(Console.readLine());
-        if (MOVES < MIN_NUMBERS_OF_MOVES) {
+    public int getNumberOfMoves() {
+        int moves = Integer.parseInt(Console.readLine());
+        if (moves < MIN_NUMBERS_OF_MOVES) {
             throw new IllegalArgumentException("시도 회수는 " + MIN_NUMBERS_OF_MOVES + "회 이상이어야 합니다.");
         }
+        return moves;
     }
 
     public void printOutput() {
@@ -90,12 +92,12 @@ public class Game {
     }
 
     public void gameRun() {
-        String input;
+        String carNameInput;
         System.out.print(NAME_MESSAGE);
-        input = Console.readLine();
-        List<String> nameList = getCarNames(input);
+        carNameInput = Console.readLine();
+        List<String> nameList = getCarNames(carNameInput);
         System.out.print(MOVES_MESSAGE);
-        getNumberOfMoves();
+        MOVES = getNumberOfMoves();
         for (String name : nameList) {
             carList.add(new Car(name));
         }
