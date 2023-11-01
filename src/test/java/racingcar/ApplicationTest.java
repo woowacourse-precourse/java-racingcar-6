@@ -36,20 +36,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 이름_분리(){
-        NamesManager manager = new NamesManager();
-        List<String> nameList = manager.separateNamesString("pobi,woni,jun");
-        assertThat(nameList).isEqualTo(Arrays.asList("pobi","woni","jun"));
-    }
-
-    @Test
-    void 우승자_안내_문구_생성(){
-        Leaderboard board = new Leaderboard(Arrays.asList(""));
-        String result = board.winnerFormat(Arrays.asList("Kim","Jin","Yi"));
-        assertThat(result).isEqualTo("최종 우승자 : Kim, Jin, Yi");
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});

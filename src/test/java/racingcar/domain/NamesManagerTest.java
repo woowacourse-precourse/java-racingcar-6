@@ -3,10 +3,20 @@ package racingcar.domain;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class NamesManagerTest {
+
+    @Test
+    void separateNamesString_이름_분리(){
+        NamesManager manager = new NamesManager();
+
+        List<String> nameList = manager.separateNamesString("pobi,woni,jun");
+        assertThat(nameList).isEqualTo(Arrays.asList("pobi","woni","jun"));
+    }
     @Test
     void checkNamesException_이름_길이(){
         NamesManager manager = new NamesManager();
