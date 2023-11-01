@@ -3,6 +3,8 @@ package racingcar.view;
 import racingcar.model.Car;
 import racingcar.model.CarList;
 
+import java.util.stream.Collectors;
+
 public class RacingGameView {
 
     private final String moving = "-";
@@ -23,5 +25,13 @@ public class RacingGameView {
         carList.getCarList()
                 .forEach(car -> System.out.println(car.getCarName() + " : " + moving.repeat(car.getMoveCnt())));
         System.out.println();
+    }
+
+    public void printWinners(CarList carList){
+        System.out.print("최종 우승자 : ");
+        String winners = carList.findWinners().stream()
+                .map(Car::getCarName)
+                .collect(Collectors.joining(", "));
+        System.out.println(winners);
     }
 }
