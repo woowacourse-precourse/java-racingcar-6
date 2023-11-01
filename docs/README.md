@@ -59,6 +59,8 @@
     - 자동차 이름 저장 함수(saveCarNames)
     - 점수 증가 함수(updateCarScore)
     - 최종 점수 확인 함수(checkFinalScores)
+    - 플레이어 이름을 리스트에 담는 함수(carNameStringToList)
+    - 문자열을 정수로 변환하는 함수(countStringToInt)
 ### 컨트롤러 (Controller)
  - #### GameController
    - 게임 실행 함수(runGame)
