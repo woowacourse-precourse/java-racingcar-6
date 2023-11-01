@@ -48,7 +48,9 @@ public class RacingGame {
         }
         int maxPosition = 0;
         List<String> winners = new ArrayList<>();
-        cars.forEach(car -> updateWinnersByPosition(car, maxPosition, winners));
+        for (Car car: cars) {
+            maxPosition = updateWinnersByPosition(car, maxPosition, winners);
+        }
         return winners;
     }
     private int updateWinnersByPosition(Car car, int currentMaxPosition, List<String> winners) {
