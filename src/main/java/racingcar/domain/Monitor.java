@@ -9,8 +9,7 @@ public class Monitor {
         this.cars = cars;
     }
 
-    public void printCars() {
-        List<Car> cars = this.cars;
+    public void printCars(List<Car> cars) {
 
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);

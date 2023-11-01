@@ -36,7 +36,7 @@ public class Application {
                 currentCar.move(Randoms.pickNumberInRange(0, 9), currentCar);
             }
 
-            monitor.printCars();
+            monitor.printCars(cars);
         }
 
         Referee referee = new Referee(cars);
