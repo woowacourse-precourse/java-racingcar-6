@@ -15,11 +15,7 @@ public class User {
 
         for (String car: splitCars) {
             car = car.replace(" ", "");
-
-            InputException.checkExistCar(car); // 이미 존재하는 차 이름인지 확인
-            InputException.checkNameLength(car); // 이름의 길이가 5 이하인지 확인
-            InputException.checkOnlyInt(car); // 이름이 정수로만 되어있지 않은지 확인
-
+            InputException.checkAll(car);
             CarStorage.addCar(new Car(car));
         }
     }
