@@ -37,6 +37,10 @@ public class RacingGame {
         return makeCars(input);
     }
 
+    void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
     /**
      * 시작 문구 출력
      */
@@ -57,7 +61,7 @@ public class RacingGame {
      * @param input 사용자 입력의 Optional
      * @return 구분자로 구분된 자동차 리스트
      */
-    private List<Car> makeCars(Optional<String> input) {
+    List<Car> makeCars(Optional<String> input) {
         List<String> inputs = Arrays.stream(input.get().split(",")).toList();
 
         List<Car> cars = new ArrayList<>();
@@ -74,6 +78,10 @@ public class RacingGame {
         Optional<String> inputTurn = askTurn();
         judge.isEffectiveInputTurn(inputTurn);
         return convertTypeToInteger(inputTurn);
+    }
+
+    void setTurn(Integer turn){
+        this.turn = turn;
     }
 
     /**
@@ -94,7 +102,7 @@ public class RacingGame {
     /**
      * 사용자의 입력을 Integer로 변환
      * @param inputTurn 사용자의 입력
-     * @return 정상적인 입력이면 Integer
+     * @return 정상적인 입력의 Integer 형태
      */
     private Integer convertTypeToInteger(Optional<String> inputTurn) {
         return Integer.parseInt(inputTurn.get());
@@ -127,14 +135,14 @@ public class RacingGame {
     /**
      * 자동차의 상태 출력
      */
-    private void printCarsStatus() {
+    void printCarsStatus() {
         cars.forEach(car -> car.showStatus());
     }
 
     /**
      * 종료 순서 관리
      */
-    private void finish() {
+    void finish() {
         List<Car> finalWinners = getFinalWinners();
         printFinalWinners(finalWinners);
     }
@@ -165,7 +173,7 @@ public class RacingGame {
      * 최종 우승자 문구 출력
      * @param winners 우승 자동차들의 리스트
      */
-    private void printFinalWinners(List<Car> winners) {
+    void printFinalWinners(List<Car> winners) {
         StringBuilder finalWinners = new StringBuilder();
         finalWinners.append(winners.get(0).getName());
         winners.remove(0);
