@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import racingcar.game.domain.RacingCar;
+import racingcar.game.renderer.RacingCarGameRenderer;
 
 public class RacingCarGame implements Game {
     private final InputInterface in;

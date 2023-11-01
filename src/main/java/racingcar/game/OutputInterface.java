@@ -3,6 +3,7 @@ package racingcar.game;
 import game.Game;
 import game.Output;
 import java.util.List;
+import racingcar.game.renderer.RacingCarGameRenderer;
 
 public class OutputInterface implements Output {
     private Output out;

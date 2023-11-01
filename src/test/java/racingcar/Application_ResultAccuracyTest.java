@@ -11,13 +11,14 @@ import java.util.Optional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.configuration.Configuration;
 
 public class Application_ResultAccuracyTest extends MyApplicationTest {
     private List<String> winners;
 
     @BeforeEach
     void setGameRandom() {
-        Application.setRandom(null);
+        Configuration.setRandom(null);
     }
 
     @AfterEach
@@ -27,7 +28,7 @@ public class Application_ResultAccuracyTest extends MyApplicationTest {
 
     @Test
     void 정확한_최종_우승자를_산출() {
-        Application.setRandom(new FixedGameRandom(List.of(3, 4)));
+        Configuration.setRandom(new FixedGameRandom(List.of(3, 4)));
         run("pobi,woni", "10");
 
         assertThatNoException()
@@ -41,7 +42,7 @@ public class Application_ResultAccuracyTest extends MyApplicationTest {
 
     @Test
     void 최종_우승자가_여러명일_때_우승자_모두를_출력() {
-        Application.setRandom(new FixedGameRandom(List.of(4, 3, 4)));
+        Configuration.setRandom(new FixedGameRandom(List.of(4, 3, 4)));
         run("pobi,woni,jun", "10");
 
         assertThatNoException()

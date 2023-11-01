@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar.game.renderer;
 
 import static java.util.stream.Collectors.joining;
 

@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar.game.renderer;
 
 import java.util.List;
 import racingcar.game.domain.Position;
