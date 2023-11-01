@@ -2,12 +2,13 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class RaceSimulator {
 
-    public static HashMap<String, String> raceSimulation(HashMap<String, String> carNames) {
-        HashMap<String, String> racingResult = new HashMap<>();
+    public static LinkedHashMap<String, String> raceSimulation(LinkedHashMap<String, String> carNames) {
+        LinkedHashMap<String, String> racingResult = new LinkedHashMap<>();
 
         for (String car : carNames.keySet()) {
             int randomNumber = NumberGenerator.generateRandomNumber();
@@ -22,7 +23,7 @@ public class RaceSimulator {
         return racingResult;
     }
 
-    public static void raceWinner(HashMap<String, String> carResults) {
+    public static void raceWinner(LinkedHashMap<String, String> carResults) {
         List<String> winners = new ArrayList<>();
         int maxDistance = 0;
 

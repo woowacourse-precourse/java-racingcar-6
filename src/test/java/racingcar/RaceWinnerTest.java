@@ -6,6 +6,7 @@ import racingcar.domain.RaceSimulator;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,7 +15,7 @@ public class RaceWinnerTest {
 
     @Test
     void 공동_우승() {
-        HashMap<String, String> carResults = new HashMap<>();
+        LinkedHashMap<String, String> carResults = new LinkedHashMap<>();
         carResults.put("pobi", "------");
         carResults.put("woni", "------");
         carResults.put("jun", "----");

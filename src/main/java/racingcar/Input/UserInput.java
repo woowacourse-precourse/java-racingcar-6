@@ -4,12 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Set;
 
 public class UserInput {
-    public static HashMap<String, String> getCarNames() {
+    public static LinkedHashMap<String, String> getCarNames() {
         // 1. 자동차 이름 입력 받기
-        HashMap<String, String> namesMap = new HashMap<>();
+        LinkedHashMap<String, String> namesMap = new LinkedHashMap<>();
         Set<String> nameSet = new HashSet<>();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -39,7 +40,6 @@ public class UserInput {
 
             namesMap.put(trimmedName, "");
         }
-
         return namesMap;
     }
 
