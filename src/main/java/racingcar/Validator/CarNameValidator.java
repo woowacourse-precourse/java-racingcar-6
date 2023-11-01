@@ -18,8 +18,8 @@ public class CarNameValidator {
                 throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
             }
 
-            if (carNames.size() > 9) {
-                    throw new IllegalArgumentException("자동차 개수는 9개 이하여야 합니다.");
+            if (carNames.isEmpty() || carNames.size() > 9) {
+                    throw new IllegalArgumentException("자동차 개수는 1개 이상 9개 이하여야 합니다.");
             }
         }
         return carNames;
