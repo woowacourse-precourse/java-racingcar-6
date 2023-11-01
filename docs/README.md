@@ -5,9 +5,10 @@
 - time
 
 ### method
-- run : 경주 시작
-- getWinner : 우승자 구하는 함수
-
+- runOneRound
+- isRunning
+- getResult
+- getWinners
 
 ## Car
 - name
@@ -22,3 +23,4 @@
  - 시도 횟수 입력받기
  - 한 라운드 별 실행 결과 출력
  - 우승자 출력
+ 

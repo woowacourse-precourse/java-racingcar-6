@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car implements Comparable<Car> {
     final private String name;
     private int numberOfMove;
@@ -16,13 +14,9 @@ public class Car implements Comparable<Car> {
         this.numberOfMove = move;
     }
 
-    public void moveFoward() {
-        if (getRandomNumber() >= 4)
+    public void moveFoward(int randomValue) {
+        if (randomValue >= 4)
             numberOfMove++;
-    }
-
-    private int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 
     final public int getNumberOfMove() {

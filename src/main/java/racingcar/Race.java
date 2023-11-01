@@ -1,9 +1,14 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Race {
+    static private final String MARK = "-";
+
     final private List<Car> cars;
     final private int time;
 
@@ -16,18 +21,40 @@ public class Race {
             cars.add(new Car(name));
     }
 
-    public void run() {
-        System.out.println("\n실행 결과");
-        for (int idx = 0; idx < time; idx++) {
-            playOneRound();
-            Screen.displayResult(cars);
-        }
-        Screen.displayWinners(cars);
+    public Race(List<Car> cars, int time) {
+        this.cars = cars;
+        this.time = time;
     }
 
-    private void playOneRound() {
+    public boolean isRunning(int time) {
+        return time < this.time;
+    }
+
+    public void runOneRound() {
         for (Car car : cars) {
-            car.moveFoward();
+            car.moveFoward(Randoms.pickNumberInRange(0, 9));
         }
+    }
+
+    public String getResult() {
+        StringBuilder result = new StringBuilder();
+
+        for (Car car : cars) {
+            result.append(String.format("%s : %s\n", car.getName(), MARK.repeat(car.getNumberOfMove())));
+        }
+        return result.toString();
+    }
+
+    public String getWinners() {
+        StringBuilder winners = new StringBuilder();
+        int maximumMove = Collections.max(cars).getNumberOfMove();
+
+        for (Car car : cars) {
+            if (car.getNumberOfMove() == maximumMove) {
+                winners.append(", ");
+                winners.append(car.getName());
+            }
+        }
+        return winners.toString().replaceFirst(", ", "");
     }
 }

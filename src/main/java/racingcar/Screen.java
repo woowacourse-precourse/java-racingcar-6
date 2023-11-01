@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Screen {
-    static private final String MARK = "-";
 
     static public String[] askCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -31,29 +30,16 @@ public class Screen {
         return Integer.parseInt(time);
     }
 
-    static public void displayResult(List<Car> cars) {
-        for (Car car : cars) {
-            String result = String.format("%s : %s", car.getName(), MARK.repeat(car.getNumberOfMove()));
-            System.out.println(result);
-        }
-        System.out.println();
+    static public void displayResultMessage() {
+        System.out.println("\n실행 결과");
     }
 
-    static public void displayWinners(final List<Car> cars) {
+    static public void displayResult(String result) {
+        System.out.println(result);
+    }
+
+    static public void displayWinners(String winners) {
         System.out.print("최종 우승자 : ");
-        System.out.println(getWinners(cars));
-    }
-
-    static private String getWinners(final List<Car> cars) {
-        StringBuilder winners = new StringBuilder();
-        int maximumMove = Collections.max(cars).getNumberOfMove();
-
-        for (Car car : cars) {
-            if (car.getNumberOfMove() == maximumMove) {
-                winners.append(", ");
-                winners.append(car.getName());
-            }
-        }
-        return winners.toString().replaceFirst(", ", "");
+        System.out.println(winners);
     }
 }
