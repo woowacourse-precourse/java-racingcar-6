@@ -5,7 +5,9 @@ import racingcar.domain.car.dto.CarDto;
 import racingcar.domain.car.wrapper.Name;
 import racingcar.domain.car.wrapper.Position;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CarTest {
 
