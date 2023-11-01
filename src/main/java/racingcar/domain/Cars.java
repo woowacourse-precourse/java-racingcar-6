@@ -32,7 +32,7 @@ public class Cars {
     public Map<String, Integer> getResultOfRound() {
         HashMap<String, Integer> result = new HashMap<>();
         for(Car car : carList) {
-            result.put(car.getName(), car.getMeter());
+            car.saveInformationToMap(result);
         }
         return result;
     }
@@ -45,8 +45,9 @@ public class Cars {
     }
 
     public ArrayList<String> findWinners() {
+        int maxScore = findMaxScore();
         return carList.stream()
-            .filter(car -> car.getMeter() == findMaxScore())
+            .filter(car -> car.hasMaxScore(maxScore))
             .map(Car::getName)
             .collect(Collectors.toCollection(ArrayList::new));
     }
