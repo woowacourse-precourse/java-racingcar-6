@@ -61,6 +61,10 @@ public class Cars {
         return cars.stream().map(car -> new CarRecord(car.getCarName(), car.getNowStep())).toList();
     }
 
+    public int carListSize(){
+        return cars.size();
+    }
+
     protected List<Car> makeCar(List<String> carNames) {
         return carNames.stream().map(Car::new).toList();
     }
@@ -74,5 +78,6 @@ public class Cars {
     protected void noHaveCarNames(List<String> carNames) {
         if(carNames.size() == 0) throw new IllegalArgumentException(EXCEPTION_MESSAGE);
     }
+
 
 }
