@@ -4,6 +4,7 @@ import racingcar.manager.RandomNumberGenerator;
 
 public class Car {
 
+    private static final int MOVE_CRITERION = 4;
     private final String name;
 
     private int position;
@@ -14,7 +15,7 @@ public class Car {
     }
 
     public void move() {
-        if (RandomNumberGenerator.generateNumber() >= 4) {
+        if (getGenerateNumber() >= MOVE_CRITERION) {
             position++;
         }
     }
