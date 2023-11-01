@@ -24,7 +24,7 @@ public class StringValidator {
     public int validateIsNumberAndReturnAsInt(String numberString) {
         try {
             return Integer.parseInt(numberString);
-        } catch {
+        } catch(Exception e) {
             throw new IllegalArgumentException("0이상 2147483647 이하의 숫자를 입력해야 합니다.");
         }
 
