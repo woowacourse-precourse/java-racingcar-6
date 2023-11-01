@@ -19,17 +19,22 @@ public class RacingCarController {
     public RacingCarController(RacingCarView racingCarView) {
         this.racingCarView = racingCarView;
     }
-    public void racingStart() {
+    public void startRacing() {
         RacingCarsDto racingCarsDto = racingCarView.inputCarName();
         NumberOfAttemptsDto numberOfAttemptsDto = racingCarView.inputNumberOfAttempts();
-        racingCarView.printResultMessage();         // print("실행 결과")
+        playRacing(racingCarsDto, numberOfAttemptsDto);
+    }
+
+    private void playRacing(RacingCarsDto racingCarsDto, NumberOfAttemptsDto numberOfAttemptsDto) {
+        racingCarView.printResultMessage();
         RacingCars racingCars = racingCarsDto.toRacingCars();
         for (int i = 0; i < numberOfAttemptsDto.toInteger(); i++) {
-            runRaceTurn(racingCars);        // 레이스 턴별로 진행
+            runRaceTurn(racingCars);
         }
-        ResultOfGameDto winners = determineWinners(racingCars);     // 우승자 가리기
-        showWinners(winners);   // 최종 우승자 출력
+        ResultOfGameDto winners = determineWinners(racingCars);
+        showWinners(winners);
     }
+
     private void runRaceTurn(final RacingCars racingCars) {
         for (RacingCar racingCar : racingCars.getRacingCars()) {  // getter 안쓸수 있는 방향으로 리팩토
             if (racingCar.canAdvance()) {
