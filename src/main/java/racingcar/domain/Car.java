@@ -11,4 +11,8 @@ public class Car {
         this.name = name;
         this.moveCnt = 0;
     }
+
+    public int generateNumber() {
+        return Randoms.pickNumberInRange(GameRule.MIN_INPUT_NUMBER, GameRule.MAX_INPUT_NUMBER);
+    }
 }
