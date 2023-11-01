@@ -28,14 +28,14 @@ public class DomainTest {
         Car car = new Car("pobi");
         car.updatePosition(NumberGenerator.generateRandomNumber(4,9));
         car.updatePosition(NumberGenerator.generateRandomNumber(4,9));
-        assertThat(car.getFormattedPostion()).isEqualTo("pobi : --");
+        assertThat(car.getFormattedPosition()).isEqualTo("pobi : --");
     }
     @Test
     void updatePosition_정지합니다(){
         Car car = new Car("pobi");
         car.updatePosition(NumberGenerator.generateRandomNumber(0,3));
         car.updatePosition(NumberGenerator.generateRandomNumber(0,3));
-        assertThat(car.getFormattedPostion()).isEqualTo("pobi : ");
+        assertThat(car.getFormattedPosition()).isEqualTo("pobi : ");
     }
 
 

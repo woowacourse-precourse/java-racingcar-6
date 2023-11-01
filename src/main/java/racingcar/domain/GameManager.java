@@ -37,7 +37,7 @@ public class GameManager {
             roundTryCount.consumeRound();
             for (Car car : cars) {
                 car.proceedOwnRound();
-                IoManager.println(car.getFormattedPostion());
+                IoManager.println(car.getFormattedPosition());
             }
             IoManager.printEmptyLine();
         }

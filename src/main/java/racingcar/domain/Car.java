@@ -26,7 +26,7 @@ public class Car {
         }
     }
 
-    public String getFormattedPostion(){
+    public String getFormattedPosition(){
         StringBuilder positionString = new StringBuilder();
         positionString.append(carName.getName()+" : ");
         for(int i=0;i<position;i++){
