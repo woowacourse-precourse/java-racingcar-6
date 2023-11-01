@@ -3,9 +3,11 @@ package racingcar;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.Domain.Car;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,11 +31,22 @@ class OutputTest {
         assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
     }
 
-    @Test //4번 기능 테스트
+    @Test //5번 기능 테스트
     void printGuideTryCount() {
         Output.printGuideTryCount();
         String expectedOutput = "시도할 회수는 몇회인가요?";
         assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
     }
 
+    @Test //6번 기능 테스트
+    void printResult() {
+        List<Car> cars = List.of(new Car("pobi"), new Car("crong"), new Car("honux"));
+        cars.get(0).setPosition(1L);
+        cars.get(1).setPosition(2L);
+        cars.get(2).setPosition(3L);
+        Output.printResult(cars);
+
+        String expectedOutput = "pobi : -\ncrong : --\nhonux : ---";
+        assertEquals(expectedOutput, outputStreamCaptor.toString().trim().replaceAll("\r\n", "\n"));
+    }
 }
