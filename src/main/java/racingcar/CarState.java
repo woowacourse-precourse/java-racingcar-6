@@ -11,9 +11,6 @@ public class CarState {
     // 랜덤수에 따라 차량의 무브 카운트 파악 함수 작성
 
     public CarState(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException(MAX_LENGTH_OVER_EXECPTION_MESSAGE);
-        }
         this.carName = name;
     }
 
