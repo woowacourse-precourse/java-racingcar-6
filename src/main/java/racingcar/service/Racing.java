@@ -9,13 +9,13 @@ import racingcar.io.IOHandler;
 public class Racing {
     private final IOHandler ioHandler = new IOHandler();
     private final List<RacingCar> racingCars = new ArrayList<>();
-    private RacingService racingService;
+    public RacingService racingService;
 
     public void run() {
         generateRacingCar();
         generateExecutionCount();
 
-        startRace();
+        startRace(racingCars, Execution.count);
         printResult();
     }
 
@@ -33,11 +33,12 @@ public class Racing {
         new Execution(input);
     }
 
-    private void startRace() {
+    public void startRace(List<RacingCar> racingCars, int count) {
         racingService = new RacingService();
         ioHandler.printComment("\n" + "실행결과");
 
-        racingService.startRace(Execution.count, racingCars);
+        String result = racingService.startRace(count, racingCars);
+        ioHandler.printComment(result);
     }
 
     private void printResult() {

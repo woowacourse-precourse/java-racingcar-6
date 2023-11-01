@@ -4,24 +4,24 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.RacingCar;
-import racingcar.io.IOHandler;
 
 public class RacingService {
-    private final IOHandler ioHandler = new IOHandler();
-
-    public void startRace(int count, List<RacingCar> racingCars) {
+    public String startRace(int count, List<RacingCar> racingCars) {
+        String result = "";
         for (int round = 0; round < count; round++) {
-            executeRound(racingCars);
+            result += executeRound(racingCars) + "\n";
         }
+        return result;
     }
-
-    private void executeRound(List<RacingCar> racingCars) {
+    
+    public String executeRound(List<RacingCar> racingCars) {
+        String output = "";
         for (RacingCar racingCar : racingCars) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             racingCar.move(randomNumber);
-            ioHandler.printComment(racingCar.name + " : " + "-".repeat(racingCar.count));
+            output += racingCar.name + " : " + "-".repeat(racingCar.count) + "\n";
         }
-        ioHandler.printComment("");
+        return output;
     }
 
     public List<String> getWinnerNames(List<RacingCar> racingCars) {
