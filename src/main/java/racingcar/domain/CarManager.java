@@ -34,7 +34,7 @@ public class CarManager {
                 .orElse(-1);
 
         return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
+                .filter(car -> car.isWinner(maxPosition))
                 .collect(Collectors.toList());
     }
 }
