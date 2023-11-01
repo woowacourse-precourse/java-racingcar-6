@@ -1,9 +1,6 @@
 package racingcar.engine.domain;
 
-import java.util.StringJoiner;
-
 public class Car {
-    private static final String PROGRESS_BAR = "-";
 
     private String name;
     private int progress = 0;

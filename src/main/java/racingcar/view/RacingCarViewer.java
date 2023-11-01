@@ -14,7 +14,7 @@ import racingcar.common.Validator;
 import racingcar.common.Viewer;
 import racingcar.view.dto.RacingCarUserInputDto;
 
-public class RacingCarViewer extends Viewer<RacingCarUserInputDto>  {
+public class RacingCarViewer extends Viewer<RacingCarUserInputDto> {
     private final RacingCarViewerMapper racingCarMapper;
 
     public RacingCarViewer(Validator validator, RacingCarViewerMapper racingCarMapper) {

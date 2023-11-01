@@ -10,7 +10,6 @@ import racingcar.engine.domain.Car;
 
 public class DisplayBoard {
 
-
     public String show(List<Car> cars) {
         return cars.stream()
                 .map(this::convertExecutionResult)

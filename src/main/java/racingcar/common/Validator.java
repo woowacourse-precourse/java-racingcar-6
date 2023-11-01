@@ -14,7 +14,7 @@ public class Validator {
     }
 
     public void verifyDigitPerUnit(String numberOfAttempts) {
-        if (numberOfAttempts==null || numberOfAttempts.length() < 1) {
+        if (numberOfAttempts == null || numberOfAttempts.length() < 1) {
             throw new IllegalArgumentException("숫자가 아닌 값이 들어가있습니다.");
         }
 
