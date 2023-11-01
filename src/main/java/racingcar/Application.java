@@ -1,7 +1,13 @@
 package racingcar;
 
+import java.util.HashMap;
+import racingcar.utils.checkException;
+import racingcar.view.inputView;
+import racingcar.view.outputView;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Controller controller = new Controller();
+        controller.racingCarOutputController();
     }
 }
