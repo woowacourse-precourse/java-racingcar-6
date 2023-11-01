@@ -12,6 +12,7 @@ public class CarNameValidator {
 
     public static void validateCarName(final String name) {
         validateCarNameIsTooLong(name);
+        validateCarNameIsNullOrBlank(name);
     }
 
     private static void validateCarNameIsTooLong(final String name) {
@@ -22,5 +23,11 @@ public class CarNameValidator {
 
     private static boolean isTooLong(final String name) {
         return name.length() > NAME_LENGTH_LIMIT;
+    }
+
+    private static void validateCarNameIsNullOrBlank(final String name) {
+        if (name == null || name.isBlank()) {
+            throw new InvalidArgumentException(ErrorMessages.CAR_NAME_IS_NULL_OR_BLANK);
+        }
     }
 }
