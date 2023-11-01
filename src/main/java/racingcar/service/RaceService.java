@@ -2,7 +2,6 @@ package racingcar.service;
 
 import racingcar.model.Car;
 import racingcar.model.Race;
-import racingcar.view.ResultView;
 
 import java.util.List;
 import java.util.stream.Collectors;
