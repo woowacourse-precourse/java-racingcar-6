@@ -26,6 +26,8 @@ public class RacingGameView {
     public static List<String> inputCarName() {
         inputCarNameMessage();
         String inputCarName = readLine();
+        ExceptionController.stringBlankException(inputCarName);
+        ExceptionController.specialCharactersException(inputCarName);
         List<String> cars = commaBasedSplitCarName(inputCarName);
         ExceptionController.checkIsNotDuplicated(cars);
         return cars;
@@ -49,6 +51,8 @@ public class RacingGameView {
     public static int tryCount() {
         inputTryCountMessage();
         String tryCount = readLine();
+
+        ExceptionController.tryCountLengthException(tryCount);
 
         if (tryCount.length() > Constant.MAX_CAR_NAME_SIZE) {
             throw new IllegalArgumentException("자동차의 이름은 5글자를 초과할 수 없습니다.");
