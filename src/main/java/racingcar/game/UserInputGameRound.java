@@ -11,7 +11,8 @@ public class UserInputGameRound {
 
     private static String inputGameRound() {
         System.out.println(Constant.COUNT_INPUT_MESSAGE);
-        return Console.readLine();
+        String input = Console.readLine();
+        return input.trim();
     }
 
     public static int processInput(String round) {
