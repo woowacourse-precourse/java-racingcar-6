@@ -8,13 +8,14 @@ import java.util.List;
 
 public class InputView {
     InputValidator inputValidator = new InputValidator();
+
     public List<String> userInputName() {
         OutputView.printGameStartMessage();
         String userInput = Console.readLine();
 
         String[] splitArr = userInput.split(",");
         List<String> nameList = Arrays.asList(splitArr);
-        for (String name: splitArr) {
+        for (String name : splitArr) {
             inputValidator.isValidNameLength(name);
         }
         return nameList;
