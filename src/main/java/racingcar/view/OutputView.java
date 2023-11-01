@@ -1,8 +1,8 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
-import racingcar.domain.Winner;
 import racingcar.domain.Constants;
+import racingcar.domain.Winner;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +21,7 @@ public class OutputView {
 
     public static String resultPosition(Car car) {
 
-        return IntStream.range(0,car.getPosition())
+        return IntStream.range(0, car.getPosition())
                 .mapToObj(i -> Constants.DASH)
                 .collect(Collectors.joining());
     }

@@ -2,9 +2,6 @@ package racingcar.domain;
 
 import racingcar.utils.RandomUtils;
 
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class Car {
     private final CarName name;
     private int position = 0;

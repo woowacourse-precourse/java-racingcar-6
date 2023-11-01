@@ -14,6 +14,7 @@ public class TryCountValidate {
             throw new IllegalArgumentException("시도 횟수를 입력해주세요.");
         }
     }
+
     private static void isInputNumber(String tryCount) {
         if (tryCount.matches("[^-\\d]+")) {
             throw new IllegalArgumentException("숫자만 입력해주세요.");

@@ -5,7 +5,7 @@ import racingcar.domain.Constants;
 
 public class RandomUtils {
     public static int createRandomNumber() {
-        return Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUMBER,Constants.MAX_RANDOM_NUMBER);
+        return Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUMBER, Constants.MAX_RANDOM_NUMBER);
     }
 
     public static boolean isMove(int randomNumber) {
