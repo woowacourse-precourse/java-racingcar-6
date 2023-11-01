@@ -25,4 +25,8 @@ public class Car {
         }
         return result.toString();
     }
+
+    public int getNumber() {
+        return number;
+    }
 }
