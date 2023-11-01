@@ -19,5 +19,7 @@ public class GameController {
 
         GameInputView.printTryInputMessage();
         String tryCount = readLine();
+
+        gameService.start(carNames, tryCount);
     }
 }
