@@ -37,11 +37,15 @@ public class RacingGame {
             readlineCarNames = Console.readLine().split(",");
             // System.out.println(readlineCarNames[0]);
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(e);
         }
 
         for (String readlineCarName : readlineCarNames) {
-            racingProgress.put(readlineCarName, "");
+            if (readlineCarName.length() > 5) {
+                throw new IllegalArgumentException();
+            } else {
+                racingProgress.put(readlineCarName, "");
+            }
         }
 
         return racingProgress;
