@@ -10,7 +10,7 @@ public class Car {
         this.name = name;
     }
 public void doRace(){
-        if(Randoms.pickNumberInRange(0,9)>4){meter = meter+"_";}
+        if(Randoms.pickNumberInRange(0,9)>=4){meter = meter+"-";}
         System.out.println(name+" : "+meter);
     }
     public int getLength(){

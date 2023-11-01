@@ -12,6 +12,7 @@ public class Application {
         Vector<Car> cars = new Vector<Car>();
         try{
             for(String carName:carNameList){
+                if(carName.equals("")) throw new IllegalArgumentException();
                 Car car = new Car(carName);
                 cars.add(car);
             }
@@ -36,7 +37,8 @@ public class Application {
             }
             winnerList = winnerList.substring(0,winnerList.length()-2);
             System.out.println(winnerList);
-        }catch (IllegalArgumentException e){return;}
+        }catch (IllegalArgumentException e){
+        }
 
     }
 
