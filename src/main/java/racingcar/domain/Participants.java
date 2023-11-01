@@ -1,11 +1,16 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.function.Consumer;
+import racingcar.domain.validator.CarsValidator;
 
 public class Participants {
+    private static final Consumer<List<Car>> carsValidator = new CarsValidator();
+
     private final List<Car> cars;
 
     public Participants(List<Car> cars) {
+        carsValidator.accept(cars);
         this.cars = cars;
     }
 
