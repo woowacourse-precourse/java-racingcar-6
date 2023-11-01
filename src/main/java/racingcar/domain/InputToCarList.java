@@ -22,7 +22,7 @@ public class InputToCarList {
     private InputToCarList() {
     }
 
-    public List<Car> askCarName(final String input) {
+    public List<Car> askCarNameToCarList(final String input) {
         List<Car> cars = Arrays.stream(input.split(USER_DEFAULT_DELIMITER))
                 .map(Car::new)
                 .collect(Collectors.toList());
