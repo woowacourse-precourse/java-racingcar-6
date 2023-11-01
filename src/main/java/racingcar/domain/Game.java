@@ -73,6 +73,6 @@ public class Game {
         return carList.stream()
                 .map(Car::getForwardCount)
                 .max(Long::compareTo)
-                .orElse(0L);
+                .orElse(-1L);
     }
 }
