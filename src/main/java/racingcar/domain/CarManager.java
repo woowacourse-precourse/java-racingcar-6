@@ -1,11 +1,8 @@
-package racingcar.controller;
+package racingcar.domain;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
-import racingcar.domain.FinalResult;
-import racingcar.domain.ProgressState;
 import racingcar.view.ConsoleInput;
 
 public class CarManager {
