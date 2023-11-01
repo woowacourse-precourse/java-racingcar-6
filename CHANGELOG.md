@@ -1,3 +1,14 @@
+- refactor(test): refactor RacingCarServiceTest.java
+- refactor(separate): separate racingCar code from Application.java
+- refactor(methods): update test case method name
+- test(ApplicationTest): add test case of getting winners list
+- feat(winner): add feature to print winners
+- test(ApplicationTest): add test case of moving cars
+- feat(move): add feature moving cars
+- fix(README): fix docs/README.md file
+- feat(input): Add a feature to receive the number of moves
+- test(ApplicationTest): add test case of inputting car names
+- docs(CHANGELOG): create CHANGELOG.md file
 - feat(carname): 사용자로부터 자동차이름을 입력받는 기능 구현
 - docs(README): docs/README.md 구현할 기능 목록 작성
 - feat: setup precourse racingcar project
