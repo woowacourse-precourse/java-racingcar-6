@@ -7,7 +7,7 @@ public enum Err {
     NON_EMPTY_STRING("입력 문자열은 비어있거나 공백 문자만으로 이루어질 수 없습니다."),
     INVALID_CAR_NAMES_FORMAT("자동차 이름은 쉼표로 구분된 문자열이어야 합니다."),
     EMPTY_CAR_LIST("자동차 목록이 비어 있습니다."),
-    INSUFFICIENT_CAR_COUNT("자동차는 2대 이상 있어야 경주를 시작할 수 있습니다. 다시 입력해 주세요."),
+    DUPLICATE_CAR_NAME("동일한 이름을 가진 자동차가 있으면 안 됩니다."),
     INSUFFICIENT_TRIAL_COUNT("시도 횟수는 1이상이어야 합니다.");
 
     private final String message;
