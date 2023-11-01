@@ -8,7 +8,6 @@ import java.util.List;
 public class PlayGame {
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int MIN_RANDOM_NUMBER = 0;
-    private List<Car> cars;
 
     private List<Car> generateCarList(String[] carNames) {
         List<Car> cars = new ArrayList<>();
@@ -29,7 +28,7 @@ public class PlayGame {
     }
 
     public PlayGame(String[] carNames, int attemptsNumber){
-        List<Car> cars = new ArrayList<>();
+        List<Car> cars;
         cars = generateCarList(carNames);
         Print print = new Print();
 
