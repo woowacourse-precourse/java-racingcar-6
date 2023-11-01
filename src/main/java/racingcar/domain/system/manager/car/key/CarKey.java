@@ -14,6 +14,10 @@ public class CarKey implements Comparable<CarKey> {
         return new CarKey(key);
     }
 
+    public static CarKey of(CarName carName, Long idx) {
+        return new CarKey(new InputOrderCarName(carName, idx));
+    }
+
     public CarName getKey() {
         return key;
     }
