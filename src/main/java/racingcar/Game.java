@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Constants.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -29,17 +31,17 @@ public class Game {
     }
 
     private void alertEnterCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(ALERT_ENTER_CAR);
     }
 
     private void saveCarName() {
         String names = Console.readLine();
-        String[] nameArray = names.split(",");
+        String[] nameArray = names.split(CAR_DIVISION);
         if (nameArray.length == 0) {
             throw new IllegalArgumentException();
         }
         for (String name : nameArray) {
-            if (name.length() > 5) {
+            if (name.length() > CAR_NAME_MAX) {
                 throw new IllegalArgumentException();
             }
         }
@@ -49,7 +51,7 @@ public class Game {
     }
 
     private void alertEnterMoveNumber() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(ALERT_ENTER_MOVE_NUMBER);
     }
 
     private void saveMoveNumber() {
@@ -72,7 +74,7 @@ public class Game {
             if(isMoveForward()) {
                 car.addForward();
             }
-            System.out.print(car.getName() + " : ");
+            System.out.print(car.getName() + CAR_IS);
             System.out.println(car.getForward());
         }
         System.out.println();
@@ -91,17 +93,16 @@ public class Game {
                 maxForward = car.getForwardNumber();
             }
         }
-        System.out.print("최종 우승자 : ");
-        String result = winnerNames.stream().collect(Collectors.joining(", "));
+        System.out.print(ALERT_WINNER_IS);
+        String result = winnerNames.stream().collect(Collectors.joining(WINNER_DIVISION));
         System.out.println(result);
     }
 
     private Boolean isMoveForward() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+        if (randomNumber >= MOVE_FORWARD_MIN) {
             return true;
         }
         return false;
     }
-
 }
