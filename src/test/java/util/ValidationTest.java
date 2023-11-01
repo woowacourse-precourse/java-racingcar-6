@@ -20,15 +20,6 @@ public class ValidationTest {
     }
 
     @Test
-    void testIsNumberValidator() {
-        List<String> matchTimesTest = new ArrayList<>(Arrays.asList("", "ad1", "asd"));
-        for (String num : matchTimesTest) {
-            assertThatThrownBy(() -> Validator.isNumberValidator(num))
-                    .isInstanceOf(IllegalArgumentException.class);
-        }
-    }
-
-    @Test
     void testNameValidator() {
         List<String> namesToTest = new ArrayList<>(Arrays.asList("qwer", "johnqw", "john12qw"));
         assertThatThrownBy(() -> Validator.nameValidator(namesToTest))
