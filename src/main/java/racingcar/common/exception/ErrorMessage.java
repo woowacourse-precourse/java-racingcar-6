@@ -5,7 +5,7 @@ import racingcar.common.config.RacingCarRule;
 public enum ErrorMessage {
     BLANK_INPUT("공백이 아닌 문자를 입력해주세요."),
     INVALID_NUMERIC_INPUT("숫자로만 입력해주세요."),
-    INVALID_LENGTH_INPUT("유효하지 않은 입력 길이입니다. 다시 입력해주세요."),
+    INVALID_LENGTH_INPUT("유효하지 않은 입력 길이입니다."),
     INVALID_RACER_NAME_LENGTH(
             String.format("이름은 %d글자 이하여야 합니다.", RacingCarRule.MAX_RACER_NAME_LENGTH)),
     INVALID_RACER_NAME_FORMAT("이름은 알파벳이나 숫자로만 이루어져야 합니다."),

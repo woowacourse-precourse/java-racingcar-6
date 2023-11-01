@@ -20,6 +20,8 @@ public class RacingGameScreen {
     private static final String TURN_RESULT_FORMAT = "%s : %s";
     private static final char DISTANCE_CHARACTER = '-';
 
+    private static final String ERROR_MESSAGE_PREFIX = "[ERROR]: ";
+
     private static final String LINE_SEPARATOR = System.lineSeparator();
 
     private final Reader reader;
@@ -64,5 +66,13 @@ public class RacingGameScreen {
         String winnerName = String.join(RacingCarRule.DELIMITER, winnerNames);
 
         writer.writeLine(String.format(FINAL_WINNER, winnerName));
+    }
+
+    public void showError(String message) {
+        writer.writeLine(ERROR_MESSAGE_PREFIX + message);
+    }
+
+    public void close() {
+        reader.close();
     }
 }

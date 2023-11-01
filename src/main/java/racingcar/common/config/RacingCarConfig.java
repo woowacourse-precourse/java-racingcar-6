@@ -8,12 +8,10 @@ import racingcar.io.writer.CommandLineWriter;
 import racingcar.io.writer.Writer;
 
 public class RacingCarConfig {
-    private Reader reader;
-    private Writer writer;
 
     public RacingGameManager getRacingGameManager() {
-        reader = getReader();
-        writer = getWriter();
+        final Reader reader = getReader();
+        final Writer writer = getWriter();
         RacingGameScreen racingGameScreen = getRacingGameScreen(reader, writer);
         return new RacingGameManager(racingGameScreen);
     }
@@ -28,9 +26,5 @@ public class RacingCarConfig {
 
     private Writer getWriter() {
         return new CommandLineWriter();
-    }
-
-    public void close() {
-        reader.close();
     }
 }
