@@ -9,16 +9,13 @@ import racingcar.util.Err;
 
 class TrialCountTest {
 
-    @DisplayName("시도 횟수가 0이거나 음수이면 예외 발생")
+    @DisplayName("시도 횟수가 음수이면 예외 발생")
     @ParameterizedTest
-    @ValueSource(ints = {-10, 0, -4, -3})
-    void should_Throw_Exception_For_Negative_Value() {
-        // given
-        int negativeValue = -5;
-
+    @ValueSource(ints = {-10, -4, -3})
+    void should_Throw_Exception_For_Negative_Value(int value) {
         // when
         // then
-        assertThatThrownBy(() -> TrialCount.from(negativeValue))
+        assertThatThrownBy(() -> TrialCount.from(value))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Err.INSUFFICIENT_TRIAL_COUNT.getMessage());
     }
