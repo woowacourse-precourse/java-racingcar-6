@@ -12,14 +12,12 @@ import racingcar.input.name.NameReader;
 import racingcar.input.name.NameValidator;
 import racingcar.output.DriverProgress;
 import racingcar.output.ServicePrinter;
+import racingcar.service.winner.WinnerSelector;
 
 public class RacingGame {
     public void startGame() {
         ServicePrinter servicePrinter = new ServicePrinter();
         servicePrinter.printStartMessage();
-
-        // 이름 입력 받기
-        String inputNames = Console.readLine();
 
         // 예외 처리
         String[] names = NameReader.read();
@@ -36,12 +34,7 @@ public class RacingGame {
         int maxCount = Arrays.stream(countsByName).max().orElse(-1);
 
         // 최대 전진 횟수와 일치하는 모든 운전자의 이름 찾기
-        List<String> winners = new ArrayList<>();
-        for (int i = 0; i < names.length; i++) {
-            if (countsByName[i] == maxCount) {
-                winners.add(names[i]);
-            }
-        }
+        List<String> winners = WinnerSelector.getWinners(maxCount, names, countsByName);
 
         servicePrinter.printWinnerMessage(winners);
     }
