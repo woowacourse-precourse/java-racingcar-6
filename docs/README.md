@@ -85,3 +85,8 @@ jun : -----
     - GenerateAdvanceNumber 각 자동차마다 랜덤숫자를 생성하고 CarName에 이를 저장한다.
         - 여기서 랜덤 숫자를 자동차마다 경기 숫자만큼 생성되어야한다. → 그런데 여기서는 각 결과를 바로바로 출력한다. 따라서 이전에 생성된 숫자는 기억할 필요가 없고 -만 기억하면 될까?
     - outputView를 이용해 경기 수마다 자동차들의 전진현황을 표시한다.
+
+### Vailidation
+
+- Vailidator
+    - checkDuplicate : 중복에 관한 exception을 수행한다. 
