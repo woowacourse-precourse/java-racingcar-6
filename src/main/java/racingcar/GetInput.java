@@ -12,11 +12,7 @@ public class GetInput {
 
     public static int getCounts() {
         String input = Console.readLine();
-//        checkCount;
-//        checkIsNumber(input);
-//        int input = Integer.parseInt(Console.readLine());
-
-        return 1;
+        return validateCounts(input);
     }
 
 }
