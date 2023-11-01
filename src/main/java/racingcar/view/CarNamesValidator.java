@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CarNamesValidator implements InputValidator {
-    private Pattern pattern;
+    private final Pattern pattern;
 
     public CarNamesValidator() {
         pattern = Pattern.compile("^([a-zA-Z0-9]{1,5},)*[a-zA-Z0-9]{1,5}$");
