@@ -41,7 +41,7 @@ public class Racing {
         System.out.println(carName + " : " + moveCar);
     }
 
-    private void winNameOutput(List<String> carNames, String[] carStates){
+    void winNameOutput(List<String> carNames, String[] carStates){
         int max = -1;
         List<String> winningCarNames = new ArrayList<>();
 
@@ -56,11 +56,9 @@ public class Racing {
             }
         }
 
-        if (winningCarNames.size() == 1) {
-            System.out.println("최종 우승자 : " + winningCarNames);
-        } else if(winningCarNames.size() > 1){
-            System.out.println("최종 우승자 : " + String.join(", ", winningCarNames));
-        }
+        String winners = String.join(", ", winningCarNames);
+
+        System.out.println("최종 우승자 : " + winners);
     }
 
     private int countHyphens(String str) {
