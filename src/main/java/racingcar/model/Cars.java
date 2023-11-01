@@ -17,9 +17,7 @@ public class Cars {
 
     public Cars judgeWinner() {
         int maxPoint = findMaxPoint();
-        List<Car> winners = cars.stream()
-                .filter(car -> car.getPoint() == maxPoint)
-                .toList();
+        List<Car> winners = findWinners(maxPoint);
         return new Cars(winners);
     }
 
@@ -28,6 +26,12 @@ public class Cars {
                 .mapToInt(Car::getPoint)
                 .max()
                 .orElseThrow(IllegalStateException::new);
+    }
+
+    private List<Car> findWinners(int maxPoint) {
+        return cars.stream()
+                .filter(car -> car.getPoint() == maxPoint)
+                .toList();
     }
 
     public List<Car> getCars() {
