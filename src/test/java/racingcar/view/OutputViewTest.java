@@ -37,4 +37,18 @@ public class OutputViewTest {
 
         System.setOut(outputBackUp);
     }
+
+    @Test
+    @DisplayName("단독 우승자 발표 테스트")
+    public void announceSoloWinnerTest() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        String winnerName = "pobi";
+
+        outputView.announceSoloWinner(winnerName);
+        assertThat(outputStream.toString().trim())
+                .isEqualTo("최종 우승자 : pobi");
+
+        System.setOut(outputBackUp);
+    }
 }
