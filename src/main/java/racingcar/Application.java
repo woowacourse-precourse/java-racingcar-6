@@ -21,10 +21,20 @@ public class Application {
 
         validateInputCarName(inputCarNames);
 
-        List<String> carNames = getCarNames(inputCarNames);
+        List<Car> cars = initializeCars(inputCarNames);
 
         System.out.println(NUMBER_OF_ATTEMPTS_MESSAGE);
         int numberOfAttempts = Integer.parseInt(Console.readLine());
+    }
+
+    private static List<Car> initializeCars(String inputCarNames) {
+        List<Car> cars = new ArrayList<>();
+        List<String> carNames = getCarNames(inputCarNames);
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
+
+        return cars;
     }
 
     public static void validateInputCarName(String inputCarNames) {
