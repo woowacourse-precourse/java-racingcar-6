@@ -1,6 +1,7 @@
 package study;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -54,16 +55,15 @@ public class ValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"pobi,woni,jun,포비,우니,준"})
     void _허용되는_이름들_입력(String testString) {
-        Validator.validNameFormat(testString);
-        Validator.validSingleName(testString);
-        assertThat(true).isTrue();
+        assertThatCode(() ->{
+            Validator.validNameFormat(testString);
+            Validator.validSingleName(testString);}).doesNotThrowAnyException();
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"123", "1", "1000"})
     void _허용되는_시도_횟수_입력(String testString) {
-        Validator.validIsNumber(testString);
-        Validator.validNotZero(testString);
-        assertThat(true).isTrue();
+        assertThatCode(() -> {Validator.validIsNumber(testString);
+            Validator.validNotZero(testString);}).doesNotThrowAnyException();
     }
 }
