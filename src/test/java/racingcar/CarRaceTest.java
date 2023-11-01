@@ -37,27 +37,19 @@ public class CarRaceTest {
         assertThat(carNames).contains("car1");
     }
 
-//    @Test
-//    void shouldCarMove() {
-//        String input = "(1,2)";
-//        CarRaceModel model = new CarRaceModel();
-//        model.
-//        assertThat(result).isEqualTo("1,2");
-//    }
-
     @Test
-    void charAt_메서드로_특정_위치의_문자_찾기() {
-        String input = "abc";
-        char charAtElement = input.charAt(0);
-        assertThat(charAtElement).isEqualTo('a');
+    void testCalculateWinners_문자열_길이로_우승자_결정() {
+        CarRaceModel model = new CarRaceModel();
+        model.initialize(List.of("Car1", "Car2", "Car3"));
+        List<String> winners = model.calculateWinners();
+        assertThat(winners).containsExactly("Car1", "Car2", "Car3");
     }
 
     @Test
-    void charAt_메서드_사용시_문자열의_길이보다_큰_숫자_위치의_문자를_찾을_때_예외_발생() {
-        String input = "abc";
-
-        assertThatThrownBy(() -> input.charAt(5))
-                .isInstanceOf(StringIndexOutOfBoundsException.class)
-                .hasMessageContaining("String index out of range: 5");
+    void testCalculateMaxDistance_문자열_길이_가장_큰_값_선택() {
+        CarRaceModel model = new CarRaceModel();
+        model.initialize(List.of("Car1 : --", "Car2 : ---", "Car3 : ----"));
+        int maxDistance = model.calculateMaxDistance();
+        assertThat(maxDistance).isEqualTo(4);
     }
 }

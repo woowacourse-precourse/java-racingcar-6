@@ -1,12 +1,11 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarRaceModel {
     private List<String> results;
+
 
     public void initialize(List<String> carNames) {
         results = CarNameColon(carNames);
@@ -35,7 +34,7 @@ public class CarRaceModel {
         return winners;
     }
 
-    private int calculateMaxDistance() {
+    public int calculateMaxDistance() {
         return results.stream()
                 .map(result -> result.length() - result.replace("-", "").length())
                 .max(Integer::compare)
