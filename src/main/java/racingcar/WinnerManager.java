@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class WinnerManager {
     Car[] car;
-
     ArrayList<String> winnersList = new ArrayList<>();
     ArrayList<Integer> maxIndexList = new ArrayList<>();
     int maxIndex;
@@ -12,7 +11,6 @@ public class WinnerManager {
     public WinnerManager(Car[] car) {
         this.car = car;
     }
-
 
     public void getIndexOfMaxForwardCount() { // 가장 많이 전진한 자동차의 인덱스 구하기
         for (int i = 0; i < car.length - 1; i++) {
