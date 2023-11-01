@@ -1,7 +1,20 @@
+/**
+ * @Package_name : racingCar
+ * @Class_name : Application
+ * <p>
+ * Create Date : 2023-10-31
+ * Create User : 정은채
+ */
 package racingcar;
 
 public class Application {
+    /**
+     * Description : 자동차 경주 main 메소드
+     *
+     * @Method : main()
+     */
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        CarRace carRaceGame = new CarRace();
+        carRaceGame.carRacing();
     }
 }
