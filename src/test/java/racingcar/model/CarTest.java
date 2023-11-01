@@ -1,13 +1,16 @@
 package racingcar.model;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.ExceptionMessage;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 
 public class CarTest {
+    private final static int MOVE_NUM = 4;
+    private final static int SUCCESS_MOVE_DISTANCE = 1;
+
     @Test
     @DisplayName("Car_객체_생성")
     void createCars() {
@@ -15,8 +18,10 @@ public class CarTest {
 
         Car result = new Car(input);
 
-        assertEquals("test", result.getName());
-        assertEquals(0, result.getDistance());
+        assertThat(result.getName())
+                .isEqualTo("test");
+        assertThat(result.getDistance())
+                .isEqualTo(0);
     }
 
     @Test
@@ -24,7 +29,7 @@ public class CarTest {
     void createCarNameExceededException() {
         String input = "test66";
 
-        Assertions.assertThatThrownBy(
+        assertThatThrownBy(
                         () -> new Car(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.CAR_NAME_MAX_LENGTH_EXCEEDED
@@ -36,23 +41,25 @@ public class CarTest {
     void createCarNameEmptyException() {
         String input = "";
 
-        Assertions.assertThatThrownBy(
+        assertThatThrownBy(
                         () -> new Car(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.EMPTY_NAME
                         .getErrorMessage());
     }
 
-//    @Test
-//    @DisplayName("Car_이동")
-//    void moveCar() {
-//        Car car = new Car("test");
-//
-//        Randoms randoms = mock(Randoms.class);
-//
-//        when(randoms.pickNumberInRange(0, 9)).thenReturn(5);
-//        car.move();
-//
-//        assertEquals(1, car.getDistance());
-//    }
+    @Test
+    @DisplayName("Car_이동")
+    void moveCar() {
+        Car car = new Car("test");
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    car.move();
+                    assertThat(car.getDistance())
+                            .isEqualTo(SUCCESS_MOVE_DISTANCE);
+                },
+                MOVE_NUM
+        );
+    }
 }
