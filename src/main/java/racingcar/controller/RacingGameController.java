@@ -14,7 +14,7 @@ public class RacingGameController {
     public void run() {
         String inputCarNames = InputView.inputCarNames();
         RacingGameService racingGameService = RacingGameService.make(inputCarNames);
-        playRacingGame(racingGameService, InputView.inputTryCount());
+        playRacingGame(racingGameService, InputView.inputTryCnt());
     }
 
     private void playRacingGame(RacingGameService racingGameService, int tryCnt) {

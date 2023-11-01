@@ -14,7 +14,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static int inputTryCount() {
+    public static int inputTryCnt() {
         OutputView.printMessage(ASK_COUNT_TO_TRY);
         return Integer.parseInt(Console.readLine());
     }

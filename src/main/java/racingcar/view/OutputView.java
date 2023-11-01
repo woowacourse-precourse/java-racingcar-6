@@ -21,7 +21,7 @@ public class OutputView {
     }
 
     public static void printCarStatus(CarStatus carStatus) {
-        System.out.println(carStatus.name() + " : " + DRIVE.repeat(carStatus.movedCount()));
+        System.out.println(carStatus.name() + " : " + DRIVE.repeat(carStatus.movedCnt()));
     }
 
     public static void printWinner(List<String> winnerList) {
