@@ -8,6 +8,10 @@ import racingcar.model.Game;
 import racingcar.view.Output;
 
 public class GameService {
+    public static final int CHECK_FORWARD_NUMBER = 4;
+    public static final int MIN_RANDOM_NUMBER = 0;
+    public static final int MAX_RANDOM_NUMBER = 0;
+
     private final Output output = new Output();
 
     public Game playAllGame(Game game) {
@@ -36,18 +40,18 @@ public class GameService {
     }
 
     private void moveForwardByRandomNumber(Car car) {
-        if (generateRandomNumber() >= 4) {
+        if (generateRandomNumber() >= CHECK_FORWARD_NUMBER) {
             car.moveForward();
         }
     }
 
     private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
 
     private int getMaxPosition(List<Car> carList) {
-        int max = -1;
+        int max = Integer.MIN_VALUE;
         for (Car car : carList) {
             if (max < car.getPosition()) {
                 max = car.getPosition();
