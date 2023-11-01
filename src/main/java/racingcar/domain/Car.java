@@ -6,13 +6,6 @@ public class Car {
     private int moveCount = 0;
     private String name= "";
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public void tryToMove(){
         if (compare(generateRandomNumber())){
@@ -20,11 +13,11 @@ public class Car {
         }
     }
 
-    public int generateRandomNumber(){
+    private int generateRandomNumber(){
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber;
     }
-    public boolean compare(int x){
+    private boolean compare(int x){
         return x >=4;
     }
 
@@ -34,5 +27,13 @@ public class Car {
 
     public void setMoveCount(int moveCount) {
         this.moveCount = moveCount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

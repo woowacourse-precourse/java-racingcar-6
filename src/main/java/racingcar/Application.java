@@ -10,14 +10,23 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        List<Car> cars = new ArrayList<Car>()
+        List<Car> cars = new ArrayList<Car>();
         List<String> names = askName();
         for (int i = 0; i < 3; i++) {
             cars.get(i).setName(names.get(i));
         }
 
         int n = askCount();
+        for (int i = 0; i < n; i++) {
+            play(cars);
+        }
 
+        printResult(cars);
+    }
+    public static void play(List<Car> cars){
+        for (int i = 0; i < 3; i++) {
+            cars.get(i).tryToMove();
+        }
     }
 
     public static List<String> askName(){
@@ -35,7 +44,7 @@ public class Application {
         int n = Integer.parseInt(readLine());
         return n;
     }
-    public static void printResult(){
+    public static void printResult(List<Car> cars){
 
     }
 
