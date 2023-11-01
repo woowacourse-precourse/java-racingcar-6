@@ -42,4 +42,16 @@ public class EmceeTest {
         // Then
         assertThat(result).isEqualTo("Car1, Car3, Car5");
     }
+
+    @Test
+    void 단독_우승자_반환() {
+        // Given
+        List<String> winnerList = List.of("Car1");
+
+        // When
+        String result = emcee.returnWinner(winnerList);
+
+        // Then
+        assertThat(result).isEqualTo("Car1");
+    }
 }
