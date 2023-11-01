@@ -1,8 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.validation.CheckingInput.checkInputCount;
+import static racingcar.validation.CheckingInput.checkInputNames;
+
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.constants.SystemMessage;
-import racingcar.validation.CheckingInput;
 
 public class Game {
     private final Racing racing;
@@ -29,13 +31,13 @@ public class Game {
         System.out.println(SystemMessage.PLEASE_INPUT_CAR_NAME);
 
         String[] carNames = (Console.readLine()).split(",");
-        CheckingInput.validateInputNames(carNames);
+        checkInputNames(carNames);
         racing.setCars(carNames);
 
         System.out.println(SystemMessage.PLEASE_INPUT_ATTEMPT_NUMBER);
 
         String count = Console.readLine();
-        CheckingInput.validateInputCount((count));
+        checkInputCount((count));
         racing.setAttemptCount(count);
 
         System.out.println("\n" + SystemMessage.RACING_RESULT);
