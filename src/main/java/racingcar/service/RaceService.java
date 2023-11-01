@@ -9,13 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.RaceProgress;
 import racingcar.dto.Progress;
+import racingcar.dto.Setup;
 
 public class RaceService {
     private RaceProgress raceProgress;
+    private int tryCount;
 
 
-    public void init(List<String> carNames) {
-        raceProgress = new RaceProgress(carNames);
+    public void init(Setup setup) {
+        raceProgress = new RaceProgress(setup.carNames());
+        tryCount = setup.tryCount();
     }
 
     public List<Progress> moveCars() {
@@ -24,6 +27,7 @@ public class RaceService {
                 moveSingleCar(carName);
             }
         }
+        decreaseTryCount();
         return getCarProgressList();
     }
 
@@ -35,6 +39,7 @@ public class RaceService {
         return raceProgress.getWinners();
     }
 
+    //TODO: 이 함수에 대해서는 분리를 할 수 있을 것 같음
     private boolean canMoveForward() {
         int random = Randoms.pickNumberInRange(MOVE_MIN_RANGE.getValue(), MOVE_MAX_RANGE.getValue());
         return random >= MOVE_THRESHOLD.getValue();
@@ -47,5 +52,14 @@ public class RaceService {
             progressList.add(new Progress(carName, raceProgress.getMovedDistance(carName)));
         }
         return progressList;
+    }
+
+
+    public boolean isRaceInProgress() {
+        return tryCount > 0;
+    }
+
+    private void decreaseTryCount() {
+        this.tryCount--;
     }
 }

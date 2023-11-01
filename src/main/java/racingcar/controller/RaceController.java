@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.dto.Progress;
+import racingcar.dto.Setup;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -19,25 +20,25 @@ public class RaceController {
 
 
     public void race() {
-        int tryCount = setupRace();
-        raceWholeRound(tryCount);
+        Setup setup = setupRace();
+        raceWholeRound(setup);
         printFinalWinner();
     }
 
-    private int setupRace() {
+    private Setup setupRace() {
         inputView.printAskName();
-
         List<String> carNames = inputView.getCarNames();
-        raceService.init(carNames);
 
         inputView.printAskCount();
-        return inputView.getTryCount();
+        int tryCount = inputView.getTryCount();
+        return new Setup(tryCount, carNames);
     }
 
 
-    private void raceWholeRound(int tryCount) {
+    private void raceWholeRound(Setup setup) {
+        raceService.init(setup);
         outputView.printResultHeader();
-        while (tryCount-- > 0) {
+        while (raceService.isRaceInProgress()) {
             List<Progress> progressList = raceService.moveCars();
             outputView.printProgress(progressList);
         }
