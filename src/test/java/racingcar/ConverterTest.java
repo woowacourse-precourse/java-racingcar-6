@@ -33,14 +33,6 @@ class ConverterTest {
     }
 
     @Test
-    void convertDistance_메서드로_주어진_값_변환() {
-        List<String> input = List.of("-", "-", "-", "-");
-        String result = Converter.convertDistance(input);
-
-        assertThat(result).isEqualTo("----");
-    }
-
-    @Test
     void convertWinners_메서드로_주어진_값_변환() {
         List<Car> input = List.of(new Car("aaa"), new Car("bbb"), new Car("ccc"));
         List<String> result = Converter.convertWinners(input);

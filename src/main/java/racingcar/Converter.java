@@ -19,10 +19,10 @@ public class Converter {
         return Integer.parseInt(attempts);
     }
 
-    public static String convertDistance(List<String> distance) {
+    public static String convertDistance(int distance) {
         StringBuilder convertedDistance = new StringBuilder();
-        for (int i = 0; i < distance.size(); i++) {
-            convertedDistance.append(distance.get(i));
+        for (int i = 0; i < distance; i++) {
+            convertedDistance.append("-");
         }
         return convertedDistance.toString();
     }
