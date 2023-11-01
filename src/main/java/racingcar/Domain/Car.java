@@ -12,4 +12,12 @@ public class Car {
     public void moveForward() {
         this.movingDistance++;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getMovingDistance() {
+        return this.movingDistance;
+    }
 }
