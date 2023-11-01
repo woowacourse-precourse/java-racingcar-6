@@ -55,7 +55,7 @@ public class UserInput {
             throw new IllegalArgumentException("올바른 숫자 형식이 아닙니다.");
         }
 
-        if (parsedMoves == 0) {
+        if (parsedMoves <= 0) {
             throw new IllegalArgumentException("시도 횟수는 1이상이어야 합니다.");
         }
 
