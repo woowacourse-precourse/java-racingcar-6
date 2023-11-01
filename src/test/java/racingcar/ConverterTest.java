@@ -6,7 +6,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class ConverterTest {
-
     @Test
     void separateCarNames_메서드로_주어진_값을_구분() {
         String input = "aaa,bbb,ccc";

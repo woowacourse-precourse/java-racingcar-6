@@ -11,12 +11,14 @@ public class Converter {
     public static List<String> separateCarNames(String carNames) {
         String[] separatedCarNames = carNames.split(CAR_NAME_DELIMITER);
         Validator.validateCarNames(separatedCarNames);
+
         return new ArrayList<>(Arrays.asList(separatedCarNames));
     }
 
     public static int convertRound(String round) {
         Validator.validateRoundNumber(round);
         Validator.validateRoundRange(round);
+
         return Integer.parseInt(round);
     }
 
@@ -29,6 +31,7 @@ public class Converter {
         for (Car car : winners) {
             convertedWinners.add(car.getName());
         }
+
         return convertedWinners;
     }
 

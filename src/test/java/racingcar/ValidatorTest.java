@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 class ValidatorTest {
-
     @Test
     void validateCarNames_메서드에_범위_초과의_자동차_이름_입력시_예외_발생() {
         String[] input = {"aaa", "bbbb", "ccccccc"};
