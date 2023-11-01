@@ -51,4 +51,38 @@ public class CarService {
         this.carRepository.save(newCar);
     }
 
+
+    public String getWinnerNames() {
+        List<Car> cars = carRepository.findAll();
+        List<String> winners = new ArrayList<>();
+        findWinnerIsExist(cars).forEach(car -> winners.add(car.getName()));
+        int max = winners.size();
+        if (max == 0) {
+            return null;
+        } else if (max == 1) {
+            return winners.get(0);
+        }
+        return String.join(", ", winners);
+    }
+
+    private List<Car> findWinnerIsExist(List<Car> carList) {
+        List<Car> winners = new ArrayList<>();
+        List<Car> sortedCarList = new ArrayList<>(carList);
+        sortedCarList.sort(Comparator.comparingInt(Car::getPosition).reversed());
+        getWinner(sortedCarList, winners);
+        return winners;
+    }
+
+
+    private void getWinner(List<Car> sortedCarList, List<Car> winners) {
+        sortedCarList.forEach(c -> {
+            if (winners.isEmpty()) {
+                winners.add(c);
+                return;
+            }
+            if (winners.get(0).getPosition() == c.getPosition()) {
+                winners.add(c);
+            }
+        });
+    }
 }
