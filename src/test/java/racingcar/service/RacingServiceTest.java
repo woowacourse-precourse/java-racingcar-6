@@ -20,7 +20,7 @@ class RacingServiceTest {
 
     @Test
     void race() {
-        RacingService racingService = new RacingService();
+        RacingService racingService = RacingService.getInstance();
 
         Circuit circuit = Circuit.fromCarNames(List.of(car1, car2, car3, car4));
 
@@ -35,7 +35,7 @@ class RacingServiceTest {
 
     @Test
     void announceWinners() {
-        RacingService racingService = new RacingService();
+        RacingService racingService = RacingService.getInstance();
 
         List<Car> cars = List.of(car1, car2, car3);
 
@@ -45,7 +45,7 @@ class RacingServiceTest {
         car2.move(MoveCondition.MOVE);
         car3.move(MoveCondition.STOP);
 
-        Winners winners = racingService.announceWinners(circuit);
+        Winners winners = racingService.findWinners(circuit);
 
         assertThat(winners.names().get(0)).isEqualTo("test1");
         assertThat(winners.names().get(1)).isEqualTo("test2");

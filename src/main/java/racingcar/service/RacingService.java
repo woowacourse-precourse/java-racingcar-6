@@ -38,7 +38,7 @@ public class RacingService {
                 .toList();
     }
 
-    public Winners announceWinners(Circuit circuit) {
+    public Winners findWinners(Circuit circuit) {
         List<String> winnerNames = circuit.findTopPositionCarNames();
         return new Winners(winnerNames);
     }

@@ -21,11 +21,11 @@ public class OutputView {
     }
 
     public void printRacingResult(List<RacingResult> results) {
-        results.forEach(result -> {
+        for (RacingResult result : results) {
             String name = result.carName();
             String position = createResultDisplay(result);
             System.out.printf(Constants.OUTPUT_RESULT_FORMAT.message, name, position);
-        });
+        }
         System.out.println();
     }
 

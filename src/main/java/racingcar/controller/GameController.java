@@ -54,7 +54,7 @@ public class GameController {
     }
 
     private void announceRaceWinners(final Circuit circuit) {
-        Winners winners = racingService.announceWinners(circuit);
+        Winners winners = racingService.findWinners(circuit);
         outputView.printWinner(winners);
     }
 
