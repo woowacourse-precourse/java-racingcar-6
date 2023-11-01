@@ -24,6 +24,10 @@ public class CarNameValidator {
             throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
         }
 
+        if (isZeroCarNameExists(carNames)) {
+            throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
+        }
+
         if (isLessThanMinimumCarsCount(carNames)) {
             throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
         }
@@ -47,6 +51,10 @@ public class CarNameValidator {
 
     private static boolean isDuplicatedCarNameExists(List<String> carNames) {
         return carNames.size() != carNames.stream().distinct().count();
+    }
+
+    private static boolean isZeroCarNameExists(List<String> carNames) {
+        return carNames.stream().anyMatch(String::isEmpty);
     }
 
     private static boolean isNullCarNameExists(List<String> carNames) {
