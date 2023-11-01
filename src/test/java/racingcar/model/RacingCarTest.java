@@ -20,11 +20,21 @@ class RacingCarTest {
         RacingCar racingCar = new RacingCar("pobi");
         assertThat(racingCar).isInstanceOf(RacingCar.class);
     }
+
+    @DisplayName("이름의 시작과 끝에 공백이 포함되어 있다면 공백을 제거한다.")
+    @Test
+    void removeSpace(){
+        String name = " pobi ";
+        RacingCar result = new RacingCar(name);
+        RacingCar expected = new RacingCar(name.trim());
+        assertThat(result).isEqualTo(expected);
+    }
+
     @DisplayName("이름이 같다면 동일한 자동차로 인식한다.")
     @Test
     void equals(){
-        RacingCar expected = new RacingCar("pobi");
-        assertThat(new RacingCar("pobi")).isEqualTo(expected);
+        RacingCar result = new RacingCar("pobi");
+        assertThat(result).isEqualTo(new RacingCar("pobi"));
     }
 
     @ParameterizedTest

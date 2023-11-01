@@ -11,12 +11,16 @@ public class RacingCar {
     private final String name;
 
     public RacingCar(String name) {
+        name = removeSpace(name);
         validateName(name);
         this.name = name;
     }
 
+    private String removeSpace(String name){
+        return name.trim();
+    }
+
     private void validateName(String name){
-        name = name.trim();
         if(name.isEmpty() || name.length() > MAX_NAME_LENGTH ){
             throw new IllegalArgumentException(ExceptionResponse.RACING_CAR_NAME.getMessage());
         }
