@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
+import java.util.Arrays;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,6 +43,28 @@ class ApplicationTest extends NsTest {
                     assertThat(car.path()).isEqualTo(name + " : ---");
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 지나온_길을_문자열로_생성() {
+        int cnt = 20;
+        String name = "torch";
+        Car car = new Car(name, 0);
+        Integer[] moveArr = new Integer[cnt - 1];
+
+        Arrays.fill(moveArr, MOVING_FORWARD);
+        assertRandomNumberInRangeTest(
+                () -> {
+                    for (int i = 0; i < cnt; i++) {
+                        car.move();
+                    }
+                    assertThat(car.path()).isEqualTo(
+                            name
+                                    + " : "
+                                    + "-".repeat(cnt));
+                },
+                MOVING_FORWARD, moveArr
         );
     }
 
