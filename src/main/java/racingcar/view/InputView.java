@@ -18,6 +18,7 @@ public class InputView {
         //String playerString = in.nextLine();
 
         String playerString = Console.readLine();
+
         List<String> inputCarNameList = Stream.of(playerString.split(CAR_NAME_SEPERATOR))
                 .map(String::trim).collect(Collectors.toList());
 
@@ -28,6 +29,7 @@ public class InputView {
         try{
             //Scanner in = new Scanner(System.in); // Scanner 객체 생성
             //String playerString = in.nextLine();
+            
             String playerString = Console.readLine();
 
             Integer playerNumber = Integer.valueOf(playerString.trim());
