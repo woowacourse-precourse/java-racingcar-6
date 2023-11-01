@@ -1,0 +1,22 @@
+# Leave a blank line for each block
+# title - type(scope): <subject>
+
+
+# body
+
+
+# footer
+
+#####<Refs>#####
+# Allowed <type>:
+# feat (feature)
+# fix (bug fix)
+# docs (documentation)
+# style (formatting, adding lines, …)
+# refactor
+# test (when adding missing tests)
+# chore (maintain: git, gradle, etc...)
+# available footer:
+# BREAKING CHANGES
+# referencing issues
+################
