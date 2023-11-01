@@ -23,5 +23,14 @@ class RaceLogicTest {
 
     @Test
     void findWinner() {
+        Racer[] racers = {new Racer("pobi"), new Racer("woni")};
+        racers[0].increaseProgress();
+        racers[0].increaseProgress();
+        racers[1].increaseProgress();
+
+        List<Racer> winners = RaceLogic.findWinner(racers);
+
+        assertEquals(1, winners.size());
+        assertTrue(winners.contains(racers[0]));
     }
 }
