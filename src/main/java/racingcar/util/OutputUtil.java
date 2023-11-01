@@ -18,9 +18,10 @@ public class OutputUtil {
     private static String indicateCarInfo(Car car) {
         StringBuilder carInfoString = new StringBuilder();
 
-        carInfoString.append(car.getName()).append(" : ");
+        carInfoString.append(car.getName());
+        carInfoString.append(Constants.SPACE).append(Constants.COLON_SEPARATOR).append(Constants.SPACE);
         for (int i = 0; i < car.getPosition(); i++) {
-            carInfoString.append("-");
+            carInfoString.append(Constants.CAR_MOVEMENT_INDICATOR);
         }
 
         return carInfoString.toString();

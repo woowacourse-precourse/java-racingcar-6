@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.util.Constants;
 import racingcar.util.OutputUtil;
 import racingcar.util.RandomUtil;
 import racingcar.view.RaceProgressView;
@@ -36,10 +37,10 @@ public class RaceService {
             }
         }
 
-        result.append("최종 우승자 :");
+        result.append(Constants.winners).append(Constants.SPACE).append(Constants.COLON_SEPARATOR);
         for (Car car : carObjects) {
             if (car.getPosition() == maxPosition) {
-                result.append(" ").append(car.getName()).append(",");
+                result.append(Constants.SPACE).append(car.getName()).append(Constants.COMMA);
             }
         }
         result.deleteCharAt(result.length() - 1);

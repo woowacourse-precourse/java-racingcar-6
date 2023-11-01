@@ -1,8 +1,7 @@
 package racingcar.util;
 
-import java.util.List;
-
 public class InputUtil {
+
     public static String[] splitCarName(String carName) {
         return validateCarName(carName);
     }
@@ -12,7 +11,7 @@ public class InputUtil {
 
         for (String carNameStr : carNameStrings) {
             if (carNameStr.length() > 5 || carNameStr.isEmpty()) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능하다.");
+                throw new IllegalArgumentException(Constants.CAR_NAME_LONGER_THAN_5_EXCEPTION);
             }
         }
 
@@ -29,11 +28,11 @@ public class InputUtil {
         try {
             lap = Integer.parseInt(raceLap);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("랭킹 수는 숫자만 입력 가능하다.");
+            throw new IllegalArgumentException(Constants.LAP_NO_INTEGER_INPUT_EXCEPTION);
         }
-        
+
         if (lap <= 0) {
-            throw new IllegalArgumentException("랭킹 수는 1 이상의 정수만 입력 가능하다.");
+            throw new IllegalArgumentException(Constants.LAP_NOT_POSITIVE_INTEGER_EXCEPTION);
         }
 
         return lap;

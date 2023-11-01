@@ -1,16 +1,17 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.Constants;
 
 public class RaceStartView {
 
     public String getCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Constants.INPUT_CAR_NAME_PROMPT);
         return Console.readLine();
     }
 
     public String getRaceLap() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Constants.INPUT_RACE_LAP_PROMPT);
         return Console.readLine();
     }
 }
