@@ -29,7 +29,7 @@ class CarPositionManagerTest {
         CarPositionManager manager = new InMemoryCarPositionManager();
 
         Car savedCarSource = new Car(new CarName("a"));
-        SavedCar car = new SavedCar(savedCarSource, CarKey.of(savedCarSource.getCarName()));
+        SavedCar car = new SavedCar(savedCarSource, CarKey.of(1L));
         Long position = 1L;
 
         // when
@@ -48,9 +48,9 @@ class CarPositionManagerTest {
         Car savedCarSource1 = new Car(new CarName("a"));
         Car savedCarSource2 = new Car(new CarName("b"));
         Car savedCarSource3 = new Car(new CarName("c"));
-        SavedCar car1 = new SavedCar(savedCarSource1, CarKey.of(savedCarSource1.getCarName()));
-        SavedCar car2 = new SavedCar(savedCarSource2, CarKey.of(savedCarSource2.getCarName()));
-        SavedCar car3 = new SavedCar(savedCarSource3, CarKey.of(savedCarSource3.getCarName()));
+        SavedCar car1 = new SavedCar(savedCarSource1, CarKey.of(1L));
+        SavedCar car2 = new SavedCar(savedCarSource2, CarKey.of(2L));
+        SavedCar car3 = new SavedCar(savedCarSource3, CarKey.of(3L));
         Long car1Position = 1L;
         Long car2Position = 2L;
         Long car3Position = 3L;
@@ -75,7 +75,7 @@ class CarPositionManagerTest {
         CarPositionManager manager = new InMemoryCarPositionManager();
 
         Car savedCarSource = new Car(new CarName("a"));
-        SavedCar car = new SavedCar(savedCarSource, CarKey.of(savedCarSource.getCarName()));
+        SavedCar car = new SavedCar(savedCarSource, CarKey.of(1L));
         Long position = 1L;
         manager.save(car, position);
 
@@ -92,7 +92,7 @@ class CarPositionManagerTest {
         // given
         CarPositionManager manager = new InMemoryCarPositionManager();
         Car savedCarSource = new Car(new CarName("a"));
-        SavedCar car = new SavedCar(savedCarSource, CarKey.of(savedCarSource.getCarName()));
+        SavedCar car = new SavedCar(savedCarSource, CarKey.of(1L));
         Long position = 1L;
         manager.save(car, position);
 
@@ -102,7 +102,7 @@ class CarPositionManagerTest {
         Car notFoundCar = new Car(new CarName("b"));
         assertAll(() -> assertEquals(position, manager.findByCar(car).getPosition()),
             () -> assertThrows(NotFoundSourceException.class, () -> manager.findByCar(
-                new SavedCar(notFoundCar, CarKey.of(notFoundCar.getCarName())))));
+                new SavedCar(notFoundCar, CarKey.of(4L)))));
     }
 
     @Test
@@ -113,8 +113,8 @@ class CarPositionManagerTest {
 
         Car savedCarSource1 = new Car(new CarName("a"));
         Car savedCarSource2 = new Car(new CarName("b"));
-        SavedCar car1 = new SavedCar(savedCarSource1, CarKey.of(savedCarSource1.getCarName()));
-        SavedCar car2 = new SavedCar(savedCarSource2, CarKey.of(savedCarSource2.getCarName()));
+        SavedCar car1 = new SavedCar(savedCarSource1, CarKey.of(1L));
+        SavedCar car2 = new SavedCar(savedCarSource2, CarKey.of(2L));
         Long car1Position = 1L;
         Long car2Position = 2L;
 

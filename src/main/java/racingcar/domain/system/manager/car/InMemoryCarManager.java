@@ -27,7 +27,7 @@ public class InMemoryCarManager implements CarManager {
     public SavedCar save(BasicCar car) {
         validate(car);
         int inputOrderIdx = cars.size();
-        CarKey key = CarKey.of(car.getCarName(), inputOrderIdx + 1L);
+        CarKey key = CarKey.of(inputOrderIdx + 1L);
         SavedCar savedCar = new SavedCar(car, key);
         cars.put(key, savedCar);
         return savedCar;
