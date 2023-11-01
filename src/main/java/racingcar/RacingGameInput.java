@@ -28,7 +28,12 @@ public class RacingGameInput {
     public int getTryNumberInput(){
 
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
-
+        int tryNumber = 0;
+        try{
+            tryNumber = Integer.parseInt(Console.readLine());
+        } catch (IllegalArgumentException e){
+            throw new IllegalArgumentException("숫자를 입력하지 않았습니다.");
+        }
+        return tryNumber;
     }
 }
