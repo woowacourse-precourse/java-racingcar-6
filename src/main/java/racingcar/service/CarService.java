@@ -20,10 +20,12 @@ public class CarService {
         String[] cars_name = input_cars_name.split(",");
         for(String name : cars_name){
             name = name.strip();
-            if(name.length() > 5)
+
+            if(name.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 1~5자만 가능합니다.");
-            else if(name.length() < 1)
+            } else if(name.length() < 1) {
                 throw new IllegalArgumentException("공백만을 이름으로 지정할 수 없습니다.");
+            }
         }
         return cars_name;
     }
