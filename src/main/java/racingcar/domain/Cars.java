@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import org.junit.platform.commons.util.StringUtils;
-import racingcar.util.RandomNumberGenerator;
 
 import java.util.*;
 
