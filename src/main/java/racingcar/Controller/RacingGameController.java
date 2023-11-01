@@ -1,12 +1,11 @@
 package racingcar.Controller;
 
 import racingcar.Model.Car;
+import racingcar.Model.RandomNumberGenerator;
 import racingcar.View.RacingGameView;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class RacingGameController {

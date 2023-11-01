@@ -1,5 +1,5 @@
 package racingcar.Model;
 
-public interface RadomNumberGenerator {
+public interface RandomNumberGenerator {
     int nextInt(int bound);
 }

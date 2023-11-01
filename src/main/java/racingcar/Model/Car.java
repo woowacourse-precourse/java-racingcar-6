@@ -5,12 +5,12 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private String name;
     private int position;
-    private RadomNumberGenerator radomNumberGenerator;
+    private RandomNumberGenerator randomNumberGenerator;
 
     public Car(String name){
         this.name=name;
         this.position=0;
-        this.radomNumberGenerator=radomNumberGenerator;
+        this.randomNumberGenerator=new RandomNumberGenertorImpI();
     }
 
     public String getName() {
