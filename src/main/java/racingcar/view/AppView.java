@@ -20,9 +20,9 @@ public class AppView {
         return Console.readLine();
     }
 
-
     public static String inputNumberOfTurns () {
-        return "";
+        outputLine("시도할 횟수는 몇회인가요?");
+        return Console.readLine();
     }
 
     public static void outputStartRacing () {

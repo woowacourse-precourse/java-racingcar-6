@@ -30,6 +30,13 @@ public class AppController {
             throw new IllegalArgumentException();
         }
         cars = ScoreBoardGenerator.initScoreBoard(inputNames);
+        try {
+            inputNumber = AppView.inputNumberOfTurns();
+            InputValidate.isValidNumber(inputNumber);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+        totalRound = new BigInteger(inputNumber);
     }
 
     public static void startRacing () {

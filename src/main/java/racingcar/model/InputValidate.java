@@ -1,7 +1,7 @@
 package racingcar.model;
 
 public class InputValidate {
-    final static String REGREX = "";
+    final static String REGREX = "^[0-9]+$";
 
     public static String[] isValidParticipant (String[] nameList) {
         if (checkUnderBound(nameList) && checkName(nameList)) {
@@ -10,7 +10,9 @@ public class InputValidate {
     }
 
     public static String isValidNumber (String inputNumber) {
-        return "";
+        if (inputNumber.matches(REGREX)) {
+            return inputNumber;
+        } throw new IllegalArgumentException();
     }
 
     private static boolean checkUnderBound (String[] nameList) {
