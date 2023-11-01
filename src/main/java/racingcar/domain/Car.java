@@ -8,7 +8,7 @@ public class Car {
         this.name = name;
     }
 
-    public void move(Integer power){
+    public void move(Integer power) {
         if (power >= 4) position++;
     }
 

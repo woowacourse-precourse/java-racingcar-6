@@ -20,7 +20,7 @@ public class RacingGameController {
     private RacingGame gameInitialize() {
         List<String> nameList = getCarNameListWithRetry();
         List<Car> carList = null;
-        while(true) {
+        while (true) {
             try {
                 carList = carService.createCars(nameList);
                 break;

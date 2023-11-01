@@ -2,7 +2,6 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.Validation;
-import racingcar.utils.constant.message.ErrorMessage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,9 +13,10 @@ public class InputView {
     public Integer playCount() {
         String input = Console.readLine();
         validation.isNumeric(input);
-        return Integer.parseInt(input);
+        int count = Integer.parseInt(input);
+        validation.checkPlayCount(count);
+        return count;
     }
-
 
     public List<String> carNameList() {
         String name = Console.readLine();

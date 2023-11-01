@@ -30,5 +30,11 @@ public class Validation {
             throw new IllegalArgumentException(ErrorMessage.TOO_LONG.getMessage());
         }
     }
+
+    public void checkPlayCount(int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.MORE_THAN_ZERO.getMessage());
+        }
+    }
 }
 
