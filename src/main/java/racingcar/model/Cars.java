@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.enums.GameConstant;
+import racingcar.enums.OutputMessage;
 
 public class Cars {
     private List<Car> carList;
@@ -61,6 +62,17 @@ public class Cars {
 
     public Integer size() {
         return this.carListSize;
+    }
+
+    public String getForwardResultMessageAll() {
+        String result = "";
+
+        for (Car car : this.carList) {
+            result += car.toString();
+            result += OutputMessage.LINE_FEED.getMessage();
+        }
+
+        return result;
     }
 
     @Override
