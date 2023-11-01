@@ -4,10 +4,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.constant.CarConstant.CAR_CAN_GO_NUMBER;
 import static racingcar.constant.CarConstant.CAR_START_POSITION;
 
+import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
 
 class CarTest {
@@ -28,7 +29,7 @@ class CarTest {
 
     @DisplayName("숫자 " + CAR_CAN_GO_NUMBER + "이상일 떄 이동할 수 있다.")
     @ParameterizedTest
-    @ValueSource(ints = {4,5,6,10,100,1000,99999})
+    @MethodSource
     void go(int number) {
         // given
         Car car = Car.from("car");
@@ -41,9 +42,14 @@ class CarTest {
         car.isHere(new Position(1));
     }
 
+    static Stream<Integer> go() {
+        return Stream.iterate(CAR_CAN_GO_NUMBER, n -> n * 10)
+                .limit(6);
+    }
+
     @DisplayName("숫자 " + CAR_CAN_GO_NUMBER + "미만 이동 불가능")
     @ParameterizedTest
-    @ValueSource(ints = {-999,-1,0,1,2,3})
+    @MethodSource
     void hold(int number) {
         // given
         Car car = Car.from("1234");
@@ -54,6 +60,12 @@ class CarTest {
         // then
         assertThat(car.getPosition()).isEqualTo(new Position(CAR_START_POSITION));
         assertThat(car.isHere(new Position(CAR_START_POSITION))).isTrue();
+    }
+
+    static Stream<Integer> hold() {
+        return Stream.iterate(CAR_CAN_GO_NUMBER, n -> n - 1)
+                .skip(1)
+                .limit(10);
     }
 
     @DisplayName("재할당으로부터 보호된다.")
