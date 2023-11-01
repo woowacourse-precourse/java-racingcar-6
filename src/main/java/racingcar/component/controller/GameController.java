@@ -29,7 +29,11 @@ public class GameController {
     }
 
     private void doGame() {
-        raceSimulator.simulate(this.carList.getCarList(), this.duration);
+        System.out.println("\n실행 결과");
+
+        while (duration-- > 0) {
+            raceSimulator.simulate(this.carList.getCarList());
+        }
         printer.winner(this.carList.getCarList());
     }
 
@@ -38,5 +42,4 @@ public class GameController {
                 .collect(Collectors.toList()));
         this.duration = inputter.getDuration();
     }
-
 }

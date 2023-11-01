@@ -19,14 +19,7 @@ public class RaceSimulator {
         return raceSimulator;
     }
 
-    public void simulate(List<Car> cars, int duration) {
-        System.out.println("\n실행 결과");
-        while (duration-- > 0) {
-            oneLoop(cars);
-        }
-    }
-
-    private void oneLoop(List<Car> cars) {
+    public void simulate(List<Car> cars) {
         for (Car car : cars) {
             if (canGo()) {
                 car.go();
