@@ -23,7 +23,7 @@ public class GlobalExceptionHandler implements RacingCarConst {
             Integer.parseInt(racingCount);
             return true;
         } catch (NumberFormatException e) {
-            return false;
+            throw new IllegalArgumentException();
         }
     }
 }
