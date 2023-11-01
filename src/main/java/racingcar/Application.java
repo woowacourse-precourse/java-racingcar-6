@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.List;
+
 public class Application {
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MIN_ROUND = 0;
@@ -19,6 +21,8 @@ public class Application {
         for (int i = 0; i < round; i++) {
             playOneRound(cars);
         }
+        ist<String> winners = determineWinners(cars);
+        printWinners(winners);
     }
 
     private static String[] readCarNames() {
@@ -61,5 +65,13 @@ public class Application {
             car.printDistance();
         }
         System.out.println();
+    }
+
+    private static void printWinners(List<String> winners) {
+        StringBuilder result = new StringBuilder("최종 우승자 : ");
+        for (String winner : winners) {
+            result.append(winner).append(", ");
+        }
+        System.out.println(result.substring(0, result.length() - 2));
     }
 }
