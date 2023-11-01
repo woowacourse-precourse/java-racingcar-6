@@ -70,7 +70,7 @@ public class Application {
 
         for (int i = 0; i < tryCount; i++) {
             for (int j = 0; j < car.size(); j++) {
-                addPosition(position, j);
+                updatePosition(position, j);
             }
 
             for (int j = 0; j < car.size(); j++) {
@@ -89,7 +89,7 @@ public class Application {
         return forwardRandomValue >= 4;
     }
 
-    private static void addPosition(List<Integer> position, int index) {
+    private static void updatePosition(List<Integer> position, int index) {
         if (canMoveForward()) {
             position.set(index, position.get(index) + 1);
         }
