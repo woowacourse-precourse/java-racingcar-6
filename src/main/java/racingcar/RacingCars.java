@@ -6,10 +6,11 @@ import java.util.List;
 import racingcar.enums.ErrorMessages;
 
 public class RacingCars {
+    private static final String DELIMITER = ",";
     private final List<RacingCar> racingCars = new ArrayList<>();
 
     public RacingCars(String nameInput) {
-        String[] carNames = nameInput.split(",", -1);
+        String[] carNames = nameInput.split(DELIMITER, -1);
 
         for (String carName : carNames) {
             racingCars.add(new RacingCar(carName.trim()));
