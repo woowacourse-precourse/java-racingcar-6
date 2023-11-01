@@ -50,7 +50,7 @@ public class InputUtils {
         try {
             carNameInput = Console.readLine();
         } catch (NoSuchElementException noSuchElementException) {
-            Exception.generateInvalidCarNumberException();
+            Exception.generateGeneralInputError();
         }
         return carNameInput;
     }
