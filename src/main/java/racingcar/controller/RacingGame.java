@@ -50,17 +50,15 @@ public class RacingGame {
     }
 
     private void play(int rounds) {
-
+        UserOutput.showResult();
         for (int i = 0; i < rounds; i++) {
             playRound();
         }
-        UserOutput.printNewLine();
     }
 
     private void playRound() {
         moveAllCars();
         displayAllCars();
-        UserOutput.printNewLine();
     }
 
     private void moveAllCars() {
@@ -74,9 +72,16 @@ public class RacingGame {
         for (Car car : cars) {
             UserOutput.displayCar(car);
         }
+        UserOutput.printNewLine();
     }
 
     private List<String> getWinners() {
+        if (getMaxPosition() == 0) {
+            return cars.stream()
+                    .filter(car -> car.getPosition() == getMaxPosition())
+                    .map(Car::getName)
+                    .collect(Collectors.toList());
+        }
         return cars.stream()
                 .filter(car -> car.getPosition() == getMaxPosition())
                 .map(Car::getName)
@@ -87,7 +92,7 @@ public class RacingGame {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElse(-1);
+                .orElse(0);
     }
 
 }
