@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.dto.InitDto;
 import racingcar.repository.Repository;
 import racingcar.view.OutputView;
 
@@ -13,13 +14,15 @@ import static racingcar.constant.NumberConstant.*;
 
 public class RacingServiceImpl implements RacingService {
     private final Repository repository;
+    private final NumberGenerateService numberGenerateService;
     private final List<Car> cars;
     private final int times;
 
-    public RacingServiceImpl(List<Car> cars, int times, Repository repository) {
-        this.cars = cars;
-        this.times = times;
+    public RacingServiceImpl(InitDto initDto, Repository repository, NumberGenerateService numberGenerateService) {
+        this.cars = initDto.getCars();
+        this.times = initDto.getTimes();
         this.repository = repository;
+        this.numberGenerateService = numberGenerateService;
     }
 
     @Override
@@ -32,8 +35,7 @@ public class RacingServiceImpl implements RacingService {
 
     private void progressOnceTime() {
         for (Car car : cars) {
-            int randomValue = Randoms.pickNumberInRange(MIN_NUMBER.getNumber(), MAX_NUMBER.getNumber());
-            repository.moveForward(car, randomValue);
+            repository.moveForward(car, numberGenerateService.randomNumber());
             OutputView.gameProgress(car);
         }
         OutputView.skipLine();

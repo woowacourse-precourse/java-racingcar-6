@@ -5,10 +5,7 @@ import racingcar.controller.InitController;
 import racingcar.dto.InitDto;
 import racingcar.repository.CarRepositoryImpl;
 import racingcar.repository.Repository;
-import racingcar.service.InputService;
-import racingcar.service.InputServiceImpl;
-import racingcar.service.RacingService;
-import racingcar.service.RacingServiceImpl;
+import racingcar.service.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -18,7 +15,8 @@ public class Application {
         InitController initController = new InitController(inputService);
         InitDto initDto = initController.gameInit();
 
-        RacingService racingService = new RacingServiceImpl(initDto.getCars(), initDto.getTimes(), repository);
+        NumberGenerateService numberGenerateService = new NumberGenerateServiceImpl();
+        RacingService racingService = new RacingServiceImpl(initDto, repository, numberGenerateService);
 
         ProgressController progressController = new ProgressController(racingService);
         progressController.gameProgress();
