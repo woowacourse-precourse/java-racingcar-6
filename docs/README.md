@@ -2,7 +2,8 @@
 
 - [ ] 사용자가 입력한 자동차 이름을 기준 문자로 구분 - `NameSeparator#separateNamesByComma`
     - [ ] 예외) 이름이 5자 이하인지 - `Validator#validateNameLengthLessThanEqualToFive`
-    - [ ] 예외) 이름을 빈 값으로 설정하지 않았는지 - `Validator#validateNameNotEmpty`
+    - [ ] 예외) 이름을 빈 값으로 설정하지 않았는지 - `Validator#validateNameNotBlank`
+    - [ ] 예외) 이름 마지막 글자가 쉼표인지 - `Validator#validateNotEndsWithComma`
 - [ ] 예외) 사용자가 몇 번의 이동을 할 것인지 입력한 값이 숫자인지 - `Validator#validateMoveCountNumber`
 - [ ] 자동차들의 정보를 저장하고, 관리 - `CarManager`
 - [ ] 자동차들에게 전진 명령 - `CarManager#orderCarsMoveForward`
