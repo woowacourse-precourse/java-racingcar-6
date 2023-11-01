@@ -13,7 +13,7 @@ public class GameStartTest {
         String input = "Car1,Car2,Car3";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        List<String> carList = GameStart.start();
+        List<String> carList = GameStart.userInput();
 
         assertThat(carList).isNotEmpty();
         assertThat(carList).hasSize(3);
