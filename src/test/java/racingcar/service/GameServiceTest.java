@@ -6,31 +6,32 @@ import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.domain.Car.createCarByCarName;
 import static racingcar.domain.Game.createGame;
 
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import racingcar.domain.Car;
 import racingcar.domain.Game;
-import racingcar.dto.GameResult;
+import racingcar.dto.CarResult;
 
-public class GameServiceTest {
+class GameServiceTest {
     private CarService carService;
     private GameService gameService;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         carService = new CarService();
         gameService = new GameService(carService);
     }
 
     @Test
     @DisplayName("입력된 차량이름과 횟수가 게임으로 등록되고도 같은 값이 나와야한다.")
-    public void testSettingGame() {
+    void testSettingGame() {
         //given
         List<String> carNameList = Arrays.asList("Car1", "Car2", "Car3");
         int count = 5;
@@ -39,21 +40,21 @@ public class GameServiceTest {
         Game game = gameService.settingGame(carNameList, count);
 
         //then
-        List<Car> carList = carService.registerCarList(carNameList);
+        List<String> carNameByGame = game.getCarList().stream().map(Car::getName).toList();
 
-        assertThat(game.getCarList()).isEqualTo(carList);
+        assertThat(carNameByGame).isEqualTo(carNameList);
         assertThat(game.getCount()).isEqualTo(count);
     }
     @Test
     @DisplayName("3개의 차가 게임을 시작하면, 3개의 결과 값이 나와야한다.")
-    public void testStartGame() {
+    void testStartGame() {
         //given
         List<Car> carList = Arrays.asList(createCarByCarName("Car1"), createCarByCarName("Car2"),
                 createCarByCarName("Car3"));
         Game game = createGame(carList, 5);
 
         //when
-        List<GameResult> gameResults = gameService.startGame(game);
+        List<CarResult> gameResults = gameService.startGame(game);
 
         //then
         assertEquals(3, gameResults.size());

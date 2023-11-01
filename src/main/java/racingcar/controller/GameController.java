@@ -3,7 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.Game;
-import racingcar.dto.GameResult;
+import racingcar.dto.CarResult;
 import racingcar.resolver.InputResolver;
 import racingcar.service.GameService;
 import racingcar.view.OutputView;
@@ -35,8 +35,8 @@ public class GameController {
         outputView.outputResultString();
 
         for (int i = 0; i < game.getCount(); i++) {
-            List<GameResult> gameResults = gameService.startGame(game);
-            outputView.outputGameResult(gameResults);
+            List<CarResult> carResults = gameService.startGame(game);
+            outputView.outputGameResult(carResults);
         }
     }
 

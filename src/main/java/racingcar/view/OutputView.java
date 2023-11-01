@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.dto.GameResult;
+import racingcar.dto.CarResult;
 
 public class OutputView {
     public void outputResultString() {
@@ -9,7 +9,7 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public void outputGameResult(List<GameResult> gameResults) {
+    public void outputGameResult(List<CarResult> gameResults) {
         gameResults
                 .forEach(gameResult -> {
                     System.out.println(gameResult.getCarName() + " : " + "-".repeat(gameResult.getCarDistances()));

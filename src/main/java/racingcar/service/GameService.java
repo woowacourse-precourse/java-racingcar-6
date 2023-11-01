@@ -2,10 +2,10 @@ package racingcar.service;
 
 
 import static racingcar.domain.Game.createGame;
-import static racingcar.dto.GameResult.createGameResult;
+import static racingcar.dto.CarResult.createCarResult;
 
 import java.util.List;
-import racingcar.dto.GameResult;
+import racingcar.dto.CarResult;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 
@@ -23,14 +23,14 @@ public class GameService {
     }
 
 
-    public List<GameResult> startGame(Game game) {
+    public List<CarResult> startGame(Game game) {
         game.updateCarsMove();
-        return createGameResults(game.getCarList());
+        return createCarResults(game.getCarList());
     }
 
-    private List<GameResult> createGameResults(List<Car> carList) {
+    private List<CarResult> createCarResults(List<Car> carList) {
         return carList.stream()
-                .map(car -> createGameResult(car.getName(), car.getDistances()))
+                .map(car -> createCarResult(car.getName(), car.getDistances()))
                 .toList();
     }
 

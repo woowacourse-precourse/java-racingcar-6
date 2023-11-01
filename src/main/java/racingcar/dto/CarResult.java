@@ -1,17 +1,17 @@
 package racingcar.dto;
 
-public class GameResult {
+public class CarResult {
     private String carName;
     private int carDistances;
 
-    private GameResult() {}
+    private CarResult() {}
 
-    public static GameResult createGameResult(String carName, int carDistances) {
-        GameResult gameResult = new GameResult();
-        gameResult.carName = carName;
-        gameResult.carDistances = carDistances;
+    public static CarResult createCarResult(String carName, int carDistances) {
+        CarResult carResult = new CarResult();
+        carResult.carName = carName;
+        carResult.carDistances = carDistances;
 
-        return gameResult;
+        return carResult;
     }
 
     public String getCarName() {
