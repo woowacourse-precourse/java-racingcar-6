@@ -12,9 +12,6 @@
     생성자 정의  
     각 차량에 대한 이동 시도를 run 메서드로 구현   
   - feat(Race): Implement Race class
-- [ ] RandomUtil 클래스 구현
-  - 0-9 사이의 랜덤한 숫자를 반환하는 메서드 구현
-  - feat(Utils): Add RandomUtil class for generating random numbers
 - [ ] ValidationUtil 클래스 구현
   -  사용자 입력값을 검증하는 메서드 구현 (이름의 길이, 시도 회수의 유효성 등)
   - feat(Utils): Add ValidationUtil for input validation
