@@ -48,4 +48,17 @@ public class RacingServiceTest {
                         "woni : ---\n" +
                         "jun : -----\n\n");
     }
+
+    @Test
+    void pickWinner_중복_우승자인_경우() {
+        List<Car> cars = Arrays.asList(
+                new Car("pobi", 4),
+                new Car("woni", 3),
+                new Car("jun", 4)
+        );
+
+        List<String> winners = racingService.pickWinner(cars);
+
+        assertThat(winners).containsOnly("pobi","jun");
+    }
 }
