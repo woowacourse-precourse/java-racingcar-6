@@ -1,7 +1,10 @@
 package racingcar;
 
 public class Car {
+    private static final int MOVE_CONDITION = 4;
+
     GameManager gameManager = new GameManager();
+
     private final String carName;
     private int position;
 
@@ -19,7 +22,7 @@ public class Car {
     }
 
     public void move() {
-        if (gameManager.createRandomNumber() >= 4) {
+        if (gameManager.createRandomNumber() >= MOVE_CONDITION) {
             position++;
         }
     }
