@@ -1,6 +1,7 @@
 package racingcar.domain.raingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import racingcar.constant.ErrorMessage;
 
@@ -13,12 +14,8 @@ public class RacingCars {
     }
 
     public static RacingCars fromNames(String[] inputs) {
-        List<RacingCar> newCars = new ArrayList<>();
 
-        for (String input : inputs) {
-            newCars.add(new RacingCar(input));
-        }
-
+        List<RacingCar> newCars = Arrays.stream(inputs).map(RacingCar::new).toList();
         return new RacingCars(newCars);
     }
 
@@ -26,23 +23,23 @@ public class RacingCars {
         return cars;
     }
 
+    public Integer getSize() {
+        return cars.size();
+    }
+
     public Integer getMaxPosition() {
-        return cars
-                .stream()
-                .mapToInt(RacingCar::getPosition)
-                .max().getAsInt();
+        return cars.stream().mapToInt(RacingCar::getPosition).max().getAsInt();
     }
 
     private List<RacingCar> verified(List<RacingCar> cars) {
         List<String> uniqueCarNames = new ArrayList<>();
 
-        for (RacingCar car : cars) {
+        cars.forEach(car -> {
             if (uniqueCarNames.contains(car.getName())) {
-                throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATE_ERROR);
+                throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATION_ERROR);
             }
-
             uniqueCarNames.add(car.getName());
-        }
+        });
 
         return cars;
     }
