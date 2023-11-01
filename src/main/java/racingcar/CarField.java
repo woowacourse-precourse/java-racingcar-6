@@ -49,7 +49,8 @@ public class CarField {
     private int maxScore() {
         int winnerScore = cars.stream()
                 .mapToInt(Car::nowScore)
-                .max().orElseThrow();
+                .max()
+                .orElseThrow();
 
         return winnerScore;
     }
