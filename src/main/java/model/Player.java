@@ -20,9 +20,6 @@ public class Player {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public int getRandomNumber() {
         return randomNumber;
@@ -32,7 +29,7 @@ public class Player {
         this.randomNumber = randomNumber;
     }
 
-    public String getDistanceLine() {
+    public String ReturnDistanceLine() {
         if(this.randomNumber >= 4) {
             distanceLine = distanceLine + "-";
             distance++;

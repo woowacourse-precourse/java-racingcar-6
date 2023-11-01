@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,31 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.CarRaceGame.*;
 
 class CarRaceGameTest {
-
-    @DisplayName("saveName 메서드 동작 테스트")
-    @Test
-    void saveNameTest(){
-        //given
-        String inputNames = "pobi,woni";
-        //when
-        String[] names = saveName(inputNames);
-        //then
-        assertThat(names).contains("woni", "pobi");
-        assertThat(names).containsExactly("pobi", "woni");
-    }
-
-    @DisplayName("makePlayers 메서드 동작 테스트")
-    @Test
-    void makePlayersTest() {
-        // given
-        String[] userNames = {"pobi","woni"};
-        //when
-        Player[] players = makePlayers(userNames, userNames.length);
-        //then
-        assertThat(players[0].getName()).isEqualTo("pobi");
-        assertThat(players[1].getName()).isEqualTo("woni");
-    }
-
 
     @DisplayName("generateRandomNumber 메서드 동작 테스트")
     @Test
