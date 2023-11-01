@@ -15,4 +15,15 @@ public class Judgement {
         }
         return maxValue;
     }
+    public List<Car> findWinner(List<Car> carList) {
+        List<Car> winnerList = new ArrayList<>();
+        int maxValue = findMaxLocation(carList);
+        for (Car car : carList) {
+            int carLocation = car.getLocation();
+            if (maxValue == carLocation) {
+                winnerList.add(car);
+            }
+        }
+        return winnerList;
+    }
 }
