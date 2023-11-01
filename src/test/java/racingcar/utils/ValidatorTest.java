@@ -23,6 +23,14 @@ class ValidatorTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 입력_횟수_숫자가_아닐떄_예외처리() {
+        String inputName = "a12";
+        assertThatThrownBy(() -> {
+            Validator.InputRaceCount(inputName);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
 
 
 
