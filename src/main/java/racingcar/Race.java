@@ -27,6 +27,14 @@ public class Race {
         }
     }
 
+    public List<Status> getCurrentStatus() {
+        List<Status> currentStatus = new ArrayList<>();
+        for (Car car : cars) {
+            currentStatus.add(new Status(car.getName(), car.getDistance()));
+        }
+        return currentStatus;
+    }
+
     public int getMaxDistance() {
         int max = 0;
         for (Car car : cars) {
