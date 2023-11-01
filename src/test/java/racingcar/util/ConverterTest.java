@@ -44,6 +44,15 @@ class ConverterTest {
     }
 
     @Test
+    void 단독_우승자를_변환한다() {
+        Cars winners = new Cars(
+                List.of(new Car("pobi"))
+        );
+        String result = Converter.formatWinnersResult(winners);
+        assertThat(result).isEqualTo("pobi");
+    }
+
+    @Test
     void 공동_우승자를_변환한다() {
         Cars winners = new Cars(
                 List.of(new Car("pobi"), new Car("woni"), new Car("jun"))
