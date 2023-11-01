@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Race {
+    private static final String RESULT_MESSAGE = "\n실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String DELIMITER = ", ";
+
     private final List<Car> cars;
     private final Integer round;
 
@@ -18,7 +22,7 @@ public class Race {
     }
 
     private void begin() {
-        System.out.println("\n실행 결과");
+        System.out.println(RESULT_MESSAGE);
         for (int i = 0; i < round; i++) {
             round();
         }
@@ -35,8 +39,8 @@ public class Race {
     }
 
     private void result() {
-        System.out.println("최종 우승자 : " +
-                String.join(", ", getWinners().stream()
+        System.out.println(WINNER_MESSAGE +
+                String.join(DELIMITER, getWinners().stream()
                         .map(Car::getName)
                         .toList())
         );
