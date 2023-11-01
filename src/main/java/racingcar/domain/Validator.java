@@ -17,8 +17,12 @@ public class Validator {
         for (String name : names) {
             checkNameLength(name);
         }
-
         checkDuplicates(names);
+    }
+
+    public static void validateTryNumber(String tryNumber) {
+        checkNotNumber(tryNumber);
+        checkPositiveNumber(tryNumber);
     }
 
     private static void checkEmpty(String carNames) {
@@ -57,6 +61,18 @@ public class Validator {
         if (!Arrays.stream(names)
                 .allMatch(unique::add)) {
             throw new IllegalArgumentException(ExceptionMessage.DUPLICATE_ERROR);
+        }
+    }
+
+    private static void checkNotNumber(String tryNumber) {
+        if (tryNumber == null || !tryNumber.matches("\\d+")) {
+            throw new IllegalArgumentException(ExceptionMessage.NOT_NUMBER_ERROR);
+        }
+    }
+
+    private static void checkPositiveNumber(String tryNumber) {
+        if (Integer.parseInt(tryNumber) <= 0) {
+            throw new IllegalArgumentException(ExceptionMessage.NEGATIVE_NUMBER_ERROR);
         }
     }
 }

@@ -17,6 +17,7 @@ public class InputView {
 
     public static int readTryNumber() {
         String tryNumber = Console.readLine();
+        Validator.validateTryNumber(tryNumber);
 
         return Integer.parseInt(tryNumber);
     }
