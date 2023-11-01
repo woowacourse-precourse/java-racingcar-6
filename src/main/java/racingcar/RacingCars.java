@@ -32,23 +32,21 @@ public class RacingCars {
     }
 
     public List<String> findWinners() {
-        int maxDistance = 0;
-        List<String> winners = new ArrayList<>();
+        RacingCar maxDistanceRacingCar = findMaxDistance();
 
-        for (RacingCar racingCar : racingCars) {
-            String name = racingCar.getName();
-            int distance = racingCar.getDistance();
+        return findSameDistanceRacingCar(maxDistanceRacingCar);
+    }
 
-            if (distance == maxDistance) {
-                winners.add(name);
-            }
-            if (distance > maxDistance) {
-                winners.clear();
-                winners.add(name);
-                maxDistance = distance;
-            }
-        }
+    private RacingCar findMaxDistance() {
+        return racingCars.stream()
+                .max(RacingCar::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException("차가 없습니다."));
+    }
 
-        return winners;
+    private List<String> findSameDistanceRacingCar(RacingCar maxDistanceRacingCar) {
+        return racingCars.stream()
+                .filter(maxDistanceRacingCar::isSameDistance)
+                .map(RacingCar::getName)
+                .toList();
     }
 }
