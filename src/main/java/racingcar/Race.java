@@ -27,6 +27,15 @@ public class Race {
         }
     }
 
+    public void start() {
+        OutputConsole.print(OutputConsole.STATUS_MESSAGE);
+        for (int i = 0; i < round; i++) {
+            proceedRound();
+            OutputConsole.printStatus(getCurrentStatus());
+        }
+        System.out.println();
+    }
+
     public List<Status> getCurrentStatus() {
         List<Status> currentStatus = new ArrayList<>();
         for (Car car : cars) {
