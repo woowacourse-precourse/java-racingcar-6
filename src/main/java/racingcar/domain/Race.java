@@ -13,7 +13,10 @@ public class Race {
             chance = Integer.parseInt(number);
             cars = new ArrayList<>();
         } catch(NumberFormatException e) {
-            throw new IllegalArgumentException("이동 횟수는 자연수여야 합니다.");
+            throw new IllegalArgumentException("이동 횟수는 0보다 큰 정수여야 합니다.");
+        }
+        if (chance <= 0) {
+            throw new IllegalArgumentException("이동 횟수는 0보다 큰 수여야 합니다.");
         }
     }
 
