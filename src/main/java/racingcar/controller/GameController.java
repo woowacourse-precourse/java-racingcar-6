@@ -31,13 +31,14 @@ public class GameController {
         List<Car> initCars =InitializeCars(inputView.inputCarNames());
         int trialNumber = inputView.inputTrialNumber();
         Game game = new Game(initCars);
+
         outputView.printResultPhrase();
         playMultipleTimes(game,trialNumber);
         outputView.printWinner(game.pickWinner());
     }
 
-    public void playMultipleTimes(Game game, int trialNumber) {
-        for(int i = 0; i < trialNumber; i++) {
+    private void playMultipleTimes(Game game, int trialNumber) {
+        for (int i = 0; i < trialNumber; i++) {
             game.playOnce(randomNumberGenerator);
             outputView.printGameProgress(game);
             outputView.wrapLine();
