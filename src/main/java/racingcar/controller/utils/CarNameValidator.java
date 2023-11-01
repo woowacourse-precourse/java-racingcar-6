@@ -35,13 +35,13 @@ public class CarNameValidator {
         }
     }
 
-    private void throwExceptionIfTooLongLength(String carName) {
+    public void throwExceptionIfTooLongLength(String carName) {
         if (CAR_NAME_MAX_LENGTH < carName.length()){
             throw new IllegalArgumentException("자동차의 이름은 5글자 이하여야 합니다.");
         }
     }
 
-    private void checkHasOverlap(List<String> carNames) {
+    public void checkHasOverlap(List<String> carNames) {
         Set<String> uniqueNames = new HashSet<>(carNames);
         if (uniqueNames.size() < carNames.size()) {
             throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");

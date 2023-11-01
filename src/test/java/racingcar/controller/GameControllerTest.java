@@ -19,7 +19,7 @@ public class GameControllerTest {
     private final GameController gameController = new GameController(carService, gameView);
 
     @Test
-    void createCarObject_메서드로_입력받은_이름을_이용해_Car객체를_생성() {
+    void createCarObject_메서드로_입력받은_이름을_이용해_Car_객체를_생성() {
         // Given
         List<String> carNames = Arrays.asList("car1", "car2", "car3");
 
