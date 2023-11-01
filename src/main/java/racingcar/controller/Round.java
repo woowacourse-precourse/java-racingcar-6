@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
+import racingcar.model.GameState;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -12,21 +13,41 @@ public class Round {
     private static final int RANDOM_MIN_INT = 0;
     private static final int FORWARD_CRITERION = 4;
     private int maxDistance;
+    private OutputView outputView = new OutputView();
 
     public Round(int roundLength){
         this.roundLength = roundLength;
         this.maxDistance=0;
     }
 
-    public void playRound(ArrayList<Car> carList){
-        OutputView outputView = new OutputView();
+    public void playAllRound(ArrayList<Car> carList){
         outputView.outputFirstLine();
+
         for(int i=0;i<roundLength;i++){
-            for(Car car : carList){
-                decisionforward(car);
-            }
-            outputView.displayResultPerRound(carList);
+            playOneRound(carList);
         }
+
+        afterAllRoundDisplayWinner(carList);
+    }
+    private void playOneRound(ArrayList<Car> carList){
+        for(Car car : carList){
+            decisionforward(car);
+        }
+        displayOneRound(carList);
+    }
+
+    private void decisionforward(Car car){
+        if(randomInt()>=FORWARD_CRITERION){
+            goForward(car);
+        }
+    }
+
+    private void displayOneRound(ArrayList<Car> carList){
+        GameState gameState = new GameState(carList);
+        outputView.displayResultPerRound(gameState);
+    }
+
+    public void afterAllRoundDisplayWinner(ArrayList<Car> carList){
         ArrayList<Car> carWinnerList = selectWinner(carList);
         outputView.displayWinner(carWinnerList);
     }
@@ -38,14 +59,7 @@ public class Round {
                 winnerList.add(car);
             }
         }
-
         return winnerList;
-    }
-
-    private void decisionforward(Car car){
-        if(randomInt()>=FORWARD_CRITERION){
-            goForward(car);
-        }
     }
 
     private void goForward(Car car){
