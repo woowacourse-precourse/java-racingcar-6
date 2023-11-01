@@ -22,7 +22,7 @@ public class NameTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"nickname", ""})
-    @DisplayName("이름 길이는 1자 이상 5자 이하여야 한다.")
+    @DisplayName("이름 길이가 1자 미만이거나 5자 초과면 예외가 발생한다.")
     void lengthExceptionTest(final String value) {
         // when & then
         assertThatThrownBy(() -> Name.from(value)).isInstanceOf(IllegalArgumentException.class)
