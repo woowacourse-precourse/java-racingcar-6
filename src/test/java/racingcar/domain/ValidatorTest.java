@@ -20,4 +20,13 @@ public class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 자동차 이름은 5자 이하만 가능합니다.");
     }
+
+    @Test
+    void 문자열을_정수로_바꿀수_없는_경우_예외_발생() {
+        String input = "a";
+
+        assertThatThrownBy(() -> Validator.validateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 숫자를 입력하세요.");
+    }
 }
