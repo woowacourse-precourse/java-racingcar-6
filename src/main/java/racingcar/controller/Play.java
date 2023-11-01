@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,6 +59,15 @@ public class Play {
         }
     }
 
+    public void playOnce(String carName){
+        StringBuilder tempMessage = new StringBuilder();
+        int diceNumber = Randoms.pickNumberInRange(0, 9);
+
+        if(diceNumber >= 4){
+            racerInformation.put(carName, racerInformation.get(carName) + 1);
+        }
+        System.out.println(creatResultMessage(tempMessage, carName));
+    }
 
 
 
