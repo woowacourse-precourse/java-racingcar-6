@@ -10,6 +10,13 @@ public class Application {
 		}
 		System.out.println();
 	}
+    public static void checkError(String[] s) {
+        for(String str : s) {
+            if(str.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름이 5글자 이상입니다.");
+            }
+        }
+    }
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String str = Console.readLine();
@@ -17,6 +24,8 @@ public class Application {
 		String tryNum = Console.readLine();
 
         String[] carName = str.split(",");	
+        checkError(carName);
+        
         Car[] car = new Car[carName.length]; 
 		
 		for(int i = 0; i < car.length; i++) {
