@@ -47,7 +47,7 @@
 - [x] 입력 받은 자동차 이름이 1글자 미만, 5글자 이상일 경우 IllegalArgumentException을 호출합니다.
 - [x] 입력 받은 자동차 이름들이 쉼표로 구분되지 않을 경우 IllegalArgumentException을 호출합니다.
 - [x] 입력 받은 자동차 이름에 중복된 이름이 있을 경우 IllegalArgumentException을 호출합니다.
-- [ ] 시도할 횟수가 0 혹은 양의 정수가 아닐 경우 IllegalArgumentException을 호출합니다.
+- [x] 시도할 횟수가 0 혹은 양의 정수가 아닐 경우 IllegalArgumentException을 호출합니다.
 
 ### Game (게입)
 
