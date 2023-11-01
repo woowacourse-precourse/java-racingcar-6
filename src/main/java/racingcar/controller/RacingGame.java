@@ -22,5 +22,17 @@ public class RacingGame {
         user.inputTryCount();
     }
 
+    public void executionResult() {
+        List<String> carNames = user.getCarNamesList();
+
+        game.StringListChangeCarList(carNames);
+
+        int tryCount = user.getTryCount();
+
+        OutputView.outputRunResult();
+
+        game.showCarAdvancedResult(tryCount);
+    }
+
 
 }
