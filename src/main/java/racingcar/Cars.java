@@ -28,5 +28,21 @@ public class Cars {
         return String.format("%s : %s\n", name, locationVar);
     }
 
+    public ArrayList<String> CheckFinalWinner(){
+        int max    = 0;
+        ArrayList<String> winnerName = new ArrayList<>();
+
+        for(Car car: carList){
+            if (car.getLocation()>max){
+                winnerName.clear();
+                winnerName.add(car.getName());
+                max=car.getLocation();
+            } else if (car.getLocation()==max) {
+                winnerName.add(car.getName());
+            }
+        };
+        return winnerName;
+    }
+
 
 }
