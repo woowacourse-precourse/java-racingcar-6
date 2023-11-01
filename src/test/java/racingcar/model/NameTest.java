@@ -2,8 +2,8 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static racingcar.view.exception.ExceptionMessage.NAME_LENGTH_EXCEPTION;
-import static racingcar.view.exception.ExceptionMessage.NAME_VALUE_BLANK_EXCEPTION;
+import static racingcar.view.exception.InputException.NAME_LENGTH_EXCEPTION;
+import static racingcar.view.exception.InputException.NAME_VALUE_BLANK_EXCEPTION;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

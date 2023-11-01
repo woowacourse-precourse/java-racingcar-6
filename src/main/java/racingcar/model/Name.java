@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import static racingcar.view.exception.ExceptionMessage.NAME_LENGTH_EXCEPTION;
-import static racingcar.view.exception.ExceptionMessage.NAME_VALUE_BLANK_EXCEPTION;
+import static racingcar.view.exception.InputException.NAME_LENGTH_EXCEPTION;
+import static racingcar.view.exception.InputException.NAME_VALUE_BLANK_EXCEPTION;
 
 import java.util.Objects;
 

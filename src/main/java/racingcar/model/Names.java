@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.view.exception.ExceptionMessage.DUPLICATE_NAME_EXCEPTION;
+import static racingcar.view.exception.InputException.DUPLICATE_NAME_EXCEPTION;
 
 import java.util.List;
 import java.util.stream.Stream;
