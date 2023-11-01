@@ -10,7 +10,7 @@ import racingcar.model.CarSetting;
 
 class CarSettingTest {
     private CarSetting carSetting;
-    private static String INPUT_VALUE = "songHee, minGu";
+    private static String INPUT_VALUE = "songHee,minGu";
 
     @Test
     public void string배열로_분리성공_확인() throws Exception {
