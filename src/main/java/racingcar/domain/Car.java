@@ -14,7 +14,6 @@ public class Car {
         this.name = name;
     }
 
-    // 자동차 이름은 5글자 이하만 가능합니다.
     public void validationNameLength(final String name) {
         if (name.length() >= LIMIT_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_FIVE_UNDER);
