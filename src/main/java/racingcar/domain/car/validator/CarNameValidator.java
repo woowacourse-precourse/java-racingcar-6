@@ -11,8 +11,8 @@ public class CarNameValidator {
     }
 
     public static void validateCarName(final String name) {
-        validateCarNameIsTooLong(name);
         validateCarNameIsNullOrBlank(name);
+        validateCarNameIsTooLong(name);
     }
 
     private static void validateCarNameIsTooLong(final String name) {
