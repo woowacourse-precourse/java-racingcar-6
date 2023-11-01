@@ -1,12 +1,11 @@
 package racingcar.domain;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class Car implements Comparable<Car> {
     private static final int FRONT_MOVE = 4;
 
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name) {
@@ -20,7 +19,7 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean isEquals(String... carNames) {
-        return Arrays.stream(carNames).anyMatch((carName) -> this.name.equals(carName));
+        return Arrays.asList(carNames).contains(this.name);
     }
 
     @Override
