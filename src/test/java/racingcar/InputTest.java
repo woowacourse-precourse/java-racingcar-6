@@ -52,7 +52,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {",car"})
+    @ValueSource(strings = {",car", ",,car"})
     void canProcessFrontComma(String userInput) {
         String[] answer = {"car"};
         InputStream userInputStream = generateByteArrayInputStream(userInput);
@@ -61,7 +61,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"car,,"})
+    @ValueSource(strings = {"car,,", "car,"})
     void canProcessBackComma(String userInput) {
         String[] answer = {"car"};
         InputStream userInputStream = generateByteArrayInputStream(userInput);
@@ -79,7 +79,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {""})
+    @ValueSource(strings = {"", "\n", "  ", "\t"})
     void canGenerateCarNumberException(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
@@ -91,16 +91,16 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"42"})
+    @ValueSource(strings = {"42", "100", "1"})
     void canGetGeneralTryNumber(String userInput) {
-        int answer = 42;
+        int answer = Integer.parseInt(userInput);
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
         assertEquals(answer,getTryNumber());
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"1!23"})
+    @ValueSource(strings = {"1!23", "user1,user2,u$se"})
     void canGenerateInvalidTryNumberException(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
@@ -112,7 +112,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"99999999999999"})
+    @ValueSource(strings = {"99999999999999", "21474836478"})
     void canProcessOverIntTryNumber(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
@@ -124,7 +124,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"-1"})
+    @ValueSource(strings = {"-1", "-2147483648"})
     void canProcessMinusTryNumber(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
@@ -136,7 +136,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"101"})
+    @ValueSource(strings = {"101", "1000", "4888", "2147384647"})
     void canProcessOverHundred(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
