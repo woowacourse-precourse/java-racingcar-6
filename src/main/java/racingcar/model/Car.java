@@ -16,4 +16,8 @@ public class Car {
         this.name = name;
         this.forwardCount = 0;
     }
+
+    public void go() {
+        this.forwardCount++;
+    }
 }
