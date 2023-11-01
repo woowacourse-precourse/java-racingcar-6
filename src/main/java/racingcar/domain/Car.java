@@ -27,7 +27,15 @@ public class Car {
         }
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
     public int getPosition() {
         return position;
+    }
+
+    public void moving() {
+        position++;
     }
 }

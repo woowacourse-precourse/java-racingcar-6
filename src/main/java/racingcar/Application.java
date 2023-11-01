@@ -2,6 +2,7 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.CarGroup;
 import racingcar.validator.InputValidator;
@@ -12,6 +13,34 @@ public class Application {
         CarGroup carGroup = new CarGroup();
         inputCars(carGroup);
         int tryCount = inputCount();
+        printRoundStatus(tryCount, carGroup);
+    }
+
+    private static void printRoundStatus(int tryCount, CarGroup carGroup) {
+        System.out.println("실행 결과");
+        for (int i = 0; i < tryCount; i++) {
+            movingCars(carGroup);
+            printProgress(carGroup);
+        }
+    }
+
+    private static void printProgress(CarGroup carGroup) {
+        for (Car car : carGroup.getCars()) {
+            String carNickname = car.getNickname();
+            int carPosition = car.getPosition();
+            String progress = "-".repeat(carPosition);
+            System.out.println(carNickname + " : " + progress);
+        }
+        System.out.println();
+    }
+
+    private static void movingCars(CarGroup carGroup) {
+        for (Car car : carGroup.getCars()) {
+            int movingWeight = Randoms.pickNumberInRange(0, 9);
+            if (movingWeight >= 4) {
+                car.moving();
+            }
+        }
     }
 
     private static int inputCount() {
