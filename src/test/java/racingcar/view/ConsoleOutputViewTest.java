@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.dto.CarStatus;
 import racingcar.dto.RaceStatus;
 import racingcar.dto.RacingGameResult;
-import racingcar.dto.RacingGameStatus;
 import racingcar.dto.WinnerNames;
 
 class ConsoleOutputViewTest {
@@ -53,9 +52,8 @@ class ConsoleOutputViewTest {
         CarStatus thirdCarStatus = new CarStatus("3번", 3);
         RaceStatus raceStatus = new RaceStatus(List.of(firstCarStatus, secondCarStatus, thirdCarStatus));
 
-        RacingGameStatus racingGameStatus = new RacingGameStatus(List.of(raceStatus));
         WinnerNames winnerNames = new WinnerNames(List.of("1번", "3번"));
-        RacingGameResult racingGameResult = new RacingGameResult(racingGameStatus, winnerNames);
+        RacingGameResult racingGameResult = new RacingGameResult(List.of(raceStatus), winnerNames);
 
         consoleOutputView.printRacingGameResult(racingGameResult);
         assertThat(output.toString()).isEqualTo(
