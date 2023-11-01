@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import constants.GameConstant;
 
 public class Car {
-    String name;
-    int stepCount;
+    private String name;
+    private int stepCount;
 
     public Car(){}
     public Car(String name){
@@ -32,6 +32,10 @@ public class Car {
             return false;
         }
         return true;
+    }
+
+    public void MoveForward(){
+        this.stepCount++;
     }
 
 

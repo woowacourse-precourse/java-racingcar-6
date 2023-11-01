@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 import model.Car;
+import model.Game;
 
 public class CarGameService {
     //Game 객체
@@ -10,9 +11,13 @@ public class CarGameService {
     Car car = new Car();
 
     public List<String> runRacingGame(List<Car> carList){
-        List<String> runRacingResult = new ArrayList<>();
+        List<String> racingGameBoard = new ArrayList<>();
+        Game.tryCount--;
 
-        return runRacingResult;
+        List<Car> racingGameResult = getRacingGameResult(carList);
+
+
+        return racingGameBoard;
     }
 
     /**
@@ -30,5 +35,28 @@ public class CarGameService {
 
         return carList;
     }
+
+    /**
+     * 자동차 경주 한판의 전진 결과
+     *
+     * 각 자동차들은 임의의 값을 기준으로 전진하거나 멈춘다.
+     * @return List<Car>
+     */
+    public List<Car> getRacingGameResult(List<Car> carList){
+        for(Car car : carList){
+            int randomNumber = car.getRandomNumber();
+            if(car.isStepForward(randomNumber)){
+                car.MoveForward();
+            }
+        }
+
+        return carList;
+    }
+
+    /**
+     * 자동차 경주 우승자 결과
+     *
+     */
+
 
 }
