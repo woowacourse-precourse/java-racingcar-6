@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class InputTest extends NsTest {
 
     private static final String ILLEGAL_NAME_SIZE_EXCEPTION_MESSAGE = "자동차 이름은 5자리 이하로 만들어야 합니다";
-    private static final String VOID_NAME_EXCEPTION_MESSAGE = "자동차 이름은 공백으로 설정할 수 없습니다.";
+    private static final String EMPTY_NAME_EXCEPTION_MESSAGE = "자동차 이름은 공백으로 설정할 수 없습니다.";
     private static final String DUPLICATE_NAME_EXCEPTION_MESSAGE = "자동차 이름이 중복됩니다.";
     private static final String ZERO_ATTEMPT_NUMBER_EXCEPTION_MESSAGE = "시도 횟수는 1이상이어야 합니다.";
     private static final String ILLEGAL_ATTEMPT_NUMBER_EXCEPTION_MESSAGE = "시도 횟수는 양의 정수여야 합니다.";
@@ -33,11 +33,11 @@ public class InputTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_VOID_테스트() {
+    void 자동차_이름_EMPTY_테스트() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("woni,,jun", "1"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(VOID_NAME_EXCEPTION_MESSAGE));
+                .hasMessageContaining(EMPTY_NAME_EXCEPTION_MESSAGE));
     }
 
     @Test
