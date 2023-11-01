@@ -4,7 +4,6 @@ import java.util.List;
 import racingcar.option.GameOption;
 
 public class Validator {
-
     public static void carName(List<String> carName) {
         carNameLength(carName);
         carNameIsEmpty(carName);
