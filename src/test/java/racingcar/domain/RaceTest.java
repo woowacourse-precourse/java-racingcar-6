@@ -19,7 +19,7 @@ class RaceTest {
 
     @BeforeEach
     void setup() {
-        cars = new Cars(Arrays.asList("pobi", "crong", "jun"));
+        cars = new Cars(new Names(Arrays.asList("pobi", "crong", "jun")));
         tryCount = new Try(INITIAL_TRY_COUNT);
         race = new Race(cars, tryCount);
     }

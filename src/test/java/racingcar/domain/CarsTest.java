@@ -13,19 +13,20 @@ class CarsTest {
 
     @Test
     void 이름_리스트로_Cars_생성() {
-        Cars cars = new Cars(Arrays.asList("pobi", "woni", "jun"));
+        Cars cars = new Cars(new Names(Arrays.asList("pobi", "woni", "jun")));
         assertThat(cars.getCars().size()).isEqualTo(3);
     }
 
     @Test
     void 자동차가_두대_미만이면_예외_발생() {
-        assertThrows(IllegalArgumentException.class, () -> new Cars(Arrays.asList("pobi")));
+        assertThrows(IllegalArgumentException.class,
+            () -> new Cars(new Names(Arrays.asList("pobi"))));
     }
 
     @Test
     void 중복되는_이름이_있다면_예외_발생() {
         assertThrows(IllegalArgumentException.class,
-            () -> new Cars(Arrays.asList("pobi", "woni", "pobi")));
+            () -> new Cars(new Names((Arrays.asList("pobi", "woni", "pobi")))));
     }
 
 }

@@ -12,11 +12,9 @@ public class Cars {
     private final int CARS_INPUT_CRITERION = 2;
     private final List<Car> cars;
 
-    public Cars(List<String> carNames) {
-        validate(carNames);
-        this.cars = carNames.stream()
-            .map(Car::fromName)
-            .collect(Collectors.toList());
+    public Cars(Names names) {
+        validateCarsSize(names);
+        this.cars = names.toCarList();
     }
 
     public List<Car> getCars() {
@@ -42,21 +40,9 @@ public class Cars {
             .collect(Collectors.toList());
     }
 
-    public void validate(List<String> carNames) {
-        validateCarsSize(carNames);
-        validateDuplicatedCarNames(carNames);
-    }
-
-    public void validateCarsSize(List<String> carNames) {
-        if (carNames.size() < CARS_INPUT_CRITERION) {
+    public void validateCarsSize(Names names) {
+        if (names.getNames().size() < CARS_INPUT_CRITERION) {
             throw new IllegalArgumentException("자동차는 두 대 이상 입력해야 합니다.");
-        }
-    }
-
-    public void validateDuplicatedCarNames(List<String> carNames) {
-        Set<String> uniqueNames = new HashSet<>(carNames);
-        if (uniqueNames.size() != carNames.size()) {
-            throw new IllegalArgumentException("중복되는 이름이 있으면 안됩니다.");
         }
     }
 

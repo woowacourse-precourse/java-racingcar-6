@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Cars;
+import racingcar.domain.Names;
 import racingcar.domain.Race;
 import racingcar.domain.Try;
 import racingcar.response.RaceResultResponse;
@@ -28,17 +29,16 @@ public class RaceController {
     }
 
     public void initialize() {
-        Cars cars = getRaceCars();
-        Try tryCount = getRaceTryCount();
-        race = new Race(cars, tryCount);
+        race = new Race(createRaceCars(), createRaceTryCount());
     }
 
-    public Cars getRaceCars() {
+    public Cars createRaceCars() {
         OutputView.printRaceStart();
-        return new Cars(InputView.inputCarNames());
+        Names carNames = new Names(InputView.inputCarNames());
+        return new Cars(carNames);
     }
 
-    public Try getRaceTryCount() {
+    public Try createRaceTryCount() {
         OutputView.printRaceTryCount();
         return new Try(InputView.inputTryCount());
     }
