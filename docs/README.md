@@ -53,5 +53,5 @@
 - [x] String name
 - [x] int position
 - [x] 포지션에 대한 변경 메소드 proceedSingleUnit()를 제공한다.
-- [ ] name의 Getter
-- [ ] position의 Getter
+- [x] name의 Getter
+- [x] position의 Getter

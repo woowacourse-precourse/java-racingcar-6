@@ -10,6 +10,13 @@ public class Car {
         this.position = 0;
     }
 
+    public String getName() {
+        return this.name;
+    }
+    public int getPosition() {
+        return this.position;
+    }
+
     public void proceedSingleUnit() {
         position++;
     }
