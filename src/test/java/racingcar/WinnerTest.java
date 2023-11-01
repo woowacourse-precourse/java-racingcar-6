@@ -1,4 +1,4 @@
-가package racingcar;
+package racingcar;
 
 import net.bytebuddy.implementation.InvokeDynamic;
 import org.junit.jupiter.api.Test;
