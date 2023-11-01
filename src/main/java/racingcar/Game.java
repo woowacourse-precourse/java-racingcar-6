@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.utils.ValidationRegex.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,15 +34,16 @@ public class Game { // 게임 진행 클래스
 
         System.out.println(Message.REPEAT_NUMBER);
 
-        String s = Console.readLine();
-
-        gameRepeatNumber = Integer.parseInt(Console.readLine());
+        String inputRepeatNumber = Console.readLine();
+        repeatNumberCheck(inputRepeatNumber);
+        gameRepeatNumber = Integer.parseInt(inputRepeatNumber);
 
         setRandomNumberToCars();
 
         pickWinner();
 
     }
+
 
     public void setRandomNumberToCars() {
         for (int i = 0; i < gameRepeatNumber; i++) {
@@ -70,6 +73,7 @@ public class Game { // 게임 진행 클래스
         if (maxScore < score) {
             maxScore = score;
             winnerList.add(name);
+            winnerList.remove(0);
         } else if (maxScore == score) {
             winnerList.add(name);
         }
@@ -90,6 +94,14 @@ public class Game { // 게임 진행 클래스
         if (stringArr.length < 2) { // 자동차 개수가 최소 2개 이상이여야 게임 진행이 가능하다고 가정
             throw new IllegalArgumentException(Message.MIN_CAR_NUMBER_ERROR);
         }
+
+    }
+
+    public void repeatNumberCheck(String target) { //
+        if(!isRepeatNumber(target)){
+            throw new IllegalArgumentException("반복 횟수는 적어도 1번 이상이어야 합니다.");
+        }
+
 
     }
 

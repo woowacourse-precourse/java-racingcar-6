@@ -8,7 +8,7 @@ public class Message {
     public final static String MAX_CAR_NAME_ERROR="이름은 최소 한글자 이상 다섯글자 이하로 작성해 주세요.";
 
     /**
-     * 출력 관련
+     * 안내 관련
      */
     public static final String REPEAT_NUMBER="시도할 회수는 몇회인가요?";
 
