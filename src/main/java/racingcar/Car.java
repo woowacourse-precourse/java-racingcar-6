@@ -18,15 +18,14 @@ public class Car {
     }
 
     public void move() {
-        if (shouldMove()) {
+        if (isMovable()) {
             this.position++;
         }
     }
 
-    public static boolean shouldMove() {
+    public static boolean isMovable() {
         return RandomNumberGenerator.generateRandomNumber() >= 4;
     }
-
 
     public String makeMoveResult() {
         StringBuilder result = new StringBuilder();
