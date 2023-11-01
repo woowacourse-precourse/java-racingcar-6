@@ -37,5 +37,20 @@ public class Application {
                 int carDistance = carName.length();
                 maxDistance = Math.max(maxDistance, carDistance);
             }
+
+            System.out.println("\n최종 우승자:");
+            boolean firstWinner = true;
+
+            for (int i = 0; i < numCars; i++) {
+                if (carNames[i].length() == maxDistance) {
+                    if (!firstWinner) {
+                        System.out.print(", ");
+                    }
+                    System.out.print(carNames[i].split("-")[0]);
+                    firstWinner = false;
+                }
+            }
+
+            System.out.println();
     }
 }
