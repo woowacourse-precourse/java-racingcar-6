@@ -35,7 +35,7 @@ public class Game {
     }
 
     public void end() {
-
+        outputView.winnerResult(carService.getWinnerNames());
     }
 
     public void racing() {
