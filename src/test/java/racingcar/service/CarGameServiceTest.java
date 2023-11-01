@@ -53,7 +53,7 @@ public class CarGameServiceTest {
     }
 
     @Test
-    @DisplayName("입력 값이 4 미만일 때, 자동차 이동거리가 갱신되는지 확인")
+    @DisplayName("입력 값이 4 미만일 때, 자동차 이동거리가 갱신되지 않는지 확인")
     void notUpdateCarTest() {
         int[] numbers = new int[]{1,2,3};
         List<Integer> boxedNumbers = Arrays.stream(numbers)
