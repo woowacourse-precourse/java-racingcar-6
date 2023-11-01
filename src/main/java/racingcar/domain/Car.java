@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.configuration.StartingPositionConfig.START_POSITION;
+import static racingcar.configuration.StartPositionConfig.START_POSITION;
 import static racingcar.constant.ErrorMessage.CAR_LENGTH_EXCESS_EXCEPTION;
 
 public class Car {
@@ -23,6 +23,15 @@ public class Car {
         }
 
         ++position;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
 }

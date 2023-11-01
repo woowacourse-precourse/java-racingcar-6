@@ -16,4 +16,8 @@ public class Printer {
         System.out.println(RESULT_HEAD);
     }
 
+    public static void printResultMessage(String carName, String dashPosition) {
+        System.out.printf("%s : %s\n", carName, dashPosition);
+    }
+
 }

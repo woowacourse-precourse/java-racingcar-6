@@ -8,6 +8,7 @@ import racingcar.service.RacingcarGameServiceImpl;
 import racingcar.utility.RandomNumberGenerator;
 import racingcar.utility.TypeConverter;
 import racingcar.view.InputHandler;
+import racingcar.view.PrintHandler;
 import racingcar.view.Printer;
 
 import static racingcar.domain.GameStatus.PLAYING;
@@ -35,6 +36,7 @@ public class RacingcarGameController {
         while (gameStatus.isGamePlaying()) {
             RandomNumbers randomNumbers = new RandomNumbers(RandomNumberGenerator.generateRandomNumbers(cars.size()));
             racingcarGameService.playOneRound(cars, randomNumbers);
+            PrintHandler.printResultOfGame(cars);
         }
     }
 
