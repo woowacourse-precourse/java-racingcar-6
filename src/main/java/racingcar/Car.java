@@ -3,8 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-	String name;
-	int distance = 0;
+	private String name;
+	private int distance = 0;
 
 	public Car(String name) {
 		this.name = name;
@@ -27,4 +27,11 @@ public class Car {
 		System.out.println(showDistance);
 	}
 
+	public int getDistance() {
+		return this.distance;
+	}
+
+	public String getName() {
+		return name;
+	}
 }

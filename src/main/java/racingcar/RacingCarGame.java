@@ -1,6 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -21,6 +24,25 @@ public class RacingCarGame {
 			cars.stream().forEach(Car::moveForward);
 			cars.stream().forEach(Car::showDistance);
 		}
+
+		showWinner(cars);
+	}
+
+	private void showWinner(List<Car> cars) {
+		String winners = "최종 우승자 : ";
+
+		cars.sort(Comparator.comparing(Car::getDistance).reversed());
+
+		winners += cars.get(0).getName();
+
+		for (int i = 1; i < cars.size(); i++) {
+			if (cars.get(0).getDistance() != cars.get(i).getDistance()) {
+				break;
+			}
+			winners = winners + ", " + cars.get(i).getName();
+		}
+
+		System.out.println(winners);
 	}
 
 	private int checkLoop(String InputLoop) {
@@ -40,7 +62,7 @@ public class RacingCarGame {
 		List<String> carNames = List.of(userInput.split(","));
 
 		for (int i = 0; i < carNames.size(); i++) {
-			if (carNames.get(i).length() > 6) {
+			if (carNames.get(i).length() >= 6) {
 				throw new IllegalArgumentException();
 			}
 
