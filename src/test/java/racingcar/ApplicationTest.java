@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-    private static final int MINIMUM = 1;
+    private static final int MINIMUM = 0;
     private static final int MAXIMUM = 9;
 
     @Test
