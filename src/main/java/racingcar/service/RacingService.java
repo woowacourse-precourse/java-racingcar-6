@@ -2,7 +2,6 @@ package racingcar.service;
 
 import static racingcar.utils.NumberGernator.pickNumber;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.RaceParticipants;
 import racingcar.domain.Round;
