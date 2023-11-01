@@ -21,10 +21,15 @@ public class RacingCarService {
 
     public List<RacingCar> racingGame(List<RacingCar> cars, int raceCount) {
         List<List<RacingCar>> allRoundResult = new ArrayList<List<RacingCar>>();
-        allRoundResult.add(cars);
 
         while(raceCount > 0) {
-            List<RacingCar> beforeRace = allRoundResult.get(allRoundResult.size()-1);
+            List<RacingCar> beforeRace = null;
+            if(allRoundResult.isEmpty()) {
+                beforeRace = cars;
+            }
+            if(!allRoundResult.isEmpty()) {
+                beforeRace = allRoundResult.get(allRoundResult.size()-1);
+            }
             List<RacingCar> roundResult = raceRound(beforeRace);
             allRoundResult.add(roundResult);
             raceCount--;
@@ -41,17 +46,16 @@ public class RacingCarService {
     }
 
     public void calculateRacingWinner(List<RacingCar> racedCars) {
-//        List<String> winners = racedCars.stream()
-//                .max(Comparator.comparing(RacingCar::getMoveCount))
-//                .map(winnerCar -> winnerCar.getName())
-//                .stream().toList();
-        RacingCar winner = racedCars.stream()
-                .max(Comparator.comparing(RacingCar::getMoveCount))
-                .get();
-        List<String> winners = racedCars.stream()
+        RacingCar winner = getWinnerCar(racedCars);
+        List<RacingCar> winners = racedCars.stream()
                 .filter(car -> car.getMoveCount() == winner.getMoveCount())
-                .map(car -> car.getName())
                 .collect(Collectors.toList());
         OutputView.outputWinners(winners);
+    }
+
+    private RacingCar getWinnerCar(List<RacingCar> racedCars) {
+        return racedCars.stream()
+                .max(Comparator.comparing(RacingCar::getMoveCount))
+                .get();
     }
 }
