@@ -1,0 +1,28 @@
+
+######### ######### ######### ######### ######### $ <- 50
+# type[(scope)]: Subject under 50 characters[(#issueNum)]
+#
+# body(under 72 characters per line)
+#
+# Resolves #10
+######### ######### ######### ######### ######### ######### ######### ##$ <- 72
+### Types(비즈니스 로직 관련 O)
+#   feat      : 새로운 기능
+#   fix       : 버그 수정
+#   refactor  : 리팩토링(추가나 수정이 아닌 코드 변경)
+#   chore     : 버그가 아닌 수정
+### Types(비즈니스 로직 관련 X)
+#   style     : 코드 스타일(white space, formatting, colons)
+#   remove    : 파일, 코드 삭제
+#   move      : 코드 내용 자체는 수정이 없는 이동. 파일, 디렉토리 구조 변경.
+#   docs      : 문서 추가, 수정, 삭제
+#   build     : 시스템/외부 종속성에 영향을 미치는 변경사항 (npm, gulp, yarn 레벨)
+#   test      : 테스트 추가, 수정, 삭제
+#   revert    : 작업 되돌리기
+### Subject: 커밋의 의도, 첫 글자 대문자, 명령형, 끝에 문장부호 붙이지 말기
+### body: '어떻게'보다 '무엇'을 '왜' 했는지
+### Footer
+#   Resolves: #0      : 해결
+#   See also: #0, #0  : 참고
+#   Co-authored-by: name <name@mail.com>
+######################
