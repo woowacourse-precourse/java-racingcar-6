@@ -111,6 +111,17 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 시도_회수_입력() {
+        run("car0, car1, car2", "123");
+    }
+
+    @Test
+    void 시도_회수_입력_예외() {
+        assertThatThrownBy(() -> run("car0, car1, car2", "a"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
                 () -> {
