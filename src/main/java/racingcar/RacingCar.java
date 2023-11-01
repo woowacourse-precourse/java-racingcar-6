@@ -9,9 +9,9 @@ public class RacingCar {
     private final List<CarState> cars;
     private final int gameTryCount;
 
-    public RacingCar(String carNames, int gameTryCount){
+    public RacingCar(String carNames, String gameTryCount){
         this.cars = Arrays.stream(carNames.split(",")).map(CarState::new).collect(Collectors.toList());
-        this.gameTryCount = gameTryCount;
+        this.gameTryCount = Integer.parseInt(gameTryCount);
     }
 
     public void startGame(){
