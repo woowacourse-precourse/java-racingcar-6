@@ -18,14 +18,14 @@ public class RacingCars {
         cars.forEach(car -> car.move(getMoveCondition()));
     }
 
+    private int getMoveCondition() {
+        return Randoms.pickNumberInRange(Movement.MIN_MOVE_RANGE.getValue(), Movement.MAX_MOVE_RANGE.getValue());
+    }
+
     public List<CarStatusDto> submitCarStatuses() {
         List<CarStatusDto> carStatuses = cars.stream()
                 .map(car -> new CarStatusDto(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
         return Collections.unmodifiableList(carStatuses);
-    }
-
-    private int getMoveCondition() {
-        return Randoms.pickNumberInRange(Movement.MIN_MOVE_RANGE.getValue(), Movement.MAX_MOVE_RANGE.getValue());
     }
 }

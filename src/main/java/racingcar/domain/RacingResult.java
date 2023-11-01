@@ -20,14 +20,14 @@ public class RacingResult {
                 .collect(Collectors.joining(Separator.JOIN_SEPARATOR.toString()));
     }
 
-    public List<CarStatusDto> getCarStatuses() {
-        return Collections.unmodifiableList(carStatuses);
-    }
-
     private int getMaxPosition() {
         return carStatuses.stream()
                 .mapToInt(CarStatusDto::position)
                 .max()
                 .getAsInt();
+    }
+
+    public List<CarStatusDto> getCarStatuses() {
+        return Collections.unmodifiableList(carStatuses);
     }
 }
