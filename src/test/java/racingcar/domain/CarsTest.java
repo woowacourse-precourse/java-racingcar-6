@@ -1,11 +1,11 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,6 +30,16 @@ public class CarsTest {
         assertThat(this.carsNames).contains(july);
         assertThat(this.carsNames).contains(june);
         assertThat(this.carsNames).contains(joo);
+    }
+
+    @Test
+    void 자동차_이름만큼_리스트_생성() {
+        assertThat(this.cars.getCars().size()).isEqualTo(3);
+    }
+
+    @Test
+    void 모든_자동차의_초기_position_0_확인() {
+        assertThat(this.cars.getCars().stream().mapToInt(Car::getPosition).sum()).isEqualTo(0);
     }
 
     @Test
@@ -68,5 +78,18 @@ public class CarsTest {
 
         assertThat(winners.size()).isEqualTo(1);
         assertThat(winners).isEqualTo(List.of("joo"));
+    }
+
+    @Test
+    void 사용자가_입력한_round_만큼_경기_결과_확인() {
+        int roundNumber = 3;
+        List<List<String>> results = new ArrayList<>();
+
+        IntStream.range(0, roundNumber).forEach(i -> {
+            this.cars.carsMove();
+            results.add(this.cars.carsResult());
+        });
+
+        assertThat(results.size()).isEqualTo(3);
     }
 }
