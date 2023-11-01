@@ -15,7 +15,7 @@ public class Distance {
         return distance;
     }
 
-    public void setDistance(Integer distance) {
+    public void updateDistance(Integer distance) {
         this.distance = distance;
     }
 
