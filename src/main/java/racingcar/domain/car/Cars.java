@@ -13,11 +13,23 @@ public class Cars {
     private final List<Car> cars;
 
     private Cars(List<Car> cars) {
+        validateUniqueCarCount(cars);
         this.cars = cars;
     }
 
     public static Cars from(List<Car> cars) {
         return new Cars(cars);
+    }
+
+    private void validateUniqueCarCount(List<Car> cars) {
+        int uniqueCarNameCount = (int) cars.stream()
+                .map(Car::getCarName)
+                .distinct()
+                .count();
+
+        if (uniqueCarNameCount != cars.size()) {
+            throw new IllegalArgumentException(Err.DUPLICATE_CAR_NAME.getMessage());
+        }
     }
 
     public void moveOnceIfMovable(MoveStrategy moveStrategy) {
