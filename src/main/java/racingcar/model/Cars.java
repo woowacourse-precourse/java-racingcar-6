@@ -20,9 +20,7 @@ public class Cars {
     public List<String> getWinnerNameList() {
         List<String> result = new ArrayList<>();
         for (Car car : carsList) {
-            if (car.getMove() == getMaxMoveInCars()) {
-                result.add(car.getName());
-            }
+            car.addIfWinner(getMaxMoveInCars(), result);
         }
         return result;
     }

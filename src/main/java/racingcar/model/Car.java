@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 
 public class Car {
     private final static String MOVING_MARK = "-";
@@ -19,13 +20,15 @@ public class Car {
         return move;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void moveCar() {
         if (makeRandomNumber() >= MOVE_CONDITION) {
             move++;
+        }
+    }
+
+    public void addIfWinner(int winnerMoving, List<String> nameHolder) {
+        if (move == winnerMoving) {
+            nameHolder.add(name);
         }
     }
 
@@ -34,7 +37,7 @@ public class Car {
     }
 
     private String getMoveMark() {
-        return MOVING_MARK.repeat(this.move);
+        return MOVING_MARK.repeat(move);
     }
 
     @Override
