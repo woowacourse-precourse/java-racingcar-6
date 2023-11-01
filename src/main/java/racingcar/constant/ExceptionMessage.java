@@ -10,13 +10,13 @@ public enum ExceptionMessage {
     ROUND_CONTAIN_NOT_ONLY_NUM("자동차 이동은 숫자로 입력해야 합니다."),
     ROUND_MUST_BE_POSITIVE("자동차 이동은 양수로 입력해야 합니다.");
 
-    private final String value;
+    private final String message;
 
-    ExceptionMessage(String vlaue) {
-        this.value = vlaue;
+    ExceptionMessage(String message) {
+        this.message = message;
     }
 
-    public String getValue() {
-        return this.value;
+    public String getMessage() {
+        return this.message;
     }
 }
