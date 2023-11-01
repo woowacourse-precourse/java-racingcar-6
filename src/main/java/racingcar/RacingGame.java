@@ -13,20 +13,16 @@ public class RacingGame {
 
     private List<String> carNameList;
     private List<Car> cars;
-    private int numberOfCars;
-    private List<Integer> moveCountList;
     private int trialTimes;
 
 
     public void play() {
         String carNames = inputCarNames();
         carNameList = parseCarNamesToList(carNames);
-        numberOfCars = carNameList.size();
         cars = new ArrayList<>();
         for (String car : carNameList) {
             cars.add(new Car(car));
         }
-        moveCountList = new ArrayList<>(Collections.nCopies(carNameList.size(), 0));
         trialTimes = inputTrialTimes();
 
         System.out.println("실행 결과");
@@ -101,19 +97,6 @@ public class RacingGame {
             car.moveOrNot();
         }
     }
-
-    private void moveOrNot(List<Integer> moveCountList, int i) {
-        int random = Randoms.pickNumberInRange(0, 9);
-        if (random >= 4) {
-            move(moveCountList, i);
-        }
-    }
-
-    private void move(List<Integer> moveCountList, int i) {
-        Integer currentValue = moveCountList.get(i);
-        moveCountList.set(i, currentValue + 1);
-    }
-
     private void printCurrentPosition() {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
@@ -145,21 +128,6 @@ public class RacingGame {
     private String winnerListToString(List<String> winnerList) {
         return String.join(", ", winnerList);
     }
-
-    private List<Integer> getMaxIndices(List<Integer> moveCountList, int max) {
-        return IntStream.range(0, moveCountList.size())
-                .filter(i -> moveCountList.get(i) == max)
-                .boxed()
-                .toList();
-    }
-
-    private String getWinner(List<String> carNameList, List<Integer> maxIndices) {
-        String winner = maxIndices.stream()
-                .map(index -> carNameList.get(index))
-                .collect(Collectors.joining(", "));
-        return winner;
-    }
-
 }
 
 
