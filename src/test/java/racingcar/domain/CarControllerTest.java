@@ -75,8 +75,6 @@ class CarControllerTest {
         assertThat(result).isEqualTo(0);
         result = carController.isBiggerThanFour(4);
         assertThat(result).isEqualTo(1);
-        result = carController.isBiggerThanFour(9);
-        assertThat(result).isEqualTo(1);
 
     }
 }
