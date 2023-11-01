@@ -20,6 +20,12 @@ public class Car {
         return currentPosition;
     }
 
+    public void moveIfRandomSuccess() {
+        if (createRandomNumber() >= CAN_MOVE_NUMBER) {
+            currentPosition++;
+        }
+    }
+
     protected int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
