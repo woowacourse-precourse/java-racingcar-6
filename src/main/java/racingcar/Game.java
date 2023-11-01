@@ -1,5 +1,7 @@
 package racingcar;
 
 public interface Game {
-    void play();
+    void startGame();
+
+    void playGame();
 }
