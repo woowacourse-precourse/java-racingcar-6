@@ -30,4 +30,28 @@ public class RacingGame {
         }
         System.out.println();
     }
+
+    private void announceWinners() {
+        int maxPosition = getMaxPosition();
+        StringBuilder winners = new StringBuilder();
+        for (RacingCar car : racingCars) {
+            if (car.getPosition() == maxPosition) {
+                if (winners.length() > 0) {
+                    winners.append(", ");
+                }
+                winners.append(car.getName());
+            }
+        }
+        System.out.println("최종 우승자: " + winners);
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = -1;
+        for (RacingCar car : racingCars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
+    }
 }
