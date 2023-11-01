@@ -38,4 +38,10 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("길이를 5이하로 입력해주세요.");
     }
+
+    @Test
+    void 자동차_이름_가져오기(){
+        Car car = new Car("car");
+        assertThat(car.getName()).isEqualTo("car");
+    }
 }
