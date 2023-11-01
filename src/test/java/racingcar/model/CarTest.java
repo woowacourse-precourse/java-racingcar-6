@@ -21,7 +21,7 @@ class CarTest {
     void checkEmptyName() {
         assertThatThrownBy(() -> {
             Car car = new Car("");
-        }).isInstanceOf(RuntimeException.class)
+        }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] : 자동차 이름을 입력해주세요.");
     }
 
@@ -30,7 +30,7 @@ class CarTest {
     void checkNameLength() {
         assertThatThrownBy(() -> {
             Car car = new Car("kiminsu");
-        }).isInstanceOf(RuntimeException.class)
+        }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] : 5글자 이하의 자동차 이름을 입력해주세요");
     }
 
@@ -59,7 +59,7 @@ class CarTest {
     void checkNameForWhitespace() {
         assertThatThrownBy(() -> {
             Car car = new Car("po bi");
-        }).isInstanceOf(RuntimeException.class)
+        }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] : 공백을 제외한 이름을 입력해주세요.");
     }
 

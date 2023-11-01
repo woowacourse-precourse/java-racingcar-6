@@ -25,7 +25,7 @@ class RacingCarsTest {
 
         assertThatThrownBy(() -> {
             RacingCars racingCars = new RacingCars(carNames);
-        }).isInstanceOf(RuntimeException.class)
+        }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] : 중복되지 않은 자동차 이름을 입력해주세요.");
     }
 
@@ -36,7 +36,7 @@ class RacingCarsTest {
 
         assertThatThrownBy(() -> {
             RacingCars racingCars = new RacingCars(carNames);
-        }).isInstanceOf(RuntimeException.class)
+        }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] : 두 개 이상의 자동차를 입력해주세요");
     }
 
