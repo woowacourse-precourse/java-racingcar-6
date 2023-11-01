@@ -45,4 +45,24 @@ public class GameService {
             }
         }
     }
+
+    public String checkFinalScores(List<CarPlayer> players){
+        int score = 0;
+        StringBuilder winner = new StringBuilder();
+        // 최고 점수 저장
+        for (CarPlayer player : players){
+            if(score < player.getScore()){
+                score = player.getScore();
+            }
+        }
+        // 최고 점수와 player 점수간의 비교로 우승자 선정
+        for(CarPlayer player : players){
+            if(score == player.getScore() && winner.isEmpty()){
+                winner.append(player.getName());
+            } else if (score == player.getScore()) {
+                winner.append(", ").append(player.getName());
+            }
+        }
+        return winner.toString();
+    }
 }
