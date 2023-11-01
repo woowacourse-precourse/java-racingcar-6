@@ -19,12 +19,25 @@ class RoundValidatorTest {
         assertThat(validator.support(Round.class)).isTrue();
     }
 
+    @DisplayName("숫자가 아닌 경우 예외 발생")
+    @ParameterizedTest(name = "{displayName}: {0}")
+    @ValueSource(strings = {"ㅁ", "car", "!!", "-", ""})
+    @NullSource
+    void checkValidateType(String value) {
+        Validator validator = new RoundValidator();
+        assertThatThrownBy(() ->
+                validator.validate(value))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @DisplayName("Integer 범위의 0과 양의 정수가 아닌 경우 예외 발생")
     @ParameterizedTest(name = "{displayName}: {0}")
-    @ValueSource(strings = {"-123", "akd", "", "-", "12a", " 1", "3,444", "9223372036854775809"})
-    @NullSource
-    void checkInvalidRound(String value) {
+    @ValueSource(strings = {"-1", "-123", "344400000000000000", "9223372036854775809"})
+    void checkValidateRound(String value) {
+        Validator validator = new RoundValidator();
         assertThatThrownBy(() ->
-                Round.of(value)).isInstanceOf(IllegalArgumentException.class);
+                validator.validate(value))
+                .isInstanceOf(IllegalArgumentException.class);
     }
+
 }
