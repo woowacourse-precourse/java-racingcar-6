@@ -8,12 +8,14 @@ import racingcar.view.RaceProgressView;
 
 public class RaceService {
 
-    public void startRace(List<Car> carObjects, int lap) {
+    public String startRace(List<Car> carObjects, int lap) {
         for (int i = 0; i < lap; i++) {
             oneLap(carObjects);
             List<String> carInfo = OutputUtil.printCarInfo(carObjects);
             RaceProgressView.printRaceProgress(carInfo);
         }
+
+        return getResult(carObjects);
     }
 
     private void oneLap(List<Car> carObjects) {
@@ -22,5 +24,26 @@ public class RaceService {
                 car.moveForward();
             }
         }
+    }
+
+    private String getResult(List<Car> carObjects) {
+        StringBuilder result = new StringBuilder();
+
+        int maxPosition = 0;
+        for (Car car : carObjects) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+
+        result.append("최종 우승자 :");
+        for (Car car : carObjects) {
+            if (car.getPosition() == maxPosition) {
+                result.append(" ").append(car.getName()).append(",");
+            }
+        }
+        result.deleteCharAt(result.length() - 1);
+
+        return result.toString();
     }
 }

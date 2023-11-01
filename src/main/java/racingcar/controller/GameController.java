@@ -25,6 +25,6 @@ public class GameController {
         int lap = Integer.parseInt(raceLap);
 
         RaceService raceService = new RaceService();
-        raceService.startRace(carObjects, lap);
+        String result = raceService.startRace(carObjects, lap);
     }
 }
