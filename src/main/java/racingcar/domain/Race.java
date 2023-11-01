@@ -52,6 +52,7 @@ public class Race {
 
         int maxMoveForwardCount = 0;
         List<String> winnerCarNameList = new ArrayList<>();
+
         for (String carName : carMap.keySet()) {
             int moveForwardCount = carMap.get(carName).length();
             if (moveForwardCount > maxMoveForwardCount) {
