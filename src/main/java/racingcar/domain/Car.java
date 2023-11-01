@@ -1,13 +1,20 @@
 package racingcar.domain;
 
+import racingcar.constant.ErrorMessage;
+
 public class Car implements Comparable<Car> {
     private String name;
     private int position;
 
     public Car(String name) {
-        if (name.isEmpty() || name.length() > 5) {
-            throw new IllegalArgumentException();
+        if(name.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_NULL_MESSAGE.getMessage());
         }
+
+        if (name.length() > 5) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_SIZE_ERROR.getMessage());
+        }
+
         this.name = name;
         this.position = 0;
     }
