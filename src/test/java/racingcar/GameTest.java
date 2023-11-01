@@ -18,20 +18,22 @@ public class GameTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    void printWell() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                    run("pobi,woni", "3");
+                    assertThat(output()).contains("pobi : ---", "woni : ", "최종 우승자 : pobi");
                 },
+                MOVING_FORWARD, STOP,
+                MOVING_FORWARD, STOP,
                 MOVING_FORWARD, STOP
         );
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void nameNoInput() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
