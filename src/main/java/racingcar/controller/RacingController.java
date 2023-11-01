@@ -44,6 +44,7 @@ public class RacingController {
 
     private static int inputRacingCount() {
         OutputView.printInputRacingCount();
+
         return InputView.inputRacingCount();
     }
 
