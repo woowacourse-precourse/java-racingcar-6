@@ -8,7 +8,7 @@ public final class InputValidator implements FrontValidator {
         try {
             Integer.parseInt(givenInput);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("입력값은 숫자가 아닙니다.");
+            throw new IllegalArgumentException(WRONG_NUMBER_ERROR_MESSAGE);
         }
     }
 
@@ -16,12 +16,12 @@ public final class InputValidator implements FrontValidator {
         Arrays.asList(givenInput.split(delimiter))
                 .forEach(part -> {
                     if (checkMatches(part)) {
-                        throw new IllegalArgumentException("delimiter를 제외한 부분에 특수 문자가 포함되어 있습니다.");
+                        throw new IllegalArgumentException(WRONG_WORDS_ERROR_MESSAGE);
                     }
                 });
     }
 
     private boolean checkMatches(String part) {
-        return !part.matches("[a-zA-Z가-힣]+");
+        return !part.matches(ENG_KOREAN_WORDS_PATTERN);
     }
 }
