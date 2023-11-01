@@ -11,7 +11,7 @@ import racingcar.model.RoundNumber;
 
 public class Game {
     private CarList carList;
-    private RoundNumber roundNumber;
+    private final RoundNumber roundNumber;
     private PositionMap positions;
 
     public Game(String[] carNames, String roundString) {

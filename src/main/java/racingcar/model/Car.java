@@ -8,7 +8,7 @@ public class Car {
     private static final int START_RANGE = 0;
     private static final int END_RANGE = 9;
 
-    private CarName name;
+    private final CarName name;
     private int location;
 
     public Car(String name) {
