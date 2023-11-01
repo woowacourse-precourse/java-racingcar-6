@@ -105,4 +105,12 @@ public class RacingTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    @DisplayName("initPlayCount 성공 테스트")
+    void initPlayCount_success() {
+
+        racing.initPlayCount(5);
+        assertThat(racing.getPlayCount()).isEqualTo(5);
+    }
 }

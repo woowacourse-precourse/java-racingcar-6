@@ -24,6 +24,10 @@ public class Racing {
         return participants;
     }
 
+    public int getPlayCount() {
+        return playCount;
+    }
+
     void initParticipants(String[] names) {
 
         carNames.clear();
