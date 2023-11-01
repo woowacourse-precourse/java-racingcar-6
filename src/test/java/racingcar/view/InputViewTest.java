@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -76,7 +77,7 @@ public class InputViewTest extends IOTest {
     }
 
 
-    @DisplayName("플레이어 경주 횟수 입력 에러 테스트")
+    @DisplayName("플레이어 경주 횟수 입력 예외 테스트")
     @ParameterizedTest
     @MethodSource("provideExceptionInputRacingCount")
     void inputRacingCountExceptionTest(String playerInput) {
@@ -99,6 +100,16 @@ public class InputViewTest extends IOTest {
                 Arguments.of("0"),
                 Arguments.of("-4")
         );
+    }
+
+    @DisplayName("경주 횟수 최소횟수 미만 예외 확인테스트")
+    @ParameterizedTest
+    @ValueSource(ints = {0,-1})
+    void checkMinimumRacingCountExceptionTest(int testNumber){
+        assertThatIllegalArgumentException().isThrownBy(() -> {
+            InputView.checkMinimumRacingCount(testNumber);
+        });
+
     }
 
 
