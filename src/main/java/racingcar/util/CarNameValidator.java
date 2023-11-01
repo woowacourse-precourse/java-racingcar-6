@@ -24,12 +24,17 @@ public class CarNameValidator extends Validator {
      * 구분자가 쉼표인지 체크하는 메서드
      */
     private String[] validateSeparator(String inputCarNames) {
-        if (!Arrays.stream(inputCarNames.split(NAME_SEPARATOR))
-                .allMatch(carName -> isValidCarName(carName))) {
+        if (!isValidCarNameSeparator(inputCarNames)) {
             throw new IllegalArgumentException(ErrorMessage.NOT_COMMA_ERROR.getErrorMessage());
         }
         return inputCarNames.split(NAME_SEPARATOR);
     }
+
+    private boolean isValidCarNameSeparator(String inputCarNames) {
+        return Arrays.stream(inputCarNames.split(NAME_SEPARATOR))
+                .allMatch(this::isValidCarName);
+    }
+
     private boolean isValidCarName(String carName) {
         Matcher matcher = VALID_CAR_NAME_REGEXP.matcher(carName);
         return matcher.matches();
