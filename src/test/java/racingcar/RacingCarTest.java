@@ -6,7 +6,7 @@ import racingcar.input.CarListTest.CarList;
 import racingcar.input.CarTest.Car;
 import racingcar.input.RacingCountTest.RacingCount;
 import racingcar.CheckMoveAndStopTest.CheckMoveAndStop;
-import racingcar.output.WinnerTest.Winner;
+import racingcar.input.WinnerTest.Winner;
 
 public class RacingCarTest {
     private static String 차이름들 = "";

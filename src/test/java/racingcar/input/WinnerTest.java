@@ -1,4 +1,4 @@
-package racingcar.output;
+package racingcar.input;
 
 import static java.lang.String.format;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 import racingcar.input.CarTest.Car;
 import racingcar.output.MessageTypeTest.MessageType;
 import racingcar.output.OutputCarRaceTest.OutputCarRace;
+import racingcar.output.PrintTest;
 
-public class WinnerTest extends PrintTest{
+public class WinnerTest extends PrintTest {
     private static List<Car> 우승자들 = new ArrayList<>();
     private static int 우승거리 = 0;
 
@@ -24,11 +25,11 @@ public class WinnerTest extends PrintTest{
         private List<Car> cars;
         private int maxDistance;
 
-        public static Winner inputWinner(List<Car> cars, int maxDistance){
+        public static Winner inputWinner(final List<Car> cars, final int maxDistance){
             return new Winner(cars, maxDistance);
         }
 
-        private Winner(List<Car> cars, int maxDistance){
+        private Winner(final List<Car> cars, final int maxDistance){
             this.cars = cars;
             this.maxDistance = maxDistance;
         }
