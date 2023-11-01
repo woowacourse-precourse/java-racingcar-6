@@ -10,9 +10,6 @@ import racingcar.view.input.error.InputIllegalArgumentException;
 
 public class CarsTest extends NsTest {
 
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-
     @Test
     void Cars_Constructor이_정상_작동하는지_Test() {
         List<String> carNames = List.of("뛰뛰", "빵빵", "뛰뛰빵빵");
