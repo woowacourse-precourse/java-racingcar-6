@@ -4,6 +4,10 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constants.ExceptionMessage.EXCEPTION_ATTEMT_DIGIT;
+import static racingcar.constants.ExceptionMessage.EXCEPTION_ATTEMT_RANGE;
+import static racingcar.constants.ExceptionMessage.EXCEPTION_CARS_COUNT;
+import static racingcar.constants.ExceptionMessage.EXCEPTION_NAME_LENGTH;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
@@ -24,10 +28,33 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 전진_전진_동시우승자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("cindy,jessi", "1");
+                    assertThat(output()).contains("cindy : -", "jessi : -", "최종 우승자 : cindy, jessi");
+                },
+                5, 4
+        );
+    }
+
+    @Test
+    void 정지_정지_동시우승자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("cindy,jessi", "1");
+                    assertThat(output()).contains("cindy : ", "jessi : ", "최종 우승자 : cindy, jessi");
+                },
+                3, 3
+        );
+    }
+
+    @Test
     void 자동차이름이_6자이상_일때_예외처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("cindy,jessiJ", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EXCEPTION_NAME_LENGTH)
         );
     }
 
@@ -36,6 +63,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("cindy,,jessi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EXCEPTION_NAME_LENGTH)
         );
     }
 
@@ -44,6 +72,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EXCEPTION_NAME_LENGTH)
         );
     }
 
@@ -52,6 +81,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("cindy", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EXCEPTION_CARS_COUNT)
         );
     }
 
@@ -60,6 +90,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("cindy,jessi", "a"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EXCEPTION_ATTEMT_DIGIT)
         );
     }
 
@@ -68,6 +99,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("cindy,jessi", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EXCEPTION_ATTEMT_RANGE)
         );
     }
 
@@ -76,6 +108,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("cindy,jessi", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EXCEPTION_ATTEMT_DIGIT)
         );
     }
 
