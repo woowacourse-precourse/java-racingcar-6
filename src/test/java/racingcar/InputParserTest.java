@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.util.InputParser;
+import racingcar.domain.InputParser;
 
 public class InputParserTest {
     InputParser inputParser = new InputParser();

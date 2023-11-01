@@ -1,11 +1,10 @@
-package racingcar.util;
+package racingcar.domain;
 
 import static racingcar.consts.ViewConstant.DELIMITER;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
 
 public class InputParser {
     private final InputValidator inputValidator = new InputValidator();

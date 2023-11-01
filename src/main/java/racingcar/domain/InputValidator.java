@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.domain;
 
 import static racingcar.consts.ErrorMessages.DUPLICATION_CAR_NAME_MESSAGE;
 import static racingcar.consts.ErrorMessages.WRONG_CAR_NAME_LENGTH_MESSAGE;
