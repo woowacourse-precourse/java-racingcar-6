@@ -3,6 +3,7 @@ package racingcar.domain.system.reader;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.exceptions.argument.EmptyCarNameException;
 
 public class ConsoleCarNameReader implements CarNameReader {
 
@@ -14,6 +15,9 @@ public class ConsoleCarNameReader implements CarNameReader {
         List<String> names = new ArrayList<>();
         String[] nameSources = source.split(DELIMITER);
         for (String nameSource : nameSources) {
+            if (nameSource.isBlank()) {
+                throw new EmptyCarNameException();
+            }
             names.add(getFitName(nameSource));
         }
         return names;
