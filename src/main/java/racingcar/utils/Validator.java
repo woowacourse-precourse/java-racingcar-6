@@ -13,15 +13,18 @@ public final class Validator {
     }
 
     public static void validLength(String inputName) {
-        if (inputName.length() > MAX_NAME_LENGTH){
+        if (Objects.isNull(inputName) || inputName.length() > MAX_NAME_LENGTH){
             throw new IllegalArgumentException("5자 이하의 한글 또는 영어를 입력해주세요");
         }
     }
 
     public static void validNameFormat(String input) {
-        if (Pattern.matches(NAME_PATTERN, input)) {
-            return;
-        } throw new IllegalArgumentException("이름은 한글과 영어, 구분자는 쉼표를 입력해주세요.");
+        if (Objects.isNull(input)) {
+            throw new IllegalArgumentException("이름을 입력해주세요.");
+        }
+        if (!Pattern.matches(NAME_PATTERN, input)) {
+            throw new IllegalArgumentException("이름은 한글과 영어, 구분자는 쉼표를 입력해주세요.");
+        }
     }
 
     public static void validSingleName(String input) {
@@ -32,7 +35,7 @@ public final class Validator {
     }
 
     public static void validIsNumber(String inputNumber) {
-        if (inputNumber.chars().allMatch(Character::isDigit)){
+        if (Objects.isNull(inputNumber) || inputNumber.chars().allMatch(Character::isDigit)){
             return;
         } throw new IllegalArgumentException("숫자를 입력해주세요.");
     }

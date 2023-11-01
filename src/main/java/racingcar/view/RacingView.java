@@ -52,5 +52,4 @@ public class RacingView {
     private String formattedWinner(String formattingNames) {
         return String.format(WINNER_OUTPUT_PATTERN, formattingNames);
     }
-
 }
