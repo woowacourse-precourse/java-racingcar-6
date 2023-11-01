@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class RacingGame {
 
     String[] names;
+    int num;
     private int carnum;
     private ArrayList<Car> cars;
 
@@ -20,7 +21,7 @@ public class RacingGame {
         createCar();
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int num = inputNumber();
+        inputNumber();
 
         System.out.println("\n실행 결과");
 
@@ -36,7 +37,7 @@ public class RacingGame {
         this.names = names;
     }
 
-    private int inputNumber() {
+    private void inputNumber() {
         int num;
         try {
             //검사
@@ -44,7 +45,7 @@ public class RacingGame {
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException();
         }
-        return num;
+        this.num = num;
     }
 
     private void createCar() {
