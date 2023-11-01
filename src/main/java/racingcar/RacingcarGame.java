@@ -11,7 +11,7 @@ public class RacingcarGame {
 
     public void run() {
         String[] carNames = getCarNames();
-        getTryCount();
+        tryCount = getTryCount();
         makeCars(carNames);
         runRounds(tryCount);
         calculateWinners(racingcars);
@@ -25,10 +25,11 @@ public class RacingcarGame {
         return carNames;
     }
 
-    private void getTryCount() {
+    private int getTryCount() {
         String tryCountString = InputOutput.getTryCount();
         tryCount = Validator.tryCountInput(tryCountString);
         InputOutput.printEmptyLine();
+        return tryCount;
     }
 
     private void makeCars(String[] carNames) {
