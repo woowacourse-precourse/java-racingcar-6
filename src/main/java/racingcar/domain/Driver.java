@@ -1,7 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.constants.DomainConstant.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.constants.DomainConstant;
 
 public class Driver {
     public void drive(Car car) {
@@ -9,7 +10,7 @@ public class Driver {
     }
 
     private int calculateDrivingSkill() {
-        return Randoms.pickNumberInRange(DomainConstant.RANDOM_NUMBER_MIN_VALUE,
-                DomainConstant.RANDOM_NUMBER_MAX_VALUE);
+        return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN_VALUE,
+                RANDOM_NUMBER_MAX_VALUE);
     }
 }
