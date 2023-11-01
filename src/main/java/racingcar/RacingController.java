@@ -25,8 +25,8 @@ public class RacingController {
 
     for (int i = 0; i < cnt; i++) {
       for (int j = 0; j < carList.size(); j++) {
-        this.racingService.addDistance(carList.get(i));
-        System.out.printf("%s : %d\n", carList.get(i).getName(), carList.get(i).getDistance());
+        this.racingService.addDistance(carList.get(j));
+        System.out.printf("%s : %d\n", carList.get(j).getName(), carList.get(j).getDistance());
       }
       System.out.println();
     }
