@@ -13,7 +13,6 @@ public class RacingGame {
 
     public RacingGame() {
     }
-
     public void initiate() {
         initiateCars();
         initiateRound();
@@ -28,5 +27,9 @@ public class RacingGame {
     private void initiateRound() {
         String roundInput = ConsoleScanner.readRound();
         this.round = StringParser.parseRound(roundInput);
+    }
+
+    private void decreaseRound() {
+        round--;
     }
 }
