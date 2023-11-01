@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.constant.ErrorMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,28 +21,15 @@ public class Cars {
         return cars;
     }
 
-    public Winners getWinners(){
-        int maxPosition = getMaxPosition();
-        List<Car> winners = new ArrayList<>();
-        for (Car car : getCars()) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car);
-            }
-        }
-        return new Winners(winners);
+    public void carsForwardIfConditionMet() {
+        this.cars.forEach(car -> {
+            car.forwardIfConditionMet(Race.pickRandomNumber());
+        });
     }
-    public int getMaxPosition() {
-        int maxPosition = Integer.MIN_VALUE;
-        for (Car car : getCars()){
-            if (car.getPosition() > maxPosition){
-                maxPosition = car.getPosition();
-            }
-        }
-        return maxPosition;
-    }
+
     public static void checkDuplicateCarName(List<String> carNames) {
         if (carNames.size() != carNames.stream().distinct().count()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAMES_DUPLICATED_MESSAGE);
         }
     }
 }
