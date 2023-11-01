@@ -55,4 +55,9 @@ public class Race {
         return sameDistanceCars;
     }
 
+    public List<Car> getWinners() {
+        int max = getMaxDistance();
+        return getSameDistanceCars(max);
+    }
+
 }
