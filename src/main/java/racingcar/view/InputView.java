@@ -21,7 +21,6 @@ public class InputView {
 
     public String readCarNames() {
         System.out.println(RacingMessage.INPUT_NAME_MESSAGE.getMessage());
-        // 입력 요구사항에 대해선 이쪽에서 유효성 검사를 해야할듯함.
         String inputCarNames = Console.readLine().trim();
         new CarNameValidator().validate(inputCarNames);
         return inputCarNames;
