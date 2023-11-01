@@ -1,15 +1,15 @@
 package validator;
 
-import constants.Constants;
 import constants.ExceptionMessage;
 
 public class AttemptTimesValidator {
-    public int getValidatedValue(String input){
+
+    public int getValidatedValue(String input) {
         validate(input);
         return Integer.parseInt(input);
     }
 
-    private void validate(String input){
+    private void validate(String input) {
         validateInteger(input);
         int validatedInteger = Integer.parseInt(input);
         validatePlus(validatedInteger);
