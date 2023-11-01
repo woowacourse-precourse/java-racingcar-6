@@ -13,7 +13,7 @@ public class InputProcessor {
 
 
     public List<Car> getCars(List<String> carNames) {
-        return carNames.stream().map(Car::new).collect(Collectors.toList());
+        return carNames.stream().map(Car::new).toList();
     }
 
     public Integer getRound() {
