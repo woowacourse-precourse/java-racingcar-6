@@ -17,7 +17,6 @@ public class InputView {
     public static Integer getCarCntFromUser(){
         String input = Console.readLine();
         Integer carCnt = stringToCarCntInteger(input);
-        Console.close();
         return carCnt;
     }
 
