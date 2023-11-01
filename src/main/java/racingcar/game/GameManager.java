@@ -48,6 +48,7 @@ public class GameManager {
             }
         }
 
+        if (maxDistance == 0) return null;
         return winnerList;
     }
 

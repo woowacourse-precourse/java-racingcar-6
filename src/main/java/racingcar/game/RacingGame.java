@@ -62,7 +62,14 @@ public class RacingGame {
     }
 
     private void printWinners(List<String> winnerList) {
-        String winners = String.join(", ", winnerList);
+        String winners = getWinnersToString(winnerList);
         System.out.print("최종 우승자 : " + winners);
+    }
+
+    private String getWinnersToString(List<String> winnerList) {
+        if (winnerList != null) {
+            return String.join(", ", winnerList);
+        }
+        return "우승자는 없습니다.";
     }
 }
