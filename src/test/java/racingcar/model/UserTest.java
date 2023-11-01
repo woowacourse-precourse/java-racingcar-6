@@ -14,7 +14,7 @@ public class UserTest {
         List<String> input = new ArrayList<>(){{
            add("123456");
         }};
-        Assertions.assertThatThrownBy(() -> user.exceed5Digits(input))
+        Assertions.assertThatThrownBy(() -> user.checkExceed5Digits(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("차 이름이 5자를 초과하였습니다.");
     }

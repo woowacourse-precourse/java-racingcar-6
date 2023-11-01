@@ -16,11 +16,17 @@ public class User {
         String carNames = Console.readLine();
         String[] carNamesSplit = carNames.split(",");
         List<String> carNamesList = Arrays.asList(carNamesSplit);
-        exceed5Digits(carNamesList);
+        checkExceed5Digits(carNamesList);
         return carNamesList;
     }
 
-    public void exceed5Digits(List<String> userInputCarNames) {
+    public String inputTryCount() {
+        InputView.inputTryCount();
+        String tryCount = Console.readLine();
+        return tryCount;
+    }
+
+    public void checkExceed5Digits(List<String> userInputCarNames) {
         for(String carName : userInputCarNames) {
             if(carName.length() > 5) {
                 throw new IllegalArgumentException("차 이름이 5자를 초과하였습니다.");
