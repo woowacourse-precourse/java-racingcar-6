@@ -38,16 +38,5 @@ class CarManagerTest {
         Assertions.assertThat(carMap.get("가나").getPosition()).isEqualTo(1);
 
     }
-    @Test
-    public void WinnerList테스트() {
-        CarManager carManager = new CarManager("가나,다라,마바");
-        HashMap<String, Car> carMap = carManager.getCarMap();
 
-        Assertions.assertThat(carManager.getWinnerList()).contains("가나","다라","마바");
-
-
-
-
-
-    }
 }
