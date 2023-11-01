@@ -1,12 +1,14 @@
 package study;
 
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.InputProcessor;
 import racingcar.domain.RacingGame;
 import racingcar.domain.Referee;
 
+@DisplayName("레이싱 게임 테스트")
 public class RacingGameTest {
 
     @Test
