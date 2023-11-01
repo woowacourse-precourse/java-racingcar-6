@@ -10,15 +10,18 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
 public class RacingTest {
+    String name1 = "pobi";
+    String name2 = "woni";
+    String name3 = "jun";
     Racing racing;
     List<Car> carList;
 
     private void beforeEach() {
         racing = Racing.getInstance();
 
-        Car car1 = new Car("pobi");
-        Car car2 = new Car("woni");
-        Car car3 = new Car("jun");
+        Car car1 = new Car(name1);
+        Car car2 = new Car(name2);
+        Car car3 = new Car(name3);
 
         carList = new ArrayList<>();
 
