@@ -16,9 +16,9 @@ public class Script {
         System.out.println("실행 결과");
     }
 
-    public void showResult(List<String> cars, List<StringBuilder> move) {
+    public void showResult(List<String> cars, List<StringBuilder> moves) {
         for (int index = 0; index < cars.size(); index++) {
-            System.out.println(cars.get(index) + " : " + move.get(index));
+            System.out.println(cars.get(index) + " : " + moves.get(index));
         }
 
         System.out.println();
@@ -26,6 +26,6 @@ public class Script {
 
     public void showWinner(List<String> names) {
         System.out.print("최종 우승자 : ");
-        System.out.println(String.join(", ", names));
+        System.out.print(String.join(", ", names));
     }
 }
