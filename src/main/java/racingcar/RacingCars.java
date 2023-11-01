@@ -11,7 +11,9 @@ public class RacingCars {
 
     public RacingCars(String[] carsName) {
         validateCarsSize(carsName);
-        this.racingCars = Arrays.stream(carsName).map(Car::new).collect(Collectors.toList());
+        this.racingCars = Arrays.stream(carsName)
+                .map(carName -> new Car(carName, GameConfig.INIT_NUMBER.getValue()))
+                .collect(Collectors.toList());
     }
 
     public void move() {

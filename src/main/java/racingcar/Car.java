@@ -4,11 +4,11 @@ public class Car implements Comparable<Car> {
     private final String name;
     private int position;
 
-    public Car(String name) {
+    public Car(String name, int position) {
         name = name.trim();
         validateName(name);
         this.name = name;
-        position = GameConfig.INIT_NUMBER.getValue();
+        this.position = position;
     }
 
     public void move(int randomNumber) {
