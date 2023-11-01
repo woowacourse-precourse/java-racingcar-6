@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Game {
-    private int attempt;
-    private List<Car> cars;
-    private final List<Car> result;
+    public int attempt;
+    public List<Car> cars;
+    public final List<Car> result;
 
     public Game() {
         cars = new ArrayList<>();
@@ -34,9 +34,11 @@ public class Game {
 
     private void calculateWinner() {
         int longDistance = 0;
+
         for (Car car : cars) {
             longDistance = Math.max(car.getMoveDistance(), longDistance);
         }
+
         for (Car car : cars) {
             if (car.getMoveDistance() == longDistance)
                 result.add(car);
