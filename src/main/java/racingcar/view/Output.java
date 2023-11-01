@@ -8,7 +8,7 @@ public class Output {
 
     public void printExecutionResult(int index,String executionResult){
         if(index == 0)
-            System.out.println(EXECUTION_RESULT);
+            System.out.println("\n"+EXECUTION_RESULT);
         System.out.println(executionResult);
     }
 
