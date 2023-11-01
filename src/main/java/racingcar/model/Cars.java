@@ -41,4 +41,8 @@ public class Cars {
         }
         return highScore;
     }
+
+    public Map<String, Integer> getState() {
+        return state;
+    }
 }
