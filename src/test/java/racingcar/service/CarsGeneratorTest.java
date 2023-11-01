@@ -9,15 +9,21 @@ import racingcar.model.Car;
 
 public class CarsGeneratorTest {
     private CarsGenerator carsGenerator;
-    @Test
-    public void testGenerateCars() {
-        carsGenerator = new CarsGenerator();
-        List<String> carNames = new ArrayList<>();
+    List<Car> carList;
+    List<String> carNames;
+
+    void preset() {
+        carsGenerator = CarsGenerator.getInstance();
+        carNames = new ArrayList<>();
         carNames.add("pobi");
         carNames.add("woni");
         carNames.add("jun");
+    }
 
-        List<Car> carList = carsGenerator.generateCars(carNames);
+    @Test
+    public void testGenerateCars() {
+        preset();
+        carList = carsGenerator.generateCars(carNames);
 
         assertEquals(3, carList.size());
 
