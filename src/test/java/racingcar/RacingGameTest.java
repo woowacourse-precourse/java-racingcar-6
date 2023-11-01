@@ -1,11 +1,16 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.RacingGameController;
 import racingcar.model.Car;
 import racingcar.model.RacingGame;
+import racingcar.view.InputManager;
+import racingcar.view.OutputManager;
 
 class RacingGameTest {
 
@@ -77,5 +82,53 @@ class RacingGameTest {
 
         // then
         assertThat(winners).hasSize(2);
+    }
+
+    @Test
+    void 입력_받은_자동차_이름_중복_존재_시_예외_발생() {
+        // given
+        InputManager inputManager = new InputManager();
+        OutputManager outputManager = new OutputManager();
+        RacingGame racingGame = new RacingGame();
+        RacingGameController racingGameController = new RacingGameController(outputManager, inputManager, racingGame);
+
+        List<String> list = List.of("pobi", "pobi", "harry");
+
+        // when & then
+        assertThatThrownBy(() -> racingGameController.checkCarNameIsValid(list))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이름이_정해진_글자수_초과시_예외_발생() {
+        // given
+        InputManager inputManager = new InputManager();
+        OutputManager outputManager = new OutputManager();
+        RacingGame racingGame = new RacingGame();
+        RacingGameController racingGameController = new RacingGameController(outputManager, inputManager, racingGame);
+
+        List<String> list = List.of("pobia", "pobib", "harryc");
+
+        // when & then
+        assertThatThrownBy(() -> racingGameController.checkCarNameIsValid(list))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_최대_개수_초과시_예외_발생() {
+        // given
+        InputManager inputManager = new InputManager();
+        OutputManager outputManager = new OutputManager();
+        RacingGame racingGame = new RacingGame();
+        RacingGameController racingGameController = new RacingGameController(outputManager, inputManager, racingGame);
+
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < RacingGame.CAR_MAX_NUM + 1; i++) {
+            list.add("pobi");
+        }
+
+        // when & then
+        assertThatThrownBy(() -> racingGameController.checkCarNameIsValid(list))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
