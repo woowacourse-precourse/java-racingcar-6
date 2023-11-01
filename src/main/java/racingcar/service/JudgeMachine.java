@@ -14,7 +14,7 @@ public class JudgeMachine {
         }
         for (Car car : carList) {
             if (car.getLocation().equals(winningDistance)) {
-                car.setWinner();
+                car.setWinner(true);
             }
         }
     }
@@ -24,6 +24,7 @@ public class JudgeMachine {
         List<Car> winningCars = new ArrayList<>();
         for (Car car : carList) {
             if (car.isWinner()) {
+                System.out.println(car.getName());
                 winningCars.add(car);
             }
         }
