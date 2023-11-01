@@ -1,6 +1,7 @@
 package racingcar.config;
 
 import racingcar.controller.RacingCarController;
+import racingcar.service.CarService;
 import racingcar.view.InputReader;
 import racingcar.view.MessagePrinter;
 import racingcar.view.RacingCarView;
@@ -13,6 +14,7 @@ public class RacingCarConfig {
         InputReader inputReader = new InputReader();
         MessagePrinter messagePrinter = new MessagePrinter();
         RacingCarView racingCarView = new RacingCarView(inputReader, messagePrinter);
-        return new RacingCarController(racingCarView);
+        CarService carService = new CarService();
+        return new RacingCarController(racingCarView, carService);
     }
 }
