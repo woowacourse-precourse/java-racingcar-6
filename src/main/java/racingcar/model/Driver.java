@@ -24,6 +24,6 @@ public class Driver {
 
     @Override
     public String toString() {
-        return name + " : " +  "-".repeat(moveCount);
+        return name + " : " + "-".repeat(moveCount);
     }
 }

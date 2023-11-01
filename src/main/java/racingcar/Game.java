@@ -28,7 +28,7 @@ public class Game {
         gameView.gameResultView();
         for (int i = 0; i < tryCount; i++) {
             play(driverList);
-           gameView.playProgressView(driverList);
+            gameView.playProgressView(driverList);
         }
 
         List<String> winnerList = driverService.getWinnerList(driverList);

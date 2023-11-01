@@ -7,8 +7,8 @@ import java.util.List;
 
 public class DriverService {
 
-    public void move(int number,  Driver driver) {
-        if (number >= 4){
+    public void move(int number, Driver driver) {
+        if (number >= 4) {
             driver.move();
         }
     }
