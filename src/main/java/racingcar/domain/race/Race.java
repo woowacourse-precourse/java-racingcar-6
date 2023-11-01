@@ -18,6 +18,10 @@ public class Race {
         count.decrease();
     }
 
+    public boolean isOver() {
+        return count.isOver();
+    }
+
     @Override
     public String toString() {
         return cars.toString() + RACE_RESULT_DELIMITER;

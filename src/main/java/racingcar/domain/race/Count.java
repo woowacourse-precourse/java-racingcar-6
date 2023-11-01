@@ -4,6 +4,8 @@ import racingcar.constants.ErrorConsts;
 
 public final class Count {
     private static final int MIN_COUNT = 1;
+    private static final int GAME_OVER_COUNT = 0;
+
     private int count;
 
     public Count(String count) {
@@ -14,6 +16,10 @@ public final class Count {
 
     public void decrease() {
         count--;
+    }
+
+    public boolean isOver() {
+        return count == GAME_OVER_COUNT;
     }
 
     private void validate(final int count) {
