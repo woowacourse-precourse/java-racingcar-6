@@ -17,6 +17,6 @@ public class Application {
 
         WinnerCalculator winnerCalculator = new WinnerCalculator();
         System.out.print("최종 우승자 : ");
-        System.out.println(winnerCalculator.getWinners(cars));
+        System.out.print(winnerCalculator.getWinners(cars));
     }
 }
