@@ -30,4 +30,15 @@ public class RacingcarController {
 
         return new Race(cars, rounds);
     }
+    public void startGame() {
+        runRace();
+    }
+
+    private void runRace() {
+        while (!racingcarService.isRaceFinished()) {
+            racingcarService.raceRound();
+            String raceStatus = racingcarService.getRaceStatus();
+            outputView.printGameStatus(raceStatus);
+        }
+    }
 }
