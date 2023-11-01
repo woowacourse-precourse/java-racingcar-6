@@ -39,7 +39,7 @@ public class StringFormatter {
         return sb.toString();
     }
 
-    private static List<String> getWinnerName(Winner winner) {
+    private List<String> getWinnerName(Winner winner) {
         return winner.getValue().stream()
                 .map(Car::getName)
                 .toList();
