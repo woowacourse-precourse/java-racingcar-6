@@ -24,4 +24,8 @@ public class Race {
         this.roundLeft = totalRound;
         this.entry = entry;
     }
+
+    public boolean isFinished() {
+        return roundLeft.equals(new Round(0));
+    }
 }
