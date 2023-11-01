@@ -2,7 +2,7 @@ package racingcar.method;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.Application;
+import racingcar.RacingCarGame;
 
 import java.util.LinkedHashMap;
 
@@ -15,7 +15,7 @@ public class SelectFinalWinnerTest {
         carNameAndMovementCountMap.put("Alex", 3);
         carNameAndMovementCountMap.put("David", 2);
 
-        Assertions.assertThat(Application.selectFinalWinner(carNameAndMovementCountMap)).contains("Jun");
+        Assertions.assertThat(RacingCarGame.selectFinalWinner(carNameAndMovementCountMap)).contains("Jun");
     }
 
     @Test
@@ -25,6 +25,6 @@ public class SelectFinalWinnerTest {
         carNameAndMovementCountMap.put("Alex", 5);
         carNameAndMovementCountMap.put("David", 2);
 
-        Assertions.assertThat(Application.selectFinalWinner(carNameAndMovementCountMap)).contains("Jun", "Alex");
+        Assertions.assertThat(RacingCarGame.selectFinalWinner(carNameAndMovementCountMap)).contains("Jun", "Alex");
     }
 }

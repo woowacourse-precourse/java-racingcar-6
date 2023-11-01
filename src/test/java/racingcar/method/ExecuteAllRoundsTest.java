@@ -2,7 +2,7 @@ package racingcar.method;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.Application;
+import racingcar.RacingCarGame;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -17,7 +17,7 @@ public class ExecuteAllRoundsTest {
         carNameAndMovementCountMap.put("Alex", 0);
         carNameAndMovementCountMap.put("David", 0);
 
-        Map<String, Integer> afterExecuteMap = Application.executeAllRounds(carNameAndMovementCountMap, 100);
+        Map<String, Integer> afterExecuteMap = RacingCarGame.executeAllRounds(carNameAndMovementCountMap, 100);
         Assertions.assertThat(afterExecuteMap).containsKeys("Jun", "Alex", "David");
         Assertions.assertThat(afterExecuteMap).doesNotContainValue(0); // 3 * (0.6)^100 의 확률로 테스트 실패
         Assertions.assertThat(afterExecuteMap).doesNotContainValue(100); // 3 * (0.4)^100 의 확률로 테스트 실패
