@@ -28,11 +28,11 @@ class InputTest extends NsTest {
     void 이름_작성_기준_예외처리(){
         IntegrityCheck integrityCheck = new IntegrityCheck();
 
-        // 이름의 길이에 대한 예외처리
+        // 이름의 길이에 대한 예외 처리
         assertThat(integrityCheck.nameIntegrityCheck("123456")).isEqualTo(true);
-        // 이름이 없는 것에 대한 예외처리
+        // 이름이 없는 것에 대한 예외 처리
         assertThat(integrityCheck.nameIntegrityCheck("")).isEqualTo(true);
-        // 이름에 제어 문자가 들어간 것에 대한 예외처리
+        // 이름에 제어 문자가 들어간 것에 대한 예외 처리
         assertThat(integrityCheck.nameIntegrityCheck((char)(0) + "123")).isEqualTo(true);
     }
 
@@ -61,6 +61,13 @@ class InputTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_마지막_쉼표_있는_경우_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("123,abc,", "10"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
