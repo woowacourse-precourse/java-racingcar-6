@@ -21,9 +21,8 @@ public class Car
 	 * camp.nextstep.edu.missionutils.Randoms를 사용해 랜덤한 숫자를 뽑고 전진할 수 있는지 여부 판단
 	 * @return
 	 */
-	public boolean canMove() {
-		int num = Randoms.pickNumberInRange(0,9);
-		return num >= 4;
+	public boolean canMove(int number) {
+		return number >= 4;
 	}
 
 	/**
