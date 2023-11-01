@@ -13,14 +13,13 @@ public class Cars {
     }
 
     private List<Car> InputsToCars(List<String> inputs) {
-        return inputs
-                .stream()
+        return inputs.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
 
-    public void doRace(){
-        for (Car car : carList){
+    public void moveCars() {
+        for (Car car : carList) {
             car.move();
         }
     }
@@ -28,4 +27,18 @@ public class Cars {
     public List<Car> getCars() {
         return carList;
     }
+
+    public String oneRaceResult() {
+        StringBuilder raceResult = new StringBuilder();
+
+        for (Car car : carList) {
+            String carName = car.getName();
+            int carPosition = car.getPosition();
+            String dashes = "-".repeat(carPosition);
+            String carResult = carName + " : " + dashes;
+            raceResult.append(carResult).append("\n");
+        }
+        return raceResult.toString();
+    }
+
 }

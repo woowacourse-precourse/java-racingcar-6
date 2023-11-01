@@ -10,5 +10,7 @@ public class GameCount {
         count--;
     }
 
-
+    public int getCount() {
+        return count;
+    }
 }

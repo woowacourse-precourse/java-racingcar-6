@@ -4,7 +4,7 @@ import static racingcar.model.GameRule.MOVE_CONDITION;
 import static racingcar.model.RandomNumberGenerator.randomNumberGenerator;
 
 public class Car {
-    private static Name name;
+    private final Name name;
     private int position;
 
     public Car(String name){
