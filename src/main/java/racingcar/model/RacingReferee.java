@@ -26,7 +26,7 @@ public class RacingReferee {
         }
     }
 
-    public Map<Player, Integer> carMove() {
+    public Map<Player, Integer> playerMove() {
         List<Player> playerList = players.getPlayers();
         for (Player player : playerList) {
             int v = dice.roll();

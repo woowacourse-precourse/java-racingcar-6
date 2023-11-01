@@ -23,7 +23,7 @@ class RacingRefereeTest {
         RacingReferee racingReferee = new RacingReferee(players, new RandomDice());
 
         assertRandomNumberInRangeTest(() -> {
-                    assertThat(racingReferee.carMove().get(players.getPlayers().get(0))).isEqualTo(1);
+                    assertThat(racingReferee.playerMove().get(players.getPlayers().get(0))).isEqualTo(1);
                 },
                 4, 1, 1);
     }
@@ -42,7 +42,7 @@ class RacingRefereeTest {
 
         RacingReferee racingReferee = new RacingReferee(players, dice);
 
-        assertThat(racingReferee.carMove().get(players.getPlayers().get(0))).isEqualTo(1);
+        assertThat(racingReferee.playerMove().get(players.getPlayers().get(0))).isEqualTo(1);
 
     }
 }

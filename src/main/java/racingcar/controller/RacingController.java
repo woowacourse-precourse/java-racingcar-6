@@ -29,7 +29,7 @@ public class RacingController {
 
     private void conductRace(int racingTime) {
         for (int i = 0; i < racingTime; i++) {
-            view.printMovedLog(racingReferee.carMove());
+            view.printMovedLog(racingReferee.playerMove());
         }
     }
 
