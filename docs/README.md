@@ -1,16 +1,6 @@
 # 미션 - 자동차 경주
 
-```mermaid
-classDiagram
-    namespace config {
-        class ConsoleFactory
-        class RaceFactory
-        class RacingCarGameFactory
-    }
-    RacingCarGameFactory ..> RaceFactory
-    RacingCarGameFactory ..> ConsoleFactory
-
-```
+<img width="433" alt="image" src="https://github.com/lkdcode/java-racingcar-6/assets/110602069/172dedf9-0aae-44df-89cf-b6391ca39d15">
 
 ### config
 
@@ -40,12 +30,7 @@ classDiagram
 <br/>
 <br/>
 
-```mermaid
-classDiagram
-    namespace exception {
-        class RacingCarException
-    }
-```
+<img width="246" alt="image" src="https://github.com/lkdcode/java-racingcar-6/assets/110602069/9df9a2ef-aef8-441b-95f0-b6da85a659d2">
 
 ### exception
 
@@ -62,18 +47,7 @@ classDiagram
 
 ### domain
 
-```mermaid
-flowchart TD
-subgraph domain.pkg
-subgraph console.pkg
-
-end
-subgraph race.pkg
-
-end
-RacingCarGame.class 
- end
-```
+<img width="534" alt="image" src="https://github.com/lkdcode/java-racingcar-6/assets/110602069/309c37cb-5613-4493-a7e3-82b70a29b963">
 
 `RacingCarGame` 은 `Console` 과 `Race` 와 협력을 하며 게임을 진행한다.
 
@@ -81,25 +55,7 @@ RacingCarGame.class
 
 - 퍼블릭 인터페이스로 `start()` 메시지를 받을 수 있고, 내부적으로 게임을 진행하는 프라이빗 메서드를 가지고 있다.
 
-```mermaid
-flowchart TD
-subgraph domain
-
-
-subgraph console.pkg
-subgraph input.pkg
-ConsoleReader.class 
-    InputParser.class
-InputValidator.class
-end
-subgraph output.pkg
-ConsoleWriter.class
-end
-Console.class
-end
-
-end
-```
+<img width="378" alt="image" src="https://github.com/lkdcode/java-racingcar-6/assets/110602069/9f3d812d-6290-47a6-8b99-a68fec598dca">
 
 `Console` 은 콘솔에 입/출력을 담당한다.<br/>
 `입력`은 `ConsoleReader` 와 `출력` 은 `ConsoleWriter` 와 협력한다.<br/>
@@ -142,17 +98,7 @@ end
 <br/>
 <br/>
 
-```mermaid
-flowchart TD
-subgraph domain
-subgraph race
-subgraph car
-Car.class 
- Engine.class
-end
-end
-end
-```
+<img width="294" alt="image" src="https://github.com/lkdcode/java-racingcar-6/assets/110602069/dec85cfb-1047-4144-95c9-327d17d854db">
 
 #### car.pkg
 
@@ -176,17 +122,7 @@ end
 <br/>
 <br/>
 
-```mermaid
-flowchart TD
-subgraph domain
-subgraph dto
-Distance.record
-end
-subgraph rule
-Rule.class 
-end
-end
-```
+<img width="463" alt="image" src="https://github.com/lkdcode/java-racingcar-6/assets/110602069/471036f8-e74c-4218-a113-9e53620fbc0a">
 
 경주 결과의 데이터만 담은 `Distance` 와 경기 경주의 실제 정책, 규칙이 되는 `Rule` 클래스다.<br/>
 
@@ -208,16 +144,7 @@ end
 <br/>
 <br/>
 
-```mermaid
-flowchart TD
-subgraph domain
-subgraph manager
-CarRacerRegister.class 
-            RaceCarmanager.class
-RaceRecord.class
-end
-end
-```
+<img width="316" alt="image" src="https://github.com/lkdcode/java-racingcar-6/assets/110602069/c74dd472-87ee-4f3c-8f08-030756374dd5">
 
 자동차 경주를 진행하기 위한 참가자와 경기 기록을 관리한다.<br/>
 
