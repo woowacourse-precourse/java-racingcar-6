@@ -4,7 +4,7 @@ public class Car {
     private Long id;
     private final String name;
     private final Long gameId;
-    private int move;
+    private int moving;
 
     private Car(Long gameId, String name) {
         this.gameId = gameId;
@@ -23,7 +23,19 @@ public class Car {
         return id;
     }
 
-    public void setId() {
-        this.id = id;
+    public Long getGameId() {
+        return gameId;
+    }
+
+    public void moveForward() {
+        moving++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMoving() {
+        return moving;
     }
 }

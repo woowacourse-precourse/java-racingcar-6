@@ -22,4 +22,8 @@ public class GameRepository {
         store.put(game.getId(), game);
         return game;
     }
+
+    public Game findById(Long gameId) {
+        return store.get(gameId);
+    }
 }

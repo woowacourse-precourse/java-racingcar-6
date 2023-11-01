@@ -21,4 +21,12 @@ public class Game {
     public Long getId() {
         return id;
     }
+
+    public int play() {
+        return playNum++;
+    }
+
+    public int getTrial() {
+        return trial;
+    }
 }

@@ -1,6 +1,8 @@
 package racingcar.module.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import racingcar.module.domain.Car;
 
@@ -21,5 +23,12 @@ public class CarRepository {
         car.setId(++id);
         store.put(car.getId(), car);
         return car;
+    }
+
+    public List<Car> findByGame(Long gameId) {
+        List<Car> carList = new ArrayList<>();
+        store.values().stream().filter(car -> car.getGameId().equals(gameId))
+                .forEach(car -> carList.add(car));
+        return carList;
     }
 }

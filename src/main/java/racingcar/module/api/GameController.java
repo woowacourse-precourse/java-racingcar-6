@@ -18,16 +18,20 @@ public class GameController {
     }
 
     public void run() throws IllegalArgumentException {
-        setGame();
+        play(setGame());
     }
 
-    public void setGame() {
+    private Long setGame() {
         Output.printEnterCarNamesMessage();
         List<String> carNames = Input.readCarNames();
         Output.printEnterTrialMessage();
         int trial = Input.readTrialNumber();
 
-        gameService.setGame(carNames, trial);
+        return gameService.setGame(carNames, trial);
+    }
+
+    private void play(Long gameId) {
+        gameService.playGame(gameId);
     }
 
 }
