@@ -84,7 +84,6 @@ class Game {
     private static String getCarsNames() {
         System.out.println(GET_CARS_NAMES_MESSAGE);
         String inputCarsNames = readLine();
-        //checkException(inputCarsNames);
         carsNames = stringToArrayList(inputCarsNames);
 
         return inputCarsNames;
