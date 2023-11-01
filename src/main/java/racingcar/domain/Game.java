@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -34,7 +35,7 @@ public class Game {
     }
 
     public List<Car> getCarList() {
-        return carList;
+        return Collections.unmodifiableList(carList);
     }
 
     public int getCount() {
