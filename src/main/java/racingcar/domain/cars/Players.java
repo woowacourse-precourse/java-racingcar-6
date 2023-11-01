@@ -17,6 +17,6 @@ public class Players extends Cars {
     }
 
     public void moveAll() {
-        cars.forEach((car) -> car.move());
+        cars.forEach(Car::move);
     }
 }
