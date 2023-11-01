@@ -21,7 +21,6 @@ public class CarRaceGameUtility {
         for (int i = 0; i < gameRoundNumber; i++) {
             CarRaceGameUtility.executeCarRaceGameOneRound();
         }
-        CarRaceGameView.printGameResult(CarRaceGameUtility.findWinner(GameManager.getCarImplList()));
     }
 
     public static void executeCarRaceGameOneRound() {

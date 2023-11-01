@@ -8,6 +8,7 @@ import racingcar.domain.GameManager;
 import racingcar.utility.CarRaceGameUtility;
 import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
+import static camp.nextstep.edu.missionutils.Console.*;
 
 public class CarRaceGame {
     private GameManager gameManager;
@@ -25,6 +26,11 @@ public class CarRaceGame {
         setCarImpls(carNameList);
 
         CarRaceGameUtility.executeCarRaceGameForNRound(getGameRoundAndValidate());
+
+        List<String> winnerList = CarRaceGameUtility.findWinner(GameManager.getCarImplList());
+        CarRaceGameView.printGameResult(winnerList);
+
+        endGame();
     }
 
     public static List<String> getCarNameListAndValidate() {
@@ -61,6 +67,11 @@ public class CarRaceGame {
         Validator.isEmptyString(gameRound);
         Validator.isNumber(gameRound);
         Validator.isMoreThanOne(gameRound);
+    }
+
+
+    public static void endGame() {
+        close();
     }
 }
 
