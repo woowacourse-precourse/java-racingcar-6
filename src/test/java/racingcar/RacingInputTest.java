@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcarFP.Application;
+
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 
