@@ -1,98 +1,13 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.ArrayList;
-import java.util.List;
+import static racingcar.InputHandler.createRacerFromInput;
+import static racingcar.InputHandler.setAttemptCountFromInput;
+import static racingcar.OutputFormatter.printCurrentStateOfRace;
+import static racingcar.OutputFormatter.printNamesOfRacers;
+import static racingcar.RaceLogic.attemptAllRacer;
+import static racingcar.RaceLogic.findWinner;
 
 public class Application {
-    static Racer[] createRacerFromInput() {
-        String input = Console.readLine();
-
-        String[] names = input.split(",");
-
-        validateInputForRacerCreation(names);
-
-        Racer[] racers = new Racer[names.length];
-
-        for(int i=0; i< names.length; i++){
-            racers[i] = new Racer(names[i]);
-        }
-
-        return racers;
-    }
-
-    static void validateInputForRacerCreation(String[] names){
-
-        String regex = "^[a-zA-Z가-힣]+$";
-
-        for(String name : names) {
-            if (name.length()>5) {
-                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-            }
-            if (!name.matches(regex)) {
-                throw new IllegalArgumentException("입력은 한글, 알파벳, 쉼표만 포함해야 합니다.");
-            }
-        }
-    }
-
-    static int setAttemptCountFromInput(){
-        try {
-            int attemptCount = Integer.parseInt(Console.readLine());
-            return attemptCount;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("정수형 입력이 필요합니다.");
-        }
-    }
-
-    static void attemptAllRacer(Racer[] racers) {
-        for(Racer racer : racers){
-            attemptOnceWithRacer(racer);
-        }
-    }
-
-    static void attemptOnceWithRacer(Racer racer){
-        if (Randoms.pickNumberInRange(0,9) >= 4) {
-            racer.increaseProgress();
-        }
-    }
-
-    static void printCurrentStateOfRace(Racer[] racers){
-        for(Racer racer : racers) {
-            racer.printRacer();
-        }
-    }
-
-    static List<Racer> findWinner(Racer[] racers){
-        List<Racer> winners = new ArrayList<>();
-        int maxProgress = 0;
-
-        for (Racer racer : racers) {
-            int progress = racer.getProgress();
-            if (progress > maxProgress) {
-                maxProgress = progress;
-            }
-        }
-
-        for (Racer racer : racers) {
-            if (racer.getProgress() == maxProgress) {
-                winners.add(racer);
-            }
-        }
-
-        return winners;
-    }
-
-    static void printNamesOfRacers(List<Racer> racers){
-        int len = racers.size();
-        for (int i=0; i<len; i++){
-            if(i!=0){
-                System.out.print(", ");
-            }
-            System.out.print(racers.get(i).getName());
-        }
-    }
 
     public static void main(String[] args) {
 
