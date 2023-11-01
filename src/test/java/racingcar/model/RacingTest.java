@@ -65,6 +65,10 @@ public class RacingTest {
         }
     }
 
+    @Test
     void 최대_전진횟수를_가진_자동차이름으로_경주의_우승자_이름을_생성한다() {
+        List<String> names = defaultRacing.generateWinnerNames();
+
+        assertThat(names).isEqualTo(defaultNames);
     }
 }
