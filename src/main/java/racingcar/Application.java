@@ -35,11 +35,24 @@ public class Application {
         return carNamesArray;
     }
 
+    private static int inputCount() {
+        try {
+            System.out.println("시도할 회수가 몇회인가요?");
+            int tryCount = Integer.parseInt(Console.readLine());
+
+            return tryCount;
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void main(String[] args) {
         String[] carNamesArray = inputNames();
         Car[] cars = new Car[carNamesArray.length];
         for (int i = 0;  i < cars.length; i++) {
             cars[i] = new Car(carNamesArray[i]);
         }
+
+        int tryCount = inputCount();
     }
 }
