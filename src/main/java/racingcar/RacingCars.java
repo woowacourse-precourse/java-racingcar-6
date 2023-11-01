@@ -15,8 +15,12 @@ public class RacingCars {
     }
 
     private void verifyNotTooLongName(String name) {
-        if (name.length() < MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("car name length should be under " + MAX_NAME_LENGTH);
         }
+    }
+
+    public List<String> getNames() {
+        return names;
     }
 }
