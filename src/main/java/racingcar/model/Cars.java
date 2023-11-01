@@ -8,4 +8,8 @@ public class Cars {
             carlist.add(name);
         }
     }
+
+    public CarList getCarlist() {
+        return carlist;
+    }
 }
