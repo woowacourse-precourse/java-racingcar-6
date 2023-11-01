@@ -13,6 +13,7 @@ public class CarManager {
     }
 
     public static List<String> createNames(String userInput) {
+        Validator.checkComma(userInput);
         return Arrays.asList(userInput.split(","));
     }
 

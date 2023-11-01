@@ -47,6 +47,14 @@ public class Validator {
 
     }
 
+    public static void checkComma(String userInput) {
+
+        if ((!userInput.isEmpty()) && (userInput.charAt(userInput.length() - 1) == ',')) {
+            throw new IllegalArgumentException("콤마 다음에 이름을 입력해 주세요.");
+        }
+
+    }
+
     public static void checkDuplication(List<String> carNames) {
 
         CarManager.trimNames(carNames);
