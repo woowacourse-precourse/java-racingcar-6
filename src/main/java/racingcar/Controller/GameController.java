@@ -30,6 +30,7 @@ public class GameController {
 
         this.game = new RacingGame(carsName);
 
+        outputView.printRESULT_GUIDE();
         while(tryCount > 0){
             tryCount--;
             List<Car> racingResult= game.racing();
@@ -37,7 +38,7 @@ public class GameController {
         }
 
         List<String> winners = game.findWinners();
-
+        outputView.printWinners(winners);
 
     }
 
