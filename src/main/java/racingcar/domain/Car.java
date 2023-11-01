@@ -4,10 +4,11 @@ import racingcar.utils.GameUtil;
 
 public class Car {
 
-    GameUtil gameUtil = new GameUtil();
 
     private int position = 0;
     private String name;
+
+    private final GameUtil gameUtil = new GameUtil();
 
     public Car(String name) {
         this.name = name;
