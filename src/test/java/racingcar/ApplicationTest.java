@@ -46,4 +46,12 @@ class ApplicationTest extends NsTest {
                 MOVING_FORWARD, MOVING_FORWARD
         );
     }
+
+    @Test
+    void custom_이름에_대한_예외_처리() {
+        String input = "abcdef";
+
+        assertThatThrownBy(() -> new Car(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
