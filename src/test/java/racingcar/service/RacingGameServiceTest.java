@@ -2,7 +2,6 @@ package racingcar.service;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 

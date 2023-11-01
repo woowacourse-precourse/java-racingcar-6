@@ -23,7 +23,6 @@ public class SystemMessage {
             String forward = "-".repeat(racingCar.getForwardCount());
 
             String result = stringBuilder.append(carName).append(" : ").append(forward).toString();
-
             System.out.println(result);
 
             stringBuilder.setLength(0);
@@ -32,7 +31,6 @@ public class SystemMessage {
 
     public void printWinnerMessage(List<String> winners) {
         String winnerMessage = String.join(", ", winners);
-
         System.out.println("최종 우승자 : " + winnerMessage);
     }
 }

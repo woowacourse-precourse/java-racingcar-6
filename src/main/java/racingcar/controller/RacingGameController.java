@@ -27,6 +27,7 @@ public class RacingGameController {
         }
 
         systemMessage.printRacingResult(racingCars);
+
         systemMessage.printWinnerMessage(racingGameService.getWinner(racingCars));
     }
 }

@@ -3,7 +3,6 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import racingcar.domain.RacingCar;
 import racingcar.validation.InputValidation;
@@ -15,12 +14,12 @@ public class RacingGameService {
     InputValidation inputValidation = new InputValidation();
 
     public List<RacingCar> carNameInput(String userInput) {
-
         inputValidation.validateCarName(userInput);
 
         List<String> carNames = Stream.of(userInput.split(","))
                 .map(String::trim)
                 .toList();
+
         List<RacingCar> racingCars = new ArrayList<>();
 
         for (String carName : carNames) {
