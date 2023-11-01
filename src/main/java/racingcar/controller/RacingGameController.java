@@ -25,4 +25,9 @@ public class RacingGameController {
         Validator.validateCarName(names);
         return racingGameService.makeCarList(names);
     }
+
+    public void inputGameCnt(){
+        racingGameView.printInputTryCount();
+        String cnt = readLine();
+    }
 }
