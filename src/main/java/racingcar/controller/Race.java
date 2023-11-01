@@ -1,4 +1,4 @@
-package racingcar.cotroller;
+package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +8,10 @@ public class Race {
     int max = 0;
 
     public void raceCar(List<Car> cars, int times){
+
         while(times > 0){
             System.out.print("\n");
             for (Car car : cars) {
-                int move = car.moveForward();
                 String position = car.getPosition();
                 System.out.println(car.getName() + " : " + position);
             }

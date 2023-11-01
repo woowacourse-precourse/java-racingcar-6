@@ -1,4 +1,4 @@
-package racingcar.cotroller;
+package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.view.UserInput;
@@ -14,8 +14,12 @@ public class SetRace {
         if (input.contains(",")) {
             String[] carNames = input.split(",");
             for (String carName : carNames) {
-                Car car = new Car(carName);
-                carsList.add(car);
+                if (carName.length() > 5){
+                    Car car = new Car(carName);
+                    carsList.add(car);
+                } else {
+                    throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+                }
             }
         } else {
             throw new IllegalArgumentException("적어도 하나 이상의 자동차 이름을 입력해야 합니다.");
