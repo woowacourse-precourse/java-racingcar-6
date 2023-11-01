@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.game.constant.RoundExceptionMessage.NOT_INTEGER;
 import static racingcar.game.constant.RoundExceptionMessage.OUT_OF_RANGE;
 
 

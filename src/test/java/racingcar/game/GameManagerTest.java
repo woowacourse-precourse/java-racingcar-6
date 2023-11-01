@@ -1,13 +1,15 @@
 package racingcar.game;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
-import static racingcar.game.constant.CarExceptionMessage.*;
-import static racingcar.game.constant.RoundExceptionMessage.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.game.constant.CarExceptionMessage.OUT_OF_COUNT_RANGE;
+import static racingcar.game.constant.CarExceptionMessage.OUT_OF_LENGTH_RANGE;
+import static racingcar.game.constant.RoundExceptionMessage.NOT_INTEGER;
+import static racingcar.game.constant.RoundExceptionMessage.OUT_OF_RANGE;
 
 class GameManagerTest {
 
@@ -49,7 +51,7 @@ class GameManagerTest {
         manager.setCars("hwang,jung,seop");
         manager.setRound("6");
 
-        int raceCount=0;
+        int raceCount = 0;
         while (manager.isGameOngoing()) {
             manager.raceOneRound();
             raceCount++;

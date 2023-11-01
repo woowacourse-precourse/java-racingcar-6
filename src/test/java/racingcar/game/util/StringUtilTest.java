@@ -1,13 +1,13 @@
 package racingcar.game.util;
 
-import org.junit.jupiter.api.Test;
-import racingcar.game.util.StringUtil;
-
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
-import static racingcar.game.constant.CarExceptionMessage.*;
-import static racingcar.game.constant.RoundExceptionMessage.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.game.constant.CarExceptionMessage.EXIST_SAME_NAMES;
+import static racingcar.game.constant.CarExceptionMessage.OUT_OF_COUNT_RANGE;
+import static racingcar.game.constant.RoundExceptionMessage.NOT_INTEGER;
 
 class StringUtilTest {
 

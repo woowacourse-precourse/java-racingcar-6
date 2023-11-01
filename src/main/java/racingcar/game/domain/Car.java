@@ -3,7 +3,7 @@ package racingcar.game.domain;
 import racingcar.game.validation.CarValidator;
 import racingcar.game.validation.Validator;
 
-import static racingcar.game.util.RandomUtil.*;
+import static racingcar.game.util.RandomUtil.isRandomBiggerThanEqual;
 
 public class Car {
 

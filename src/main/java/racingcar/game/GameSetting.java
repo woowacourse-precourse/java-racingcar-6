@@ -1,10 +1,9 @@
 package racingcar.game;
 
-import racingcar.game.domain.Car;
-import racingcar.game.domain.Round;
-
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.game.domain.Car;
+import racingcar.game.domain.Round;
 
 public class GameSetting {
 

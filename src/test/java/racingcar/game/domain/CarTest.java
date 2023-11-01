@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.game.constant.CarExceptionMessage.*;
+import static racingcar.game.constant.CarExceptionMessage.NOT_ALLOW_SIDE_BLANK;
+import static racingcar.game.constant.CarExceptionMessage.OUT_OF_LENGTH_RANGE;
+import static racingcar.game.constant.CarExceptionMessage.SHOULD_HAVE_VALUE;
 
 class CarTest {
 

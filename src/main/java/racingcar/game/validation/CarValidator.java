@@ -1,8 +1,10 @@
 package racingcar.game.validation;
 
-import static racingcar.game.constant.CarExceptionMessage.*;
+import static racingcar.game.constant.CarExceptionMessage.OUT_OF_LENGTH_RANGE;
+import static racingcar.game.constant.CarExceptionMessage.SHOULD_HAVE_VALUE;
+import static racingcar.game.constant.CarExceptionMessage.NOT_ALLOW_SIDE_BLANK;
 
-public class CarValidator implements Validator<String>{
+public class CarValidator implements Validator<String> {
 
     @Override
     public void execute(String name) {
@@ -24,7 +26,7 @@ public class CarValidator implements Validator<String>{
     }
 
     private void validateSideBlank(String name) {
-        if (name.startsWith(" ") || name.endsWith(" ")){
+        if (name.startsWith(" ") || name.endsWith(" ")) {
             throw new IllegalArgumentException(NOT_ALLOW_SIDE_BLANK);
         }
     }
