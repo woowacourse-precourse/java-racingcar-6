@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.LinkedHashMap;
 
 public class Race {
-    private List<Car> cars;
+    private final List<Car> cars;
     public Race(){
         cars = new ArrayList<>();
     }
@@ -21,7 +21,7 @@ public class Race {
             addCar(carName);
         }
     }
-    public void moveCars(void){
+    public void moveCars(){
         for(Car car : cars){
             car.move();
         }
@@ -37,12 +37,12 @@ public class Race {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
-    public Map<String, Integer> getEachCarNameAndLocation(List<Car> cars) {
+    public Map<String, Integer> getEachCarNameAndLocation() {
         return cars.stream()
                 .collect(Collectors.toMap(
                         Car::getName,
                         Car::getLocation,
-                        (existing, replacement) -> existing, // 만약 중복 키가 있을 경우의 병합 전략. 여기서는 기존 값을 유지합니다.
+                        (existing, replacement) -> existing,
                         LinkedHashMap::new
                 ));
     }
