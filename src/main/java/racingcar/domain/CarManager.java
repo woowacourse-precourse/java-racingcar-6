@@ -3,6 +3,8 @@ package racingcar.domain;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.dto.FinalResult;
+import racingcar.domain.dto.ProgressState;
 import racingcar.view.ConsoleInput;
 
 public class CarManager {

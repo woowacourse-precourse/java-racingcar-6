@@ -6,8 +6,8 @@ import static racingcar.constant.ConsoleOutputConstants.INPUT_PLAY_NUMBER_MESSAG
 import static racingcar.util.ProgressMessageGenerator.generateFinalResultMessage;
 import static racingcar.util.ProgressMessageGenerator.generateProgressStateMessage;
 
-import racingcar.domain.FinalResult;
-import racingcar.domain.ProgressState;
+import racingcar.domain.dto.FinalResult;
+import racingcar.domain.dto.ProgressState;
 
 
 public class ConsoleOutput {

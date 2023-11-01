@@ -11,8 +11,8 @@ import static racingcar.view.ConsoleOutput.printProgressState;
 
 import java.util.List;
 import racingcar.domain.CarManager;
-import racingcar.domain.FinalResult;
-import racingcar.domain.ProgressState;
+import racingcar.domain.dto.FinalResult;
+import racingcar.domain.dto.ProgressState;
 
 
 public class RacingGame {
