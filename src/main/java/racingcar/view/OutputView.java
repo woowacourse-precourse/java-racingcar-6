@@ -1,12 +1,14 @@
-package racingcar;
+package racingcar.view;
 
-import java.util.List;
+import racingcar.racing.CarStatus;
+import racingcar.racing.RacingResult;
+import racingcar.racing.RacingRoundResult;
 
 public class OutputView {
 
     private static final String RACING_RESULT = "실행 결과";
     private static final String MOVE_LINE = "-";
-    private static final String WINNER_NAMES_TEMPLATE = "최종 우승자: %s";
+    private static final String WINNER_NAMES_TEMPLATE = "최종 우승자 : %s";
     private static final String CAR_NAME_MOVE_LINE_TEMPLATE = "%s : %s";
     private static final String COMMA = ", ";
 

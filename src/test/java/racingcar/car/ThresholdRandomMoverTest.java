@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.car;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.car.moving.MovingStrategy;
+import racingcar.car.moving.ThresholdRandomMover;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

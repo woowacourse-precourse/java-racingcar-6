@@ -1,5 +1,13 @@
 package racingcar;
 
+import racingcar.car.Car;
+import racingcar.car.moving.MovingStrategy;
+import racingcar.car.moving.ThresholdRandomMover;
+import racingcar.racing.Racing;
+import racingcar.racing.RacingResult;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,25 +25,12 @@ public class Application {
         showRacingResult(racingResult);
     }
 
-    private static void showRacingResult(RacingResult racingResult) {
-        OutputView outputView = new OutputView();
-        outputView.showRacingResult(racingResult);
-    }
-
     private static Racing createRacing() {
         InputView inputView = new InputView();
-        return createRacing(inputView);
-    }
-
-    private static Racing createRacing(InputView inputView) {
-        List<Car> cars = createCars(inputView);
+        List<String> carNames = inputView.askCarNames();
+        List<Car> cars = createCars(carNames);
         int roundNumber = inputView.askRoundNumber();
         return new Racing(cars, roundNumber);
-    }
-
-    private static List<Car> createCars(InputView inputView) {
-        List<String> carNames = inputView.askCarNames();
-        return createCars(carNames);
     }
 
     private static List<Car> createCars(List<String> carNames) {
@@ -44,5 +39,10 @@ public class Application {
             cars.add(new Car(carName, gameMovingStrategy));
         }
         return cars;
+    }
+
+    private static void showRacingResult(RacingResult racingResult) {
+        OutputView outputView = new OutputView();
+        outputView.showRacingResult(racingResult);
     }
 }

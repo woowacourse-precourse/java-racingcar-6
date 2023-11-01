@@ -1,7 +1,12 @@
-package racingcar;
+package racingcar.racing;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.car.Car;
+import racingcar.racing.CarStatus;
+import racingcar.racing.Racing;
+import racingcar.racing.RacingResult;
+import racingcar.racing.RacingRoundResult;
 
 import java.util.List;
 
