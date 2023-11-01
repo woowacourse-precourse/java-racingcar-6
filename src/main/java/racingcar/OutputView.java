@@ -3,6 +3,7 @@ package racingcar;
 import static racingcar.constant.Constants.GAME_RESULT;
 import static racingcar.constant.Constants.INPUT_NAMES;
 import static racingcar.constant.Constants.INPUT_TIMES;
+import static racingcar.constant.Constants.RACE_WINNERS;
 
 public class OutputView {
 
@@ -24,5 +25,15 @@ public class OutputView {
 
     public void execution() {
         println(GAME_RESULT);
+    }
+
+    public void raceOver() {
+        print(RACE_WINNERS);
+    }
+
+    public void winnerResult(String winners) {
+        raceOver();
+        println(winners);
+
     }
 }
