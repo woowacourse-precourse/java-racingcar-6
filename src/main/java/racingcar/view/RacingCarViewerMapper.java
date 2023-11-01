@@ -9,8 +9,8 @@ public class RacingCarViewerMapper {
         return Integer.parseInt(s);
     }
 
-    public RacingCarUserInputDto toRacingCarUserInputDto(List<String> carNames, int NumberOfAttempts) {
-        return new RacingCarUserInputDto(carNames, NumberOfAttempts);
+    public RacingCarUserInputDto toRacingCarUserInputDto(List<String> carNames, int numberOfAttempts) {
+        return new RacingCarUserInputDto(carNames, numberOfAttempts);
     }
 
     public List<String> toCarNames(String separator, String carNames) {

@@ -8,10 +8,6 @@ public class RacingCarMapper {
     public RacingCarMapper() {
     }
 
-    public Integer toInteger(String s) {
-        return Integer.parseInt(s);
-    }
-
     public List<Car> toCars(List<String> carNames) {
         return carNames.stream().map(Car::new).toList();
     }
