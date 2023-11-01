@@ -20,8 +20,11 @@ public class Application {
         System.out.println(printGamingMessage);
         Game.runGame(cars, counts);
 
-
-
+        System.out.print(printWinnerMessage);
+        ArrayList<Car> winners = Game.getWinner(cars);
+        for (Car winner : winners) {
+            System.out.print(winner.name + " ");
+        }
 
     }
 }
