@@ -15,7 +15,7 @@ public class RacingcarController {
         this.inputView = inputView;
         this.outputView = outputView;
     }
-    
+
     public void play() {
         Cars cars = createCars();
         int totalRound = inputView.inputTotalRound();
@@ -30,7 +30,7 @@ public class RacingcarController {
 
     private void race(Cars cars, int totalRound) {
         outputView.printResultGuideMessage();
-        for (int currentRound = 0; currentRound < totalRound; currentRound++) {
+        for (int currentRound = 1; currentRound <= totalRound; currentRound++) {
             proceedCurrentRound(cars);
             outputView.printRoundSeparator();
         }
