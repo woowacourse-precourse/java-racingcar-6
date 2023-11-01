@@ -16,6 +16,17 @@ public class HostReception {
         return participant;
     }
 
+    int getRoundFromUser () {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String round = Console.readLine();
+
+        if (!round.matches("^-?\\d+$\n")) {
+            throw new IllegalArgumentException("정수만 입력 가능합니다.");
+        }
+
+        return Integer.parseInt(round);
+    }
+
     boolean checkValidCarName (String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
