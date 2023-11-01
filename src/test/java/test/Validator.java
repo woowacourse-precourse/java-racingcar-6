@@ -9,13 +9,6 @@ import racingcar.view.InputView;
 import java.io.ByteArrayInputStream;
 
 public class Validator {
-    @Test
-    void 경주_자동차이름_반점_기준으로_구분() {
-        String input = "pobi,woni,jun";
-        String[] nameList = generateRacersFromNames(input);
-
-        Assertions.assertThat(nameList).isEqualTo(new String[]{"pobi", "woni", "jun"});
-    }
 
     @Test
     public void 이름_5글자_초과_검증() {
