@@ -31,11 +31,12 @@ public class RacingcarGame {
                 raceResult(cars);
             }
         }
-        public static void raceResult(List<Car> cars {
-            for (Car car : cars) {
-                car.move();
-                car.finalresult();
-            }
+    }
+
+    public static void raceResult(List<Car> cars) {
+        for (Car car : cars) {
+            car.move();
+            car.finalresult();
         }
     }
 
@@ -53,41 +54,28 @@ public class RacingcarGame {
 
     public class Trial {
         public static int validatenumOfTrial(String userInput) {
-            int numofTrial;
-            try {
-                numofTrial = Integer.parseInt(userInput);
-                if (numofTrial <= 0) {
-                    throw new IllegalArgumentException("숫자 1 이상 입력하세요.");
-                }
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("숫자를 입력하세요.");
-            }
+            int numofTrial = validateInputTrial(userInput);
             return numofTrial;
         }
+    }
+
+    private static int validateInputTrial(String userInput) {
+        int numofTrial;
+        try {
+            numofTrial = Integer.parseInt(userInput);
+            if (numofTrial <= 0) {
+                throw new IllegalArgumentException("숫자 1 이상 입력하세요.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력하세요.");
+        }
+        return numofTrial;
     }
 
     public class resultOutput {
         public static void printResult(List<Car> cars) {
             List<String> winner = raceWinner.getwinner(cars);
             System.out.println("\n최종 우승자 : " + String.join(", ",winner));
-        }
-    }
-
-    public class raceWinner {
-        public static List<String> getwinner(List<Car> cars) {
-            List<String> winner = new ArrayList<>();
-            int maxPosition = cars.stream()
-                    .mapToInt(Car::carPosition)
-                    .max()
-                    .orElse(0);
-
-            for (Car car : cars) {
-                if (car.carPosition() == maxPosition) {
-                    winner.add(car.carNamePrint());
-                }
-            }
-
-            return winner;
         }
     }
 }
