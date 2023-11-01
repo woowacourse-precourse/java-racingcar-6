@@ -12,8 +12,8 @@ import racingcar.utils.Validator;
 
 public class Game {
     String[] carsInput;
-    List<Car> carsList = new ArrayList<>();
-    List<String> carsName = new ArrayList<>();
+    List<Car> carList = new ArrayList<>();
+    List<String> carNames = new ArrayList<>();
     int countInputNumber;
 
     PrintGuide printGuide = new PrintGuide();
@@ -21,40 +21,36 @@ public class Game {
     public void start() {
         printGuide.printInputCarName();
         carsInput = Console.readLine().split(",");
-        carsName = new ArrayList<>(Arrays.asList(carsInput));
-        Validator.checkCarNameLength(carsName);
-        Validator.checkLength(carsName);
+        carNames = new ArrayList<>(Arrays.asList(carsInput));
+        Validator.checkCarNameLength(carNames);
+        Validator.checkCarNameCount(carNames);
 
-        carsName.stream()
+        carNames.stream()
                 .map(Car::new)
-                .forEach(carsList::add);
+                .forEach(carList::add);
         printGuide.printInputCount();
         countInputNumber = Validator.checkDigit(Console.readLine());
         printGuide.printResult();
 
-        printGuide.printWinner(game(carsList, countInputNumber));
+        printGuide.printWinner(game(carList, countInputNumber));
     }
 
-    private Winner game(List<Car> cars, int count){
-        while(count-- > 0){
+    private Winner game(List<Car> cars, int count) {
+        while (count-- > 0) {
             cars.stream().forEach(car -> race(car));
-            cars.stream().forEach(car -> result(car));
+            cars.stream().forEach(car -> printGuide.printRaceRound(car));
             System.out.println();
         }
-        Winner winner = findWinner(carsList);
+        Winner winner = findWinner(carList);
         return winner;
     }
 
-    private void race(Car car){
-        int flag = Randoms.pickNumberInRange(0,9);
+    private void race(Car car) {
+        int flag = Randoms.pickNumberInRange(0, 9);
 
-        if (flag >= 4){
+        if (flag >= 4) {
             car.go();
         }
-    }
-
-    private void result(Car car){
-        printGuide.printRaceRound(car);
     }
 
     private Winner findWinner(List<Car> carsList) {
