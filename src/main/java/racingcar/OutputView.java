@@ -24,10 +24,14 @@ public class OutputView {
     }
 
     public static void printWinners(List<Car> winners) {
-        System.out.print("최종 우승자: ");
-        for (Car winner : winners) {
-            System.out.print(winner.getName() + " ");
+        System.out.print("최종 우승자 : ");
+        StringBuilder winnerNames = new StringBuilder();
+        for (int i = 0; i < winners.size(); i++) {
+            winnerNames.append(winners.get(i).getName());
+            if (i != winners.size() - 1) { // Not the last element
+                winnerNames.append(", ");
+            }
         }
-        System.out.println();
+        System.out.println(winnerNames.toString());
     }
 }
