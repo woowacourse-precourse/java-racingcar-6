@@ -16,6 +16,7 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
@@ -39,20 +40,23 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    private void input(String input){
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+    }
+
     @Test
     public void InputCarName() {
         String testData = "Car1,Car2,Car3";
-        InputStream originalSystemIn = System.in;
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(testData.getBytes());
-        System.setIn(inputStream);
+        input(testData);
 
         String inputCarName = inputCarName();
         System.out.println("inputCarName = " + inputCarName);
 
         assertThat(inputCarName).isEqualTo("Car1,Car2,Car3");
-
-        System.setIn(originalSystemIn);
     }
+
     private String inputCarName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
@@ -117,16 +121,12 @@ class ApplicationTest extends NsTest {
     @Test
     void InputAttempts() {
         String testData = "5";
-        InputStream originalSystemIn = System.in;
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(testData.getBytes());
-        System.setIn(inputStream);
+        input(testData);
 
         String attempts = inputAttempts();
         System.out.println("inputCarName = " + attempts);
 
         assertThat(attempts).isEqualTo("5");
-
-        System.setIn(originalSystemIn);
     }
 
     private String inputAttempts(){
