@@ -6,10 +6,12 @@ public class CarService {
     int generatedNum;
 
     public int getGeneratedNum() {
+
         return generatedNum;
     }
 
     public void setGeneratedNum(int generatedNum) {
+
         this.generatedNum = generatedNum;
     }
 
