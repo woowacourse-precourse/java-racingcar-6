@@ -1,14 +1,16 @@
 package racingcar.controller;
 
+import static racingcar.domain.strategy.MovingStrategyType.RANDOM;
+
 import java.util.List;
 import racingcar.domain.RacingCarGame;
 import racingcar.domain.strategy.MovingStrategy;
-import racingcar.domain.strategy.RandomMovingStrategy;
+import racingcar.domain.strategy.MovingStrategyType;
 import racingcar.view.input.MainInputView;
 import racingcar.view.output.MainOutputView;
 
 public class MainController {
-    private static final MovingStrategy MOVING_STRATEGY = new RandomMovingStrategy();
+    private static final MovingStrategy MOVING_STRATEGY = MovingStrategyType.instance(RANDOM);
 
     public static void play() {
         List<String> carNames = readCarNames();
