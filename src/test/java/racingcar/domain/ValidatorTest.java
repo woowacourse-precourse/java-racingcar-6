@@ -29,4 +29,17 @@ public class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 숫자를 입력하세요.");
     }
+
+    @Test
+    void 같은_이름이_2개_이상_존재하는_경우_예외_발생() {
+        List<String> input = new ArrayList<>();
+        input.add("A");
+        input.add("B");
+        input.add("A");
+        input.add("C");
+
+        assertThatThrownBy(() -> Validator.validateCarsName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 같은 이름이 존재합니다.");
+    }
 }
