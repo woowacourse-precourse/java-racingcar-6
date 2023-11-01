@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import racingcar.model.Car;
+
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -11,6 +13,20 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    @Test
+    void 랜덤값으로_전진() {
+        Car car = new Car("test", 0);
+        car.carDrive(4);
+        assertThat(car).extracting("count").isEqualTo(1);
+    }
+
+    @Test
+    void 랜덤값으로_정지() {
+        Car car = new Car("test", 0);
+        car.carDrive(3);
+        assertThat(car).extracting("count").isEqualTo(0);
+    }
 
     @Test
     void 횟수가_너무_클때() {
