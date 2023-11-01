@@ -26,8 +26,8 @@ public class ErrorCheck {
         if (!isNumeric(userInput)) {
             throw new IllegalArgumentException("올바른 정수를 입력해 주세요");
         }
-        if (Integer.parseInt(userInput) < 0) {
-            throw new IllegalArgumentException("음수를 입력할 수 없습니다.");
+        if (Integer.parseInt(userInput) <= 0) {
+            throw new IllegalArgumentException("0이하의 수를 입력할 수 없습니다.");
         }
 
 
