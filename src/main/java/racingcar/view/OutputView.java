@@ -54,7 +54,7 @@ public class OutputView {
         return position;
     }
 
-    public static String name(Car car) {
+    public static String nameConcatDelim(Car car) {
         String name = car.getName();
         return name + DELIMITER;
     }
