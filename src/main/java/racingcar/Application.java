@@ -35,6 +35,14 @@ public class Application {
         return Integer.parseInt(numString);
     }
 
+    static List<Integer> createDistance(List<Car> carArr) {
+        List<Integer> distanceArr = new ArrayList<>();
+        for (Car car: carArr){
+            distanceArr.add(car.distance);
+        }
+        return distanceArr;
+    }
+
     public static void main(String[] args) {
         String[] cars = splitCarName(inputCarName());
         List<Car> carArr = new ArrayList<>();
