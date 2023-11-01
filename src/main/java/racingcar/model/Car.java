@@ -1,20 +1,30 @@
 package racingcar.model;
 
 public class Car {
-    public String name;
-    public int location;
+    private String name;
+    private int location;
+    private String locationSymbol;
 
-    public Car(){
-        location = 0;
-    }
-    public Car(String name){
-        this();
+    public Car(String name) {
         this.name = name;
+        this.locationSymbol = "";
     }
-    public void moveForward(){
 
+    public void moveForward() {
+        this.location++;
+        this.locationSymbol += "-";
     }
-    public void moveStop(){
 
+    public int getLocation() {
+        return this.location;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getLocationSymbol() {
+        return this.locationSymbol;
+    }
+
 }
