@@ -7,6 +7,8 @@ public class Constants {
     public static String CAR_IS = " : ";
     public static String ALERT_WINNER_IS = "최종 우승자 : ";
     public static String WINNER_DIVISION = ", ";
+    public static String FORWARD_SIGH = "-";
+    public static String EMPTY_STRING = "";
 
     public static Integer CAR_NAME_MAX = 5;
     public static Integer RANDOM_NUMBER_MIN = 0;

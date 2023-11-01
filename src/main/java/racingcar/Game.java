@@ -2,10 +2,10 @@ package racingcar;
 
 import static java.util.Objects.isNull;
 import static racingcar.Constants.*;
-import static racingcar.Check.checkCarNameLengthOver;
-import static racingcar.Check.checkEmptyCarName;
-import static racingcar.Check.checkIntegerType;
-import static racingcar.Check.checkPositiveNumber;
+import static racingcar.Exception.checkCarNameLengthOver;
+import static racingcar.Exception.checkEmptyCarName;
+import static racingcar.Exception.checkIntegerType;
+import static racingcar.Exception.checkPositiveNumber;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -47,7 +47,7 @@ public class Game {
         checkEmptyCarName(nameArray);
         checkCarNameLengthOver(nameArray);
 
-        carList = addCarName(nameArray);
+        carList = addCar(nameArray);
     }
 
     private void alertEnterMoveNumber() {
@@ -56,7 +56,7 @@ public class Game {
 
     private void saveMoveNumber() {
         String readLine = Console.readLine();
-        moveNumber = StringToInteger(readLine);
+        moveNumber = convertStringToInteger(readLine);
 
         if (isNull(moveNumber)) {
             checkIntegerType();
@@ -76,11 +76,10 @@ public class Game {
     }
 
     private void informWinner() {
-        List<String> winnerNames = new ArrayList<>();
-        pickWinner(winnerNames);
+        List<String> winnerNames = pickWinner();
 
         System.out.print(ALERT_WINNER_IS);
-        String result = ListToString(winnerNames);
+        String result = writeWinner(winnerNames);
         System.out.println(result);
     }
 
@@ -92,13 +91,13 @@ public class Game {
         return false;
     }
 
-    private List<Car> addCarName(String[] nameArray) {
+    private List<Car> addCar(String[] nameArray) {
         return Arrays.stream(nameArray)
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
 
-    private Integer StringToInteger(String string) {
+    private Integer convertStringToInteger(String string) {
         try {
             return Integer.parseInt(string);
         } catch (NumberFormatException e) {
@@ -106,12 +105,8 @@ public class Game {
         }
     }
 
-    private String ListToString(List<String> winnerNames) {
-        return winnerNames.stream()
-                .collect(Collectors.joining(WINNER_DIVISION));
-    }
-
-    private void pickWinner(List<String> winnerNames) {
+    private List<String> pickWinner() {
+        List<String> winnerNames = new ArrayList<>();
         int maxForward = 0;
         for (Car car : carList) {
             if (maxForward == car.getForwardNumber()) {
@@ -123,5 +118,11 @@ public class Game {
                 maxForward = car.getForwardNumber();
             }
         }
+        return winnerNames;
+    }
+
+    private String writeWinner(List<String> winnerNames) {
+        return winnerNames.stream()
+                .collect(Collectors.joining(WINNER_DIVISION));
     }
 }

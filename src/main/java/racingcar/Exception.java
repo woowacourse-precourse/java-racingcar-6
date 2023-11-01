@@ -4,7 +4,7 @@ import static racingcar.Constants.CAR_NAME_MAX;
 
 import java.util.Arrays;
 
-public class Check {
+public class Exception {
 
     public static void checkEmptyCarName(String[] nameArray) {
         if (nameArray.length == 0) {
