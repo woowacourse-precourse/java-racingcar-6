@@ -1,8 +1,7 @@
 package racingcar.domain;
 
 import racingcar.Constants;
-import racingcar.utils.RandomUtils;
-import racingcar.utils.StringUtils;
+import racingcar.utils.Utils;
 
 public class Car {
    private final String name;
@@ -13,14 +12,14 @@ public class Car {
         this.name = name;
     }
 
-    public void goForward(){
-        if(RandomUtils.generateRandomNumber() >= Constants.GO_NUM){
+    public void moveForward(){
+        if(Utils.generateRandomNumber() >= Constants.MOVE_NUM){
             position++;
         }
     }
 
     public String getRoundResult(){
-        return name + Constants.ROUND_RESULT_DELIMITER + StringUtils.createHyphenRepeat(position);
+        return name + Constants.ROUND_RESULT_DELIMITER + Utils.createHyphenRepeat(position);
     }
 
     public int getPosition(){
