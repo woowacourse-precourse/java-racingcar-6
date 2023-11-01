@@ -17,4 +17,10 @@ public class Race {
     public List<Car> getCars() {
         return cars;
     }
+
+    public void playRound() {
+        for (Car car : cars) {
+            car.moveRole();
+        }
+    }
 }

@@ -46,4 +46,15 @@ class ModelTest {
             assertThat(name.get(i)).isEqualTo(race.getCars().get(i).getName());
         }
     }
+
+    @Test
+    void testRacePositionMove() {
+        List<String> name = Arrays.asList("pobi","woni");
+        Race race = new Race(name);
+
+        race.playRound();
+        for (int i = 0; i < name.size(); i++) {
+            assertThat(1).isEqualTo(race.getCars().get(i).getPosition());
+        }
+    }
 }
