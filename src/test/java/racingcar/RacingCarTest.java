@@ -3,22 +3,19 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-@TestInstance(Lifecycle.PER_CLASS)
 public class RacingCarTest {
 
-    private static RacingCar racingCar;
+    private RacingCar racingCar;
 
-    @BeforeAll
-    static void initRacingCar() {
+    @BeforeEach
+    void initRacingCar() {
         racingCar = new RacingCar("racingA");
     }
 
@@ -50,8 +47,12 @@ public class RacingCarTest {
         assertThat(racingCar.moveBy(number)).isIn(true, false);
     }
 
-    @AfterAll
-    static void close() {
-        racingCar = null;
+    @Test
+    void 레이싱카가_전진_5번() {
+        for (int i = 0; i < 5; i++) {
+            racingCar.moveBy(5);
+        }
+        assertThat(racingCar.getPosition()).isEqualTo(5);
     }
+
 }
