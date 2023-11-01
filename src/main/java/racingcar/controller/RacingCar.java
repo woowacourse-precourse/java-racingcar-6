@@ -26,13 +26,8 @@ public class RacingCar {
 
         tryCount = inputTryCount();
 
-        racingCarView.printEmptyLine();
         racingCarView.printResultMessage();
-
-        for (int i = 0; i < tryCount; i++) {
-            cars.move();
-            racingCarView.printMoveResult(cars.getCars());
-        }
+        moveCars();
 
         racingCarView.printWinner(cars.getLeadingCar());
     }
@@ -59,5 +54,12 @@ public class RacingCar {
         Validator.validateTryCount(tryCountString);
 
         return Integer.parseInt(tryCountString);
+    }
+
+    private void moveCars() {
+        for (int i = 0; i < tryCount; i++) {
+            cars.move();
+            racingCarView.printMoveResult(cars.getCars());
+        }
     }
 }

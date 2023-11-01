@@ -32,11 +32,8 @@ public class RacingCarView {
     }
 
     public void printResultMessage() {
-        System.out.println(RESULT_MESSAGE);
-    }
-
-    public void printEmptyLine() {
         System.out.println();
+        System.out.println(RESULT_MESSAGE);
     }
 
     public void printMoveResult(List<Car> cars) {
