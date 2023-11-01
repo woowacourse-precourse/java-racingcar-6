@@ -13,8 +13,10 @@ public class Application {
     private static final String FINAL_WINNERS_MESSAGE = "최종 우승자 : ";
 
 
-    private static final List<Car> cars = new ArrayList<>();
+    private static List<Car> cars;
     public static void main(String[] args) {
+        cars = new ArrayList<>();
+
         String carNamesInput = getCarNamesInput();
         setCarsWithCarNames(carNamesInput);
 
