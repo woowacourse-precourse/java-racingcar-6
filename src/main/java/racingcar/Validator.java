@@ -52,20 +52,20 @@ public class Validator {
 
     private static void checkDigit(String InputData) {
         for (int i = 0; i < InputData.length(); i++) {
-            if(!Character.isDigit(InputData.charAt(i))){
+            if (!Character.isDigit(InputData.charAt(i))) {
                 throw new IllegalArgumentException("Error:숫자만 입력하세요");
             }
         }
-        try{
+        try {
             int inputNumber = Integer.parseInt(InputData);
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new IllegalArgumentException("Error:정수만 입력하세요");
         }
     }
 
-    private static void checkNaturalNumber(String InputData){
+    private static void checkNaturalNumber(String InputData) {
         int inputNumber = Integer.parseInt(InputData);
-        if(inputNumber<1){
+        if (inputNumber < 1) {
             throw new IllegalArgumentException("Error:1이상의 정수를 입력하세요");
         }
     }
