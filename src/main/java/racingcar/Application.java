@@ -11,6 +11,9 @@ public class Application {
         CarList carList = new CarList(commaSeparatedNames);
 
         carList.tryAllCars();
+        carList.tryAllCars();
+        carList.tryAllCars();
         carList.printCarsStatus();
+        System.out.println(carList.getLongestDistanceNames());
     }
 }

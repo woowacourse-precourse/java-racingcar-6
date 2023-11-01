@@ -19,6 +19,14 @@ public class Car {
         this.distance = 0;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDistance() {
+        return this.distance;
+    }
+
     /**
      * 자동차의 움직임을 시도
      * <p>

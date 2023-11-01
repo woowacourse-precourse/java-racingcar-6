@@ -1,6 +1,8 @@
 package racingcar.game;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Car 클래스를 모아두는 컬렉션
@@ -34,10 +36,38 @@ public class CarList {
         }
     }
 
+    /**
+     * 전체 자동차의 상태를 출력
+     */
     public void printCarsStatus() {
         for (Car car : this.list) {
             System.out.println(car);
         }
         System.out.println();
+    }
+
+    /**
+     * 가장 먼 거리에 있는 자동차들의 이름을 반환
+     * <p>
+     * 각 이름들은 ,로 구분되어 있음
+     *
+     * @return 자동차들의 이름
+     */
+    public String getLongestDistanceNames() {
+        int maxScore = getMaxScore();
+
+        List<String> highScoreCarNames = list.stream()
+                .filter(car -> car.getDistance() == maxScore)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+
+        return String.join(", ", highScoreCarNames);
+    }
+
+    private int getMaxScore() {
+        return list.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
     }
 }
