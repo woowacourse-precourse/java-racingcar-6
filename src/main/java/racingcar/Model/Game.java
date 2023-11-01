@@ -26,7 +26,7 @@ public class Game {
         return this.round;
     }
 
-    public playGame() {
+    public void playGame() {
         GameReferee.getInstance().setUpGameRound();
         this.cars = GameReferee.getInstance().setUpCars();
 
