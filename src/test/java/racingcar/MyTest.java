@@ -48,6 +48,28 @@ public class MyTest extends NsTest {
     }
 
     @Test
+    void 전진_결과_출력_확인(){
+        Game game = new Game();
+        game.addCarList("carName1");
+        game.addCarList("carName2");
+        game.addCarList("carName3");
+        List<Car> carList=game.getCarList();
+
+        carList.get(0).move(5,4);
+        carList.get(0).move(5,4);
+        carList.get(1).move(5,4);
+
+        ByteArrayOutputStream output= new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        GameView.printCarResult(game);
+
+        assertThat(output.toString()).isEqualTo("carName1 : --\n" +
+                "carName2 : -\n" +
+                "carName3 : \n"+"\n");
+    }
+
+    @Test
     void 우승자_리스트_확인(){
         Game game = new Game();
         game.addCarList("carName1");
