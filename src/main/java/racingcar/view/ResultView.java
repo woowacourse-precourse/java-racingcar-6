@@ -1,0 +1,50 @@
+package racingcar.view;
+
+import java.util.StringJoiner;
+
+import racingcar.model.car.CarName;
+import racingcar.model.race.result.CarRaceRecord;
+import racingcar.model.race.result.CarRaceRecords;
+import racingcar.model.race.result.RaceResult;
+import racingcar.model.winner.Winners;
+
+public class ResultView {
+
+    private static final String GAME_RESULT = "\n실행 결과";
+    private static final String WINNERS = "최종 우승자 : ";
+
+    private static final String TRACE = "-";
+    private static final String RESULT_FORMAT = "%s : %s%n";
+
+    private static final String DELIMITER_COMMA = ", ";
+
+    public void printResult(final RaceResult result) {
+        System.out.println(GAME_RESULT);
+        result.stream().forEach(this::printRecords);
+    }
+
+    private void printRecords(final CarRaceRecords records) {
+        records.stream().forEach(this::printRecord);
+        System.out.println();
+    }
+
+    private void printRecord(final CarRaceRecord record) {
+        System.out.printf(
+                RESULT_FORMAT,
+                record.carName(),
+                TRACE.repeat(record.distance())
+        );
+    }
+
+    public void printWinners(final Winners winners) {
+        System.out.println(WINNERS + getWinnersAsString(winners));
+    }
+
+    private String getWinnersAsString(final Winners winners) {
+        StringJoiner winnerNamesWithCommas = new StringJoiner(DELIMITER_COMMA);
+        winners.stream()
+                .map(CarName::toString)
+                .forEach(winnerNamesWithCommas::add);
+        return winnerNamesWithCommas.toString();
+    }
+}
