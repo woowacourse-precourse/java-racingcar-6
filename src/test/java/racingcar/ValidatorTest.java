@@ -9,6 +9,7 @@ import static racingcar.Validator.ENDWITHS_IS_NOT_COMMA_ERROR;
 import static racingcar.Validator.MAX_MOVING_NUMBER_ERROR;
 import static racingcar.Validator.MIN_MOVING_NUMBER_ERROR;
 import static racingcar.Validator.NOT_CONSIST_OF_ENGLISH_KOREAN_COMMA_ERROR;
+import static racingcar.Validator.NOT_NUMBER_ERROR;
 
 import java.util.Arrays;
 import java.util.List;
@@ -102,6 +103,24 @@ public class ValidatorTest {
 
         assertThatCode(() -> validator.validateMovingNumber(input))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    void validateMovingNumber_자동차이동횟수가_int형_벗어나는지_확인1() {
+        String input = "4000000001";
+
+        assertThatThrownBy(() -> validator.validateMovingNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(NOT_NUMBER_ERROR);
+    }
+
+    @Test
+    void validateMovingNumber_자동차이동횟수가_int형_벗어나는지_확인2() {
+        String input = "a";
+
+        assertThatThrownBy(() -> validator.validateMovingNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(NOT_NUMBER_ERROR);
     }
 
     @Test
