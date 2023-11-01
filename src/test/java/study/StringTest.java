@@ -1,10 +1,13 @@
 package study;
 
+import constant.UserRequestMessage;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.*;
+import util.RandomUtil;
+import util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,13 +18,13 @@ public class StringTest {
 
     @Test
     void constant_적절한_메시지_출력(){
-        String message = Constant.UserRequestMessage.CAR_NAME_REQUEST_MESSAGE.toString();
+        String message = UserRequestMessage.CAR_NAME_REQUEST_MESSAGE.toString();
         assertThat(message).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     @Test
     void split_쉼표로_주어진_값을_구분(){
-        StringOperator sp = new StringOperator();
+        StringUtil sp = new StringUtil();
 
         // 모의 사용자 입력 설정
         String [] result = sp.seperate("pobi,woni,jun", ",");
@@ -47,8 +50,8 @@ public class StringTest {
     @Test
     @RepeatedTest(100)
     void 무작위_수_생성(){
-        NumberGenerator numberGenerator = new NumberGenerator();
-        int actual = numberGenerator.createRandomNumber();
+        RandomUtil randomUtil = new RandomUtil();
+        int actual = randomUtil.createRandomNumber();
 
         assertThat(actual).isBetween(0,9);
     }

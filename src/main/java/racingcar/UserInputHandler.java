@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import constant.GameConfig;
+import util.StringUtil;
 
 public class UserInputHandler {
 
@@ -12,7 +13,7 @@ public class UserInputHandler {
     }
     public String [] getInputForNames(){
         String inputData = Console.readLine();
-        String [] names = StringOperator.seperate(inputData, GameConfig.CAR_NAME.getSeperator());
+        String [] names = StringUtil.seperate(inputData, GameConfig.CAR_NAME.getSeperator());
 
         for(String name : names){
             inputValidator.validateLength(name, GameConfig.CAR_NAME.getLimitLength());
