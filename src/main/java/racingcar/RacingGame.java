@@ -10,6 +10,7 @@ public class RacingGame {
     private static final int ADVANCE_TRIGGER = 4;
     private static final int CAR_MAX_COUNT = Integer.MAX_VALUE;
     private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final boolean CAR_NAME_DUPLICATION = false;
     private static final int MAX_GAME_TIMES = Integer.MAX_VALUE;
 
     LinkedHashMap<String, String> racingProgress;
@@ -43,6 +44,8 @@ public class RacingGame {
         for (String readlineCarName : readlineCarNames) {
             if (readlineCarName.length() > CAR_NAME_MAX_LENGTH) {
                 throw new IllegalArgumentException("자동차의 이름은 각 5글자 이내여야 합니다.");
+            } else if (CAR_NAME_DUPLICATION || racingProgress.containsKey(readlineCarName)) {
+                throw new IllegalArgumentException("자동차의 이름은 서로 달라야 합니다.");
             } else {
                 racingProgress.put(readlineCarName, "");
             }
