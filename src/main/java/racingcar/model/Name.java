@@ -10,6 +10,10 @@ public class Name {
      */
     public Name(String unsure) throws IllegalArgumentException {
 
+        if (unsure == null) {
+            throw new IllegalArgumentException("자동차의 이름은 null 일 수 없습니다.");
+        }
+
         boolean isNameStartOrEndWithSpace = (unsure.trim().length() != unsure.length());
         boolean isNameLengthOutOfRange = (unsure.length() < 1 || 5 < unsure.length());
         if (isNameStartOrEndWithSpace || isNameLengthOutOfRange) {
