@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.message.ErrorMessage;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,10 +10,15 @@ public class CarInput {
     private CarInput(List<String> carNames) {
         this.carNames = carNames;
     }
+
     public static CarInput of(String input) {
         List<String> carNames = Arrays.stream(input.split(GameConfig.DELIMITER)).toList();
         validate(carNames);
         return new CarInput(carNames);
+    }
+
+    public List<String> getCarNames() {
+        return carNames;
     }
 
     private static void validate(List<String> carNames) {
@@ -22,7 +29,7 @@ public class CarInput {
 
     private static void checkLength(String carName) {
         if (carName.length() > GameConfig.CAR_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH);
         }
     }
 }
