@@ -15,14 +15,12 @@ public class User {
     }
 
     //    2. 차량 이름 입력하기
-    public ArrayList<String> getGetCarNames() {
+    public ArrayList<String> getCarNames() {
         String inputNames = Console.readLine();
         String[] splitNames = inputNames.split(",");
-
         for (String name : splitNames) {
             carNames.add(name);
         }
-
         return carNames;
     }
 }
