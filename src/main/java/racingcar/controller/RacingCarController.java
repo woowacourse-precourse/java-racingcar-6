@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static racingcar.utils.Console.close;
 import static racingcar.utils.Console.println;
 
 import java.util.List;
@@ -50,6 +51,7 @@ public class RacingCarController {
             outputView.printCarResult(car.getName(), car.getPosition());
         }
         println();
+        close();
     }
 
     private RacingCars createRacingCars(List<String> carNames) {
