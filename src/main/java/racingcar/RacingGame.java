@@ -2,7 +2,7 @@ package racingcar;
 
 public class RacingGame {
 
-    private RacingCars racingCars;
+    private final RacingCars racingCars;
 
     public RacingGame(RacingCars racingCars) {
         this.racingCars = racingCars;

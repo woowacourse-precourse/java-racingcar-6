@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class RacingCars {
-    private List<RacingCar> racingCars = new ArrayList<>();
+    private final List<RacingCar> racingCars = new ArrayList<>();
 
     public RacingCars(String[] carNames) {
         for (String carName : carNames) {
