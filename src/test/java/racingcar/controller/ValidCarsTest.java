@@ -15,38 +15,39 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ValidCarsTest {
 
-    AppConfig appConfig=new AppConfig();
-    ValidCars validCars= appConfig.validCars();
-    @Test
-    void 올바른_여러_자동차_이름_입력(){
+    AppConfig appConfig = new AppConfig();
+    ValidCars validCars = appConfig.validCars();
 
-        String s="pobi,woni,jun";
-        InputStream inputStream=new ByteArrayInputStream(s.getBytes());
+    @Test
+    void 올바른_여러_자동차_이름_입력() {
+
+        String s = "pobi,woni,jun";
+        InputStream inputStream = new ByteArrayInputStream(s.getBytes());
         System.setIn(inputStream);
 
-        List<Car> cars=validCars.getValidCars();
-        List<String> carNames=new ArrayList<>();
+        List<Car> cars = validCars.getValidCars();
+        List<String> carNames = new ArrayList<>();
 
-        for(Car car:cars){
+        for (Car car : cars) {
             carNames.add(car.getName());
         }
 
-        Assertions.assertThat(carNames).containsExactly("pobi","woni","jun");
+        Assertions.assertThat(carNames).containsExactly("pobi", "woni", "jun");
 
         Console.close();
     }
 
     @Test
-    void 올바른_하나의_자동차_이름_입력(){
+    void 올바른_하나의_자동차_이름_입력() {
 
-        String s="pobi";
-        InputStream inputStream=new ByteArrayInputStream(s.getBytes());
+        String s = "pobi";
+        InputStream inputStream = new ByteArrayInputStream(s.getBytes());
         System.setIn(inputStream);
 
-        List<Car> cars=validCars.getValidCars();
-        List<String> carNames=new ArrayList<>();
+        List<Car> cars = validCars.getValidCars();
+        List<String> carNames = new ArrayList<>();
 
-        for(Car car:cars){
+        for (Car car : cars) {
             carNames.add(car.getName());
         }
 
@@ -56,10 +57,10 @@ public class ValidCarsTest {
     }
 
     @Test
-    void 올바르지않은_여러개의_자동차_이름_입력(){
+    void 올바르지않은_여러개의_자동차_이름_입력() {
 
-        String s="pobi,chaerin";
-        InputStream inputStream=new ByteArrayInputStream(s.getBytes());
+        String s = "pobi,chaerin";
+        InputStream inputStream = new ByteArrayInputStream(s.getBytes());
         System.setIn(inputStream);
 
         assertThatThrownBy(() -> validCars.getValidCars())
@@ -70,10 +71,10 @@ public class ValidCarsTest {
     }
 
     @Test
-    void 올바르지않은_하나의_자동차_이름_입력(){
+    void 올바르지않은_하나의_자동차_이름_입력() {
 
-        String s="chaerin";
-        InputStream inputStream=new ByteArrayInputStream(s.getBytes());
+        String s = "chaerin";
+        InputStream inputStream = new ByteArrayInputStream(s.getBytes());
         System.setIn(inputStream);
 
         assertThatThrownBy(() -> validCars.getValidCars())
@@ -82,7 +83,6 @@ public class ValidCarsTest {
 
         Console.close();
     }
-
 
 
 }
