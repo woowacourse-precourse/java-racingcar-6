@@ -18,6 +18,7 @@ public class GameController {
         raceGame.setInputCarName(inputView.enterCarName());
         saveCarNames(raceGame);
         raceGame.setRaceNumber(Integer.parseInt(inputView.enterRaceNumber()));
+        outputView.printGameResultMessage();
         carRacingController.playGame(raceGame);
         outputView.printRaceWiner(convertListToString(raceGame));
     }
