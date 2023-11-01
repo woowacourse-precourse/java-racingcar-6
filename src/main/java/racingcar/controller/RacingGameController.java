@@ -17,14 +17,13 @@ public class RacingGameController {
         int racingCount = 0;
         OutputView.printExecutionResult();
         while (!number.isEquals(racingCount)) {
+            racingCount++;
             cars.racing();
             OutputView.printCarsPosition(cars.getCars());
-            racingCount++;
         }
     }
 
     private void endGame(Cars cars) {
-        OutputView.printCarsPosition(cars.getCars());
         OutputView.printWinners(cars.getWinners());
     }
 }
