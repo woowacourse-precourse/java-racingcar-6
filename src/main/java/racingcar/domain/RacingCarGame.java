@@ -3,14 +3,14 @@ package racingcar.domain;
 import static racingcar.domain.InputToCarList.getInstance;
 
 import java.util.List;
-import racingcar.controller.RaceController;
+import racingcar.controller.RacingGameController;
 
 public class RacingCarGame {
 
     private final Referee referee;
-    private final RaceController controller;
+    private final RacingGameController controller;
 
-    public RacingCarGame(Referee referee, RaceController controller) {
+    public RacingCarGame(Referee referee, RacingGameController controller) {
         this.referee = referee;
         this.controller = controller;
     }

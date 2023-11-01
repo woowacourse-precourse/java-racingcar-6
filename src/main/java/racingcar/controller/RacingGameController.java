@@ -9,14 +9,14 @@ import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RaceController {
+public class RacingGameController {
 
     public void run() {
         InputView view = new InputView();
         String carNames = view.inputCarNames();
         Integer tryCount = view.inputHowManyTry();
 
-        RacingCarGame racingCarGame = new RacingCarGame(new Referee(), new RaceController());
+        RacingCarGame racingCarGame = new RacingCarGame(new Referee(), new RacingGameController());
         List<Car> resultList = racingCarGame.gameStart(carNames, tryCount);
 
         OutputView outputView = new OutputView();
