@@ -28,14 +28,14 @@ class IOServiceTest {
     }
 
     @Test
-    public void test1() {
+    public void inputCreateTest1() {
         when(Console.readLine()).thenReturn("good,name,fin");
         String result=IOService.inputCreate();
 
         assertEquals(result,"good,name,fin");
     }
     @Test
-    public void test() {
+    public void inputCreateTest2() {
         when(Console.readLine()).thenReturn("longname,fin");
         assertThrows(IllegalArgumentException.class, () -> {
             IOService.inputCreate();
@@ -43,7 +43,7 @@ class IOServiceTest {
     }
 
     @Test
-    public void test2() {
+    public void inputCreateTest3() {
         when(Console.readLine()).thenReturn(" blan,k,fin");
         assertThrows(IllegalArgumentException.class, () -> {
             IOService.inputCreate();
@@ -51,14 +51,14 @@ class IOServiceTest {
     }
 
     @Test
-    public void test4() {
+    public void inputCountTest1() {
         when(Console.readLine()).thenReturn("2");
         String result=IOService.inputCount();
 
         assertEquals(result,"2");
     }
     @Test
-    public void test3() {
+    public void inputCountTest2() {
         when(Console.readLine()).thenReturn("a");
         assertThrows(IllegalArgumentException.class, () -> {
             IOService.inputCount();

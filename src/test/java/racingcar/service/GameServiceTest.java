@@ -43,7 +43,7 @@ class GameServiceTest {
 
 
     @Test
-    void initGame() {
+    void initGameTest() {
         when(gameRepository.save(any())).thenReturn(1l);
         when(carService.carCreate(any())).thenReturn(new Car("car"));
 

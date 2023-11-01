@@ -35,9 +35,10 @@ public class IOService {
 
     private static void checkLength(String inputString) {
         List<String> nameList = Arrays.stream(inputString.split(",")).toList();
-        for (String name : nameList) { //5를 변수로 둘까?
+        int limit=5;
+        for (String name : nameList) {
             checkBlank(name);
-            if(name.length()>5) throw new IllegalArgumentException(String.format("입력 문자의 길이가 너무 깁니다. 입력한 문자 길이 : [%s]", name.length()));
+            if(name.length()>limit) throw new IllegalArgumentException(String.format("입력 문자의 길이가 너무 깁니다. 입력한 문자 길이 : [%s]", name.length()));
         }
     }
 

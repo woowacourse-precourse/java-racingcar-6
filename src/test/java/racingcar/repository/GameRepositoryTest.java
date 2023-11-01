@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameRepositoryTest {
 
     @Test
-    void test() {
+    void saveTest() {
         GameRepository gameRepository = new GameRepository();
 
         Game game = new Game(2);
@@ -19,7 +19,7 @@ class GameRepositoryTest {
     }
 
     @Test
-    void test3() {
+    void saveTest2() {
         GameRepository gameRepository = new GameRepository();
 
         Game game1 = new Game(1);
@@ -32,7 +32,7 @@ class GameRepositoryTest {
 
 
     @Test
-    void test2() {
+    void findByNameTest() {
         GameRepository gameRepository = new GameRepository();
         Game game = new Game(2);
         Long id = gameRepository.save(game);

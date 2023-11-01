@@ -38,7 +38,7 @@ class GameControllerTest {
     GameService gameService;
 
     @Test
-    public void createGame() {
+    public void createGameTest() {
         GameDto result = new GameDto(1l, 1);
 
         when(IOService.inputCount()).thenReturn("1");
@@ -52,7 +52,7 @@ class GameControllerTest {
     }
 
     @Test
-    public void gameStart() {
+    public void gameStartTest() {
         GameDto request = new GameDto(1l, 3);
 
 
@@ -67,7 +67,7 @@ class GameControllerTest {
     }
 
     @Test
-    public void printResult() {
+    public void printResultTest() {
         doNothing().when(gameService).resultPrint(any());
 
         gameController.printResult(new GameDto(1l,1));

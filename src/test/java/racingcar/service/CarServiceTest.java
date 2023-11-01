@@ -23,7 +23,7 @@ class CarServiceTest {
 
 
     @Test
-    public void go() {
+    public void goTest() {
         Car car = new Car("car");
         when(carRepository.findByName(any())).thenReturn(car);
         carService.go("test");
@@ -31,7 +31,7 @@ class CarServiceTest {
     }
     @Test
 
-    public void getCartInfo() {
+    public void getCartInfoTest() {
         Car car = new Car("car");
         when(carRepository.findByName(any())).thenReturn(car);
         carService.getCartInfo("test");
