@@ -6,41 +6,39 @@ import racingcar.domain.Car;
 import racingcar.view.GameOutputView;
 
 public class GameService {
-    private final List<Car> cars = new ArrayList<>();
 
     public GameService() {
     }
 
-    public void start(List<String> carNames, int tryCount) {
-        setCars(carNames);
-        for (int i = 0; i < tryCount; i++) {
-            moveEachCar();
+    public void processStart(List<String> carNames, int tryNum) {
+        List<Car> cars = new ArrayList<>();
+        setCars(carNames, cars);
+        for (int i = 0; i < tryNum; i++) {
+            moveEachCar(cars);
             GameOutputView.printRacingProcess(cars);
             System.out.println();
         }
 
-        GameOutputView.printCarsName(getWinners());
+        GameOutputView.printCarsName(getWinners(cars));
     }
 
-    private void moveEachCar() {
+    public void moveEachCar(List<Car> cars) {
         cars.forEach(Car::move);
     }
 
-    private void setCars(List<String> carNames) {
+    public void setCars(List<String> carNames, List<Car> cars) {
         carNames.forEach(carName ->
                 cars.add(new Car(carName))
         );
     }
 
-    private List<Car> getWinners() {
+    public List<Car> getWinners(List<Car> cars) {
         List<Car> winners = new ArrayList<>();
         int maxNum = getMaxNum(cars);
 
-        for (Car car : cars) {
-            if (car.getNowNum() == maxNum) {
-                winners.add(car);
-            }
-        }
+        cars.stream()
+                .filter(car -> car.getNowNum() == maxNum)
+                .forEach(winners::add);
 
         return winners;
     }
