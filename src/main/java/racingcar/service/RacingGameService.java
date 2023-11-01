@@ -18,9 +18,9 @@ public class RacingGameService {
 
     private int highDistance = 0;
 
-    public RacingGameService(InputView inputView, OutputView outputView) {
-    }
     public RacingGameService() {
+    }
+    public RacingGameService(InputView inputView, OutputView outputView) {
     }
 
     public int getPlayCount() {

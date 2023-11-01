@@ -7,28 +7,12 @@ import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.Arrays;
 import java.util.List;
 
+import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 
-class RacingGameServiceTest {
-
-    @Test
-    void testRaceSetting() {
-        // given
-        RacingGameService racingGameService = new RacingGameService();
-        List<Car> carList = Arrays.asList(new Car("car1"), new Car("car2"), new Car("car3"));
-        int playCount = 5;
-
-        // when
-        RacingGame racingGame = racingGameService.raceSetting(carList, playCount);
-
-        // then
-        assertEquals(5, racingGame.getRaceCount());
-        assertEquals(3, racingGame.getCarList().size());
-    }
+public class RacingGameServiceTest {
 
     private RacingGameService racingGameService;
     private InputView inputView;
@@ -42,14 +26,11 @@ class RacingGameServiceTest {
     }
 
     @Test
-    void 경주횟수와_자동차리스트생성_확인() {
+    void 레이스_횟수_자동차리스트_생성_확인() {
         List<Car> cars = List.of(new Car("car1"), new Car("car2"));
         RacingGame game = racingGameService.raceSetting(cars, 3);
         assertNotNull(game);
         assertEquals(3, game.getRaceCount());
         assertEquals(2, game.getCarList().size());
     }
-
-    
-
 }
