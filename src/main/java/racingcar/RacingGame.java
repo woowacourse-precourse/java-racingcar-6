@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -26,15 +28,11 @@ public class RacingGame {
 	}
 
 	private List<Car> getRacingCars() {
-		List<Car> racingCarList = new ArrayList<>();
-
 		String carNames = getInputCarNames();
 
-		for (String carName : carNames.split(",")) {
-			racingCarList.add(new Car(carName));
-		}
-
-		return racingCarList;
+		return Arrays.stream(carNames.split(","))
+			.map(Car::new)
+			.collect(Collectors.toList());
 	}
 
 	private String getInputCarNames() {
