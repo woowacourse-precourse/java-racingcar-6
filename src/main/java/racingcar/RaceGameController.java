@@ -10,7 +10,6 @@ public class RaceGameController {
 
     public void start() {
         List<String> carNames = getCarNames();
-        System.out.println(carNames);
         int round = getRound();
 
         RaceGame raceGame = new RaceGame(carNames, round);
