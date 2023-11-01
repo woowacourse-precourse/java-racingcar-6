@@ -1,4 +1,4 @@
-package racingcar.validate;
+package racingcar.utils.validate;
 
 import static racingcar.constant.ExceptionMessage.NAME_LENGTH_NOT_IN_RANGE;
 import static racingcar.constant.ExceptionMessage.ROUND_CONTAIN_NOT_ONLY_NUM;

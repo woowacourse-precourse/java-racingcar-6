@@ -1,5 +1,7 @@
 package racingcar.manager;
 
+import racingcar.model.RacingCarManager;
+
 public class GameManager {
 
     private final IOManager ioManager;

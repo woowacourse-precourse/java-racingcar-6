@@ -1,12 +1,12 @@
-package racingcar.manager;
+package racingcar.model;
 
-import static racingcar.model.RandomNumberGenerator.isRacingCarProceed;
+import static racingcar.utils.random.RandomNumberGenerator.isRacingCarProceed;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import racingcar.constant.GameStringConstant;
-import racingcar.model.RacingCar;
+import racingcar.utils.dto.Names;
 
 public class RacingCarManager {
 

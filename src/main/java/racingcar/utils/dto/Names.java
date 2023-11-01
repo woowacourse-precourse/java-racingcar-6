@@ -1,4 +1,4 @@
-package racingcar.manager;
+package racingcar.utils.dto;
 
 import java.util.List;
 

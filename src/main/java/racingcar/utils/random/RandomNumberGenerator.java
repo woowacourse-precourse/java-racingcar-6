@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.utils.random;
 
 import static racingcar.constant.GameNumConstant.RANDOM_MAX_NUM;
 import static racingcar.constant.GameNumConstant.RANDOM_MIN_NUM;

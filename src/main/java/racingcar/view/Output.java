@@ -4,7 +4,7 @@ import static racingcar.constant.OutputStringConstant.INIT_SHOW_RESULT;
 import static racingcar.constant.OutputStringConstant.OUTPUT_NAME_DIVIDER;
 import static racingcar.constant.OutputStringConstant.SHOW_WINNER;
 
-import racingcar.manager.Names;
+import racingcar.utils.dto.Names;
 
 public class Output {
 
