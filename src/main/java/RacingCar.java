@@ -11,4 +11,7 @@ public class RacingCar {
         int diceNumber = Randoms.pickNumberInRange(0,9);
         return diceNumber;
     }
+    private void move(int diceNumber) {
+        if (4 <= diceNumber) moveCount++;
+    }
 }
