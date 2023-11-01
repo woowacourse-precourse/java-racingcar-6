@@ -62,6 +62,26 @@ public class CarRacing {
         return true;
     }
 
+    void runCarsOnce() {
+        for (Car car : cars) {
+            car.run();
+        }
+    }
+
+    void printStepResults() {
+        for (int i = 0; i < attemptCount; i++) {
+            runCarsOnce();
+            printCarsResult();
+            System.out.print("\n");
+        }
+    }
+
+    void printCarsResult() {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getStep()));
+        }
+    }
+
     void execute() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
@@ -78,5 +98,7 @@ public class CarRacing {
         }
 
         System.out.println("\n실행 결과");
+        printStepResults();
+
     }
 }
