@@ -14,6 +14,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 전진_정지() {
+
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
