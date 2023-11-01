@@ -46,5 +46,7 @@ public class AppView {
     }
 
     public static void outputFinish (Object winner) {
+        output("최종 우승자 : ");
+        outputLine(winner);
     }
 }

@@ -8,6 +8,7 @@ import racingcar.view.AppView;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 
 public class AppController {
@@ -57,7 +58,10 @@ public class AppController {
     }
 
     public static void endRacing () {
+        cars.sort(Comparator.reverseOrder());
+        StringBuilder sb = Racing.calculateWinner(cars);
 
+        AppView.outputFinish(sb);
     }
 
     public void run () {

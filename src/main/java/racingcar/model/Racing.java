@@ -21,6 +21,17 @@ public class Racing {
     }
 
     public static StringBuilder calculateWinner (ArrayList<Car> cars) {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        int i = 1;
+
+        sb.append(cars.get(0).name);
+        BigInteger topValue = cars.get(0).score;
+
+        while (i < cars.size() && cars.get(i).score.compareTo(topValue) == 0) {
+            sb.append(", ").append(cars.get(i).name);
+            i++;
+        }
+
+        return sb;
     }
 }
