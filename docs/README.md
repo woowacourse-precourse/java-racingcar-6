@@ -6,8 +6,10 @@
     - **자동차의 이름은 쉼표(,)로 구분하여 입력받는다.**
     - **[예외] 이름이 5자를 초과할 경우`IllegalArgumentException`을 발생시킨다.**
     - **[예외] 이름이 중복될 경우 `IllegalArgumentException`을 발생시킨다.**
+    - **[예외] 이름이 빈칸인 경우 `IllegalArgumentException`을 발생시킨다.**
 - **사용자로부터 자동차가 전진할 횟수를 입력받는다. (InputView)**
     - **[예외] 입력 값이 숫자가 아니면`IllegalArgumentException`을 발생시킨다.**
+    - **[예외] 입력 값이 빈칸인 경우 `IllegalArgumentException`을 발생시킨다.**
 
 ## 출력
 
