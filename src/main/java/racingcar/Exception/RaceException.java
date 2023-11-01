@@ -17,7 +17,7 @@ public class RaceException {
     }
 
     public void patternCheck(String time) {
-        if(!Pattern.matches(checkPattern, time)){
+        if (!Pattern.matches(checkPattern, time)) {
             throw new IllegalArgumentException(ExceptionMessage.NUMBER_ERROR);
         }
     }

@@ -12,7 +12,7 @@ public class InputView {
     CarException carException = new CarException();
     RaceException raceException = new RaceException();
 
-    public String inputCar(){
+    public String inputCar() {
         System.out.println(CAR_NAME_MESSAGE);
         String carsName = Console.readLine();
         return carException.checkExceptionCar(carsName);
