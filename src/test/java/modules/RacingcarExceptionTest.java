@@ -41,4 +41,13 @@ public class RacingcarExceptionTest {
                     .isInstanceOf(IllegalArgumentException.class)
     );
   }
+
+  @Test
+  void int_변수에_음수가_있을_경우_예외_처리() {
+    String input = "-1";
+    assertSimpleTest(() ->
+            assertThatThrownBy(() -> RacingcarException.exception_negative(input))
+                    .isInstanceOf(IllegalArgumentException.class)
+    );
+  }
 }
