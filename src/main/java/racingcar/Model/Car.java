@@ -2,11 +2,12 @@ package racingcar.Model;
 
 public class Car {
     private String carName;
-    private int moveCount = 0;
+    private int moveCount;
     private String distance = "";
 
-    public Car(String carName) {
+    public Car(String carName, int moveCount) {
         this.carName = carName;
+        this.moveCount = moveCount;
     }
 
     public String getName() {
