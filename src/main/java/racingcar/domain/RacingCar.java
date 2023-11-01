@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public class RacingCar {
     public static String SYMBOL = "-";
+    public static String GRAPH_TEMPLATE = "%s : %s";
     public static int MOVABLE_VALUE = 4;
     private String name;
     private int distance;
@@ -23,7 +24,7 @@ public class RacingCar {
 
     public String getDistanceGraph() {
         String visualizedDistance = SYMBOL.repeat(this.distance);
-        return String.format("%s : %s", this.name, visualizedDistance);
+        return String.format(GRAPH_TEMPLATE, this.name, visualizedDistance);
     }
 
     public int getDistance() {

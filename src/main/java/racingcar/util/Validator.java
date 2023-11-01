@@ -8,7 +8,7 @@ public class Validator {
 
     public static int CAR_NAME_LENGTH_LIMIT = 5;
     public static String DELIMITER = ",";
-    public static String CAR_NAME_LENGTH_ERROR_MESSAGE = CAR_NAME_LENGTH_LIMIT + "자를 이하의 이름만 가능합니다.";
+    public static String CAR_NAME_LENGTH_ERROR_MESSAGE = CAR_NAME_LENGTH_LIMIT + "자 이하의 이름만 가능합니다.";
     public static String NUMBER_OF_ATTEMPTS_ERROR_MESSAGE = "시도 횟수는 0 이상으로 입력해주세요.";
 
     public static List<String> validateCarNames(String userInput) {

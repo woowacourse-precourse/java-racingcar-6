@@ -10,6 +10,10 @@ public class RacingCars {
 
     public static int LOWER_BOUND_OF_NUMBER = 0;
     public static int UPPER_BOUND_OF_NUMBER = 9;
+    public static int DEFAULT_DISTANCE = 0;
+    public static String DELIMITER = ",";
+    public static String PRINT_WINNERS_COMMENT = "최종 우승자 : ";
+
 
     private List<RacingCar> cars;
 
@@ -23,7 +27,7 @@ public class RacingCars {
     public void attemptMove(int numberOfAttempts) {
         while (numberOfAttempts-- > 0) {
             attemptMoveEachCar();
-            printCurrentDistanceEachCar();
+            printDistanceGraphEachCar();
             System.out.println();
         }
     }
@@ -37,7 +41,7 @@ public class RacingCars {
                 });
     }
 
-    private void printCurrentDistanceEachCar() {
+    private void printDistanceGraphEachCar() {
         this.cars.stream()
                 .forEach(racingCar -> {
                     String graph = racingCar.getDistanceGraph();
@@ -63,11 +67,11 @@ public class RacingCars {
         return cars.stream()
                 .mapToInt(RacingCar::getDistance)
                 .max()
-                .orElse(0);
+                .orElse(DEFAULT_DISTANCE);
     }
 
-    private static void printWinnersName(List<String> winners) {
-        String result = String.join(", ", winners);
-        System.out.println("최종 우승자 : " + result);
+    private void printWinnersName(List<String> winners) {
+        String result = String.join(DELIMITER + " ", winners);
+        System.out.println(PRINT_WINNERS_COMMENT + result);
     }
 }
