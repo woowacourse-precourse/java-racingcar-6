@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import java.util.List;
 
 import static racingcar.constant.MessageConstant.USER_OUTPUT_MESSAGE;
+import static racingcar.constant.MessageConstant.WINNER_OUTPUT_MESSAGE;
 
 public class OutputView {
 
@@ -33,7 +34,7 @@ public class OutputView {
 
     public static void showWinners(List<String> carNames) {
         if (isSoloWin(carNames)) {
-            System.out.print("최종 우승자 : " + carNames.get(0));
+            System.out.print(WINNER_OUTPUT_MESSAGE + carNames.get(0));
             return;
         }
         String result = String.join(", ", carNames);
