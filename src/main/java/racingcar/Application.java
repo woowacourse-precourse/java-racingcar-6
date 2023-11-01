@@ -68,6 +68,12 @@ public class Application {
         return list;
     }
 
+    public static void checkName(String name){
+        if(name.length() == 0 || name.length() > 5){
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static int inputTry(){
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
