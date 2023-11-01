@@ -21,12 +21,9 @@ public class OutPutContentsContext {
     List<List<Integer>> eachRoundRecord = totalRoundRecord.eachRoundRecord();
     FinalWinners winners = totalRoundRecord.getFinalWinners();
     List<String> carNames = totalRoundRecord.getCarNames();
-    List<String> list = new ArrayList<>();
-    RoundContents roundContents = createRoundContents(eachRoundRecord, carNames, list);
-    FinalWinnerContents finalWinnerContents = creteWinnerContents(winners,
-        VictoryMessages.VICTORY_MESSAGES.message());
 
-    return OutPutContents.of(roundContents, finalWinnerContents);
+    return OutPutContents.of(createRoundContents(eachRoundRecord, carNames, new ArrayList<>()),
+        creteWinnerContents(winners, VictoryMessages.VICTORY_MESSAGES.message()));
   }
 
   private static RoundContents createRoundContents(List<List<Integer>> eachRoundRecord,
