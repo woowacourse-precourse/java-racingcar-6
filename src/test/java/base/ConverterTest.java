@@ -1,6 +1,5 @@
 package base;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -8,21 +7,15 @@ import java.util.Map.Entry;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.Application;
 import validation.UserInputValidator;
 
-class ConverterTest extends NsTest {
+class ConverterTest {
     private Converter converter;
 
     @BeforeEach
     void setup() {
         UserInputValidator userInputValidator = new UserInputValidator();
         converter = new Converter(userInputValidator);
-    }
-
-    @Override
-    protected void runMain() {
-        Application.main(new String[]{});
     }
 
     @Test
