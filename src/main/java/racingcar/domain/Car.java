@@ -16,12 +16,12 @@ public class Car {
     }
 
     public void proceedOwnRound() {
-        int number = NumberGenerator.generateRandomNumber(START_NUMBER_RANGE,END_NUMBER_RANGE);
+        int number = NumberGenerator.generateRandomNumber(START_NUMBER_RANGE, END_NUMBER_RANGE);
         updatePosition(number);
     }
 
     public void updatePosition(int number) {
-        if(number>FORWARD_BOUND_NUMBER){
+        if(number>=FORWARD_BOUND_NUMBER){
             position++;
         }
     }
