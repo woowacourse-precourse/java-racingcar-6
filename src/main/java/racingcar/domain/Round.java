@@ -33,4 +33,8 @@ public class Round {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
