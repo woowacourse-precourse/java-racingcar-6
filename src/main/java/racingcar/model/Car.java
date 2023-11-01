@@ -27,6 +27,13 @@ public class Car {
         }
     }
 
+    public int pickRandomNumber() {
+        return Randoms.pickNumberInRange(
+                Const.RANDOM_RANGE_MIN_NUM,
+                Const.RANDOM_RANGE_MAX_NUM
+            );
+    }
+
     @Override
     public String toString() {
         return name + Const.CAR_NAME_SEPARATE + Const.CAR_MOVING_SIGN.repeat(position);
