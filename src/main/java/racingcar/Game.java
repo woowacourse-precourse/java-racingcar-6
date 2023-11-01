@@ -9,19 +9,18 @@ public class Game {
     public void startGame() {
         List<Car> carList = gameManager.carSetting();
         int totalTryCount = gameManager.tryCountSetting();
-        Output.printResultMessage();
 
-        for (int tryCount = 0; tryCount < totalTryCount; tryCount++) {
-            runGame(carList);
-            Output.printGameProgress(carList);
-        }
+        runGame(carList, totalTryCount);
 
         Output.printGameWinnerMessage(String.join(", ", gameManager.checkWinner(carList)));
     }
 
-    private void runGame(List<Car> carList) {
-        for (Car car : carList) {
-            car.move();
+    private void runGame(List<Car> carList, int totalTryCount) {
+        Output.printResultMessage();
+
+        for (int tryCount = 0; tryCount < totalTryCount; tryCount++) {
+            carList.forEach(Car::move);
+            Output.printGameProgress(carList);
         }
     }
 }
