@@ -19,6 +19,7 @@ public class Validator {
                 .map(name -> new Car(name.strip(), INITAL_POSITION))
                 .toList();
         validateCarNameLengths(cars);
+        return cars;
     }
 
     private static void validateCarNameFormat(String input) {
@@ -52,4 +53,4 @@ public class Validator {
     }
 }
 
-}
+

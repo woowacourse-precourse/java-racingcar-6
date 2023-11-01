@@ -21,17 +21,17 @@ public class OutputView {
     }
 
     public static void printRaceResultTitle() {
-        System.out.println(GameMessage.RACE_RESULT_TITLE);
+        System.out.println(GameMessage.RACE_RESULT_TITLE.getMessage());
     }
 
     public static void printTurns(List<Car> cars) {
         for (Car car : cars) {
-            System.out.println(car.getName() + SEPARATOR_NAME_MOVE);
+            System.out.print(car.getName() + SEPARATOR_NAME_MOVE);
             printMove(car.getPosition());
         }
         System.out.println();
     }
-    public staic void printRaceWinners(List<String> winners) {
+    public static void printRaceWinners(List<String> winners) {
         System.out.print(GameMessage.RACE_WINNER.getMessage());
         String raceWinners = String.join(SEPARATOR_WINNER, winners);
         System.out.println(raceWinners);

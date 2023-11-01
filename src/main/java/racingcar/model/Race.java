@@ -1,7 +1,10 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.OutputView;
+
 import java.util.List;
+import java.util.stream.IntStream;
 
 
 public final class Race {
@@ -9,7 +12,8 @@ public final class Race {
     private static final int RANDOM_MIN_VALUE = 0;
     private static final int RANDOM_MAX_VALUE = 9;
     private static final int MOVE_CARS_THRESHOLD = 4;
-    private static final int ZERO_POSITION = 0
+    private static final int ZERO_POSITION = 0;
+    private static final int INITIAL_TURN = 0;
     private final List<Car> cars;
     private final int numberOfTurns;
 
@@ -19,7 +23,13 @@ public final class Race {
     }
 
     public List<String> start() {
-
+        OutputView.printRaceResultTitle();
+        IntStream.range(INITIAL_TURN, numberOfTurns)
+                .forEach(turn -> {
+                    moveCars();
+                    OutputView.printTurns(cars);
+                });
+        return judgmentWinners();
     }
 
     private void moveCars() {

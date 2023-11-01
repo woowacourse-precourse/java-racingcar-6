@@ -13,9 +13,9 @@ public class InputView {
         return Validator.parseCarNames(input);
     }
 
-    public static int inputNumberofTurns() {
+    public static int inputNumberOfTurns() {
         OutputView.printRequestNumberOfTurns();
         String input = Console.readLine();
-        return Validator.parseNumberOfTurns();
+        return Validator.parseNumberOfTurns(input);
     }
 }
