@@ -1,10 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.ResultView;
 
 public class Car {
 
-    private static final String DASH = "-";
     private final String name;
     private Integer distance;
 
@@ -30,10 +30,9 @@ public class Car {
         return num >= 4;
     }
 
-    public int makeRandomNumber(){ return Randoms.pickNumberInRange(0,9); }
-
-    public void printMove() {
-        String dash = DASH.repeat(this.distance);
-        System.out.println(this.name + " : " + dash);
+    public void showMove() {
+        ResultView.printMove(this.distance, this.name);
     }
+
+    private int makeRandomNumber(){ return Randoms.pickNumberInRange(0,9); }
 }
