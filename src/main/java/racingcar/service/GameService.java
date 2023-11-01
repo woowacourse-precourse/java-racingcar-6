@@ -33,6 +33,7 @@ public class GameService {
     }
 
     public static void endGmae(){
-
+        List<String> winnerList = Racing.getWinner();
+        OutputView.printWinnerMessage(winnerList);
     }
 }
