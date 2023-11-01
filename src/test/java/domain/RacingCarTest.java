@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class RacingCarTest {
 	@Test
-	public void findLocationWithMostMovement_메서드로_최대_이동한_거리를_찾는다() {
+	void findLocationWithMostMovement_메서드로_최대_이동한_거리를_찾는다() {
 		//given
 		List<String> namesList = Arrays.asList("pobi", "crong", "an");
 		RacingCar racingCar = new RacingCar(namesList);
@@ -27,7 +27,7 @@ public class RacingCarTest {
 	}
 
 	@Test
-	public void findCarWithMaxLocation_메서드로_최대_이동한_거리와_위치가_같은_자동차를_찾는다() {
+	void findCarWithMaxLocation_메서드로_최대_이동한_거리와_위치가_같은_자동차를_찾는다() {
 		//given
 		List<String> namesList = Arrays.asList("pobi", "crong", "an");
 		RacingCar racingCar = new RacingCar(namesList);
