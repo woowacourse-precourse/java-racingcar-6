@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.List;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.ExceptionHandler.*;
 
 public class Input {
