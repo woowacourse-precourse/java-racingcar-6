@@ -28,6 +28,10 @@ public class CarName {
         }
     }
 
+    public String getName() {
+        return this.carName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

@@ -13,4 +13,8 @@ public class MoveResults {
     public void add(String result) {
         results.add(result);
     }
+
+    public String getMessage() {
+        return String.join("\n", results);
+    }
 }

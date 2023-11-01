@@ -28,7 +28,9 @@ public class RacingGame {
     private void race(Cars cars, TryCount tryCount) {
         output.printMessageLine(Messages.RESULT.getMessage());
         while (tryCount.isMoreTry()) {
-            cars.tried();
+            MoveResults results = cars.tried();
+            output.printMessageLine(results.getMessage());
+            output.printEmptyLine();
             tryCount.tried();
         }
     }

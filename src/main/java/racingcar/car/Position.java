@@ -1,6 +1,8 @@
 package racingcar.car;
 
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Position {
     private int position;
@@ -11,6 +13,12 @@ public class Position {
 
     public void move() {
         this.position++;
+    }
+
+    public String getPositionText() {
+        return Stream.generate(() -> "-")
+                .limit(position)
+                .collect(Collectors.joining());
     }
 
     @Override

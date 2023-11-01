@@ -3,6 +3,7 @@ package racingcar.car;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import racingcar.game.MoveResults;
 import racingcar.utils.generator.RaceMoveNumberGenerator;
 
 public class Cars {
@@ -16,10 +17,12 @@ public class Cars {
                 .toList();
     }
 
-    public void tried() {
+    public MoveResults tried() {
+        MoveResults moveResults = new MoveResults();
         for (Car car : cars) {
-            car.move(generator.generateMoveNumber());
+            moveResults.add(car.move(generator.generateMoveNumber()));
         }
+        return moveResults;
     }
 
     @Override

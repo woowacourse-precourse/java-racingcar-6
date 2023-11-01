@@ -11,14 +11,19 @@ public class Car {
         this.position = position;
     }
 
-    public void move(MoveNumber number) {
+    public String move(MoveNumber number) {
         if (isMovable(number)) {
             position.move();
         }
+        return getMoveResult();
     }
 
     private static boolean isMovable(MoveNumber number) {
         return number.isMovable();
+    }
+
+    private String getMoveResult() {
+        return carName.getName() + " : " + position.getPositionText();
     }
 
     @Override
