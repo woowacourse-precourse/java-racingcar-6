@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class RacingCarGame {
     static void printAskingForCarNamesMessage() {
@@ -37,6 +39,15 @@ public class RacingCarGame {
             }
         }
         return isPossible;
+    }
+
+    static boolean validateCarNameRepetition(List<String> carNamesList) {
+        boolean isPossible = true;
+        Set<String> carNamesSet = new HashSet<>(carNamesList);
+        if (carNamesList.size() != carNamesSet.size()) {
+            throw new IllegalArgumentException();
+        }
+        return true;
     }
 
     static void printAskingForTrialNumberMessage() {
