@@ -14,17 +14,47 @@ public class Racing {
         this.roundNumber = roundNumber;
     }
 
-    public List<RacingRoundResult> race() {
+    public RacingResult race() {
+        List<RacingRoundResult> racingHistory = runRace();
+        List<String> winnerNames = getWinnerNames();
+        return new RacingResult(winnerNames, racingHistory);
+    }
+
+    private List<String> getWinnerNames() {
+        int maxPosition = getMaxPosition();
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            addIfWinner(car, maxPosition, winnerNames);
+        }
+        return winnerNames;
+    }
+
+    private void addIfWinner(Car car, int maxPosition, List<String> winnerNames) {
+        if (car.isPosition(maxPosition)) {
+            winnerNames.add(car.getName());
+        }
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
+
+    private List<RacingRoundResult> runRace() {
         List<RacingRoundResult> racingResult = new ArrayList<>();
         for (int i = 0; i < roundNumber; i++) {
-            racingResult.add(runRound());
+            List<CarStatus> currentCarStatuses = runRound();
+            racingResult.add(new RacingRoundResult(currentCarStatuses));
         }
         return racingResult;
     }
 
-    private RacingRoundResult runRound() {
+    private List<CarStatus> runRound() {
         moveCars();
-        return new RacingRoundResult(createRacingRoundResult());
+        return getCurrentCarStatuses();
     }
 
     private void moveCars() {
@@ -33,7 +63,7 @@ public class Racing {
         }
     }
 
-    private List<CarStatus> createRacingRoundResult() {
+    private List<CarStatus> getCurrentCarStatuses() {
         List<CarStatus> carStatuses = new ArrayList<>();
         for (Car car : cars) {
             carStatuses.add(car.getCurrentStatus());

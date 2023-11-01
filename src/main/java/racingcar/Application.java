@@ -12,12 +12,19 @@ public class Application {
             new ThresholdRandomMover(MIN_RANDOM_BOUND, MAX_RANDOM_BOUND, MOVING_THRESHOLD);
 
     public static void main(String[] args) {
-        InputView inputView = new InputView();
-        OutputView outputView = new OutputView();
+        Racing racing = createRacing();
+        RacingResult racingResult = racing.race();
+        showRacingResult(racingResult);
+    }
 
-        Racing racing = createRacing(inputView);
-        List<RacingRoundResult> racingResult = racing.race();
+    private static void showRacingResult(RacingResult racingResult) {
+        OutputView outputView = new OutputView();
         outputView.showRacingResult(racingResult);
+    }
+
+    private static Racing createRacing() {
+        InputView inputView = new InputView();
+        return createRacing(inputView);
     }
 
     private static Racing createRacing(InputView inputView) {

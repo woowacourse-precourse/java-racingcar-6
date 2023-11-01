@@ -24,8 +24,20 @@ public class Car {
         }
     }
 
+    public boolean isPosition(int position) {
+        return this.position == position;
+    }
+
     public CarStatus getCurrentStatus() {
         return new CarStatus(name, position);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     private void validateLength(String name) {
