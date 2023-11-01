@@ -20,6 +20,8 @@ public class UserView {
         int coin = Integer.parseInt(coinValue);
 
         validCoinValue(coin);
+        System.out.println();
+
         return coin;
     }
 

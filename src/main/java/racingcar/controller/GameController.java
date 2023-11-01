@@ -13,10 +13,12 @@ public class GameController {
 
     public void run() {
         gameSetter.registerCars();
+
         playGame();
     }
 
     void playGame() {
+        System.out.println("실행 결과");
         for (int i = 0; i < gameSetter.getCoin(); i++) {
             gameRule.playRound();
         }
@@ -25,6 +27,6 @@ public class GameController {
 
     void printWinner() {
         String winnerName = gameRule.calculateWinner();
-        System.out.println("최종 우승자 : " + winnerName);
+        System.out.print("최종 우승자 : " + winnerName);
     }
 }
