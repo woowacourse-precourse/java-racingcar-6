@@ -31,4 +31,22 @@ public class ValidationTest {
     void validateNotEmptyName_비지않은문자열체크_오류없음() {
         Assertions.assertDoesNotThrow(() -> Validation.validateNotEmptyName(" "));
     }
+
+
+    @Test
+    void validateIsNumber_문자열숫자체크_오류없음() {
+        Assertions.assertDoesNotThrow(() -> Validation.validateIsNumber("123"));
+    }
+
+    @Test
+    void validateIsNumber_문자열소수체크_오류발생() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Validation.validateIsNumber("1.23"));
+    }
+
+    @Test
+    void validateIsNumber_문자열문자체크_오류발생() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Validation.validateIsNumber("abc"));
+    }
 }
