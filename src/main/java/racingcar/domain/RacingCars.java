@@ -1,7 +1,6 @@
 package racingcar.domain;
 
-import racingcar.utils.RandomNumber;
-import racingcar.view.OutputView;
+import racingcar.utils.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +16,14 @@ public class RacingCars {
     }
 
     public void moveCars(){
-        System.out.println("실행 결과");
         for(Car car : racingCars){
-            car.move(RandomNumber.getRandomNumber());
-            OutputView.printCarPositionMessage(car);
+            car.move(RandomNumberGenerator.getRandomNumber());
         }
+    }
+
+
+    public List<Car> getRacingCars() {
+        return racingCars;
     }
 
     public Winner findWinner(){
@@ -30,6 +32,8 @@ public class RacingCars {
             if(car.getPosition() > winner.getPosition()){
                 winner.getWinners().clear();
                 winner.getWinners().add(car);
+                winner.setPosition(car.getPosition());
+                continue;
             }
             if(car.getPosition() == winner.getPosition()){
                 winner.getWinners().add(car);

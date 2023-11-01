@@ -1,7 +1,10 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.RacingCars;
 import racingcar.domain.Winner;
+
+import java.util.List;
 
 public class OutputView {
 
@@ -14,15 +17,18 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public static void printCarPositionMessage(Car car){
-        System.out.print(car.getName()+" : ");
-        for(int i=0; i<car.getPosition(); i++){
-            System.out.print(DISTANCE);
+    public static void printCarPositionMessage(List<Car> cars){
+        for(Car car : cars) {
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print(DISTANCE);
+            }
+            System.out.println();
         }
     }
 
     public static void printWinnerMessage(Winner winner){
-        System.out.println("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
         System.out.println(winner.getWinnerNames());
     }
 }

@@ -22,9 +22,12 @@ public class Winner {
         for (Car car : winners) {
             names.add(car.getName());
         }
-        return String.join(",", names);
+        return String.join(", ", names);
     }
 
+    public void setPosition(int position) {
+        this.position = position;
+    }
 
     public int getPosition() {
         return position;
