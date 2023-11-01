@@ -43,4 +43,28 @@ public class GameManager {
 
         System.out.print("\n");
     }
+
+    public void printResult() {
+        List<Car> winners = getMaxDistanceCars();
+        String winnerNames = String.join(", ", winners.stream().map(Car::getName).toList());
+        System.out.printf("%s%s", Message.FINAL_WINNER, winnerNames);
+    }
+
+
+    protected List<Car> getMaxDistanceCars() {
+        int maxDistance = 0;
+        List<Car> maxCars = new ArrayList<>();
+
+        for (Car car : this.cars) {
+            if (maxDistance == car.getDistance()) {
+                maxCars.add(car);
+            } else if (maxDistance < car.getDistance()) {
+                maxCars.clear();
+                maxCars.add(car);
+                maxDistance = car.getDistance();
+            }
+        }
+
+        return maxCars;
+    }
 }
