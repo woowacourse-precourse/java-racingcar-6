@@ -12,24 +12,25 @@ import static racingcar.view.constant.ConstPrint.PRINT_WINNER;
 
 import racingcar.service.CarService;
 
-public class RacingCarGame{
+public class RacingCarGame {
     private CarService carService = CarService.getInstance();
     private String cars;
-    public void startGame(){
+
+    public void startGame() {
         showUser(GAME_START);
         cars = askCarNames();
         carService.parkParkingLot(cars);
         showUser(ASK_ATTEMPT);
         int Count = askNumberOfGames();
         showUser(PRINT_RESULT);
-        while(Count >0){
+        while (Count > 0) {
             playGame();
             Count--;
         }
         showGameWinner(PRINT_WINNER, carService.getWinner());
     }
 
-    private void playGame(){
+    private void playGame() {
         carService.generateRandomNumbers();
         carService.confirmRandomNumbers();
         showGameResult(carService.getParkingLot());

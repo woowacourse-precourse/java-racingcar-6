@@ -7,7 +7,7 @@ public class Car {
     private StringBuilder distance;
 
 
-    public Car(){
+    public Car() {
         distance = new StringBuilder();
     }
 
@@ -15,7 +15,7 @@ public class Car {
         this.carName = carName;
     }
 
-    public void setRandomNumber(int randomNumber){
+    public void setRandomNumber(int randomNumber) {
         this.randomNumber = randomNumber;
     }
 

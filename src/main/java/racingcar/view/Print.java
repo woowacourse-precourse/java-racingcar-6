@@ -7,18 +7,18 @@ import racingcar.domain.Car;
 import racingcar.view.constant.ConstPrint;
 
 public class Print {
-    public static void showUser(ConstPrint constPrint){
+    public static void showUser(ConstPrint constPrint) { //사용자에게 보여줄 문구
         System.out.println(constPrint.getConstPrint());
     }
 
-    public static void showGameResult(List<Car>parkingLot){
-        for(int i = 0; i< parkingLot.size();i++){
+    public static void showGameResult(List<Car> parkingLot) {
+        for (int i = 0; i < parkingLot.size(); i++) {
             System.out.println(parkingLot.get(i).getCarName() + " : " + parkingLot.get(i).getDistance());
         }
         System.out.println();
     }
 
-    public static void showGameWinner(ConstPrint constPrint, List<String>winners){
-        System.out.println(constPrint.getConstPrint() + " : " + String.join(", ",winners));
+    public static void showGameWinner(ConstPrint constPrint, List<String> winners) {
+        System.out.println(constPrint.getConstPrint() + " : " + String.join(", ", winners));
     }
 }

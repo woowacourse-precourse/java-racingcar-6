@@ -8,11 +8,11 @@ public enum ConstPrint {
 
     private final String constPrint;
 
-    private ConstPrint(String constPrint){
+    private ConstPrint(String constPrint) {
         this.constPrint = constPrint;
     }
 
-    public String getConstPrint(){
+    public String getConstPrint() {
         return constPrint;
     }
 
