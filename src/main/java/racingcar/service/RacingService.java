@@ -63,7 +63,7 @@ public class RacingService {
             if (canMove()) {
                 car.move();
             }
-            car.position();
+            car.printPosition();
             maxDistance = car.checkMaxDistance(maxDistance);
         }
         System.out.println();

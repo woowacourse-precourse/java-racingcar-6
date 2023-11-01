@@ -1,8 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
     private final String name;
     private int distance;
@@ -15,7 +12,7 @@ public class Car {
         this.distance += 1;
     }
 
-    public void position() {
+    public void printPosition() {
         System.out.println(this.name + " : " + "-".repeat(this.distance));
     }
 
