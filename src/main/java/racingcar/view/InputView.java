@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.Validator;
 
 public class InputView {
 
@@ -11,6 +12,6 @@ public class InputView {
 
     public static int tryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        return Validator.checkTryCount(Console.readLine());
     }
 }
