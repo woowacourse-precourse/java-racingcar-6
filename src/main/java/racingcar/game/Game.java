@@ -35,7 +35,7 @@ public class Game {
         printGuide.printWinner(game(carList, countInputNumber));
     }
 
-    private Winner game(List<Car> cars, int count) {
+    public Winner game(List<Car> cars, int count) {
         while (count-- > 0) {
             cars.stream().forEach(car -> race(car));
             cars.stream().forEach(car -> printGuide.printRaceRound(car));
@@ -45,7 +45,7 @@ public class Game {
         return winner;
     }
 
-    private void race(Car car) {
+    public static void race(Car car) {
         int flag = Randoms.pickNumberInRange(0, 9);
 
         if (flag >= 4) {
@@ -53,7 +53,7 @@ public class Game {
         }
     }
 
-    private Winner findWinner(List<Car> carsList) {
+    public static Winner findWinner(List<Car> carsList) {
         int highestScore = carsList.stream()
                 .mapToInt(Car::getScore)
                 .max()
