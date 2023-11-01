@@ -1,7 +1,12 @@
 package racingcar;
 
+import java.util.ArrayList;
+import racingcar.controller.GameController;
+import racingcar.model.CarGame;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        GameController gameController = new GameController(new CarGame(new ArrayList<>()));
+        gameController.play();
     }
 }
