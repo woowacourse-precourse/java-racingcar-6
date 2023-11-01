@@ -10,7 +10,7 @@ public class RacingGame {
 
     private static List<Car> players;
 
-    public static void play(){
+    public static void play() throws IllegalArgumentException{
         InputManager inputManager = new InputManager();
         PrintManager.printInputCarName();
         players = inputManager.getPlayerCarList();
