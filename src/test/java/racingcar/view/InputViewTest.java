@@ -1,8 +1,9 @@
 package racingcar.view;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import racingcar.dto.input.InputDTO;
 
 public class InputViewTest extends NsTest {

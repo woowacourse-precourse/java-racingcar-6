@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.common.type.TrialCount;
-import racingcar.util.TestContext;
-import racingcar.util.TestInitializer;
 import racingcar.domain.RacingCars;
 import racingcar.dto.output.AllRoundDTO;
 import racingcar.dto.output.RoundDTO;
+import racingcar.util.TestContext;
+import racingcar.util.TestInitializer;
 
 public class GameTest {
     private RacingCars racingCars;

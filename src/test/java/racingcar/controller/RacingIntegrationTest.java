@@ -1,14 +1,14 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import camp.nextstep.edu.missionutils.test.NsTest;
 import racingcar.common.type.TrialCount;
-import racingcar.util.TestContext;
-import racingcar.util.TestInitializer;
 import racingcar.domain.RacingCars;
 import racingcar.domain.RacingWinners;
+import racingcar.util.TestContext;
+import racingcar.util.TestInitializer;
 
 public class RacingIntegrationTest extends NsTest {
     private RacingCars racingCars;

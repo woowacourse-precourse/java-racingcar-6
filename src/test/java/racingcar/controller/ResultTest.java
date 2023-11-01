@@ -5,10 +5,10 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.util.TestContext;
-import racingcar.util.TestInitializer;
 import racingcar.domain.RacingWinners;
 import racingcar.dto.output.WinnerDTO;
+import racingcar.util.TestContext;
+import racingcar.util.TestInitializer;
 
 public class ResultTest {
 
