@@ -31,4 +31,18 @@ public class Cars {
         return positions.toString();
     }
 
+    public int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPositionNumber)
+                .max()
+                .orElse(0);
+    }
+    public List<String> getWinners() {
+        int maxPositionNumber = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isWinner(maxPositionNumber))
+                .map(car -> car.getName().toString())
+                .collect(Collectors.toList());
+    }
+
 }
