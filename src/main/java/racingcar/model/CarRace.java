@@ -26,12 +26,6 @@ public class CarRace {
         }
     }
 
-    public void runRaceWithIteration(int iteration) {
-        for (int i = 0; i < iteration; i++) {
-            runRace();
-        }
-    }
-
     public int getIteration() {
         return iteration.value();
     }

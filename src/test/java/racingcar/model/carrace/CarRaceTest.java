@@ -5,6 +5,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import java.util.stream.IntStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -46,7 +47,7 @@ public class CarRaceTest {
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        carRace.runRaceWithIteration(THREE_TIMES);
+                        IntStream.range(0, THREE_TIMES).forEach(i -> carRace.runRace());
                         List<Car> winners = carRace.getWinner();
                         assertThat(winners.size()).isEqualTo(1);
                         assertThat(winners.get(0).getName()).isEqualTo("pobi");
@@ -68,7 +69,7 @@ public class CarRaceTest {
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        carRace.runRaceWithIteration(THREE_TIMES);
+                        IntStream.range(0, THREE_TIMES).forEach(i -> carRace.runRace());
                         List<Car> winners = carRace.getWinner();
                         assertThat(winners.size()).isEqualTo(2);
                         assertThat(winners.containsAll(predictedWinners)).isTrue();
@@ -128,7 +129,7 @@ public class CarRaceTest {
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        carRace.runRaceWithIteration(THREE_TIMES);
+                        IntStream.range(0, THREE_TIMES).forEach(i -> carRace.runRace());
                         Car pobi = cars.get(0);
                         Car woni = cars.get(1);
                         Car java = cars.get(2);
