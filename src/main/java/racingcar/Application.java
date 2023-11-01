@@ -16,8 +16,8 @@ public class Application {
     }
 
     private static void userInput(String[] carNames, int tryCount) {
-        if (carNames.length < 1 || carNames[0].isEmpty()) {
-            throw new IllegalArgumentException("한 대 이상의 자동차를 입력해주세요");
+        if (carNames.length < 2) {
+            throw new IllegalArgumentException("최소 두 대의 자동차를 입력해주세요");
         }
         if (tryCount < 1) {
             throw new IllegalArgumentException("한 번 이상의 이동 횟수를 입력해주세요!");
@@ -26,7 +26,17 @@ public class Application {
 
     private static String[] namingCars() {
         System.out.print("경주할 자동차 이름 입력(쉼표 기준): ");
-        return Console.readLine().split(",");
+        String[] carNames = Console.readLine().split(",");
+        validateCarNames(carNames);
+        return carNames;
+    }
+
+    private static void validateCarNames(String[] carNames) {
+        for (String name : carNames) {
+            if (name.trim().length() > 5) {
+                throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다.");
+            }
+        }
     }
 
     private static int racingTimes() {
@@ -79,9 +89,9 @@ public class Application {
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
                 if (winners.length() > 0) {
-                    winners.append(",");
+                    winners.append(", ");
                 }
-                winners.append(car.getName());
+                winners.append(car.getName()).append(" : ").append(getPositionString(car.getPosition()));
             }
         }
         return winners.toString();
