@@ -73,6 +73,16 @@ public class Cars {
         //전역변수로 설정한 winners에 승자 이름 저장
         for(int i = 0; i < carNames.length; i++) {
             int moveDistance = moveCountList.get(i);
+
+            if (moveDistance > maxDistance) {
+                // 더 큰 이동 거리를 발견하면 승자 목록을 초기화하고 현재 차를 승자로 추가
+                maxDistance = moveDistance;
+                winners.clear();
+                winners.add(CarNameList.get(i));
+            } else if (moveDistance == maxDistance) {
+                // 현재 최대 이동 거리와 같은 이동 거리를 가지는 차를 승자 목록에 추가
+                winners.add(CarNameList.get(i));
+            }
         }
     }
 }
