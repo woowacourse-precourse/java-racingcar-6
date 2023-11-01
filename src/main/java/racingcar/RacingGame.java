@@ -17,7 +17,7 @@ public class RacingGame {
         String[] names = cars.split(",");
         try {
             Arrays.stream(names).forEach(name -> {
-                InputException.exceptionCheckName(name);
+                InputException.exceptionCheckName(name, racingCars);
                 name = name.trim();
                 racingCars.add(new Car(name));
             });
