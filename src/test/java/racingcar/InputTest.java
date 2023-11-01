@@ -37,19 +37,11 @@ public class InputTest {
     }
 
     @Test
-    void 이름_공백_제거_확인() {
-        String input = " pobi,goni ,  jun  ";
-        List<String> result = List.of("pobi", "goni", "jun");
-
-        assertThat(StringConvertor.convertStringToList(input)).isEqualTo(result);
-    }
-
-    @Test
     void 이름_미입력_예외_처리() {
         String input = "  ,goni,jun, ";
+        List<String> carNames = StringConvertor.convertStringToList(StringConvertor.removeSpace(input));
 
-        assertThatThrownBy(() -> InputValidator.checkNameIsExist(
-                StringConvertor.convertStringToList(input))).isInstanceOf(
+        assertThatThrownBy(() -> InputValidator.checkNameIsExist(carNames)).isInstanceOf(
                 IllegalArgumentException.class);
     }
 
