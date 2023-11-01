@@ -24,6 +24,7 @@ public class Input {
 
         for (String name : names) {
             iv.checkNameLength(name);
+            name = iv.checkDuplicateName(name);
             cars.add(new Car(name));
         }
 

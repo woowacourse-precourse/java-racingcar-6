@@ -1,13 +1,28 @@
 package racingcar;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static racingcar.Car.MAX_CAR_NAME_LENGTH;
 
 public class InputValidation {
+
+    private Map<String, Integer> nameCount = new HashMap<>();
 
     void checkNameLength(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public String checkDuplicateName(String name) {
+        if (nameCount.containsKey(name)) {
+            Integer sameNameCount = nameCount.get(name) + 1;
+            nameCount.put(name, sameNameCount);
+            return name + sameNameCount;
+        }
+        nameCount.put(name, 1);
+        return name;
     }
 
     int validNum(String input) {
