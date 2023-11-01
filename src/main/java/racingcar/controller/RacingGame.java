@@ -22,10 +22,10 @@ public class RacingGame {
             moveCars();
             OutputView.printCarNameAndPosition(cars.getCarNamePositionMap());
         }
-        OutputView.printVictoryCarNames(getVictoryCarName());
+        OutputView.printVictoryCarNames(getVictoryCarNames());
     }
 
-    public List<String> getVictoryCarName() {
+    public List<String> getVictoryCarNames() {
         return cars.getCarNamesAtPosition(cars.getMaxPosition());
     }
 
