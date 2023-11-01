@@ -32,11 +32,17 @@ public class CarManager {
     }
 
     public String getWinnerNames() {
-        Optional<Car> maxDistanceCar = carList.stream().max(Comparator.comparingInt(Car::getDistance));
-        Integer maxDistance = maxDistanceCar.get().getDistance();
+        Integer maxDistance = getMaxDistance();
 
         return carList.stream().filter(car -> car.getDistance() == maxDistance)
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
     }
+
+    private Integer getMaxDistance() {
+        Optional<Car> maxDistanceCar = carList.stream().max(Comparator.comparingInt(Car::getDistance));
+        Integer maxDistance = maxDistanceCar.get().getDistance();
+        return maxDistance;
+    }
+
 }
