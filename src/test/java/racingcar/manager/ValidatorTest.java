@@ -37,4 +37,15 @@ public class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("레이스 라운드는 숫자만 입력 가능합니다.");
     }
+
+    @Test
+    void RaceRoundInput_0_이하의_숫자가_입력된_경우_에외_처리() {
+        assertThatThrownBy(() -> Validator.validateRaceRoundInput("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("레이스 라운드는 양의 정수만 가능합니다.");
+
+        assertThatThrownBy(() -> Validator.validateRaceRoundInput("-1"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("레이스 라운드는 양의 정수만 가능합니다.");
+    }
 }
