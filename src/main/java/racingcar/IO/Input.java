@@ -20,8 +20,11 @@ public class Input {
 
         for (String name : names) {
             String verifiedName = Validation.validationCarName(name);
+
             Car car = new Car(verifiedName);
             cars.add(car);
+
+            Validation.validationDuplication(cars);
         }
 
         return cars;
