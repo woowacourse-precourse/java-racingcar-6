@@ -15,6 +15,8 @@ public class View {
   static public List<String> inputCars() {
     String input = Console.readLine();
     List<String> cars = Arrays.asList(input.split(","));
+    
+      
     return cars;
   }
 
@@ -25,6 +27,10 @@ public class View {
   
   static  public int inputGameTrialCount(){
     String input = Console.readLine();
+    if(!input.matches("^[0-9]*$")){
+      throw new IllegalArgumentException("숫자를 입력하지 않았습니다.");
+    }
+      
     return Integer.parseInt(input);
   }
   

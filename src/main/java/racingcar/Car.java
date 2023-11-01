@@ -26,6 +26,11 @@ public class Car {
   public Car(String name) {
     this.name = name;
     this.progress = 0;
+    
+    if(name.length()>5 || name.isEmpty()){
+      throw new IllegalArgumentException("name의 양식에 어긋납니다");
+    }
+   
   }
 
   public boolean isProgress() {
