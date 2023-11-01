@@ -8,20 +8,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameProgressService {
+    private final int beginRange;
+    private final int endRange;
+
+    public GameProgressService(int beginRange, int endRange) {
+        this.beginRange = beginRange;
+        this.endRange = endRange;
+    }
 
     public void moveCars(List<Car> cars) {
         for (Car car : cars) {
-            if ( shouldCarMove()) {
+            if ( shouldCarMove(generateRandomNumber())) {
                 car.addPosition();
             }
         }
     }
-    private boolean shouldCarMove() {
-        int random = generateRandomNumber();
+    private boolean shouldCarMove(int random) {
         return random >= AppConstants.FORWARD_CONDITION;
     }
     private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(AppConstants.RANDOM_BEGIN_RANGE, AppConstants.RANDOM_END_RANGE);
+        return Randoms.pickNumberInRange(beginRange, endRange);
     }
 
     public String getRoundResults(List<Car> cars) {
