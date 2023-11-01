@@ -33,5 +33,8 @@ public class CarRepository {
     public int size(){
         return carList.size();
     }
+    public void clear(){
+        carList.clear();
+    }
 
 }

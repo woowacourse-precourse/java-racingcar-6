@@ -40,5 +40,8 @@ public class CarService {
         }
     }
 
+    public void repositoryClear(){
+        carRepository.clear();
+    }
 
 }
