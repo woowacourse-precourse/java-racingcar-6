@@ -17,7 +17,7 @@ public class InputView {
         System.out.println(NUMBER_OF_TRIES_COMMAND);
         String input = Console.readLine();
         int tryCount = InputConvertor.parseTryCount(input);
-        InputConvertor.validateTryCount(tryCount);
+        InputConvertor.isTryCountNaturalNumber(tryCount);
         return tryCount;
     }
 }

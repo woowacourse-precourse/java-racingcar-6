@@ -61,7 +61,7 @@ class InputConvertorTest {
     void validateTryCountTest() {
         int inputTry = 0;
 
-        assertThatThrownBy(() -> InputConvertor.validateTryCount(inputTry))
+        assertThatThrownBy(() -> InputConvertor.isTryCountNaturalNumber(inputTry))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("시도 횟수는 1 이상이어야 합니다.");
     }
