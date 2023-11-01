@@ -45,7 +45,7 @@ public class RacingGameServiceImpl implements RacingGameService {
     public void calculateWinners(RacingGame racingGame) {
         int maxPosition = racingGame.calcParticipationsMaxPosition();
         racingGame.getParticipationsList().stream()
-                .filter(car -> car.isPositionSameOrOver(maxPosition))
+                .filter(car -> car.isCurrPositionSameOrOver(maxPosition))
                 .forEach(racingGame::addWinner);
     }
 

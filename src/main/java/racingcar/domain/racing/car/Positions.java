@@ -38,7 +38,7 @@ public final class Positions { //final class
         return positions.get(turn);
     }
 
-    public boolean isPositionSameOrOver(int maxPosition) {
+    public boolean isCurrPositionSameOrOver(int maxPosition) {
         return calcLastPosition() >= maxPosition;
     }
 

@@ -39,7 +39,7 @@ public class Car extends IndexModel {
         positions.addPositionByRandomNum(randomNum);
     }
 
-    public boolean isPositionSameOrOver(int maxPosition) {
-        return positions.isPositionSameOrOver(maxPosition);
+    public boolean isCurrPositionSameOrOver(int position) {
+        return positions.isCurrPositionSameOrOver(position);
     }
 }

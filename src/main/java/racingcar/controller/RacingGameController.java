@@ -27,9 +27,8 @@ public class RacingGameController {
     }
 
     /**
-     * 게임을 실행하는 메소드입니다.
-     * 사용자에게 입력을 받고, 랜덤 값을 부여하고, 우승자를 계산하고, 결과를 출력합니다.
-     * 게임을 재시작할 때 replayGame(boolean)에 true값을 보내면 게임이 재실행됩니다. 현재는 사용하지 않는 기능입니다.
+     * 게임을 실행하는 메소드입니다. 사용자에게 입력을 받고, 랜덤 값을 부여하고, 우승자를 계산하고, 결과를 출력합니다. 게임을 재시작할 때 replayGame(boolean)에 true값을 보내면 게임이
+     * 재실행됩니다. 현재는 사용하지 않는 기능입니다.
      */
     public void playGame() {
         RacingGame racingGame = generateRacing();
