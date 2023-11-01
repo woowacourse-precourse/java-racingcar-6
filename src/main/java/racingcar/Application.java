@@ -30,8 +30,7 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputNum = readLine();
         try {
-            int moveNum = Integer.parseInt(inputNum);
-            return moveNum;
+            return Integer.parseInt(inputNum);
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
             return 0;
