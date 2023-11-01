@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.utils.StringUtils;
+
 import java.util.List;
 
 public class Winner {
@@ -10,6 +12,6 @@ public class Winner {
     }
 
     public String getWinnerCarNames() {
-        return String.join(Constants.WINNER_DELIMITER,winnerCarNames);
+        return StringUtils.joinWinnerCarName(winnerCarNames);
     }
 }
