@@ -30,9 +30,24 @@ public class CarsTest {
 
     @Test
     @DisplayName("경주 단일 우승자 테스트")
-    void checkFindWinners() {
+    void checkFindWinner() {
         Cars cars = new Cars(Arrays.asList(c1, c2));
         List<Car> winners = cars.findWinners();
         assertThat(winners).containsExactly(c1);
+    }
+
+    @Test
+    @DisplayName("경주 다중 우승자 테스트")
+    void checkFindWinners() {
+        Car c3 = new Car("morty");
+
+        c3.moveForward(5);
+        c3.moveForward(5);
+        c3.moveForward(5);
+
+        Cars cars = new Cars(Arrays.asList(c1, c2, c3));
+
+        List<Car> winners = cars.findWinners();
+        assertThat(winners).containsExactly(c1, c3);
     }
 }
