@@ -7,6 +7,7 @@ import static org.mockito.Mockito.mockStatic;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -35,6 +36,7 @@ public class CarTest {
     }
 
     @Test
+    @DisplayName("자동차는 이름 속성을 가진다.")
     void Car_객체는_이름_속성을_가짐() {
         final String expected = "jun";
         final Car car = new Car(expected);
@@ -43,6 +45,7 @@ public class CarTest {
     }
 
     @Test
+    @DisplayName("자동차 이름이 5자를 초과할 시 예외를 일으킨다.")
     void name_속성이_5글자를_초과하면_IllegalArgumentException_예외() {
         assertThatThrownBy(() -> new Car("abcdef"))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -63,6 +66,7 @@ public class CarTest {
 
     @ParameterizedTest
     @MethodSource("provideRandomNumbersForIsLessThanFour")
+    @DisplayName("무작위 수가 3 이하이면 멈춘다.")
     void canStop_메서드_무작위_값이_4미만인_경우에_정지(final int randomNumber, final boolean expected) {
         final Car car = new Car("jun");
 
@@ -75,6 +79,7 @@ public class CarTest {
     }
 
     @Test
+    @DisplayName("무작위 수가 4 이상이면 전진한다.")
     void moveForward_메서드_무작위값이_4이상인_경우애_distance_하나_증가() {
         final Car car = new Car("jun");
         final int CONDITION_MOVING_FORWARD = 4;
@@ -92,6 +97,7 @@ public class CarTest {
     }
 
     @Test
+    @DisplayName("출력 시 자동차 이름을 같이 출력한다.")
     void toString_메서드에_이름과_거리_문자열_출력() {
         final Car car = new Car("jun");
         final int CONDITION_MOVING_FORWARD = 4;

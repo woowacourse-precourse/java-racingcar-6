@@ -11,6 +11,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.MockedStatic;
@@ -58,6 +59,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("자동차 이름은 쉼표로 구분한다.")
     void 자동차_이름을_쉼표로_구분하여_이름_배열을_만듦() {
         final List<String> expected = List.of("pobi", "woni", "jun");
         final List<String> actual = Application.getCarNameListFromCarNames("pobi,woni,jun");
@@ -65,6 +67,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("각 자동차 이름의 좌우 공백을 제거한다.")
     void getCarNameListFromCarNames_메서드에서_trim_메소드로_좌우_공백을_제거() {
         final List<String> expected = List.of("pobi", "woni", "jun");
 
@@ -99,6 +102,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("사용자에게 입력을 받아 몇 번 이동할 지 데이터로 저장한다.")
     void 시도할_회수를_입력() {
         final int expected = 5;
 
@@ -110,6 +114,18 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("주어진 횟수를 입력할 때 숫자가 아닌 입력 시 예외를 일으킨다.")
+    void 시도할_회수를_입력시_숫자가_아닌경우_예외() {
+        final String expected = "가";
+
+        try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
+            mockConsole.when(() -> Console.readLine()).thenReturn(expected);
+            assertThatThrownBy(() -> Application.readTryCount())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+    }
+
+    @Test
     void 실행_결과_문구를_출력() {
         final String STRING_EXECUTION_RESULT = "실행 결과";
         Application.printExecutionResult();
@@ -117,6 +133,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("한 횟수 동안 N 대의 자동차는 전진 또는 멈춘다.")
     void Car_리스트_안에_있는_모든_Car를_앞으로_움직임() {
         final List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
         final List<String> expected = List.of("-", "-", "");
@@ -168,6 +185,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.")
     void 최종_우승자를_출력() {
         final List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
 
