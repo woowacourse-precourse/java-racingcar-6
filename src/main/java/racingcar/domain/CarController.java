@@ -1,8 +1,10 @@
 package racingcar.domain;
 
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Map;
 
 public class CarController {
 
@@ -12,13 +14,14 @@ public class CarController {
 
         this.cars = cars;
     }
+    //중복된 이름이 불가능하다는 요구조건이 없으므로 중복 허용을 위해 키로 Map.Entry<Integer, String> 사용 (인덱스, 자동차이름)쌍
+    public LinkedHashMap<Map.Entry<Integer, String>, Integer> racingResult = new LinkedHashMap<>();
 
-    public LinkedHashMap<String, Integer> racingResult = new LinkedHashMap<>();
+    public LinkedHashMap<Map.Entry<Integer, String>, Integer> gameStart() {
 
-    public LinkedHashMap<String, Integer> gameStart() {
-
-        for (String car : cars) {
-            racingResult.put(car, racingResult.getOrDefault(car, 0) + isForward());
+        for (int carIndex = 0; carIndex < cars.size() ; carIndex++) {
+            Map.Entry<Integer, String> carEntry = new AbstractMap.SimpleEntry<>(carIndex, cars.get(carIndex));
+            racingResult.put(carEntry, racingResult.getOrDefault(carEntry, 0) + isForward());
         }
         return racingResult;
     }

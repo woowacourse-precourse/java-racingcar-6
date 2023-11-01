@@ -2,10 +2,12 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,12 +22,18 @@ class CarControllerTest {
     @MethodSource("provideTestArguments")
     void gameStartTest(String inputCars, int numberOfRacing) {
         //자동차 목록 리스트화 (예측 키값)
-        List<String> expectedKeys = Arrays.stream(inputCars.split(","))
+        List<String> cars = Arrays.stream(inputCars.split(","))
                 .map(String::strip)
                 .collect(Collectors.toList());
 
-        CarController carControllerTest = new CarController(expectedKeys);
-        LinkedHashMap<String, Integer> result = new LinkedHashMap<>();
+        List<Map.Entry<Integer, String>> expectedKeys = new ArrayList<>();
+        for(int carIndex = 0 ; carIndex < cars.size(); carIndex++) {
+            Map.Entry<Integer, String> expectedKey = new AbstractMap.SimpleEntry<>(carIndex, cars.get(carIndex));
+            expectedKeys.add(expectedKey);
+        }
+
+        CarController carControllerTest = new CarController(cars);
+        LinkedHashMap<Map.Entry<Integer, String>, Integer> result = new LinkedHashMap<>();
         // 레이싱의 횟수 numberOfRacing;
 
         // numberOfRacing번 레이싱 진행;
@@ -37,7 +45,7 @@ class CarControllerTest {
         assertThat(result.keySet()).containsExactlyInAnyOrderElementsOf(expectedKeys);
 
         //각 키의 결과 값이 0부터 "제공된 이동횟수(numberOfRacing)" 까지 인가?
-        for (String expectedKey : expectedKeys) {
+        for (Map.Entry<Integer, String> expectedKey : expectedKeys) {
             assertThat(result.get(expectedKey)).isBetween(0, numberOfRacing);
         }
     }
@@ -53,8 +61,8 @@ class CarControllerTest {
         );
     }
 
-    private final String cars = "pobi,news,neon";
-    private final List<String> carsList = new ArrayList<>(Arrays.asList(cars.split(",")));
+    private final String myCars = "pobi,news,neon";
+    private final List<String> carsList = new ArrayList<>(Arrays.asList(myCars.split(",")));
     private CarController carController;
 
     @BeforeEach
