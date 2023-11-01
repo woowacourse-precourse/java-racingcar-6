@@ -10,7 +10,6 @@ public class RacingGameController {
     public void proceed() {
         initRacingGame();
         playGame();
-        showFinalWinners();
     }
 
     private void initRacingGame() {
@@ -20,9 +19,6 @@ public class RacingGameController {
 
     private void playGame() {
         OutputView.printResult(racingGame.race());
-    }
-
-    private void showFinalWinners() {
         OutputView.printFinalWinners(racingGame.getWinners());
     }
 }
