@@ -6,16 +6,19 @@ import java.util.Set;
 
 public class InputValidation {
 
+    static final int MIN_NAME_LENGTH = 2;
+    static final int MAX_NAME_LENGTH = 5;
+
     public void validateCarName(String userInput) {
         List<String> carNames = List.of(userInput.split(","));
         Set<String> uniqueNames = new HashSet<>(carNames);
 
-        if (carNames.size() < 2) {
+        if (carNames.size() < MIN_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
 
         for (String carName : carNames) {
-            if (carName.length() > 5) {
+            if (carName.length() > MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException();
             }
         }
