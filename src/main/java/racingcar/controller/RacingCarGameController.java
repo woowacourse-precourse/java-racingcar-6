@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Game;
 import racingcar.view.RepeatingGameView;
 
@@ -11,6 +12,20 @@ public class RacingCarGameController implements GameController {
     public RacingCarGameController(Game game, RepeatingGameView gameView) {
         this.game = game;
         this.gameView = gameView;
+    }
+
+    @Override
+    public void play() {
+        String[] input = new String[2];
+        gameView.showInputRequiredMessage();
+        input[0] = Console.readLine();
+        gameView.showRepeatingNumberRequiredMessage();
+        input[1] = Console.readLine();
+
+        game.play(input);
+        race();
+        gameView.showResultOf(game);
+        quitGame();
     }
 
     @Override
