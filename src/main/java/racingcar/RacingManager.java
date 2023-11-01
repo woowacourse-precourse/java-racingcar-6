@@ -32,7 +32,7 @@ public class RacingManager {
     }
 
     private void printWinnerString(List<String>inputString){
-        String result = String.join(SEP_PLAYER_STRING,inputString);
+        String result = String.join(SEP_COMMA_ONESPACE_STRING,inputString);
         System.out.println(CMD_WINNER_RESULT+result);
     }
 
@@ -48,7 +48,7 @@ public class RacingManager {
         playersNameString = sc.next();
 
         playerNamesList = new ArrayList<String>(
-                Arrays.asList(playersNameString.split(SEP_PLAYER_STRING)));
+                Arrays.asList(playersNameString.split(SEP_COMMA_STRING)));
 
         for(String pl : playerNamesList){
             System.out.println(pl);

@@ -49,9 +49,9 @@ public class RacingController {
     public boolean checkEnd(Map<String, Integer> playerResultMap){
         boolean checkEndFlag = false;
         for (String name : playerList) {
-            Integer value = playerResultMap.get(name);
+            Integer position = playerResultMap.get(name);
 
-            if(Objects.equals(value, tryNumber)){
+            if(Objects.equals(position, tryNumber)){
                 winnerList.add(name);
                 checkEndFlag = true;
             }
@@ -66,9 +66,9 @@ public class RacingController {
 
     public void initSetting(Map<String, Integer> playerResultMap) {
         for (String name : playerList) {
-            Integer value = playerResultMap.get(name);
-            if (value == null) {
-                playerResultMap.put(name, 0);
+            Integer position = playerResultMap.get(name);
+            if (position == null) {
+                playerResultMap.put(name, POSITION_ZERO_INTEGER);
             }
         }
     }
