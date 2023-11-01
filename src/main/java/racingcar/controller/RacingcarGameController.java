@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Cars;
 import racingcar.domain.GameStatus;
 import racingcar.domain.RandomNumbers;
+import racingcar.domain.Round;
 import racingcar.service.RacingcarGameService;
 import racingcar.service.RacingcarGameServiceImpl;
 import racingcar.utility.RandomNumberGenerator;
@@ -37,8 +38,13 @@ public class RacingcarGameController {
 
         Printer.printResultHeadMessage();
 
+        Round round = new Round();
+
         while (gameStatus.isGamePlaying()) {
             proceedEachRound(cars);
+
+            round.addRound();
+            gameStatus = round.checkIfGameIsOver(roundToRace);
         }
     }
 
