@@ -10,5 +10,8 @@ public class Application {
         StartCondition startCondition = new StartCondition();
         String[] carNames = startCondition.inputCarName();
         int tryCount = startCondition.inputAttemptNumber();
+
+        int carCount = carNames.length;
+
     }
 }
