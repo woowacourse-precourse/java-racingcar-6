@@ -22,6 +22,29 @@ public class Input {
         return false;
     }
 
+    static void checkEmptyOrBlankCarNames(String carNameInput) {
+        if (carNameInput.isBlank() || carNameInput.isEmpty()) {
+            Exception.generateInvalidCarNumberException();
+        }
+    }
+
+    static void checkDuplicateCarNames(String[] carNames) {
+        if (containsDuplicates(carNames)) {
+            Exception.generateInvalidDuplicateCarNameException();
+        }
+    }
+
+    static void checkTryNumberRange(long tryNumber) {
+        if (isOutOfRange(tryNumber)) {
+            Exception.generateInvalidTryNumberRangeException();
+        }
+    }
+
+    static void checkTryNumberInputLength(String tryNumberInput) {
+        if (tryNumberInput.length() > 10) {
+            Exception.generateInvalidTryNumberRangeException();
+        }
+    }
 
     static String[] getCarName() {
         String carNameInput = "";
@@ -31,27 +54,19 @@ public class Input {
             Exception.generateInvalidCarNumberException();
         }
         carNameInput = carNameInput.replaceAll("^,+|,+$", "").replaceAll(",+", ",");
-        if (carNameInput.isBlank() || carNameInput.isEmpty()) {
-            Exception.generateInvalidCarNumberException();
-        }
+        checkEmptyOrBlankCarNames(carNameInput);
         String[] carNames = carNameInput.split(",");
-        if (containsDuplicates(carNames)) {
-            Exception.generateInvalidDuplicateCarNameException();
-        }
+        checkDuplicateCarNames(carNames);
         return (carNames);
         }
 
     static int getTryNumber() {
         String tryNumberInput = Console.readLine();
-        if (tryNumberInput.length() > 10) {
-            Exception.generateInvalidTryNumberRangeException();
-        }
+        checkTryNumberInputLength(tryNumberInput);
         long tryNumber = 0;
         try {
             tryNumber = Long.parseLong(tryNumberInput);
-            if (isOutOfRange(tryNumber)) {
-                Exception.generateInvalidTryNumberRangeException();
-            }
+            checkTryNumberRange(tryNumber);
         } catch (NumberFormatException numberFormatException) {
             Exception.generateInvalidNumberCharacterException();
         }
