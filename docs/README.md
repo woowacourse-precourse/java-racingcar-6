@@ -27,6 +27,7 @@
 - [x] 실행 결과 메시지 출력 - printResultMessage()
 - [x] 자동차 위치 출력 - printCarPosition(Car car)
 - [x] 최종 우승자 출력 - printFinalWinner(List<String> names)
+- [x] 빈 라인 출력 - printEmptyLine()
 
 ## 3. 유틸 함수
 ### 1) 문자열 파싱 StringParser

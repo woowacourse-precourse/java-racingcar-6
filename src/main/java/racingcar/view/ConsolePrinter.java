@@ -28,4 +28,8 @@ public class ConsolePrinter {
     public static void printFinalWinners(List<String> names) {
         System.out.println("최종 우승자 : " + String.join(JOIN_DELIMITER, names));
     }
+
+    public static void printEmptyLine() {
+        System.out.println();
+    }
 }
