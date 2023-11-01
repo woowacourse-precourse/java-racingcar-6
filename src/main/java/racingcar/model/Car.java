@@ -20,11 +20,6 @@ public class Car {
         return name.getName();
     }
 
-    /**
-     * try move forward, and return whether this instance move or not
-     *
-     * @return if this instance move true, else false
-     */
     public boolean isMove() {
         if (canGo()) {
             this.location++;
@@ -38,9 +33,6 @@ public class Car {
         return randomNum >= MIN_MOVABLE_NUMBER;
     }
 
-    /**
-     * @return round result using name and location
-     */
     public String getRoundResult() {
         StringBuilder sb = new StringBuilder(name.getName());
         sb.append(" : ");
