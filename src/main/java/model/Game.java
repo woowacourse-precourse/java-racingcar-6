@@ -36,12 +36,12 @@ public class Game {
         for(Car car : carList){
             if(car.getStepCount() == maxStepCount){
                 winnerList += new StringBuilder(car.getName())
-                        .append(",");
+                        .append(", ");
             }
         }
 
-        if(winnerList.endsWith(",")){
-            winnerList = winnerList.substring(0, winnerList.length() - 1);
+        if(winnerList.endsWith(", ")){
+            winnerList = winnerList.substring(0, winnerList.length() - 2);
         }
 
         String gameResultMessage = MessageType.GAME_RESULT.getMessage();
