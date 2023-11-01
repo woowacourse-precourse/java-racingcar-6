@@ -10,4 +10,11 @@ public class Start {
         ArrayList<String> names = new ArrayList<>(Arrays.asList(raw));
         return names;
     }
+
+    public int times() {
+        System.out.println("시도할 회수는 몇 회인가요?");
+        String raw = Console.readLine();
+        int result = Integer.parseInt(raw);
+        return result;
+    }
 }
