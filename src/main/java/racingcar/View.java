@@ -37,5 +37,5 @@ public class View {
         inputRacingFrequencyNumCheck(racingFrequencyNum);
         return Integer.parseInt(racingFrequencyNum);
     }
-    
+
 }

@@ -33,4 +33,20 @@ public class RacingPlay {
             System.out.println(car.getCarName()+" : "+"-".repeat(car.getCarMovingNum()));
         }
     }
+
+    public void viewRacingWinner(){
+        String winners = new String();
+        int maxMoving = 0;
+        for(RacingCar car : racingCarList){
+            if(car.getCarMovingNum()>maxMoving) {
+                maxMoving = car.getCarMovingNum();
+            }
+        }
+        for(RacingCar car : racingCarList){
+            if(car.getCarMovingNum() == maxMoving){
+                winners += car.getCarName() + ", ";
+            }
+        }
+        System.out.println("최종 우승자 : " + winners.substring(0, winners.length()-2));
+    }
 }
