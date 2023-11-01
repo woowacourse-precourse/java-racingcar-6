@@ -57,11 +57,12 @@ public class Game {
         }
     }
 
-    public void moveCars(List<Car> cars) {
+    public List<Car> moveCars(List<Car> cars) {
         for (Car car : cars) {
             int randomNumber = pickNumberInRange(0, 9);
             car.move(randomNumber);
         }
+        return cars;
     }
 
     public void printCars(List<Car> cars) {
