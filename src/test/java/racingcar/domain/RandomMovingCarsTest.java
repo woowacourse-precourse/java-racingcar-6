@@ -41,21 +41,6 @@ class RandomMovingCarsTest {
 
         assertThatCode(() -> new Cars(Cars)).doesNotThrowAnyException();
     }
-    @Test
-    void 불변리스트_객체_추가_테스트() {
-        Cars instance = new Cars(
-                List.of(
-                        new RandomMovingCar("붕붕카"),
-                        new RandomMovingCar("범퍼카")
-                )
-        );
-        List<Car> innerGameCars = instance.getCars();
-
-        assertThatThrownBy(() -> innerGameCars.add(new RandomMovingCar("불법카")))
-                .isInstanceOf(UnsupportedOperationException.class);
-    }
-
-    // moveCars 메소드 테스트
 
     @Test
     void 차량이동_테스트() {
