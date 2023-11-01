@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.global.Constants;
+
 public class Car {
 
     private String name;
@@ -13,7 +15,9 @@ public class Car {
     public String getName() { return this.name; }
     public int getMoveCount() { return this.moveCount; }
 
-    public void moveForward() {
-        this.moveCount++;
+    public void moveForward(int randomNum) {
+        if (randomNum >= Constants.MIN_MOVING_RANDOM_NUM) {
+            this.moveCount++;
+        }
     }
 }
