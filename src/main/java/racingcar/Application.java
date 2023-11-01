@@ -21,7 +21,14 @@ public class Application {
         String[] carNames = inputCarNames.split(",");
 
         for (String carName : carNames) {
+            if(!isGoodName(carName)){
+                throw new IllegalArgumentException("Car name Error : " + carName);
+            }
             race.put(carName, 0);
         }
+    }
+
+    public static boolean isGoodName(String carName){
+        return carName.length() <= 5;
     }
 }
