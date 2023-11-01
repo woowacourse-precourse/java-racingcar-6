@@ -32,17 +32,23 @@ public class CarCollection {
     }
 
     public String getMaxLocationCarName() {
-        Location maxLocation = this.collection.stream()
-                .map(Car::getCarLocation)
-                .max(Location::compareTo).orElse(Location.fromInteger(0));
+        Location maxLocation = getMaxLocation();
+        List<String> winners = getWinners(maxLocation);
+        return String.join(RacingCarGameText.RACINGCAR_WINNERS_DELIMITER, winners);
+    }
 
-        List<String> winners = this.collection.stream()
+    private List<String> getWinners(Location maxLocation) {
+        return this.collection.stream()
                 .filter(car -> car.isSameLocation(maxLocation))
                 .map(Car::getCarName)
                 .map(Name::getName)
                 .collect(Collectors.toList());
+    }
 
-        return String.join(RacingCarGameText.RACINGCAR_WINNERS_DELIMITER, winners);
+    private Location getMaxLocation() {
+        return this.collection.stream()
+                .map(Car::getCarLocation)
+                .max(Location::compareTo).orElse(Location.fromInteger(0));
     }
 
     public List<Name> getCarNameList() {
