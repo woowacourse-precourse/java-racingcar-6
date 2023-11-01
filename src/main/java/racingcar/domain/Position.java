@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Position {
 
     private static final int START_POSITION = 0;
+    private static final int MOVING_DISTANCE = 1;
 
     private int position;
 
@@ -13,7 +14,7 @@ public class Position {
     }
 
     public void moveForward() {
-        this.position++;
+        this.position += MOVING_DISTANCE;
     }
 
     public int getPosition() {
