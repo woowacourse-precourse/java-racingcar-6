@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import racingcar.validator.InputValidator;
 
@@ -22,9 +23,8 @@ public class InputHandler {
     }
 
     private static void splitInput(List<String> carNames, String input) {
-        String[] cars = input.split(",");
-        for (String car : cars) {
-            carNames.add(car.trim());
-        }
+        Arrays.stream(input.split(","))
+            .map(String::trim)
+            .forEach(carNames::add);
     }
 }
