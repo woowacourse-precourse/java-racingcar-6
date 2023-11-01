@@ -5,8 +5,13 @@ import static racingcar.global.constant.GameMessage.ENTER_CAR_NAMES;
 import static racingcar.global.constant.GameMessage.ENTER_TRIAL_NUMBER;
 import static racingcar.global.constant.GameMessage.RESULT_CAR_NAME;
 import static racingcar.global.constant.GameMessage.RESULT_INFO_MESSAGE;
+import static racingcar.global.constant.GameMessage.WINNER_INFO;
+
+import java.util.List;
 
 public class Output {
+
+    private static final String JOINER = ",";
 
     public static void printEnterCarNamesMessage() {
         System.out.println(ENTER_CAR_NAMES);
@@ -25,9 +30,19 @@ public class Output {
         printMovingNumber(moving);
     }
 
+    public static void printWinners(List<String> winners) {
+        String result = String.join(JOINER, winners);
+        System.out.println(String.format(WINNER_INFO, result));
+    }
+
     private static void printMovingNumber(int moving) {
         for (int i = 0; i < moving; i++) {
-            System.out.println(MOVE);
+            System.out.print(MOVE);
         }
+        System.out.println();
+    }
+
+    public static void endPlay() {
+        System.out.println();
     }
 }

@@ -5,6 +5,7 @@ import static racingcar.global.constant.Game.FORWARD_STANDARD;
 import static racingcar.global.constant.Game.START_RANGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.module.dao.CarRepository;
 import racingcar.module.dao.GameRepository;
@@ -41,6 +42,7 @@ public class GameService {
         while (game.play() < game.getTrial()) {
             play(carList);
         }
+        Output.printWinners(getWinners(gameId));
     }
 
     private void play(List<Car> carList) {
@@ -50,6 +52,7 @@ public class GameService {
             }
             Output.printResult(car.getName(), car.getMoving());
         }
+        Output.endPlay();
     }
 
     private boolean moveForwardByRandomNumber() {
@@ -63,6 +66,35 @@ public class GameService {
         return Randoms.pickNumberInRange(START_RANGE, END_RANGE);
     }
 
+    private List<String> getWinners(Long gameId) {
+        List<Car> carList = carRepository.findByGame(gameId);
+
+        int max = getMaxMoving(carList);
+        List<String> winners = getMaxMovingCars(max, carList);
+        return winners;
+    }
+
+    private int getMaxMoving(List<Car> carList) {
+        int max = Integer.MIN_VALUE;
+
+        for (Car car : carList) {
+            if (max < car.getMoving()) {
+                max = car.getMoving();
+            }
+        }
+        return max;
+    }
+
+    private List<String> getMaxMovingCars(int max, List<Car> carList) {
+        List<String> winnerNames = new ArrayList<>();
+
+        for (Car car : carList) {
+            if (max == car.getMoving()) {
+                winnerNames.add(car.getName());
+            }
+        }
+        return winnerNames;
+    }
 
     private Game setTrial(int trial) {
         Game game = Game.from(trial);
