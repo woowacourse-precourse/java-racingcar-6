@@ -27,9 +27,9 @@ class InputManagerTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         //when
-        String result = inputManager.inputTryCount();
+        Integer result = inputManager.inputTryCount();
         //then
-        String expected = "5";
+        String expected = 5;
         assertEquals(expected, result);
     }
 
