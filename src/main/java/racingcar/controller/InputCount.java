@@ -11,6 +11,7 @@ public class InputCount {
         try {
             String input = Console.readLine();
             count = Integer.parseInt(input);
+
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("잘못된 값 입력");
         }

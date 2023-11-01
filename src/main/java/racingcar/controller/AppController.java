@@ -6,6 +6,7 @@ import racingcar.model.Car;
 public class AppController {
 
     public AppController() {
+
         InitGame initSet = new InitGame();
 
         final ArrayList<Car> classList = initSet.getClassList();

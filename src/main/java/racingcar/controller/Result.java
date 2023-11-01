@@ -10,11 +10,11 @@ import racingcar.view.OutputString;
 
 public class Result {
 
-
     public Result(ArrayList<Car> classList, int count) {
         OutputString.printResult(); // 실행결과
 
         printRound(classList, count); // 라운드출력
+
         FindWinner findWinner = new FindWinner(classList);
         OutputString.printWinner(findWinner.getWinner());
     }
@@ -32,7 +32,5 @@ public class Result {
             printStatus(car.getName(), car.getPosition());
         }
     }
-
-
 
 }

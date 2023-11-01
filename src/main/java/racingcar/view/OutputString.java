@@ -9,22 +9,22 @@ public class OutputString {
     private static final String MoveMessage = "-";
 
     public static void printGuessName() {
-        System.out.println(GuessNameMessage); // 이름입력
+        System.out.println(GuessNameMessage); // 이름입력요구
     }
 
     public static void printGuessCount() {
-        System.out.println(GuessCountMessage); // 횟수입력
+        System.out.println(GuessCountMessage); // 횟수입력요구
     }
 
     public static void printResult() {
-        System.out.println(ResultMessage); // 실행결과
+        System.out.println(ResultMessage); // 경주결과
     }
 
     public static void printStatus(String carName, int position) {
-        System.out.println(carName + " : " + MoveMessage.repeat(position)); // 현재 round 상황
+        System.out.println(carName + " : " + MoveMessage.repeat(position)); // 현재 round
     }
 
-    public static void printWinner(StringBuilder winners) {
-        System.out.println(WinnerMessage + winners);
+    public static void printWinner(StringBuilder winnerList) {
+        System.out.println(WinnerMessage + winnerList); // WinnerList 추출
     }
 }

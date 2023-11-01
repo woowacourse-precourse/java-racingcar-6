@@ -9,7 +9,6 @@ import racingcar.model.NameToClass;
 
 // cars 입력 & 저장
 public class CarListController {
-    static final char Separator = ',';
 
     final InputToName nameList;
     final NameToClass classList;
@@ -24,7 +23,7 @@ public class CarListController {
     }
 
     private void validateInput(String input) {
-        if (input.trim().isEmpty() || input.charAt(0) == Separator)
+        if (input.trim().isEmpty())
             throw new IllegalArgumentException();
 
     }
