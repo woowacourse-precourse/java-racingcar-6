@@ -44,7 +44,7 @@ public class GameController {
     }
 
     private static List<String> makeCarNames(String carNameContext) {
-        return new ArrayList<>(Arrays.asList(carNameContext.split(COMMA_DELIMITER)));
+        return Arrays.asList(carNameContext.split(COMMA_DELIMITER));
     }
 
     private String inputAttemptCount() {
