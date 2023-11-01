@@ -13,6 +13,7 @@ public class Cars {
 
     public Cars(String names) {
         String[] nameArray = stripArrayElement(splitByDelimiter(names, DELIMITER));
+        validateDuplicatedNames(nameArray);
         for (String name : nameArray) {
             cars.add(new Car(name));
         }
@@ -29,6 +30,15 @@ public class Cars {
     public void racing() {
         for (Car car : cars) {
             car.move(RandomNumberUtils.createRandomNumber());
+        }
+    }
+
+    private void validateDuplicatedNames(String[] names) {
+        Set<String> set = new HashSet<>();
+        Collections.addAll(set, names);
+
+        if (set.size() < names.length) {
+            throw new IllegalArgumentException(Messages.DUPLICATED_NAME_MESSAGE);
         }
     }
 }
