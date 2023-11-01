@@ -4,7 +4,7 @@ import racingcar.util.RandomNumberGenerator;
 
 public class Car {
     private static final int MOVE_BOUNDARY = 4;
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name, int position) {
