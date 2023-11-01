@@ -2,10 +2,8 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -75,7 +73,7 @@ public class OutputViewTest extends NsTest {
         }, MOVING_FORWARD, STOP, MOVING_FORWARD);
         //then
         assertThat(output()).contains(
-            cars.findWinners()
+                cars.findWinners()
         );
         assertThat(output()).doesNotContain(
                 "dori"
