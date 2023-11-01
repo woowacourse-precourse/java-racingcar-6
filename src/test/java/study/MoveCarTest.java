@@ -1,7 +1,9 @@
 package study;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
 import racingcar.Object.InputManager;
+import racingcar.Object.RandomNumberGenerator;
 import racingcar.game.Game;
 import racingcar.game.GameCar;
 
@@ -26,9 +28,8 @@ public class MoveCarTest {
     void 랜덤값에따라_차_이동_테스트(){
         //given
         List<String> carNameList = InputManager.parseCarName("choi,jong,geun");
-        Game game = new Game(1,carNameList);
         int turn = InputManager.parseIntTurnAnswer("5");
-        game = new Game(turn,carNameList);
+        Game game = new Game(turn,carNameList);
 
         //when
         game.moveGameCars();
