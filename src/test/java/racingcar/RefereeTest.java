@@ -44,5 +44,29 @@ public class RefereeTest {
         Assertions.assertThat(referee.judgeWinners(cars, max).get(0)).isEqualTo("a");
     }
 
+    @Test
+    void 경주_우승자가_여러명인_경우() {
+        List<Car> cars = new ArrayList<>();
+        int max = 3;
 
+        cars.add(new Car("a"));
+        cars.add(new Car("b"));
+        cars.add(new Car("c"));
+
+        cars.get(0).moveOrStop(true);
+        cars.get(0).moveOrStop(true);
+        cars.get(0).moveOrStop(true);
+
+        cars.get(1).moveOrStop(true);
+        cars.get(1).moveOrStop(true);
+        cars.get(1).moveOrStop(true);
+
+        cars.get(2).moveOrStop(true);
+
+        List<String> winners = new ArrayList<>();
+        winners.add("a");
+        winners.add("b");
+
+        Assertions.assertThat(referee.judgeWinners(cars, max)).isEqualTo(winners);
+    }
 }
