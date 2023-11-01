@@ -64,6 +64,9 @@ public class Game {
         }
         return true;
     }
+    public boolean isCountsPositive() {
+        return counts > 0;
+    }
 
 
 
