@@ -16,7 +16,7 @@ public class RacingCarTest {
         // 자동차가 움직일 확률이 작지 않도록 충분히 큰 숫자
         int loopCount = 10000;
         IntStream.rangeClosed(1, loopCount)
-                .forEach(index -> testCar.moveForwordOrNot());
+                .forEach(index -> testCar.moveForwardOrNot());
         assertThat(testCar.getCurrentPosition())
                 .isGreaterThan(0);
         System.out.println(testCar.getCurrentPosition());
