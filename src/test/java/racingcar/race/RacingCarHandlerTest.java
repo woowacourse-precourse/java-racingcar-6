@@ -11,7 +11,7 @@ class RacingCarHandlerTest {
     private final RacingCarHandler racingCarHandler = new RacingCarHandler();
 
     @Test
-    @DisplayName("execute 실행 테스트")
+    @DisplayName("자동차 경주를 진행한다.")
     void execute(){
         //given
         final RacingInfo racingInfo = TestFixtureUtils.generateRacingInfo(3, 5);

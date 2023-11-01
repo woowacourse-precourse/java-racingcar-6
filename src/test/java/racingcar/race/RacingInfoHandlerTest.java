@@ -27,7 +27,7 @@ class RacingInfoHandlerTest {
     }
 
     @Test
-    @DisplayName("execute 메소드 실행 테스트")
+    @DisplayName("경주 진행 완료 후 RacingInfo 객체를 반환한다.")
     void execute(){
         //given
         final RacingInfo racingInfo = TestFixtureUtils.generateRacingInfo(3, 5);

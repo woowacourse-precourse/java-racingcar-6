@@ -19,7 +19,7 @@ class RacingResultHandlerTest {
     }
 
     @Test
-    @DisplayName("execute 실행 테스트")
+    @DisplayName("경주 결과를 반환한다.")
     void execute() {
         //given
         final CarCollection carCollection = TestFixtureUtils.generateCarCollection(3);
