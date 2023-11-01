@@ -28,17 +28,25 @@ public class Race {
     }
 
     public List<String> getWinners() {
+        int maxPosition = findMaxPosition();
+        return findWinners(maxPosition);
+    }
+
+    public int findMaxPosition() {
         int maxPosition = 0;
         for (Car car: cars) {
-            int position  = car.getPosition();
-            if (position > maxPosition) maxPosition = position;
+            maxPosition = Math.max(maxPosition, car.getPosition());
         }
+        return maxPosition;
+    }
 
+    public List<String> findWinners(int maxPosition) {
         List<String> winners = new ArrayList<>();
         for (Car car: cars) {
-            if (car.getPosition() == maxPosition) winners.add(car.getName());
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
         }
-
         return winners;
     }
 }

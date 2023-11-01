@@ -21,12 +21,16 @@ public class Car {
 
     public void move() {
         int randomValue = Randoms.pickNumberInRange(0, 9);
-        if (randomValue >= 4) {
+        if (isMovable(randomValue)) {
             position++;
         }
     }
 
     public String getPositionBar() {
         return "-".repeat(position);
+    }
+
+    public boolean isMovable(int randomValue) {
+        return randomValue >= 4;
     }
 }
