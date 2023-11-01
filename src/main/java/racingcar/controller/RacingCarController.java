@@ -8,13 +8,14 @@ import racingcar.view.RacingCarView;
 public class RacingCarController {
 
     private final RacingCarView racingCarView;
+    private final CarService carService;
 
-    public RacingCarController(RacingCarView racingCarView) {
+    public RacingCarController(RacingCarView racingCarView, CarService carService) {
         this.racingCarView = racingCarView;
+        this.carService = carService;
     }
 
     public void play(){
-        CarService carService = new CarService();
         String carNames = racingCarView.promptForNames();
         carService.setCars(carNames);
         Integer totalRounds = Integer.parseInt(racingCarView.promptForNumbers());
