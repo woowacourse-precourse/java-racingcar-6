@@ -7,11 +7,13 @@ import racingcar.model.Car;
 
 public class InputValidator {
 
-    // 11. 자동차 이름이 5글자 이하인지 검사하는 메서드
+    // 11. 자동차 이름이 5글자 이하인지, 공백 문자열이 아닌지 검사하는 메서드
     public static void validateCarNameLength(List<Car> carNames) {
         for(Car car: carNames) {
             if (car.getName().length() > MAXIMUM_CAR_NAME) {
                 throw new IllegalArgumentException("자동차의 이름은 5글자 이하여야 합니다.");
+            } else if (car.getName().equals("")) {
+                throw new IllegalArgumentException("자동차의 이름은 최소 한 글자 입니다.");
             }
         }
     }
