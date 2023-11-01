@@ -24,7 +24,7 @@ public class RacingCarController {
     }
 
     // 최종 우승자 판단 및 출력
-    private void printWinner() {
+    public void printWinner() {
         String winner = "";
         int maxLength = -1;
 
@@ -47,7 +47,7 @@ public class RacingCarController {
     }
 
     // 실행 결과 출력
-    private void printResult() {
+    public void printResult() {
         for (int carNum = 0; carNum < racingCarList.size(); carNum++) {
             System.out.println(
                     racingCarList.get(carNum).getCarName() + " : " + racingCarList.get(carNum).getProgress());
@@ -56,7 +56,7 @@ public class RacingCarController {
     }
 
     // 확률 계산 및 판단
-    private void calculateMovement(RacingCar racingCar) {
+    public void calculateMovement(RacingCar racingCar) {
         int randNum = Randoms.pickNumberInRange(0, 9);
 
         if (randNum >= 4) {   // 전진
