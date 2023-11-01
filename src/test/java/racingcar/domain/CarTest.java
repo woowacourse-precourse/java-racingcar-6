@@ -28,4 +28,14 @@ class CarTest {
         assertThat(1).isEqualTo(car.getPositionNumber());
     }
 
+    @Test
+    void testIsWinner() {
+        int maxPositionNumber = 5;
+        Car sam = new Car("Sam", 5);
+        Car dobi = new Car("dobi", 3);
+
+        assertThat(sam.isWinner(maxPositionNumber)).isTrue();
+        assertThat(dobi.isWinner(maxPositionNumber)).isFalse();
+    }
+
 }
