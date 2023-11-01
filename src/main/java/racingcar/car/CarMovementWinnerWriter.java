@@ -20,8 +20,9 @@ public class CarMovementWinnerWriter {
 		for (String racingCarWinner : racingCarWinnerStringList) {
 			racingCarWinnerString = racingCarWinnerString + racingCarWinner + WinnerDividePoint;
 		}
-		carMovementResultLogStorage.addLog(
-			WinnerSign + racingCarWinnerString.substring(startSubString,
-				racingCarWinnerString.length() - endSubString));
+		Integer endSubString = racingCarWinnerString.length() - endSubStringPoint;
+		String racingCarWinnerFinalString = racingCarWinnerString.substring(startSubString,
+			endSubString);
+		carMovementResultLogStorage.addLog(WinnerSign + racingCarWinnerFinalString);
 	}
 }
