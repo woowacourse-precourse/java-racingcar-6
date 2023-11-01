@@ -3,6 +3,9 @@ package racingcar;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RefereeTest {
     Referee referee = new Referee();
 
@@ -19,4 +22,27 @@ public class RefereeTest {
 
         Assertions.assertThat(referee.judgeMoveOrStop(HIGHER_NUMBER_THAN_FOUR)).isEqualTo(true);
     }
+
+    @Test
+    void 경주_우승자가_1명인_경우() {
+        List<Car> cars = new ArrayList<>();
+        int max = 3;
+
+        cars.add(new Car("a"));
+        cars.add(new Car("b"));
+        cars.add(new Car("c"));
+
+        cars.get(0).moveOrStop(true);
+        cars.get(0).moveOrStop(true);
+        cars.get(0).moveOrStop(true);
+
+        cars.get(1).moveOrStop(true);
+        cars.get(1).moveOrStop(true);
+
+        cars.get(2).moveOrStop(true);
+
+        Assertions.assertThat(referee.judgeWinners(cars, max).get(0)).isEqualTo("a");
+    }
+
+
 }
