@@ -12,7 +12,7 @@ public class CarTest {
 
     @DisplayName("자동차 생성 성공")
     @ParameterizedTest
-    @ValueSource(strings = {"test1", "test2"})
+    @ValueSource(strings = {"test1", "test2", " test3"})
     public void create(String carName) {
         // when
         Car car = new Car(carName);
