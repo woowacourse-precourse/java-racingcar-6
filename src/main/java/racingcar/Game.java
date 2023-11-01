@@ -4,7 +4,6 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,8 +17,7 @@ public class Game {
     public void play() {
         String carListInput = getCarNameInput();
         String trialNumberInput = getTrialNumberInput();
-        validateInput(carListInput, trialNumberInput);
-        Input input = getInput(carListInput, trialNumberInput);
+        Input input = Input.validateInput(carListInput, trialNumberInput);
         printMessage("\n실행 결과");
         List<Car> resultSet = playGameSet(input);
         printFinalResult(resultSet);
@@ -37,11 +35,6 @@ public class Game {
     public void playGame(List<Car> gameState) {
         gameState = gameState.stream().map(this::pauseOrProgess).toList();
         printEachGameState(gameState);
-    }
-
-    public void validateInput(String carListInput, String trialNumberInput) {
-        isValidCarListInput(carListInput);
-        validateAndParseString(trialNumberInput);
     }
 
     public Car pauseOrProgess(Car car) {
@@ -87,13 +80,6 @@ public class Game {
         return trialNumberInput;
     }
 
-    private Input getInput(String carListInput, String trialNumberInput) {
-        List<String> carList = Arrays.stream(carListInput.split(",")).collect(Collectors.toList());
-        Integer trialNumber = Integer.parseInt(trialNumberInput);
-        Input input = new Input(carList, trialNumber);
-        return input;
-    }
-
     private List<Car> setStartState(Input input) {
         List<Car> gameState = new ArrayList<>();
         for(String car : input.getCarList()){
@@ -107,17 +93,5 @@ public class Game {
             System.out.println(car.getCarName() + " : " + car.getState());
         }
         System.out.println();
-    }
-
-    private void isValidCarListInput(String input) {
-        if (!input.matches("^\\w{1,5}(,\\w{1,5})*$")) {
-            throw new IllegalArgumentException("자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능합니다.");
-        }
-    }
-
-    private void validateAndParseString(String input) {
-        if (input.equals("0") || !input.matches("^-?\\d+$")) {
-            throw new IllegalArgumentException("정수값으로 시도할 횟수를 입력해야 합니다.");
-        }
     }
 }
