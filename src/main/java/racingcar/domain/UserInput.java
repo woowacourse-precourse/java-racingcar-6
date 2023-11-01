@@ -10,19 +10,21 @@ public class UserInput {
         List<String> nameList;
         try {
             String input = Console.readLine();
-            nameList = NameValidator.validate(input);
+            NameValidator nameValidator = new NameValidator();
+            nameList = nameValidator.validate(input);
         } catch (Exception e) {
             throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
         }
         return nameList;
     }
 
-    public static int setRoundOfGame() {
+    public int setRoundOfGame() {
         System.out.println("시도할 회수는 몇회인가요?");
         int round;
         try {
             String input = Console.readLine();
-            round = RoundValidator.validate(input);
+            RoundValidator roundValidator = new RoundValidator();
+            round = roundValidator.validate(input);
         } catch (Exception e) {
             throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
         }
