@@ -1,6 +1,9 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.List;
+import racingcar.model.Car;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGame {
     public void startGame() {

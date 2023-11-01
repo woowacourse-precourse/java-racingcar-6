@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.model.Car;
 
 public class TypeConverter {
     private static final int INIT_POSITION = 0;

@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.model;
+
+import racingcar.util.RandomNumberGenerator;
 
 public class Car {
     private String name;

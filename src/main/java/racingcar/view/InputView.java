@@ -1,7 +1,10 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.util.TypeConverter;
+import racingcar.util.Validator;
+import racingcar.model.Car;
 
 public class InputView {
     private static final String CAR_NAMES_DELIMITER = ",";
