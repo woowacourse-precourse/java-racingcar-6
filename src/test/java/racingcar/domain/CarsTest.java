@@ -20,7 +20,7 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("자동차가 하나도 존재하지 않는 경우 예외 발생")
+    @DisplayName("올바른 자동차들 생성 테스트")
     void validCarsTest() {
         List<Car> cars = List.of(
                 Car.zeroPositionFrom("a"),
