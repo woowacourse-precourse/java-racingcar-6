@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RacingcarGame {
@@ -16,8 +17,10 @@ public class RacingcarGame {
     }
 
     private void set() throws IllegalArgumentException {
-        String[] carNames = getCarNames();
-        tryCount = getTryCount();
+        String carNamesWithComma = View.getCarNamesWithComma();
+        String[] carNames = getCarNames(carNamesWithComma);
+        String tryCountString = View.getTryCount();
+        tryCount = getTryCount(tryCountString);
         makeCars(carNames);
     }
 
@@ -27,21 +30,19 @@ public class RacingcarGame {
         printWinners();
     }
 
-    private String[] getCarNames() throws IllegalArgumentException {
-        String carNamesWithComma = InputOutput.getCarNames();
+    public String[] getCarNames(String carNamesWithComma) throws IllegalArgumentException {
         String[] carNames = carNamesWithComma.split(",");
         Validator.carNames(carNames);
         return carNames;
     }
 
-    private int getTryCount() throws IllegalArgumentException {
-        String tryCountString = InputOutput.getTryCount();
+    public int getTryCount(String tryCountString) throws IllegalArgumentException {
         tryCount = Validator.tryCountInput(tryCountString);
-        InputOutput.printEmptyLine();
+        View.printEmptyLine();
         return tryCount;
     }
 
-    private void makeCars(String[] carNames) {
+    public void makeCars(String[] carNames) {
         for (String carName : carNames) {
             Car car = new Car(carName);
             racingcars.add(car);
@@ -49,7 +50,7 @@ public class RacingcarGame {
     }
 
     private void runRounds(int tryCount) {
-        InputOutput.printResultMessage();
+        View.printResultMessage();
         for (int i = 0; i < tryCount; i++) {
             runRound(racingcars);
         }
@@ -62,7 +63,7 @@ public class RacingcarGame {
                 car.moveForward();
             }
             int moveCount = car.getMoveCount();
-            InputOutput.printRoundResult(name, moveCount);
+            View.printRoundResult(name, moveCount);
         }
         System.out.println();
     }
@@ -91,6 +92,6 @@ public class RacingcarGame {
     }
 
     private void printWinners() {
-        InputOutput.printWinners(winners);
+        View.printWinners(winners);
     }
 }
