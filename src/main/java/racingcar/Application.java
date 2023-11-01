@@ -3,11 +3,19 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
         List<Car> cars = inputCarNames();
         int numAttempts = getNumAttempts();
+        for (int attempt = 0; attempt < numAttempts; attempt++) {
+            for (Car car : cars) {
+                car.moveForwardOrStop();
+                car.displayNameWithDash();
+            }
+            System.out.println("");
+        }
     }
 
     private static List<Car> inputCarNames() {
@@ -53,5 +61,19 @@ class Car {
     public Car(String name) {
         this.name = name;
         this.position = 0;
+    }
+    public void moveForwardOrStop() {
+        int randomValue = Randoms.pickNumberInRange(0, 9);
+        if (randomValue >= 4) {
+            position++;
+        }
+    }
+
+    public void displayNameWithDash() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
