@@ -33,9 +33,9 @@ public class GameView {
 
     public static void printCarResult(Game game) {
         for (Car car : game.getCarList()) {
-            System.out.println(car.getName() + CLONE + MOVE_FORWARD_MARK.repeat(car.getDistance()));
+            System.out.print(car.getName() + CLONE + MOVE_FORWARD_MARK.repeat(car.getDistance())+"\n");
         }
-        System.out.println("");
+        System.out.print("\n");
     }
 
     public static void printWinner(List<String> winnerList) {
