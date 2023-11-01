@@ -16,7 +16,7 @@ public class InputValidationUnitTest {
     }
 
     @Test
-    void validateInputNames_6글자가_넘는_이름_입력_시_예외_발생() {
+    void validateInputNames_5글자가_넘는_이름_입력_시_예외_발생() {
         String testInput = "pobj,longlongman,jun,";
 
         assertThatThrownBy(() -> InputValidation.validateInputNames(testInput))

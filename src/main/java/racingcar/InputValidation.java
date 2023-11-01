@@ -10,7 +10,7 @@ public class InputValidation {
         HashSet<String> checkDuplicate = new HashSet<>(participantsNameList.length);
 
         for (String participantName : participantsNameList) {
-            if (participantName.length() > 6)
+            if (participantName.length() >= 6)
                 throw new IllegalArgumentException(participantName + " is too long!");
             if (checkDuplicate.contains(participantName))
                 throw  new IllegalArgumentException(participantName + " already exists");
