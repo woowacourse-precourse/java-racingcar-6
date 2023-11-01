@@ -1,6 +1,7 @@
 package racingcar.model.dao;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import racingcar.dto.Car;
 
@@ -9,7 +10,8 @@ public class CarDaoImpl implements CarDao {
     private List<Car> carLineup = new ArrayList<>();
     private int tryCount = 0;
 
-    private CarDaoImpl() {}
+    private CarDaoImpl() {
+    }
 
     public static CarDao getInstance() {
         return instance;
@@ -53,5 +55,18 @@ public class CarDaoImpl implements CarDao {
     @Override
     public int getTryCount() {
         return tryCount;
+    }
+
+    @Override
+    public List<Car> selectCarsByTopMoveCount() {
+        int maxMoveCount = carLineup.stream()
+                .max(Comparator.comparing(Car::getMoveCount))
+                .get()
+                .getMoveCount();
+
+        List<Car> topCars = carLineup.stream()
+                .filter(car -> car.getMoveCount() == maxMoveCount)
+                .toList();
+        return topCars;
     }
 }
