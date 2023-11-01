@@ -4,11 +4,9 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.in;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 
@@ -51,13 +49,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도할_횟수_입력_테스트(){
+    void 시도할_횟수_입력_테스트() {
         String input = "5";
         assertThat(Integer.parseInt(input)).isEqualTo(5);
     }
 
     @Test
-    void 무작위_값_이동_테스트(){
+    void 무작위_값_이동_테스트() {
         Map<String, Integer> cars = new HashMap<>();
         cars.put("pobi", 0);
         cars.put("woni", 0);
@@ -72,24 +70,24 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 단독_우승자_테스트(){
+    void 단독_우승자_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "3");
                     assertThat(output()).contains("최종 우승자 : pobi");
                 },
-                9,1,2,9,1,2,9,1,2
+                9, 1, 2, 9, 1, 2, 9, 1, 2
         );
     }
 
     @Test
-    void 공동_우승자_테스트(){
+    void 공동_우승자_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "3");
                     assertThat(output()).contains("최종 우승자 : pobi, woni");
                 },
-                9,9,2,9,9,2,9,9,2
+                9, 9, 2, 9, 9, 2, 9, 9, 2
         );
     }
 
