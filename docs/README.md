@@ -87,6 +87,9 @@
   - 입력받은 자동차들을 한 번에 관리하기 위함
   - 우승자를 선택하는 로직을 수행
   - 모든 자동차를 이동시키는 로직을 수행
+</br></br>
+- CarsDTO
+  - Controller, Service, View 사이에 데이터 전달을 위해 생성
   
 ### View
 - InputView
@@ -132,3 +135,10 @@
 </br></br>
 - 하나의 InputManager에서 두 개의 InputCars, InputTryCount로 나눠서 입력받고 생성자로 InputManager 생성
   - 하나의 InputManager로 관리하고 싶었으나, 자동차 입력과 게임 진행 횟수를 모두 입력해야 에외를 발생시킬 수 있는 문제 때문에 두 개의 Class로 분리
+</br></br>
+- CarsDTO 생성
+  - 기존에는 Cars를 통해 각 계층간에 데이터를 주고 받았는데, 중간 계층이 존재하지 않아 데이터 변환 및 관리 측면에서 의존성이 너무 심함
+  - 또한, 데이터 변경 방지 등과 같이 보안을 유지하기 위해 DTO 생성
+</br></br>
+- Service에서 게임 진행을 처리하고 View를 호출하는 과정에서 Controller를 통해 View를 호출하는 것으로 바꿈
+  - CarsDTO 생성으로 인해 내부 로직을 처리하는 Service와 View와의 의존성을 감소시키도록 Contorller를 중간 게층으로 두게 바꿈
