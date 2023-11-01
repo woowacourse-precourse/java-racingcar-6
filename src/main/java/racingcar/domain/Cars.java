@@ -16,7 +16,7 @@ public class Cars {
         return carList;
     }
 
-    public class Car {
+    public static class Car {
         private String name;
         private String drawingMovement;
         private int numberOfMoves;
