@@ -6,6 +6,7 @@ import racingcar.domain.TotalCar;
 import racingcar.service.CarGame;
 import racingcar.service.FinalWinner;
 import racingcar.util.InputManufacture;
+import racingcar.util.Message;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,11 +16,11 @@ public class GameSystem {
 
     public void start(InputView input, OutputView output) {
         InputManufacture manufacture = new InputManufacture();
-        output.askName();
+        output.write(Message.NAME_MESSAGE);
         totalCar = makeCars(input, manufacture);
-        output.askTry();
+        output.write(Message.TRY_MESSAGE);
         attempt = makeTryNumber(input, manufacture);
-        output.showLine();
+        output.write(Message.LINE);
         runGame(output);
         showWinner(output);
     }

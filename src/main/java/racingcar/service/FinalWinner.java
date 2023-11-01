@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.List;
 import racingcar.domain.TotalCar;
+import racingcar.util.Message;
 import racingcar.view.OutputView;
 
 public class FinalWinner {
@@ -12,8 +13,8 @@ public class FinalWinner {
     }
 
     public void showCars(TotalCar totalCar) {
-        output.showWinnerNotice();
-        output.showColon();
+        output.write(Message.WINNER_MESSAGE);
+        output.write(Message.COLON);
         showOneCar(totalCar);
     }
 
@@ -22,8 +23,8 @@ public class FinalWinner {
         for (int name = 0; name < winnerList.size(); name++) {
             output.write(winnerList.get(name));
             if (winnerList.size() > name + 1) {
-                System.out.print(",");
-                System.out.print(" ");
+                output.write(Message.COMMA);
+                output.write(Message.SPACE);
             }
         }
 

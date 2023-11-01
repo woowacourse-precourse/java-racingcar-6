@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.List;
 import racingcar.domain.TotalCar;
+import racingcar.util.Message;
 import racingcar.view.OutputView;
 
 public class CarGame {
@@ -12,11 +13,11 @@ public class CarGame {
     }
 
     public void run(int attempt, TotalCar totalCar) {
-        output.showResultNotice();
+        output.write(Message.RESULT_MESSAGE);
         for (int move = 0; move < attempt; move++) {
             saveResult(totalCar);
             showResult(totalCar);
-            output.showLine();
+            output.write(Message.LINE);
         }
     }
 
@@ -28,10 +29,10 @@ public class CarGame {
         List<String> names = totalCar.nameList();
         List<Integer> distances = totalCar.distanceList();
         for (int result = 0; result < names.size(); result++) {
-            output.showName(names.get(result));
-            output.showColon();
+            output.write(names.get(result));
+            output.write(Message.COLON);
             output.showMove(distances.get(result));
-            output.showLine();
+            output.write(Message.LINE);
         }
     }
 }
