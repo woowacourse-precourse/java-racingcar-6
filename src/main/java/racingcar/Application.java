@@ -74,11 +74,12 @@ public class Application {
 
         cars.forEach((carName, movement) -> {
             int number = Randoms.pickNumberInRange(1, 9);
-                if(number>=4){
-                    movement = movement.intValue();
-                    movement++;
-                    cars.replace(carName,movement);
-                }
+
+            if(number>=4){
+                movement = movement.intValue();
+                movement++;
+                cars.replace(carName,movement);
+            }
           });
         return cars;
     }
