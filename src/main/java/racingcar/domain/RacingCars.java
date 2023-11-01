@@ -29,17 +29,21 @@ public class RacingCars {
     public Winner findWinner(){
         Winner winner = new Winner();
         for(Car car : racingCars){
-            if(car.getPosition() > winner.getPosition()){
-                winner.getWinners().clear();
-                winner.getWinners().add(car);
-                winner.setPosition(car.getPosition());
-                continue;
-            }
-            if(car.getPosition() == winner.getPosition()){
-                winner.getWinners().add(car);
-            }
+            addWinnerList(winner, car);
         }
         return winner;
+    }
+
+    private void addWinnerList(Winner winner, Car car) {
+        if(car.getPosition() > winner.getPosition()){
+            winner.getWinners().clear();
+            winner.getWinners().add(car);
+            winner.setPosition(car.getPosition());
+            return;
+        }
+        if(car.getPosition() == winner.getPosition()){
+            winner.getWinners().add(car);
+        }
     }
 
 }
