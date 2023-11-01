@@ -16,7 +16,7 @@ public class Race {
 
     public Race() {
         carGenerator = new CarGenerator(InputView.inputCarName());
-        carList = carGenerator.makeCars();
+        carList = carGenerator.loadCars();
     }
 
     public void run() {
