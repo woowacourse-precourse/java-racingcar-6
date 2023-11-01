@@ -14,7 +14,7 @@ public class Race {
         System.out.println(inputMove);
     }
 
-    private boolean isGo(){
+    public boolean isGo(){
         randomNum = Randoms.pickNumberInRange(0,9);
         if (randomNum >= 4){
             return true;
