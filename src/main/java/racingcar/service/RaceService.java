@@ -23,16 +23,16 @@ public class RaceService {
 
     public List<Progress> moveCars() {
         for (String carName : raceProgress.getCarList()) {
-            if (canMoveForward()) {
-                moveSingleCar(carName);
-            }
+            moveSingleCar(carName);
         }
         decreaseTryCount();
         return getCarProgressList();
     }
 
     private void moveSingleCar(String carName) {
-        raceProgress.addMovedDistance(carName);
+        if (canMoveForward()) {
+            raceProgress.addMovedDistance(carName);
+        }
     }
 
     public List<String> getWinner() {
