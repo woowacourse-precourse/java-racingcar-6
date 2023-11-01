@@ -22,7 +22,7 @@ public class CarName {
         }
     }
 
-    public void isBlank(String carName) {
+    private void isBlank(String carName) {
         if (carName.isBlank()) {
             throw new IllegalArgumentException("이름에 빈 값이 들어올 수 없습니다.");
         }
