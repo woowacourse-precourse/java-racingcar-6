@@ -1,7 +1,14 @@
 package racingcar;
 
+import racingcar.controller.RacingGameController;
+
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        // setting
+        RacingGameController controller = new RacingGameController();
+
+        // start application
+        controller.run();
     }
 }
