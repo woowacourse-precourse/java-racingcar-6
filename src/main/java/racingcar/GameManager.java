@@ -22,16 +22,7 @@ public class GameManager {
         inputInformation();
         makeCar();
         setMovingCount();
-
-        outputView.printResultMessage();
-        while (true) {
-            getCarMovingCount();
-            outputView.printRacingCarGameResult(racingCarGame.getCarNameList(), racingCarGame.getCarMovingCountList());
-
-            if (checkGameOver()) {
-                break;
-            }
-        }
+        doGame();
     }
 
     public void inputInformation() {
@@ -69,6 +60,18 @@ public class GameManager {
             return true;
         }
         return false;
+    }
+
+    public void doGame() {
+        outputView.printResultMessage();
+        while (true) {
+            getCarMovingCount();
+            outputView.printRacingCarGameResult(racingCarGame.getCarNameList(), racingCarGame.getCarMovingCountList());
+
+            if (checkGameOver()) {
+                break;
+            }
+        }
     }
 
 }
