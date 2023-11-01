@@ -10,6 +10,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 import racingcar.exception.RacingCarGameException;
 
 public class RacingCarGameUtils {
@@ -37,5 +38,13 @@ public class RacingCarGameUtils {
       randomList.add(Randoms.pickNumberInRange(RANDOM_MINIMUM_VALUE, RANDOM_MAXIMUM_VALUE));
     }
     return randomList;
+  }
+
+  public static StringJoiner joinWinners(List<String> winnerList) {
+    StringJoiner joiner = new StringJoiner(", ");
+    for (String index : winnerList) {
+      joiner.add(index);
+    }
+    return joiner;
   }
 }

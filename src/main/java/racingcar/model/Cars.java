@@ -2,10 +2,10 @@ package racingcar.model;
 
 import static racingcar.constant.RacingCarGameConfig.GAME_WIN_CONDITION;
 import static racingcar.util.RacingCarGameUtils.generateRandomValuesForCarGame;
+import static racingcar.util.RacingCarGameUtils.joinWinners;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 
 public class Cars {
 
@@ -53,11 +53,15 @@ public class Cars {
         .toList();
 
     List<String> winnerList = new ArrayList<>();
+    addToWinnerList(winners, winnerList);
+
+    return generateWinnerFormat(winnerList);
+  }
+
+  private static void addToWinnerList(List<Car> winners, List<String> winnerList) {
     for (Car winner : winners) {
       winnerList.add(winner.getCarName());
     }
-
-    return generateWinnerFormat(winnerList);
   }
 
   private String generateWinnerFormat(final List<String> winnerList) {
@@ -65,11 +69,7 @@ public class Cars {
       return winnerList.get(0);
     }
 
-    StringJoiner joiner = new StringJoiner(", ");
-    for (String index : winnerList) {
-      joiner.add(index);
-    }
-    return joiner.toString();
+    return joinWinners(winnerList).toString();
   }
 
   @Override
