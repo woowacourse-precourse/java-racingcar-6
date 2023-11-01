@@ -19,7 +19,7 @@ public class checkException {
     }
 
     public void checkAskCount(String askCount) throws IllegalArgumentException {
-        if (checkAskCountInteger(askCount) == false) {
+        if (!(checkAskCountInteger(askCount))) {
             throw new IllegalArgumentException("시도 횟수를 다시 입력해 주세요.");
         }
     }
