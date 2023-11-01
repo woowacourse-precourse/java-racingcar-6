@@ -19,9 +19,7 @@ public class TransformUtil {
     }
 
     public List<String> commasToList(String carData) {
-        String[] dataArray = carData.split("\\s*,\\s*");
-
-        return Arrays.asList(dataArray);
+        return List.of(carData.split("\\s*,\\s*"));
     }
 
 }
