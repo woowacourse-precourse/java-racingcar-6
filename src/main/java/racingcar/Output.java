@@ -37,7 +37,7 @@ public class Output {
                 .forEach(car -> {
                     if (car.getCurrentPlace() == maxDistance) {
                         if (sb.length() > 0) {
-                            sb.append(",\n   ");  // 들여쓰기 3 추가
+                            sb.append(",\n   ");
                         }
                         sb.append(car.getName());
                     }

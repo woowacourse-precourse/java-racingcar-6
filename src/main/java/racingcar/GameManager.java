@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,13 +9,12 @@ public class GameManager {
 
     private final Input input;
     private final Output output;
-    private List<Car> cars;
+    private CarList carList;
     private int count;
 
-    public GameManager() {
-        this.input = new Input();
-        this.output = new Output();
-        this.cars = new ArrayList<Car>();
+    public GameManager(Input input, Output output) {
+        this.input = input;
+        this.output = output;
     }
 
     public void startGame() {
@@ -25,20 +22,12 @@ public class GameManager {
         obtainTime();
         System.out.println("실행 결과");
         for (int i = 0; i < count; i++) {
-            continueGame();
+            carList.continueGame();
             printNow();
         }
         printWinner();
     }
 
-
-    private void continueGame() {
-        cars.stream().forEach(car -> {
-            if (Randoms.pickNumberInRange(Constant.NUMBER_RANGE_INCLUDE, Constant.NUMBER_RANGE_EXCLUDE) >= 4) {
-                car.plusCurrentPlace();
-            }
-        });
-    }
 
     private void obtainCars() {
         output.startOutput();
@@ -48,7 +37,7 @@ public class GameManager {
         List<Car> carObjects = stringList.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
-        cars = carObjects;
+        carList = new CarList(carObjects);
     }
 
     private void obtainTime() {
@@ -58,12 +47,11 @@ public class GameManager {
     }
 
     private void printNow() {
-        output.printNow(cars);
+        output.printNow(carList.getCars());
     }
 
     private void printWinner() {
-        output.printWinner(cars);
+        output.printWinner(carList.getCars());
     }
-
 
 }
