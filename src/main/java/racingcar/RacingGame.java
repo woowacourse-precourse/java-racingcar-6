@@ -71,6 +71,14 @@ public class RacingGame {
         return winners;
     }
 
+    private static void printWinners(List<String> winners) {
+        if (winners.size() == 1) {
+            System.out.println("최종 우승자 : " + winners.get(0));
+        } else {
+            System.out.println("최종 우승자 : " + String.join(", ", winners));
+        }
+    }
+
     public void startGame() {
         List<Car> cars = createCars();
 
@@ -81,6 +89,8 @@ public class RacingGame {
         }
 
         List<String> winners = getWinners(cars);
+
+        printWinners(winners);
     }
 
 }
