@@ -6,9 +6,12 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static java.text.MessageFormat.format;
+
 public class Console {
 
     private static final Pattern REGEX = Pattern.compile("^[0-9]*$");
+    private static final String CAR_SHAPE = "-";
 
     private final Input input;
     private final Output output;
@@ -56,7 +59,7 @@ public class Console {
     }
 
     private String draw(int position) {
-        return "-".repeat(position);
+        return CAR_SHAPE.repeat(position);
     }
 
     public void printResultMessage() {
@@ -69,7 +72,7 @@ public class Console {
     }
 
     private void print(String carName, int position) {
-        output.println(String.format("%s : %s", carName, draw(position)));
+        output.println(format("{0} : {1}", carName, draw(position)));
     }
 
     public void printWinners(List<Result> winners) {

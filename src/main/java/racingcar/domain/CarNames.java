@@ -6,6 +6,7 @@ import java.util.List;
 public class CarNames {
 
     private static final String DELIMITER = ",";
+    private static final int MIN_CAR_NUM = 2;
 
     private final List<CarName> carNames;
 
@@ -24,7 +25,7 @@ public class CarNames {
     }
 
     private void validateCarLength(List<CarName> carNames) {
-        if (carNames.size() < 2) {
+        if (carNames.size() < MIN_CAR_NUM) {
             throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
         }
     }

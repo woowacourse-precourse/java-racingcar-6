@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class CarName {
 
+    public static final int MAX_CAR_NAME_LENGTH = 5;
+
     private final String name;
 
     public CarName(String carName) {
@@ -13,14 +15,14 @@ public class CarName {
     }
 
     private void validateCarNameLength(String carName) {
-        if (carName.length() > 5) {
+        if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
 
     private void validateBlank(String carName) {
         if (carName.isBlank()) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
         }
     }
 
