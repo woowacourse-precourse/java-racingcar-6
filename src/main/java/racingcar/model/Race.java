@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class Race {
     private final List<String> carNames;
-    private Map<String, Car> cars = new HashMap<>();
+    private final Map<String, Car> cars = new HashMap<>();
 
     public Race(List<String> carNames) {
         this.carNames = carNames;
