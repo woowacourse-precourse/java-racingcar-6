@@ -1,12 +1,11 @@
 package racingcar;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingcarMain {
     public void start(){
-        List<Racingcar> cars = new ArrayList<>();
+        List<Racingcar> cars;
         BigInteger round;
         MakeCars makeCars = new MakeCars();
         MakeRound makeRound = new MakeRound();

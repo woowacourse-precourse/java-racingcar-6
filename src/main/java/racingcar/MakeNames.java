@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MakeNames {
     public List<String> makeNames(){
-        List<String> names = new ArrayList<>();
+        List<String> names;
         Utils utils = new Utils();
         String originalStr;
 
