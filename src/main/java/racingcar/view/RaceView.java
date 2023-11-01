@@ -16,6 +16,7 @@ public class RaceView {
             String renderedCarState = renderCarState(name, race.getDistance(name));
             System.out.println(renderedCarState);
         }
+        System.out.println();
     }
 
     public void printWinner(Race race) {
