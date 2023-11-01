@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Constants;
 
 public class RandomUtils {
-    public static int createRandomNumber(int minRandomNumber,int maxRandomNumber) {
+    public static int createRandomNumber(int minRandomNumber, int maxRandomNumber) {
         return Randoms.pickNumberInRange(minRandomNumber, maxRandomNumber);
     }
 

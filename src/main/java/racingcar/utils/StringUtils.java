@@ -11,6 +11,6 @@ public class StringUtils {
     }
 
     public static String joinWinnerCarName(List<String> winnerCarNames) {
-        return String.join(Constants.WINNER_DELIMITER,winnerCarNames);
+        return String.join(Constants.WINNER_DELIMITER, winnerCarNames);
     }
 }

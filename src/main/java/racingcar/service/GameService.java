@@ -20,7 +20,7 @@ public class GameService {
     }
 
     public void moveCar(List<Car> cars) {
-        cars.forEach(car -> car.move(RandomUtils.createRandomNumber(Constants.MIN_RANDOM_NUMBER,Constants.MAX_RANDOM_NUMBER)));
+        cars.forEach(car -> car.move(RandomUtils.createRandomNumber(Constants.MIN_RANDOM_NUMBER, Constants.MAX_RANDOM_NUMBER)));
     }
 
     public Winner findWinners(List<Car> cars) {
