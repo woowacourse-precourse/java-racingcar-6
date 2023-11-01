@@ -76,8 +76,8 @@ public class Application {
 	}
 
 	/**
-	 * Car 클라스를 가지고 있는 list를 for each로 나누고 랜덤 넘어를 생성해
-	 * canMove메소드를 통해 이동 가능 여부를 체크 후에 move메소드 호출
+	 * Car 클라스를 가지고 있는 list를 for each로 나누고 랜덤 넘어를 생성해 canMove메소드를 통해 이동 가능 여부를 체크 후에 move메소드 호출
+	 *
 	 * @param cars
 	 * @param tries
 	 */
@@ -95,6 +95,7 @@ public class Application {
 
 	/**
 	 * Car클라스 안에 있는 getScore()메소드를 활용하여 최고점 점수 리턴
+	 *
 	 * @param cars
 	 * @return int highestScore
 	 */
