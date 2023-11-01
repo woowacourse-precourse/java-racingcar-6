@@ -23,7 +23,7 @@ public class Application {
         }
         List<String> raceResult = go.Result(inputCarName, inputCarPosition);
         if (raceResult.size() > 1) {
-            System.out.print("우승자 : ");
+            System.out.print("최종 우승자 : ");
 
             for (int i = 0; i<raceResult.size(); i++){
                 System.out.print(raceResult.get(i));
@@ -31,7 +31,7 @@ public class Application {
 
             }
         }else{
-            System.out.print("우승자 : ");
+            System.out.print("최종 우승자 : ");
             System.out.print(raceResult.get(0));
         }
 

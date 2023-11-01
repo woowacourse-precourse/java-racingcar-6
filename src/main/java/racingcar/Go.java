@@ -15,9 +15,9 @@ public class Go {
             }
 
             System.out.print(carname.get(i));
-            System.out.print(": ");
+            System.out.print(" : ");
             for (int j = 0; j < carposition.get(i); j++) {
-                System.out.print("_");
+                System.out.print("-");
             }
             System.out.println("");
         }
