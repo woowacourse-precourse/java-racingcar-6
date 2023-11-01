@@ -119,6 +119,24 @@ public class GameManager {
         return winners;
     }
 
+    public static void printWinners(List<String> winners) {
+        if (winners.size() == 1) {
+            System.out.print("최종 우승자 : ");
+            System.out.print(winners.get(0));
+            System.out.println();
+            return;
+        }
+
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if (i != winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
+
     public static void runGame() {
 
         printGameStartMessage();
@@ -129,5 +147,6 @@ public class GameManager {
         validateUserInputForTryCount(userInput);
         instantiateRacingCars();
         makeRacingCarsMove();
+        printWinners(judgeWinners());
     }
 }
