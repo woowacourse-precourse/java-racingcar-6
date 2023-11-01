@@ -1,8 +1,6 @@
 package racingcar.view;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import racingcar.model.Car;
 
 public class OutputView {
@@ -13,23 +11,33 @@ public class OutputView {
     public static void printRaceStatus(List<Car> cars) {
         StringBuilder status = new StringBuilder();
         for (Car car : cars) {
-            status.append(car.name).append(" : ");
-            for (int i = 0; i < car.location; i++) {
-                status.append('-');
-            }
-            status.append('\n');
+            createStatus(status, car);
         }
         System.out.println(status);
     }
 
-    public static void printWinner(List<Car> winners) {
+    public static void printWinner(List<String> winners) {
         StringBuilder winnerBuilder = new StringBuilder();
         winnerBuilder.append("최종 우승자 : ");
-        Queue<Car> winnerQueue = new LinkedList<>(winners);
-        while (winnerQueue.size() > 1) {
-            winnerBuilder.append(winnerQueue.poll().name).append(", ");
+        for (String name : winners) {
+            createRaceResult(winnerBuilder, name);
         }
-        winnerBuilder.append(winnerQueue.poll().name);
+        trimLastComma(winnerBuilder);
         System.out.println(winnerBuilder);
+    }
+
+    private static void createStatus(StringBuilder status, Car car) {
+        status.append(car.name)
+                .append(" : ")
+                .append("-".repeat(car.location))
+                .append('\n');
+    }
+
+    private static void createRaceResult(StringBuilder winnerBuilder, String name) {
+        winnerBuilder.append(name).append(", ");
+    }
+
+    private static void trimLastComma(StringBuilder winnerBuilder) {
+        winnerBuilder.setLength(winnerBuilder.length() - 2);
     }
 }
