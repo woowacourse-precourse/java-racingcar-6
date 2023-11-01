@@ -24,4 +24,29 @@ public class RacingGame {
         }
         return result;
     }
+
+    public String determineWinner() {
+        String result = "";
+        int max = getMaxDistance();
+        // find winner with max distance
+        List<String> winnerList = new ArrayList<>();
+        for (Car car : carGroup) {
+            if (car.getCarLocationLength() == max) {
+                winnerList.add(car.getName().toString());
+            }
+        }
+        // return winner
+        return String.join(", ", winnerList);
+    }
+
+    private int getMaxDistance() {
+        int max = 0;
+        for (Car car : carGroup) {
+            int distance = car.getCarLocationLength();
+            if (distance > max) {
+                max = distance;
+            }
+        }
+        return max;
+    }
 }

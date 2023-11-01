@@ -19,6 +19,10 @@ public class Location {
         }
     }
 
+    public Integer getLocationLength() {
+        return location.length();
+    }
+
     @Override
     public String toString() {
         return location;

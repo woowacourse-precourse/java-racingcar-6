@@ -12,12 +12,16 @@ public class Car {
         this.location = new Location();
     }
 
-    public static Car create(CarName carName) {
-        return new Car(carName);
-    }
-
     public void playGameOneRound() {
         location.stopOrMove();
+    }
+
+    public Integer getCarLocationLength() {
+        return location.getLocationLength();
+    }
+
+    public CarName getName() {
+        return name;
     }
 
     @Override

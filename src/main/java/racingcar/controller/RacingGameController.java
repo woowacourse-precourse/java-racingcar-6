@@ -1,11 +1,8 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import racingcar.controller.dto.ResponseDto;
 import racingcar.controller.mapper.AttemptMapper;
 import racingcar.controller.mapper.CarNameMapper;
-import racingcar.model.Car;
 import racingcar.model.RacingGame;
 import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
@@ -47,7 +44,8 @@ public class RacingGameController {
         outputView.printGameResult(result);
 
         // print winner
-        // determineWinner(cars);
+        String winner = determineWinner(game);
+        outputView.printGameWinner(winner);
     }
 
     public RacingGame makeCar(String carNames) {
@@ -72,8 +70,8 @@ public class RacingGameController {
         return attempt;
     }
 
-    public String determineWinner(List<Car> cars) {
+    public String determineWinner(RacingGame game) {
         // determine winner
-        return "";
+        return game.determineWinner();
     }
 }
