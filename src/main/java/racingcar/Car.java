@@ -26,7 +26,12 @@ public class Car {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber;
     }
-
+    public void move() {
+        int number = Randoms.pickNumberInRange(0, 9);
+        if (number >= 4) {
+            position++;
+        }
+    }
     public void validateNull(String str){
         if(str == null) {
             throw new IllegalArgumentException("null을 입력하지 마세요.");
