@@ -1,7 +1,13 @@
 package racingcar;
 
+import racingcar.controller.RaceManager;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        RaceManager race = new RaceManager();
+        race.setCarNames();
+        race.setAttemptNumber();
+        race.printResult();
+        race.printWinner();
     }
 }
