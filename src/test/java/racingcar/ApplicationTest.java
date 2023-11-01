@@ -49,13 +49,67 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름_정상동작_쉼표_마지막() {
+    void 이름_정상동작_공백만() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi,", "2");
-                    assertThat(output()).contains("pobi : --", "최종 우승자 : pobi");
+                    run("", "1");
+                    String[] split = output().split("\n");
+                    assertThat(output()).contains(" : -", "최종 우승자 : ");
+                    assertThat(split[split.length - 1]).hasSize(13);
                 },
-                MOVING_FORWARD, MOVING_FORWARD
+                MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 이름_정상동작_띄어쓰기만() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(" ", "1");
+                    String[] split = output().split("\n");
+                    assertThat(output()).contains(" : -", "최종 우승자 : ");
+                    assertThat(split[split.length - 1]).hasSize(13);
+                },
+                MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 이름_정상동작_쉼표만() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(",", "1");
+                    String[] split = output().split("\n");
+                    assertThat(output()).contains(" : -", "최종 우승자 : ");
+                    assertThat(split[split.length - 1]).hasSize(19);
+                },
+                MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 이름_정상동작_쉼표_앞뒤_공백() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(" , ", "1");
+                    String[] split = output().split("\n");
+                    assertThat(output()).contains(" : -", "최종 우승자 : ");
+                    assertThat(split[split.length - 1]).hasSize(19);
+                },
+                MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 이름_정상동작_하나의_이름() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("mimi", "1");
+                    String[] split = output().split("\n");
+                    assertThat(output()).contains(" : -", "최종 우승자 : ");
+                    assertThat(split[split.length - 1]).hasSize(13);
+                },
+                MOVING_FORWARD
         );
     }
 
@@ -63,15 +117,30 @@ class ApplicationTest extends NsTest {
     void 이름_정상동작_쉼표_뒤_공백() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi, ", "2");
-                    assertThat(output()).contains("pobi : -", " : -","최종 우승자 : pobi");
+                    run("pobi,", "1");
+                    String[] split = output().split("\n");
+                    assertThat(output()).contains("pobi : -", " : -", "최종 우승자 : pobi, ");
+                    assertThat(split[split.length - 1]).hasSize(19);
                 },
-                MOVING_FORWARD, MOVING_FORWARD, STOP, STOP
+                MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
     @Test
-    void 이동횟수_입력_알림() {
+    void 이름_정상동작_쉼표_뒤_띄어쓰기() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi, ", "1");
+                    String[] split = output().split("\n");
+                    assertThat(output()).contains("pobi : -", " : -", "최종 우승자 : pobi, ");
+                    assertThat(split[split.length - 1]).hasSize(19);
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 시도횟수_입력_알림() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi", "1");
@@ -83,7 +152,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이동횟수에_대한_예외_처리_문자() {
+    void 시도횟수에_대한_예외_처리_문자() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,mimi", "hi"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -91,17 +160,17 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이동횟수에_대한_예외_처리_범위() {
+    void 시도횟수에_대한_예외_처리_최대_범위_초과() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,mimi", "2147483648"))
+                assertThatThrownBy(() -> runException("pobi,mimi", "101"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
-    void 이동횟수에_대한_예외_처리_음수() {
+    void 시도횟수에_대한_예외_처리_음수() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,mimi", "-2"))
+                assertThatThrownBy(() -> runException("pobi,mimi", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -122,8 +191,10 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi", "3");
-                    assertThat(output()).contains("pobi : -", "pobi : --");
-                    assertThat(output()).doesNotContain("pobi : ---");
+                    String[] split = output().split("\n");
+                    assertThat(split[2]).isEqualTo("pobi : -");
+                    assertThat(split[4]).isEqualTo("pobi : -");
+                    assertThat(split[6]).isEqualTo("pobi : --");
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD
         );
@@ -134,8 +205,10 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi", "3");
-                    assertThat(output()).contains("pobi : ", "pobi : -");
-                    assertThat(output()).doesNotContain("pobi : --");
+                    String[] split = output().split("\n");
+                    assertThat(split[2]).isEqualTo("pobi : ");
+                    assertThat(split[4]).isEqualTo("pobi : -");
+                    assertThat(split[6]).isEqualTo("pobi : -");
                 },
                 STOP, MOVING_FORWARD, STOP
         );
