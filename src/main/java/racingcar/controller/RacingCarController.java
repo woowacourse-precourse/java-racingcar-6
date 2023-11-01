@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.constant.RacingCarMove;
 import racingcar.domain.Cars;
 import racingcar.dto.ResultCars;
 import racingcar.service.RacingCarService;
@@ -12,7 +13,8 @@ public class RacingCarController {
     private final InputView inputView;
     private final RacingCarService racingCarService;
 
-    public RacingCarController(final OutputView outputView, final InputView inputView, final RacingCarService racingCarService) {
+    public RacingCarController(final OutputView outputView, final InputView inputView,
+                               final RacingCarService racingCarService) {
         this.outputView = outputView;
         this.inputView = inputView;
         this.racingCarService = racingCarService;
@@ -40,9 +42,14 @@ public class RacingCarController {
 
     private void printResultOfEachRun(Cars cars, int repeatCount) {
         outputView.printGameStatusMessage();
-        for (int i = 0; i < repeatCount; i++) {
+//        for (int i = 0; i < repeatCount; i++) {
+//            racingCarService.moveCar(cars);
+//            outputView.printGameStatus(cars);
+//        }
+        while (RacingCarMove.isProcessing(repeatCount)) {
             racingCarService.moveCar(cars);
             outputView.printGameStatus(cars);
+            repeatCount = RacingCarMove.decreaseAttemptCount(repeatCount);
         }
     }
 
