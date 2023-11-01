@@ -1,5 +1,9 @@
 package racingcar.controller;
 
+import racingcar.view.InputView;
+
+import java.util.List;
+
 public class GameController {
     private GameController() {
     }
@@ -13,6 +17,8 @@ public class GameController {
     }
 
     public void newGame(){
+        InputView input = new InputView();
+        List<String> carList=input.carListInput();
 
     }
 }
