@@ -24,8 +24,8 @@ class InputViewTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"!@#,a#2", "abcd!,a+b*c", "안녕!!!"})
-    public void 이름에는_특수기호가_포함될_수_없다(String input) {
+    @ValueSource(strings = {"! @ #,a#2", "abcd!,a+b*c", "안녕!!!"})
+    public void 이름에는_공백을_포함한_특수기호가_포함될_수_없다(String input) {
         // given
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
