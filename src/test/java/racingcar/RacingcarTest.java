@@ -68,7 +68,7 @@ public class RacingcarTest extends NsTest {
     @Test
     void 시도횟수_문자입력_예외처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,woni,", "asdf"))
+                assertThatThrownBy(() -> runException("pobi,woni", "asdf"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }

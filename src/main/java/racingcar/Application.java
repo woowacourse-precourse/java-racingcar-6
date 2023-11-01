@@ -19,7 +19,7 @@ public class Application {
         if (cars.contains(" ")) {
             System.out.println("자동차 이름은 공백 없이 입력해주세요.");
             throw new IllegalArgumentException();
-        } else if(String.valueOf(cars.charAt(cars.length()-1)).equals(",")) {
+        } else if (String.valueOf(cars.charAt(cars.length() - 1)).equals(",")) {
             System.out.println("자동차 이름을 1자 이상 입력해주세요.");
             throw new IllegalArgumentException();
         }
@@ -28,7 +28,7 @@ public class Application {
             if (str.length() > 5) {
                 System.out.println("자동차 이름은 5자 이하로 입력해주세요.");
                 throw new IllegalArgumentException();
-            } else if(str.length() < 1) {
+            } else if (str.length() < 1) {
                 System.out.println("자동차 이름을 1자 이상 입력해주세요.");
                 throw new IllegalArgumentException();
             }
@@ -37,7 +37,11 @@ public class Application {
         int times = 0;
         try {
             times = Integer.parseInt(Console.readLine());
+            if (times < 1) {
+                throw new IllegalArgumentException();
+            }
         } catch (Exception e) {
+            System.out.println("시도 횟수는 1 이상의 숫자를 입력해주세요.");
             throw new IllegalArgumentException();
         }
         // 레이싱게임 메소드 호출
