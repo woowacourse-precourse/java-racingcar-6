@@ -31,6 +31,38 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    //추가한 테스트 코드
+    @Test
+    void 자동차_이름_1개만_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름_쉼표_연속_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,,woni", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 자동차_이름_종결_쉼표_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 자동차_이름_시작_쉼표_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
