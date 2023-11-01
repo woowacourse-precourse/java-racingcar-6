@@ -71,7 +71,6 @@ public class Game {
         Output.inputAttemptNumPrint();
         String input = Input.inputAttemptNum();
         attempt = Validator.validateInputAttemptNum(input);
-        
     }
 
     private void inputCar() {
