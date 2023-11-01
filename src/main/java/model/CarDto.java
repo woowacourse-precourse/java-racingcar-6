@@ -7,6 +7,18 @@ public class CarDto {
     String name;
     int score=0;
 
+    public String getName() {
+        return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public CarDto(String name) {
+        this.name = name;
+    }
+
     public void go(){
         if( Randoms.pickNumberInRange(0,9) > CarConstants.GO){
             score++;
