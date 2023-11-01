@@ -24,10 +24,8 @@ public class GameRoundManagerTest {
     @Test
     @DisplayName("한 회차 게임을 진행하면, 모든 자동차의 move 메서드가 호출된다.")
     void playRound_AllCarsMoveMethodCalled() {
-        // When
         gameRoundManager.playRound();
 
-        // Then
         for (Car car : cars) {
             verify(car).move();
         }

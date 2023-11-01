@@ -52,13 +52,10 @@ public class CarTest {
     @Test
     @DisplayName("0에서 9 사이의 무작위 값이 4 미만일 경우 자동차가 전진하지 않는다.")
     void move_RandomNumberLessThanFour_CarDoesNotMove() {
-        // Given
         Car car = new Car("car", () -> 3 >= MIN_NUM);
 
-        // When
         car.move();
 
-        // Then
         Assertions.assertThat(car.getPosition()).isEqualTo(0);
     }
 }
