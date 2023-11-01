@@ -28,6 +28,10 @@ public class Cars {
                 .toList();
     }
 
+    public void move() {
+        cars.forEach(Car::tryForward);
+    }
+
     private void validateDuplicateName(List<String> names) {
         Set<String> nonDuplicateNames = new HashSet<>(names);
         if (nonDuplicateNames.size() != names.size()) {
