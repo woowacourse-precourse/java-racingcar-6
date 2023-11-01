@@ -29,7 +29,7 @@ public class Game {
     private void decideCarMoving(Car car) {
         int result = randomNumberGenerator.getRandomNumberResult();
         if (isSatisfyForwardCondition(result)) {
-            car.goStraight(result);
+            car.goStraight();
         }
     }
 

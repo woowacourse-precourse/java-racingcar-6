@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-import racingcar.Global.Constants;
 
 class CarTest {
 
@@ -15,7 +14,7 @@ class CarTest {
     @Test
     void 전진() {
         assertTrue(car.getCurrentLocation() == 0);
-        car.goStraight(Constants.randomNumberCondition);
+        car.goStraight();
         assertTrue(car.getCurrentLocation() == 1);
     }
 

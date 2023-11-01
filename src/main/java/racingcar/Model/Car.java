@@ -16,7 +16,7 @@ public class Car {
         return name.length() <= 5;
     }
 
-    public void goStraight(int stepSize) {
+    public void goStraight() {
         step += 1;
     }
 
