@@ -6,6 +6,7 @@ import racingcar.common.generator.RandomGenerator;
 import racingcar.common.strategy.MoveStrategy;
 import racingcar.common.strategy.RandomMoveStrategy;
 import racingcar.common.type.Names;
+import racingcar.common.type.TrialCount;
 import racingcar.controller.Game;
 import racingcar.controller.Racing;
 import racingcar.controller.Result;
@@ -15,52 +16,60 @@ import racingcar.domain.RacingWinners;
 import racingcar.dto.input.InputDTO;
 import racingcar.view.InputView;
 
+/**
+ * 게임을 시작하고 관리하는 클래스
+ */
 public class GameLauncher {
+
+    //게임 실행
     public static void run() {
-        InputDTO userInput = InputView.readUserInput();
+        //사용자로부터 입력을 읽음.
+        InputDTO userInput = readInput();
 
-        Racing racing = initializeRacingGame(userInput);
+        //입력에 따라 레이싱 게임을 설정
+        Racing racingGame = setupRacingGame(userInput);
 
-        racing.start(userInput.getTrialCount());
+        //설정된 레이싱 게임을 시작
+        startRacing(racingGame, userInput.getTrialCount());
     }
 
-    private static Racing initializeRacingGame(InputDTO userInput) {
-        //자동자 리스트 생성 및 움직임 전략 생성
-        List<Car> carList = createCarList(userInput.getNames());
-
-        //랜덤 Generator 및 이동전략 DI
-        RandomGenerator randomGenerator = initializeRandomGenerator();
-        MoveStrategy moveStrategy = initializeMoveStrategy(randomGenerator);
-
-        //도메인 객체(일급 컬렉션) 생성
-        RacingCars racingCars = createRacingCars(carList, moveStrategy);
-        RacingWinners racingWinners = createRacingWinners(carList);
-
-        //레이싱 객체 생성
-        return createRacing(racingCars, racingWinners);
+    // 사용자로부터 입력을 읽음
+    private static InputDTO readInput() {
+        return InputView.readUserInput();
     }
 
-    private static RandomGenerator initializeRandomGenerator() {
-        return NsRandomGenerator.of();
+    // 레이싱 게임을 시작
+    private static void startRacing(Racing racingGame, TrialCount trialCount) {
+        racingGame.start(trialCount);
     }
 
-    private static List<Car> createCarList(Names names) {
+    // 레이싱 게임을 초기 설정
+    private static Racing setupRacingGame(InputDTO userInput) {
+        List<Car> cars = generateCars(userInput.getNames());
+        MoveStrategy moveStrategy = createMoveStrategy();
+
+        // 레이싱 참가 차량과 움직임 전략을 조립
+        RacingCars racingCars = RacingCars.of(cars, moveStrategy);
+
+        // 레이싱에서 이길 수 있는 차량을 설정
+        RacingWinners racingWinners = RacingWinners.of(cars);
+
+        return assembleRacing(racingCars, racingWinners);
+    }
+
+    // 차량 목록을 생성
+    private static List<Car> generateCars(Names names) {
         return Car.createCarList(names);
     }
 
-    private static MoveStrategy initializeMoveStrategy(RandomGenerator randomGenerator) {
+    // 움직임 전략을 생성, 랜덤 생성기를 DI.
+    private static MoveStrategy createMoveStrategy() {
+        RandomGenerator randomGenerator = NsRandomGenerator.of();
         return RandomMoveStrategy.of(randomGenerator);
     }
 
-    private static RacingCars createRacingCars(List<Car> carList, MoveStrategy randomMoveStrategy) {
-        return RacingCars.of(carList, randomMoveStrategy);
-    }
-
-    private static RacingWinners createRacingWinners(List<Car> carList) {
-        return RacingWinners.of(carList);
-    }
-
-    private static Racing createRacing(RacingCars racingCars, RacingWinners racingWinners) {
+    // Racing 객체를 조립하여 반환.
+    private static Racing assembleRacing(RacingCars racingCars, RacingWinners racingWinners) {
         Game game = Game.of(racingCars);
         Result result = Result.of(racingWinners);
         return Racing.of(game, result);
