@@ -17,8 +17,7 @@ public class CarMovementWriter {
 			return;
 		}
 		carMovementResultLogStorage.addLog(
-			carList.get(index).name + Colon + checkMovedStepsOfCar(carList.get(index))
-				+ ChangeLine);
+			carList.get(index).name + Colon + checkMovedStepsOfCar(carList.get(index)));
 
 		carMovementResultLogStorage.addLog(ChangeLine);
 		writeMovementOfCars(carList, index + IndexSteps, carMovementResultLogStorage);
