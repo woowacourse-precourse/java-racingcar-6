@@ -14,7 +14,7 @@ public class Cars {
         return Arrays.asList(input.split(DELIMITER));
     }
 
-    public static void putObject() {
+    public static void makeCarList() {
         cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
