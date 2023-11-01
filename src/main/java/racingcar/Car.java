@@ -1,6 +1,6 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static racingcar.RandomGenerator.*;
 
 public class Car {
     private final String name;
@@ -11,8 +11,8 @@ public class Car {
     }
 
     public void moveOrNot() {
-        int random = Randoms.pickNumberInRange(0, 9);
-        if (random >= 4) {
+        int randomValue = createRandomNumber();
+        if (randomValue >= 4) {
             this.position++;
         }
     }
