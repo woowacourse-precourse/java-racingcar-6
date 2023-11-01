@@ -9,6 +9,10 @@ import racingcar.util.NumberGenerator;
 
 public class CarsTest {
 
+    private static final int INITIAL_POSITION = 0;
+    private static final int MOVED_POSITION = 1;
+    private static final int MOVABLE_NUMBER = 4;
+    private static final int NON_MOVABLE_NUMBER = 3;
     List<String> names;
 
     @BeforeEach
@@ -20,23 +24,23 @@ public class CarsTest {
     void createCars() {
         Cars cars = Cars.of(names);
         assertThat(cars.get()).isEqualTo(List.of(
-                Car.of("pobi", 0),
-                Car.of("crong", 0),
-                Car.of("honux", 0)
+                Car.of("pobi", INITIAL_POSITION),
+                Car.of("crong", INITIAL_POSITION),
+                Car.of("honux", INITIAL_POSITION)
         ));
     }
 
     @Test
     void race() {
         Cars cars = Cars.of(names);
-        NumberGenerator numberGenerator = () -> 4;
+        NumberGenerator numberGenerator = () -> MOVABLE_NUMBER;
 
         List<Car> racedCars = cars.race(numberGenerator);
         assertThat(racedCars).isEqualTo(
                 List.of(
-                        Car.of("pobi", 1),
-                        Car.of("crong", 1),
-                        Car.of("honux", 1)
+                        Car.of("pobi", MOVED_POSITION),
+                        Car.of("crong", MOVED_POSITION),
+                        Car.of("honux", MOVED_POSITION)
                 )
         );
     }
@@ -46,9 +50,9 @@ public class CarsTest {
         Cars cars = Cars.of(names);
         List<Car> carList = cars.get();
 
-        carList.get(0).move(4);
-        carList.get(1).move(4);
-        carList.get(2).move(3);
+        carList.get(0).move(MOVABLE_NUMBER);
+        carList.get(1).move(MOVABLE_NUMBER);
+        carList.get(2).move(NON_MOVABLE_NUMBER);
 
         List<String> winnerNames = cars.getWinnerNames();
         List<String> expect = List.of("pobi", "crong");
