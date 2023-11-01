@@ -1,7 +1,17 @@
 package racingcar;
 
+import racingcar.entity.MovePolicy;
+import racingcar.entity.policy.RandomMovePolicy;
+
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Controller controller = new Controller(movePolicy());
+
+        controller.run();
+    }
+
+    private static MovePolicy movePolicy() {
+        return new RandomMovePolicy();
     }
 }
