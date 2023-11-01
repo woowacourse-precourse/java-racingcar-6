@@ -30,9 +30,8 @@ public class Cars {
         int num = Randoms.pickNumberInRange(0, 9);
         if (num >= 4) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     public void printCars(List<String>cars){
         for (int i=0;i<carPos.size();i++){
