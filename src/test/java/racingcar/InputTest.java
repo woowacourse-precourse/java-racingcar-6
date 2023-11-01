@@ -52,6 +52,33 @@ public class InputTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {",car"})
+    void canProcessFrontComma(String userInput) {
+        String[] answer = {"car"};
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        assertArrayEquals(answer,getCarName());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"car,,"})
+    void canProcessBackComma(String userInput) {
+        String[] answer = {"car"};
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        assertArrayEquals(answer,getCarName());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"car1,,car2,car3,,,"})
+    void canProcessContinuousComma(String userInput) {
+        String[] answer = {"car1","car2","car3"};
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        assertArrayEquals(answer,getCarName());
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = {""})
     void getCarNameEmptyExceptionTest(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
