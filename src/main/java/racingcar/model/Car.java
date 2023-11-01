@@ -33,8 +33,4 @@ public class Car {
     public void increaseMove(int index) {
         moves.set(index, moves.get(index) + 1);
     }
-
-    public void addCarNames(List<String> names) {
-        this.names.addAll(names);
-    }
 }

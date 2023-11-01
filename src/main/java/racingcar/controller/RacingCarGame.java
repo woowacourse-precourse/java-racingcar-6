@@ -33,7 +33,7 @@ public class RacingCarGame {
     public static void getInputNumberForMove() {
         Output.printAttemptNumberMessage();
         numberForMoves = Input.inputNumberForMove();
-        Validation.validateOneToNine(numberForMoves);
+        Validation.validateAttempNumber(numberForMoves);
     }
 
     public static void racingProgress() {
@@ -43,20 +43,16 @@ public class RacingCarGame {
 
     public static void repeatInputNumberTimes(int inputNumber) {
         for (int i = 0; i < inputNumber; i++) {
-            generateAndCheckRandomNumber();
+            increaseMovements();
             Output.printRacingProgress();
         }
     }
 
-    public static void generateAndCheckRandomNumber() {
+    public static void increaseMovements() {
         for (int i = 0; i < cars.getSize(); i++) {
-            increaseMovementNumber(i);
-        }
-    }
-
-    public static void increaseMovementNumber(int index) {
-        if (checkNumberIs4Over(generateNumber())) {
-            cars.increaseMove(index);
+            if (checkNumberIs4Over(generateNumber())) {
+                cars.increaseMove(i);
+            }
         }
     }
 

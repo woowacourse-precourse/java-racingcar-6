@@ -78,7 +78,7 @@ public class Validation {
         validateEmtpy();
     }
 
-    public static void validateOneToNine(int inputNumber) {
+    public static void validateAttempNumber(int inputNumber) {
         if (inputNumber == 0) {
             throw new IllegalArgumentException(ValidationMessage
                     .NON_NUMERIC_EXCEPTION
