@@ -1,15 +1,16 @@
 package racingcar.view.Input;
 
+import static racingcar.util.FinalNumber.INVALID_NUMBER;
+import static racingcar.util.FinalNumber.MIN_TRIAL_NUMBER;
+import static racingcar.view.ExceptionMessage.ExceprionMessage.IS_NUBER_ONLY;
+import static racingcar.view.ExceptionMessage.ExceprionMessage.IS_POSITIVE_ONLY;
+
 public class InputValidator {
     private final String NUMBER_REGX = "^[0-9]+$";
-    private final int MIN_TRIAL_NUMBER = 1;
 
-        // [x] 쉼표가 연속해서 있을 경우 >> 정규 표현식 split(",+")
-        // [x] 쉼표 사이에 공백이 있을 경우 >> replace(" ", "");
-        // [x] 공백일 경우 >> exception
 
     public void isNull(String input) {
-        if (input.trim().length() == 0) {
+        if (input.trim().length() == INVALID_NUMBER) {
             throw new IllegalArgumentException("");
         }
     }
@@ -21,12 +22,12 @@ public class InputValidator {
 
     public void isNumberOnly(String number) {
         if (!number.matches(NUMBER_REGX)) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+            throw new IllegalArgumentException(IS_NUBER_ONLY);
         }
     }
     public void isPositiveOnly(String number) {
         if (Integer.parseInt(number) < MIN_TRIAL_NUMBER) {
-            throw new IllegalArgumentException("1회 부터 입력 가능 합니다.");
+            throw new IllegalArgumentException(IS_POSITIVE_ONLY);
         }
     }
 }
