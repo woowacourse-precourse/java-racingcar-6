@@ -1,15 +1,24 @@
 package racingcar.module.domain;
 
-import java.util.List;
-
 public class Game {
 
-    private final int play;
-    private final List<Car> cars;
+    private Long id;
+    private final int trial;
     private int playNum;
 
-    private Game(List<Car> cars, int play) {
-        this.play = play;
-        this.cars = cars;
+    private Game(int trial) {
+        this.trial = trial;
+    }
+
+    public static Game from(int play) {
+        return new Game(play);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
