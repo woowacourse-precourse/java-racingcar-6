@@ -54,5 +54,6 @@ public class Game {
         getMoveCount();
         OutputView.printEmptyLine();
         OutputView.printResultMessage();
+        race.run();
     }
 }

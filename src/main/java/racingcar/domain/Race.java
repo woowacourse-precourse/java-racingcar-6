@@ -6,4 +6,8 @@ public class Race {
     public Race(Cars cars) {
         this.cars = cars;
     }
+
+    public void run() {
+
+    }
 }
