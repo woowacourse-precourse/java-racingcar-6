@@ -6,6 +6,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarTest {
     @Test
+    void Car_초기화할때_자동차이름_세팅() {
+        String name = "carName";
+        Car car = new Car(name);
+
+        String exptected = "carName";
+        assertThat(car.getName()).isEqualTo(exptected);
+    }
+
+    @Test
     void 주어진_값만큼_자동차_이동() {
         int distanceToMove = 10;
 
