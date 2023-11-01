@@ -2,6 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.generator.RandomNumberOverFour;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class CarsTest {
         List<String> winners = List.of("jun");
         Cars cars = new Cars("pobi,jun");
         List<Car> carList = cars.getCars();
-        carList.get(1).canIMove(4);
+        carList.get(1).canIMove(new RandomNumberOverFour());
 
         // When
         List<String> winnersNameList = cars.sendRacingGameWinner();

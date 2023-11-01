@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.util.generator.RandomNumberGenerator;
+
 public class Car {
     private final int MOVE_FORWARD_NUMBER = 4;
 
@@ -10,8 +12,8 @@ public class Car {
         this.name = name;
     }
 
-    public void canIMove(int randomNumber) {
-        if (randomNumber >= MOVE_FORWARD_NUMBER) {
+    public void canIMove(RandomNumberGenerator randomGenerator) {
+        if (randomGenerator.pickRandomNumber() >= MOVE_FORWARD_NUMBER) {
             move();
         }
     }

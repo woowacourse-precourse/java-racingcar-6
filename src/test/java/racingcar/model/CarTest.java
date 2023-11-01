@@ -2,6 +2,8 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.generator.RandomNumberOverFour;
+import racingcar.util.generator.RandomNumberUnderFour;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,7 +32,7 @@ public class CarTest {
         int randomNumber = 1;
 
         // When
-        car.canIMove(randomNumber);
+        car.canIMove(new RandomNumberUnderFour());
 
         // Then
         assertThat(0).isEqualTo(car.getDistance());
@@ -44,7 +46,7 @@ public class CarTest {
         int randomNumber = 4;
 
         // When
-        car.canIMove(randomNumber);
+        car.canIMove(new RandomNumberOverFour());
 
         // Then
         assertThat(1).isEqualTo(car.getDistance());
@@ -56,8 +58,8 @@ public class CarTest {
         // Given
         int inputMax = 1;
         Car car = new Car("sieun");
-        car.canIMove(4);
-        car.canIMove(4);
+        car.canIMove(new RandomNumberOverFour());
+        car.canIMove(new RandomNumberOverFour());
 
         // When
         int max = car.findMaxDistance(inputMax);
@@ -72,7 +74,7 @@ public class CarTest {
         // Given
         int inputMax = 3;
         Car car = new Car("sieun");
-        car.canIMove(4);
+        car.canIMove(new RandomNumberOverFour());
 
         // When
         int max = car.findMaxDistance(inputMax);
@@ -87,7 +89,7 @@ public class CarTest {
         // Given
         int max = 1;
         Car car = new Car("sieun");
-        car.canIMove(4);
+        car.canIMove(new RandomNumberOverFour());
 
         // When
         boolean isSameDistanceResult = car.isSameDistance(max);
