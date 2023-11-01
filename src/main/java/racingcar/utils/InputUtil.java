@@ -11,6 +11,7 @@ private static final String DELIMITER = ",";
     public static String[] readCarNames() {
         String carNamesInput = Console.readLine();
         String[] carNames = splitCarNames(carNamesInput);
+        ValidationUtil.validateCarNames(carNames);
         for (String carName : carNames) {
             ValidationUtil.validateCarName(carName);
         }
@@ -19,6 +20,7 @@ private static final String DELIMITER = ",";
 
     public static int readAttemptNumber() {
         String attemptNumberInput = Console.readLine();
+        ValidationUtil.validateIsNumeric(attemptNumberInput);
         int attemptNumber = parseAttemptNumber(attemptNumberInput);
         ValidationUtil.validateAttemptNumber(attemptNumber);
         return attemptNumber;

@@ -17,5 +17,19 @@ public class ValidationUtil {
             throw new IllegalArgumentException("시도 횟수는 1 이상의 정수여야 합니다.");
         }
     }
+
+    public static void validateCarNames(String[] carNames) {
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException("자동차 이름은 최소 1개 이상이어야 합니다.");
+        }
+    }
+
+    public static void validateIsNumeric(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        }
+    }
 }
 
