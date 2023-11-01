@@ -17,7 +17,7 @@ public class Car {
 
     private void validateNameRange(String name) {
         isLengthUnderMaxLength(name);
-        isEmpty(name);
+        isNotEmpty(name);
     }
 
     private void isLengthUnderMaxLength(String name) {
@@ -26,7 +26,7 @@ public class Car {
         }
     }
 
-    private void isEmpty(String name) {
+    private void isNotEmpty(String name) {
         if (name.isEmpty()) {
             throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_IS_EMPTY);
         }
