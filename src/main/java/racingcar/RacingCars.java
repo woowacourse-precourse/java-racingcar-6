@@ -17,7 +17,7 @@ public class RacingCars {
     public void turnOn() {
         for (RacingCar racingCar : racingCars) {
             int randomNumber = Randoms.pickNumberInRange(0,9);
-            racingCar.drive(randomNumber);
+            racingCar.move(randomNumber);
         }
     }
 

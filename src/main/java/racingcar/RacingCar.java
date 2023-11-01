@@ -1,7 +1,7 @@
 package racingcar;
 
 public class RacingCar {
-    private String name;
+    private final String name;
     private int distance = 0;
 
     public RacingCar(String name) {
@@ -15,7 +15,7 @@ public class RacingCar {
         }
     }
 
-    public void drive(int number) {
+    public void move(int number) {
         if (number >= 4) {
             distance++;
         }
