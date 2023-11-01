@@ -40,12 +40,12 @@ class InputValidatorTest {
         // when, then
         Assertions.assertThatThrownBy(() -> InputValidator.validateCarsInput(testInput))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CAR_INPUT_EXCEED_NAME_LIMI_LENGTH.getMessage());
+                .hasMessage(CAR_INPUT_EXCEED_NAME_LIMIT_LENGTH.getMessage());
 
         // when, then
         Assertions.assertThatThrownBy(() -> InputValidator.validateCarsInput(testInput2))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CAR_INPUT_EXCEED_NAME_LIMI_LENGTH.getMessage());
+                .hasMessage(CAR_INPUT_EXCEED_NAME_LIMIT_LENGTH.getMessage());
     }
 
     @Test

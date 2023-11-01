@@ -17,7 +17,7 @@ public class InputValidator {
         String[] split = Converter.convertSplitArray(input);
 
         if (!isValidCarsLengthOfName(split)) {
-            triggerException(CAR_INPUT_EXCEED_NAME_LIMI_LENGTH);
+            triggerException(CAR_INPUT_EXCEED_NAME_LIMIT_LENGTH);
         }
 
         if (hasDuplicateCarName(split)) {
