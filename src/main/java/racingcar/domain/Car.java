@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Player {
+public class Car {
     private int score;
     private String name;
 
@@ -16,7 +16,7 @@ public class Player {
      * 사용자 이름을 받는 생성자
      * @param name
      */
-    public Player(String name){
+    public Car(String name){
         this.name = name;
         score = 0;
     }

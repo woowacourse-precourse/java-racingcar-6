@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Player;
+import racingcar.domain.Car;
 
 public class RacingGameView {
     public void printInputPlayersMsg(){
@@ -18,18 +18,18 @@ public class RacingGameView {
         System.out.println();
         System.out.println("실행 결과");
     }
-    public void printTurnResultMsg(List<Player> players){
-        for (Player player: players){
-            System.out.print(player.getName()+" : ");
+    public void printTurnResultMsg(List<Car> cars){
+        for (Car car : cars){
+            System.out.print(car.getName()+" : ");
             //score 출력
-            for (int i = 0; i<player.getScore();i++){
+            for (int i = 0; i< car.getScore(); i++){
                 System.out.print("-");
             }
             System.out.println();
         }
         System.out.println();
     }
-    public void printResultMsg(ArrayList<Player> winners){
+    public void printResultMsg(ArrayList<Car> winners){
         System.out.print("최종 우승자 : ");
         System.out.print(winners.remove(0).getName());
         while(!winners.isEmpty()){

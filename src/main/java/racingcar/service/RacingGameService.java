@@ -3,11 +3,11 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Player;
-import racingcar.domain.PlayerRepository;
+import racingcar.domain.Car;
+import racingcar.domain.CarRepository;
 
 public class RacingGameService {
-    private final PlayerRepository playerRepository = new PlayerRepository();
+    private final CarRepository carRepository = new CarRepository();
     private final int MAXNAMELENGTH = 5;
     private final int MINNAMELENGTH = 1;
     private final int forwardCondition = 4;
@@ -18,20 +18,20 @@ public class RacingGameService {
 
         //Player creation and add to repository
         for (String playerName:playerNames) {
-            playerRepository.addPlayer(createPlayer(playerName));
+            carRepository.addPlayer(createPlayer(playerName));
         }
     }
 
-    public List<Player> playTurn(){
+    public List<Car> playTurn(){
         // 각 차량에대해
-        for (Player player :playerRepository.getPlayers()){
+        for (Car car : carRepository.getPlayers()){
             // 랜덤 넘버 생성
             if (getRandomOneDigitNum() >= forwardCondition){
                 // 전진 로직
-                movingForward(player);
+                movingForward(car);
             }
         }
-        return playerRepository.getPlayers();
+        return carRepository.getPlayers();
     }
 
     //input에서 사용자 이름 파싱
@@ -47,8 +47,8 @@ public class RacingGameService {
     }
 
     // Player 생성 메서드
-    private Player createPlayer(String playerName){
-        return new Player(playerName);
+    private Car createPlayer(String playerName){
+        return new Car(playerName);
     }
 
     // 시도회수 형 변환
@@ -68,25 +68,25 @@ public class RacingGameService {
 
 
     // 전진 구현
-    private void movingForward(Player player){
-        player.incScore();
+    private void movingForward(Car car){
+        car.incScore();
     }
     // 우승자 선출
-    public ArrayList<Player> findWinners(){
-        ArrayList<Player> winners = new ArrayList<>();
+    public ArrayList<Car> findWinners(){
+        ArrayList<Car> winners = new ArrayList<>();
         int maxScore = findMaxScore();
-        for(Player player: playerRepository.getPlayers()){
-            if(maxScore == player.getScore()){
-                winners.add(player);
+        for(Car car : carRepository.getPlayers()){
+            if(maxScore == car.getScore()){
+                winners.add(car);
             }
         }
         return winners;
     }
     private int findMaxScore(){
         int maxScore = -1;
-        for(Player player: playerRepository.getPlayers()){
-            if (maxScore < player.getScore()){
-                maxScore = player.getScore();
+        for(Car car : carRepository.getPlayers()){
+            if (maxScore < car.getScore()){
+                maxScore = car.getScore();
             }
         }
         return maxScore;

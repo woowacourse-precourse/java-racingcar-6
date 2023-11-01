@@ -1,8 +1,6 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Vector;
-import racingcar.domain.Player;
 import racingcar.service.RacingGameService;
 import racingcar.view.RacingGameView;
 
