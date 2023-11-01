@@ -26,5 +26,8 @@ public class racingCarGameController {
         } catch (NumberFormatException error) {
             throw new InvalidRaceCountException();
         }
+        if (raceCount <= 0) {
+            throw new InvalidRaceCountException();
+        }
     }
 }
