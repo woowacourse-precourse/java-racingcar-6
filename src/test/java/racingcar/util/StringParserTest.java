@@ -88,4 +88,38 @@ class StringParserTest {
             StringParser.parseCarName(input);
         });
     }
+
+    @ParameterizedTest
+    @MethodSource("data_0_이상의_정수")
+    @DisplayName("0 이상의 정수")
+    void parseRound_0_이상의_정수(String input, Integer expected) {
+        Integer round = StringParser.parseRound(input);
+        assertThat(round).isEqualTo(expected);
+    }
+
+    static Stream<Arguments> data_0_이상의_정수() {
+        return Stream.of(
+                Arguments.of("0", 0),
+                Arguments.of("1", 1),
+                Arguments.of("15", 15)
+        );
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "-3", "-10"})
+    @DisplayName("음의 정수인 경우 예외 발생")
+    void parseRound_음의_정수(String input) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            StringParser.parseRound(input);
+        });
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"ㅁㄴㅁㄴㅇㄹ", "bsd", "   ", "123 ", "12  12"})
+    @DisplayName("정수 포맷이 아닌 경우 예외 발생")
+    void parseRound_정수_포맷_아님(String input) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            StringParser.parseRound(input);
+        });
+    }
 }
