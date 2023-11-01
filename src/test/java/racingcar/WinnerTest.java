@@ -72,6 +72,5 @@ public class WinnerTest {
         // then
         assertThat(out.toString())
                 .contains(RESULT.getMessage() + "pobi, woni, jun");
-
     }
 }

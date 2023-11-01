@@ -5,7 +5,6 @@ import static racingcar.constants.Message.RESULT;
 import java.util.List;
 import java.util.StringJoiner;
 
-
 public class CarRace {
 
     public static int createRound(String userInput) {

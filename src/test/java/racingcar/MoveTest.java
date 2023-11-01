@@ -93,7 +93,6 @@ public class MoveTest {
                 .contains("pobi : -")
                 .contains("woni : -")
                 .contains("jun : -");
-
     }
 
     @Test

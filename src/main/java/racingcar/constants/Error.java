@@ -9,7 +9,6 @@ public enum Error {
     ROUND_COUNT_ERROR("1이상의 숫자를 입력하세요."),
     NOT_NUMBER_ERROR("숫자만 입력하세요.");
 
-
     private final String message;
 
     Error(String message) {

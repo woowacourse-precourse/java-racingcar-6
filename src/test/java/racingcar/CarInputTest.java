@@ -32,7 +32,6 @@ class CarInputTest {
 
         // then
         assertThat(carNames).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
-
     }
 
     @Test
@@ -45,7 +44,6 @@ class CarInputTest {
         assertThatThrownBy(() -> Validator.checkComma(userInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(COMMA_ERROR.getMessage());
-
     }
 
     @Test
@@ -66,7 +64,6 @@ class CarInputTest {
         assertThatThrownBy(() -> Validator.checkCount(carNamesTwo))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CAR_COUNT_ERROR.getMessage());
-
     }
 
     @Test
@@ -81,7 +78,6 @@ class CarInputTest {
         assertThatThrownBy(() -> Validator.checkLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(LENGTH_ERROR.getMessage());
-
     }
 
     @Test
@@ -108,7 +104,6 @@ class CarInputTest {
         assertThatThrownBy(() -> Validator.checkBlank(carNamesThree))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(BLANK_ERROR.getMessage());
-
     }
 
     @Test
