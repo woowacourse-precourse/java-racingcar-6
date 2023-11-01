@@ -3,7 +3,6 @@ package racingcar.view;
 import java.util.List;
 
 public class OutputView {
-    private static final int STANDARD_NUMBER = 4;
     private static final String MOVING_INDICATORS = "-";
 
     public String convertListToString(List<String> winnerList) {
