@@ -15,6 +15,14 @@ public class racingcarTest extends NsTest {
         );
     }
 
+    @Test
+    void 음수예외처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("soft,hard", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
     @Override
     public void runMain() {
