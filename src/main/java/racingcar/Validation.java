@@ -15,7 +15,7 @@ public class Validation {
     public static void validateTrytime(String tryTime) {
         try {
             int intTryTime = Integer.parseInt(tryTime);
-            if (intTryTime <= 0) {
+            if (intTryTime < Constants.TRY_TIME_MIN_LIMIT) {
                 throw new IllegalArgumentException("try time should be larger than 0");
             }
         } catch (NumberFormatException ex) {

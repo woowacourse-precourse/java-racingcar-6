@@ -16,8 +16,8 @@ public class Car {
     }
 
     public void tryMove(){
-        int randomInt = Randoms.pickNumberInRange(0,9);
-        if (randomInt>=4){
+        int randomInt = Randoms.pickNumberInRange(Constants.RANDOM_DICE_MIN,Constants.RANDOM_DICE_MAX);
+        if (randomInt>=Constants.MOVE_CAR_NUM){
             location++;
         }
     }
