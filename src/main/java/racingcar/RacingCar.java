@@ -1,7 +1,5 @@
 package racingcar;
 
-import racingcar.validation.Validation;
-
 public class RacingCar {
 
     private String name;
@@ -13,7 +11,7 @@ public class RacingCar {
     }
 
     public boolean moveBy(int random) {
-        if (Validation.isNumberInRange(random) && random > 4) {
+        if (random > 4) {
             position++;
             return true;
         }
