@@ -4,8 +4,8 @@
 
 - [ ] 속성 : position, name
 - [ ] 자동차 이름 설정 (setName)
-- [ ] 자동차 이름 출력 (printName)
 - [ ] 전진 시도 (attemptGo)
+- [ ] 현재 위치 출력 (printPosition)
 
 ### 2. 게임 도메인 (Game)
 
