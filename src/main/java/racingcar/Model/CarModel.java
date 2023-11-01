@@ -18,7 +18,15 @@ public class CarModel {
 
     public String printRacing(){
         if(carRaceString.equals(""))
-            return carName + " : ." + "\n";
+            return carName + " : " + "\n";
         return carName + " : " + carRaceString + "\n";
+    }
+
+    public String getCarName(){
+        return carName;
+    }
+
+    public Integer getRaceCnt(){
+        return carRaceCnt;
     }
 }

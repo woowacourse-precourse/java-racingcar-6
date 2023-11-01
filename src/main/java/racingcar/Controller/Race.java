@@ -4,13 +4,14 @@ import static racingcar.Model.RandomModel.checkRandomNumber;
 import static racingcar.View.InputView.getCarCntFromUser;
 import static racingcar.View.InputView.getCarNameFromUser;
 import static racingcar.View.OutputView.printResult;
+import static racingcar.View.OutputView.printWinner;
 
 import java.util.List;
 import racingcar.Model.CarModel;
 
 public class Race {
 
-    Race(){
+    public Race(){
         try {
             start();
         }
@@ -37,6 +38,8 @@ public class Race {
             }
             printResult(result);
         }
+        notifyFinalWinner();
+        printWinner(carModelList);
     }
 
     public static void notifyToWriteName(){
@@ -49,5 +52,9 @@ public class Race {
 
     public static void notifyResult(){
         System.out.println("실행 결과");
+    }
+
+    public static void notifyFinalWinner(){
+        System.out.print("최종 우승자 : ");
     }
 }
