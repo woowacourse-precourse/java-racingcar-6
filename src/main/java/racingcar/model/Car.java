@@ -14,4 +14,8 @@ public class Car {
         this.name = name;
         this.distance = new Distance();
     }
+
+    public String getMyName() {
+        return name.toString();
+    }
 }
