@@ -33,8 +33,8 @@ class GameUtilsTest {
     void canFoward() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    assertTrue(GameUtils.canFoward());
-                    assertFalse(GameUtils.canFoward());
+                    assertTrue(GameUtils.canForward());
+                    assertFalse(GameUtils.canForward());
                 },
                 MOVING_FORWARD, STOP
         );

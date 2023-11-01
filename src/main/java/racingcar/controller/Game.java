@@ -45,7 +45,7 @@ public class Game {
 
     private void turn() {
         for (Car car : cars) {
-            if (GameUtils.canFoward()) {
+            if (GameUtils.canForward()) {
                 car.foward();
             }
             OutputView.printStatus(GameStatus.fromCar(car));
