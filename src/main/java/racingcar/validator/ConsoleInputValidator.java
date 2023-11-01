@@ -1,11 +1,15 @@
 package racingcar.validator;
 
+import static racingcar.constant.ValidatorConstants.ILLEGAL_ARGUMENT_EXCEPTION;
+import static racingcar.constant.ValidatorConstants.MAXIMUM_CAR_NAME_LENGTH;
+import static racingcar.constant.ValidatorConstants.MINIMUM_PLAY_NUMBER;
+import static racingcar.constant.ValidatorConstants.NOT_NUMBER_REGEX;
+import static racingcar.constant.ValidatorConstants.NULL_REGEX;
+
 import java.util.List;
 
 public class ConsoleInputValidator {
-    private static final IllegalArgumentException ILLEGAL_ARGUMENT_EXCEPTION = new IllegalArgumentException();
-    private static final String NULL_REGEX = "(^null)";
-    private static final String NOT_NUMBER_REGEX = "\\D";
+
 
     public static void validateInputString(String inputString) {
         validateInputNotNull(inputString);
@@ -54,7 +58,7 @@ public class ConsoleInputValidator {
     }
 
     private static void validateCarNameLengthNotLongerThan5(String carName) {
-        if (carName.length() > 5) {
+        if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
             throw ILLEGAL_ARGUMENT_EXCEPTION;
         }
     }
@@ -71,13 +75,13 @@ public class ConsoleInputValidator {
     }
 
     private static void validatePlayNumberNotZero(int playNumber) {
-        if (playNumber == 0) {
+        if (playNumber == MINIMUM_PLAY_NUMBER) {
             throw ILLEGAL_ARGUMENT_EXCEPTION;
         }
     }
 
     private static void validatePlayNumberNotNegative(int playNumber) {
-        if (playNumber < 0) {
+        if (playNumber < MINIMUM_PLAY_NUMBER) {
             throw ILLEGAL_ARGUMENT_EXCEPTION;
         }
     }
