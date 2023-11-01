@@ -34,11 +34,6 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public List<Car> selectAllCars() {
-        return carLineup;
-    }
-
-    @Override
     public void increaseMoveCount(String carName) {
         for (Car car : carLineup) {
             if (car.getName().equals(carName)) {
@@ -58,7 +53,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public int selectTopMoveCount() {
+    public int getTopMoveCount() {
         return carLineup.stream()
                 .max(Comparator.comparing(Car::getMoveCount))
                 .get()
@@ -66,12 +61,14 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public List<Car> selectCarsByTopMoveCount() {
-        int maxMoveCount = selectTopMoveCount();
-
-        List<Car> topCars = carLineup.stream()
-                .filter(car -> car.getMoveCount() == maxMoveCount)
+    public List<Car> selectCarsByMoveCount(int moveCount) {
+        return carLineup.stream()
+                .filter(car -> car.getMoveCount() == moveCount)
                 .toList();
-        return topCars;
+    }
+
+    @Override
+    public List<Car> selectAllCars() {
+        return carLineup;
     }
 }

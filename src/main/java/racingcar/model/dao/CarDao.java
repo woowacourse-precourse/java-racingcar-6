@@ -7,10 +7,10 @@ public interface CarDao {
     void init();
     void insertCar(Car car);
     void insertTryCount(int tryCount);
-    List<Car> selectAllCars();
     void increaseMoveCount(String carName);
     void decreaseTryCount();
     int getTryCount();
-    int selectTopMoveCount();
-    List<Car> selectCarsByTopMoveCount();
+    int getTopMoveCount();
+    List<Car> selectCarsByMoveCount(int moveCount);
+    List<Car> selectAllCars();
 }
