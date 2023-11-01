@@ -72,7 +72,6 @@ public class Application {
 
         for (int i = 0; i < arrayCarNames.length; i++) {
             if (arrayCarNames[i].length() > 5 || arrayCarNames[i].length() == 0) return false;
-            System.out.println(arrayCarNames[i].length());
         }
 
         Set<String> set = new HashSet<>();
