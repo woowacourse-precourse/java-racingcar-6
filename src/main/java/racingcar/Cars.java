@@ -9,6 +9,7 @@ public class Cars {
     private static final String INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String DELIMITER = ",";
     private static final String LENGTH_EXCEPTION = "자동차 이름은 5자 이하만 가능하다.";
+    private static final String NON_NUMBER_EXCEPTION = "자동차 이름에는 숫자가 포함될 수 없습니다.";
     private static final int NAME_LENGTH = 5;
     private final List<Car> cars = new ArrayList<>();
 
@@ -18,19 +19,33 @@ public class Cars {
             if (isValidCarNameLength(carName)) {
                 Car car = new Car(carName);
                 cars.add(car);
-            } else {
-                System.out.println(LENGTH_EXCEPTION);
             }
         }
     }
 
     private static String[] inputCarNames() {
         System.out.println(INPUT_CAR_NAMES);
-        return Console.readLine().split(DELIMITER);
+        String input = Console.readLine();
+        if (isContainsDigit(input)) {
+            throw new IllegalArgumentException(NON_NUMBER_EXCEPTION);
+        }
+        return input.split(DELIMITER);
+    }
+
+    private static boolean isContainsDigit(String str) {
+        for (char c : str.toCharArray()) {
+            if (Character.isDigit(c)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static boolean isValidCarNameLength(String carName) {
-        return carName.length() <= NAME_LENGTH;
+        if (carName.length() >= NAME_LENGTH) {
+            throw new IllegalArgumentException(LENGTH_EXCEPTION);
+        }
+        return true;
     }
 
     public void move() {
