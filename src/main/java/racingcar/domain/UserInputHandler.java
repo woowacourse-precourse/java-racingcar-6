@@ -12,8 +12,10 @@ public class UserInputHandler {
         String nameString = Console.readLine();
         InputValidator.validateNull(nameString);
 
-        List<String> carNames = StringGenerator.generateCarName(nameString, ",");
+        String trimmedString = nameString.replaceAll("\\s", "");
+        List<String> carNames = StringGenerator.generateCarName(trimmedString, ",");
         for (String carName: carNames) {
+            InputValidator.validateBlank(carName);
             InputValidator.validateLength(carName, 5);
         }
         return carNames;

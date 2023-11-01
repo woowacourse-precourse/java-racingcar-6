@@ -13,6 +13,12 @@ public class InputValidator {
         }
     }
 
+    public static void validateBlank(String input) {
+        if(input.equals("") || input.isBlank()){
+            throw new IllegalArgumentException("입력값이 공백입니다.");
+        }
+    }
+
     public static void validateNumber(String input){
         try{
             Integer.parseInt(input);
