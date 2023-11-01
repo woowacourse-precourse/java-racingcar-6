@@ -54,7 +54,7 @@
 ### 상수 및 문자열 관리
 
 ---
-1. Class ExceptionString : 각종 에러에 대하여 static String으로 관리한다.
+1. Class InputException : 각종 에러에 대하여 static String으로 관리한다.
 2. Class ConstantNumber : 각종 상수를 관리한다.
    1. MAX_NAME_LENGTH = 5 : 최대 이름 길이를 관리한다. 만약 초과한다면 예외 처리를 한다.
    2. STEP_PERCENTAGE = 4 : 하나의 시도에 전진할 확률을 설정한다. 0~9까지 하나씩 오를수록 대략 10%씩 확률이 감소한다.

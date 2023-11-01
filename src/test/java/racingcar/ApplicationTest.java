@@ -44,7 +44,7 @@ class ApplicationTest extends NsTest {
         String name = "Kim, ,Lee";
         assertThatThrownBy(() -> {RacingGame rg = new RacingGame(name);})
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ExceptionString.BLANK_NAME);
+                .hasMessageContaining(InputException.BLANK_NAME);
     }
 
     @Test
@@ -61,7 +61,6 @@ class ApplicationTest extends NsTest {
         rg.playGame(1);
         assertThat(output()).contains("Kim : ", "최종 우승자 : Kim");
     }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
