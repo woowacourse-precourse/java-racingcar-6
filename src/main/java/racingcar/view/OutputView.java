@@ -3,6 +3,8 @@ package racingcar.view;
 import static racingcar.messages.ViewMessage.MOVEMENT;
 import static racingcar.messages.ViewMessage.OUTPUT_CAR_RESULT;
 import static racingcar.messages.ViewMessage.OUTPUT_RESULT;
+import static racingcar.messages.ViewMessage.OUTPUT_WINNERS;
+import static racingcar.messages.ViewMessage.SEPARATOR;
 
 import java.util.List;
 import racingcar.dto.Car;
@@ -28,5 +30,10 @@ public class OutputView {
         for (Car car : cars) {
             System.out.printf(OUTPUT_CAR_RESULT, car.getName(), MOVEMENT.repeat(car.getMoveCount()));
         }
+        System.out.println();
+    }
+
+    public void printWinners(List<String> winnerNames) {
+        System.out.printf(OUTPUT_WINNERS, String.join(SEPARATOR, winnerNames));
     }
 }
