@@ -7,6 +7,8 @@ import racingcar.model.Car;
 public class OutputView {
 
     public static void printEachForwardResult(List<Car> cars) {
+        System.out.println();
+        System.out.println("실행 결과");
         for(Car car: cars) {
             System.out.println(getCarStatus(car));
         }
