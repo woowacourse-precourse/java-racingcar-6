@@ -4,6 +4,17 @@ import java.util.List;
 
 public class ValidateCarName {
 
+    public static List<String> validateInputValue(String InputCarName) {
+
+        List<String> carNameList = splitCarName(InputCarName);
+
+        for (String carName : carNameList) {
+            IsUnderFive(carName);
+        }
+
+        return carNameList;
+    }
+
     private static List<String> splitCarName(String InputCarName) {
 
         List<String> carNameList;
