@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.views.InputView;
 import racingcar.views.OutputView;
 
 import java.util.ArrayList;
@@ -32,7 +33,18 @@ public class Game {
         return cars;
     }
 
+    private void getMoveCount() {
+        try {
+            OutputView.printTrialCountInstruction();
+            String userInput = InputView.readUserInput();
+        } catch (IllegalArgumentException exception) {
+            OutputView.printErrorMessage(exception);
+            getMoveCount();
+        }
+    }
+
     public void run() {
         inputCarName();
+        getMoveCount();
     }
 }
