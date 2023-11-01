@@ -15,6 +15,10 @@ public class GameView {
     static final String RESULT_PHRASE = "\n실행 결과";
     static final String WINNER_PHRASE = "최종 우승자";
 
+    private GameView(){
+
+    }
+
     public static void printCarNameInputPhrase() {
         System.out.println(CAR_NAME_INPUT_PHRASE);
     }

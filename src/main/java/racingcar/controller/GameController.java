@@ -7,7 +7,6 @@ import racingcar.view.GameView;
 
 public class GameController {
     private Game game = new Game();
-    private GameView gameView = new GameView();
     private GameException gameException = new GameException();
 
     public void startGame() {
@@ -18,7 +17,7 @@ public class GameController {
     }
 
     public void requestInputCarNames() {
-        gameView.printCarNameInputPhrase();
+        GameView.printCarNameInputPhrase();
         generateCar(splitInput(Console.readLine(), game.getDELIMITER()));
     }
     public String[] splitInput(String input, String delimiter) {
@@ -33,19 +32,19 @@ public class GameController {
     }
 
     public void requestInputTry() {
-        gameView.printTryNumPhrase();
+        GameView.printTryNumPhrase();
         game.setUserTry(gameException.checkInput(Console.readLine()));
     }
 
     public void requestPrintResult() {
-        gameView.printResultPhrase();
+        GameView.printResultPhrase();
         for (int i = 0; i < game.getUserTry(); i++) {
             game.moveCars();
-            gameView.printCarResult(game);
+            GameView.printCarResult(game);
         }
     }
 
     public void requestPrintWinner() {
-        gameView.printWinner(game.getWinnerList());
+        GameView.printWinner(game.getWinnerList());
     }
 }

@@ -93,8 +93,7 @@ public class MyTest extends NsTest {
         ByteArrayOutputStream output= new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        GameView gameView = new GameView();
-        gameView.printWinner(game.getWinnerList());
+        GameView.printWinner(game.getWinnerList());
 
         assertThat(output.toString()).isEqualTo("최종 우승자 : carName1");
 
@@ -114,8 +113,7 @@ public class MyTest extends NsTest {
         ByteArrayOutputStream output= new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        GameView gameView = new GameView();
-        gameView.printWinner(game.getWinnerList());
+        GameView.printWinner(game.getWinnerList());
 
         assertThat(output.toString()).isEqualTo("최종 우승자 : carName1, carName2");
     }
