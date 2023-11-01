@@ -28,7 +28,7 @@ public class RacingGameTest {
         racingGame.createCars(answer);
         Field cars = racingGame.getClass().getDeclaredField("cars");
         cars.setAccessible(true);
-        ArrayList<Car> carNames= (ArrayList<Car>)cars.get(racingGame);
+        ArrayList<Car> carNames= (ArrayList<Car>) cars.get(racingGame);
         for (int carNumber = 0; carNumber < 3; carNumber++) {
             result[carNumber] = carNames.get(carNumber).getName();
         }
@@ -47,7 +47,7 @@ public class RacingGameTest {
     }
 
     @Test
-    void canMoveCars() throws NoSuchFieldException {
+    void canMoveCars() {
         RacingGameUtils racingGameUtils = new RacingGameUtils();
         Car car = new Car("car1");
         racingGameUtils.moveCar(car, 8);
@@ -60,7 +60,7 @@ public class RacingGameTest {
     void canGetCurrentStatus() throws NoSuchFieldException, IllegalAccessException {
         RacingGame racingGame = new RacingGame();
         RacingGameUtils racingGameUtils = new RacingGameUtils();
-        LinkedHashMap<String, Integer> answer = new LinkedHashMap<String, Integer>();
+        LinkedHashMap<String, Integer> answer = new LinkedHashMap<>();
         String[] carNames = {"car1", "car2", "car3"};
         racingGame.createCars(carNames);
         Field cars = racingGame.getClass().getDeclaredField("cars");
@@ -73,10 +73,10 @@ public class RacingGameTest {
             racingGameUtils.moveCar(carSet.get(0), 9);
         }
         for(int moveTimes = 0; moveTimes < 5; moveTimes++) {
-            racingGameUtils.moveCar((Car) carSet.get(1), 9);
+            racingGameUtils.moveCar(carSet.get(1), 9);
         }
         for(int moveTimes = 0; moveTimes < 2; moveTimes++) {
-            racingGameUtils.moveCar((Car) carSet.get(2), 9);
+            racingGameUtils.moveCar(carSet.get(2), 9);
         }
         assertEquals(answer, racingGame.getCurrentStatus());
     }
@@ -95,10 +95,10 @@ public class RacingGameTest {
             racingGameUtils.moveCar(carSet.get(0), 9);
         }
         for(int moveTimes = 0; moveTimes < 5; moveTimes++) {
-            racingGameUtils.moveCar((Car) carSet.get(1), 9);
+            racingGameUtils.moveCar(carSet.get(1), 9);
         }
         for(int moveTimes = 0; moveTimes < 2; moveTimes++) {
-            racingGameUtils.moveCar((Car) carSet.get(2), 9);
+            racingGameUtils.moveCar(carSet.get(2), 9);
         }
         assertEquals(answer,racingGame.getWinner());
     }

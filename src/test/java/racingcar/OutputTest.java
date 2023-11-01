@@ -48,7 +48,7 @@ public class OutputTest {
 
     @Test
     void printRacingMapTest() {
-        LinkedHashMap racingMap = new LinkedHashMap<String, Integer>();
+        LinkedHashMap<String, Integer> racingMap = new LinkedHashMap<>();
         racingMap.put("car1", 3);
         racingMap.put("car2", 5);
         racingMap.put("car3", 1);
