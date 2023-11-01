@@ -6,11 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCar {
-
     private RaceOfficial raceOfficial;
     private User user;
     private List<Driver> drivers;
-    int roundCount;
+    private int roundCount;
 
     public void init() {
         raceOfficial = new RaceOfficial();
@@ -67,5 +66,4 @@ public class RacingCar {
     private void announceWinners() {
         raceOfficial.announceWinners(drivers);
     }
-
 }

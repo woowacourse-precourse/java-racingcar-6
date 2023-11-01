@@ -9,7 +9,6 @@ import java.util.List;
 import racingcar.utils.StringChanger;
 
 public class OutputViewer {
-
     private OutputViewer() {
     }
 
@@ -27,7 +26,6 @@ public class OutputViewer {
 
     public static void printMovedDistanceOfCar(String carName, int movedDistance) {
         String roadPassed = NOTATION_OF_DISTANCE.repeat(movedDistance);
-
         System.out.println(carName + SPLITTER_BETWEEN_NAME_AND_DISTANCE + roadPassed);
     }
 
@@ -37,11 +35,9 @@ public class OutputViewer {
 
     public static void printWinners(List<String> winners) {
         StringBuilder stringBuilder = new StringBuilder("최종 우승자 : ");
-
         for (String winner : winners) {
             stringBuilder.append(winner).append(SPLITTER_OF_WINNERS);
         }
-
         System.out.println(StringChanger.cutLastRegex(stringBuilder, SPLITTER_OF_WINNERS));
     }
 }

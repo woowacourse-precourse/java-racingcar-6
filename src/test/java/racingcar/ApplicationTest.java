@@ -32,7 +32,6 @@ import racingcar.utils.RandomNumbers;
 import racingcar.views.OutputViewer;
 
 class ApplicationTest extends NsTest {
-
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(

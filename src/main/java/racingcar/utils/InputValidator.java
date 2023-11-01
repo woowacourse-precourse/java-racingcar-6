@@ -53,5 +53,4 @@ public class InputValidator {
     private static void raiseIllegalArgumentException(String errorMessage) {
         throw new IllegalArgumentException(errorMessage);
     }
-
 }

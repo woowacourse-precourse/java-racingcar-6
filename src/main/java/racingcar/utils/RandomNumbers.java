@@ -10,9 +10,6 @@ public class RandomNumbers {
     }
 
     public static int generateZeroToNineDigit() {
-        return Randoms.pickNumberInRange(
-                LOWER_LIMIT_OF_DIGIT, UPPER_LIMIT_OF_DIGIT
-        );
+        return Randoms.pickNumberInRange(LOWER_LIMIT_OF_DIGIT, UPPER_LIMIT_OF_DIGIT);
     }
-
 }

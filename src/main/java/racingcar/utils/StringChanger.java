@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StringChanger {
-
     private StringChanger() {
     }
 
@@ -28,8 +27,6 @@ public class StringChanger {
 
     public static String cutLastRegex(StringBuilder stringBuilder, String regex) {
         int cutLength = stringBuilder.length() - regex.length();
-
         return stringBuilder.substring(START_OF_STRING, cutLength);
     }
-
 }

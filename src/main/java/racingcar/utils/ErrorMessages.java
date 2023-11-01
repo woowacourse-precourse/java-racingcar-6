@@ -7,7 +7,6 @@ import static racingcar.utils.Constants.MIN_NUMBER_OF_ROUNDS;
 import static racingcar.utils.Constants.SPLITTER_OF_NAMES;
 
 public class ErrorMessages {
-
     private ErrorMessages() {
     }
 
@@ -18,5 +17,4 @@ public class ErrorMessages {
                     + "(각 이름은 쉼표(" + SPLITTER_OF_NAMES + ")로 구분해야합니다.)";
     public static final String NOT_POSITIVE_INTEGER_MESSAGE = "음수가 아닌 숫자를 입력하세요.(숫자 사이 공백 불가)";
     public static final String NOT_NATURAL_NUMBER_MESSAGE = "시도 횟수는 " + MIN_NUMBER_OF_ROUNDS + "이상인 자연수를 입력해야합니다.";
-
 }

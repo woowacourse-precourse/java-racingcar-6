@@ -65,5 +65,4 @@ public class RaceOfficial {
     public List<String> showWinnerList() {
         return scoreBoard.getWinners();
     }
-
 }

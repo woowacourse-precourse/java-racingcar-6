@@ -28,7 +28,6 @@ public class Driver {
 
     private boolean canMove() {
         int randomNumber = requestRandomNumber();
-
         return randomNumber >= MOVING_FORWARD;
     }
 
