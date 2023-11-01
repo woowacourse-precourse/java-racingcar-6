@@ -30,7 +30,12 @@ public class Car {
     }
 
     public void printPosition() {
-        System.out.println(this.name + " : " + this.position);
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.name).append(" : ");
+        for (int i = 0; i < this.position; i++) {
+            sb.append("-");
+        }
+        System.out.println(sb);
     }
 
 }
