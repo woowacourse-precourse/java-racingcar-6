@@ -38,4 +38,17 @@ class CarsTest {
         // then
         Assertions.assertThat(carsWithHighestDistance).contains(car1,car2);
     }
+
+    @Test
+    void 이동거리가_가장_높은_자동자_목록을_반환한다_빈리스트_반환() {
+        // given
+        List<Car> carList = new ArrayList<>();
+        Cars cars = new Cars(carList);
+
+        // when
+        List<Car> carsWithHighestDistance = cars.getCarsWithHighestDistance();
+
+        // then
+        Assertions.assertThat(carsWithHighestDistance).isEmpty();
+    }
 }
