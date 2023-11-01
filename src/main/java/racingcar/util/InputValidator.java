@@ -26,7 +26,7 @@ public class InputValidator {
 
     public void validateNumberOfAttempt(String playerInput) {
         if (!isNumeric(playerInput)) {
-            throw new IllegalArgumentException(WRONG_NUMBER_OF_ATTEMPT_MESSAGE.get());
+            throwException(WRONG_NUMBER_OF_ATTEMPT_MESSAGE.get());
         }
     }
 
@@ -38,7 +38,7 @@ public class InputValidator {
 
     private void validateCarNameLength(List<String> carNames) {
         if (!carNames.stream().allMatch(this::isCarNameLengthValid)) {
-            throwIllegalArgumentException(WRONG_CAR_NAME_LENGTH_MESSAGE.get());
+            throwException(WRONG_CAR_NAME_LENGTH_MESSAGE.get());
         }
     }
 
@@ -49,13 +49,13 @@ public class InputValidator {
 
     private void validateDuplicateCarNames(List<String> carNames) {
         if (carNames.size() != carNames.stream().distinct().count()) {
-            throwIllegalArgumentException(DUPLICATION_CAR_NAME_MESSAGE.get());
+            throwException(DUPLICATION_CAR_NAME_MESSAGE.get());
         }
     }
 
     private void validateCarTypesCount(List<String> carNames) {
         if (carNames.size() < MIN_NUMBER_TYPES_CAR.get()) {
-            throwIllegalArgumentException(WRONG_CAR_TYPES_MESSAGE.get());
+            throwException(WRONG_CAR_TYPES_MESSAGE.get());
         }
     }
 
@@ -63,7 +63,7 @@ public class InputValidator {
         return numericPattern.matcher(playerInput).matches();
     }
 
-    private void throwIllegalArgumentException(String errorMessage) {
+    private void throwException(String errorMessage) {
         throw new IllegalArgumentException(errorMessage);
     }
 }
