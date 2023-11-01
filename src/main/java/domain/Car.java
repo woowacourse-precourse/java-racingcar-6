@@ -1,8 +1,10 @@
 package domain;
 
+import constant.ExceptionMessage;
+
 public class Car implements Comparable<Car>{
+    public static final int MAXIMUM_NAME_LENGTH = 5;
     private static final int INITIAL_POSITION = 0;
-    private static final int MAXIMUM_NAME_LENGTH = 5;
 
     private final String name;
     private int position;
@@ -19,7 +21,7 @@ public class Car implements Comparable<Car>{
 
     private void validateName(String name) {
         if (name.length() > MAXIMUM_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessage.NAME_LENGTH_EXCEEDED.getMessage());
         }
     }
 

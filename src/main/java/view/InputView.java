@@ -1,5 +1,7 @@
 package view;
 
+import constant.ExceptionMessage;
+
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -17,7 +19,7 @@ public class InputView {
         try {
             return Integer.parseInt(input);
         } catch (Exception exception) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessage.INCORRECT_NUMBER_INPUT.getMessage());
         }
     }
 }

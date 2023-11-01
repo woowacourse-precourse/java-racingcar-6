@@ -1,5 +1,7 @@
 package domain;
 
+import constant.ExceptionMessage;
+
 public class RemainingRound {
     private int round;
 
@@ -10,7 +12,7 @@ public class RemainingRound {
 
     private void validateRound(int round) {
         if (round <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessage.NEGATIVE_NUMBER_INPUT.getMessage());
         }
     }
 
