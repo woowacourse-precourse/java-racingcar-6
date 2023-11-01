@@ -1,12 +1,15 @@
 package racingcar;
 
 public class Car {
+    private static final int ZERO = 0;
+    private static final int ONE = 1;
+
     private String name;
     private int position;
 
     Car(String name) {
         this.name = name;
-        this.position = 0;
+        this.position = ZERO;
     }
 
     public String getName() {
@@ -27,7 +30,7 @@ public class Car {
 
     private String createPosition() {
         String line = "";
-        for (int move = 1; move <= position; move++) {
+        for (int move = ONE; move <= position; move++) {
             line += "-";
         }
         return line;

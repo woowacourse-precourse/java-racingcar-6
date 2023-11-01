@@ -5,8 +5,12 @@ import java.util.*;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Cars {
+    private final static String COMMA = ",";
+    private final static String WINNER_COMMA = ", ";
     private final static String RESULT_MESSAGE = "실행 결과";
     private final static String WINNER_MESSAGE = "최종 우승자 : ";
+    private final static int MAX_LENGTH = 5;
+    private final static int ZERO = 0;
 
     private List<Car> list;
 
@@ -15,7 +19,7 @@ public class Cars {
     }
 
     private List<Car> splitCarName(String input) {
-        List<String> names = Arrays.stream(input.split(","))
+        List<String> names = Arrays.stream(input.split(COMMA))
                 .map(String::trim)
                 .toList();
         checkValid(names);
@@ -56,11 +60,11 @@ public class Cars {
     }
 
     private boolean isOverMaxLength(String name) {
-        return name.length() > 5;
+        return name.length() > MAX_LENGTH;
     }
 
     private boolean isBlank(String name) {
-        return name.length() == 0;
+        return name.length() == ZERO;
     }
 
     public void moveCars() {
@@ -94,11 +98,11 @@ public class Cars {
     public String createWinner() {
         int position = findFrontPosition();
         List<String> winner = findWinnerName(position);
-        return String.join(", ", winner);
+        return String.join(WINNER_COMMA, winner);
     }
 
     private int findFrontPosition() {
-        int position = 0;
+        int position = ZERO;
         for (Car car : list) {
             if (position < car.getPosition()) {
                 position = car.getPosition();

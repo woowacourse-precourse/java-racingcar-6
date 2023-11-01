@@ -1,6 +1,9 @@
 package racingcar;
 
 public class Time {
+    private final static int ZERO = 0;
+    private static final int ONE = 1;
+
     private int count;
 
     public void inputTime(String input) {
@@ -25,11 +28,11 @@ public class Time {
     }
 
     private boolean isNaturalNumber(int number) {
-        return number > 0;
+        return number > ZERO;
     }
 
     public void moveCarsByTime(Cars cars) {
-        for (int time = 1; time <= count; time++) {
+        for (int time = ONE; time <= count; time++) {
             cars.moveCars();
             cars.printResult();
         }
