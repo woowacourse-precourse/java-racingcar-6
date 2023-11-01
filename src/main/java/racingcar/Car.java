@@ -1,6 +1,9 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
+
     private final String name;
     private int position =0;
 
@@ -17,6 +20,11 @@ public class Car {
     }
     public int getPosition() {
         return position;
+    }
+
+    public int pickRandomNumber(){
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber;
     }
 
     public void validateNull(String str){
