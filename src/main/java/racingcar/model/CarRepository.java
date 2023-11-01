@@ -1,16 +1,12 @@
 package racingcar.model;
 
-import java.util.List;
-
 public class CarRepository {
-    private List<Car> cars;
+    private CarCollection carCollection;
 
-    public void saveAll(List<Car> cars) {
-        this.cars = cars;
+    public void saveAll(CarCollection carCollection) {
+        this.carCollection = carCollection;
     }
 
-    public List<Car> findAll() {
-        return cars;
-    }
+    public CarCollection findAll() { return carCollection; }
 }
 

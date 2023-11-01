@@ -9,7 +9,4 @@ public class StringParser {
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
 
-    public static int toInteger(String input) {
-        return Integer.parseInt(input);
-    }
 }

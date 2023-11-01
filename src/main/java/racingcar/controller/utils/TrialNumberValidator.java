@@ -6,13 +6,13 @@ public class TrialNumberValidator {
         checkIsNumber(input);
     }
 
-    private void checkIsEmpty(String input) {
+    public void checkIsEmpty(String input) {
         if(input.isEmpty()){
             throw new IllegalArgumentException("값을 입력하세요");
         }
     }
 
-    private void checkIsNumber(String input) {
+    public void checkIsNumber(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {

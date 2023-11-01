@@ -16,23 +16,23 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
-    public void saveAllCars(List<Car> cars) {
+    public void saveAllCars(CarCollection cars) {
         carRepository.saveAll(cars);
     }
 
-    public List<Car> getAllCars() {
+    public CarCollection getAllCars() {
         return carRepository.findAll();
     }
 
     public void moveCars() {
-        List<Car> cars = getAllCars();
+        CarCollection carCollection = getAllCars();
 
-        for (Car car : cars) {
+        for (Car car : carCollection.getCars()) {
             moveIfSatisfyCondition(car);
         }
     }
 
-    private void moveIfSatisfyCondition(Car car) {
+    public void moveIfSatisfyCondition(Car car) {
         if (FORWARD_CONDITION <= getRandomNumber()) {
             car.moveForward();
         }
@@ -43,18 +43,18 @@ public class CarService {
     }
 
     public List<String> getCarNameHasLongestDistance() {
-        List<Car> cars = getAllCars();
+        CarCollection carCollection = getAllCars();
         List<String> winnerName = new ArrayList<>();
         int longestDistance = MIN_DISTANCE;
 
-        for (Car car : cars) {
+        for (Car car : carCollection.getCars()) {
             int currentLocation = car.getCurrentLocation();
             longestDistance = getLongestDistance(winnerName, longestDistance, car, currentLocation);
         }
         return winnerName;
     }
 
-    private int getLongestDistance(List<String> winnerName, int longestDistance, Car car, int currentLocation) {
+    public int getLongestDistance(List<String> winnerName, int longestDistance, Car car, int currentLocation) {
         if (currentLocation > longestDistance) {
             longestDistance = currentLocation;
             winnerName.clear();

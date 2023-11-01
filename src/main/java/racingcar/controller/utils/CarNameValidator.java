@@ -16,20 +16,20 @@ public class CarNameValidator {
         checkHasOverlap(carNames);
     }
 
-    private void checkIsEmpty(String input) {
+    public void checkIsEmpty(String input) {
         if(input.isEmpty()){
             throw new IllegalArgumentException("값을 입력하세요");
         }
     }
 
-    private void checkIsValidCarNameLength(List<String> carNames){
+    public void checkIsValidCarNameLength(List<String> carNames){
         for (String carName : carNames){
             throwExceptionIfTooLongLength(carName);
             throwExceptionIfTooShortLength(carName);
         }
     }
 
-    private void throwExceptionIfTooShortLength(String carName) {
+    public void throwExceptionIfTooShortLength(String carName) {
         if (CAR_NAME_MIN_LENGTH > carName.length()){
             throw new IllegalArgumentException("자동차의 이름은 1글자 이상이어야 합니다.");
         }

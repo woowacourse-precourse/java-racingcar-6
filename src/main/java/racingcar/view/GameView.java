@@ -40,10 +40,9 @@ public class GameView {
         }
     }
 
-    private static void AddCommaIfSharedVictory(int i) {
+    public static void AddCommaIfSharedVictory(int i) {
         if (i > 0) {
             System.out.print(", ");
         }
     }
-
 }
