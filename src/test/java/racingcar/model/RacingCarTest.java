@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 class RacingCarTest extends NsTest {
 
     private static final int MOVING_FORWARD = 4;
+    private static final int STAY = 3;
 
     @Test
     void 자동차의_이름은_공백포함_5자이하여야_한다() {
@@ -28,6 +29,17 @@ class RacingCarTest extends NsTest {
                 },MOVING_FORWARD
         );
         assertThat(car.getLocation()).isEqualTo(1);
+    }
+
+    @Test
+    void 생성된_랜덤값에_따라_자동차를_정지시킬_수_있다() {
+        RacingCar car = new RacingCar("car1");
+        assertRandomNumberInRangeTest(
+                () -> {
+                    car.moveOrStay();
+                },STAY
+        );
+        assertThat(car.getLocation()).isEqualTo(0);
     }
 
     @Override
