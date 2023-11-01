@@ -50,4 +50,25 @@ class UserTest {
         assertThat(carList).isEqualTo(expectedList);
     }
 
+    @Test
+    void 이름이_공백으로만_존재() {
+        User user = new User();
+        List<Car> carList = user.getCarList("pobi,woni,   ,jun,honi");
+        List<Car> expectedList = new ArrayList<>();
+        expectedList.add(new Car("pobi", 0));
+        expectedList.add(new Car("woni", 0));
+        expectedList.add(new Car("jun", 0));
+        expectedList.add(new Car("honi", 0));
+
+        assertThat(carList).isEqualTo(expectedList);
+    }
+
+    @Test
+    void 자동차_리스트가_빈_경우() {
+        User user = new User();
+        assertThatThrownBy(() -> user.getCarList(",  ,  ,,"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("적절한 이름이 존재하지 않음");
+    }
+
 }
