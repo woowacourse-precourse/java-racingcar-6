@@ -36,7 +36,7 @@
 │           ├── domain
 │           │   └── Car.java
 │           ├── dto
-│           │   └── GameSettingDto.java
+│           │   └── InitDto.java
 │           ├── exception
 │           │   ├── InvalidValueException.java
 │           │   └── LengthExceedException.java
@@ -46,6 +46,8 @@
 │           ├── service
 │           │   ├── InputService.java
 │           │   ├── InputServiceImpl.java
+│           │   ├── NumberGenerateService.java
+│           │   ├── NumberGenerateServiceImpl.java
 │           │   ├── RacingService.java
 │           │   └── RacingServiceImpl.java
 │           ├── validate
@@ -57,7 +59,10 @@
     └── java
         ├── racingcar
         │   ├── ApplicationTest.java
-        │   └── CustomTest.java
+        │   ├── CarRepositoryTest.java
+        │   ├── RacingServiceTest.java
+        │   ├── TotalTest.java
+        │   └── ValidateTest.java
         └── study
             └── StringTest.java
 ```
