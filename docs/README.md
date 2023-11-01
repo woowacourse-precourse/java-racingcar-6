@@ -48,8 +48,7 @@
     │   └── Car.java
     └── utility
         ├── Reader.java
-        ├── Writer.java
-        └── MovementComparator.java
+        └── Writer.java
 ```
 
 1. <b>Application</b><br>
@@ -81,3 +80,42 @@
 1. 자동차 이름은 쉼표로 구분되며 한 이름은 1자 이상 5자 이하이다.<br><br>
 2. 자동차 이름은 서로 다르다.<br><br>
 3. 시도할 회수(이동 회수)는 음이 아닌 정수이다.<br><br>
+
+## 📑 로그
+1. **첫 번째 구현 (2023.10.30)** <br><br>
+   1. 프로젝트 <b>구조</b> 설계 시 고려한 부분 <br>
+      ✦ <b>계층형 아키텍쳐</b> (Layered Architecture)를 사용하였다. <br>
+      ✦ 직접 찾아보고 판단한 <b>장점</b>은 아래와 같다.<br>
+        - 각 계층간 책임이 분명하므로 기능별로 코드를 분리할 수 있다. 코드의 가독성, 확장성, 재사용성을 높인다.
+        - 기능별(presentation, application, domain)로 테스트 코드를 작성할 수 있다.
+        - 각 계층은 같거나 아래의 계층에만 의존한다. 테스트 코드를 작성할 때 의존 관계 설정을 직관적으로 할 수 있다. 
+          예를 들어, 서비스 코드(application 계층) 테스트를 위해 필요한 의존 설정은 레포지토리 설정이다.<br><br>
+   2. 1주차 미션보다 <b>개선</b>된 부분 <br>
+      ✦ <b>MVC 패턴</b>을 사용하였다. <br>
+      ✦ Controller가 View와 Model을 잇고 프로그램을 제어한다. 특히 View와 Application의 main 메서드 간의 역할 분리를 분명히 하였다.<br>
+      ✦ 기능을 구현한 뒤 단위 테스트를 바로 진행하였다. <br>
+      ✦ 피어 리뷰를 통해 알게 된 ParameterizedTest, 일급 컬렉션을 도입하였다.<br><br>
+
+2. **두 번째 구현 (2023.10.31~2023.11.1)** <br><br>
+   1. <b>리팩토링</b> 중 집중한 부분<br>
+      ✦ utility, constants 패키지와 같이 코드를 분리해서 관리하여 재사용성과 가독성을 높였다.<br>
+         ➡️ 테스트코드를 작성하기 쉬워지는 이점도 얻을 수 있다.<br>
+      ✦ 메서드를 분리하여 메서드의 역할을 분명히 하였다.<br>
+         ```java
+        /* 리팩토링 커밋 중 하나를 예시로 가져왔습니다 */ 
+        // 기존
+         public CarNamesDto(String carNames) {
+           this.names = Arrays.asList(carNames.split(CAR_NAME_DELIMITER));
+           validateNameLength(names);
+         }
+      
+         // 리팩토링 후
+         public CarNamesDto(String carNames) {
+            this.names = parseNames(carNames);
+            validateNameLength(names);
+         }
+         private List<String> parseNames(String carNames) {
+           String[] names = carNames.split(CAR_NAME_DELIMITER);
+           // 생략
+         }
+         ```
