@@ -5,6 +5,7 @@ import racingcar.model.Car;
 import racingcar.repository.CarRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingService {
 
@@ -31,7 +32,22 @@ public class RacingService {
         return cars;
     }
 
+    public List<Car> decideWinner() {
+        List<Car> cars = carRepository.getCars();
+        int winningScore = getWinningScore(cars);
+        List<Car> winners = cars.stream().filter(car -> car.getMoveCount() == winningScore).collect(Collectors.toList());
+        return winners;
+    }
+
     private void createRacingCars(List<String> carNames) {
         carRepository.createCars(carNames);
+    }
+
+    private int getWinningScore(List<Car> cars) {
+        int winningScore = 0;
+        for (Car car : cars) {
+            winningScore = Math.max(winningScore,car.getMoveCount());
+        }
+        return winningScore;
     }
 }

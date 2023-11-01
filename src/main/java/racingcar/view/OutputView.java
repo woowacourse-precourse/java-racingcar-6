@@ -26,8 +26,9 @@ public class OutputView {
             printEachCar(car);
         }
         System.out.println();
-
-        // TODO: round 가 마지막이면, controller 의 '우승 출력' 함수로 요청
+        if (currentRound == totalRound) {
+            racingController.decideWinner();
+        }
     }
 
     private void printEachCar(Car car) {
