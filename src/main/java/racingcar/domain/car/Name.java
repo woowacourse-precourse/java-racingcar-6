@@ -16,9 +16,13 @@ public class Name {
     }
 
     private void validateNameLength(final String name) {
-        if (name.length() > MAX_NAME_LENGTH.getConstant()) {
+        if (isExceedMaxLength(name)) {
             throw new IllegalArgumentException(EXCEED_MAX_LENGTH_MESSAGE.getMessage());
         }
+    }
+
+    private boolean isExceedMaxLength(final String name) {
+        return name.length() > MAX_NAME_LENGTH.getConstant();
     }
 
     private void validateHasBlank(final String name) {
@@ -29,10 +33,6 @@ public class Name {
 
     private boolean hasBlank(final String name) {
         return name.chars().anyMatch(Character::isWhitespace);
-    }
-
-    public int length() {
-        return name.length();
     }
 
     public String getName() {
