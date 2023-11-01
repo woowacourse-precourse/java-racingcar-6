@@ -22,11 +22,8 @@ public class InputHandler {
     public int toInt(String inputAttempts) {
         validateNull(inputAttempts);
 
-        try {
-            return Integer.parseInt(inputAttempts);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(INVALID_NUMBER_INPUT);
-        }
+        int attempts = convertToInt(inputAttempts);
+        return attempts;
     }
 
     private void validateNull(String input) {
@@ -63,6 +60,14 @@ public class InputHandler {
         Set<String> uniqueNames = new HashSet<>(nameList);
         if (uniqueNames.size() != nameList.size()) {
             throw new IllegalArgumentException(DUPLICATE_NAME_NOT_ALLOWED);
+        }
+    }
+
+    private int convertToInt(String inputAttempts) {
+        try {
+            return Integer.parseInt(inputAttempts);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(INVALID_NUMBER_INPUT);
         }
     }
 }
