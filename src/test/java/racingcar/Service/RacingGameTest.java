@@ -20,4 +20,19 @@ public class RacingGameTest {
         assertThat(cars).extracting("name").contains("apple","banana","kiwi");
     }
 
+
+    @Test
+    void 최종_우승자를_선정한다(){
+
+        String input = "apple";
+        RacingGame rg = new RacingGame(input);
+        rg.racing();
+
+        List<String> validResult = new ArrayList<String>();
+        validResult.add("apple");
+        List<String> result = rg.findWinners();
+        assertThat(result).isEqualTo(validResult);
+
+    }
+
 }
