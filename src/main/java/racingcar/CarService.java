@@ -10,6 +10,9 @@ public class CarService {
 
     for (int i = 0; i < splitInput.size(); i++) {
       Car car = new Car(splitInput.get(i));
+      if (car.getName().length() > 5) {
+        throw new IllegalArgumentException();
+      }
       cars.add(car);
     }
 
