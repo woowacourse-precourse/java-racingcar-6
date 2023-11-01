@@ -26,8 +26,8 @@ public class Game {
     public void run() {
         alertEnterCarName();
         saveCarName();
-        alertEnterMoveNumber();
-        saveMoveNumber();
+        alertEnterTryNumber();
+        saveTryNumber();
         while (tryNumber > 0) {
             race();
             tryNumber--;
@@ -49,11 +49,11 @@ public class Game {
         carList = addCar(names);
     }
 
-    private void alertEnterMoveNumber() {
+    private void alertEnterTryNumber() {
         System.out.println(ALERT_ENTER_TRY_NUMBER);
     }
 
-    private void saveMoveNumber() {
+    private void saveTryNumber() {
         String readLine = Console.readLine();
         tryNumber = convertStringToInteger(readLine);
 
