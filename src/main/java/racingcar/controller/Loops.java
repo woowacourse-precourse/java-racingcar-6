@@ -1,29 +1,34 @@
 package racingcar.controller;
 
-
+import racingcar.model.Car;
 import racingcar.model.RacingData;
-
+import racingcar.view.RacingOutput;
 
 public class Loops {
 
-    CarMovingProcess carMovingProcess = new CarMovingProcess();
+    public void loops() {
 
-    public void racingLoop() {
+        Car car = Car.getInstance();
+        RacingData racingData = RacingData.getInstance();
+
+
+        RacingOutput racingOutput = new RacingOutput();
+        CarMovingProcess carMovingProcess = new CarMovingProcess();
+
+
+        int userSetLoopCount = racingData.getUserSetLoopTime();
+
 
         carMovingProcess.makingForwardCountList();
 
-        for (int i = 0; i < RacingData.getUserSetLoopTime(); i++) {
-            this.inRacingLoop();
 
+        for (int i = 0; i < userSetLoopCount; i++) {
+
+            carMovingProcess.upDateForwardCountList();
+            racingOutput.carRacing(racingData.getForwardPointList(),car.getPassedTestList());
         }
-    }
-
-    public void inRacingLoop(){
-
-        carMovingProcess.upDateForwardCountList();
-        carMovingProcess.carMovingView();
-        System.out.println();
 
     }
+
 
 }
