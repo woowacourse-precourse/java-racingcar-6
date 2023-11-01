@@ -7,6 +7,7 @@ import racingcar.utils.view.Messages;
 import racingcar.utils.view.Output;
 
 public class RacingGame {
+    public static final String WINNER_DELIMITER = ", ";
     private final Input input = new Input();
     private final Output output = new Output();
 
@@ -39,6 +40,6 @@ public class RacingGame {
 
     private void showWinner(Cars cars) {
         List<String> winnerNames = cars.getWinnerNames();
-        output.printMessageLine(Messages.WINNER.getMessage() + String.join(", ", winnerNames));
+        output.printMessageLine(Messages.WINNER.getMessage() + String.join(WINNER_DELIMITER, winnerNames));
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MoveResults {
+    public static final String RESULT_SUFFIX = "\n";
     private final List<String> results;
 
     public MoveResults() {
@@ -15,6 +16,6 @@ public class MoveResults {
     }
 
     public String getMessage() {
-        return String.join("\n", results);
+        return String.join(RESULT_SUFFIX, results);
     }
 }

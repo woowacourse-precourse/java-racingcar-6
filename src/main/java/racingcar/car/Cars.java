@@ -8,10 +8,12 @@ import racingcar.game.MoveResults;
 import racingcar.utils.generator.RaceMoveNumberGenerator;
 
 public class Cars {
+    public static final String NAMES_SPLIT_DELIMITER = ",";
+
     private final List<Car> cars;
 
     public Cars(String carsName) {
-        String[] splitCarsName = carsName.split(",");
+        String[] splitCarsName = carsName.split(NAMES_SPLIT_DELIMITER);
         this.cars = Arrays.stream(splitCarsName)
                 .map(carName -> new Car(new CarName(carName), new Position(0)))
                 .toList();
@@ -39,21 +41,6 @@ public class Cars {
                 .get()
                 .getPosition();
     }
-
-    /*public List<String> getWinnerNames() {
-        int maxPosition = getMaxPosition();
-        return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .map(Car::getCarName)
-                .toList();
-    }
-
-    private int getMaxPosition() {
-        return cars.stream()
-                .max(Comparator.comparingInt(Car::getPosition))
-                .get()
-                .getPosition();
-    }*/
 
     @Override
     public boolean equals(Object o) {

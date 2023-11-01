@@ -3,6 +3,8 @@ package racingcar.car;
 import java.util.Objects;
 
 public class Car {
+    public static final String RESULT_MESSAGE_DELIMITER = " : ";
+
     private final CarName carName;
     private final Position position;
 
@@ -23,7 +25,7 @@ public class Car {
     }
 
     private String getMoveResult() {
-        return carName.getName() + " : " + position.getPositionText();
+        return carName.getName() + RESULT_MESSAGE_DELIMITER + position.getPositionText();
     }
 
     public Position getPosition() {

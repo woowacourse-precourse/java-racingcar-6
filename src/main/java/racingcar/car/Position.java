@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Position {
+    public static final String POSITION_REPLACE_TEXT = "-";
     private int position;
 
     public Position(int position) {
@@ -16,7 +17,7 @@ public class Position {
     }
 
     public String getPositionText() {
-        return Stream.generate(() -> "-")
+        return Stream.generate(() -> POSITION_REPLACE_TEXT)
                 .limit(position)
                 .collect(Collectors.joining());
     }
