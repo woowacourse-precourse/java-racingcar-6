@@ -4,17 +4,22 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class TestCode {
     ExceptionChecker exceptionChecker;
+    RacingCar racingCar;
 
     @BeforeEach
-    @DisplayName("예외처리 클래스 객체 생성")
+    @DisplayName("예외처리 및 racingCar 클래스 객체 생성")
     void setUp() {
         exceptionChecker = new ExceptionChecker();
+        racingCar = new RacingCar();
     }
 
     @Test
@@ -74,5 +79,17 @@ public class TestCode {
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining("입력한 회수가 음수이므로 프로그램을 종료합니다.")
         );
+    }
+
+    @Test
+    @DisplayName("최종 우승자 출력")
+    void 최종_우승자_출력() {
+        List<String> carNameList = Arrays.asList("pobi,woni,jun".split(",")); // "pobi" "woni" "jun" 세 가지 자동차 이름
+        List<Integer> endMovement = Arrays.asList("1", "3", "3") // 모든 회수 종료 후 pobi : 1칸, woni : 3칸, jun : 3칸 --> woni와 jun이 우승
+                .stream()
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+        racingCar.movementSoFar = endMovement;
+        assertThat("최종 우승자 : woni, jun").isEqualTo(racingCar.printFinalWinner(endMovement, carNameList));
     }
 }
