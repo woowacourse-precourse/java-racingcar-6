@@ -17,5 +17,8 @@ public class Application {
         System.out.println(getCountsMessage);
         int counts = getCounts();
 
+        System.out.println(printGamingMessage);
+
+
     }
 }
