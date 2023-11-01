@@ -18,10 +18,15 @@ public class Car {
     }
 
     public void move() {
-        if (GameUtil.shouldMove()) {
+        if (shouldMove()) {
             this.position++;
         }
     }
+
+    public static boolean shouldMove() {
+        return GameUtil.generateRandomNumber() >= 4;
+    }
+
 
     public String makeMoveResult() {
         StringBuilder result = new StringBuilder();
