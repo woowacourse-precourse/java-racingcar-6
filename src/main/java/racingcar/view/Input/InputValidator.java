@@ -2,6 +2,7 @@ package racingcar.view.Input;
 
 public class InputValidator {
     private final String NUMBER_REGX = "^[0-9]+$";
+    private final int MIN_TRIAL_NUMBER = 1;
 
         // [x] 쉼표가 연속해서 있을 경우 >> 정규 표현식 split(",+")
         // [x] 쉼표 사이에 공백이 있을 경우 >> replace(" ", "");
@@ -24,7 +25,7 @@ public class InputValidator {
         }
     }
     public void isPositiveOnly(String number) {
-        if (Integer.parseInt(number) < 0) {
+        if (Integer.parseInt(number) < MIN_TRIAL_NUMBER) {
             throw new IllegalArgumentException("1회 부터 입력 가능 합니다.");
         }
     }
