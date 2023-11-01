@@ -8,7 +8,8 @@ public class ResultList {
     public ResultList(List<String> resultList) {
         this.resultList = resultList;
     }
-    public List<String> getResultList(){
+
+    public List<String> getResultList() {
         return resultList;
     }
 }

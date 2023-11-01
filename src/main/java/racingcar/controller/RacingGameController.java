@@ -16,7 +16,8 @@ public class RacingGameController {
     private static ResultList resultList;
     private static Integer tryNumber;
     private static View view;
-    public void init(){
+
+    public void init() {
         view = new View();
 
         carNameList = new CarNameList(getCarString());
@@ -28,54 +29,61 @@ public class RacingGameController {
         resultList = new ResultList(getResultList());
 
         view.resultView();
-        for(int i=0; i<tryNumber; i++){
+        for (int i = 0; i < tryNumber; i++) {
             MovingCar();
         }
         getWinner();
     }
-    public void MovingCar(){
+
+    public void MovingCar() {
         List<String> result = resultList.getResultList();
-        for(int i=0; i<result.size(); i++){
+        for (int i = 0; i < result.size(); i++) {
             MovingForward(i, result);
         }
         view.resultViewperIter(carNameList.getCarNameList(), resultList.getResultList());
     }
-    public void MovingForward(int idx, List<String> result){
-        if(Randoms.pickNumberInRange(0,9) >= 4){
-            result.set(idx, result.get(idx)+"-");
+
+    public void MovingForward(int idx, List<String> result) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            result.set(idx, result.get(idx) + "-");
         }
     }
-    public String[] getCarString(){
+
+    public String[] getCarString() {
         view.initView();
         String carName = Console.readLine();
         return carName.split(",");
     }
-    public Integer getTryNumber(){
+
+    public Integer getTryNumber() {
         view.tryNumberView();
         Integer inputNumber = parseInt(Console.readLine());
         return inputNumber;
     }
-    public List<String> getResultList(){
+
+    public List<String> getResultList() {
         List<String> resultList = new ArrayList<>();
-        for(int i=0; i< carNameList.getCarCount(); i++){
+        for (int i = 0; i < carNameList.getCarCount(); i++) {
             resultList.add("");
         }
         return resultList;
     }
-    public void getWinner(){
+
+    public void getWinner() {
         int checkWinner = getMaxForward();
         List<String> result = resultList.getResultList();
         List<String> winners = new ArrayList<>();
-        for(int i=0; i<result.size(); i++){
-            if(result.get(i).length() == checkWinner){
+        for (int i = 0; i < result.size(); i++) {
+            if (result.get(i).length() == checkWinner) {
                 winners.add(carNameList.getCarNameList()[i]);
             }
         }
         view.winnerView(winners);
     }
-    public int getMaxForward(){
+
+    public int getMaxForward() {
         int maxNumber = 0;
-        for(String s : resultList.getResultList()){
+        for (String s : resultList.getResultList()) {
             maxNumber = max(maxNumber, s.length());
         }
         return maxNumber;
