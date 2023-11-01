@@ -48,13 +48,16 @@ class RapsResultTest {
     }
 
     @Test
-    void TestDetermineForward_() {
+    void testGenerateNumber_랜덤_숫자_생성_반환() {
 
+        int result = rapsResult.generateNumber();
 
-
+        assertTrue(result >= 0 && result <= 9);
     }
 
     @Test
     void forwardOrNot() {
+
+
     }
 }
