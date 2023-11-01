@@ -38,7 +38,7 @@ public class Validation {
 
     public int assertNonPositive(int input) {
         if (input <= 0) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+            throw new IllegalArgumentException("0이상의 자연수를 입력하세요.");
         }
         return input;
     }
