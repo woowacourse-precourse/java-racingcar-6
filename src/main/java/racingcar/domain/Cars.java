@@ -30,11 +30,14 @@ public record Cars(List<Car> cars) {
     }
 
     private int findMaxDistance() {
-        Optional<Car> findCar = cars.stream()
+        Optional<Car> findCar = sortByDescendingFromDistance();
+        return findCar.map(Car::getDistance).orElse(0);
+    }
+
+    private Optional<Car> sortByDescendingFromDistance() {
+        return cars.stream()
                 .max((Car c1, Car c2)
                         -> c1.getDistance() - c2.getDistance());
-
-        return findCar.map(Car::getDistance).orElse(0);
     }
 
     private void validateEmpty(List<Car> cars) {
