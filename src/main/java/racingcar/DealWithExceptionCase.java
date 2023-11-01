@@ -12,13 +12,13 @@ public class DealWithExceptionCase {
         RacingcarModel.duplicateInspection = new ArrayList<String>();
         for ( String name : String.valueOf(names).split(",")) {
             IsVoidInName(name);
-            IsNameAccurate(name);
+            LengthTest(name);
             IsNameDuplicate(name);
         }
         return names;
     }
 
-    public static void IsNameAccurate(String name) {
+    public static void LengthTest(String name) {
         if (name.length() > 5)
             throw new IllegalArgumentException();
     }
