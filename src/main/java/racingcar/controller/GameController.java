@@ -15,9 +15,6 @@ public class GameController {
     private List<Car> cars;
     private int rounds;
 
-    public GameController() {
-    }
-
     public static GameController getInstance() {
         return GameController.LazyHolder.INSTANCE;
     }

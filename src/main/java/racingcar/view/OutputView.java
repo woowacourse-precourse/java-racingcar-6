@@ -5,9 +5,6 @@ import racingcar.util.Constant;
 import racingcar.util.Message;
 
 public class OutputView {
-    public OutputView() {
-    }
-
     public static OutputView getInstance() {
 
         return LazyHolder.INSTANCE;

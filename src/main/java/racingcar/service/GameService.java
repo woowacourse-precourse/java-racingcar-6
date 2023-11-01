@@ -6,9 +6,6 @@ import racingcar.domain.Car;
 import racingcar.util.Constant;
 
 public class GameService {
-    public GameService() {
-    }
-
     public static GameService getInstance() {
         return GameService.LazyHolder.INSTANCE;
     }

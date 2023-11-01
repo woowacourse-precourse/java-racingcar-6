@@ -4,8 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.Validator;
 
 public class InputView {
-    public InputView() {
-    }
 
     public static InputView getInstance() {
         return LazyHolder.INSTANCE;
