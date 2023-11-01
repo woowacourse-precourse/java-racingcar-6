@@ -4,6 +4,12 @@ import java.util.List;
 
 public class InputValidator {
 
+    public static void validateCarCountForRace(int carCount) {
+        if (carCount == 1) {
+            throw new IllegalArgumentException(Message.ERROR_RACE_MINIMUM_CAR_MESSAGE.getMessage());
+        }
+    }
+
     public static void validateEmptyInput(String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException(Message.ERROR_EMPTY_CAR_NAME_MESSAGE.getMessage());
@@ -30,9 +36,9 @@ public class InputValidator {
         }
     }
 
-    public static void validateNegativeInput(int input) {
-        if (input < 0) {
-            throw new IllegalArgumentException(Message.ERROR_NON_NEGATIVE_MOVE_COUNT_MESSAGE.getMessage());
+    public static void validateMoveCountInput(int input) {
+        if (input <= 0) {
+            throw new IllegalArgumentException(Message.ERROR_INVALID_MOVE_COUNT_EXCEPTION.getMessage());
         }
     }
 }

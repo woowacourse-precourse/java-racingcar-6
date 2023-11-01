@@ -26,6 +26,7 @@ public class RacingCarService {
     }
 
     private void validateCarNames(List<String> carName) {
+        InputValidator.validateCarCountForRace(carName.size());
         for (String name : carName) {
             InputValidator.validateEmptyInput(name);
             InputValidator.validateInputLength(name);

@@ -10,6 +10,15 @@ import racingcar.utils.Message;
 public class InputValidatorTest extends NsTest {
 
     @Test
+    void 자동차_이름_1개만_입력_예외발생_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("woo"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage(Message.ERROR_RACE_MINIMUM_CAR_MESSAGE.getMessage())
+        );
+    }
+
+    @Test
     void 사용자_입력_공백_예외발생_테스트() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("woo,,woo", "10"))
@@ -19,7 +28,7 @@ public class InputValidatorTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_중복_입력_예외발생_테스트2() {
+    void 자동차_이름_중복_입력_예외발생_테스트() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("woo,teco,woo", "3"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -36,6 +45,16 @@ public class InputValidatorTest extends NsTest {
         );
     }
 
+
+    @Test
+    void 자동차_이름_최소갯수_길이예외_경우_최소_자동차_개수_부족_우선_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("wooteco"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage(Message.ERROR_RACE_MINIMUM_CAR_MESSAGE.getMessage())
+        );
+    }
+
     @Test
     void 이동_횟수_입력_문자_포함_예외발생_테스트() {
         assertSimpleTest(() ->
@@ -46,11 +65,11 @@ public class InputValidatorTest extends NsTest {
     }
 
     @Test
-    void 이동_횟수_입력_음수_예외발생_테스트() {
+    void 이동_횟수_입력_양수_아닌_수_입력_예외발생_테스트() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("a,b", "-4"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage(Message.ERROR_NON_NEGATIVE_MOVE_COUNT_MESSAGE.getMessage())
+                        .hasMessage(Message.ERROR_INVALID_MOVE_COUNT_EXCEPTION.getMessage())
         );
     }
 
