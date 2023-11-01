@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.common;
 
 import racingcar.common.Converter;
 import racingcar.common.InputValidator;
@@ -8,21 +8,20 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class InputTest {
+public class InputValidatorTest {
     @Test
     void 자동차_이름_검증_테스트(){
-        Converter converter = new Converter();
         InputValidator inputValidator = new InputValidator();
         String input = "test,";
-        Map<String, Integer> cars = converter.stringToMap(input);
+        Map<String, Integer> cars = Converter.stringToMap(input);
 
         assertThatThrownBy(() -> inputValidator.carNameValidator(cars))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 게임횟수_검증_테스트(){
-        String input = "1번";
+    void 게임횟수_검증_음수일시_예외발생_테스트(){
+        int input = -1;
         InputValidator inputValidator = new InputValidator();
         assertThatThrownBy(() -> inputValidator.gameCountValidator(input))
                 .isInstanceOf(IllegalArgumentException.class);
