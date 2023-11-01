@@ -17,16 +17,16 @@ class OutputTest {
     void setUp() {
         output = new Output();
         outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
     @Test
-    void message() {
-        output.message(MESSAGE);
+    void object를_출력() {
+        //when
+        output.print(MESSAGE);
 
+        //then
         String printedMessage = outputStream.toString().trim();
         assertThat(printedMessage).isEqualTo(MESSAGE);
     }
-
 }

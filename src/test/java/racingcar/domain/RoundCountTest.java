@@ -24,7 +24,7 @@ class RoundCountTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = { "-3", "0" })
+    @ValueSource(strings = {"-3", "0"})
     void zero이하인경우_생성자로_생성_실패시_에러(String input) {
         assertThatThrownBy(() -> new RoundCount(input))
                 .isInstanceOf(IllegalArgumentException.class)

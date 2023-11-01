@@ -28,6 +28,7 @@ class WinnersTest {
         assertThat(actualWinners)
                 .isEqualTo(expectedWinners);
     }
+
     @Test
     void toString메서드로_최종_우승자_여러명_출력하기() {
         //given

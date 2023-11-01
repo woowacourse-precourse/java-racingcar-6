@@ -52,7 +52,7 @@ class CarsTest {
         cars.runRound(numberGenerator, forwardChecker);
 
         //then
-        for (Car car: cars.getCars()) {
+        for (Car car : cars.getCars()) {
             assertThat(car.getForwardDistance())
                     .isEqualTo(1);
         }

@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class CarName {
+
     private final String name;
 
     public CarName(final String name) {

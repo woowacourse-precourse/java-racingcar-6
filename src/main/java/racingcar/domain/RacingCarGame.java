@@ -7,6 +7,7 @@ import racingcar.output.Output;
 
 
 public class RacingCarGame {
+
     private final Output output;
     private final Input input;
     private final WinnerPicker winnerPicker;

@@ -21,6 +21,4 @@ class RandomNumberGeneratorTest {
                 .isGreaterThanOrEqualTo(0)
                 .isLessThanOrEqualTo(9);
     }
-
-
 }

@@ -21,13 +21,12 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
 class RacingCarGameTest {
+
     private Output output;
     private Input input;
     private WinnerPicker winnerPicker;
     private RacingCarGame game;
     private ByteArrayOutputStream outputStream;
-    private static final String CAR_NAMES_PROMPT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String ROUND_COUNT_PROMPT = "시도할 회수는 몇회인가요?";
     private static final String CAR_NAME_USER_INPUT = "pobi,wooni,jun";
     private static final String ROUND_COUNT_USER_INPUT = "2";
     private static final int STOP = 3;

@@ -17,6 +17,7 @@ import java.io.PrintStream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class InputTest {
+
     private Input input;
     private ByteArrayInputStream inputStream;
     private ByteArrayOutputStream outputStream;

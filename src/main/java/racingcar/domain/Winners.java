@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Winners {
+
     private final CarNames winnersName;
 
     public Winners(final CarNames winnerName) {

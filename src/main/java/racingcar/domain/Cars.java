@@ -19,6 +19,7 @@ public class Cars {
             car.runRound(numberGenerator, forwardChecker);
         }
     }
+
     public int getMaxForwardDistance() {
         return Collections.max(cars).getForwardDistance();
     }

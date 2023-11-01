@@ -18,6 +18,7 @@ class ForwardDistanceTest {
     void 생성자로_생성시_distance가_0() {
         assertThat(forwardDistance.getValue()).isEqualTo(0);
     }
+
     @Test
     void increase메서드로_1이_증가() {
         //when

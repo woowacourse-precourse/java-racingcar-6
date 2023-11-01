@@ -26,6 +26,7 @@ class CarNamesTest {
         assertThat(result.get(2).getValue()).isEqualTo("jun");
 
     }
+
     @Test
     void 생성자로_CarNames_객체를_생성하면_중복된_CarName_리스트는_예외를_발생() {
         //given

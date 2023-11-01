@@ -13,6 +13,7 @@ class InputValidatorTest {
     private static final String EMPTY = " ";
     private static final String BEFORETRIM = " po bi  ";
     private static final String AFTERTRIM = "po bi";
+
     @Test
     void 공백문자열시_에러() {
         assertThatThrownBy(() -> InputValidator.validate(SPACE))

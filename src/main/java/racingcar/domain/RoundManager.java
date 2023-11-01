@@ -3,6 +3,7 @@ package racingcar.domain;
 import racingcar.output.Output;
 
 public class RoundManager {
+
     private final Cars cars;
     private final RoundCount roundCount;
     private final NumberGenerator numberGenerator;
