@@ -7,14 +7,14 @@ import java.util.List;
 
 public class RaceLogic {
 
-    static void attemptAllRacer(Racer[] racers) {
+    static void attemptAllRacer(Racer[] racers, boolean alwaysSuccess) {
         for(Racer racer : racers){
-            attemptOnceWithRacer(racer);
+            attemptOnceWithRacer(racer, alwaysSuccess);
         }
     }
 
-    static void attemptOnceWithRacer(Racer racer) {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+    static void attemptOnceWithRacer(Racer racer, boolean alwaysSuccess) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4 || alwaysSuccess) {
             racer.increaseProgress();
         }
     }

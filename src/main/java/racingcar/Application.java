@@ -21,7 +21,7 @@ public class Application {
 
         System.out.println("실행 결과");
         for(int i=0; i<attemptCount; i++){
-            attemptAllRacer(racers);
+            attemptAllRacer(racers, false);
             printCurrentStateOfRace(racers);
             System.out.println();
         }
