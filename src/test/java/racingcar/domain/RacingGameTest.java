@@ -23,4 +23,20 @@ class RacingGameTest {
         assertThat(cars).extracting("name")
                 .containsExactly("car1", "car2", "car3");
     }
+
+    @Test
+    void 우승자_확인() {
+        for (int i = 0; i < 5; i++) {
+            racingGame.playRound();
+        }
+
+        List<String> winners = racingGame.getWinners();
+        assertThat(winners).isNotEmpty();
+    }
+
+    @Test
+    void 라운드_수_확인() {
+        int rounds = racingGame.getRounds();
+        assertThat(rounds).isEqualTo(5);
+    }
 }
