@@ -25,25 +25,7 @@ public class Application {
             position.add(0);
         }
 
-        System.out.println("실행결과");
-
-        for (int i = 0; i < tryCount; i++) {
-            for (int j = 0; j < car.size(); j++) {
-                int forwardRandomValue = Randoms.pickNumberInRange(0, 9);
-                if (forwardRandomValue >= 4) {
-                    position.set(j, position.get(j) + 1);
-                }
-            }
-
-            for (int j = 0; j < car.size(); j++) {
-                System.out.print(car.get(j) + " : ");
-                for (int k = 0; k < position.get(j); k++) {
-                    System.out.print("-");
-                }
-                System.out.println();
-            }
-            System.out.println();
-        }
+        printResult(car, tryCount, position);
 
         List<String> winners = new ArrayList<>();
         maxPosition = position.stream().mapToInt(v -> v).max().orElseThrow();
@@ -80,6 +62,28 @@ public class Application {
         validateInputIsNumber(input);
 
         return Integer.parseInt(input);
+    }
+
+    private static void printResult(List<String> car, int tryCount, List<Integer> position) {
+        System.out.println("실행결과");
+
+        for (int i = 0; i < tryCount; i++) {
+            for (int j = 0; j < car.size(); j++) {
+                int forwardRandomValue = Randoms.pickNumberInRange(0, 9);
+                if (forwardRandomValue >= 4) {
+                    position.set(j, position.get(j) + 1);
+                }
+            }
+
+            for (int j = 0; j < car.size(); j++) {
+                System.out.print(car.get(j) + " : ");
+                for (int k = 0; k < position.get(j); k++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
     }
 
     private static String getInput(String message) {
