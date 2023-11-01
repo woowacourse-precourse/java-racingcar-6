@@ -5,25 +5,25 @@ import java.util.List;
 
 public class RacingGame {
     
-    private List<Object> carNames = new ArrayList<Object>();
-    private List<String> countResult = new ArrayList<String>();
-    private int gameChance;
-    private int randomNumber;
+    private static List<Object> carNames = new ArrayList<Object>();
+    private static List<String> countResult = new ArrayList<String>();
+    private static int gameChance;
+    private static int randomNumber;
 
     public void setCarNames(List<Object> carNames){
-        this.carNames = carNames;
+        RacingGame.carNames = carNames;
     }
 
     public void setCountResult(List<String> countResult){
-        this.countResult = countResult;
+        RacingGame.countResult = countResult;
     }
 
     public void setGameChance(int gameChance){
-        this.gameChance = gameChance;
+        RacingGame.gameChance = gameChance;
     }
 
     public void setrandomNumber(int randomNumber){
-        this.randomNumber = randomNumber;
+        RacingGame.randomNumber = randomNumber;
     }
 
     public List<Object> getCarNames(){
@@ -40,5 +40,9 @@ public class RacingGame {
 
     public int getRandomNumber(){
         return randomNumber;
+    }
+
+    public int getCarNumbers(){
+        return carNames.size();
     }
 }
