@@ -17,10 +17,10 @@ public class Cars {
     }
 
     public static Cars create(String carNameString) {
-        List<String> carNames = trimCarNames(splitCarNames(carNameString));
-        validateCarNames(carNames);
-
-        return new Cars(carNames);
+        String[] carNamesWithBlank = splitCarNames(carNameString);
+        List<String> trimmedCarNames = trimCarNames(carNamesWithBlank);
+        checkDuplicate(trimmedCarNames);
+        return new Cars(trimmedCarNames);
     }
 
     private static String[] splitCarNames(String carNames) {
@@ -39,12 +39,5 @@ public class Cars {
             }
             carNameSet.add(carName);
         }
-    }
-
-    private static void validateCarNames(List<String> carNames) {
-        for (String carName: carNames) {
-            Car.validateCarName(carName);
-        }
-        checkDuplicate(carNames);
     }
 }

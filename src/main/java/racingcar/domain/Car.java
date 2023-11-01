@@ -2,23 +2,18 @@ package racingcar.domain;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
+import racingcar.domain.wrapper.CarName;
+
 public class Car {
-    private final String name;
+    private final CarName name;
     private int movedDistance;
-    private Car(String name) {
+    private Car(CarName name) {
         this.name = name;
         this.movedDistance = 0;
     }
     public static Car create(String name) {
-        validateCarName(name);
-        return new Car(name);
-    }
-
-
-    public static void validateCarName(String carName) {
-        if (carName.length() == 0 || carName.length() > 5) {
-            throw new IllegalArgumentException();
-        }
+        CarName carName = CarName.create(name);
+        return new Car(carName);
     }
 
     public int getMovedDistance() {
@@ -31,13 +26,13 @@ public class Car {
         }
     }
 
-    public String getName() {
+    public CarName getName() {
         return name;
     }
 
     public String getCarInfo() {
         StringBuilder builder = new StringBuilder();
-        builder.append(this.name);
+        builder.append(this.name.getCarName());
         builder.append(" : ");
         builder.append("-".repeat(Math.max(0, this.movedDistance)));
         return builder.toString();
