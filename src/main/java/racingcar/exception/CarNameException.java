@@ -17,8 +17,9 @@ public class CarNameException {
     public static void carNameSameException(String[] name){
 
         String[] resultArr = Arrays.stream(name).distinct().toArray(String[]::new);
-        for (int i = 0; i < name.length; i++) {
-            name[i] = resultArr[i];
+
+        if (resultArr.length != name.length){
+            throw new IllegalArgumentException("중복되는 이름은 사용할 수 없습니다.");
         }
 
     }
