@@ -18,7 +18,16 @@ public class Validator {
         }
     }
 
-    public static boolean isNumberic(String input){
+    public static void validateTryCnt(String cnt){
+        if(!isNumeric(cnt)){
+            throw new IllegalArgumentException(NOT_NUMERIC.getMessage());
+        }
+        if(!isPositive(cnt)){
+            throw new IllegalArgumentException(NOT_POSITIVE.getMessage());
+        }
+    }
+
+    public static boolean isNumeric(String input){
         return input.chars().allMatch(Character::isDigit);
     }
 

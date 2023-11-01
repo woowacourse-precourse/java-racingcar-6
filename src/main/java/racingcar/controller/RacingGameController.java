@@ -26,8 +26,10 @@ public class RacingGameController {
         return racingGameService.makeCarList(names);
     }
 
-    public void inputGameCnt(){
+    public int inputGameCnt(){
         racingGameView.printInputTryCount();
         String cnt = readLine();
+        Validator.validateTryCnt(cnt);
+        return Integer.parseInt(cnt);
     }
 }
