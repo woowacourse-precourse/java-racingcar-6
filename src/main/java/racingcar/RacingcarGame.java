@@ -23,18 +23,24 @@ public class RacingcarGame {
     public void startRacingGame(){
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        setRacingCar(readLine());
+        String inputText = getInputText();
+        setRacingCar(inputText);
         System.out.println("시도할 회수는 몇회인가요?");
-        this.totalGameCount = Integer.parseInt(readLine());
+        this.totalGameCount = Integer.parseInt(getInputText());
 
         System.out.println("실행 결과");
         doGame(0);
 
-        System.out.println("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
         printWinner();
+    }
+    public String getInputText(){
+        return readLine();
     }
     public void setRacingCar(String inputText){
         String[] carNames = inputText.split(",");
+        if(carNames.length == 0)
+            throw new IllegalArgumentException();
         for (String carName : carNames) {
             carList.add(new Car(carName));
         }
@@ -43,7 +49,7 @@ public class RacingcarGame {
     // 재귀
     public void doGame(int currentGameCount){
         //총 게임 횟수를 채우면 종료
-        if (currentGameCount>=totalGameCount)
+        if (currentGameCount>=this.totalGameCount)
             return;
 
         //모든 자동차가 전진 할지 여부 결정
@@ -51,12 +57,12 @@ public class RacingcarGame {
             car.goOrNot();
             //가장 멀리 이동한 거리 저장
             if (car.distance > furthestDistance)
-                furthestDistance = car.distance;
+                this.furthestDistance = car.distance;
         }
 
         printGameResult();
 
-        doGame(currentGameCount++);
+        doGame(++currentGameCount);
     }
 
     public void printGameResult(){
@@ -79,7 +85,6 @@ public class RacingcarGame {
 
         int count=0;
 
-        System.out.print("최종 우승자 : ");
         for (Car car : carList) {
             if ((count == 0) && (car.distance == furthestDistance)) {
                 System.out.print(car.name);
