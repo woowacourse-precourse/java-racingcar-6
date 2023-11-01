@@ -1,29 +1,23 @@
 package racingcar.domain.system.manager.car.key;
 
-import racingcar.domain.core.car.CarName;
-
 public class CarKey implements Comparable<CarKey> {
 
-    private final CarName key;
+    private final Long key;
 
-    public CarKey(CarName key) {
+    public CarKey(Long key) {
         this.key = key;
     }
 
-    public static CarKey of(CarName key) {
+    public static CarKey of(Long key) {
         return new CarKey(key);
     }
 
-    public static CarKey of(CarName carName, Long idx) {
-        return new CarKey(new InputOrderCarName(carName, idx));
-    }
-
-    public CarName getKey() {
+    public Long getKey() {
         return key;
     }
 
     @Override
     public int compareTo(CarKey o) {
-        return key.getName().compareTo(o.key.getName());
+        return key.compareTo(o.key);
     }
 }
