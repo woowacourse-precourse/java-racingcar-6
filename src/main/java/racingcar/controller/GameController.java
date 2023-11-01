@@ -18,6 +18,7 @@ public class GameController {
         inputView.setCarName(cars);
         int play_count = inputView.setPlayCount();
 
+        System.out.println();
         System.out.println("실행 결과");
 
         for (int i = 0; i < play_count; i++) {
@@ -32,8 +33,8 @@ public class GameController {
         cars.forEach(car -> {
             car.move();
             String name = car.getName();
-            int score = car.getScore();
-            outputView.printEachCarResult(name, score);
+            int position = car.getPosition();
+            outputView.printEachCarResult(name, position);
         });
     }
 

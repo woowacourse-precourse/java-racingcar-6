@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     private String name;
-    private int score;
+    private int position;
     final static int MAX_NAME_LENGTH = 5;
 
     final static int MIN_RANDOM_NUM = 0;
@@ -16,7 +16,7 @@ public class Car {
     public Car(String name) {
         nameValidate(name);
         this.name = name;
-        this.score = 0;
+        this.position = 0;
     }
 
     private void nameValidate(String name) {
@@ -32,14 +32,14 @@ public class Car {
     public void move() {
         int rand_num = Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
 
-        if (rand_num >= FORWARD_CRITERIA) score += 1;
+        if (rand_num >= FORWARD_CRITERIA) position += 1;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getScore() {
-        return score;
+    public int getPosition() {
+        return position;
     }
 }

@@ -21,8 +21,8 @@ public class OutputView {
         StringBuilder result = new StringBuilder();
         result.append("최종 우승자 : ");
 
-        int max_score = cars.stream().max(Comparator.comparingInt(Car::getScore)).get().getScore();
-        result.append(cars.stream().filter(Car -> Car.getScore() == max_score).map(Car::getName).collect(Collectors.joining(", ")));
+        int max_score = cars.stream().max(Comparator.comparingInt(Car::getPosition)).get().getPosition();
+        result.append(cars.stream().filter(Car -> Car.getPosition() == max_score).map(Car::getName).collect(Collectors.joining(", ")));
 
         System.out.println(result);
     }
