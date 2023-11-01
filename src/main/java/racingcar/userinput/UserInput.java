@@ -1,7 +1,9 @@
 package racingcar.userinput;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Race;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserInput {
 
@@ -10,17 +12,20 @@ public class UserInput {
 
     private final UserInputValidator inputValidator;
 
-    public UserInput(Race race) {
-        this.inputValidator = new UserInputValidator(race);
+    public UserInput() {
+        this.inputValidator = new UserInputValidator();
     }
 
-    public String[] inputCarNames() {
+    public List<String> inputCarNames() {
         String userInput = Console.readLine();
         String[] carNames = userInput.split(CAR_NAME_INPUT_DELIMITER);
+
+        List<String> validCarNames = new ArrayList<>();
         for (String carName : carNames) {
-            inputValidator.carName(carName);
+            inputValidator.carName(validCarNames, carName);
+            validCarNames.add(carName);
         }
-        return carNames;
+        return validCarNames;
     }
 
     public int inputGameCount() {

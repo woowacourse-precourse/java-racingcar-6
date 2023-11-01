@@ -1,23 +1,17 @@
 package racingcar.userinput;
 
-import racingcar.Race;
+import java.util.List;
 
 public class UserInputValidator {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final String GAME_COUNT_FORMAT = "[0-9]+";
 
-    private final Race race;
-
-    public UserInputValidator(Race race) {
-        this.race = race;
-    }
-
-    public void carName(String carName) {
+    public void carName(List<String> validCarNames, String carName) {
         if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 다섯 글자 이하이어야 합니다.");
         }
-        if (race.hasDuplicatedCarNames(carName)) {
+        if (validCarNames.contains(carName)) {
             throw new IllegalArgumentException("자동차 이름이 중복되어서는 안 됩니다.");
         }
     }

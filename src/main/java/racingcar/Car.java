@@ -19,10 +19,6 @@ public class Car {
         return name;
     }
 
-    public boolean isEqualName(String inputName) {
-        return inputName.equals(name);
-    }
-
     public int compareNumberAndMove(int randomNumber) {
         if (randomNumber >= KEY_NUMBER) {
             forwardCount++;

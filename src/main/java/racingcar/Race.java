@@ -8,12 +8,11 @@ import java.util.List;
 
 public class Race {
 
-    private static final int NOT_HAVE_SAME_NAMES = 0;
     private static final int MAX_FORWARD_COUNT_TARGET = -1;
 
     private Integer gameCount;
     private final List<Car> cars = new ArrayList<>();
-    private final UserInput userInput = new UserInput(this);
+    private final UserInput userInput = new UserInput();
     private final UserOutput userOutput = new UserOutput();
 
     public void start() {
@@ -28,21 +27,14 @@ public class Race {
     }
 
     private void saveCars() {
-        String[] carNames = userInput.inputCarNames();
+        List<String> carNames = userInput.inputCarNames();
         createCars(carNames);
     }
 
-    private void createCars(String[] carNames) {
+    private void createCars(List<String> carNames) {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
-    }
-
-    public boolean hasDuplicatedCarNames(String carName) {
-        long countEqualNames = cars.stream()
-                .filter(car -> car.isEqualName(carName))
-                .count();
-        return countEqualNames > NOT_HAVE_SAME_NAMES;
     }
 
     public void play() {
