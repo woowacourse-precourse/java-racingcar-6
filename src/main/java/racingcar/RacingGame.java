@@ -11,12 +11,14 @@ public class RacingGame {
         int round = InputView.inputRound();
 
         OutputView.printExecutionResultText();
+        proceedEachRound(cars, round);
+        OutputView.printWinners(cars);
+    }
 
-        for (int count = 1; count <= round; count++) {
+    private void proceedEachRound(List<Car> cars, int totalRound) {
+        for (int round = 1; round <= totalRound; round++) {
             proceedRound(cars);
         }
-
-        OutputView.printWinners(cars);
     }
 
     private void proceedRound(List<Car> cars) {
