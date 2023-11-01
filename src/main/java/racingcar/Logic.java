@@ -16,7 +16,7 @@ public class Logic {
     public static void doGame() {
         Output.printGuideCarName(); //4번 기능
 
-        String input = readLine(); //1번 기능
+        String input = readLine();
         List<String> carNames = Input.getCarNames(input); //1번 기능
 
         Output.printGuideTryCount(); //5번 기능
