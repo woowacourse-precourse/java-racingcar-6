@@ -45,4 +45,21 @@ public class CarTest {
         assertThat(sameDistance).isEqualTo(sameDistanceCheck);
     }
 
+    @DisplayName("전진한 자동차들을 비교할 수 있다.")
+    @Test
+    void compareDistanceToCar() throws Exception{
+
+        //given
+        String myCarName = "pobi";
+        String competeCarName= "woni";
+        Car myCar = new Car(myCarName, 3);
+        Car competeCar = new Car(competeCarName, 2);
+
+        //when
+        int compare = myCar.compareTo(competeCar);
+
+        //then
+        assertThat(compare).isGreaterThan(0);
+    }
+
 }
