@@ -41,14 +41,10 @@ public class GamePlayView {
     public void showGameWinner(List<String> winnerList) {
         String winner = winnerList.get(0);
 
-        if (winnerList.size() == 1) {
-            System.out.println(SHOW_WINNER + winner);
-        } else {
-            for (int i = 1; i < winnerList.size(); i++) {
-                winner += "," + winnerList.get(i);
-            }
-            System.out.println(SHOW_WINNER + winner);
+        for (int i = 1; i < winnerList.size(); i++) {
+            winner += "," + winnerList.get(i);
         }
-    }
 
+        System.out.println(SHOW_WINNER + winner);
+    }
 }
