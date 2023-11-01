@@ -13,23 +13,15 @@ public class GameController {
     private final RaceService raceService = new RaceService();
 
     public void run() {
-        RaceStartView raceStartView = new RaceStartView();
 
         String carName = raceStartView.getCarName();
-        String[] carNameStrings = InputUtil.splitCarName(carName);
-
         String raceLap = raceStartView.getRaceLap();
+        raceService.start(carName, raceLap);
 
-        List<Car> carObjects = new ArrayList<>();
-        for (String carNameStr : carNameStrings) {
-            carObjects.add(new Car(carNameStr));
-        }
+        String progress = raceService.getProgress();
+        raceProgressView.printRaceProgress(progress);
 
-        int lap = InputUtil.getRaceLap(raceLap);
-
-        RaceService raceService = new RaceService();
-        String result = raceService.startRace(carObjects, lap);
-
-        RaceResultView.printRaceResult(result);
+        String result = raceService.getResult();
+        raceResultView.printRaceResult(result);
     }
 }

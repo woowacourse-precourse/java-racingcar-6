@@ -5,14 +5,14 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class OutputUtil {
-    public static List<String> printCarInfo(List<Car> carObjects) {
-        List<String> result = new ArrayList<String>();
+    public static String getCurrentProgress(List<Car> carObjects) {
+        StringBuilder result = new StringBuilder();
 
         for (Car car : carObjects) {
-            result.add(indicateCarInfo(car));
+            result.append(indicateCarInfo(car)).append(Constants.NEW_LINE);
         }
 
-        return result;
+        return result.toString();
     }
 
     private static String indicateCarInfo(Car car) {
@@ -20,9 +20,7 @@ public class OutputUtil {
 
         carInfoString.append(car.getName());
         carInfoString.append(Constants.SPACE).append(Constants.COLON_SEPARATOR).append(Constants.SPACE);
-        for (int i = 0; i < car.getPosition(); i++) {
-            carInfoString.append(Constants.CAR_MOVEMENT_INDICATOR);
-        }
+        carInfoString.append(Constants.CAR_MOVEMENT_INDICATOR.repeat(Math.max(0, car.getPosition())));
 
         return carInfoString.toString();
     }
