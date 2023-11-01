@@ -26,9 +26,9 @@ class ApplicationTest extends NsTest {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "etion,,hyo", ",etion,jay,gogi", "hyo, ,Uto,victus", // 1. 이름 입력 시 공백 예외 처리
+            "pobi,etion,,hyo", ",etion,jay,gogi", "hyo, ,Uto,victus", // 1. 이름 입력 시 공백 예외 처리
             "hyo,mk,jay,hyo",                                    // 2. 이름 중복 시 예외 처리
-            "fobi,javaji"                                        // 3. 이름 길이 예외처리
+            "pobi,javaji"                                        // 3. 이름 길이 예외처리
     })
     void 이름_중복에_대한_예외_처리(String name) {
         DealWithExceptionCase IsNameValuable = new DealWithExceptionCase();
