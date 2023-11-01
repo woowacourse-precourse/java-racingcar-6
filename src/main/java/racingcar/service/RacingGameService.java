@@ -73,4 +73,8 @@ public class RacingGameService {
             throw new RacingGameException(ErrorMessage.DUPLICATED_NAME);
         }
     }
+
+    public List<Car> getRacingCarList() {
+        return racingCarList;
+    }
 }
