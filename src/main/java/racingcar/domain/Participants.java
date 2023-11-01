@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.exception.DomainExceptionCode.PARTICIPANTS_LEAST_ONE_OR_MORE_MUST_BE_PRESENT;
+
 import java.util.List;
 import java.util.function.Function;
 import racingcar.exception.DomainExceptionCode;
@@ -13,6 +15,8 @@ public class Participants {
     }
 
     public static Participants of(List<String> names) {
+        PARTICIPANTS_LEAST_ONE_OR_MORE_MUST_BE_PRESENT.dynamicInvokeBy(names::isEmpty);
+
         return new Participants(names.stream()
                 .map(Car::new)
                 .toList()
