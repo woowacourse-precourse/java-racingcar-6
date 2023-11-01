@@ -10,6 +10,9 @@ public class Referee {
     public int inputCycle() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         int cycle = Integer.parseInt(Console.readLine());
+        if (cycle <= 0) {
+            throw new IllegalArgumentException("횟수는 0보다 커야 합니다.");
+        }
         return cycle;
     }
 
@@ -23,6 +26,9 @@ public class Referee {
         String carNameString = Console.readLine();
         String[] carNameStringSplit = carNameString.split(",");
         List<String> carNames = new ArrayList<String>(Arrays.asList(carNameStringSplit));
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException("적어도 한 대의 자동차 이름이 필요합니다.");
+        }
         return carNames;
     }
 
