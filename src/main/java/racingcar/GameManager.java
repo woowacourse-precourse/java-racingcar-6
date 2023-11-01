@@ -10,7 +10,6 @@ import java.util.List;
 public class GameManager {
 
     public List<String> inputCarsName(){
-//        String[] split = inputStringCarName().split(",");
         ArrayList<String> carName = new ArrayList<>();
         for(String name : this.inputStringCarName()){
             carName.add(name);
@@ -18,13 +17,19 @@ public class GameManager {
         return carName;
     }
 
-    private String[] inputStringCarName() {
+    public String[] inputStringCarName() {
         System.out.println(Message.start);
         return InputException.carNameValidation(Console.readLine()).split(",");
     }
-//    private int inputNumber(){
-//        System.out.println(Message.times);
-//        String input = Console.readLine();
-//
+    public int inputNumber(){
+        System.out.println(Message.times);
+        String input = Console.readLine();
+        InputException.numberValidation(input);
+        return Integer.parseInt(input);
+    }
+//    public void winner(List<String> winner){
+//        System.out.print(Message.winner);
+//        System.out.println(Ra);
 //    }
+
 }
