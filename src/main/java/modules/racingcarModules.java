@@ -1,5 +1,7 @@
 package modules;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +30,11 @@ public class racingcarModules {
     } else {
       return 0;
     }
+  }
+
+  public static int car_forward_or_not() {
+    int random_num = Randoms.pickNumberInRange(0, 9);
+    return racingcarModules.checked_random_num_over_4(random_num);
   }
 
   public static List<String> campion_racing(HashMap<String, Integer> car_situations) {

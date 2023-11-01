@@ -23,8 +23,7 @@ public class Games {
     System.out.println("실행 결과");
     for (var i = 0; i < move_num; i++) {
       for (String car_name : names) {
-        int random_num = Randoms.pickNumberInRange(0, 9);
-        int value_update = car_situations.get(car_name) + racingcarModules.checked_random_num_over_4(random_num);
+        int value_update = car_situations.get(car_name) + racingcarModules.car_forward_or_not();
         car_situations.put(car_name, value_update);
 
         System.out.println(car_name + " : " + "-".repeat(value_update));
