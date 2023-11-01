@@ -11,7 +11,7 @@ class CarFactoryTest {
     private static final CarFactory carFactory = new CarFactory(new RandomMoveEngine());
 
     @Test
-    void 이름으로_자동차를_생성할_수_있다() {
+    void 이름으로_자동차를_생성하면_기본_위치를_가진다() {
         Car car = carFactory.create("car");
 
         assertThat(car.getPosition()).isZero();
