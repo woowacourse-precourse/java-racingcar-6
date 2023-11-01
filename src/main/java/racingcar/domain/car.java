@@ -35,7 +35,7 @@ public class car implements Comparable<car>{
     }
 
     public void triesToMove() {
-        int power = Randoms.pickNumberInRange(0, 9);
+        int power = Randoms.pickNumberInRange(CAR_MIN_POWER, CAR_MAX_POWER);
         if (power >= CAR_MOVABLE_POWER) {
             move();
         }

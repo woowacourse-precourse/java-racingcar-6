@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constant.ErrorMessage.COUNT_NUMBER_ERROR_MESSAGE;
+
 public class Racing {
     private static int count;
 
@@ -14,7 +16,7 @@ public class Racing {
 
     private void validateMoveCount(String Count) {
         if (!isNumberFormat(Count)) {
-            throw new IllegalArgumentException("이동 횟수는 숫자여야만 합니다");
+            throw new IllegalArgumentException(COUNT_NUMBER_ERROR_MESSAGE);
         }
     }
 

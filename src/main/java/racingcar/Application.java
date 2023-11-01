@@ -9,6 +9,8 @@ import racingcar.io.OutputView;
 
 import java.util.List;
 
+import static racingcar.constant.Message.RESULT_MESSAGE;
+
 public class Application {
     public static void main(String[] args) {
         OutputView outputView = new OutputView();
@@ -18,7 +20,7 @@ public class Application {
         cars cars = new cars(InputView.readCarNames());
         Racing racing = new Racing(inputView.readMoveTurnCount());
 
-        outputView.print("\n실행 결과");
+        outputView.print(RESULT_MESSAGE);
         List<car> moveResult;
         for (int i = 0; i < Racing.getCount(); i++) {
             moveResult = cars.tryToMove();

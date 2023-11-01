@@ -3,6 +3,8 @@ package racingcar.io;
 import java.util.List;
 import java.util.StringJoiner;
 
+import static racingcar.constant.Message.WINNER_MESSAGE;
+
 public class OutputView {
     public void print(String text) {
         System.out.println(text);
@@ -26,6 +28,6 @@ public class OutputView {
             winnerNames.add(winner);
         }
 
-        print(String.format("최종 우승자 : %s", winnerNames));
+        print(String.format(WINNER_MESSAGE, winnerNames));
     }
 }
