@@ -30,9 +30,18 @@ public class InitPlayerTest {
                 .doesNotThrowAnyException();
         assertThatThrownBy(() -> test.checkCarsNameLength(falseValue))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
 
+    @Test
+    void testSaveCars(){
 
+        String [] input = {"aa", "bb", "cc"};
+        test.saveCars(input);
 
+        assertThat(test.playersMap)
+                .containsEntry("aa","")
+                .containsEntry("bb","")
+                .containsEntry("cc","");
     }
 
 }
