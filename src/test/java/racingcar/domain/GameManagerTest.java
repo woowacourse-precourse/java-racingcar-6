@@ -54,6 +54,14 @@ class GameManagerTest {
     }
 
     @Test
+    void validateUserInput_메서드로_한사람_User_Input_검증() {
+        // given
+        // when
+        // then
+        assertThat(GameManager.validateUserInput("pobi")).isTrue();
+    }
+
+    @Test
     void validateUserInput_메서드_사용시_User_Input이_공백이거나_null이면_예외_발생() {
         // given
         // EMPTY_STRING_LIST
