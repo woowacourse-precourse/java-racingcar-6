@@ -1,11 +1,9 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.InputToCarList;
 
 /* 테스트 케이스
    1. " ,1" : 성공 (공백은 안됩니다.)
