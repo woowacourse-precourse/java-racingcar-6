@@ -22,7 +22,7 @@ public class View {
 
     public int showRaceCountView() {
         System.out.println(RACE_COUNT_VIEW);
-        String raceCount = Console.readLine();
+        String raceCount = Console.readLine().trim();
 
         Validation.validateRaceCount(raceCount);
         return Integer.parseInt(raceCount);
