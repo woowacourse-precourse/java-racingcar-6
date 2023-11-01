@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.constants.NumberConstants;
+
 public class Car implements Comparable<Car> {
     private String name;
     private int progress;
@@ -10,7 +12,7 @@ public class Car implements Comparable<Car> {
     }
 
     void judgmentCarMove(int random) {
-        if (random >= 4) {
+        if (random >= NumberConstants.MOVE_THRESHOLD) {
             progress++;
         }
     }
@@ -27,7 +29,7 @@ public class Car implements Comparable<Car> {
         return name + " : " + "-".repeat(progress);
     }
 
-    @Override
+    @Overridefeat
     public int compareTo(Car other) {
         return this.progress - other.progress;
     }
