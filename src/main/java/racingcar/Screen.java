@@ -2,24 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Collections;
-import java.util.List;
-
 public class Screen {
 
     static public String[] askCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] names = Console.readLine().split(",");
-        for (String name : names) {
-            checkValidName(name);
-        }
-        return names;
-    }
-
-    static private void checkValidName(String name) {
-        if (name.isEmpty() || name.length() > 5) {
-            throw (new IllegalArgumentException("Invalid Argument"));
-        }
+        return Console.readLine().split(",");
     }
 
     static public int askRacingTime() {

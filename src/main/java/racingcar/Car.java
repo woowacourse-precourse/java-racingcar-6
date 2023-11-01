@@ -5,13 +5,21 @@ public class Car implements Comparable<Car> {
     private int numberOfMove;
 
     public Car(String name) {
+        if (isInvalidName(name))
+            throw (new IllegalArgumentException("Invalid Argument"));
         this.name = name;
         this.numberOfMove = 0;
     }
 
     public Car(String name, int move) {
+        if (isInvalidName(name))
+            throw (new IllegalArgumentException("Invalid Argument"));
         this.name = name;
         this.numberOfMove = move;
+    }
+
+    private boolean isInvalidName(String name) {
+        return name.isEmpty() || name.length() > 5;
     }
 
     public void moveFoward(int randomValue) {
