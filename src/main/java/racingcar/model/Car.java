@@ -34,7 +34,7 @@ public class Car {
     }
 
     public void goOrStop(int i) {
-        if(i>3) {
+        if (i > 3) {
             location++;
         }
     }
