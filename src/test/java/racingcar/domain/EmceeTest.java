@@ -18,13 +18,13 @@ public class EmceeTest {
 
     @Test
     void 자동차들의_현재_포지션_반환() {
-        //given
+        // Given
         Map<String, Integer> carList = new HashMap<>();
         carList.put("Car1", 3);
         carList.put("Car2", 5);
         carList.put("Car3", 0);
 
-        //w                             hen
+        // When
         String result = emcee.returnCurrentPosition(carList);
 
         // Then
