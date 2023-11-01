@@ -19,6 +19,8 @@ public class CarService {
     private List<Car> parkingLot;
     private Set<String>carNames;
 
+
+
     private CarService(){
         parkingLot = new ArrayList<>();
         carNames = new HashSet<>();
@@ -28,6 +30,9 @@ public class CarService {
         return carService;
     }
 
+    public List<Car> getParkingLot() {
+        return parkingLot;
+    }
     public void isValidate(String carName){
         isEmpty(carName);
         hasBlank(carName);
@@ -63,9 +68,6 @@ public class CarService {
                 parkingLot.get(i).setDistance("-");
             }
         }
-    }
-    public void callResultMethod(){
-        showGameResult(parkingLot);
     }
 
     public List<String> getWinner(){
