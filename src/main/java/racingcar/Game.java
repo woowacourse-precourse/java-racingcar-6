@@ -29,7 +29,7 @@ public class Game {
 
     private void settingRound() {
         PromptHandler.promptOutput(GameMessage.ASK_ROUND_COUNT.getMessage());
-        maxRoundCount =  PromptHandler.promptInputRoundCount();
+        maxRoundCount = PromptHandler.promptInputRoundCount();
         validateRoundCount(maxRoundCount);
     }
 
