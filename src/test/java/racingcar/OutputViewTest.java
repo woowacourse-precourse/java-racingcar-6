@@ -32,6 +32,17 @@ public class OutputViewTest extends NsTest {
         );
     }
 
+    @Test
+    void 모두_우승자일때_잘_출력하는지_확인(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "1");
+                    assertThat(output()).contains("최종 우승자 : pobi, woni, jun");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
