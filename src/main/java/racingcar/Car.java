@@ -12,6 +12,14 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     public void nameCheck(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
