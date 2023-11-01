@@ -1,5 +1,6 @@
 package Carset;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PrintResult {
@@ -31,6 +32,7 @@ public class PrintResult {
 			}
 		}
 		
+		
 	}
 	
 	private void printCarStatus(String carName, int distance) {
@@ -40,5 +42,24 @@ public class PrintResult {
         }
         System.out.println();
     }
+	
+	
+	private List<String> determineWinners(){
+		int maxDistance = 0;
+		List<String> winners = new ArrayList<>();
+		
+		for(String carName : carNames) {
+			int distance = fuctset.getDistance();
+			
+			if(distance > maxDistance) {
+				maxDistance = distance;
+				winners.clear();
+				winners.add(carName);
+			}else if(distance == maxDistance) {
+				winners.add(carName);
+			}
+		}
+		return winners;
+	}
 	
 }
