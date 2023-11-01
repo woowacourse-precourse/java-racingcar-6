@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import racingcar.dto.CarsGenerateDto;
 import racingcar.service.RandomNumberGenerator;
@@ -30,6 +31,6 @@ public class Cars {
     }
 
     public List<Car> getCarsList() {
-        return new ArrayList<>(cars);
+        return Collections.unmodifiableList(cars);
     }
 }
