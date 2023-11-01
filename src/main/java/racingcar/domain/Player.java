@@ -26,6 +26,7 @@ public class Player {
     public int inputTryCnt(){
         String tryCnt = Console.readLine();
         checkIsNumber(tryCnt);
+        isGreaterThanZero(Integer.parseInt(tryCnt));
         return Integer.parseInt(tryCnt);
     }
 
@@ -33,6 +34,12 @@ public class Player {
         try {
             Integer.parseInt(input);
         }catch (NumberFormatException numberFormatException){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void isGreaterThanZero(int num){
+        if(num < 1){
             throw new IllegalArgumentException();
         }
     }
