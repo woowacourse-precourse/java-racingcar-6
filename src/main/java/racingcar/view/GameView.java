@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.model.Car;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class GameView {
     public static List<Car> checkWinners(List<Car> cars) {
         List<Car> carsWithMaxMoveStatus = new ArrayList<>();
         int maxMoveStatus = Integer.MIN_VALUE;
+
         for (Car car : cars) {
             int moveStatus = car.getMoveStatus();
             if (moveStatus > maxMoveStatus) {
@@ -32,6 +34,7 @@ public class GameView {
                 carsWithMaxMoveStatus.add(car);
             }
         }
+
         return carsWithMaxMoveStatus;
     }
 

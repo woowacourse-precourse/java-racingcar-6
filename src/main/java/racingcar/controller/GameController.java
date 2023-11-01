@@ -4,9 +4,10 @@ import racingcar.model.Car;
 import racingcar.model.CarCreator;
 import racingcar.model.User;
 import racingcar.view.GameView;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
-import camp.nextstep.edu.missionutils.Randoms;
+
 public class GameController {
     GameView gameView = new GameView();
     private final User user = new User();
@@ -16,7 +17,6 @@ public class GameController {
     public void run() {
         String[] carNames = user.getUserInputForCarNames();
         tryCount = user.getUserInputForTryCount();
-
         cars = CarCreator.createCars(carNames);
     }
 

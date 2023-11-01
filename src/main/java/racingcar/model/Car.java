@@ -11,6 +11,7 @@ public class Car {
     public Integer getMoveStatus() {
         return this.moveStatus;
     }
+
     public Car(String name) {
         this.name = name;
         this.moveStatus = 0;
@@ -18,9 +19,5 @@ public class Car {
 
     public void move() {
         this.moveStatus += 1;
-    }
-
-    public void stay() {
-
     }
 }

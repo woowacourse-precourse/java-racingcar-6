@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import racingcar.view.GameView;
 
 public class CarCreator {
