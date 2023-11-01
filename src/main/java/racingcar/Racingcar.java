@@ -1,22 +1,24 @@
 package racingcar;
 
+import java.math.BigInteger;
+
 public class Racingcar {
     private final String name;
-    private int moveDistance;
+    private BigInteger moveDistance;
 
     public Racingcar(String name){
         this.name = name;
-        this.moveDistance = 0;
+        this.moveDistance = new BigInteger("0");
     }
 
     public String getName() {
         return name;
     }
 
-    public int getMoveDistance() {
+    public BigInteger getMoveDistance() {
         return moveDistance;
     }
     public void upMoveDistance(){
-        this.moveDistance++;
+        this.moveDistance = this.moveDistance.add(BigInteger.valueOf(1));
     }
 }

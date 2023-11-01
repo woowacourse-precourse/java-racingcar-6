@@ -1,7 +1,9 @@
 package racingcar;
 
+import java.math.BigInteger;
+
 public class MakeRound {
-    public int makeRound(){
+    public BigInteger makeRound(){
         Utils utils = new Utils();
         IntegrityCheck integrityCheck = new IntegrityCheck();
         String round;
@@ -11,6 +13,6 @@ public class MakeRound {
         if (integrityCheck.intIntegrityCheck(round)){
             throw new IllegalArgumentException();
         }
-        return Integer.parseInt(round);
+        return new BigInteger(round);
     }
 }

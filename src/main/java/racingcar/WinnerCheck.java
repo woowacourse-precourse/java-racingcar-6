@@ -1,27 +1,28 @@
 package racingcar;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public class WinnerCheck {
     public void winnerCheck(List<Racingcar> cars){
-        int winnerDistance;
+        BigInteger winnerDistance;
         List<String> winnerList = new ArrayList<>();
 
         winnerDistance = maxDistance(cars);
         for (int i = 0; i < cars.size(); i++){
-            if (cars.get(i).getMoveDistance() == winnerDistance){
+            if (winnerDistance.compareTo(cars.get(i).getMoveDistance()) == 0){
                 winnerList.add(cars.get(i).getName());
             }
         }
         winnerPrint(winnerList);
     }
 
-    private int maxDistance(List<Racingcar> cars){
-        int maxDistanceNum = 0;
+    private BigInteger maxDistance(List<Racingcar> cars){
+        BigInteger maxDistanceNum = BigInteger.ZERO;
 
         for (int i = 0; i < cars.size(); i++){
-            if (maxDistanceNum < cars.get(i).getMoveDistance()){
+            if (maxDistanceNum.compareTo(cars.get(i).getMoveDistance()) < 0){
                 maxDistanceNum = cars.get(i).getMoveDistance();
             }
         }
