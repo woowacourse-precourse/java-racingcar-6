@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.Model;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.Model.Car;
+import racingcar.View.RacingGameView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,17 +12,23 @@ public class RacingGame {
     private final int totalRounds;
 
     public RacingGame(List<String> carNames, int totalRounds) {
+        validateNumberOfRounds(totalRounds);
         this.cars = carNames.stream().map(Car::new).collect(Collectors.toList());
         this.totalRounds = totalRounds;
     }
 
-    public void start() {
-        System.out.println("실행 결과");
+    private void validateNumberOfRounds(int numberOfRounds) {
+        if (numberOfRounds <= 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void start(RacingGameView view) {
         for (int round = 0; round < totalRounds; round++) {
             playRound();
-            printRoundResult();
+            view.printRoundResult(cars, round);
         }
-        printWinners();
+        view.printWinners(getWinners());
     }
 
     private void playRound() {
@@ -31,19 +38,11 @@ public class RacingGame {
         }
     }
 
-    private void printRoundResult() {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
-        }
-        System.out.println();
-    }
-
-    private void printWinners() {
+    public List<String> getWinners() {
         int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(0);
-        String winners = cars.stream()
+        return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
-        System.out.println("최종 우승자 : " + winners);
+                .collect(Collectors.toList());
     }
 }
