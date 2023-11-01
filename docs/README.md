@@ -15,9 +15,10 @@
 - [ ] 입력에 대한 출력.
     - 차 이름 입력 안내문 - InputView#printCarNamesInformation()
     - 회수 입력 안내문  - InputView#printGameChanceInformation()
-- [ ] 결과에 대한 출력.
-    - 실행 결과 안내문 - OutputView#printInformation()
-    - 각 실행 결과 출력 - OutputView#printResultGame()
+- [O] 결과에 대한 출력.
+    - [O] 실행 결과 안내문 - OutputView#printInformation()
+    - [O] 각 실행 결과 출력 - OutputView#printResultGame()
+    - [O] 우승자 결과 출력 - OutputView#printWinner()
 
 ## 기능 요구 사항
 
