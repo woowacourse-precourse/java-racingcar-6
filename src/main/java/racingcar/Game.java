@@ -12,4 +12,14 @@ public class Game {
         }
     }
 
+    public static void printResult(ArrayList<Car> cars) {
+        for (Car car : cars) {
+            System.out.print(car.name + " : ");
+            for (int i = 0; i < car.position; i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
+
 }
