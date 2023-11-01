@@ -6,6 +6,8 @@ import racingcar.view.outputview.ResultOutputView;
 
 import java.util.Map;
 
+import static racingcar.view.Parameter.Output.WINNERS;
+
 final class ResultController implements Controller {
     private final ResultOutputView resultOutputView;
     private final CarService carService;
@@ -22,7 +24,7 @@ final class ResultController implements Controller {
 
     private void viewWinnersName(Map<String, Object> model) {
         Cars winners = carService.findWinners();
-        model.put("winners", winners);
+        model.put(WINNERS, winners);
         resultOutputView.display(model);
     }
 }

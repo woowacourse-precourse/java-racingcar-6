@@ -18,5 +18,6 @@ public final class Parameter {
         }
 
         public static final String CARS = "cars";
+        public static final String WINNERS = "winners";
     }
 }

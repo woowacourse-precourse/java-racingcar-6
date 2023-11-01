@@ -6,12 +6,14 @@ import racingcar.domain.Cars;
 import java.util.List;
 import java.util.Map;
 
+import static racingcar.view.Parameter.Output.WINNERS;
+
 public final class ResultOutputView implements OutputView {
     private static final String WINNER_DELIMITER = ", ";
 
     @Override
     public void display(Map<String, Object> displayEntities) {
-        if (displayEntities.get("winners") instanceof Cars cars) {
+        if (displayEntities.get(WINNERS) instanceof Cars cars) {
             printWinners(cars.cars());
         }
     }
