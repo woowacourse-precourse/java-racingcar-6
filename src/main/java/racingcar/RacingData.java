@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class RacingData {
 
-    private Map<String, String> playerResult;
     private List<String> playerStringList;
     private Integer tryNumber;
 
