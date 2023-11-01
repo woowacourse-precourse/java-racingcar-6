@@ -2,11 +2,15 @@ package racingcar.model;
 
 public class Car {
     private final String name;
-    private final int position;
+    private int position;
 
-    public Car(String name) {
+    private Car(String name) {
         this.name = name;
         this.position = 0;
+    }
+
+    public static Car makeCar(String name) {
+        return new Car(name);
     }
 
     public String getName() {
