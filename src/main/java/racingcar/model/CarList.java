@@ -25,4 +25,8 @@ public class CarList {
     public String nameCleaner(String name) {
         return name.replaceAll("\\s+", "");
     }
+
+    public List<Car> getCarlist(){
+        return carlist;
+    }
 }

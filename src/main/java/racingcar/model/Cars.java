@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class Cars {
     CarList carlist = new CarList();
 
@@ -9,7 +11,7 @@ public class Cars {
         }
     }
 
-    public CarList getCarlist() {
-        return carlist;
+    public List<Car> getCarList() {
+        return carlist.getCarlist();
     }
 }
