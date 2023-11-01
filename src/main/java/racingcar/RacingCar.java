@@ -1,20 +1,20 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.NumberPicker;
 
 public class RacingCar {
 
     private static final int MOVING_STANDARD = 4;
     private static final int STARTING_POSITION = 0;
-    private static final int RANDOM_NUMBER_START_RANGE = 0;
-    private static final int RANDOM_NUMBER_END_RANGE = 9;
 
     private final String name;
     private int position;
+    private final NumberPicker numberPicker;
 
-    public RacingCar(String name) {
+    public RacingCar(String name, NumberPicker numberPicker) {
         this.name = name;
         this.position = STARTING_POSITION;
+        this.numberPicker = numberPicker;
     }
 
     public void race() {
@@ -32,8 +32,6 @@ public class RacingCar {
     }
 
     private boolean canMoveForward() {
-        int randomNumber = Randoms.pickNumberInRange(
-            RANDOM_NUMBER_START_RANGE, RANDOM_NUMBER_END_RANGE);
-        return randomNumber >= MOVING_STANDARD;
+        return numberPicker.pickNumber() >= MOVING_STANDARD;
     }
 }
