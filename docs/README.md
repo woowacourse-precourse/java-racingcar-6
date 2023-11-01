@@ -7,11 +7,11 @@ class Car
 
 class Game
 
-- [ ] 경주할 자동차 이름 입력받기 - inputCars()
-- [ ] 시도할 횟수 입력받기 - inputRoundNumber()
-- [ ] 라운드 실행시키기 - playRounds()
-- [ ] 최종 우승자 선정 - getWinners()
-- [ ] 우승자 출력 - printWinners()
+- [x] 경주할 자동차 이름 입력받기 - inputCars()
+- [x] 시도할 횟수 입력받기 - inputRoundNumber()
+- [x] 라운드 실행시키기 - playRounds()
+- [x] 최종 우승자 선정 - getWinners()
+- [x] 우승자 출력 - printWinners()
 
 class Round
 
