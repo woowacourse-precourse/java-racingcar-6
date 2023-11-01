@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.Computer.getInput;
 import static racingcar.constants.Error.BLANK_ERROR;
 import static racingcar.constants.Error.CAR_COUNT_ERROR;
+import static racingcar.constants.Error.COMMA_ERROR;
 import static racingcar.constants.Error.DUPLICATION_ERROR;
 import static racingcar.constants.Error.LENGTH_ERROR;
 import static racingcar.constants.Message.INPUT_CAR_NAMES;
@@ -35,6 +36,19 @@ class CarInputTest {
     }
 
     @Test
+    void 콤마_다음에_이름이_입력되지_않을_때_예외_처리() {
+
+        // given
+        String userInput = "pobi,woni,";
+
+        // when, then
+        assertThatThrownBy(() -> Validator.checkComma(userInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(COMMA_ERROR.getMessage());
+
+    }
+
+    @Test
     void 자동차_수가_1대_이하일_때_예외_처리() {
 
         // given
@@ -52,6 +66,7 @@ class CarInputTest {
         assertThatThrownBy(() -> Validator.checkCount(carNamesTwo))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CAR_COUNT_ERROR.getMessage());
+
     }
 
     @Test
@@ -109,7 +124,6 @@ class CarInputTest {
 
         // then
         assertThat(carNames).isEqualTo(Arrays.asList("jun", "pobi"));
-
     }
 
     @Test
@@ -130,7 +144,6 @@ class CarInputTest {
         assertThatThrownBy(() -> Validator.checkDuplication(carNamesTwo))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(DUPLICATION_ERROR.getMessage());
-
     }
 
     @Test
