@@ -51,6 +51,12 @@ public class RacingGameController {
     public List<String> getWinners() {
         return findWinner(cars);
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+
 }
 
 

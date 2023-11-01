@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import racingcar.Controller.RacingGameController;
@@ -10,26 +12,27 @@ import racingcar.View.RacingGameView;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.when;
 
 class ApplicationTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
 
-    @Test
-    void 전진_정지() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : -", "woni : ");
-                },
-                MOVING_FORWARD, STOP
-        );
+    private RacingGameController controller;
+    private RacingGameView view;
+
+
+    @AfterEach
+    void tearDown() {
+        Mockito.framework().clearInlineMocks();
+    }
+
+    @BeforeEach
+    void 설정() {
+        RacingGameView view = new RacingGameView();
+        List<String> carNames = Arrays.asList("car1", "car2");
+        controller = new RacingGameController(carNames, view);
     }
 
     @Test
@@ -65,26 +68,42 @@ class ApplicationTest extends NsTest {
     }
 
 
-    @Test
-    void 우승자_찾기_테스트() {
-        // Arrange
-        RacingGameView view = new RacingGameView();
-        List<Car> cars = Arrays.asList(new Car("pobi"), new Car("woni"), new Car("crong"));
-        List<String> carNames = cars.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
 
-        RacingGameController controller = new RacingGameController(carNames, view);
+    @Test
+    void 전진_정지() {
+        // Arrange
+        Mockito.mockStatic(Randoms.class);
+        when(Randoms.pickNumberInRange(0, 9)).thenReturn(4); // 임의의 값을 설정
 
         // Act
-        for (int i = 0; i < 5; i++) {
-            for (Car car : cars) {
-                car.move();
-            }
+        controller.startGame(1);
+
+        // Assert
+        List<Car> cars = controller.getCars();
+        assertThat(cars).hasSize(2);
+
+        for (Car car : cars) {
+            assertThat(car.getPosition()).isEqualTo(1);
         }
+
+    }
+
+    @Test
+    void 우승자_찾기() {
+        // Arrange
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        Car car3 = new Car("car3");
+        car1.move();
+        car2.move();
+        car3.move();
+        List<Car> cars = Arrays.asList(car1, car2, car3);
+
+        // Act
         List<String> winners = controller.findWinner(cars);
 
-        assertThat(winners).containsAnyOf("pobi", "woni", "crong");
+        // Assert
+        assertThat(winners).containsExactly("car1", "car2", "car3");
     }
 
     @Override
