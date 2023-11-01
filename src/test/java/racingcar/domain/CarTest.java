@@ -12,6 +12,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CarTest extends NsTest {
 
     private static final String CAR_NAME = "BMW";
+    private static final String FORWARD = "1";
+    private static final String STOP = "0";
+    private static final int ZERO = 0;
 
     @ParameterizedTest
     @ValueSource(strings = {"popobi", "ianbest", "abcdefgh"})
@@ -33,14 +36,13 @@ class CarTest extends NsTest {
     @Test
     public void 자동차의_초기_위치는_0이다() {
         // given
-        Car car = new Car("MyCar");
+        Car car = new Car(CAR_NAME);
 
         // when
         int actual = car.getPosition();
 
         // then
-        Assertions.assertThat(actual).isEqualTo(0);
-        car.progress();
+        Assertions.assertThat(actual).isEqualTo(ZERO);
     }
 
     @ParameterizedTest
@@ -50,7 +52,7 @@ class CarTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run();
-                    assertThat(output()).contains("1");
+                    assertThat(output()).contains(FORWARD);
                 },
                 randomNumber
         );
@@ -63,7 +65,7 @@ class CarTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run();
-                    assertThat(output()).contains("0");
+                    assertThat(output()).contains(STOP);
                 },
                 randomNumber
         );
@@ -72,7 +74,7 @@ class CarTest extends NsTest {
     @Override
     public void runMain() {
         // given
-        Car car = new Car("pobi");
+        Car car = new Car(CAR_NAME);
 
         // when
         car.progress();
