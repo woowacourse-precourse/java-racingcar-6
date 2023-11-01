@@ -1,8 +1,8 @@
 package racingcar.view;
 
-
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import racingcar.Car;
 
 public class Output {
@@ -15,8 +15,7 @@ public class Output {
     }
 
     public static void printResultMessage() {
-        System.out.println("");
-        System.out.println("실행 결과");
+        System.out.println("\n" + "실행 결과");
     }
 
     public static void printGameWinnerMessage(String winners) {
@@ -26,14 +25,20 @@ public class Output {
     public static void printGameProgress(List<Car> carList) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (Car car : carList) {
-            stringBuilder.append(car.getCarName() + " : ");
-            for (int forwardCount = 0; forwardCount < car.getPosition(); forwardCount++) {
-                stringBuilder.append("-");
-            }
+        carList.forEach(car -> {
+            stringBuilder.append(car.getCarName()).append(" : ");
+            appendPositionForEachCar(stringBuilder, car);
             stringBuilder.append("\n");
-        }
+        });
 
         System.out.println(stringBuilder);
+    }
+
+    private static void appendPositionForEachCar(StringBuilder stringBuilder, Car car) {
+        String hyphens = IntStream.range(0, car.getPosition())
+                .mapToObj(position -> "-")
+                .collect(Collectors.joining());
+
+        stringBuilder.append(hyphens);
     }
 }
