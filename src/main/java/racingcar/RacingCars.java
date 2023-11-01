@@ -11,6 +11,7 @@ public class RacingCars {
 
     public RacingCars(String[] carsName) {
         validateCarsSize(carsName);
+        validateDuplicateCarName(carsName);
         this.racingCars = Arrays.stream(carsName)
                 .map(carName -> new Car(carName, GameConfig.INIT_NUMBER.getValue()))
                 .collect(Collectors.toList());
@@ -40,6 +41,12 @@ public class RacingCars {
     private void validateCarsSize(String[] carsName) {
         if (carsName.length < GameConfig.MIN_CAR_COUNT.getValue() || carsName.length > GameConfig.MAX_CAR_COUNT.getValue()) {
             throw new IllegalArgumentException("입력한 자동차 수가 초과되었습니다.");
+        }
+    }
+
+    private void validateDuplicateCarName(String[] carsName) {
+        if (Arrays.stream(carsName).distinct().count() != carsName.length) {
+            throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다.");
         }
     }
 
