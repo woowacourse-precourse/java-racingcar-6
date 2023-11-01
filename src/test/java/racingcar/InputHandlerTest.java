@@ -20,6 +20,7 @@ class InputHandlerTest {
     void validateInputForRacerCreation_ValidInput() {
         InputHandler inputHandler = new InputHandler();
         String[] names = {"pobi", "woni", "jun"};
+
         assertThat(inputHandler.validateInputForRacerCreation(names)).isTrue();
     }
     @Test
@@ -41,5 +42,21 @@ class InputHandlerTest {
                 .hasMessageContaining("입력은 한글, 알파벳, 쉼표만 포함해야 합니다.");
     }
 
+    @Test
+    void setAttemptCountFromInput_ValidInput() {
+        InputHandler inputHandler = new InputHandler();
+        String input = "3";
 
+        assertThat(inputHandler.setAttemptCountFromInput(input)).isEqualTo(3);
+    }
+
+    @Test
+    void setAttemptCountFromInput_InvalidInput() {
+        InputHandler inputHandler = new InputHandler();
+        String input = "a";
+
+        assertThatThrownBy(() -> inputHandler.setAttemptCountFromInput(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("정수형 입력이 필요합니다.");
+    }
 }
