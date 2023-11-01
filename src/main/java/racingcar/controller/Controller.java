@@ -19,6 +19,11 @@ public class Controller {
     private final Exception exception = new Exception();
     private final CarRepository carRepository = new CarRepository();
 
+    public void run() {
+        saveCars(parser.parseCarNames(getCarNameByUserInput()));
+        play(createGame());
+    }
+
     private Game createGame() {
         Game game = new Game(getCarList(),getNumberOfPlayCount());
         gameService.save(game);
