@@ -1,4 +1,4 @@
-package racingcar.configuration;
+package racingcar.configurator;
 
 import racingcar.model.CarList;
 import racingcar.view.UserView;

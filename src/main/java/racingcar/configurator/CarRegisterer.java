@@ -1,4 +1,4 @@
-package racingcar.configuration;
+package racingcar.configurator;
 
 import racingcar.model.Car;
 import racingcar.model.CarList;

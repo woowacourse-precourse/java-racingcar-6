@@ -2,7 +2,7 @@ package racingcar;
 
 import racingcar.controller.GameController;
 import racingcar.controller.GameRule;
-import racingcar.configuration.GameSetter;
+import racingcar.configurator.GameSetter;
 import racingcar.controller.RandomGameRuleImpl;
 import racingcar.model.CarList;
 

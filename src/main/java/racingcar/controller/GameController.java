@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.configuration.GameSetter;
+import racingcar.configurator.GameSetter;
 
 public class GameController {
     private final GameSetter racingGame;
