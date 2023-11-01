@@ -25,7 +25,7 @@ class OutputViewTest {
 
     @BeforeEach
     protected final void init() {
-        Cars cars = new Cars("isaac,han");
+        cars = new Cars("isaac,han");
 
         assertRandomNumberInRangeTest(() -> {
             cars.everyCarMoveForwardByRandom();
