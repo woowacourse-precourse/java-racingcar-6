@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.view;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
@@ -7,12 +7,11 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
+import racingcar.view.OutputView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OutputViewTest {
 
@@ -69,6 +68,8 @@ class OutputViewTest {
                 Assertions.assertThat(outputStream.toString())
                         .contains("실행 결과", "Tom : -", "Jin : -", "Ive : ");
             }
+
+
         }
     }
 }
