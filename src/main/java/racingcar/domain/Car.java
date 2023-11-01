@@ -1,13 +1,15 @@
 package racingcar.domain;
 
 public class Car {
-    private final String nickname;
-    private int position = 0;
     private final int MAXIMUM_NICKNAME_LENGTH = 5;
+    private final int START_POSITION = 0;
+    private final String nickname;
+    private int position;
 
     public Car(String nickname) {
         validate(nickname);
         this.nickname = nickname;
+        this.position = START_POSITION;
     }
 
     private void validate(String nickname) {
