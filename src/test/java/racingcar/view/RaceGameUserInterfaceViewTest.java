@@ -1,21 +1,18 @@
 package racingcar.view;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RaceGameUserInterfaceViewTest {
-
     private static ByteArrayOutputStream outputMessage;
 
     @BeforeEach
@@ -49,7 +46,7 @@ class RaceGameUserInterfaceViewTest {
     @Test
     void gameStartMessageTest() {
 
-        RaceGameUserInterfaceView.raceGameStartMessage();
+        RaceGameUserInterfaceView.displayRaceGameStartMessage();
         assertEquals("\n실행 결과\n", outputMessage.toString());
 
     }
@@ -63,9 +60,7 @@ class RaceGameUserInterfaceViewTest {
         userCarDistance.put("jun", 4);
 
         RaceGameUserInterfaceView.displayUserCarDistance(userCarDistance);
-        assertEquals("pobi : ---\n"
-            + "woni : --\n"
-            + "jun : ----\n\n", outputMessage.toString());
+        assertEquals("pobi : ---\n" + "woni : --\n" + "jun : ----\n\n", outputMessage.toString());
     }
 
     @Test

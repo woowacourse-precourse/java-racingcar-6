@@ -8,8 +8,16 @@ import racingcar.controller.JudgeWinner;
 import racingcar.model.RaceGameStateModel;
 import racingcar.view.RaceGameUserInterfaceView;
 
+/**
+ * Controls the model, view, controller
+ *
+ * @author WorldBestProgrammer
+ */
 public class Application {
 
+    /**
+     * Plays the race game
+     */
     public static void main(String[] args) {
 
         // Input
@@ -27,7 +35,7 @@ public class Application {
         LinkedHashMap<String, Integer> userCarDistance = raceGameStateModel.getUserCarDistance();
 
         // Display '실행 결과' message
-        RaceGameUserInterfaceView.raceGameStartMessage();
+        RaceGameUserInterfaceView.displayRaceGameStartMessage();
 
         // Progress Game Round and Display Round Result
         for (int i = 0; i < raceGameStateModel.getTotalRound(); i++) {
@@ -41,8 +49,14 @@ public class Application {
 
     }
 
+    /**
+     * Updates distance when the car can go
+     *
+     * @param userCars List of car names
+     * @param raceGameStateModel Model storing state of race game
+     */
     private static void updateUserCarDistance(List<String> userCars,
-        RaceGameStateModel raceGameStateModel) {
+            RaceGameStateModel raceGameStateModel) {
         for (String userCar : userCars) {
             int randomNumber = JudgeMovement.getRandomNumber(0, 9);
             boolean goFlag = JudgeMovement.goFlag(randomNumber, 4);

@@ -1,21 +1,30 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
+/**
+ * Judges the winner of race game
+ *
+ * @author WorldBestProgrammer
+ */
 public class JudgeWinner {
+
+    /**
+     * Returns the name of winners
+     *
+     * @param userCarDistance The key is car name and the value is distance at end of race
+     * @return The list of the winners' name
+     */
     public static List<String> judgeWinner(Map<String, Integer> userCarDistance) {
 
         Integer maxValue = Collections.max(userCarDistance.values());
 
         return userCarDistance.entrySet().stream()
-            .filter(entry -> Objects.equals(entry.getValue(), maxValue))
-            .map(Map.Entry::getKey)
-            .toList();
+                .filter(entry -> Objects.equals(entry.getValue(), maxValue))
+                .map(Map.Entry::getKey)
+                .toList();
     }
 }

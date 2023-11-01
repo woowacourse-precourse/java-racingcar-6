@@ -1,15 +1,13 @@
 package racingcar.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class JudgeWinnerTest {
-
     @Test
     void judge1WinnerTest() {
         LinkedHashMap<String, Integer> userCarDistance = new LinkedHashMap<String, Integer>();
@@ -21,7 +19,7 @@ class JudgeWinnerTest {
         expectedWinners.add("poby");
 
         List<String> winners = JudgeWinner.judgeWinner(userCarDistance);
-        Assertions.assertThat(expectedWinners).isEqualTo(winners);
+        assertThat(expectedWinners).isEqualTo(winners);
     }
 
     @Test
@@ -36,7 +34,7 @@ class JudgeWinnerTest {
         expectedWinners.add("jun");
 
         List<String> winners = JudgeWinner.judgeWinner(userCarDistance);
-        Assertions.assertThat(expectedWinners).isEqualTo(winners);
+        assertThat(expectedWinners).isEqualTo(winners);
     }
 
     @Test
@@ -52,6 +50,6 @@ class JudgeWinnerTest {
         expectedWinners.add("jun");
 
         List<String> winners = JudgeWinner.judgeWinner(userCarDistance);
-        Assertions.assertThat(expectedWinners).isEqualTo(winners);
+        assertThat(expectedWinners).isEqualTo(winners);
     }
 }

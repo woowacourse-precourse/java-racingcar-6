@@ -1,12 +1,11 @@
 package racingcar.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class JudgeMovementTest {
-
     @Test
     void goFlagTrueTest() {
         int randomNumber = 5;
@@ -14,7 +13,7 @@ class JudgeMovementTest {
 
         boolean flag = JudgeMovement.goFlag(randomNumber, c);
 
-        Assertions.assertThat(flag).isTrue();
+        assertThat(flag).isTrue();
     }
 
     @Test
@@ -24,6 +23,6 @@ class JudgeMovementTest {
 
         boolean flag = JudgeMovement.goFlag(randomNumber, c);
 
-        Assertions.assertThat(flag).isFalse();
+        assertThat(flag).isFalse();
     }
 }
