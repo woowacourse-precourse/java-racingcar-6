@@ -27,7 +27,6 @@ public class RaceController {
         Race race = initRace(cars, attemptNumber);
 
         List<HashMap<String, Integer>> raceResult = race.getRaceResult();
-        System.out.println(raceResult);
         List<String> winners = Race.getWinners(raceResult);
 
         ResultView consoleResultView = new ConsoleResultView(raceResult, winners);
