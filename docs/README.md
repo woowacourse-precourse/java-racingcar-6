@@ -19,8 +19,10 @@
 >   - 1.1 자동차 이름 입력 : Input.getCars()
 >   - 1.2 이동 시도 횟수 입력 : Input.getAttempts()
 > 2. 유효한 입력 검증
+>   - 2.0 빈 입력 검증 : Validation.validationEmpty(String input)
 >   - 2.1 자동차 이름 입력 검증 : Validation.validationCarName(String name)
 >   - 2.2 이동 시도 횟수 입력 검증 : Validation.validationAttempts(String attempts)
+>   - 2.3 중복된 이름 검증 : Validation.validationDuplication(List<Car cars) 
 > 3. 자동차 객체
 >   - 자동차 객체 기능
 >     - 3.1 자동차 전진 기능 : Car.moveCar()
