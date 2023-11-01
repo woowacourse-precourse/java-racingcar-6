@@ -26,6 +26,7 @@ public class RacingGame {
         cars.stream()
                 .filter(c -> isOverThreshold(generateRandomIntInRange()))
                 .forEach(c -> c.proceedSingleUnit());
+        remainingRounds--;
     }
     private int generateRandomIntInRange() {
         return Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
