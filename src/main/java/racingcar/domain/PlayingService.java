@@ -7,10 +7,14 @@ import racingcar.domain.Car;
 
 public class PlayingService {
     private Car carsName;
+    private Number number;
 
-    public void generateGame() {
+    public PlayingService() {
         String names = Console.readLine();
         enterName(names);
+
+        String num = Console.readLine();
+        number = new Number(num);
     }
 
     void enterName(String names) {
