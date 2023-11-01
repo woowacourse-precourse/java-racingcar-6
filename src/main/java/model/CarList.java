@@ -12,7 +12,7 @@ public class CarList {
     }
     public void addCar(final String carName){
         Car tmpCar = new Car(carName);
-        carList.add(tmpCar);
+        this.carList.add(tmpCar);
     }
     public List<Car> getCarList(){
         return this.carList;
