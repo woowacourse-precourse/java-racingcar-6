@@ -59,4 +59,22 @@ public class RacingGameService {
             round--;
         }
     }
+
+    public String decideWinner() {
+        String winner = "";
+        List<Car> cars = carRepository.getCars();
+        int maxDisplacement = MAX_DISPLACEMENT_INIT.getValue();
+        for (Car car : cars) {
+            int carDisplacement = car.getDisplacement().length();
+            if (carDisplacement > maxDisplacement) {
+                maxDisplacement = carDisplacement;
+                winner = car.getName();
+            } else if (carDisplacement == maxDisplacement & winner.equals("")) {
+                winner = car.getName();
+            } else if (carDisplacement == maxDisplacement & !winner.equals("")) {
+                winner = winner + ", " + car.getName();
+            }
+        }
+        return winner;
+    }
 }

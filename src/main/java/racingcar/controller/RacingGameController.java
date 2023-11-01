@@ -25,5 +25,11 @@ public class RacingGameController {
         racingGameService.proceedRace(); // 게임을 진행함
     }
 
+    public void showWinner() {
+        System.out.print(GameGuideMessage.WINNER.getMessage());
+        String winnerList = racingGameService.decideWinner(); // 우승자를 구함.
+        System.out.println(winnerList);
+    }
+
 
 }
