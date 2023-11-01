@@ -23,7 +23,7 @@ public class NumberGenerator {
     }
 
     public void createRandomNumbers(){
-        int randomNumber = Randoms.pickNumberInRange(1, 9);
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
         racinggame.setrandomNumber(randomNumber);
     }
 }
