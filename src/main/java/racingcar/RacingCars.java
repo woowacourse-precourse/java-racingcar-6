@@ -19,6 +19,18 @@ public class RacingCars {
         return Collections.unmodifiableList(racingCars);
     }
 
+    public int size() {
+        return racingCars.size();
+    }
+
+    public void moveCars(List<Integer> randomNumbers) {
+        int index = 0;
+        for (RacingCar racingCar : racingCars) {
+            racingCar.move(randomNumbers.get(index));
+            index++;
+        }
+    }
+
     public List<String> getWinners() {
         int maxDistance = 0;
         List<String> winners = new ArrayList<>();
