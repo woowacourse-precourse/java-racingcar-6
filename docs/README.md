@@ -2,14 +2,13 @@
 ## The Rule of Racing Car Game
 
 1. **Input** - Racing Car
-    + The Number of Car
-      + maximum # car is 16 
-      + if user set more numbers of car than 16, error message will be printed(IllegalArgumentException)
+
     + The name of car 
       + maximum length of name is 5
       + english, special character, number are allowed
       + does not be allowed duplication
       + does not be allowed white-space
+      + does not be allowed "" or ''
 
 2. **Input** - The Number of Trial
     + Only be accepted INTEGER

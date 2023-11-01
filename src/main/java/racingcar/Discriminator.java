@@ -8,7 +8,7 @@ public class Discriminator {
     }
 
     public static void validateCarName(String carName){
-        if (carName.length() > 5 || carName.isEmpty() || carName.matches(".*\\s+.*")){
+        if (carName.length() > 5 || carName.isEmpty() || carName.matches(".*\\s+.*")||carName.contains("'")||carName.contains("\"")){
             throw new IllegalArgumentException("Invalid car name.");
         }
     }
