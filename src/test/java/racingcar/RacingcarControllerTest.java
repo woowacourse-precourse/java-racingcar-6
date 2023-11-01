@@ -38,4 +38,31 @@ class RacingcarControllerTest {
 
         assertThat(car.getNumber()).isBetween(0, 1);
     }
+
+    @Test
+    void 우승자_한명() {
+        Car winner = new Car("winnerTest", 3);
+        racingcarController.cars.addCarList(winner);
+
+        Car car = new Car("car", 1);
+        racingcarController.cars.addCarList(car);
+
+        List<String> winnerList = racingcarController.getWinner();
+        assertThat(winnerList).containsExactly("winnerTest");
+    }
+
+    @Test
+    void 우승자_여러명() {
+        Car winner1 = new Car("winnerTest1", 3);
+        racingcarController.cars.addCarList(winner1);
+
+        Car winner2 = new Car("winnerTest2", 3);
+        racingcarController.cars.addCarList(winner2);
+
+        Car car = new Car("car", 1);
+        racingcarController.cars.addCarList(car);
+
+        List<String> winnerList = racingcarController.getWinner();
+        assertThat(winnerList).contains("winnerTest1", "winnerTest2");
+    }
 }
