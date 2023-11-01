@@ -4,7 +4,6 @@ import static racingcar.exception.RacingCarExceptionMessage.DUPLICATED_CAR_NAMES
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.dto.UserCarNameDto;
 
 public class Cars {
     private final List<Car> cars;
@@ -13,8 +12,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars from(UserCarNameDto userCarNameDto, CarEngine carEngine) {
-        List<String> inputCarNames = userCarNameDto.carNames();
+    public static Cars from(List<String> inputCarNames, CarEngine carEngine) {
         validateDuplicated(inputCarNames);
         List<Car> carList = inputCarNames.stream()
                 .map(carName -> new Car(new CarName(carName), carEngine, new Position()))
@@ -26,13 +24,9 @@ public class Cars {
         int distinctCount = (int) carNames.stream()
                 .distinct()
                 .count();
-        if (isDuplicated(carNames, distinctCount)) {
+        if (distinctCount != carNames.size()) {
             throw new IllegalArgumentException(DUPLICATED_CAR_NAMES.getMessage());
         }
-    }
-
-    private static boolean isDuplicated(List<String> carNames, int distinctCount) {
-        return distinctCount != carNames.size();
     }
 
     public void move() {
