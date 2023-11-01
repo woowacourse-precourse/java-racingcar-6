@@ -6,7 +6,7 @@ public class OutputHandler {
 
     public static void printEachResult(List<Car> carList) {
         for (Car car : carList) {
-            System.out.println(car.getName() + Constants.CAR_FIELD_LINK + Constants.DISTANCE_UNIT_STRING.repeat(car.getDistance()));
+            System.out.println(car.getName() + Constants.CAR_FIELD_LINK + Constants.BAR.repeat(car.getDistance()));
         }
         System.out.println();
     }

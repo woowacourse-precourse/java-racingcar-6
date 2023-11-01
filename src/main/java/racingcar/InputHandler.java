@@ -64,10 +64,10 @@ public class InputHandler {
         else if (target.contains(Constants.BLANK)) {  // 공백 포함
             throw new IllegalArgumentException();
         }
-        else if (target.contains("[^"+Constants.NUMBER_EXPRESSION+"]")) { // 숫자가 아닌 문자 포함
+        else if (target.contains(Constants.NOT_NUMBER_EXPRESSION)) { // 숫자가 아닌 문자 포함
             throw new IllegalArgumentException();
         }
-        else if (target.contains("-")) {    // 음수인 경우
+        else if (target.contains(Constants.BAR)) {    // 음수인 경우
             throw new IllegalArgumentException();
         }
         else if (target.charAt(0) == '0') { // 0으로 시작
