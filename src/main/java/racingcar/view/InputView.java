@@ -9,7 +9,7 @@ public class InputView {
     public static int inputAttemptCount() {
         String attemptValue = Console.readLine();
         Validator.validateNonEmpty(attemptValue);
-        Validator.validateIsNumeric(attemptValue);
+        Validator.validateInputIsNumeric(attemptValue);
 
         int attemptCount = Integer.parseInt(attemptValue);
         Validator.validateAtLeastOne(attemptCount);
@@ -17,13 +17,13 @@ public class InputView {
         return attemptCount;
     }
 
-    public static List<String> inputCarName() {
+    public static List<String> inputCarNames() {
         String carNames = Console.readLine();
         Validator.validateSeparatedByComma(carNames);
 
         List<String> separatedCarNames = Utils.splitAndToList(carNames);
         Validator.validateCarNameLength(separatedCarNames);
-        Validator.validateHasDuplicateCarNames(separatedCarNames);
+        Validator.validateDuplicateCarNames(separatedCarNames);
 
         return separatedCarNames;
     }

@@ -5,8 +5,8 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class RacingcarGame {
-    private static final int COUNT_ONE = 1;
     private static final int CRITERION_FOUR = 4;
+    private static final int MOVE_FORWARD_ONCE = 1;
 
     public List<String> createWinner(List<Car> cars) {
         List<String> winner = new ArrayList<>();
@@ -31,7 +31,7 @@ public class RacingcarGame {
 
     public void increaseMoveForwardCount(Car car, int randomNumber) {
         if (randomNumber >= CRITERION_FOUR) {
-            car.setMoveForwardCount(COUNT_ONE);
+            car.setMoveForwardCount(MOVE_FORWARD_ONCE);
         }
     }
 }

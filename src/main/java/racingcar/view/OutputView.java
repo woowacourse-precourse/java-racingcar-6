@@ -10,7 +10,7 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public static void printResult() {
+    public static void printRaceResult() {
         System.out.println("\n실행 결과");
     }
 

@@ -14,20 +14,20 @@ public class Controller {
 
     public void run() {
         OutputView.printInputCarName();
-        List<Car> cars = addCarToList();
+        List<Car> cars = createCarsFromInputCarNames();
 
         OutputView.printInputAttemptCount();
-        Attempt attempt = createAttempt();
+        Attempt attempt = createAttemptFromInputAttemptCount();
         int attemptCount = attempt.getAttemptCount();
 
-        OutputView.printResult();
-        IterateMoveCars(cars, attemptCount);
+        OutputView.printRaceResult();
+        iterateMoveCars(cars, attemptCount);
 
         List<String> winner = racingcarGame.createWinner(cars);
         OutputView.printWinner(winner);
     }
 
-    private void IterateMoveCars(List<Car> cars, int attemptCount) {
+    private void iterateMoveCars(List<Car> cars, int attemptCount) {
         while (attemptCount > 0) {
             moveCars(cars);
             attemptCount--;
@@ -37,19 +37,19 @@ public class Controller {
 
     private void moveCars(List<Car> cars) {
         for (Car car : cars) {
-            int random = Utils.generateRandomNumber();
-            racingcarGame.increaseMoveForwardCount(car, random);
+            int randomNumber = Utils.generateRandomNumber();
+            racingcarGame.increaseMoveForwardCount(car, randomNumber);
             OutputView.printMoveForward(car);
         }
     }
 
-    private Attempt createAttempt() {
+    private Attempt createAttemptFromInputAttemptCount() {
         Attempt attempt = new Attempt(InputView.inputAttemptCount());
         return attempt;
     }
 
-    private List<Car> addCarToList() {
-        List<Car> cars = InputView.inputCarName()
+    private List<Car> createCarsFromInputCarNames() {
+        List<Car> cars = InputView.inputCarNames()
                                   .stream()
                                   .map(Car::new)
                                   .collect(Collectors.toList());

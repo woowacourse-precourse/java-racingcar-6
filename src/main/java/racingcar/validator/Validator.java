@@ -22,24 +22,24 @@ public class Validator {
         }
     }
 
-    public static void validateHasDuplicateCarNames(List<String> separatedCarNames) {
+    public static void validateDuplicateCarNames(List<String> separatedCarNames) {
         Set<String> carNames = new HashSet<>(separatedCarNames);
         if (separatedCarNames.size() != carNames.size()) {
             throw new IllegalArgumentException("중복되지 않은 자동차 이름을 입력해주세요.");
         }
     }
 
-    public static void validateIsNumeric(String attempt) {
-        for (char separatedAttempt : attempt.toCharArray()) {
-            if (!Character.isDigit(separatedAttempt)) {
-                throw new IllegalArgumentException("숫자만 입력해주세요.");
-            }
+    public static void validateNonEmpty(String attemptValue) {
+        if (attemptValue.isBlank()) {
+            throw new IllegalArgumentException("이동 횟수를 입력해주세요.");
         }
     }
 
-    public static void validateNonEmpty(String attempt) {
-        if (attempt.isBlank()) {
-            throw new IllegalArgumentException("이동 횟수를 입력해주세요.");
+    public static void validateInputIsNumeric(String attemptValue) {
+        for (char separatedAttemptValue : attemptValue.toCharArray()) {
+            if (!Character.isDigit(separatedAttemptValue)) {
+                throw new IllegalArgumentException("숫자만 입력해주세요.");
+            }
         }
     }
 

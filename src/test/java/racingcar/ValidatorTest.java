@@ -60,7 +60,7 @@ public class ValidatorTest {
 
         // when
         Throwable result1 = catchThrowable(() -> {
-            Validator.validateHasDuplicateCarNames(case1);
+            Validator.validateDuplicateCarNames(case1);
         });
 
         // then
@@ -77,13 +77,13 @@ public class ValidatorTest {
 
         // when
         Throwable result1 = catchThrowable(() -> {
-            Validator.validateIsNumeric(case1);
+            Validator.validateInputIsNumeric(case1);
         });
         Throwable result2 = catchThrowable(() -> {
-            Validator.validateIsNumeric(case2);
+            Validator.validateInputIsNumeric(case2);
         });
         Throwable result3 = catchThrowable(() -> {
-            Validator.validateIsNumeric(case3);
+            Validator.validateInputIsNumeric(case3);
         });
 
         // then
