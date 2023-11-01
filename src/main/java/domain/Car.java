@@ -9,6 +9,11 @@ public class Car {
         this.name = name;
     }
 
+    public Car(String name, int moveCount){
+        this.name = name;
+        this.moveCount = moveCount;
+    }
+
     //차 이름이 같다면 같은 객체로 판단
     @Override
     public boolean equals(Object o){

@@ -11,11 +11,16 @@ import java.util.stream.IntStream;
 
 public class CarRacingWinnerService {
 
-    public void selectWinner(Cars cars){
+    public void selectWinnerWithOutput(Cars cars){
+
+        List<Car> selectedWinner = selectWinner(cars);
+        Output.addResultOutput(selectedWinner);
+    }
+    public List<Car> selectWinner(Cars cars){
         ArrayList<Car> carList = cars.getCars();
         sort(carList);
         int lastIndex = findLastIndex(carList);
-        Output.addResultOutput(carList.subList(0,lastIndex));
+        return carList.subList(0,lastIndex);
     }
 
     private void sort(ArrayList<Car> carList){
