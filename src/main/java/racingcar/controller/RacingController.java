@@ -55,21 +55,15 @@ public class RacingController {
 
     private void printWinnerCar(List<Car> winnerCars) {
         StringBuilder sb = new StringBuilder();
-        if (racingCars.isCoFastestCars()) {
-            createWinnerCarsName(winnerCars, sb);
-        }
-        if (!racingCars.isCoFastestCars()) {
-            sb.append(winnerCars.get(0).provideCarStatus().get("name"));
-        }
+        createWinnerCarsName(winnerCars, sb);
         outputView.printWinnerCars(sb.toString());
     }
 
-    private String createWinnerCarsName(List<Car> winnerCars, StringBuilder sb) {
+    private void createWinnerCarsName(List<Car> winnerCars, StringBuilder sb) {
         for (int i = 0; i < winnerCars.size(); i++) {
             addSeperator(sb, i);
             sb.append(winnerCars.get(i).provideCarStatus().get("name"));
         }
-        return sb.toString();
     }
 
     private void addSeperator(StringBuilder sb, int i) {
