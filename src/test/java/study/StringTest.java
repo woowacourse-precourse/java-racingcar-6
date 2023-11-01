@@ -11,9 +11,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 // https://assertj.github.io/doc/#overview-what-is-assertj
@@ -519,6 +517,28 @@ public class StringTest {
 
     }
 
+    @DisplayName("extracting_을_활용한_속성_추출_방법")
+    @Test
+    public void extracting_을_활용한_속성_추출_방법() throws Exception {
+        // given
+        Human kawhi = new Human("kawhi", 25);
+        Human seung = new Human("seung", 25);
+        Human chan = new Human("chan", 25);
+        List<Human> humanList = new ArrayList<>();
+        humanList.add(kawhi);
+        humanList.add(seung);
+        humanList.add(chan);
+
+        // than
+        // 추출한 것의 따로 리스트를 만든다.
+        assertThat(humanList).extracting("name")
+                .containsOnly(kawhi.getName(), seung.getName(), chan.getName()); // DOES NOT COMPILE
+
+        // Use Object assertions like isEqualTo
+        assertThat(humanList).extracting(Human::getName)
+                .containsOnly(kawhi.getName(), seung.getName(), chan.getName()); // DOES NOT COMPILE
+
+    }
 
 }
 
