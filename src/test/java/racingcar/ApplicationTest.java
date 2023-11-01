@@ -46,7 +46,7 @@ class ApplicationTest extends NsTest {
     @Test
     void carNameExceptionTest1() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("", "1"))
+                assertThatThrownBy(() -> runException("\n", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -96,8 +96,42 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @DisplayName("[시도 횟수] 숫자 변환")
+    @Test
+    void convertToNumberTest() {
+        String trialNumberString = "275";
+        int result = InputHandler.convertToNumber(trialNumberString);
+        int answer = 275;
 
+        assertThat(result).isEqualTo(answer);
+    }
 
+    @DisplayName("[시도 횟수] 예외 발생 - 입력값 부재")
+    @Test
+    void trialNumberExceptionTest1() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "\n"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 숫자가 아닌 문자 포함")
+    @Test
+    void trialNumberExceptionTest2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "-150"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 0으로 시작")
+    @Test
+    void trialNumberExceptionTest3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {
