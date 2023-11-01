@@ -25,9 +25,13 @@ public class InputValidate {
     }
 
     public void validateTrialNum(String input) {
+        int inputNum;
         try {
-            Integer.parseInt(input);
+            inputNum = Integer.parseInt(input);
         } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException(ExceptionMessage.INPUT_INTEGER_EXCEPTION_MESSAGE.getValue());
+        }
+        if (inputNum <= 0) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_INTEGER_EXCEPTION_MESSAGE.getValue());
         }
     }
