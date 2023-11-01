@@ -12,6 +12,7 @@ public class Cars {
 
     public Cars() {
         cars = new LinkedList<>();
+        initCars();
     }
 
     private List<String> inputNewCarNames() {
@@ -30,7 +31,7 @@ public class Cars {
         }
     }
 
-    public void initCars() {
+    private void initCars() {
         List<String> names;
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
