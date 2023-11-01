@@ -52,25 +52,43 @@
 
 ## 결과물
 
+## 의존성 그래프
+
+![DependencyGrpah](./image/DepencyGraph.png)
+
 ### 각 함수의 기능목록
-| 클래스             | 접근자 | 함수 | 책임                                                                                       |
-|-----------------| --- | --- |------------------------------------------------------------------------------------------|
- | GameExecutor    | public | run | Game의 초기화에 필요한 입력을 받는다<br/> Game을 생성시킨다 game.run()을 호출한다                                 |
- | RacingCarGame   | public | run | runStage()를 trial횟수 만큼 호출한다 최종 횟수를 출력한다                                                  |
- | RacingCarGame   | public | toString | 각 자동차들의 toString()을 출력한다                                                                 |
- | RacingCarGame   | private | getWinners | 자동차들 중에서 가장 높은 Position을 갖는 값(p)을 찾는다<br/> 자동차들 중에서  p와 같은 Poisiton을 갖는 자동차의 이름들을 출력한다   |
- | RacingCarGame   | private | createCars | 자동차의 이름들을 받아서 자동차 객체의 목록으로 변환한다 <br/> 이때 이름이 중복되는 자동차가 있으면 IllegarArgumentException을 반환한다 |
- | RacingCarGame   | private | runStage | 각 자동차Random.randomNumberRange() 값을 이용하여서  각 Racingcar.tryForward()를 호출한다                                                |
- | RacingCarGame   | private | checkTrial | trial 횟수가 1 이상의 값이 아니라면 IllegalArgumentException을 발생시킨다                                  |
- | GameRandom      | public | randomNumberRange | start 이상 end 미만의 값중에서 Random하게 출력시킨다                                                     |
- | RacingCar       | public | tryForward | number값을 받아서 number값이 4이상이면 전진시킨다                                                        |
- | RacingCar       | public | isSamePositionWith | 입력받은 다른 RacinCar와 같은 Position인지 출력한다                                                     |
- | RacingCar       | public | getName | 자신의 이름을 출력한다                                                                             |
- | RacingCar       | public | toString | 자신의 이름과 포지션을 출력한다                                                                        |
- | InputInterface  | public | getNames | 유저한테서 name들을 Input 받는다                                                                   |
- | InputInterface  | public | getTrial | 유저한테서 시도 횟수들을 Input 받는다                                                                  |
- | OutputInterface | public | println | 입력받은 문자열을 출력한다                                                                           |
- | OutputInterface | public | printStage | 입력받은 Game의 toString()을 출력한다                                                              |
- | OutputInterface | public | printWinner | 입력받은 winner목록을 출력한다                                                                      |
+| 클래스                   | 접근자     | 함수                        | 책임                                                                                        |
+|-----------------------|---------|---------------------------|-------------------------------------------------------------------------------------------|
+ | Game                  | public  | isFinished                | 게임이 종료되었는지 여부를 출력한다                                                                       |
+| Game                  | public  | isFinished                | 게임이 종료되었는지 여부를 출력한다                                                                       |
+| Game                  | public  | runStage                  | 각 자동차Random.randomNumberRange() 값을 이용하여서  각 Racingcar의 tryForward()를 호출한다                 |
+| Game                  | public  | printStage                | OutputInterface의 printStage()를 호출한다                                                       |
+| Game                  | public  | render                    | Renderer.renderCars()를 호출한다                                                               |
+| GameExecutor          | public  | run                       | game의 주요 API들을 로직대로 호출한다                                                                  |
+| GameRandom            | public  | randomNumberRange         | start 이상 end 미만의 값중에서 Random하게 출력시킨다                                                      |
+| RacingCarGame         | private | getWinners                | 자동차들 중에서  가장 높은 Poisiton을 갖는 자동차의 이름들을 출력한다                                               |
+| RacingCarGame         | private | getCarWithHighestPosition | 자동차들 중에서 가장 높은 Position을 갖는 값(p)을 찾는다                                                     |
+| RacingCarGame         | private | createCars                | 자동차의 이름들을 받아서 자동차 객체의 목록으로 변환한다 <br/> 이때 이름이 중복되는 자동차가 있으면 IllegarArgumentException을 반환한다 |
+| RacingCarGame         | private | checkTrial                | trial 횟수가 1 이상의 값이 아니라면 IllegalArgumentException을 발생시킨다                                   |
+| RacingCarGame         | private | checkNames                | 자동차의 이름이 중복되면 IllegalArgumentException을 발생시킨다                                             |
+ | RacingCar             | public  | tryForward                | number값을 받아서 number값이 4이상이면 전진시킨다                                                         |
+ | RacingCar             | public  | isSamePositionWith        | 입력받은 다른 RacinCar와 같은 Position인지 출력한다                                                      |
+ | RacingCar             | public  | getName                   | 자신의 이름을 출력한다                                                                              |
+ | RacingCar             | public  | render                    | Renderer.renderCar()에 자신의 이름과 Position을 넘긴다                                               |
+ | RacingCar             | private | checkName                 | 이름의길이가 0이상 5이하인지 확인한다                                                                     |
+| Position              | public  | of                        | 새로운 Position 객체를 생성한다                                                                     |
+| Position              | public  | forward                   | 입력받은 만큼 수만큼 전진한 새로운 Position 객체를 생성한다                                                     |
+| Position              | public  | compareTo                 | 다른 Position 객체와 x좌표를 비교를 한다                                                               |
+| Position              | public  | equals                    | 다른 Position 객체와 x좌표가 같은지 비교를 한다                                                           |
+| Position              | public  | hashCode                  | hashCode를 반환한다                                                                            |
+| Position              | public  | getX                      | x좌표 값을 반환한다                                                                               |
+| RacingCarGameRenderer | public  | renderCars                | 입력받은 모든 차 리스트를 render()를 호출한다                                                             |
+| RacingCarGameRenderer | public  | renderCar                 | 입력 받은 차 이름과 좌표로 포매팅을한다                                                                    |
+ | InputInterface        | public  | getNames                  | 유저한테서 name들을 Input 받는다                                                                    |
+ | InputInterface        | public  | getTrial                  | 유저한테서 시도 횟수들을 Input 받는다                                                                   |
+ | OutputInterface       | public  | println                   | 입력받은 문자열을 출력한다                                                                            |
+ | OutputInterface       | public  | printStage                | 입력받은 Game의 toString()을 출력한다                                                               |
+ | OutputInterface       | public  | printWinner               | 입력받은 winner목록을 출력한다                                                                       |
+ | View                  | public  | render                    | 입력받은 String을 원하는 포맷대로 출력한다                                                                |
 
 
