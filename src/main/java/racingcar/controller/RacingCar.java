@@ -23,6 +23,10 @@ public class RacingCar {
 
 		moveForwardOrStop(tryNumber, players, results);
 
+		endGame(players, results);
+	}
+
+	private void endGame(List<String> players, List<Integer> results) {
 		int winnerDistance = getWinnerDistance(results);
 		List<String> winners = getWinners(players, results, winnerDistance);
 
