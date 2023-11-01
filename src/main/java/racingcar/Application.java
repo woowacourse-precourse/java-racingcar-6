@@ -37,10 +37,14 @@ public class Application {
         String[] inputCarNames = Console.readLine().split(",");
         Cars.addCars(inputCarNames);
 
+        System.out.println("시도할 회수는 몇회인가요?");
         Round.finalRound = Integer.parseInt(Console.readLine());
 
+        System.out.println("실행 결과");
         while (Round.isContinue()) {
-            
+
         }
+
+        System.out.print("최종 우승자 : ");
     }
 }
