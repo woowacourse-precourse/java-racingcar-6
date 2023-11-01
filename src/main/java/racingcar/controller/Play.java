@@ -49,6 +49,16 @@ public class Play {
         gameTryNumber = Integer.parseInt(checkGameTryNumber);
     }
 
+    public void playResultMessage() {
+        for (int i = 0; i < gameTryNumber; i++) {
+            for (String carName : racerInformation.keySet()) {
+                playOnce(carName);
+            }
+            System.out.println();
+        }
+    }
+
+
 
 
     //예외처리
