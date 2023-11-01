@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.view.InputView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,7 +39,7 @@ public class WinnerTest {
         }
 
 
-        assertThat(winner.setWinnerList(carList)).containsAnyOf(car1, car2, car3);
+        assertThat(winner.setWinnerList(carList)).containsAnyOf("car1", "car2", "car3");
     }
     @Test
     void 공동_우승자가_존재하는경우(){
@@ -49,8 +50,8 @@ public class WinnerTest {
         carList.add(car1);
         carList.add(car2);
         carList.add(car3);
-
-        assertThat(winner.setWinnerList(carList)).isEqualTo(carList);
+        List<String> expectedWinners = Arrays.asList("car1", "car2", "car3");
+        assertThat(winner.setWinnerList(carList)).isEqualTo(expectedWinners);
     }
 
 
