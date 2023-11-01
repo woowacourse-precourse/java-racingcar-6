@@ -3,9 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Application {
     private final static int MAX_LENGTH_NAME = 5;
@@ -24,6 +22,8 @@ public class Application {
             for(int i=0; i<iter; i++){
                 run();
             }
+
+            whoIsWinner();
         }finally {
             Console.close();
         }
@@ -65,5 +65,24 @@ public class Application {
             System.out.println();
         });
         System.out.println();
+    }
+
+    private static void whoIsWinner(){
+        int max = 0;
+        Iterator<String> keys = cars.keySet().iterator();
+        while(keys.hasNext()){
+            int go = cars.get(keys.next());
+            if(go > max) max = go;
+        }
+
+        int finalMax = max;
+        StringBuilder sb = new StringBuilder("최종 우승자 : ");
+        cars.forEach((name, go) -> {
+            if(go == finalMax){
+                sb.append(name).append(", ");
+            }
+        });
+
+        System.out.print(sb.substring(0, sb.length()-2));
     }
 }
