@@ -12,6 +12,9 @@ public class OutputView {
         System.out.println(MSG_RESULT);
     }
 
+    public void printNewLine() {
+        System.out.println();
+    }
     public void printRaceProgress(Car car) {
         String carName = car.getCarName();
         String carProgress = car.getProgress();

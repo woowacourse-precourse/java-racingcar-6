@@ -102,9 +102,9 @@ public class ManualTest extends NsTest {
 
     @Test
     void maga_try(){
-        String input = "a,b,c,d,e,f,g,h,i,j,k,l,m";
+        String input = "a,b,c,d,e,f,g,h,i,j";
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(input, "700"))
+                assertThatThrownBy(() -> runException(input, "1001"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }

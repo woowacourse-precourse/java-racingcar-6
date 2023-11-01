@@ -15,6 +15,7 @@ public class GameController {
     private OutputView outputView;
     private List<Car> carList;
     private Validator validator;
+    private int validCountNum;
 
     public GameController() {
         this.inputView = new InputView();
@@ -24,25 +25,20 @@ public class GameController {
     }
 
     public void runGame() {
-        String tryCount;
-        int validCountNum;
         // 경주할 자동차 이름에 대한 입력
         List<String> carNameList = new ArrayList<>(Arrays.asList(this.inputView.inputCarNames()));
-        validator.validListIsEmpty(carNameList);
         fillCarList(carNameList);
         // 시도할 횟수에 대한 입력
-        tryCount = this.inputView.inputCounts();
-        validCountNum = validator.getValidNumber(tryCount);
-        validator.limitPrint(validCountNum, carNameList.size());
+        this.validCountNum = getValidNumber(this.inputView.inputCounts());
+        validator.limitPrint(this.validCountNum, carNameList.size());
         // 실행 결과
-        this.outputView.printResultInit();
-        runRace(validCountNum);
+        runRace(this.validCountNum);
         // 우승자 선정
         this.outputView.printFinalWinners(determineWinners());
-
     }
 
     private void fillCarList(List<String> carNameList) {
+        validator.validListIsEmpty(carNameList);
         for (String carName : carNameList) {
             validator.validCarName(carName);
             Car newCar = new Car(carName);
@@ -51,12 +47,12 @@ public class GameController {
     }
 
     private void runRace(int raceCounts) {
+        this.outputView.printResultInit();
         for (int i = 0; i < raceCounts; i++) {
             for (Car car : this.carList) {
                 raceOnce(car);
             }
-            // 고민 사항 매회 추가하는 개행을 OutputView에서 처리할지?
-            System.out.println();
+            outputView.printNewLine();
         }
     }
 
@@ -71,17 +67,21 @@ public class GameController {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private List<String> determineWinners(){
+    private int getValidNumber(String inputNum) {
+        return validator.validNumber(inputNum);
+    }
+
+    private List<String> determineWinners() {
         int max = 0;
         List<String> winners = new ArrayList<>();
-        for (Car car : this.carList){
+        for (Car car : this.carList) {
             int progressCounter = car.getProgressCounter();
-            if (max < progressCounter){
+            if (max < progressCounter) {
                 // 새로운 최대 진행 카운터를 찾았으므로 이전 우승자를 모두 제거하고 새로운 우승자를 추가
                 winners.clear();
                 max = progressCounter;
                 winners.add(car.getCarName());
-            } else if (max == car.getProgressCounter()){
+            } else if (max == car.getProgressCounter()) {
                 // 현재 우승자와 동일한 진행 카운터를 가진 차량을 추가
                 winners.add(car.getCarName());
             }

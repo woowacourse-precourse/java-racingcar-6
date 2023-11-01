@@ -69,7 +69,7 @@ public class Validator {
         }
     }
 
-    public int getValidNumber(String tryString) {
+    public int validNumber(String tryString) {
         try {
             int intValue = Integer.parseInt(tryString);
             if (intValue < 1) {
