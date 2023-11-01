@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import racingcar.constant.ErrorMessage;
+import racingcar.exception.RacingCarException;
 
 public class Cars {
     private List<Car> cars;
@@ -61,7 +63,7 @@ public class Cars {
 
     private void validateCars(List<Car> carList) {
         if (isJustOneCar(carList)) {
-            throw new IllegalArgumentException("2개 이상의 이름을 입력해주세요.");
+            throw new RacingCarException(ErrorMessage.SINGLE_COUNT);
         }
     }
 
@@ -77,7 +79,7 @@ public class Cars {
 
     private void throwErrorIfDuplicated(List<Car> carList, Set<Car> carSet) {
         if (carList.size() != carSet.size()) {
-            throw new IllegalArgumentException("서로 중복되는 이름은 입력할 수 없습니다.");
+            throw new RacingCarException(ErrorMessage.DUPLICATED_VALUES);
         }
     }
 }

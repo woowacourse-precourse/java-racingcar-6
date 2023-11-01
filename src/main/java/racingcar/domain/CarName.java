@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import racingcar.constant.ErrorMessage;
+import racingcar.exception.RacingCarException;
+
 public class CarName {
     private final String name;
 
@@ -15,13 +18,13 @@ public class CarName {
 
     private void validateEmpty(String name) {
         if (isEmptyValue(name)) {
-            throw new IllegalArgumentException("공백은 입력할 수 없습니다.");
+            throw new RacingCarException(ErrorMessage.EMPTY_VALUE);
         }
     }
 
     private void validateLength(String name) {
         if (isOverLength(name)) {
-            throw new IllegalArgumentException("자동차 이름은 5자 까지만 입력할 수 있습니다.");
+            throw new RacingCarException(ErrorMessage.OUT_OF_STANDARD);
         }
     }
 

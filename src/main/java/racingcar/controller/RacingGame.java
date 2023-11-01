@@ -1,7 +1,9 @@
 package racingcar.controller;
 
 import java.util.stream.IntStream;
+import racingcar.constant.ErrorMessage;
 import racingcar.domain.Cars;
+import racingcar.exception.RacingCarException;
 import racingcar.validator.InputNumberValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -29,13 +31,12 @@ public class RacingGame {
 
             IntStream.range(0, runningCount).forEach(i -> progressOneRound(cars));
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자 이외의 값은 입력할 수 없습니다.");
+            throw new RacingCarException(ErrorMessage.NON_NUMERIC_VALUE);
         }
     }
 
     private void progressOneRound(Cars cars) {
         cars.moveAllCars();
-
         OutputView.printCarStatus(cars.convertCarToMap());
     }
 

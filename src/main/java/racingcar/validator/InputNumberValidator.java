@@ -1,9 +1,12 @@
 package racingcar.validator;
 
+import racingcar.constant.ErrorMessage;
+import racingcar.exception.RacingCarException;
+
 public class InputNumberValidator {
     public static void validateInputNumber(Integer inputNumber) {
         if (isNegative(inputNumber)) {
-            throw new IllegalArgumentException("0보다 큰 숫자만 입력할 수 있습니다.");
+            throw new RacingCarException(ErrorMessage.NEGATIVE_VALUE);
         }
     }
 
