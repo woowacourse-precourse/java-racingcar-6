@@ -4,7 +4,9 @@ import static racingcar.system.SystemMessage.GAME_RESULT;
 import static racingcar.system.SystemMessage.GAME_WINNER;
 
 import java.util.List;
-import racingcar.gamefield.DisplayBoard;
+import java.util.Map;
+import racingcar.car.Car;
+import racingcar.car.CarsStatusDto;
 
 public class OutputView {
 
@@ -12,12 +14,17 @@ public class OutputView {
         System.out.println(GAME_RESULT.getMessage());
     }
 
-    public void responseRacingResult(final DisplayBoard displayBoard) {
-        System.out.println(displayBoard.displayCurrentCarPosition());
+    public void responseCurrentCarsStatus(CarsStatusDto carsStatusDto) {
+        StringBuilder displayBoard = new StringBuilder();
+        Map<Car, String> currentCarPositions = carsStatusDto.getCurrentCarsPositions();
+        currentCarPositions.forEach(
+                (k,v) -> displayBoard
+                        .append(k).append(" : ").append(v).append("\n")
+        );
+        System.out.println(displayBoard);
     }
 
-    public void responseRaceWinner(final DisplayBoard displayBoard) {
-        List<String> winnerList = displayBoard.getWinnerList();
+    public void responseRaceWinner(List<String> winnerList) {
         StringBuilder champion = new StringBuilder();
         champion.append(GAME_WINNER.getMessage());
         for (int count = 0; count < winnerList.size(); count++) {
