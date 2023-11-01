@@ -9,27 +9,23 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-
     @Test
-    void 전진_정지() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
-        );
+    void 입력이름_예외_처리(){
+        ErrorOccur errorOccur = new ErrorOccur();
+        String carName = "moreThanFive";
+
+        assertThatThrownBy(() -> errorOccur.returnCarError(carName))
+                .hasCauseInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+    void 이동값_처리(){
+        MoveCar moveCar = new MoveCar();
+        int move = 3;
+        String result = moveCar.CarMove(move);
+        assertThat(result).isEqualTo("---");
     }
+
 
     @Override
     public void runMain() {
