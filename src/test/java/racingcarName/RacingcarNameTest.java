@@ -56,6 +56,18 @@ class RacingcarNameTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    @DisplayName("자동차 1대 등록시 예외")
+    void 자동차_경주_조건_예외_처리() {
+
+        String str = "java";
+
+        List<String> carName = List.of(str.split(","));
+
+        assertThatThrownBy(() -> racingCarException.validateCarName(carName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 
     @Override
     public void runMain() {
