@@ -43,8 +43,9 @@ public class RacingGame {
     }
 
     private List<Car> createCarMembers(final String carNames) {
+        validator.correctCommaLocation(carNames);
+
         final List<String> members = Arrays.asList(carNames.split(","));
-        validator.correctCommaLocation(members, carNames);
         validator.duplicateCarName(members, carNames);
         return members.stream()
                 .map(Car::new)
