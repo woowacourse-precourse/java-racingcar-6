@@ -8,7 +8,7 @@ public class StringUtil {
         return inputString.split(delimiter);
     }
 
-    public static String removeWhitespace(String inputString) {
-        return inputString.replaceAll("\\s", "");
+    public static String removeLeadingAndTrailingWhitespace(String inputString) {
+        return inputString.strip();
     }
 }
