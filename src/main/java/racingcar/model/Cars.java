@@ -4,13 +4,13 @@ import racingcar.constants.GameResultElement;
 import racingcar.constants.RacingCarRole;
 import racingcar.constants.message.ErrorMessage;
 import racingcar.exception.car.CarsCountException;
-import racingcar.exception.car.NotFoundCarPositionException;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Cars {
     public static final String DIVISION = ",";
+    private static final int INITIAL_POSITION = 0;
     private final List<Car> racingCars;
 
     public Cars(String carNames) {
@@ -46,7 +46,7 @@ public class Cars {
         return racingCars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElseThrow(() -> new NotFoundCarPositionException(ErrorMessage.NOT_FOUND_MAX_CAR_POSITION.getMessage()));
+                .orElse(INITIAL_POSITION);
     }
 
     public List<Car> getRacingCars() {
