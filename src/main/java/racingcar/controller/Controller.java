@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.domain.Cars;
-import racingcar.domain.RaceResultDTO;
+import racingcar.domain.CarRacing;
+import racingcar.domain.RacingResultDTO;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -11,7 +11,7 @@ public class Controller {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private Cars cars;
+    private CarRacing carRacing;
 
     public Controller(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -19,7 +19,7 @@ public class Controller {
     }
 
     public void run() {
-        cars = new Cars(askCarNames());
+        carRacing = new CarRacing(askCarNames());
         carRace(askNumberOfRaces());
     }
 
