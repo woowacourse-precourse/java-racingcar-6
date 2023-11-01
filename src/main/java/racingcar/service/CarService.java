@@ -7,7 +7,6 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class CarService {
-
     public List<Car> registerCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
 
@@ -16,7 +15,4 @@ public class CarService {
         }
         return carList;
     }
-
-
-
 }
