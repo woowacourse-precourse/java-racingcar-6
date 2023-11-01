@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import java.util.Objects;
 
-public class CarName {
+public class CarName{
 
 	private static final int MIN_LENGTH = 1;
 	private static final int MAX_LENGTH = 5;
@@ -10,7 +10,11 @@ public class CarName {
 
 	public CarName(String name) {
 		validate(name);
-		this.name = name;
+		this.name = name.trim();
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	private void validate(String name) {
