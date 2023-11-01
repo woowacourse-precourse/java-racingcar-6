@@ -15,4 +15,12 @@ public class ValidationTest {
         assertThatThrownBy(() -> Validation.areLessThenSixLetters(carNames));
     }
 
+    @Test
+    void 중복된_이름을_가지는_입력() {
+        String input = "a,b,c,a";
+        List<String> carNames = List.of(input.split(","));
+
+        assertThatThrownBy(() -> Validation.isDuplicateCarName(carNames));
+    }
+
 }
