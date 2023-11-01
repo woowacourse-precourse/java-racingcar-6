@@ -8,6 +8,7 @@
   - [x] 자동차 별 전진여부 기록하기 
   - [x] 회차별 진행상황 출력하기 
 - [x] 우승자 Winner#decisionWinner()#printResult()
+    - [x] 최고기록 계산하기
     - [x] 우승자 결정하기
     - [x] 결과 출력하기
 
