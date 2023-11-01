@@ -25,7 +25,7 @@ public class Application {
             position.add(0);
         }
 
-        printResult(car, tryCount, position);
+        getResult(car, tryCount, position);
 
         List<String> winners = new ArrayList<>();
         maxPosition = position.stream().mapToInt(v -> v).max().orElseThrow();
@@ -65,23 +65,26 @@ public class Application {
         return Integer.parseInt(input);
     }
 
-    private static void printResult(List<String> car, int tryCount, List<Integer> position) {
+    private static void getResult(List<String> carNames, int tryCount, List<Integer> position) {
         System.out.println("실행결과");
 
         for (int i = 0; i < tryCount; i++) {
-            for (int j = 0; j < car.size(); j++) {
+            for (int j = 0; j < carNames.size(); j++) {
                 updatePosition(position, j);
             }
+            printResult(carNames, position);
+        }
+    }
 
-            for (int j = 0; j < car.size(); j++) {
-                System.out.print(car.get(j) + " : ");
-                for (int k = 0; k < position.get(j); k++) {
-                    System.out.print("-");
-                }
-                System.out.println();
+    private static void printResult(List<String> carNames, List<Integer> position) {
+        for (int j = 0; j < carNames.size(); j++) {
+            System.out.print(carNames.get(j) + " : ");
+            for (int k = 0; k < position.get(j); k++) {
+                System.out.print("-");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     private static boolean canMoveForward() {
