@@ -1,8 +1,12 @@
 package racingcar.controller;
 
 import racingcar.domain.GameManager;
+import racingcar.domain.TryCount;
 import racingcar.domain.Winner;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import java.util.List;
 
 public class GameController {
 
@@ -16,8 +20,8 @@ public class GameController {
     }
 
     private void gameSetInput() {
-        this.gameManager = new GameManager(ViewController.setCars());
-        this.tryCount = ViewController.setTryCount();
+        List<String> carNames = InputView.inputCarNames();
+        TryCount tryCount = InputView.inputTryCount();
     }
 
     private void playRacing() {
