@@ -18,6 +18,10 @@ public class CarMapper {
         carService.setCars(names);
     }
 
+    public void setRound(int round) {
+        carService.setRound(round);
+    }
+
     public void playRound() {
         carService.playRound();
     }
@@ -36,5 +40,9 @@ public class CarMapper {
             carDtoList.add(new CarDto(car.getName(), car.getPosition()));
         }
         return carDtoList;
+    }
+
+    public boolean isEnd() {
+        return carService.isEnd();
     }
 }

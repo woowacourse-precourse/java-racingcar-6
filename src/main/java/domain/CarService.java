@@ -9,6 +9,8 @@ public class CarService {
     private static final int MINIMUM_NUMBER = 0;
     private static final int MAXIMUM_NUMBER = 9;
     private static final int STANDARD_FOR_GO = 4;
+
+    private RemainingRound remainingRound = new RemainingRound();
     private Cars cars;
 
     void setCars(Cars cars) {
@@ -19,11 +21,17 @@ public class CarService {
         cars = new Cars(names);
     }
 
+    public void setRound(int round) {
+        remainingRound.set(round);
+    }
+
     public List<Car> getCars() {
         return cars.getAll();
     }
 
     public void playRound() {
+        remainingRound.playRound();
+
         for (int i = 0; i < cars.size(); i++) {
             if (decideGo(getRandomNumber())) {
                 cars.go(i);
@@ -51,5 +59,9 @@ public class CarService {
             }
         }
         return winner;
+    }
+
+    public boolean isEnd() {
+        return remainingRound.isEnd();
     }
 }
