@@ -102,4 +102,25 @@ class CarNameValidatorTest {
         assertThatCode(() -> CarNameValidator.validateDuplicateCarName(carNames))
             .doesNotThrowAnyException();
     }
+
+    @Test
+    @DisplayName("자동차의 이름이 10개보다 많을경우 예외를 발생시킨다.")
+    void throwExceptionCarNameCountGreater10() {
+        //given
+        List<String> carNames = List.of("a","b","c","d","e","f","g","h","i","j", "k");
+        //when //then
+        assertThatThrownBy(() -> CarNameValidator.validateMaxCountCarName(carNames))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("자동차는 최대 10대까지 입력할 수 있습니다.");
+    }
+
+    @Test
+    @DisplayName("자동차의 이름이 10개보다 많을경우 예외를 발생시킨다.")
+    void nonThrowExceptionCarNameCountLessThanEqual10() {
+        //given
+        List<String> carNames = List.of("a","b","c","d","e","f","g","h","i","j");
+        //when //then
+        assertThatCode(() -> CarNameValidator.validateMaxCountCarName(carNames))
+            .doesNotThrowAnyException();
+    }
 }
