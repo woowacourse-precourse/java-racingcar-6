@@ -19,12 +19,12 @@ public class RacingCarController {
 
     public int getUserInputForRounds() {
         view.printCountInput();
-        String input = Console.readLine();
+        final String input = Console.readLine();
         return validateAndParseRoundsInput(input);
     }
 
-    protected void validateCarNamesInput(String input) {
-        if (input == null || input.trim().isEmpty()) {
+    protected void validateCarNamesInput(final String input) {
+        if (input.isBlank()) {
             throw new IllegalArgumentException("첫번째 입력이 비어있습니다.");
         }
         if ((!input.matches("^[^\\p{C}\\s]+$"))) {
@@ -35,7 +35,7 @@ public class RacingCarController {
         }
     }
 
-    protected int validateAndParseRoundsInput(String input) {
+    protected int validateAndParseRoundsInput(final String input) {
         if (!input.matches("\\d+")) {
             throw new IllegalArgumentException("회차는 숫자여야 합니다.");
         }
