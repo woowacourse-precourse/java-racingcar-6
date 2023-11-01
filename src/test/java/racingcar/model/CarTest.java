@@ -1,46 +1,69 @@
 package racingcar.model;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.enums.Common;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
 
-    @Test
-    void 잘못된_입력_테스트() {
-        assertThatThrownBy(() -> new Car("-1,1")).isInstanceOf(IllegalArgumentException.class);
-    }
+    private Car car;
+    private String inputNames = "isaac";
+    private int MOVE_FORWARD = Common.STANDARD_NUMBER.getIntValue();
+    private int STOP = Common.STANDARD_NUMBER.getIntValue() - 1;
 
+    @BeforeEach
     @Test
-    void 잘못된_입력_테스트_2() {
-        assertThatThrownBy(() -> new Car("isaacHan")).isInstanceOf(IllegalArgumentException.class).hasMessageContaining(String.format("%d글자", Common.CAR_NAME_MAX_LENGTH.getIntValue()));
-    }
-
-    @Test
-    void getName() {
-        Car car = new Car("isaac");
-        assertThat(car.getName()).isEqualTo("isaac");
-    }
-
-    // TODO : void에 대한 검증은 어떻게 조금 더 공부해보기
-    @Test
-    void moveForward() {
-        Car car = new Car("isaac");
+    void init() {
+        car = new Car(inputNames);
         assertRandomNumberInRangeTest(() -> {
-            car.moveForward();
-            assertThat(car.getDistance()).isEqualTo("");
-        }, Common.STANDARD_NUMBER.getIntValue() - 1);
+            car.moveForwardByRandom();
+        }, MOVE_FORWARD);
     }
 
     @Test
-    void getDistance() {
-        Car car = new Car("isaac");
+    void getNameTest() {
+        assertThat(car.getName()).isEqualTo(inputNames);
+    }
+
+    @Test
+    void getDistanceTest() {
+        assertThat(car.getDistance()).isEqualTo(1);
+    }
+
+    @Test
+    void moveForwardByRandomTest() {
+        Car car = new Car(inputNames);
         assertRandomNumberInRangeTest(() -> {
-            car.moveForward();
-            assertThat(car.getDistance()).isEqualTo("-");
-        }, Common.STANDARD_NUMBER.getIntValue());
+            car.moveForwardByRandom();
+            assertThat(car.getDistance()).isEqualTo(1);
+        }, MOVE_FORWARD);
+
+        Car car2 = new Car(inputNames);
+        assertRandomNumberInRangeTest(() -> {
+            car2.moveForwardByRandom();
+            assertThat(car2.getDistance()).isEqualTo(0);
+        }, STOP);
+    }
+
+    @Test
+    void constructorBlankTest() {
+        assertThatThrownBy(() -> new Car("")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Car("  ")).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void constructorOverMaxLengthTest() {
+        String input = "isaach"; // 6개
+        assertThatThrownBy(() -> new Car(input)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void constructorSeparatorTest() {
+        String input = ",";
+        assertThatThrownBy(() -> new Car(input)).isInstanceOf(IllegalArgumentException.class);
     }
 }
