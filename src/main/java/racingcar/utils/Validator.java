@@ -19,7 +19,8 @@ public class Validator {
         checkNull(input);
 
         List<String> carNames = Parser.parseStringToList(input);
-        carNames.stream().forEach(Validator::checkValidLength);
+        carNames.stream()
+                .forEach(Validator::checkValidLength);
     }
 
     public static void validateRoundNumber(String input) {

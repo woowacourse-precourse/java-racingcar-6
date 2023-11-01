@@ -24,9 +24,9 @@ public class Car implements Comparable<Car> {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(name);
-        stringBuilder.append(" : ");
-        stringBuilder.append(traveledDistance);
+        stringBuilder.append(name)
+                .append(" : ")
+                .append(traveledDistance);
         return stringBuilder.toString();
     }
 
