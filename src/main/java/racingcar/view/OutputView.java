@@ -1,12 +1,11 @@
 package racingcar.view;
 
 import racingcar.model.CarDto;
+import racingcar.model.WinnerDto;
 
 import java.util.List;
 
-import static racingcar.utility.Constants.EXECUTION_RESULT;
-import static racingcar.utility.Constants.COLON;
-import static racingcar.utility.Constants.ADVANCEMENT;
+import static racingcar.utility.Constants.*;
 
 public class OutputView {
     private static final OutputView outputView = new OutputView();
@@ -28,6 +27,10 @@ public class OutputView {
             printNewLine();
         }
         printNewLine();
+    }
+
+    public void printWinner(WinnerDto winnerDto){
+        System.out.print(WINNER_ANNOUNCEMENT_MESSAGE + COLON + String.join(SEPARATOR,winnerDto.getWinner()));
     }
 
     private void printAdvancementCount(int advancementCount){

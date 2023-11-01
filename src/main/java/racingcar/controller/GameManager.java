@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.model.CarDto;
 import racingcar.model.GameSettingsDto;
 import racingcar.model.WinnerDto;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -25,5 +26,6 @@ public class GameManager {
         gameSettingsDto = userInput.readUserGameSettingInput();
         carInformationList = racingGame.runRaceIterations(gameSettingsDto);
         winnerDto = judgement.judgeWinner(carInformationList);
+        OutputView.getInstance().printWinner(winnerDto);
     }
 }
