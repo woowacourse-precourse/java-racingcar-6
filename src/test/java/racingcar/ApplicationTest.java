@@ -32,6 +32,7 @@ class ApplicationTest extends NsTest {
     }
 
     //추가한 테스트 코드
+    //자동차 이름 입력 테스트
     @Test
     void 자동차_이름_1개만_입력_예외_처리() {
         assertSimpleTest(() ->
@@ -62,6 +63,21 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    //시도 회수 입력 테스트
+    @Test
+    void 시도_회수_1_미만_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 시도_회수_숫자_이외_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "abc"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {
