@@ -45,9 +45,7 @@ public class CarRaceGame {
     }
 
     private static void setCarImpls(List<String> carNameList) {
-        for (String carName : carNameList) {
-            GameManager.addCarImpl(new Car(carName));
-        }
+        carNameList.forEach(carName -> GameManager.addCarImpl(new Car(carName)));
     }
 
 
