@@ -18,7 +18,12 @@ public class CarController {
 
     public ArrayList<Car> createCars(String[] names){
         ArrayList<Car> newCars = new ArrayList<>();
+        ArrayList<String> existNames = this.getNames();
+
         for(String name : names){
+            if(existNames.contains(name) || getNames(newCars).contains(name)){
+                throw new IllegalArgumentException("중복된 이름은 추가할 수 없습니다.");
+            }
             Car car = new Car(name);
             newCars.add(car);
         }
@@ -45,9 +50,21 @@ public class CarController {
         printWinners(winners);
     }
 
+    private ArrayList<String> getNames(){
+        return operatedCars.stream()
+                .map(Car::getName)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    private ArrayList<String> getNames(ArrayList<Car> cars){
+        return cars.stream()
+                .map(Car::getName)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
     private ArrayList<Car> getNameOfWinners(int maxPosition){
         return operatedCars.stream()
-                .filter( x-> x.getPosition() == maxPosition)
+                .filter(x-> x.getPosition() == maxPosition)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
