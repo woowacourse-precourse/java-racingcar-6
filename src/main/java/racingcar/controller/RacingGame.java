@@ -28,4 +28,10 @@ public class RacingGame {
                     round.printRoundResult();
                 });
     }
+
+    public void printGameResult(Round round) {
+        OutputView.printWinnerMessage();
+        List<String> winners = round.getWinner();
+        OutputView.printWinner(winners);
+    }
 }
