@@ -5,7 +5,7 @@ public class Car {
     private int carCurrentPosition;
 
     public Car(String name) {
-        this.carName = "";
+        setCarName(name);
         this.carCurrentPosition = 0;
     }
 
@@ -14,7 +14,11 @@ public class Car {
     }
 
     public void setCarName(String name) {
-        this.carName = name;
+        if (isValidName(name)) {
+            carName = name;
+        } else {
+            throw new IllegalArgumentException("정상적이지 않은 이름입니다.");
+        }
     }
 
     public String getCarName() {
@@ -23,5 +27,18 @@ public class Car {
 
     public int getCarCurrentPosition() {
         return carCurrentPosition;
+    }
+
+    private boolean isValidName(String name) {
+        String[] names = name.split(",");
+        if (names.length == 0) {
+            return false;
+        }
+        for (String singleName : names) {
+            if (singleName.length() > 5) {
+                return false;
+            }
+        }
+        return true;
     }
 }
