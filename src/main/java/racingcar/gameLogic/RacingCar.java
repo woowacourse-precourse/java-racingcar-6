@@ -9,7 +9,7 @@ public class RacingCar {
     private RaceOfficial raceOfficial;
     private User user;
     private List<Driver> drivers;
-    private int roundCount;
+    int roundCount;
 
     public void init() {
         raceOfficial = new RaceOfficial();
