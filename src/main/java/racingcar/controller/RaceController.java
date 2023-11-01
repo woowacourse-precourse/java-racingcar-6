@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarNames;
 import racingcar.domain.Cars;
-import racingcar.util.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

@@ -21,7 +21,7 @@ public class InputValidator {
 
     public static void validateCarNameLength(List<String> carNames) {
         boolean isOverMaxCarNameLength = carNames.stream()
-                .map(carName -> carName.length())
+                .map(carName -> carName.trim().length())
                 .filter(nameLength -> nameLength > MAX_CAR_NAME_LENGTH)
                 .count() > 0;
 
