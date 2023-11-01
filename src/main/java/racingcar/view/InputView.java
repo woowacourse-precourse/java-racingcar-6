@@ -23,7 +23,6 @@ public class InputView {
         List<String> inputCarNameList = Stream.of(playerString.split(CAR_NAME_SEPERATOR))
                 .map(String::trim).collect(Collectors.toList());
 
-        checkForDuplication(inputCarNameList);
         return inputCarNameList;
     }
 
@@ -50,13 +49,5 @@ public class InputView {
         }
     }
 
-    public static void checkForDuplication(List<String> inputCarNameList){
-        List<String> uniquelist = inputCarNameList.stream().distinct().collect(Collectors.toList());
-
-        if(inputCarNameList.size()!=uniquelist.size()){
-            throw new IllegalArgumentException(DUPLICATE_CAR_NAME_EXCEPTION_MESSAGE);
-        }
-
-    }
 
 }

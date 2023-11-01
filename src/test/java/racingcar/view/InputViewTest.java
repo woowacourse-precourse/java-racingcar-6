@@ -113,22 +113,5 @@ public class InputViewTest extends IOTest {
 
     }
 
-    @DisplayName("자동차 이름 중복 예외 확인테스트")
-    @ParameterizedTest
-    @MethodSource("provideExceptionDuplicateCarNameList")
-    void checkForDuplicationExceptionTest(List<String> testInput) {
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            InputView.checkForDuplication(testInput);
-        });
-
-    }
-
-    static Stream<Arguments> provideExceptionDuplicateCarNameList() {
-        return Stream.of(
-                Arguments.of(Arrays.asList("a", "a", "c")),
-                Arguments.of(Arrays.asList("x", "z", "z"))
-        );
-    }
-
 
 }
