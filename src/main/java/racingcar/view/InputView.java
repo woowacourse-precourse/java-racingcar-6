@@ -19,6 +19,7 @@ public class InputView {
 
     public int totalAttemptsInput() {
         String userInput = Console.readLine();
+        GameInputValidator.validateIsPositiveInteger(userInput);
 
         int totalAttempts = Integer.parseInt(userInput);
         return totalAttempts;

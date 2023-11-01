@@ -10,6 +10,21 @@ public final class GameInputValidator {
     private GameInputValidator() {
     }
 
+    public static void validateIsPositiveInteger(String input) {
+        try {
+            int number = Integer.parseInt(input);
+            checkIsPositiveNumber(number);
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException(ErrorMessage.INVALID_INPUT_NUMBER);
+        }
+    }
+
+    private static void checkIsPositiveNumber(int number) {
+        if (number <= 0) {
+            throw new InvalidInputException(ErrorMessage.INVALID_INPUT_NUMBER);
+        }
+    }
+
     public static void validationCarNames(String input) {
         checkForComma(input);
 
