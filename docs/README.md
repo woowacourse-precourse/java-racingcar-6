@@ -17,7 +17,7 @@
   - 구분자 ','로 문자열을 나눠 얻은 자동차 이름의 길이는 5 이하여야 합니다.
 
 - **시도 횟수 입력**:
-  - 입력은 0 이상의 정수여야 합니다.
+  - 입력은 0 이상 2147483647 이하의 정수여야 합니다.
 
 ## 흐름도
 
@@ -43,9 +43,9 @@
      - void printCurrentState()
      - void printWinners()
      - List\<Car> getCarsFromInputString()
-     - BigInteger getNumberOfAttemptsFromInputString()
+     - int getNumberOfAttemptsFromInputString()
   2. 속성
-     - BigInteger numberOfAttempts
+     - int numberOfAttempts
      - int numberOfCars
      - List\<Car> cars
 
