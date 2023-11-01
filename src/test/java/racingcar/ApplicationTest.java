@@ -7,6 +7,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -31,18 +33,11 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 횟수_음수에_대한_예외_처리() {
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "0", "1.1", "!", " ", "\t"})
+    void 자연수_아닌_횟수에_대한_예외_처리(String input) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("p,pobbi", "-1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 횟수_0에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("p,pobbi", "0"))
+                assertThatThrownBy(() -> runException("p,pobbi", input))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
