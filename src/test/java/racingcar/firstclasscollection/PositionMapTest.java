@@ -10,7 +10,7 @@ import racingcar.model.Car;
 class PositionMapTest {
 
     @Test
-    public void 자동차_중복_등록_예외() throws Exception {
+    public void 자동차_중복_등록_예외() {
         //given
         PositionMap positionMap = new PositionMap(HashMap::new);
 
