@@ -5,12 +5,12 @@ public class DistanceCounting {
 
     public Distance distance = new Distance();
 
-    public boolean passCheck(int pass) {
+    public String passCheck(int pass) {
         if(pass >= 4) {
             plusDistance("_");
-            return true;
+            return totalDistance();
         }else {
-            return false;
+            return totalDistance();
         }
     }
 
