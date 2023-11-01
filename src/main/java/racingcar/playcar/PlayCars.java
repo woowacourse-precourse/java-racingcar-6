@@ -21,10 +21,19 @@ public class PlayCars {
     }
 
     public void input() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        this.cars = Arrays.asList(readLine().split(","));
-        System.out.println("시도할 회수는 몇회인가요?");
-        this.numberOfTry = Integer.parseInt(readLine());
+        try () {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            this.cars = Arrays.asList(readLine().split(","));
+        } catch (Exception e) {
+            throw new IllegalArgumentException("경주할 자동차 목록 입력에 문제가 있습니다.");
+        }
+
+        try () {
+            System.out.println("시도할 회수는 몇회인가요?");
+            this.numberOfTry = Integer.parseInt(readLine());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("시도할 회수 입력에 문제가 있습니다.");
+        }
         System.out.println();
 
         this.carToDistance = this.cars.stream().collect(Collectors.toMap(car -> car, car -> 0));
