@@ -20,7 +20,6 @@ public class Car {
         System.out.println(toString());
     }
 
-
     public String getName() {
         return name;
     }
