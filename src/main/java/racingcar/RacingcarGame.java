@@ -20,6 +20,13 @@ public class RacingcarGame {
         // 사용자 입력
         getCarName();
         getTryCount();
+
+        // 시도 횟수만큼 자동차 전진 결정 및 전진 과정 출력
+        System.out.println("\n"+Constant.RESULT_INFO_MESSAGE);
+        for (int i=0; i<tryCount; i++) {
+            decideMoveCar();
+            printMoveCarResult();
+        }
     }
 
     /**
@@ -52,5 +59,25 @@ public class RacingcarGame {
 
         // 시도 횟수 저장
         tryCount = Integer.parseInt(input);
+    }
+
+    /**
+     * 자동차 전진 여부 결정
+     */
+    public void decideMoveCar(){
+        for (Racingcar car : racingcars){
+            car.decideMove();
+        }
+    }
+
+    /**
+     * 전진 과정 출력
+     */
+    public void printMoveCarResult(){
+        for (Racingcar car : racingcars){
+            String moves = Constant.RESULT_MOVE_STR.repeat(car.getMoveCount());
+            System.out.println(String.format(Constant.RESULT_CAR_MESSAGE, car.getName(), moves));
+        }
+        System.out.println();
     }
 }
