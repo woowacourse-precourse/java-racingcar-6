@@ -26,6 +26,15 @@ class CarNameExceptionTest extends NsTest {
 
     @Test
     void 자동차이름중복확인() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("hi,hi,hello", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("hi,hello,hi", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Test
