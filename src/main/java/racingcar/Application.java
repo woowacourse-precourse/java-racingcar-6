@@ -11,7 +11,18 @@ public class Application {
         // TODO: 프로그램 구현
 
         String[] carNames = readLine().split(",");
+        if (!isNameValid(carNames)){
+            throw new IllegalArgumentException();
+        }
+    }
 
+    public static boolean isNameValid(String[] names){
+        for (String name: names){
+            if (name.length() > 5){
+                return false;
+            }
+        }
+        return true;
     }
 }
 
