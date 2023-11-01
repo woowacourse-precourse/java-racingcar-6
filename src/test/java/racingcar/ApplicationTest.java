@@ -13,13 +13,24 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    void 전진_정지_단독_우승자() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
                 assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
             },
             MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 전진_전진_공동_우승자() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
