@@ -1,4 +1,8 @@
 package racingcar;
+
+import racingcar.domain.Car;
+import java.util.ArrayList;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class GameInterface {
@@ -28,5 +32,14 @@ public class GameInterface {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputNumber = readLine();
         return Integer.parseInt(inputNumber);
+    }
+
+    private static ArrayList<Car> initializeCars() {
+        String[] carNames = getCarNames();
+        ArrayList<Car> cars = new ArrayList<>();
+        for (String name : carNames) {
+            cars.add(new Car(name));
+        }
+        return cars;
     }
 }
