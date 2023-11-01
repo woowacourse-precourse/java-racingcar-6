@@ -1,7 +1,7 @@
 package service;
 
 import domain.Car;
-import utils.MessageUtil;
+import utils.message.MessageUtil;
 import utils.RandomUtil;
 import utils.TransformUtil;
 
