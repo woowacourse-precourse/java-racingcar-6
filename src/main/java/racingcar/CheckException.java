@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.*;
+
 public class CheckException {
     static void checkRightCarName(Set<String> carNameSet){
         boolean hasInvalidName = false;
