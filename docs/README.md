@@ -51,4 +51,4 @@
 
 - NumberGenerator
   1. 기능
-     - public static int createRandomNumber(int maxNumber)
+     - static int createRandomNumber(int maxNumber)
