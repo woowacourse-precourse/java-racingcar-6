@@ -43,7 +43,7 @@ public class RacingGame {
         System.out.println("실행 결과");
 
         for (int i = 0; i < moveCount; i++) {
-            participants.forEach(racingCar -> racingCar.move());
+            participants.forEach(racingCar -> racingCar.moveOrStopByThreshold());
             participants.forEach(RacingCar::printResult);
         }
 
@@ -65,10 +65,10 @@ public class RacingGame {
         Map<Integer, List<RacingCar>> participantsByGoCount = new HashMap<>();
         int maxNum = 0;
         for (RacingCar car : participants) {
-            if (car.getMoveResult() > maxNum) {
-                maxNum = car.getMoveResult();
+            if (car.getGoCount() > maxNum) {
+                maxNum = car.getGoCount();
             }
-            participantsByGoCount.computeIfAbsent(car.getMoveResult(), k -> new ArrayList<>()).add(car);
+            participantsByGoCount.computeIfAbsent(car.getGoCount(), k -> new ArrayList<>()).add(car);
         }
         return new GameResult(participantsByGoCount.get(maxNum));
     }

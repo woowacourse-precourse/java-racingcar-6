@@ -8,7 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RacingCar {
 
     private String name;
-    private int moveResult;
+    private int goCount;
 
     public RacingCar(String name) {
         this.name = name;
@@ -16,24 +16,24 @@ public class RacingCar {
 
     public RacingCar(String name, int moveResult) {
         this.name = name;
-        this.moveResult = moveResult;
+        this.goCount = moveResult;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getMoveResult() {
-        return moveResult;
+    public int getGoCount() {
+        return goCount;
     }
 
     /**
      * 랜덤값을 구해서 임계치 이상이면 전진, 아니면 이동하지 않는다.
      */
-    public void move() {
+    public void moveOrStopByThreshold() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
         if (randomNum >= GameDetail.MOVE_THRESHOLD) {
-            moveResult++;
+            goCount++;
         }
     }
 
@@ -44,7 +44,7 @@ public class RacingCar {
         StringBuilder sb = new StringBuilder();
         sb.append(name);
         sb.append(" : ");
-        sb.append(convertToStringMoveResult());
+        sb.append(convertGoCountToString());
         System.out.println(sb);
     }
 
@@ -52,9 +52,9 @@ public class RacingCar {
      * 이동 결과를 문자열로 반환한다.
      * @return
      */
-    public String convertToStringMoveResult() {
+    public String convertGoCountToString() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < moveResult; i++) {
+        for (int i = 0; i < goCount; i++) {
             sb.append(GameDetail.MOVE_MARK);
         }
         return sb.toString();

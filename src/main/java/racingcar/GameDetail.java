@@ -2,6 +2,9 @@ package racingcar;
 
 import java.util.regex.Pattern;
 
+/**
+ * 게임 세부 정보
+ */
 public class GameDetail {
 
     public static final String CAR_SEPARATOR = ",";

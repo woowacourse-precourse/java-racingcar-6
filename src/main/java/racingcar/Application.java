@@ -20,19 +20,28 @@ public class Application {
             return;
         }
 
-        String[] carNameArray = carNames.split(GameDetail.CAR_SEPARATOR);
-        List<RacingCar> racingCars = Arrays.stream(carNameArray).map(RacingCar::new).collect(Collectors.toList());
-        racingGame.setParticipants(racingCars);
+        racingGame.setParticipants(changeToRacingCarList(carNames));
 
         System.out.println("시도할 회수는 몇회인가요?");
-        String inputString = Console.readLine();
+        String inputMoveCountString = Console.readLine();
 
-        if (!isValidMoveCount(inputString)) {
+        if (!isValidMoveCount(inputMoveCountString)) {
             racingGame.setStatus(GameStatus.INVALID_USER_INPUT);
         } else {
-            int moveCount = Integer.parseInt(inputString);
+            int moveCount = Integer.parseInt(inputMoveCountString);
             racingGame.start(moveCount);
         }
+    }
+
+    /**
+     * 입력받은 자동차이름들로 RacingCar 객체를 만들어 List로 반환한다.
+     * @param carNames 입력받은 자동차 이름
+     * @return RacingCar 객체로 변환된 List
+     */
+    private static List<RacingCar> changeToRacingCarList(String carNames) {
+        String[] carNameArray = carNames.split(GameDetail.CAR_SEPARATOR);
+        List<RacingCar> racingCars = Arrays.stream(carNameArray).map(RacingCar::new).collect(Collectors.toList());
+        return racingCars;
     }
 
     /**
