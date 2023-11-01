@@ -18,4 +18,9 @@ public class NumberGenerator {
             throw new IllegalArgumentException("숫자가 아닌 문자 입력");
         }
     }
+
+    public int createRandomNumbers(){
+        int randomNumber = Randoms.pickNumberInRange(1, 9);
+        return randomNumber;
+    }
 }
