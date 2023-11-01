@@ -28,7 +28,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printWinners(List<String> winnerNames) {
-        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnerNames));
+    public static void printWinners(List<String> winnersNames) {
+        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnersNames));
     }
 }
