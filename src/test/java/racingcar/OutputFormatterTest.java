@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -42,5 +45,10 @@ class OutputFormatterTest {
 
     @Test
     void printNamesOfRacers() {
+        List<Racer> racers = Arrays.asList(new Racer("pobi"), new Racer("woni"));
+
+        OutputFormatter.printNamesOfRacers(racers);
+
+        assertEquals("pobi, woni", outputContent.toString());
     }
 }
