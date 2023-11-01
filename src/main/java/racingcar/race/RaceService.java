@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RaceService {
+
     private List<Car> cars;
     private String result = "실행 결과\n";
 
@@ -58,5 +59,9 @@ public class RaceService {
             tmpres = tmpres + car + "\n";
         }
         return result + tmpres + "\n";
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
