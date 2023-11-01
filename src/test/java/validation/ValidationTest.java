@@ -17,6 +17,15 @@ public class ValidationTest extends NsTest {
     }
 
     @Test
+    void 자동차_한_대일_경우_예외_발생() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("car", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("두 대 이상의 자동차를 입력해 주세요.")
+        );
+    }
+
+    @Test
     void 자동차_이름이_공백일_경우_예외_발생() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("car, ", "1"))
