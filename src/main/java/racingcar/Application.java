@@ -7,6 +7,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Application {
+    private static final String STRING_INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String DELIMITER_CAR_NAMES = ",";
+    private static final String STRING_INPUT_TRY_COUNT = "시도할 회수는 몇회인가요?";
+    private static final String STRING_EXECUTION_RESULT = "실행 결과";
+    private static final String STRING_WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String STRING_WINNER_DELIMITER = ", ";
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         printInputCarNameMessage();
@@ -27,7 +34,6 @@ public class Application {
     }
 
     public static void printInputCarNameMessage() {
-        final String STRING_INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
         System.out.println(STRING_INPUT_CAR_NAME);
     }
 
@@ -37,14 +43,12 @@ public class Application {
     }
 
     public static List<String> getCarNameListFromCarNames(final String carNames) {
-        final String DELIMITER_CAR_NAMES = ",";
         final String[] carNamesSplittingByDelimiter = carNames.split(DELIMITER_CAR_NAMES);
         final List<String> carNameList = Arrays.asList(carNamesSplittingByDelimiter);
         return Collections.unmodifiableList(carNameList);
     }
 
     public static void printInputTryCountMessage() {
-        final String STRING_INPUT_TRY_COUNT = "시도할 회수는 몇회인가요?";
         System.out.println(STRING_INPUT_TRY_COUNT);
     }
 
@@ -63,7 +67,6 @@ public class Application {
     }
 
     public static void printExecutionResult() {
-        final String STRING_EXECUTION_RESULT = "실행 결과";
         System.out.println(STRING_EXECUTION_RESULT);
     }
 
@@ -105,13 +108,11 @@ public class Application {
         final List<Car> carListWithLongestDistance = getCarListWithLongestDistance(carList);
         final List<String> winnerList = carListWithLongestDistance.stream()
                 .map(Car::getName).collect(Collectors.toList());
-        final String STRING_WINNER_DELIMITER = ", ";
         final String winners = String.join(STRING_WINNER_DELIMITER, winnerList);
         return winners;
     }
 
     public static void printWinnersFromCarList(final List<Car> carList) {
-        final String STRING_WINNER_MESSAGE = "최종 우승자 : ";
         String winners = getWinnersFromCarList(carList);
         System.out.print(STRING_WINNER_MESSAGE);
         System.out.println(winners);

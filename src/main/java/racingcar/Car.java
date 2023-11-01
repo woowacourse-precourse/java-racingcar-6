@@ -4,6 +4,12 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.stream.IntStream;
 
 public class Car {
+    private static final int LIMIT_NAME_SIZE = 5;
+    private static final int START_INCLUSIVE = 1;
+    private static final int END_INCLUSIVE = 9;
+    private static final int CONDITION_MOVING_FORWARD = 4;
+    private static final String STRING_ONE_DISTANCE = "-";
+    private static final String DELIMETER_BETWEEN_NAME_DISTANCE_STRING = " : ";
     private final String name;
     private int distance = 0;
 
@@ -13,7 +19,6 @@ public class Car {
     }
 
     private void validateNameSize() {
-        final int LIMIT_NAME_SIZE = 5;
         if (name.length() <= LIMIT_NAME_SIZE) {
             return;
         }
@@ -26,10 +31,6 @@ public class Car {
     }
 
     public boolean canMoveForward() {
-        final int START_INCLUSIVE = 1;
-        final int END_INCLUSIVE = 9;
-        final int CONDITION_MOVING_FORWARD = 4;
-
         final int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
         return randomNumber >= CONDITION_MOVING_FORWARD;
     }
@@ -51,7 +52,6 @@ public class Car {
     }
 
     public String getDistanceString() {
-        final String STRING_ONE_DISTANCE = "-";
         final StringBuilder builder = new StringBuilder(distance);
 
         IntStream.rangeClosed(1, distance)
@@ -80,6 +80,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return name + " : " + getDistanceString();
+        return name + DELIMETER_BETWEEN_NAME_DISTANCE_STRING + getDistanceString();
     }
 }
