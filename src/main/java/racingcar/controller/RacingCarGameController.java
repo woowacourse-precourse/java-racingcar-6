@@ -25,6 +25,10 @@ public class RacingCarGameController {
 
     public void inProgress() {
         OutputView.displayResult();
+        while (game.isPlay()) {
+            cars.moveOrStop();
+            OutputView.displayEachRoundResult(cars.getEachRoundResult());
+        }
     }
 
     public void end() {
