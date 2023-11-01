@@ -21,7 +21,7 @@
 
 
 - [ ]  각 자동차에 대해서 0~9 사이의 랜덤 값 생성 - RandomUtils#generateRandomValue
-  - [ ]  랜덤 값 4 이상인 경우 해당 자동차 전진 - RaceController#move
+  - [ ]  랜덤 값 4 이상인 경우 해당 자동차 전진 - RaceService#move
 - [ ]  각 차수별 실행 결과 출력 - OutputView#showCurrentMove
 
 
@@ -64,12 +64,21 @@
 
 ## Controller
 
-- RaceController - 레이스 진행 처리 객체
+- RaceController - 레이스의 전반적인 진행을 맡은 객체
 
-   - 각 차에 대하여 무작위 값을 생성
-   - 해당 값이 4이상이면 전진 처리
+  - 레이스 시작 
+  - 자동차 움직이기  
+  - 레이스 현 상황 보여주기
+  - 레이스 우승자 발표 
 
+## Service
 
+- RaceService - 차를 움직이는 로직 담당
+
+  - 랜덤 값을 생성
+  - 랜덤 값이 4이상이면 차를 전진시키는 기능
+
+## Utils
 - RandomUtils - 랜덤 수 생성 유틸 객체
 
    - 0~9범위의 랜덤 수 생성
