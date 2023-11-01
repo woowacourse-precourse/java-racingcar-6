@@ -11,8 +11,8 @@ public class Application {
         List<Car> carList = registration.createCarList(registration.getCarNames(input));
 
         System.out.println("횟수 입력");
-        String inputRounds = Console.readLine();
-        int totalRounds = Integer.parseInt(inputRounds);
+        TotalRoundsConverter totalRoundsConverter = new TotalRoundsConverter();
+        int totalRounds = totalRoundsConverter.convert(Console.readLine());
 
         NumberGenerator numberGenerator = new NumberGenerator();
         MessageContainer messageContainer = new MessageContainer();
