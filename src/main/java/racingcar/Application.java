@@ -47,13 +47,14 @@ public class Application {
         }
     }
     private static void createCars(String carNames) {
+        isContainComma(carNames);
         createCar(carNames);
         Integer carsLength = cars.size();
     }
     private static void createCar(String carNames) {
         for (String carName : carNames.split(",")) {
-            isCorrectCarsInput(carName);
-            Car car = new Car(carName, 0);
+            isCorrectNameLength(carName.trim());
+            Car car = new Car(carName.trim(), 0);
             cars.add(car);
         }
     }
@@ -111,10 +112,14 @@ public class Application {
             throw new IllegalArgumentException("숫자를 입력해주세요");
         }
     }
-    private static void isCorrectCarsInput(String carName) {
-        if (carName.length() > 5 ) {
-            throw new IllegalArgumentException("이름의 길이가 5자가 넘어갑니다. ");
+    private static void isCorrectNameLength(String carName) {
+        if ( carName.isEmpty() || carName.length() > 5 ) {
+            throw new IllegalArgumentException("이름의 길이를 5자 이하로 설정해주세요");
         }
-        //구분문자가 쉼표가 아닌 경우 한 명만 들어오면 쉼표는 없는데..
+    }
+    private static void isContainComma(String carNames) {
+        if (!carNames.contains(",") ) {
+            throw new IllegalArgumentException("여러 대의 자동차를 쉼표로 입력해주세요");
+        }
     }
 }
