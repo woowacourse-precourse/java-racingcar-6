@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
-public class DomainTest {
+public class GoForwardTest {
     private static final int MOVING_FORWARD_BOUND = 4;
     private static final int STOP_BOUND = 3;
 
