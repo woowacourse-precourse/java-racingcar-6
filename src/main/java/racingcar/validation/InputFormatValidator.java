@@ -1,6 +1,9 @@
 package racingcar.validation;
 
-import static racingcar.configuration.InputFormatConfig.INVALID_NUMBER_FORMAT_EXCEPTION;
+import racingcar.domain.Car;
+
+import java.util.List;
+
 import static racingcar.configuration.InputFormatConfig.MAX_LENGTH_OF_CAR_NAME;
 import static racingcar.constant.ErrorMessage.CAR_NAME_LENGTH_EXCESS_EXCEPTION;
 

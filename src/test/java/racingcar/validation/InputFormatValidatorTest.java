@@ -6,8 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.configuration.InputFormatConfig.INVALID_NUMBER_FORMAT_EXCEPTION;
 import static racingcar.constant.ErrorMessage.CAR_NAME_LENGTH_EXCESS_EXCEPTION;
+import static racingcar.constant.ErrorMessage.INVALID_NUMBER_FORMAT_EXCEPTION;
 
 class InputFormatValidatorTest {
 
