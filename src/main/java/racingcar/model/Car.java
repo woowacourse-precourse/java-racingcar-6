@@ -11,10 +11,6 @@ public class Car extends CarDTO implements Comparable<Car> {
         Validation.validateName(name);
     }
 
-    public Car(String name, int dist) {
-        super(name, dist);
-    }
-
     private int getDist() {
         return dist;
     }
