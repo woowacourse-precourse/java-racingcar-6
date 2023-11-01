@@ -16,4 +16,7 @@ public class RacingCar {
         return name;
     }
 
+    public int getPosition(){
+        return position;
+    }
 }
