@@ -1,11 +1,7 @@
 package racingcar.view;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.Car;
 
 public class InputView {
@@ -16,7 +12,7 @@ public class InputView {
         return cars;
     }
 
-        public static String[]  requestCarNames() {
+    public static String[]  requestCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분, 5자 이하)");
         String input = readLine();
         String[] carNames = input.split(",");
@@ -56,7 +52,7 @@ public class InputView {
         return intNum;
     }
     public static void validateEqualMoreOne(int num){
-        if( !(num>=1)){
+        if(!(num>=1)){
             throw new IllegalArgumentException("입력값은 1 이상이어야 합니다.");
         }
     }
