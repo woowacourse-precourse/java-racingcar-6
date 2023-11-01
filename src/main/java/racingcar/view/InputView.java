@@ -27,6 +27,8 @@ public class InputView {
 
     public static int inputRound() {
         String input = Console.readLine();
-        return Validator.validateRound(input);
+        Validator.validateRound(input);
+
+        return TypeConverter.convertStringToInt(input);
     }
 }

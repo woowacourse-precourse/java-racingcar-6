@@ -16,4 +16,8 @@ public class TypeConverter {
                 .map(name -> new Car(name, INIT_POSITION))
                 .toList();
     }
+
+    public static int convertStringToInt(String round) {
+        return Integer.parseInt(round);
+    }
 }

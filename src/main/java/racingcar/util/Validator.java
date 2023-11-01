@@ -44,10 +44,9 @@ public class Validator {
         }
     }
 
-    public static int validateRound(String input) {
+    public static void validateRound(String input) {
         int round = validateRoundType(input);
         isValidRoundRange(round);
-        return round;
     }
 
     public static int validateRoundType(String input) {
