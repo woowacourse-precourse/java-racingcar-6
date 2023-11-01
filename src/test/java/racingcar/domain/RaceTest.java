@@ -54,4 +54,34 @@ class RaceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 회수는 양의 정수만 가능합니다.");
     }
+
+    @Test
+    @DisplayName("Single Winner Scenario")
+    void 우승자가_1명일_경우() {
+        Race race = new Race();
+        race.getCars().addCars(
+                new Car(new Name("ham"), new Move(new StringBuilder("-"))),
+                new Car(new Name("seok"), new Move(new StringBuilder("--"))),
+                new Car(new Name("myung"), new Move(new StringBuilder("---")))
+        );
+
+        String winners = race.selectWinners();
+
+        Assertions.assertThat(winners).isEqualTo("myung");
+    }
+
+    @Test
+    @DisplayName("Multiple Winners Scenario")
+    void 우승자가_여러명일_경우() {
+        Race race = new Race();
+        race.getCars().addCars(
+                new Car(new Name("ham"), new Move(new StringBuilder(""))),
+                new Car(new Name("seok"), new Move(new StringBuilder("---"))),
+                new Car(new Name("myung"), new Move(new StringBuilder("---")))
+        );
+
+        String winners = race.selectWinners();
+
+        Assertions.assertThat(winners).isEqualTo("seok, myung");
+    }
 }
