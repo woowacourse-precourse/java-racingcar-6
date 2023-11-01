@@ -9,7 +9,9 @@ import racingcar.util.GameResult;
 public class OutputView {
 
     private static final String GAME_RESULT = "실행 결과";
-    private final static String FINAL_WINNER = "최종 우승자 : ";
+    private final static String FINAL_WINNER = "최종 우승자";
+    private final static String DELIMITER = " : ";
+    private final static String CAR_POSITION = "-";
 
     public void printGameResult(List<Car> list, Referee referee) {
 
@@ -36,7 +38,7 @@ public class OutputView {
                 baseName += ", " + sortedCarList.get(i).getName();
             }
         }
-        return FINAL_WINNER + baseName;
+        return FINAL_WINNER + DELIMITER + baseName;
     }
 
     public static String countToMileage(Car car) {
@@ -46,15 +48,14 @@ public class OutputView {
             return "";
         }
 
-        String mileage = "-".repeat(distance);
+        String mileage = CAR_POSITION.repeat(distance);
 
         return mileage;
     }
 
     public static String name(Car car) {
         String name = car.getName();
-        String delimiters = " : ";
-        return name + delimiters;
+        return name + DELIMITER;
     }
 }
 
