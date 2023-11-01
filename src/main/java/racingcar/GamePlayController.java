@@ -40,6 +40,7 @@ public class GamePlayController {
             car.move(judge);
             outputHandler.printSubResult(car);
         }
+        outputHandler.printEnter();
     }
 
     private void endGame() {
