@@ -165,9 +165,9 @@ class RacingGameTest {
         /**
          * 행 : 라운드 차수(총 : 3회), 열 : 자동차(A, B, C), 값 : 자동차의 이동 신호, 결과 : A(3), B(2), C(1)
          */
-        private static final Long[] MOVE_DATA = {MOVE, STOP, STOP, MOVE, MOVE, STOP, MOVE, MOVE,
+        private final Long[] MOVE_DATA = {MOVE, STOP, STOP, MOVE, MOVE, STOP, MOVE, MOVE,
             MOVE};
-        private static int idx = 0;
+        private int idx = 0;
 
         @Override
         public OnRaceCar signal(MovingCar car) {
@@ -185,9 +185,9 @@ class RacingGameTest {
         /**
          * 행 : 라운드 차수(총 : 3회), 열 : 자동차(A, B, C), 값 : 자동차의 이동 신호, 결과 : A(3), B(3), C(1)
          */
-        private static final Long[] MOVE_DATA = {MOVE, MOVE, STOP, MOVE, MOVE, STOP, MOVE,
+        private final Long[] MOVE_DATA = {MOVE, MOVE, STOP, MOVE, MOVE, STOP, MOVE,
             MOVE, MOVE};
-        private static int idx = 0;
+        private int idx = 0;
 
         @Override
         public OnRaceCar signal(MovingCar car) {
