@@ -17,25 +17,30 @@ public class RecingcarGameController {
         palyCarName = enterRecingCarName();
 
         // todo 2. 입력 받은 자동차의 유효성 검사하기
-        enterRecingCarNameCheck(palyCarName);
+        recingcars = changeEnterRecingCarNameType(palyCarName);
+        if(changeEnterRecingCarNameCheck(recingcars)){
+            throw new IllegalArgumentException();
+        }
     }
 
+    //이름 입력 함수
     public String[] enterRecingCarName(){
         return Console.readLine().split(",");
     }
 
-    public ArrayList<Recingcar> enterRecingCarNameCheck(String[] inputName){
-        ArrayList<Recingcar> inputEnterRecingCarName = changeEnterRecingCarNameType(inputName);
-
-
-        return inputEnterRecingCarName;
-
-    }
-
+    //입력되는 자동차 이름 배열의 타입 변경(String[] -> ArrayList<Recingcar>)
     public ArrayList<Recingcar> changeEnterRecingCarNameType(String[] inputName){
         ArrayList<Recingcar> inputEnterRecingCarName = Arrays.stream(palyCarName)
                 .map(name -> new Recingcar(name))
                 .collect(Collectors.toCollection(ArrayList::new));
         return inputEnterRecingCarName;
+    }
+
+    // 입력되는 자동차 이름 유효성 검사 함수 
+    public boolean changeEnterRecingCarNameCheck( ArrayList<Recingcar> inputName){
+        for (Recingcar nowRecingcar:inputName) {
+            if(5 < nowRecingcar.getName().length()) return false;
+        }
+        return true;
     }
 }
