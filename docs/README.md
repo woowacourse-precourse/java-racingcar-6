@@ -27,7 +27,7 @@ Car.java
     - 점수: Int
 
 
-MakePlayerSet.java
+CarSet.java
 - 경주할 자동차 이름 추출
     - 쉼표를 기준으로 문자열을 구분하여 ArrayList형태에 담아 반환
 - 경주할 자동차 이름 ArrayList를 가져와서 각각의 Car 객체 생성하여 반환
