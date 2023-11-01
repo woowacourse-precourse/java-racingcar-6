@@ -41,8 +41,12 @@ public class Car {
 
     public void tryForward() {
         if (canForward()) {
-            this.forwardCount += ONE_FORWARD;
+            doForward();
         }
+    }
+
+    private void doForward() {
+        this.forwardCount += ONE_FORWARD;
     }
 
     private boolean canForward() {
