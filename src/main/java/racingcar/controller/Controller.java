@@ -16,6 +16,7 @@ public class Controller {
     Cars cars = new Cars();
     Validator validator = new Validator();
     TypeConverter typeConverter = new TypeConverter();
+    private final int FIRST_LOCATION = 0;
 
     public void makeGame(){
         startGame();
@@ -63,11 +64,11 @@ public class Controller {
     public int getTrialNumber(){
         String input = Console.readLine();
         validator.validateTrialNumber(input);
-        return typeConverter.StringToInt(input);
+        return typeConverter.stringToInt(input);
     }
     public void makeCarList(List<String> input){
         for(String name : input){
-            cars.saveCars(new Car(name));
+            cars.saveCars(new Car(name,FIRST_LOCATION));
         }
     }
 
