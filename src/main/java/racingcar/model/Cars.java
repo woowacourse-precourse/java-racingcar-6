@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Cars {
 
-    private List<Car> carList = new ArrayList<>();
-
     public List<Car> setPlayer(String rawCarList) {
+        List<Car> carList = new ArrayList<>();
         String[] carNameArray = spiltPlayer(rawCarList);
-        addCarNameCarList(carNameArray);
+
+        addCarNameCarList(carList, carNameArray);
         return carList;
     }
 
@@ -17,14 +17,14 @@ public class Cars {
         return rawCarList.split(",");
     }
 
-    private void addCarNameCarList(String[] carNameArray) {
+    private void addCarNameCarList(List<Car> carList, String[] carNameArray) {
         for (int i = 0; i < carNameArray.length; i++) {
             carList.add(new Car(carNameArray[i], Car.INIT_MOVE));
         }
     }
 
     public List<Car> raceCars(List<Car> carList) {
-        carList.forEach(car -> car.carMoveOrStay());
+        carList.forEach(Car::carMoveOrStay);
         return carList;
     }
 }
