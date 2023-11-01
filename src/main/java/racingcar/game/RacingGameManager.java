@@ -45,7 +45,7 @@ public class RacingGameManager {
         RacingTurnProcessor<Racer> racingTurnProcessor = new RacingTurnProcessor<>(racerRegistry);
         for (int i = 0; i < totalTurn.getCount(); i++) {
             racingTurnProcessor.progressTurn();
-            racingGameScreen.showTurnResult(racingTurnProcessor.getTurnResult());
+            racingGameScreen.showTurnResult(racingTurnProcessor.getRacerPositions());
         }
 
         return racingTurnProcessor.getWinners();

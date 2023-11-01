@@ -21,7 +21,7 @@ public class RacingTurnProcessor<T extends Racer> {
         }
     }
 
-    public List<RacerPosition> getTurnResult() {
+    public List<RacerPosition> getRacerPositions() {
         return racers.stream()
                 .map(racingCar -> new RacerPosition(racingCar.getName(), racingCar.getPosition()))
                 .toList();

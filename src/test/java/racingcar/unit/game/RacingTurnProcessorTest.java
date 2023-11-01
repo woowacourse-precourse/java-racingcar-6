@@ -68,7 +68,7 @@ class RacingTurnProcessorTest {
         RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(
                 getRacingCarRegistry("a", "b", "c"));
         //when
-        List<RacerPosition> turnResult = racingTurnProcessor.getTurnResult();
+        List<RacerPosition> turnResult = racingTurnProcessor.getRacerPositions();
         //then
         assertThat(turnResult).hasSize(3)
                 .extracting("name", "position")
