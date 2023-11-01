@@ -5,7 +5,7 @@ import racingcar.constant.RacingConstant;
 import racingcar.constant.RandNumConstant;
 
 public class Car {
-    private CarInform carInform;
+    private final CarInform carInform;
     private Car(String carName) {
         carInform = CarInform.newInstance(carName);
     }

@@ -4,7 +4,7 @@ import racingcar.constant.CarInformConstant;
 import racingcar.constant.SeparatorConstant;
 
 public class CarInform {
-    private String carName;
+    private final String carName;
     private String dash;
 
     private CarInform(String carName) {
