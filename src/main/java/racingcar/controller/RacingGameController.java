@@ -58,7 +58,7 @@ public class RacingGameController implements Controller {
         }
     }
 
-    private List<String> getCurrentStatuses(List<Car> cars) {
+    private List<String> getCurrentStatuses(final List<Car> cars) {
         List<String> statusList = new ArrayList<>();
         for (Car car:cars) {
             statusList.add(car.toString());
