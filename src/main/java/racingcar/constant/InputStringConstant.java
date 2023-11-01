@@ -6,7 +6,7 @@ public enum InputStringConstant {
     GET_ROUND_NUM("시도할 회수는 몇회인가요?"),
     BLANK(" ");
 
-    private String value;
+    private final String value;
 
     InputStringConstant(String value) {
         this.value = value;
