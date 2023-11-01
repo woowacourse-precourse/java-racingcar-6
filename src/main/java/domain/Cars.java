@@ -10,12 +10,11 @@ public class Cars {
 
     List<String> carPos;
 
-    public List<String> setCars(List<String> cars) {
+    public void setCars(List<String> cars) {
         carPos = new ArrayList<String>();
         for (int i = 0; i < cars.size(); i++) {
             carPos.add("");
         }
-        return carPos;
     }
 
     public void move(List<String> cars) {
@@ -24,6 +23,7 @@ public class Cars {
                 carPos.set(i, carPos.get(i) + "-");
             }
         }
+        printCars(cars);
     }
 
     public boolean randomNum() {
@@ -33,6 +33,12 @@ public class Cars {
         } else {
             return false;
         }
+    }
+    public void printCars(List<String>cars){
+        for (int i=0;i<carPos.size();i++){
+            System.out.println(cars.get(i)+" : "+carPos.get(i) );
+        }
+        System.out.println();
     }
 
 }
