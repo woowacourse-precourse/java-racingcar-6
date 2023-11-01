@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
@@ -14,12 +15,12 @@ public class OutputViewTest {
     private final OutputView outputView = new OutputView();
 
     @Test
-    void printSoloWinnerTest(){
-        Car car1 = new Car("car1",1);
-        Car car2 = new Car("car2",2);
-        Car car3 = new Car("car3",3);
+    void printSoloWinnerTest() {
+        Car car1 = new Car("car1", 1);
+        Car car2 = new Car("car2", 2);
+        Car car3 = new Car("car3", 3);
 
-        List<Car> cars= new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
 
         cars.add(car1);
         cars.add(car2);
@@ -33,13 +34,13 @@ public class OutputViewTest {
     }
 
     @Test
-    void printWinnersTest(){
-        Car car1 = new Car("car1",1);
-        Car car2 = new Car("car2",2);
-        Car car3 = new Car("car3",2);
-        Car car4 = new Car("car4",1);
+    void printWinnersTest() {
+        Car car1 = new Car("car1", 1);
+        Car car2 = new Car("car2", 2);
+        Car car3 = new Car("car3", 2);
+        Car car4 = new Car("car4", 1);
 
-        List<Car> cars= new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
 
         cars.add(car1);
         cars.add(car2);

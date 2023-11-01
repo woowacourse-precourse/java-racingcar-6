@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import org.junit.jupiter.api.Test;
 import racingcar.utils.Validator;
 
@@ -8,6 +9,7 @@ import racingcar.utils.Validator;
 public class InputViewTest {
 
     private Validator validator = new Validator();
+
     @Test
     void 이름입력값에_자동차가_한대밖에_없을때() {
         String input = "car1";
@@ -18,7 +20,7 @@ public class InputViewTest {
 
     @Test
     void 이름입력이_비어있을때() {
-        String input="car1,,car3";
+        String input = "car1,,car3";
         assertThatThrownBy(() -> validator.checkCarValidate(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름이 비어 있습니다.");
