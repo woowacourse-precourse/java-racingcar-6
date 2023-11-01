@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.HashMap;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -15,6 +17,9 @@ public class Application {
         int number = Integer.parseInt(readLine());
 
         System.out.println("실행 결과");
+        for(int i=0; i<number; i++){
+            racing();
+        }
     }
 
     public static void initializeRace(String inputCarNames){
@@ -30,5 +35,20 @@ public class Application {
 
     public static boolean isGoodName(String carName){
         return carName.length() <= 5;
+    }
+
+    public static void racing(){
+        for(String carName: race.keySet()){
+            int forward = getForwardDistance();
+
+            if(forward >= 4) {
+                race.put(carName, race.getOrDefault(carName, 0) + forward);
+            }
+        }
+        System.out.println();
+    }
+
+    public static int getForwardDistance() {
+        return Randoms.pickNumberInRange(0,9);
     }
 }
