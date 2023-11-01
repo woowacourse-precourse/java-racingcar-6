@@ -28,7 +28,7 @@ class CarMoveServiceTest {
         IntStream.range(0,100).forEach(i -> {
             try {
                 int randomNum = (int) createRandom.invoke(carMoveService);
-                assertTrue(randomNum>=1&&randomNum<=9);
+                assertTrue(randomNum>=0&&randomNum<=9);
             } catch (IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }

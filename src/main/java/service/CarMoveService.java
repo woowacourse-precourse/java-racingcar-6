@@ -29,7 +29,7 @@ public class CarMoveService {
     }
 
     private int createRandom(){
-        return Randoms.pickNumberInRange(1,9);
+        return Randoms.pickNumberInRange(0,9);
     }
 
     private boolean isOver(int num){
