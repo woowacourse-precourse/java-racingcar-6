@@ -10,6 +10,10 @@ public class RacingGame {
     private Winner winner;
     private int gameCount;
 
+    private void addRacingCar(String name) {
+        this.racingCars.add(RacingCar.createRacingCar(name));
+    }
+
     private void inputGameCount() {
         System.out.println("시도할 회수는 몇회인가요?");
 
