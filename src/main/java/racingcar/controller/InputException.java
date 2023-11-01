@@ -14,8 +14,9 @@ public class InputException {
         checkExistCar(newCarName);
         checkNameNonEmpty(newCarName);
     }
-    public static void checkAllTryCount(Integer tryCount) {
-        checkTryCountNonEmpty(tryCount);
+    public static void checkAllTryCount(String tryCount) {
+        checkTryCountNonInteger(tryCount);
+        checkTryCountOverZero(tryCount);
     }
 
     private static void checkNameNonEmpty(String newCarName) { // 이름이 공백인 경우 예외처리
@@ -42,8 +43,20 @@ public class InputException {
             }
         }
     }
-    private static void checkTryCountNonEmpty(Integer tryCount) {
-        if (tryCount.equals("")) {
+    private static void checkTryCountOverZero(String tryCount) { // 실행횟수가 공백이면 예외처리
+        try {
+            Integer intTryCount = Integer.parseInt(tryCount); // 정수로 변환을 시도
+            if (intTryCount <= 0) { // 0 이하 정수인 경우 예외 처리
+                throw new IllegalArgumentException();
+            }
+        } catch (NumberFormatException e) { // 정수 변환 실패 시 예외 처리
+            throw new IllegalArgumentException();
+        }
+    }
+    private static void checkTryCountNonInteger(String tryCount) { // 실행횟수가 정수가 아니면 예외처리
+        try {
+            Integer intTryCount = Integer.parseInt(tryCount); // 정수로 변환을 시도
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
     }

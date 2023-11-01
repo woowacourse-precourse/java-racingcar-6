@@ -19,9 +19,10 @@ public class User {
             CarStorage.addCar(new Car(car));
         }
     }
-    public Integer inputTryCount() {
-        Integer tryCount = Integer.parseInt(readLine());
-        InputException.checkAllTryCount(tryCount);
+    public Integer inputTryCount() throws IllegalArgumentException {
+        String userInput = readLine();
+        InputException.checkAllTryCount(userInput); // 문자열일 때 예외처리
+        Integer tryCount = Integer.parseInt(userInput);
         return tryCount;
     }
     public Integer pickRandomInt() {
