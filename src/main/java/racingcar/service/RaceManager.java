@@ -5,6 +5,7 @@ import racingcar.constants.Constants;
 import racingcar.entity.Car;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RaceManager {
@@ -12,7 +13,7 @@ public class RaceManager {
     private final List<Car> cars;
 
     public RaceManager(List<Car> cars) {
-        this.cars = cars;
+        this.cars = new ArrayList<>(cars);
     }
 
     public void startRace(int rounds) {
@@ -29,7 +30,7 @@ public class RaceManager {
     }
 
     public List<Car> getCars() {
-        return cars;
+        return Collections.unmodifiableList(cars);
     }
 
     public List<String> getWinners() {
