@@ -86,18 +86,15 @@ class ApplicationTest extends NsTest {
     
     @Test @DisplayName("우승자 찾기_findWinner()")
     void testFindWinner1() {
-        
         List<Car> cars = new ArrayList<>();
         List<String> winner;
         Car car1 = new Car("이름1");
         Car car2 = new Car("이름2");
         car1.addScore();
-
         cars.add(car1);
         cars.add(car2);
 
         winner = executor.findWinner(cars);
-        
         assertThat(winner.get(0)).isEqualTo("이름1");
     }
     
@@ -107,19 +104,15 @@ class ApplicationTest extends NsTest {
         List<String> winner;
         Car car1 = new Car("이름1");
         Car car2 = new Car("이름2");
-        car1.addScore();
-        car2.addScore();
-
+        
         cars.add(car1);
         cars.add(car2);
-
+        
         winner = executor.findWinner(cars);
-
         assertThat(winner).containsExactly("이름1", "이름2");
-
     }
     
-
+    
     @Override
     public void runMain() {
         Application.main(new String[]{});
