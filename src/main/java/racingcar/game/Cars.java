@@ -26,7 +26,7 @@ public class Cars {
         }
     }
 
-    private ArrayList<Car> getWinners(){
+    public ArrayList<Car> getWinners(){
         ArrayList<Car> winners = new ArrayList<>();
         int winnerScore;
         int tempScore;
