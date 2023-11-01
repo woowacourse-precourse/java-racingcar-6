@@ -7,11 +7,8 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class CarService {
-    public List<Car> createCarList(List<String> carNameList) {
-        return registerCarList(carNameList);
-    }
 
-    private List<Car> registerCarList(List<String> carNameList) {
+    public List<Car> registerCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
 
         for (String carName : carNameList) {

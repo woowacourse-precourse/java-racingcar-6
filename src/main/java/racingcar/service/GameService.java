@@ -18,7 +18,7 @@ public class GameService {
     }
 
     public Game settingGame(List<String> carNameList, int count) {
-        List<Car> carList = carService.createCarList(carNameList);
+        List<Car> carList = carService.registerCarList(carNameList);
         return createGame(carList, count);
     }
 
@@ -44,7 +44,7 @@ public class GameService {
                 .filter(car ->
                         car.getDistances() == game.getTopDistance()
                 )
-                .map(car -> car.getName())
+                .map(Car::getName)
                 .toList();
     }
 
