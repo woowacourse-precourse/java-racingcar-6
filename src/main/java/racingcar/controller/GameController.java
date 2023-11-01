@@ -1,9 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
-import racingcar.model.Cars;
 import racingcar.model.GameNumber;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -57,7 +55,9 @@ public class GameController {
                 maxCarLength = car.getLength();
                 winners.clear();
                 winners.add(car);
-            } else if (car.getLength() == maxCarLength) {
+            }
+
+            if (car.getLength() == maxCarLength) {
                 winners.add(car);
             }
         }
