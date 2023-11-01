@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import racingcar.message.ErrorMessage;
 
 public class InputValidator {
-    private final static String PATTERN_IS_NUM = "^[^0][0-9]*";
+    private final static String PATTERN_IS_NUM = "^[1-9][0-9]*";
     public static void validateLength(String input, int limit){
         if(input.length() > limit){
             throw new IllegalArgumentException(ErrorMessage.LENGTH_LIMIT.getMessage());
