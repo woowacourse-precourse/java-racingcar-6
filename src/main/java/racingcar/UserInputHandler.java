@@ -1,9 +1,21 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserInputHandler {
-    private String getUserInput() {
+    public List<Car> getCarsInput(String userInput) {
+        String[] splitUserInput = userInputSplit(userInput);
+        List<Car> cars = new ArrayList<>();
+        for (String carName : splitUserInput) {
+            checkCarNameLength(carName);
+            cars.add(new Car(carName));
+        }
+        return cars;
+    }
+
+    public String getUserInput() {
         return Console.readLine();
     }
 
