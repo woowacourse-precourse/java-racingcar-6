@@ -58,6 +58,13 @@ class RacingCarsTest extends NsTest {
     }
 
     @Test
+    void 입력한_자동차_이름은_null일_수_없다() {
+        assertThatThrownBy(() -> new RacingCars(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CAR_NAME_BLANK_OR_NULL);
+    }
+
+    @Test
     void 랜덤값에_따라_자동차들의_경주를_진행할_수_있다() {
         RacingCars racingCars = new RacingCars("car1,car2,car3");
         assertRandomNumberInRangeTest(
