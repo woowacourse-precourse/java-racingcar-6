@@ -32,11 +32,15 @@ public class RacingGame {
         int randNum;
         for (int i = 0; i < cars.size(); i++) {
             randNum = Randoms.pickNumberInRange(RAND_NUM_MIN, RAND_NUM_MAX);
-            if (randNum >= RAND_NUM_THRESHOLD) {
-                resultList.set(i, resultList.get(i) + "-");
-            }
+            decideMoveByRandValue(randNum,i);
         }
         return resultList;
+    }
+
+    public void decideMoveByRandValue(int randNum, int index) {
+        if (randNum >= RAND_NUM_THRESHOLD) {
+            resultList.set(index, resultList.get(index) + "-");
+        }
     }
 
     public List<String> chooseWinners(List<String> winner, List<String> resultList) {
