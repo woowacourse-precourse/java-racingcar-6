@@ -14,7 +14,7 @@ public class Game {
     }
 
     void Start(){
-        System.out.println("경주할 자동차 이름을 입력하세요.");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carInput = Console.readLine();
         String[] carNames = carInput.split(",");
 
@@ -39,9 +39,9 @@ public class Game {
         if (totalMove <= 0) {
             throw new IllegalArgumentException("양수의 횟수를 입력하세요.");
         }
-
+        System.out.println();
+        System.out.println("실행 결과");
         for(int i = 0; i < totalMove; i++){
-            System.out.println("실행 결과");
             Match();
             System.out.println();
         }
