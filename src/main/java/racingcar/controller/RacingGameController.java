@@ -21,7 +21,7 @@ public class RacingGameController {
     public void run() {
         racingGame = inputView.getRacingGame();
         racingGame.setN(inputView.getMoveCount());
-        while(racingGame.isNotZero()) {
+        while (racingGame.isNotZero()) {
             racingGame = service.moveCar(racingGame);
             outputView.printCurrentResult(racingGame);
         }
