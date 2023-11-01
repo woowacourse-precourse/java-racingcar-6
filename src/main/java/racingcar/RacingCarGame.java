@@ -21,6 +21,7 @@ public class RacingCarGame {
 
     public void playGame(){
         init();
+        System.out.println("\n실행결과");
         for(int i =0;i<numOfPlaying;i++){
             play();
         }
@@ -31,7 +32,7 @@ public class RacingCarGame {
         List<String> winnerList = whoIsWinner();
         System.out.print("최종 우승자 :");
         for(int i=0;i<winnerList.size();i++){
-            if(i>1){
+            if(i>0){
                 System.out.print(",");
             }
             System.out.print(" " + winnerList.get(i));
