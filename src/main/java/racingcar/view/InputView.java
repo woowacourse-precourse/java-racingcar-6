@@ -4,6 +4,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.dto.Players;
 
 public class InputView {
 
@@ -17,27 +18,29 @@ public class InputView {
         System.out.println(START_ATTEMPT_MESSAGE);
     }
 
-    public static void getInput(){
+    public static Players getPlayersList(){
 
         getStartNameMessage();
 
         try {
             String playersInput = Console.readLine();
-            //exception
 
+             return new Players(makePlayersList(playersInput));
 
-            List<String> playersList = makePlayersList(playersInput);
-
-
-            getStartAttemptMessage();
-
-            int attemptCount = Integer.parseInt(Console.readLine());
 
         } catch (IllegalArgumentException e){
 
             throw new IllegalArgumentException(e.getMessage());
 
         }
+    }
+
+    public static int getAttempt(){
+        getStartAttemptMessage();
+
+        int attemptCount = Integer.parseInt(Console.readLine());
+
+        return attemptCount;
     }
 
     private static List<String> makePlayersList(String playersInput){
