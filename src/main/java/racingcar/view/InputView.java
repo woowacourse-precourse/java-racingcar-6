@@ -10,13 +10,16 @@ public class InputView {
 
     public static Set<String> getCarNames() {
         System.out.println(REQUEST_CAR_NAMES_MESSAGE);
-        String rawString = Console.readLine();
-
-        return parseString(rawString);
+        return isValidCarName(Console.readLine());
     }
 
-    private static Set<String> parseString(String rawString) {
-        String[] carNameArray = rawString.split(",");
+    public static int getRound() {
+        System.out.println(REQUEST_TRY_NUMBER_MESSAGE);
+        return isValidRound(Console.readLine());
+    }
+
+    private static Set<String> isValidCarName(String input) {
+        String[] carNameArray = input.split(",");
         Set<String> carNames = new HashSet<>();
 
         for (String carName : carNameArray) {
@@ -36,5 +39,21 @@ public class InputView {
         }
 
         return carNames;
+    }
+
+    private static int isValidRound(String input) {
+        int round;
+
+        try {
+            round = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
+
+        if (round < 1) {
+            throw new IllegalArgumentException("최소 시도 횟수는 1회 이상입니다.");
+        }
+
+        return round;
     }
 }
