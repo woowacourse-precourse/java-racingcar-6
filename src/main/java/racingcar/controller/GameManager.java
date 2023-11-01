@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.service.GameProgressService;
 import racingcar.view.GameOutput;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class GameManager {
     private final UserInputHandler userInputHandler = new UserInputHandler();
+    private final GameProgressService gameProgressService = new GameProgressService();
 
     public void startGame() {
         try {
@@ -31,7 +33,7 @@ public class GameManager {
     }
 
     private void startGameProcess(int round, List<Car> carList) {
-        GameOutput.printGameStart();
+        gameProgressService.moveCars(carList);
     }
 
 }
