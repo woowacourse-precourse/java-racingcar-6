@@ -1,7 +1,15 @@
 package racingcar;
 
+import racingcar.circuit.Circuit;
+import racingcar.game.RacingGame;
+import racingcar.generator.NumberGenerator;
+import racingcar.generator.RacingCarRandomNumberGenerator;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        NumberGenerator numberGenerator = new RacingCarRandomNumberGenerator();
+        Circuit circuit = new Circuit(numberGenerator);
+        RacingGame racingGame = new RacingGame(circuit);
+        racingGame.play();
     }
 }
