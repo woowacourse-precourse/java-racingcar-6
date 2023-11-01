@@ -2,20 +2,25 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car{
-    private final int count;
+public class Car {
+    private int count;
     private final String name;
 
-    public Car(String inputName){
-        this.count = Randoms.pickNumberInRange(0, 9);
-        this.name = inputName;
+    public Car(String inputName) {
+        count = 0;
+        name = inputName;
     }
 
-    public int getCount(){
+    public int getCount() {
         return count;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
+    }
+
+    public void move() {
+        count++;
     }
 
 }
