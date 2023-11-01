@@ -45,7 +45,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 우승자_출력_2인상_테스트(){
+    void 우승자_출력_1인_테스트(){
+        List<String> winnerString = new ArrayList<>();
+        winnerString.add("pobi");
+        String ANSWER = "최종 우승자 : pobi";
+        assertThat(racingManager.getWinnerString(winnerString)).isEqualTo(ANSWER);
+    }
+
+    @Test
+    void 우승자_출력_2인_테스트(){
         List<String> winnerString = new ArrayList<>();
         winnerString.add("pobi");
         winnerString.add("jun");
@@ -54,12 +62,16 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 우승자_출력_1인_테스트(){
+    void 우승자_출력_3인_테스트(){
         List<String> winnerString = new ArrayList<>();
         winnerString.add("pobi");
-        String ANSWER = "최종 우승자 : pobi";
+        winnerString.add("woni");
+        winnerString.add("jun");
+        String ANSWER = "최종 우승자 : pobi, woni, jun";
         assertThat(racingManager.getWinnerString(winnerString)).isEqualTo(ANSWER);
     }
+
+
 
     @Override
     public void runMain() {
