@@ -1,7 +1,6 @@
 package racingcar.util;
 
 import racingcar.Entity.Car;
-import racingcar.constant.CarStatus;
 import racingcar.constant.Message;
 import racingcar.constant.SymbolType;
 
