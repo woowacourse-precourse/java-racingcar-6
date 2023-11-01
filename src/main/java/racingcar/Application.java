@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 public class Application {
 
     private static final Pattern ALPHABET_AND_HANGUL_PATTERN = Pattern.compile("^[a-zA-Z가-힣]+$");
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("^-?[0-9]+$");
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -40,7 +41,16 @@ public class Application {
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        tryCount = Integer.parseInt(Console.readLine());
+        input = Console.readLine();
+        if (!NUMBER_PATTERN.matcher(input).matches()) {
+            throw new IllegalArgumentException("시도할 회수는 숫자만 가능");
+        }
+
+        tryCount = Integer.parseInt(input);
+
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException("1 이상의 양수만 입력 가능.");
+        }
 
         for (int i = 0; i < car.size(); i++) {
             position.add(0);
