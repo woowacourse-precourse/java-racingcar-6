@@ -7,12 +7,12 @@ public class RaceView {
     public RaceView() {
     }
 
-    private String renderCarState(String carName, int distance) {
-        return carName + " : " + "-".repeat(distance);
-    }
-
     public void printRaceIntro() {
         System.out.println("\n실행 결과");
+    }
+
+    private String renderCarState(String carName, int distance) {
+        return carName + " : " + "-".repeat(distance);
     }
 
     public void printRace(Race race) {
