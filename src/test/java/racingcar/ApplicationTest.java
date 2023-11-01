@@ -24,6 +24,41 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 전진_정지2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "3");
+                    assertThat(output()).contains("pobi : --", "woni : -", "jun : --", "최종 우승자 : pobi, jun");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 전진_정지3() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "2");
+                    assertThat(output()).contains("pobi : --", "woni : --", "jun : --", "최종 우승자 : pobi, woni, jun");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+
+    }
+
+    @Test
+    void 전진_정지4() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "2");
+                    assertThat(output()).contains("pobi : ", "woni : ", "jun : ", "최종 우승자 : pobi, woni, jun");
+                },
+                STOP, STOP, STOP, STOP, STOP, STOP
+        );
+
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
@@ -31,6 +66,13 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름에_대한_예외_처리2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobiab", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
