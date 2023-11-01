@@ -32,7 +32,7 @@ class RacingGameStartManagerTest {
         // then
         assertThat(racingCarSet.size()).isEqualTo(racingCarNames.length);
 
-        int i=0;
+        int i = 0;
         for (RacingCar racingCar : racingCarSet) {
             assertThat(racingCar).usingRecursiveComparison().isEqualTo(new RacingCar(racingCarNames[i++], 0));
         }
