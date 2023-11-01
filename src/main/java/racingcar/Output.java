@@ -30,7 +30,7 @@ public class Output {
     }
 
     public static void printWinner(List<Car> cars) {
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for(Car car : cars) {
             System.out.print(car.getName());
             if (cars.indexOf(car) != cars.size() - 1) {
