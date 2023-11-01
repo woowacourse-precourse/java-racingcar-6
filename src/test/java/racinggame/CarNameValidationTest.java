@@ -3,6 +3,7 @@ package racinggame;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
+import racingcar.exception.CarExceptionMessage;
 import racingcar.GameDetail;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -29,17 +30,19 @@ public class CarNameValidationTest {
     @Test
     @DisplayName("0자의 자동차 이름 입력시 예외 발생")
     void zero_size_car_name_input_exception() {
-        String carNames = GameDetail.CAR_SEPARATOR;
+        String carNames = GameDetail.CAR_SEPARATOR + "b" + GameDetail.CAR_SEPARATOR + "c";
         assertThatThrownBy(() -> Application.isValidCarNames(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarExceptionMessage.OVERSIZE_CAR_NAME);
     }
 
     @Test
     @DisplayName("5자 초과의 자동차 이름 입력시 예외 발생")
     void oversize_car_name_input_exception() {
-        String carNames = "abcdef";
+        String carNames = "abcdef" + GameDetail.CAR_SEPARATOR + "abc";
         assertThatThrownBy(() -> Application.isValidCarNames(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarExceptionMessage.OVERSIZE_CAR_NAME);
     }
 
     @Test
@@ -47,7 +50,8 @@ public class CarNameValidationTest {
     void no_car_name_input_exception() {
         String carNames = "";
         assertThatThrownBy(() -> Application.isValidCarNames(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarExceptionMessage.UNDER_MIN_CAR_COUNT);
     }
 
     @Test
@@ -55,7 +59,8 @@ public class CarNameValidationTest {
     void only_special_characters_car_name_input_exception() {
         String carNames = "###" + GameDetail.CAR_SEPARATOR + "@@@";
         assertThatThrownBy(() -> Application.isValidCarNames(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarExceptionMessage.ONLY_SPECIAL_CHARACTER_CAR_NAME);
     }
 
     @Test
@@ -63,7 +68,8 @@ public class CarNameValidationTest {
     void only_one_car_name_input_exception() {
         String carNames = "abc";
         assertThatThrownBy(() -> Application.isValidCarNames(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarExceptionMessage.UNDER_MIN_CAR_COUNT);
     }
 
     @Test
@@ -71,7 +77,8 @@ public class CarNameValidationTest {
     void duplicate_car_name_input_exception() {
         String carNames = "a" + GameDetail.CAR_SEPARATOR + "a" + GameDetail.CAR_SEPARATOR + "b";
         assertThatThrownBy(() -> Application.isValidCarNames(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CarExceptionMessage.DUPLICATE_CAR_NAME);
     }
 
 }

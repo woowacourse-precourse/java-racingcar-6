@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.enums.GameStatus;
+import racingcar.exception.CarExceptionMessage;
+import racingcar.exception.MoveCountExceptionMessage;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -53,19 +55,19 @@ public class Application {
         String[] carNameArray = carNames.split(GameDetail.CAR_SEPARATOR);
 
         if (isLessThanMinParticipatingCarCount(carNameArray)) {
-            throw new IllegalArgumentException(String.format("%d대 이하의 자동차 입력값 포함 = %s", GameDetail.MIN_CAR_COUNT, carNames));
+            throw new IllegalArgumentException(String.format("%s = %s", CarExceptionMessage.UNDER_MIN_CAR_COUNT, carNames));
         }
 
         if (isContainInvalidSizeCarName(carNameArray)) {
-            throw new IllegalArgumentException(String.format("%d~%d자가 아닌 자동차이름 입력값 포함 = %s", GameDetail.CAR_NAME_MIN_LENGTH, GameDetail.CAR_NAME_MAX_LENGTH, carNames));
+            throw new IllegalArgumentException(String.format("%s = %s", CarExceptionMessage.OVERSIZE_CAR_NAME, carNames));
         }
 
         if (isContainSpecialCharactersOnlyCarName(carNameArray)) {
-            throw new IllegalArgumentException(String.format("특수문자로만 구성된 자동차이름 입력값 포함 = %s", carNames));
+            throw new IllegalArgumentException(String.format("%s = %s", CarExceptionMessage.ONLY_SPECIAL_CHARACTER_CAR_NAME, carNames));
         }
 
         if (isContainDuplicateCarName(carNameArray)) {
-            throw new IllegalArgumentException(String.format("중복된 자동차이름 입력값 포함 = %s", carNames));
+            throw new IllegalArgumentException(String.format("%s = %s", CarExceptionMessage.DUPLICATE_CAR_NAME, carNames));
         }
         return true;
     }
@@ -133,7 +135,7 @@ public class Application {
      */
     private static boolean isValidMoveCount(String inputString) {
         if (!isPositiveNumber(inputString)) {
-            throw new IllegalArgumentException(String.format("양의 정수가 아닌 입력값 = %s", inputString));
+            throw new IllegalArgumentException(String.format("%s = %s", MoveCountExceptionMessage.NOT_POSITIVE_NUMBER, inputString));
         }
         return true;
     }
