@@ -16,17 +16,20 @@ public class RacingGame {
 
     public void createCarsAfterValidation(final String carNamesInputLine) {
         final List<String> carNames = validatePlayerInput.validateCarNames(carNamesInputLine);
+
         this.racingCars = carNames.stream().map(RacingCar::new).toList();
     }
 
     public void setRaceCountAfterValidation(final String raceCountInputLine) {
         final int raceCount = validatePlayerInput.validateRaceCount(raceCountInputLine);
+
         this.raceCount = raceCount;
     }
 
     public void round() {
         for (RacingCar car : this.racingCars) {
             final int movableNumber = this.generateMovableNumber();
+
             car.move(movableNumber);
         }
     }
@@ -36,8 +39,9 @@ public class RacingGame {
 
         for (int i = 0; i < this.raceCount; i++) {
             this.round();
-            result.append(this.racingCars.stream().map(RacingCar::toString).collect(Collectors.joining()))
-                    .append(RacingGameMessage.NEWLINE.getNewLine());
+            result.append(this.racingCars.stream().map(RacingCar::toString)
+                            .collect(Collectors.joining()))
+                            .append(RacingGameMessage.NEWLINE.getNewLine());
         }
 
         result.setLength(result.length() - 1);
@@ -51,7 +55,8 @@ public class RacingGame {
 
         final int maxMove = Collections.max(carsMoveCounts);
 
-        final List<String> winners = this.racingCars.stream().filter(car -> car.getMoveCount() == maxMove)
+        final List<String> winners = this.racingCars.stream()
+                .filter(car -> car.getMoveCount() == maxMove)
                 .map(RacingCar::getRacingCarName).toList();
 
         return winners;

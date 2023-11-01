@@ -38,6 +38,7 @@ public enum RacingGameMessage {
     public String getNewLine() {
         return NEWLINE.name;
     }
+
     public String getMoveMessage() {
         return MOVE.name;
     }
