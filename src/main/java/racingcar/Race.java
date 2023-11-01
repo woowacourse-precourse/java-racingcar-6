@@ -18,22 +18,22 @@ public class Race{
         for (int i=1;i<tryCount+1;i++){
             for (Car car : cars){
                 car.move();
-                View.printCarMove(car.getCarName(), car.getCarPosition());
+                View.printCarMove(car.getName(), car.getPosition());
             }
             System.out.println();
         }
     }
 
     private int findMaxPosition(){
-        return cars.stream().mapToInt(Car::getCarPosition).max().orElseThrow();
+        return cars.stream().mapToInt(Car::getPosition).max().orElseThrow();
     }
 
     public List<String> getWinners(){
         int maxPosition=findMaxPosition();
         List<String> winners=new ArrayList<>();
         for (Car car: cars){
-            if(car.getCarPosition()==maxPosition){
-                winners.add(car.getCarName());
+            if(car.getPosition()==maxPosition){
+                winners.add(car.getName());
             }
         }
         return winners;

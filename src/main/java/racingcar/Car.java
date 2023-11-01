@@ -3,18 +3,18 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car{
-    private String name;
+    private final String name;
     public int position =0;
 
     public Car(String name){
         this.name=name;
     }
 
-    public String getCarName(){
+    public String getName(){
         return name;
     }
 
-    public int getCarPosition(){
+    public int getPosition(){
         return position;
     }
 
