@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -14,31 +13,31 @@ public class Application {
 	private static final int MAX_TIMES = 100;
 	private static final int MAX_CAR_NAME_LENGTH = 5;
 	
-    public static void main(String[] args) {
-        
-    	System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    	List<String> carList = inputCarList();
-    	validateCarList(carList);
+	public static void main(String[] args) {
+		
+		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+		List<String> carList = inputCarList();
+		validateCarList(carList);
+		
+		System.out.println("시도할 회수는 몇회인가요?");
+		String timesInput = Console.readLine();
+		validateTimes(timesInput);
     	
-    	System.out.println("시도할 회수는 몇회인가요?");
-    	String timesInput = Console.readLine();
-    	validateTimes(timesInput);
-    	
-    	System.out.println("\n실행 결과");
-    	List<Integer> results = setCarsOnStart(carList);
-    	printTryAsRequest(carList, timesInput, results);
-    	
-    	System.out.print("최종 우승자 : ");
-    	printWinners(carList, results);
-    }
+		System.out.println("\n실행 결과");
+		List<Integer> results = setCarsOnStart(carList);
+		printTryAsRequest(carList, timesInput, results);
+		
+		System.out.print("최종 우승자 : ");
+		printWinners(carList, results);
+	}
 
 	public static void printWinners(List<String> carList, List<Integer> results) {
 		int max = Collections.max(results);
-    	int index = results.indexOf(max);
-    	while(index != -1) {
-    		System.out.print(carList.get(index));
-    		index = findTie(carList, results, max, index);
-    	}
+		int index = results.indexOf(max);
+		while(index != -1) {
+			System.out.print(carList.get(index));
+			index = findTie(carList, results, max, index);
+		}
 	}
 
 	public static int findTie(List<String> carList, List<Integer> results, int max, int index) {
@@ -48,14 +47,15 @@ public class Application {
 		
 		if(index != -1) 
 			System.out.print(", ");
+		
 		return index;
 	}
 
 	public static void printTryAsRequest(List<String> carList, String timesInput, List<Integer> results) {
 		for(int j = 0; j < Integer.valueOf(timesInput); j++) {
 			playOneRound(carList, results);
-    		System.out.println("");
-    	}
+			System.out.println("");
+		}
 	}
 
 	public static void playOneRound(List<String> carList, List<Integer> results) {
@@ -83,55 +83,53 @@ public class Application {
 	public static List<Integer> setCarsOnStart(List<String> carList) {
 		List<Integer> results = new ArrayList<>();
 		for(int i = 0; i < carList.size(); i++) {
-    		results.add(i, 0);
-    	}
+			results.add(i, 0);
+		}
 		return results;
 	}
 
 	public static void validateTimes(String timesInput) {
 		int times = Integer.valueOf(timesInput);
 		if(!timesInput.matches("\\d+") || times < MIN_TIMES || times > MAX_TIMES)
-    		throw new IllegalArgumentException(MIN_TIMES+"~"+MAX_TIMES+" 사이의 정수로 설정해주세요.");
+			throw new IllegalArgumentException(MIN_TIMES+"~"+MAX_TIMES+" 사이의 정수로 설정해주세요.");
 	}
 
 	public static void validateCarList(List<String> carList) {
 		validateNotEmpty(carList);
-    	validateLength(carList);
-    	validateDuplicates(carList);
+		validateLength(carList);
+		validateDuplicates(carList);
 	}
 
 	public static void validateDuplicates(List<String> carList) {
 		Set<String> carSet = new HashSet<>(carList);
-    	if(carSet.size() != carList.size())
-    		throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
+		if(carSet.size() != carList.size())
+			throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
 	}
 
 	public static void validateLength(List<String> carList) {
 		for(String car : carList) {
-    		if(car.length() > MAX_CAR_NAME_LENGTH)
-    			throw new IllegalArgumentException("각 자동차의 이름은 "+MAX_CAR_NAME_LENGTH+"자 이하로 작성해주세요.");
-    	}
+			if(car.length() > MAX_CAR_NAME_LENGTH)
+				throw new IllegalArgumentException("각 자동차의 이름은 "+MAX_CAR_NAME_LENGTH+"자 이하로 작성해주세요.");
+		}
 	}
 
 	public static void validateNotEmpty(List<String> carList) {
 		if(carList.isEmpty())
-    		throw new IllegalArgumentException("유효한 자동차 이름이 없습니다.");
+			throw new IllegalArgumentException("유효한 자동차 이름이 없습니다.");
 	}
     
-    public static List<String> inputCarList() {
-    	String carInput = Console.readLine();
+	public static List<String> inputCarList() {
+		String carInput = Console.readLine();
 		String[] separate = carInput.split(",");
-    	List<String> carList = new ArrayList<>();
-    	
-    	for(String car : separate) {
-    		carList.add(car.trim());
-    	}
-    	
-    	while(carList.remove(String.valueOf("")));
+		List<String> carList = new ArrayList<>();
+		
+		for(String car : separate) {
+			carList.add(car.trim());
+		}
+		while(carList.remove(String.valueOf("")));
     	
 		return carList;
 	}
-
 }
 
 	

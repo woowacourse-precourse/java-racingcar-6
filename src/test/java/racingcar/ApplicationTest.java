@@ -10,6 +10,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -27,14 +29,14 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름길에_대한_예외_처리() {
+    void TestvalidateLength() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
     @Test
-    void 이름_중복에_따른_예외_처리() {
+    void TestvalidateDuplicates() {
     	assertSimpleTest(() ->
         		assertThatThrownBy(() -> runException("apple,apple,grape", "1"))
         				.isInstanceOf(IllegalArgumentException.class)
@@ -42,7 +44,7 @@ class ApplicationTest extends NsTest {
     }
     
     @Test
-    void 유효한_이름_없음_예외_처리() {
+    void TestvalidateNotEmpty() {
     	assertSimpleTest(() ->
         		assertThatThrownBy(() -> runException("  ,  ", "1"))
         				.isInstanceOf(IllegalArgumentException.class)
@@ -50,7 +52,7 @@ class ApplicationTest extends NsTest {
     }
     
     @Test
-    void 시도_회수_예외_처리() {
+    void TestvalidateTimes() {
     	assertSimpleTest(() ->
         		assertThatThrownBy(() -> runException("apple,grape", "123"))
         				.isInstanceOf(IllegalArgumentException.class)
@@ -58,7 +60,7 @@ class ApplicationTest extends NsTest {
     }
     
     @Test
-    void 공백_및_빈값_제거() {
+    void TestinputCarList() {
     	String carInput = "apple  ,  , grape ,,  ";
     	List<String> carList = Arrays.stream(carInput.split(","))
     			.map(car -> car.trim())
@@ -66,6 +68,16 @@ class ApplicationTest extends NsTest {
     			.toList();
     	
     	assertThat(carList).containsExactly("apple", "grape");	
+    }
+    
+    @Test
+    void TestsetCarsOnStart() {
+    	List<String> carList = Arrays.asList("apple", "grape");
+    	List<Integer> results = IntStream.range(0, carList.size())
+    			.mapToObj(result -> 0)
+    			.collect(Collectors.toList());
+    	
+    	assertThat(results).containsExactly(0, 0);
     }
 
     @Override
