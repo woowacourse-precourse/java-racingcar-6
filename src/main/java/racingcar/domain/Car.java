@@ -17,6 +17,11 @@ public class Car {
         this.name = name;
     }
 
+    public Car(String name, int moveCount) {
+        this.name = name;
+        this.moveCount = moveCount;
+    }
+
     public void moveOrStop() {
         int random = getRandomNumber();
         if (isMoving(random)) {
