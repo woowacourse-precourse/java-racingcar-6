@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class CarNameTest {
 
+    private static final int MAX_NUM_LENGTH = 5;
+
     @Test
     void 빈_값_예외_처리() {
         String input = "";
@@ -20,7 +22,7 @@ public class CarNameTest {
 
         Assertions.assertThatThrownBy(() -> new CarName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("두 개 이상 적어주세요.");
+                .hasMessageContaining("자동차 이름을 2개 이상 입력하세요.");
     }
 
     @Test
@@ -29,7 +31,7 @@ public class CarNameTest {
 
         Assertions.assertThatThrownBy(() -> new CarName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("5자 이하만 가능합니다.");
+                .hasMessageContaining(String.format("최대 이름 길이인 %d를 넘는 이름입니다.", MAX_NUM_LENGTH));
     }
 
     @Test
@@ -38,7 +40,7 @@ public class CarNameTest {
 
         Assertions.assertThatThrownBy(() -> new CarName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 이름이 있습니다.");
+                .hasMessageContaining("이름 중에 중복이 있습니다.");
     }
 
 }

@@ -20,7 +20,7 @@ public class AttemptTest {
 
         Assertions.assertThatThrownBy(() -> new Attempt(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자를 입력해 주세요.");
+                .hasMessageContaining("정수 값이 아닙니다.");
     }
 
     @Test
@@ -29,6 +29,6 @@ public class AttemptTest {
 
         Assertions.assertThatThrownBy(() -> new Attempt(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("0보다 큰 수를 입력해 주세요.");
+                .hasMessageContaining("0보다 큰 수를 입력하세요.");
     }
 }
