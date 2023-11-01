@@ -7,7 +7,7 @@ public class CarMovementWinnerWriter {
 	RacingCarWinnerFinder racingCarWinner = new RacingCarWinnerFinder();
 	private static final Integer startingIndex = 0;
 	private static final Integer startSubString = 0;
-	private static final Integer endSubString = 2;
+	private static final Integer endSubStringPoint = 2;
 	private static final String EmptyInitialString = "";
 	private static final String WinnerDividePoint = ", ";
 	private static final String WinnerSign = "최종 우승자 : ";
