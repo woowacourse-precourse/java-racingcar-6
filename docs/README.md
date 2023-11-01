@@ -3,7 +3,7 @@
 ### ✔ Car 클래스
 - 책임: 자동차를 생성하고 관리
 - 역할: 경주에 참여하는 자동차와 자동차 생성하고 자동차의 정보를 관리하는 역할
-- 속성: String name, int score
+- 속성: String name, int position
 - 기능: <br>
   - public void move(int number): 자동차의 움직임을 파악하고 위치정보를 업데이트하는 기능
 
