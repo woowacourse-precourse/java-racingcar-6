@@ -28,12 +28,12 @@ public class Game {
 
     private List<Car> getCarListFromInput() {
         output.printText(INPUT_CAR_NAMES_GUIDE_TEXT);
-        return input.receiveCarNamesAndMakeList();
+        return input.getCarNamesFromUser();
     }
 
     private int getExecutionCountFromInput() {
         output.printText(INPUT_EXECUTION_COUNT_GUIDE_TEXT);
-        return input.receiveTotalCountOfExecution();
+        return input.getExecutionCountFromUser();
     }
 
     private void execution(int executionCount, List<Car> carList) {

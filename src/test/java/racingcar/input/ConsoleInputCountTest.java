@@ -32,7 +32,7 @@ class ConsoleInputCountTest {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
-        int executionCount = consoleInput.receiveTotalCountOfExecution();
+        int executionCount = consoleInput.getExecutionCountFromUser();
 
         Console.close();
         return executionCount;

@@ -46,7 +46,7 @@ class ConsoleInputCarNameTest {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
-        List<Car> cars = consoleInput.receiveCarNamesAndMakeList();
+        List<Car> cars = consoleInput.getCarNamesFromUser();
 
         Console.close();
         return cars;

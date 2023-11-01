@@ -15,13 +15,13 @@ public class ConsoleInput implements Input {
     }
 
     @Override
-    public List<Car> receiveCarNamesAndMakeList() {
+    public List<Car> getCarNamesFromUser() {
         String input = validator.validateInputCarName(Console.readLine());
         return getCarList(input);
     }
 
     @Override
-    public int receiveTotalCountOfExecution() {
+    public int getExecutionCountFromUser() {
         String input = validator.validateInputCount(Console.readLine());
         return Integer.parseInt(input);
     }

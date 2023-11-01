@@ -5,7 +5,7 @@ import racingcar.Car;
 
 public interface Input {
 
-    List<Car> receiveCarNamesAndMakeList();
+    List<Car> getCarNamesFromUser();
 
-    int receiveTotalCountOfExecution();
+    int getExecutionCountFromUser();
 }
