@@ -30,6 +30,11 @@ public class Racing {
         }
     }
 
-
+    public void printTotalRacing(Map<String, Integer> carInfo, int count) {
+        System.out.println("실행 결과");
+        for (int i = 0; i<count; i++) {
+            printRacing(carInfo);
+        }
+    }
 
 }
