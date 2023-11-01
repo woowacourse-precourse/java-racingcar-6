@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import racingcar.domain.RacingCar;
+import racingcar.model.RacingCar;
 import racingcar.service.RacingCarService;
 
 import java.util.ArrayList;

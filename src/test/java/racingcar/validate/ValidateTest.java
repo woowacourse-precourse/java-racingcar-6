@@ -54,8 +54,8 @@ public class ValidateTest extends NsTest {
 
         private static Stream<Arguments> provideInputForInvalidInputNumberOfAttempts() {
             return Stream.of(
-                    Arguments.of("0", "1 이상의 숫자를 입력해주세요."),
-                    Arguments.of("-1", "1 이상의 숫자를 입력해주세요."),
+                    Arguments.of("0", "1 이상의 10억 이하의 숫자를 입력해주세요."),
+                    Arguments.of("-1", "1 이상의 10억 이하의 숫자를 입력해주세요."),
                     Arguments.of("aa", "숫자를 입력해주세요."),
                     Arguments.of("?", "숫자를 입력해주세요."),
                     Arguments.of("&", "숫자를 입력해주세요.")
