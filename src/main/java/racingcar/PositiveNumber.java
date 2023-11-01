@@ -2,7 +2,7 @@ package racingcar;
 
 import racingcar.input.ValidateInput;
 
-public class PositiveNumber implements Comparable<PositiveNumber>{
+public class PositiveNumber implements Comparable<PositiveNumber> {
     private Integer number = 0;
     private static final int NUMBER_TYPE_DECIMAL = 10;
     private static final int NUMBER_TYPE_HEXADICIMAL = 16;
@@ -48,7 +48,6 @@ public class PositiveNumber implements Comparable<PositiveNumber>{
         return this.number == 0;
     }
 
-    
     @Override
     public int compareTo(PositiveNumber compareNumber) {
         return this.number.compareTo(compareNumber.getNumber());

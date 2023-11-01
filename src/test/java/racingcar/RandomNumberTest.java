@@ -12,14 +12,14 @@ class RandomNumberTest {
     void 랜덤_숫자_생성_성공() {
         Integer start = 0;
         Integer end = 9;
-        assertThatCode(() ->RandomNumber.fromInteger(start,end)).doesNotThrowAnyException();
+        assertThatCode(() -> RandomNumber.fromInteger(start, end)).doesNotThrowAnyException();
     }
 
     @Test
     void 랜덤_숫자_생성_실패() {
         Integer start = 5;
         Integer end = -1;
-        assertThatThrownBy(() -> RandomNumber.fromInteger(start,end))
+        assertThatThrownBy(() -> RandomNumber.fromInteger(start, end))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR]");
     }
@@ -29,11 +29,10 @@ class RandomNumberTest {
         Integer start = 0;
         Integer end = 9;
         assertRandomNumberInRangeTest(() -> {
-            RandomNumber randomNumber= RandomNumber.fromInteger(start,end);
+            RandomNumber randomNumber = RandomNumber.fromInteger(start, end);
             int pickNumber = randomNumber.pickNumber();
-            assertThat(pickNumber).isBetween(start,end);
-        },5);
+            assertThat(pickNumber).isBetween(start, end);
+        }, 5);
     }
-
 
 }

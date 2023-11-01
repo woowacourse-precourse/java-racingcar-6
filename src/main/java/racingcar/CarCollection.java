@@ -27,7 +27,7 @@ public class CarCollection {
         this.collection.stream().forEach(Car::displayCarLocation);
     }
 
-    public int size(){
+    public int size() {
         return this.collection.size();
     }
 
@@ -53,6 +53,6 @@ public class CarCollection {
 
     public List<Name> getCarNameList() {
         return this.collection.stream().map(Car::getCarName)
-                                    .collect(Collectors.toList());
+                .collect(Collectors.toList());
     }
 }

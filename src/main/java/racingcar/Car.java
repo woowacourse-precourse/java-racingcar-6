@@ -51,7 +51,7 @@ public class Car {
         }
     }
 
-    public boolean isSameLocation(Location compareLocation){
+    public boolean isSameLocation(Location compareLocation) {
         return this.carLocation.equals(compareLocation);
     }
 

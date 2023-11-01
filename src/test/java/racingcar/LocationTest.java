@@ -99,14 +99,15 @@ class LocationTest {
         Location location3 = Location.fromString("5");
         Location expectedMaxLocation2 = Location.fromString("10");
         Location location5 = Location.fromString("8");
-        List<Location> locationList = List.of(location1, expectedMaxLocation1, location3, expectedMaxLocation2, location5);
+        List<Location> locationList = List.of(location1, expectedMaxLocation1, location3, expectedMaxLocation2,
+                location5);
         Location maxLocation = locationList.stream()
-                                        .max(Location::compareTo)
-                                        .orElse(Location.fromInteger(0));
+                .max(Location::compareTo)
+                .orElse(Location.fromInteger(0));
 
         List<Location> filteredLocationList = locationList.stream()
-                                        .filter(location -> location.equals(maxLocation))
-                                        .toList();
+                .filter(location -> location.equals(maxLocation))
+                .toList();
         int expectedSize = 2;
         assertThat(filteredLocationList).hasSize(expectedSize);
     }

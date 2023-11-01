@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class NameTest {
+class NameTest {
 
     private static final String GIVEN_SUCCESS_NAME = "mooso";
     private static final String GIVEN_FAIL_NAME = "moosong";

@@ -119,7 +119,6 @@ class ValidateInputTest {
                                                 .doesNotThrowAnyException());
         }
 
-
         @CsvSource({ "1, 0",
                         "30, -10",
                         "1000, 5" })

@@ -12,7 +12,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import racingcar.input.InputView;
 
-public class InputViewTest extends NsTest {
+class InputViewTest extends NsTest {
 
     private final String INPUT_CAR_NAMES = "woni,pobi,jun";
     private final String INPUT_TRY_COUNT = "1";
@@ -24,7 +24,7 @@ public class InputViewTest extends NsTest {
                 mock.when(() -> Console.readLine()).thenReturn(INPUT_CAR_NAMES, INPUT_TRY_COUNT);
                 run(INPUT_CAR_NAMES, INPUT_TRY_COUNT);
                 assertThat(output()).contains("woni", "pobi", "jun", "1");
-                mock.verify(() -> Console.readLine(),times(2));
+                mock.verify(() -> Console.readLine(), times(2));
             }
         });
     }

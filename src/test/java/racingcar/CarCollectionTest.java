@@ -12,7 +12,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.stream.Collectors;
 import java.util.List;
 
-public class CarCollectionTest extends NsTest {
+class CarCollectionTest extends NsTest {
     @Test
     void 자동차_담기_성공() {
         assertThatCode(() -> {

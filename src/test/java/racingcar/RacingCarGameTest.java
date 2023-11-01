@@ -102,7 +102,7 @@ class RacingCarGameTest extends NsTest {
         RacingCarGame game = new RacingCarGame();
         game.addRacingCar("woni,jun,pobi,mooso");
         game.displayWinners();
-        assertThat(output()).contains("최종 우승자 : ", "woni", "jun", "pobi", "mooso",", ");
+        assertThat(output()).contains("최종 우승자 : ", "woni", "jun", "pobi", "mooso", ", ");
     }
 
     @AfterEach

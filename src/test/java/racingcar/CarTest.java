@@ -135,6 +135,7 @@ class CarTest extends NsTest {
         boolean compareResult = givenCar.isSameLocation(expectedLocation);
         assertThat(compareResult).isEqualTo(expected);
     }
+
     @Override
     protected void runMain() {
         // TODO Auto-generated method stub
