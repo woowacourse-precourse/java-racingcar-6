@@ -19,7 +19,7 @@ public class Racing {
         return tryCount > 0;
     }
 
-    public void move() {
+    public void doMove() {
         cars.move();
         countMove();
     }
@@ -28,7 +28,7 @@ public class Racing {
         return cars.collectAllState();
     }
 
-    public List<String> determineWinnerNames() {
+    public List<String> generateWinnerNames() {
         RacingResult racingResult = new RacingResult(cars, new MaximumForwardStrategy());
         return racingResult.determineWinnerNames();
     }

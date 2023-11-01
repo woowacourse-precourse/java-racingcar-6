@@ -25,14 +25,14 @@ public class RacingController {
     public void playRacing() {
         outputView.printRacingAnnouncement();
         while (racing.canMove()) {
-            racing.move();
+            racing.doMove();
             List<CarState> states = racing.captureCurrentState();
             outputView.printAllCarPositionByState(states);
         }
     }
 
     public void finishRacing() {
-        List<String> winnerCarNames = racing.determineWinnerNames();
+        List<String> winnerCarNames = racing.generateWinnerNames();
         outputView.printWinnerCar(winnerCarNames);
     }
 }
