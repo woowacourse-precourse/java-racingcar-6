@@ -4,11 +4,12 @@ import static racingcar.Message.ExceptionMessage.NULL_ERROR;
 import static racingcar.Service.CarService.stringToList;
 
 import java.util.List;
+import java.util.Objects;
 
 public class RacingCars {
     private final List<Car> cars;
 
-    private RacingCars(final String carNames) {
+    RacingCars(final String carNames) {
         this.cars = stringToList(carNames);
     }
 
@@ -30,4 +31,16 @@ public class RacingCars {
         return cars;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RacingCars that = (RacingCars) o;
+        return Objects.equals(cars, that.cars);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cars);
+    }
 }
