@@ -15,7 +15,9 @@ public class CarNameValidator {
         validate();
     }
     public void validate() {
-
+        isRightNamesString();
+        isRightNameSize();
+        isNotDuplicated();
     }
     public void isRightNamesString() {
         // String 형식 확인 : 앞&뒤-문자, 중간-문자&구분자
