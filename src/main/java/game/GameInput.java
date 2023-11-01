@@ -1,6 +1,8 @@
 package game;
 
+import camp.nextstep.edu.missionutils.Console;
 import car.Car;
+import util.GamePrinter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,11 @@ public class GameInput {
     private static final String COMMA = ",";
 
 
-    public List<Car> inputCarNames(String input) {
+    public List<Car> inputCarNames() {
+
+        GamePrinter.inputCarNames();
+        String input = Console.readLine();
+
         List<Car> carList = new ArrayList<>();
 
         String[] carNames = input.split(COMMA,-1);
@@ -25,11 +31,14 @@ public class GameInput {
         return carList;
     }
 
-    public int inputCount(String count) {
-        validateNumberFormat(count);
-        validateNumberRange(count);
+    public int inputCount() {
+        GamePrinter.inputCount();
+        String input = Console.readLine();
 
-        return Integer.parseInt(count);
+        validateNumberFormat(input);
+        validateNumberRange(input);
+
+        return Integer.parseInt(input);
     }
 
     private void validateNumberFormat(String number) {

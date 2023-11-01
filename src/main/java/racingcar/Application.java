@@ -9,15 +9,9 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
-        GamePrinter.inputCarNames();
-        String inputCarNames = Console.readLine();
-
-        GamePrinter.inputCount();
-        String inputCount = Console.readLine();
-
         GameInput gameInput = new GameInput();
 
-        Game game = new Game(gameInput.inputCarNames(inputCarNames), gameInput.inputCount(inputCount));
+        Game game = new Game(gameInput.inputCarNames(), gameInput.inputCount());
         game.run();
     }
 }
