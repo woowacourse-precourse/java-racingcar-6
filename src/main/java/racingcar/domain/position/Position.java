@@ -13,11 +13,7 @@ public class Position implements Comparable<Position> {
     public void move(int weight) {
         this.value += weight;
     }
-
-    public int getValue() {
-        return value;
-    }
-
+    
     public String draw() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < value; i++) {
