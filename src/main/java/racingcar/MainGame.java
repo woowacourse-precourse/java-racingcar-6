@@ -23,15 +23,22 @@ public class MainGame {
 
     public void run() {
         CustomView customView = new CustomView();
+        CustomException customException = new CustomException();
+
         List<Car> cars = new ArrayList<>();
         customView.printStart();
         String inputPlayer = Console.readLine();
         List<String> players = customView.strSplit(inputPlayer);
+        customException.checkInputValidLength(players);
+        customException.checkInputDuplication(players);
         cars = Car.strToCar(players);
+
         customView.printStartRound();
-        int inputRound = Integer.parseInt(Console.readLine());
+        String inputRoundStr = Console.readLine();
+
+        int inputRound = customException.convertStrToInt(inputRoundStr);
         Round round = new Round(inputRound);
-        round.rounding(cars); // 각 라운드 결과
+        round.rounding(cars);
         customView.printGameResult(judgement(cars));
     }
 

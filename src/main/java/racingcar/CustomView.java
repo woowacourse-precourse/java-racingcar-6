@@ -12,8 +12,12 @@ public class CustomView {
 
     public List<String> strSplit(String input) {
         String[] temp = input.split(",");
+        return strTrim(temp);
+    }
+
+    public List<String> strTrim(String[] s){
         List<String> players = new ArrayList<>();
-        for (String tmp : temp) {
+        for (String tmp : s) {
             players.add(tmp.trim());
         }
         return players;
@@ -42,7 +46,6 @@ public class CustomView {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + intToStr(car.getCount()));
         }
-        System.out.println();
         System.out.println();
     }
 

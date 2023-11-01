@@ -8,8 +8,8 @@ public class Application {
           car class (완료)
           round class (완료)
           mainGame class (완료)
-          customException class
-          customInput class (-ing)
+          customException class (완료)
+          customInput class (완료)
          */
         MainGame mainGame = new MainGame();
         mainGame.run();

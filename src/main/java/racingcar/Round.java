@@ -12,6 +12,7 @@ public class Round {
     }
 
     public List<Car> rounding(List<Car> inputPlayers) {
+        System.out.println();
         CustomView customView = new CustomView();
         customView.printRoundResult();
         for (int i = 0; i < progressNumber; i++) {
