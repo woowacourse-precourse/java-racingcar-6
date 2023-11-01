@@ -21,6 +21,7 @@ public class GameControl extends Cars {
         for (String name : names) {
             carResults.add(name + " : ");
         }
+
         // 시도 횟수만큼 루프
         for (int i = 1; i <= countNumber; i++) {
             forward(carResults, i); // i회차 누적결과 출력
@@ -65,6 +66,7 @@ public class GameControl extends Cars {
                 winners.add(names[i]);
             }
         }
+
 
         System.out.print("최종 우승자 : ");
         String winnersString = String.join(", ", winners);
