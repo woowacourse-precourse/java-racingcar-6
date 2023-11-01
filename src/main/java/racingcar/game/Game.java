@@ -33,6 +33,7 @@ public class Game {
     }
 
     public void play() {
+        System.out.println();
         System.out.println("실행 결과");
         for (int round = 0; round < roundNumber.getNumber(); round++) {
             playRound();
