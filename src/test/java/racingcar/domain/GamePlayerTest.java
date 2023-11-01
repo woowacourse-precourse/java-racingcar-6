@@ -18,7 +18,7 @@ public class GamePlayerTest {
 
     @ParameterizedTest
     @MethodSource
-    public void 가장_높은_점수를_구한다(List<Integer> moveCondition, int expectedResult) {
+    public void 가장_높은_점수를_구한다(List<Integer> randomValues, int expectedResult) {
         //given
         GameService gameService = new GameService();
         CarNames carNames = CarNames.fromInput("name1,name2,name3");
@@ -30,8 +30,8 @@ public class GamePlayerTest {
                         gameService.moveCars(gamePlayer);
                     }
                 },
-                moveCondition.get(0), moveCondition.get(1), moveCondition.get(2),
-                moveCondition.get(3), moveCondition.get(4), moveCondition.get(5)
+                randomValues.get(0), randomValues.get(1), randomValues.get(2),
+                randomValues.get(3), randomValues.get(4), randomValues.get(5)
         );
         //then
         assertThat(gamePlayer.getMaxMoveDistance()).isEqualTo(expectedResult);

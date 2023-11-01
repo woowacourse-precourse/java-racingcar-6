@@ -29,7 +29,7 @@ public class GameServiceTest extends NsTest {
         CarNames carNames = CarNames.fromInput(input);
         //when
         List<Car> cars = carNames.createCars();
-        StringBuilder result = new StringBuilder("");
+        StringBuilder result = new StringBuilder();
         for (Car car : cars) {
             result.append(car.getName()).append(",");
         }
@@ -53,7 +53,7 @@ public class GameServiceTest extends NsTest {
         //when
         GamePlayer gamePlayer = gameService.createGamePlayer(carNames);
         List<Car> cars = gamePlayer.getCars();
-        StringBuilder result = new StringBuilder("");
+        StringBuilder result = new StringBuilder();
         for (Car car : cars) {
             result.append(car.getName()).append(",");
         }
