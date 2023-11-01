@@ -7,10 +7,12 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        String carNamesInput = Console.readLine("자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분): ");
+        System.out.println("자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분): ");
+        String carNamesInput = Console.readLine();
         List<String> carNames = List.of(carNamesInput.split(","));
 
-        int attempts = Integer.parseInt(Console.readLine("시도할 회수를 입력하세요: "));
+        System.out.println("시도할 회수를 입력하세요: ");
+        int attempts = Integer.parseInt(Console.readLine());
 
         List<Car> cars = createCars(carNames);
 
@@ -19,6 +21,7 @@ public class Application {
         List<String> winners = determineWinners(cars);
         printWinners(winners);
 
+        Console.close();
     }
 
     private static List<Car> createCars(List<String> carNames) {
