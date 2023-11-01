@@ -1,57 +1,17 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.controller.InputException;
-import racingcar.model.Car;
 import racingcar.view.Message.GameViewMessage;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class InputUser {
-    private String carNameString;
-    private String inputRoundLength;
-    private ArrayList<String> carNameArray;
-    private static final String SEPARATOR = GameViewMessage.COMMA.getMessage();
-    private final InputException inputException;
-
-    public InputUser() {
-        this.carNameString = "";
-        this.inputRoundLength = "";
-        this.carNameArray = null;
-        this.inputException = new InputException();
-    }
-
-    public void inputCarNameString() {
-        inputUserCarNameString();
-        carNameArray = splitToArray(carNameString);
-        inputException.checkInputCarNameArrayError(carNameArray);
-    }
-
-    public void inputUserCarNameString() {
+    public String userInputCarNameString(){
         displayWriteCarNameMessage();
-        carNameString = Console.readLine();
+        return Console.readLine();
     }
 
-
-    public ArrayList<Car> returnCar() {
-        ArrayList<Car> carArrayList = new ArrayList<>();
-        for (String carName : carNameArray) {
-            carArrayList.add(new Car(carName));
-        }
-        return carArrayList;
-    }
-
-    private ArrayList<String> splitToArray(String carNameString) {
-        return new ArrayList<>(Arrays.asList(carNameString.split(SEPARATOR)));
-    }
-
-    public int inputRoundLength() {
+    public String userInputRoundLength(){
         displayWriteRaceLengthMessage();
-        inputRoundLength = Console.readLine();
-
-        inputException.checkInputRoundError(inputRoundLength);
-        return Integer.parseInt(inputRoundLength);
+        return Console.readLine();
     }
 
     private void displayWriteCarNameMessage() {
