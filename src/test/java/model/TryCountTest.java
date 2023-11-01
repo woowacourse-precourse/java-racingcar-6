@@ -1,5 +1,9 @@
 package model;
 
+import static model.ErrorMessage.INVALID_RANGE;
+import static model.ErrorMessage.INVALID_TYPE;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -16,8 +20,11 @@ class TryCountTest {
         String nonDigitValue = "nonDigit";
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            TryCount.from(nonDigitValue);
+        assertAll(() -> {
+            Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+                TryCount.from(nonDigitValue);
+            });
+            assertEquals(INVALID_TYPE.getMessage(), exception.getMessage());
         });
     }
 
@@ -27,9 +34,13 @@ class TryCountTest {
         String inputValue = String.valueOf(LESS_THAN_MIN);
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            TryCount.from(inputValue);
+        assertAll(() -> {
+            Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+                TryCount.from(inputValue);
+            });
+            assertEquals(INVALID_RANGE.getMessage(), exception.getMessage());
         });
+
     }
 
     @Test

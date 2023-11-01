@@ -1,5 +1,8 @@
 package model;
 
+import static model.ErrorMessage.DUPLICATED_CAR_NAME;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
@@ -13,8 +16,11 @@ class CarsTest {
         List<String> names = List.of("duplicated", "duplicated");
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            Cars.from(names);
+        assertAll(() -> {
+            Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+                Cars.from(names);
+            });
+            assertEquals(DUPLICATED_CAR_NAME.getMessage(), exception.getMessage());
         });
     }
 }

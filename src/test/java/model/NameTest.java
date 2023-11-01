@@ -1,5 +1,8 @@
 package model;
 
+import static model.ErrorMessage.INVALID_NAME_LENGTH;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -15,9 +18,13 @@ class NameTest {
         String testName = "";
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            Name.from(testName);
+        assertAll(() -> {
+            Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+                Name.from(testName);
+            });
+            assertEquals(INVALID_NAME_LENGTH.getMessage(), exception.getMessage());
         });
+
     }
 
     @Test
@@ -26,8 +33,12 @@ class NameTest {
         String testName = "t".repeat(BIGGER_THAN_MAX_LENGTH);
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            Name.from(testName);
+
+        assertAll(() -> {
+            Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+                Name.from(testName);
+            });
+            assertEquals(INVALID_NAME_LENGTH.getMessage(), exception.getMessage());
         });
     }
 }
