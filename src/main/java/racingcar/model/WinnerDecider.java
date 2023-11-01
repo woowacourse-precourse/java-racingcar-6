@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,16 +15,11 @@ public class WinnerDecider {
     }
 
     private int getMaxDistance(List<Car> carList) {
-        return carList.stream()
-            .mapToInt(Car::getDistance)
-            .max()
-            .orElse(0);
+        return carList.stream().mapToInt(Car::getDistance).max().orElse(0);
     }
 
     private List<String> getMaxDistanceCar(int maxDistance, List<Car> carList) {
-        return carList.stream()
-            .filter(car -> car.getDistance() == maxDistance)
-            .map(Car::getName)
+        return carList.stream().filter(car -> car.getDistance() == maxDistance).map(Car::getName)
             .collect(Collectors.toList());
     }
 }

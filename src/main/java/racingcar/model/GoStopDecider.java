@@ -3,7 +3,8 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GoStopDecider {
-    private static final int GO_STANDARD_NUMBER = 4;
+
+    private static final int GO__NUMBER = 4;
     private static final int MIN_RANDOM_RANGE = 0;
     private static final int MAX_RANDOM_RANGE = 9;
 
@@ -12,7 +13,7 @@ public class GoStopDecider {
     }
 
     private boolean checkGoStop(int randomNumber) {
-        return randomNumber >= GO_STANDARD_NUMBER;
+        return randomNumber >= GO__NUMBER;
     }
 
     public void moveCarOnRandomValue(Car car) {

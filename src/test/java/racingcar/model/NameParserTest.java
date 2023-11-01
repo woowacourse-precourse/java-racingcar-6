@@ -15,8 +15,8 @@ public class NameParserTest {
         List<String> expectedCarNames = Arrays.asList("pobi", "woni", "jun");
 
         // When
-        NameParser nameParser = new NameParser();
-        List<String> resultCarNames = nameParser.parseCarName(input);
+        CarNameParser carNameParser = new CarNameParser();
+        List<String> resultCarNames = carNameParser.parseCarName(input);
 
         // Then
         assertThat(resultCarNames).isNotNull();
@@ -26,11 +26,11 @@ public class NameParserTest {
     @Test
     public void 자동차_이름_할당() {
         // Given
-        NameParser nameParser = new NameParser();
+        CarNameParser carNameParser = new CarNameParser();
         List<String> carNameList = Arrays.asList("Tesla", "Ford", "car");
 
         // When
-        List<Car> carList = nameParser.setCar(carNameList);
+        List<Car> carList = carNameParser.stringToCarName(carNameList);
 
         // Then
         assertThat(carList).isNotNull();

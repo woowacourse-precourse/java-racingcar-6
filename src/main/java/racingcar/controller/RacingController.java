@@ -5,20 +5,23 @@ import static racingcar.view.InputView.readMovingCount;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.GoStopDecider;
-import racingcar.model.NameParser;
+import racingcar.model.CarNameParser;
 import racingcar.model.WinnerDecider;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
-    private final NameParser nameParser = new NameParser();
+
+    private final CarNameParser carNameParser = new CarNameParser();
     private final GoStopDecider goStopDecider = new GoStopDecider();
     private final WinnerDecider winnerDecider = new WinnerDecider();
-
-
+    List<String> carNameList;
+    List<Car> carList;
+    int movingCount;
     public void start() {
-        List<Car> carList = makeCarList(readCarName());
-        int movingCount = readMovingCount();
+        carNameList = readCarName();
+        carList = makeCarList(carNameList);
+        movingCount = readMovingCount();
 
         OutputView.printGameResult();
 
@@ -30,12 +33,12 @@ public class RacingController {
     }
 
     public List<String> readCarName() {
-        return nameParser.parseCarName(InputView.readCarName());
+        return carNameParser.parseCarName(InputView.readCarName());
     }
 
     public List<Car> makeCarList(List<String> carNameList) {
-        nameParser.carNameLengthUnderFive(carNameList);
-        return nameParser.setCar(carNameList);
+        carNameParser.carNameLengthUnderFive(carNameList);
+        return carNameParser.stringToCarName(carNameList);
     }
 
     public void printAllRacingResult(int movingCount, List<Car> carList) {

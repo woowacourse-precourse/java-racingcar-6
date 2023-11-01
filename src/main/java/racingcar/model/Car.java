@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class Car {
+
     private final String name;
     private int distance = 0;
 
@@ -20,5 +21,7 @@ public class Car {
         return distance;
     }
 
-    public void upDistance() { distance++; }
+    public void upDistance() {
+        distance++;
+    }
 }
