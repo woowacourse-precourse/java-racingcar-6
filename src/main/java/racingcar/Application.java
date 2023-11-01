@@ -46,5 +46,9 @@ public class Application {
         validateAttempts(attempts); // 변환된 숫자를 검증
 
         List<Car> cars = createCars(carNamesInput);
+
+        Game.playGame(cars, attempts);
+        Game.printRoundResult(cars);
+
     }
 }
