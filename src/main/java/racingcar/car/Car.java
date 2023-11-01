@@ -2,11 +2,12 @@ package racingcar.car;
 
 import static racingcar.system.SystemConstant.*;
 
+import racingcar.assist.RandomNumberGenerator;
 import racingcar.system.SystemConstant;
 
 public class Car {
 
-    private String carName;
+    private final String carName;
     private String position;
 
     Car(String carName) {
@@ -15,7 +16,9 @@ public class Car {
     }
 
     public void goForward() {
-        position += POSITION_EXPRESSION;
+        if (RandomNumberGenerator.generateRandomIntNumberInRange() >= WIN_NUMBER_AT_LEAST){
+            position += POSITION_EXPRESSION;
+        }
     }
 
     public CarPositionDto wrapCarPosition() {
