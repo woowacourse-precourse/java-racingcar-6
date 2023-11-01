@@ -1,14 +1,16 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.model.Car;
-import racingcar.util.InputUtil;
 import racingcar.service.RaceService;
+import racingcar.view.RaceProgressView;
 import racingcar.view.RaceResultView;
 import racingcar.view.RaceStartView;
 
 public class GameController {
+
+    private RaceStartView raceStartView = new RaceStartView();
+    private RaceProgressView raceProgressView = new RaceProgressView();
+    private RaceResultView raceResultView = new RaceResultView();
+    private final RaceService raceService = new RaceService();
 
     public void run() {
         RaceStartView raceStartView = new RaceStartView();
