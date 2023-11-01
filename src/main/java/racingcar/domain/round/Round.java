@@ -3,6 +3,7 @@ package racingcar.domain.round;
 import racingcar.error.ErrorMessage;
 import racingcar.error.Roud.InvalidNumberFormatException;
 import racingcar.error.Roud.InputUnderOneException;
+import racingcar.error.Roud.RoundInputNullException;
 
 public class Round {
 
@@ -11,8 +12,15 @@ public class Round {
     private int round;
 
     public Round(String roundNumber) {
+        validateNullInput(roundNumber);
         validateRoundNumber(roundNumber);
         validateInputUnderOne(round);
+    }
+
+    private void validateNullInput(String roundNumber) {
+        if (roundNumber.isEmpty()) {
+            throw new RoundInputNullException(ErrorMessage.ROUND_INPUT_NULL_EXCEPTION);
+        }
     }
 
     private void validateInputUnderOne(int round) {

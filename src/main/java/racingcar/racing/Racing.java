@@ -1,7 +1,8 @@
 package racingcar.racing;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.GameInfo;
+import racingcar.domain.RacingCarDrivers;
+import racingcar.domain.round.Round;
 import racingcar.service.RacingCarService;
 import racingcar.view.View;
 
@@ -9,26 +10,29 @@ public class Racing {
 
     private final View view = new View();
     private final RacingCarService racingCarService = new RacingCarService();
-    private GameInfo gameInfo;
+    private String[] drivers;
+    private int round;
 
-    public void startRacing() {
-        racingConfig();
-        runRacingDuringRounds();
+    public void playRacing() {
+        injectionInfo();
+        startRacing();
         finishRacing();
     }
 
-    public void racingConfig() {
-        String driverNames = view.driverInjectionView();
-        String roundNumber = view.roundInjectionView();
+    public void injectionInfo() {
+        drivers = new RacingCarDrivers(view.driverInjectionView()).getRacingCarDriversArray();
+        round = new Round(view.roundInjectionView()).getRound();
         Console.close();
-
-        gameInfo = new GameInfo(driverNames, roundNumber);
-        racingCarService.createCars(gameInfo.getRacingCarDrivers());
-        view.roundResultTitleView();
     }
 
-    public void runRacingDuringRounds() {
-        for (int i = 0; i < gameInfo.getRound(); i++) {
+    public void startRacing() {
+        racingCarService.createCars(drivers);
+        runRacingDuringRounds(round);
+    }
+
+    public void runRacingDuringRounds(int roundCount) {
+        view.roundResultTitleView();
+        for (int i = 0; i < roundCount; i++) {
             racingCarService.updateRacingResult();
             view.roundResultView(racingCarService.getRoundResults());
         }

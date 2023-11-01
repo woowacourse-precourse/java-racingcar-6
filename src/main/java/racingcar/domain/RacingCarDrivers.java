@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.Arrays;
 import racingcar.error.ErrorMessage;
+import racingcar.error.RacingCarDrivers.NameInputNullException;
 import racingcar.error.RacingCarDrivers.NameLengthExceededException;
 
 public class RacingCarDrivers {
@@ -12,7 +13,14 @@ public class RacingCarDrivers {
     private String[] racingCarDriversArray;
 
     public RacingCarDrivers(String racingCarDrivers) {
+        validateNullInput(racingCarDrivers);
         validateRacingCarDrivers(racingCarDrivers);
+    }
+
+    private void validateNullInput(String racingCarDrivers) {
+        if (racingCarDrivers.isEmpty()) {
+            throw new NameInputNullException(ErrorMessage.NAME_INPUT_NULL_EXCEPTION);
+        }
     }
 
     private void validateRacingCarDrivers(String racingCarDrivers) {
