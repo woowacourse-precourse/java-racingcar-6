@@ -8,17 +8,23 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.ErrorMessage;
 
 class InputViewTest {
+    InputView inputView;
+
+    @BeforeEach
+    public void setUp() {
+        inputView = new InputView();
+    }
 
     @Test
     void 자동차_이름_입력_테스트() {
         // given
         String input = "Car1,Car2,Car3";
         setInput(input);
-        InputView inputView = new InputView();
 
         // when
         List<String> names = inputView.readCarNames();
@@ -32,7 +38,6 @@ class InputViewTest {
         // given
         String input = "Car1, Car2, Car3";
         setInput(input);
-        InputView inputView = new InputView();
 
         // when
         List<String> names = inputView.readCarNames();
@@ -46,7 +51,6 @@ class InputViewTest {
         // given
         String input = " ";
         setInput(input);
-        InputView inputView = new InputView();
 
         // when & then
         assertThatThrownBy(inputView::readCarNames)
@@ -54,12 +58,12 @@ class InputViewTest {
                 .hasMessage(ErrorMessage.CAR_NAME_INPUT_SIZE_ERROR.getMessage());
     }
 
+
     @Test
     void 시도_횟수_입력_테스트() {
         // given
         String input = "5";
         setInput(input);
-        InputView inputView = new InputView();
 
         // when
         int tryCount = inputView.readTryCount();
@@ -73,7 +77,6 @@ class InputViewTest {
         // given
         String input = "-3";
         setInput(input);
-        InputView inputView = new InputView();
 
         // when & then
         assertThatThrownBy(inputView::readTryCount)
@@ -86,7 +89,6 @@ class InputViewTest {
         // given
         String input = "invalidInput";
         setInput(input);
-        InputView inputView = new InputView();
 
         // given & then
         assertThatThrownBy(inputView::readTryCount)
@@ -103,6 +105,5 @@ class InputViewTest {
     void closeConsole() {
         Console.close();
     }
-
 
 }
