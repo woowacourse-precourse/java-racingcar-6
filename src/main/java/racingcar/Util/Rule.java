@@ -3,7 +3,6 @@ package racingcar.Util;
 import java.util.regex.Pattern;
 
 public class Rule {
-    public static final int MIN_CARNAMESIZE = 1;
     public static final int MAX_CARNAMESIZE = 5;
     public static final int MIN_RANDOM_NUM=0;
     public static final int MAX_RANDOM_NUM=9;
