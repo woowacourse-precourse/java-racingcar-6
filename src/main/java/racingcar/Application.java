@@ -12,7 +12,9 @@ public class Application {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             String input = Console.readLine();
             List<Car> cars = insertCarName(input);
-            int numberOfMoves = insertNumberOfMoves();
+            System.out.println("시도할 회수는 몇회인가요?");
+            int num = Integer.parseInt(Console.readLine());
+            int numberOfMoves = insertNumberOfMoves(num);
             playGame(cars, numberOfMoves);
             List<String> winners = getWinner(cars);
             System.out.print("최종 우승자 : " + String.join(", ", winners));
@@ -34,11 +36,9 @@ public class Application {
         return cars;
     }
     //시도할 횟수 입력
-    public static int insertNumberOfMoves(){
-        System.out.println("시도할 회수는 몇회인가요?");
-        int num = Integer.parseInt(Console.readLine());
+    public static int insertNumberOfMoves(int num){
         try{
-            if(num < 0){
+            if(num < 1){
                 throw new IllegalArgumentException();
             }
             return num;
