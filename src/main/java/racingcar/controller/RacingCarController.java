@@ -30,6 +30,13 @@ public class RacingCarController {
         // race end
 
         List<String> winnerNames = selectWinner(racingCars);
+        if (isSoloWinner(winnerNames)) {
+            String winnerName = winnerNames.get(0);
+            outputView.announceSoloWinner(winnerName);
+        }
+        if (isMultipleWinner(winnerNames)) {
+            outputView.announceMultipleWinner(winnerNames);
+        }
     }
 
     private List<RacingCar> generateCars(String[] carNames) {
@@ -51,5 +58,13 @@ public class RacingCarController {
                 .mapToInt(RacingCar::getCurrentPosition)
                 .max()
                 .orElse(0);
+    }
+
+    private boolean isSoloWinner(List<String> winnerNames) {
+        return winnerNames.size() == 1;
+    }
+
+    private boolean isMultipleWinner(List<String> winnerNames) {
+        return winnerNames.size() > 1;
     }
 }
