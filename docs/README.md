@@ -39,10 +39,16 @@
 
 역할 : 자동차의 이름을 저장한다.
 
-- `void CarName(String name)`
-    - 다음 항목들을 검증하고, 만족하지 않는다면 `IllegalArgumentException`을 발생시킨다.
-      - 각 이름은 5글자 이하로 이루어져있다.
-      - 이름은 `null`, 빈 값, 공백으로 구성될 수 없다.
+- 제한사항
+    - 각 이름은 5글자 이하로 이루어져있다.
+    - 이름은 `null`, 빈 값, 공백으로 구성될 수 없다.
+
+#### RoundNumber
+
+역할 : 진행할 라운드 수를 저장한다.
+
+- 제한사항
+    - 라운드 수는 양수로, 0을 허용하지 않는다.
 
 ### 일급 객체 컬렉션
 
@@ -60,12 +66,12 @@
 
 역할 : 각 자동차들의 위치 정보를 'Map<Car>' 형태로 저장한다. <br>
 
-- `void addCar(Car car)`
+- `void putCar(Car car)`
     - `Car` 객체의 값을 초기 위치값 0으로 하여 `Map`에 저장한다.
     - 중복되는 객체 저장시 `IllegalArgumentException`을 발생시킨다.
 - `void moveCar(Car car)`
     - `Car` 객체를 한 칸 전진시킨다.
-- `List<Car> getWinner()`
+- `List<Car> getWinners()`
     - 우승자에 해당하는 `Car` 객체들을 `List`에 담아 반환한다.
 
 ### 어플리케이션
@@ -87,12 +93,3 @@
     - 라운드 수를 입력받는다.
 - `Game build()`
     - 입력받은 정보들을 사용해 `Game` 객체를 생성한다.
-
-#### (deprecated) InputValidator
-
-역할 : 사용자의 입력을 검증한다.
-
-- `void validateCarsName() throws IllegalArgumentException`
-    - 사용자가 입력한 자동차 이름을 검증한다.
-- `void validateRoundNumber() throws IllegalArgumentException`
-    - 사용자가 입력한 라운드 수를 검증한다.
