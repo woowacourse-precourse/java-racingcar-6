@@ -26,4 +26,13 @@ public class UserInputHandler {
         InputValidationUtil.validateCarNameList(nameList);
         return nameList;
     }
+    public int getGameRound() {
+        String round = getInputGameRound();
+        return Integer.parseInt(round);
+    }
+
+    private String getInputGameRound() {
+        GameOutput.printInputGameRound();
+        return UserInput.getUserInputForGameRound();
+    }
 }
