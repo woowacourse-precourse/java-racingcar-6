@@ -23,6 +23,7 @@ public class RaceControllerTest {
             assertThat(car.getPosition()).isGreaterThanOrEqualTo(0);
         }
     }
+
     @Test
     void 자동차_경주_컨트롤러_우승자_확인() {
         List<Car> cars = Arrays.asList(new Car("pobi"), new Car("woni"), new Car("jun"));
@@ -68,5 +69,4 @@ public class RaceControllerTest {
 
         assertThat(isValid).isFalse();
     }
-
 }
