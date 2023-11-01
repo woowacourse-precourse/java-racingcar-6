@@ -63,28 +63,26 @@ public class RacingGame {
     }
 
     private LinkedHashMap<String, String> eachRace(LinkedHashMap<String, String> racingProgress) {
-        for (String carName : racingProgress.keySet()) {
+        racingProgress.forEach((carName, driveLength) -> {
             if (Randoms.pickNumberInRange(1, 9) >= 4) {
                 racingProgress.put(carName, racingProgress.get(carName) + "-");
             }
             System.out.println(carName + " : " + racingProgress.get(carName));
+        });
 
-            ;
-
-        }
         System.out.println("");
         return racingProgress;
     }
 
     private void racingResult(LinkedHashMap<String, String> racingProgress, Integer gameTimes) {
-        int winnerLength = 0;
+        int winnerDriveLength = 0;
         ArrayList<String> winner = new ArrayList<>();
         for (String carName : racingProgress.keySet()) {
-            if (winnerLength < racingProgress.get(carName).length()) {
+            if (winnerDriveLength < racingProgress.get(carName).length()) {
                 winner.clear();
                 winner.add(carName);
-                winnerLength = racingProgress.get(carName).length();
-            } else if (winnerLength == racingProgress.get(carName).length()) {
+                winnerDriveLength = racingProgress.get(carName).length();
+            } else if (winnerDriveLength == racingProgress.get(carName).length()) {
                 winner.add(carName);
             }
         }
