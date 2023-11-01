@@ -2,7 +2,7 @@ package controller;
 
 import service.InputValidator;
 import service.CarService;
-import view.OutputView;
+import view.InputView;
 
 public class RacingGame {
     private final CarService carService;
@@ -12,10 +12,12 @@ public class RacingGame {
     }
 
     public void gameSetAndStart() {
-        String carListInput = InputValidator.carListInputSetAndValidate();
+        String carListInput = InputView.setCarNames();
+        InputValidator.carListValidate(carListInput);
         carService.init(carListInput);
 
-        int rounds = InputValidator.roundInputSetAndValidate();
+        String userRoundInput = InputView.setTryNumber();
+        int rounds = InputValidator.roundInputSetAndValidate(userRoundInput);
         carService.playRound(rounds);
     }
 }

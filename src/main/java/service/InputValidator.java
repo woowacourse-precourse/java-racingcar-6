@@ -1,18 +1,20 @@
 package service;
 
-import view.InputView;
-
 public class InputValidator {
-    public static String carListInputSetAndValidate() {
-        String userInput = InputView.setCarNames();
+    public static void carListValidate(String userInput) {
         String[] carArray = userInput.split(",");
         if (userInput.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름을 입력하셔야 합니다.");
         }
         carLengthValidate(carArray);
         validateInputHasSpace(userInput);
+        carListStartWithComma(userInput);
+    }
 
-        return userInput;
+    public static void carListStartWithComma(String userInput) {
+        if(userInput.startsWith(",")) {
+            throw new IllegalArgumentException("자동차 이름은 쉼표로 시작할 수 없습니다.");
+        }
     }
 
     public static void carLengthValidate(String[] carArray) {
@@ -37,8 +39,7 @@ public class InputValidator {
         }
     }
 
-    public static int roundInputSetAndValidate() {
-        String userInput = InputView.setTryNumber();
+    public static int roundInputSetAndValidate(String userInput) {
         if (userInput == null) {
             throw new IllegalArgumentException("시도 횟수를 입력하셔야 합니다.");
         }
