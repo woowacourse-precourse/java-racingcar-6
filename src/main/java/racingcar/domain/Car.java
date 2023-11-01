@@ -5,11 +5,11 @@ public class Car {
     private static final String MOVEMENT = "-";
 
     private final Name name;
-    private final Position position;
+    private final Location position;
 
     public Car(Name name) {
         this.name = name;
-        this.position = Position.initial();
+        this.position = Location.initial();
     }
 
     public void move() {
@@ -21,7 +21,7 @@ public class Car {
     }
 
     public int getPosition() {
-        return this.position.getPosition();
+        return this.position.getLocation();
     }
 
     @Override
