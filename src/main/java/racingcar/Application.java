@@ -22,5 +22,13 @@ public class Application {
 
         for (int attempt = 0; attempt < numAttempts; attempt++) {
             System.out.println("\n시도 " + (attempt + 1) + ":");
+
+            // 3. 자동차 전진 여부 결정
+            for (int i = 0; i < numCars; i++) {
+                int randomValue = (int) (Math.random() * 10);
+                if (randomValue >= 4) {
+                    carNames[i] += "-";
+                }
+            }
     }
 }
