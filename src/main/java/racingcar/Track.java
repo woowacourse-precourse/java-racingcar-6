@@ -15,7 +15,7 @@ public class Track {
         this.racingCars = racingCars;
     }
 
-    public Map<String, Integer> round(int number) {
+    public Map<String, Integer> round() {
         Map<String, Integer> roundResult = new HashMap<>();
         racingCars.forEach(racingCar -> {
             int random = Randoms.pickNumberInRange(RANDOM_START, RANDOM_END);
@@ -27,17 +27,20 @@ public class Track {
 
     public List<String> selectWinners() {
         List<String> winners = new ArrayList<>();
-        int maxPositionTemp = 0;
+        int maxPosition = getMaxPosition();
 
-        for (RacingCar racingCar : racingCars) {
-            maxPositionTemp = Math.max(maxPositionTemp, racingCar.getPosition());
-        }
-
-        int maxPosition = maxPositionTemp;
         racingCars.stream().filter(racingCar -> racingCar.getPosition() == maxPosition)
                 .forEach(winner -> {
                     winners.add(winner.getName());
                 });
         return winners;
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (RacingCar racingCar : racingCars) {
+            maxPosition = Math.max(maxPosition, racingCar.getPosition());
+        }
+        return maxPosition;
     }
 }
