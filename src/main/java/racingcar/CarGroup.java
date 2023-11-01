@@ -25,7 +25,7 @@ public class CarGroup {
         return winnerList;
     }
 
-    public int getMaxDistance() {
+    private int getMaxDistance() {
         int maxDistance = Integer.MIN_VALUE;
         for (Car car : carList) {
             maxDistance = Math.max(maxDistance, car.getDistance());
