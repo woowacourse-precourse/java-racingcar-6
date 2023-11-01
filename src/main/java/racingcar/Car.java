@@ -20,7 +20,7 @@ public class Car {
         return totalMove.length();
     }
 
-    public void validateCarName() {
+    private void validateCarName() {
         InputValidator.blank(name);
         if (name.length() > LIMIT_NAME_LEN) {
             throw new IllegalArgumentException(ErrorMessages.TOO_LONG_CAR_NAME_ERROR_MESSAGE);

@@ -1,6 +1,5 @@
-package racingcar;
+package util;
 
-import Util.Converter;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +14,6 @@ public class ConverterTest {
 
         Assertions.assertThat(result).isEqualTo(123);
     }
-
     @Test
     void 숫자가_아닌_문자열을_정수로_변환() {
         String input = "notNumber";

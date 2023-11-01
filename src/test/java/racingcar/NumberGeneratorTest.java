@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 public class NumberGeneratorTest {
 
     @Test
-    void 범위_내_난수_생성() {
+    void randomNumber_범위_내_난수_생성() {
         final NumberGenerator numberGenerator = new NumberGenerator(0, 9);
         final int MIN_RANGE = 0;
         final int MAX_RANGE = 9;
@@ -22,7 +22,7 @@ public class NumberGeneratorTest {
     }
 
     @Test
-    void 범위_밖_난수_생성() {
+    void randomNumber_범위_밖_난수_생성() {
         final NumberGenerator numberGenerator = new NumberGenerator(0, 9);
         final int MIN_RANGE = 10;
         final int MAX_RANGE = 19;

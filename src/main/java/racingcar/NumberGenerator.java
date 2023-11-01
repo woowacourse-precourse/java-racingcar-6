@@ -1,14 +1,17 @@
-package util;
+package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-
-// NumberGenerator raceGameNumberGenerator = new NumberGenerator(0, 9)
 public class NumberGenerator {
-    private static final int MIN_RANGE = 0;
-    private static final int MAX_RANGE = 9;
+    private final int minRange;
+    private final int maxRange;
 
-    public static int createRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
+    public NumberGenerator(int minRange, int maxRange) {
+        this.minRange = minRange;
+        this.maxRange = maxRange;
+    }
+
+    public int randomNumber() {
+        return Randoms.pickNumberInRange(minRange, maxRange);
     }
 }

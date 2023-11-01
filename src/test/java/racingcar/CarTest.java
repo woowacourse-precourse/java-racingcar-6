@@ -8,17 +8,17 @@ import static org.assertj.core.api.Assertions.*;
 public class CarTest {
 
     @Test
-    void 자동차_이름이_5자_이내인_경우() {
+    void validateCarName_자동차_이름이_5자_이내인_경우() {
         Assertions.assertDoesNotThrow(() -> new Car("a"));
     }
 
     @Test
-    void 자동차_이름이_5자_넘는_경우() {
+    void validateCarName_자동차_이름이_5자_넘는_경우() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Car("abcdefg"));
     }
 
     @Test
-    void 자동차가_전진한_경우() {
+    void moveOrStop_자동차가_전진한_경우() {
         final Car car = new Car("a");
 
         int before = car.getTotalMoveLen();
@@ -29,7 +29,7 @@ public class CarTest {
     }
 
     @Test
-    void 자동차가_정지한_경우() {
+    void moveOrStop_자동차가_정지한_경우() {
         final Car car = new Car("a");
 
         int before = car.getTotalMoveLen();
