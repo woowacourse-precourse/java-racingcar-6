@@ -21,11 +21,11 @@ public class Start {
         if (inputList.size() != inputSet.size()) {
             throw new IllegalArgumentException("입력된 자동차 이름에 중복이 포함되어 있습니다.");
         }
-        for (String c : inputList) {
-            if (o.length() >= 6) {
+        for (String input : inputList) {
+            if (input.length() >= 6) {
                 throw new IllegalArgumentException("입력된 자동차 이름이 6자리 이상입니다.");
             }
-            carList.add(o);
+            carList.add(input);
         }
         System.out.println("시도할 회수는 몇회인가요?");
         String numberAttemptsStr = Console.readLine();
