@@ -1,11 +1,11 @@
 package racingcar;
 
-import racingcar.view.User;
+import racingcar.view.GameStart;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        User user = new User();
-        user.run();
+        GameStart gameStart = new GameStart();
+        gameStart.run();
     }
 }
