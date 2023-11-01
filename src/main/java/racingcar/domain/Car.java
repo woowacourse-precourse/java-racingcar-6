@@ -17,9 +17,16 @@ public class Car {
         this.distance++;
     }
 
-
     public boolean canMove(int number){
         return number >= 4;
+    }
+
+    public String  distanceToHyphen() {
+        return "-".repeat(Math.max(0, this.distance));
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getDistance() {
