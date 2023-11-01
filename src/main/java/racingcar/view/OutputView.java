@@ -9,7 +9,7 @@ import racingcar.model.Car;
 
 public class OutputView {
 
-    public static void printMessage() {
+    public static void printGuide() {
         System.out.println(OUTPUT_PLAY_RESULT);
     }
 

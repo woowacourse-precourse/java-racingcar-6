@@ -22,7 +22,7 @@ public class GameController {
     private void playInit() {
         car.setCars(InputView.carName());
         car.setPlayCount(InputView.playCount());
-        OutputView.printMessage();
+        OutputView.printGuide();
     }
 
     private void playGame() {
