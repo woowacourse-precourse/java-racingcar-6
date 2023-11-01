@@ -26,4 +26,24 @@ class CarTest {
         car.move(5);
         assertEquals(2, car.getDistance());
     }
+
+    @Test
+    @DisplayName("예외를 잘 확인하고 처리하는지 테스트")
+    public void testInvalidCarName() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Car("");
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Car("LongName");
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Car("Na me");
+        });
+
+        assertDoesNotThrow(() -> {
+            new Car("A");
+        });
+    }
 }
