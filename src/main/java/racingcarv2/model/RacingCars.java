@@ -31,7 +31,7 @@ public class RacingCars {
 
     private List<Name> getNamesWithSamePosition(Car maxPositionCar) {
         return racingCars.stream()
-                .filter(car -> maxPositionCar.isSamePosition(car))
+                .filter(maxPositionCar::isSamePosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
