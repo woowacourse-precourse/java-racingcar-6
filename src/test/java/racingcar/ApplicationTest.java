@@ -31,6 +31,26 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_영문_한글_숫자_빈칸_쉼표_외_입력시_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,@@@@", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 회수_1_미만_시_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
+
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
