@@ -7,7 +7,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.Cars;
 import racingcar.domain.game.Game;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
@@ -15,8 +14,6 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
-    InputView inputView = new InputView();
-    OutputView outputView = new OutputView();
     Validator validator = new Validator();
 
     private Game game;
@@ -41,12 +38,12 @@ public class GameController {
 
     private void prepareSettingValue() {
         List<String> carNames = inputCarNames();
-        int tryNumber = inputView.askTryNumber();
+        int tryNumber = InputView.askTryNumber();
         game = new Game(tryNumber, carNames);
     }
 
     private List<String> inputCarNames() {
-        String carNames = inputView.askCarNames();
+        String carNames = InputView.askCarNames();
         List<String> carName = splitCarNames(carNames);
         validator.validateCarNameLength(carName);
         return carName;
@@ -58,7 +55,7 @@ public class GameController {
                     if(randomDistance >= 4) {
                 car.updateCarLocation(randomDistance);
             }
-            outputView.outputCarMoveDistance(car.getCarName(), randomDistance);
+            OutputView.outputCarMoveDistance(car.getCarName(), randomDistance);
         });
     }
 
@@ -66,7 +63,7 @@ public class GameController {
         List<Car> sortedCars = getSortedCars(carList);
         List<Car> farthestCars = getFarthestCars(sortedCars);
         List<String> winnerCarNames = getWinnerCarNames(farthestCars);
-        outputView.informFinalWinner(winnerCarNames);
+        OutputView.informFinalWinner(winnerCarNames);
     }
 
     private List<String> getWinnerCarNames(List<Car> farthestCars) {
