@@ -54,7 +54,7 @@ public class Cars {
 
     public void play() {
         cars.stream()
-                .forEach(car -> car.goOrStop(RandomNumberGenerator.generateRandomNumber()));
+                .forEach(car -> car.MoveOrStop(RandomNumberGenerator.generateRandomNumber()));
     }
 
     public List<Car> getCars() {
