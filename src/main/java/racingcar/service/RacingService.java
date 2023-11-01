@@ -46,12 +46,16 @@ public class RacingService {
     public void printAttemptResult(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getName() + " : ");
-            for (int i = 0; i < car.getCurrent(); i++) { //함수(printBar)로 빼야되나
-                System.out.print("-");
-            }
+            printForwards(car);
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void printForwards(Car car) {
+        for(int i=0;i<car.getCurrent();i++) {
+            System.out.print("-");
+        }
     }
 
     public List<String> pickWinner(List<Car> cars) {
