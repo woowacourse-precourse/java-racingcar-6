@@ -17,12 +17,11 @@ public class Game {
     public static final String MOVES_MESSAGE = "시도할 회수는 몇회인가요?\n";
     public static final String OUTPUT_MESSAGE = "\n실행 결과\n";
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
-    public List<String> nameList = new ArrayList<>();
     public List<Car> carList = new ArrayList<>();
 
 
-    public void getCarNames() {
-        String input = Console.readLine();
+    public List<String> getCarNames(String input) {
+        List<String> nameList;
         nameList = Arrays.asList(input.split(","));
         if (input.charAt(input.length() - 1) == ',') {
             throw new IllegalArgumentException("이름 입력은 쉼표로 끝낼 수 없습니다.");
@@ -38,6 +37,7 @@ public class Game {
                 throw new IllegalArgumentException("자동차 이름은 " + MIN_LENGTH_OF_NAME + "자 이상이어야 합니다.");
             }
         }
+        return nameList;
     }
 
     public void getNumberOfMoves() {
@@ -90,8 +90,10 @@ public class Game {
     }
 
     public void gameRun() {
+        String input;
         System.out.print(NAME_MESSAGE);
-        getCarNames();
+        input = Console.readLine();
+        List<String> nameList = getCarNames(input);
         System.out.print(MOVES_MESSAGE);
         getNumberOfMoves();
         for (String name : nameList) {
