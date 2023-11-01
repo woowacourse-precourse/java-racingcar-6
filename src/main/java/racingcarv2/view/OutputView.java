@@ -33,7 +33,8 @@ public class OutputView {
 
     public static void printEachRound(List<Car> moveAllCars) {
         moveAllCars.stream()
-                .forEach((car) -> System.out.printf(EACH_ROUND_STATUS_FORMAT, car.getName().getNameValue(),
+                .forEach((car) -> System.out.printf(EACH_ROUND_STATUS_FORMAT,
+                        car.getName().getNameValue(),
                         displayPositionWithDash(car.getPosition())));
         printNewLine();
     }

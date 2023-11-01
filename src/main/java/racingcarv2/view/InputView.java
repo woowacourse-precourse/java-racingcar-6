@@ -27,7 +27,7 @@ public class InputView {
 
     private static void validateName(String readLine) {
         isNullOrEmpty(readLine);
-        hasWrongPattern(readLine);
+        isEnglish(readLine);
     }
 
     private static void isNullOrEmpty(String readLine) {
@@ -36,7 +36,7 @@ public class InputView {
         }
     }
 
-    private static void hasWrongPattern(String readLine) {
+    private static void isEnglish(String readLine) {
         if (!NAME_PATTERN.matcher(readLine).matches()) {
             throw new IllegalArgumentException(ErrorException.WRONG_FORMAT.getDescription());
         }
@@ -50,11 +50,11 @@ public class InputView {
 
     private static void validateNumber(String readLine) {
         isNullOrEmpty(readLine);
-        isNotNumber(readLine);
+        isNumber(readLine);
         startsWithZero(readLine);
     }
 
-    private static void isNotNumber(String readLine) {
+    private static void isNumber(String readLine) {
         if (!NUMBER_PATTERN.matcher(readLine).matches()) {
             throw new IllegalArgumentException(ErrorException.NOT_NUMBER.getDescription());
         }

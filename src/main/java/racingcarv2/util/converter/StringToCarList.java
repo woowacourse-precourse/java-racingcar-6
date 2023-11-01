@@ -10,7 +10,7 @@ import racingcarv2.model.Position;
 public class StringToCarList {
     public static final int INIT_POSITION_VALUE = 0;
 
-    public static List<Car> convert(String src) {
+    public static List<Car> convert(final String src) {
         return Arrays.stream(src.split(Name.SEPARATOR_COMMA))
                 .map(carName -> new Car(new Name(carName), new Position(INIT_POSITION_VALUE)))
                 .collect(Collectors.toList());

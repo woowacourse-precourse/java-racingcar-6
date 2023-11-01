@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Car implements Comparable<Car> {
     public static final int MOVE_FORWARD_CRITERIA = 4;
     private final Name name;
-    private Position position;
+    private final Position position;
 
     public Car(final Name name, final Position position) {
         this.name = name;
