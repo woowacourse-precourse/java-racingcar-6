@@ -23,6 +23,7 @@ public class GameController {
 
         List<String> carNames = getCarNames(carNameInput);
         InputValidator.checkLengthFive(carNames);
+        InputValidator.checkBlankName(carNames);
 
         GameInputView.printTryInputMessage();
         String tryCount = readLine();

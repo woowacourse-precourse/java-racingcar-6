@@ -25,4 +25,12 @@ public class InputValidator {
             }
         }
     }
+
+    public static void checkBlankName(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carName.trim().isBlank()) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 }
