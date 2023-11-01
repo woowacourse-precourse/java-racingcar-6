@@ -45,8 +45,7 @@ public class Controller {
     private int getTryCount() {
         outputView.displayTryCountInputMessage();
         String tryCount = inputView.inputTryCount();
-        validator.checkTryCountInput(tryCount);
-        return Integer.parseInt(tryCount);
+        return validator.checkTryCountInput(tryCount);
     }
 
     private void executeRaces(List<Car> list, int tryNumber) {

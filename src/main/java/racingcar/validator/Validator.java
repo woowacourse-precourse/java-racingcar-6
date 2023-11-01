@@ -37,9 +37,15 @@ public class Validator {
         }
     }
 
-    public void checkTryCountInput(String tryCount) {
-        if (tryCount.length() >= 10) {
-            throw new IllegalArgumentException("Too many try count");
+    public int checkTryCountInput(String tryCount) {
+        if (!tryCount.matches("\\d+")) {
+            throw new IllegalArgumentException("Try count input is invalid");
+        }
+
+        try {
+            return Integer.parseInt(tryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Try count input is invalid");
         }
     }
 }
