@@ -15,4 +15,9 @@ public class OutputView {
         // TODO
         System.out.println();
     }
+
+    public void printResults(Car car) {
+        // TODO
+        System.out.println();
+    }
 }
