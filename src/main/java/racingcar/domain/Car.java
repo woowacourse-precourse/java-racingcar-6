@@ -20,6 +20,7 @@ public class Car {
         if (name.length() > 5) {
             throw new IllegalArgumentException();   //종료 되로록 try/catch 사용 X
         }
+        this.name = name;
     }
 
     public void move() {
