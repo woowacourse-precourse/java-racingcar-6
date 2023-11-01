@@ -5,15 +5,18 @@ import static racingcar.constant.Constant.DICE_MIN_RANGE;
 import static racingcar.constant.Constant.FORWARD_ABLE_NUMBER;
 import static racingcar.constant.Constant.POINT;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import racingcar.util.Validation;
 
 public class ScoreBoard {
     private final Map<String, StringBuilder> scoreBoard;
 
-    public ScoreBoard(List<String> carNames) {
+    public ScoreBoard(String names) {
+        List<String> carNames = Validation.validateCarNames(names);
         this.scoreBoard = makeScoreBoard(carNames);
     }
 

@@ -50,7 +50,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("cat,dog", "1a3"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage("숫자만 입력해주세요.")
+                        .hasMessage("정수만 입력해주세요.")
         );
     }
 

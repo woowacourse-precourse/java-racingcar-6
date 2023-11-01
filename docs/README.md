@@ -34,6 +34,7 @@
 
 - ScoreBoard 클래스
     - 핵심 데이터가 되는 점수판을 저장하고, 상태값을 관리한다.
+        - [x] 들어온 자동차 이름에 대해 검증하는 기능
         - [x] 점수판을 만드는 기능
             - Map<String, StringBuilder> makeScoreBoard(List<String> carNames)
         - [x] 한 판의 게임을 진행하는 기능
@@ -47,6 +48,8 @@
             - int calculateForwardPoint(ScoreBoard scoreBoard)
         - [x] 우승자를 발표하는 기능
             - List<String> findWinners(int maxPoint, ScoreBoard scoreBoard)
+- Round 클래스
+    - [x] 입력값에 대해 검증하는 기능
 
 ### 입력 기능
 
@@ -54,10 +57,6 @@
 
 - [x] 유저로부터 입력받는 기능
     - String getUserInput()
-- [x] 자동차 이름을 입력받아 검증 후 필요 타입으로 반환하는 기능 v
-    - List<String> getCarNames()
-- [x] 게임 진행 횟수를 입력받아 검증 후 필요 타입으로 반환하는 기능
-    - int getGameRound
 
 ### 검증 기능
 

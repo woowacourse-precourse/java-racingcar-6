@@ -16,10 +16,10 @@ public class RaceGame {
 
     public RaceGame() {
         printer.printStartMessage();
-        this.scoreBoard = new ScoreBoard(userInput.getCarNames());
+        this.scoreBoard = new ScoreBoard(userInput.getUserInput());
 
         printer.printRequestRoundMessage();
-        this.round = new Round(userInput.getGameRound());
+        this.round = new Round(userInput.getUserInput());
     }
 
     public void start() {

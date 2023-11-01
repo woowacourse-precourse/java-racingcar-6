@@ -15,7 +15,7 @@ class RaceResultTest {
     @Test
     void calculateForwardPoint() {
         //given
-        ScoreBoard testBoard = new ScoreBoard(List.of("cat", "dog", "cow", "eagle", "human"));
+        ScoreBoard testBoard = new ScoreBoard("cat,dog,cow,eagle,human");
         testBoard.getScoreBoard().get("cat").append("--");
         testBoard.getScoreBoard().get("dog").append("----");
         testBoard.getScoreBoard().get("cow").append("----");
@@ -31,7 +31,7 @@ class RaceResultTest {
     @DisplayName("우승 포인트와 비교하여 우승자를 산출하는 기능 테스트")
     @Test
     void findWinners() {
-        ScoreBoard testBoard = new ScoreBoard(List.of("cat", "dog", "cow", "eagle", "human"));
+        ScoreBoard testBoard = new ScoreBoard("cat,dog,cow,eagle,human");
         testBoard.getScoreBoard().get("cat").append("--");
         testBoard.getScoreBoard().get("dog").append("-------");
         testBoard.getScoreBoard().get("cow").append("-------");

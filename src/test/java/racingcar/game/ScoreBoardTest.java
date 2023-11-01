@@ -14,7 +14,7 @@ class ScoreBoardTest {
     public void makeScoreBoardTest() throws Exception {
         //주어진 이름과 빈 StringBuilder 가 들어가 있는지
         List<String> carNames = List.of("cat", "dog", "cow", "human");
-        ScoreBoard scoreBoard = new ScoreBoard(carNames);
+        ScoreBoard scoreBoard = new ScoreBoard("cat,dog,cow,human");
         Map<String, StringBuilder> testBoard = scoreBoard.getScoreBoard();
 
         assertEquals(carNames.size(), testBoard.size());
@@ -30,7 +30,7 @@ class ScoreBoardTest {
     public void updateScoreTest() throws Exception {
         //given
         List<String> carNames = List.of("cat", "dog", "cow", "human");
-        ScoreBoard scoreBoard = new ScoreBoard(carNames);
+        ScoreBoard scoreBoard = new ScoreBoard("cat,dog,cow,human");
         scoreBoard.updateScore();
 
         for (StringBuilder sb : scoreBoard.getScoreBoard().values()) {

@@ -10,8 +10,6 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static racingcar.constant.Constant.*;
 
 class ValidationTest {
-    Validation validation = new Validation();
-
     @DisplayName("자동차명에 대한 통합 검증 테스트")
     @Test
     void validateCarNames() {
@@ -22,16 +20,16 @@ class ValidationTest {
         String duplicatedName = "rat,dog,cow,dog,cat";
         //when
         //then
-        assertThatThrownBy(() -> validation.validateCarNames(containSpace))
+        assertThatThrownBy(() -> Validation.validateCarNames(containSpace))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_CONTAIN_WHITESPACE);
-        assertThatThrownBy(() -> validation.validateCarNames(containBlankName))
+        assertThatThrownBy(() -> Validation.validateCarNames(containBlankName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_INVALID_CAR_NAME_LENGTH);
-        assertThatThrownBy(() -> validation.validateCarNames(overLengthName))
+        assertThatThrownBy(() -> Validation.validateCarNames(overLengthName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_INVALID_CAR_NAME_LENGTH);
-        assertThatThrownBy(() -> validation.validateCarNames(duplicatedName))
+        assertThatThrownBy(() -> Validation.validateCarNames(duplicatedName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_DUPLICATE_CAR_NAME);
     }
@@ -42,7 +40,7 @@ class ValidationTest {
         String inputWithSpace = "cat, do g, eagle, cow";
         String[] carNames = inputWithSpace.split(",", -1);
 
-        assertThatThrownBy(() -> validation.validateWhiteSpace(carNames))
+        assertThatThrownBy(() -> Validation.validateWhiteSpace(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_CONTAIN_WHITESPACE);
     }
@@ -53,7 +51,7 @@ class ValidationTest {
         String input = "cat,dog.cow,eagle";
         String[] carNames = input.split(",", -1);
 
-        assertThatThrownBy(() -> validation.validateDelimiterType(carNames))
+        assertThatThrownBy(() -> Validation.validateDelimiterType(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_DELIMITER_TYPE);
     }
@@ -64,7 +62,7 @@ class ValidationTest {
         String input = "cat,dog,cow,turtle,human";
         String[] carNames = input.split(",", -1);
 
-        assertThatThrownBy(() -> validation.validateNameLength(carNames))
+        assertThatThrownBy(() -> Validation.validateNameLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_INVALID_CAR_NAME_LENGTH);
     }
@@ -75,7 +73,7 @@ class ValidationTest {
         String hasEmpty = "cat,,cow,turtle,cat";
         String[] carNames = hasEmpty.split(",", -1);
 
-        assertThatThrownBy(() -> validation.validateNameLength(carNames))
+        assertThatThrownBy(() -> Validation.validateNameLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_INVALID_CAR_NAME_LENGTH);
     }
@@ -86,7 +84,7 @@ class ValidationTest {
         String input = "cat,dog,cow,eagle,cow,human";
         String[] carNames = input.split(",", -1);
 
-        assertThatThrownBy(() -> validation.validateDuplicateName(carNames.length, carNames))
+        assertThatThrownBy(() -> Validation.validateDuplicateName(carNames.length, carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_DUPLICATE_CAR_NAME);
     }
@@ -100,16 +98,16 @@ class ValidationTest {
         String containAlpha = "3a3";
         String blank = "";
 
-        assertThatThrownBy(() -> validation.validateGameRound(containNotDigit))
+        assertThatThrownBy(() -> Validation.validateGameRound(containNotDigit))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_ROUND_TYPE);
-        assertThatThrownBy(() -> validation.validateGameRound(containAlpha))
+        assertThatThrownBy(() -> Validation.validateGameRound(containAlpha))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_ROUND_TYPE);
-        assertThatThrownBy(() -> validation.validateBlankRound(blank))
+        assertThatThrownBy(() -> Validation.validateBlankRound(blank))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_ROUND_LENGTH);
-        assertThat(validation.validateGameRound(validRound)).isEqualTo(33);
+        assertThat(Validation.validateGameRound(validRound)).isEqualTo(33);
     }
 
     @DisplayName("횟수가 숫자가 아닐 경우 에러 반환")
@@ -117,7 +115,7 @@ class ValidationTest {
     void validateRoundType() {
         String input = "a2ajw";
 
-        assertThatThrownBy(() -> validation.validateRoundType(input))
+        assertThatThrownBy(() -> Validation.validateRoundType(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_ROUND_TYPE);
     }
@@ -127,7 +125,7 @@ class ValidationTest {
     void validateBlankRound() {
         String blank = "";
 
-        assertThatThrownBy(() -> validation.validateBlankRound(blank))
+        assertThatThrownBy(() -> Validation.validateBlankRound(blank))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_ROUND_LENGTH);
     }

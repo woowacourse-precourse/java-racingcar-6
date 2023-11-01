@@ -7,7 +7,12 @@ public class RaceResult {
 
     public int calculateForwardPoint(ScoreBoard scoreBoard) {
 
-        return scoreBoard.getScoreBoard().values().stream().mapToInt(StringBuilder::length).max().orElse(0);
+        return scoreBoard.getScoreBoard()
+                .values()
+                .stream()
+                .mapToInt(StringBuilder::length)
+                .max()
+                .orElse(0);
     }
 
     public List<String> findWinners(int maxForwardPoint, ScoreBoard scoreBoard) {
@@ -18,6 +23,7 @@ public class RaceResult {
                 winnerList.add(key);
             }
         });
+
         return winnerList;
     }
 }
