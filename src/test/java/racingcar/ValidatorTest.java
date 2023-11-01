@@ -62,4 +62,14 @@ class ValidatorTest {
         assertThatIllegalArgumentException().isThrownBy(() -> validator.correctCommaLocation(carNames2));
         assertThatIllegalArgumentException().isThrownBy(() -> validator.correctCommaLocation(carNames3));
     }
+
+    @Test
+    @DisplayName("예외 - 쉼표가 연속된다.")
+    void test() {
+        //given
+        final String carNames = "go,,min,seok";
+
+        //when, then
+        assertThatIllegalArgumentException().isThrownBy(() -> validator.correctCommaLocation(carNames));
+    }
 }
