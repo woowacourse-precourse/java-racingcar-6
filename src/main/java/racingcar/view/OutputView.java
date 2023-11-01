@@ -16,6 +16,7 @@ public class OutputView {
             System.out.print(car.getName() + " : ");
             System.out.println("-".repeat(car.getDistance()));
         });
+
         System.out.println();
     }
 

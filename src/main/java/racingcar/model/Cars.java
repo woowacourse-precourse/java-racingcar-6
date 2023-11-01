@@ -24,6 +24,7 @@ public class Cars {
                 .filter(car -> car.getDistance() == maxDistance())
                 .map(Car::getName)
                 .collect(Collectors.toList());
+
         return winners;
     }
 
@@ -32,6 +33,7 @@ public class Cars {
                 .mapToInt(Car::getDistance)
                 .max()
                 .orElse(INIT_START_POSITION);
+
         return max;
     }
 

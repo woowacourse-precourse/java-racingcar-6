@@ -30,6 +30,7 @@ public class RacingGameController {
 
     private List<Car> makeCarList() {
         List<String> carNameList = convertStringToList(inputCarsName());
+
         return carNameList.stream()
                 .map(Car::makeCarByName)
                 .collect(Collectors.toList());
@@ -38,11 +39,13 @@ public class RacingGameController {
     private int makeGameCount() {
         String gameTryNumber = inputGameTryNumber();
         validateGameCount(gameTryNumber);
+
         return Integer.parseInt(gameTryNumber);
     }
 
     private void playGame() {
         printGameStartMessage();
+
         for (int i = 0; i < gameCount; i++) {
             cars.playOneGame();
             printOneGameResult(cars);
