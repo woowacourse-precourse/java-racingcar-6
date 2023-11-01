@@ -14,5 +14,6 @@ public class Game {
     public void start() {
         printer.printStartMessage();
         player.createCars();
+        printer.printCountMessage();
     }
 }
