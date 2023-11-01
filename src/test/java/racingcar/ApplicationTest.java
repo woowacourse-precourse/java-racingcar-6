@@ -51,7 +51,6 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-
     @Test
     void 자동차_무브() {
         Car car = new Car("testCar");

@@ -25,6 +25,9 @@ public class Application {
 
         System.out.println(NUMBER_OF_ATTEMPTS_MESSAGE);
         int numberOfAttempts = Integer.parseInt(Console.readLine());
+
+        Game game = new Game(cars);
+        game.runGame(numberOfAttempts);
     }
 
     private static List<Car> initializeCars(String inputCarNames) {
