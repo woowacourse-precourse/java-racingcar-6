@@ -1,10 +1,10 @@
-package racingcar.domain;
+package racingcar.model;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.errormessage.InputError;
-import racingcar.model.Car;
+import racingcar.domain.Car;
 import java.util.Arrays;
 import java.util.List;
 

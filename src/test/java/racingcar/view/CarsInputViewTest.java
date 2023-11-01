@@ -12,7 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.errormessage.InputError;
-import racingcar.model.Car;
+import racingcar.domain.Car;
 
 class CarsInputViewTest {
 
