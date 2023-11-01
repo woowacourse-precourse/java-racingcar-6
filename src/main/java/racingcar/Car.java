@@ -9,7 +9,6 @@ public class Car {
     private int distance;
 
     private Car(CarName name, int distance) {
-        /*validateName(name);*/
         this.name = name;
         this.distance = distance;
     }
