@@ -6,13 +6,13 @@ import static racingcar.view.ExceptionMessage.NOT_NUMBER_FORMAT;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class InputView {
+public final class InputView {
 
     public static final String REQUEST_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String REQUEST_ITERATION = "시도할 회수는 몇회인가요?";
     public static final String CAR_NAME_REGEX = ",";
 
-    public List<String> readCarsNamesInput() {
+    public static List<String> readCarsNamesInput() {
         System.out.println(REQUEST_CAR_NAME);
         String input = readLine();
         List<String> carsNames = List.of(input.split(CAR_NAME_REGEX));
@@ -20,7 +20,7 @@ public class InputView {
         return carsNames;
     }
 
-    public Integer readNumberInput() {
+    public static Integer readNumberInput() {
         String input = getNumberInput();
         int intValue = getIntValue(input);
 
