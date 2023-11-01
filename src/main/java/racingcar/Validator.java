@@ -67,9 +67,22 @@ public class Validator {
     }
 
     /**
-     * 시도 회수 검증 기능
+     * 시도 회수 검증 함수
      * 입력: String(사용자의 시도 회수 입력값)
-     * 출력: boolean(시도 회수가 Long의 최대 크기보다 작을 경우 true)
+     * 출력: boolean(시도 회수가 숫자이며 입력값과 똑같이 Long으로 변환된다면 true)
      */
-    private boolean isValidNumber(String string) {return true;}
+    private boolean isValidNumber(String string) {
+        Long number;
+        try {
+            number = Long.parseLong(string);
+        } catch (NumberFormatException e) { // 숫자로 변환이 안될 경우
+            throw new IllegalArgumentException();
+        }
+
+        // 변환한 숫자와 원본 문자열의 숫자가 같지 않을 경우
+        if (!string.equals(number.toString()))
+            throw new IllegalArgumentException();
+
+        return true;
+    }
 }
