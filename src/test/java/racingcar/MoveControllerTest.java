@@ -5,7 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -36,5 +39,23 @@ public class MoveControllerTest {
 
         //then
         assertEquals(mark.toString(), "");
+    }
+
+    @Test
+    void 가장_많이_이동한_자동차_이름_찾기(){
+        //given
+        List<String> cars = List.of("carA", "carB", "carC");
+        List<StringBuilder> moves = List.of(
+                new StringBuilder("--"),
+                new StringBuilder("---"),
+                new StringBuilder("---")
+        );
+
+        //when
+        List<String> winners =  List.of("carB", "carC");
+
+        //then
+        assertThat(String.join(",", moveController.findWinner(cars, moves)))
+                .isEqualTo(String.join(",", winners));
     }
 }
