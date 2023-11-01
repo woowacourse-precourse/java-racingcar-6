@@ -1,8 +1,7 @@
 package racingcar.domain;
 
-import static racingcar.util.RaceUtil.isMove;
-
 import racingcar.domain.constant.ConstNumber;
+import racingcar.util.RaceUtil;
 
 public class Car {
 
@@ -19,7 +18,7 @@ public class Car {
     }
 
     public void move() {
-        if (isMove()) {
+        if (RaceUtil.isMove()) {
             this.position += ConstNumber.MOVE_DIST.getValue();
         }
     }
