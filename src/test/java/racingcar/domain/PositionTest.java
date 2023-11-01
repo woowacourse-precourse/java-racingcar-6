@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class CarPositionTest {
+class PositionTest {
 
     @Test
     void testLineCreation() {
-        CarPosition position = new CarPosition(3);
+        Position position = new Position(3);
         String line = position.createLine();
 
         assertThat(line).isEqualTo("---");

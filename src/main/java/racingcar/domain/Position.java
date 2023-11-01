@@ -1,10 +1,10 @@
 package racingcar.domain;
 
-public class CarPosition {
+public class Position {
 
     private int position;
 
-    public CarPosition(int position) {
+    public Position(int position) {
         this.position = position;
     }
 
