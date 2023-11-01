@@ -4,12 +4,12 @@ import domain.InputView.InputNames;
 import domain.InputView.InputTurn;
 import domain.OutputView.*;
 
-public class RacingController {
+public class GameController {
 
     private CarList  carArray;
     private int turnNum;
 
-    public RacingController(){
+    public GameController(){
         setCars();
         setTurnNum();
         play();

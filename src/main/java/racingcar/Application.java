@@ -1,7 +1,7 @@
 package racingcar;
-import domain.RacingController;
+import domain.GameController;
 public class Application {
     public static void main(String[] args) {
-        new RacingController();
+        new GameController();
     }
 }
