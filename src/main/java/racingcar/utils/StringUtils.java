@@ -1,5 +1,7 @@
 package racingcar.utils;
 
+import racingcar.domain.Constants;
+
 import java.util.Arrays;
 import java.util.List;
 

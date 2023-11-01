@@ -2,7 +2,7 @@ package racingcar.view;
 
 import racingcar.domain.Car;
 import racingcar.domain.Winner;
-import racingcar.utils.Constants;
+import racingcar.domain.Constants;
 
 import java.util.List;
 

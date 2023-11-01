@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.utils.Constants;
-
 import java.util.List;
 
 public class Winner {
