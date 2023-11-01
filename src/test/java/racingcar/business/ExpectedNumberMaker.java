@@ -1,9 +1,8 @@
 package racingcar.business;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class ExpectedNumberMaker extends NumberMaker {
+public class ExpectedNumberMaker implements NumberMaker {
 
     List<Integer> expectedNumbers;
     int currentIndex = 0;
@@ -12,6 +11,7 @@ public class ExpectedNumberMaker extends NumberMaker {
         this.expectedNumbers = expectedNumbers;
     }
 
+    @Override
     public Integer getRandomNumber() {
         Integer returnValue = expectedNumbers.get(currentIndex);
         currentIndex ++;

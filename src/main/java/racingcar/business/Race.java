@@ -14,7 +14,7 @@ public class Race {
     CarManager carManager;
 
     public Race() {
-        NumberMaker numberMaker = new NumberMaker();
+        NumberMaker numberMaker = new RandomNumberMaker();
         carManager = new CarManager(numberMaker);
     }
 
