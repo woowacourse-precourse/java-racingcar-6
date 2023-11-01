@@ -81,10 +81,11 @@ class CarsTest {
                 Car.zeroPositionFrom("c")));
 
         // when
-        int maxPosition = cars.getMaxPosition();
+        CarPosition actual = cars.getMaxCarPosition();
 
         // then
-        assertEquals(0, maxPosition);
+        CarPosition expected = CarPosition.from(0);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -99,10 +100,11 @@ class CarsTest {
         firstCar.move(() -> true);
 
         // when
-        int maxPosition = cars.getMaxPosition();
+        CarPosition actual = cars.getMaxCarPosition();
 
         // then
-        assertEquals(1, maxPosition);
+        CarPosition expected = CarPosition.from(1);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -113,7 +115,7 @@ class CarsTest {
                 Car.zeroPositionFrom("a"),
                 Car.zeroPositionFrom("b"),
                 Car.zeroPositionFrom("c")));
-        int oneCarPosition = 1;
+        CarPosition oneCarPosition = CarPosition.from(1);
         cars.getCars().get(0).move(() -> true);
         cars.getCars().get(1).move(() -> true);
 

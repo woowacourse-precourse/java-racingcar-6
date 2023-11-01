@@ -75,7 +75,7 @@ class CarTest {
         Car car = Car.zeroPositionFrom("T");
 
         // when
-        boolean actual = car.isSamePosition(carPosition);
+        boolean actual = car.isSamePosition(CarPosition.from(carPosition));
 
         // then
         assertEquals(expected, actual);

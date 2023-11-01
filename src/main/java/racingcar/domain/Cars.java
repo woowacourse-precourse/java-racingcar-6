@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -28,15 +29,14 @@ public class Cars {
         }
     }
 
-    public int getMaxPosition() {
+    public CarPosition getMaxCarPosition() {
         return cars.stream()
-                .map(Car::getPosition)
-                .mapToInt(p -> p)
-                .max()
+                .map(Car::getCarPosition)
+                .max(Comparator.comparingInt(CarPosition::getPosition))
                 .orElseThrow(NoSuchElementException::new);
     }
 
-    public List<String> getSamePositionCarNames(final int carPosition) {
+    public List<String> getSamePositionCarNames(final CarPosition carPosition) {
         return cars.stream()
                 .filter(car -> car.isSamePosition(carPosition))
                 .map(Car::getName)

@@ -11,8 +11,8 @@ public class Winner {
     }
 
     public static Winner createFrom(final Cars cars) {
-        int maxPosition = cars.getMaxPosition();
-        List<String> names = cars.getSamePositionCarNames(maxPosition);
+        CarPosition maxCarPosition = cars.getMaxCarPosition();
+        List<String> names = cars.getSamePositionCarNames(maxCarPosition);
         return new Winner(names);
     }
 

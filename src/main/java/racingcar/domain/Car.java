@@ -19,8 +19,8 @@ public class Car {
         }
     }
 
-    public boolean isSamePosition(final int carPosition) {
-        return this.carPosition.equals(CarPosition.from(carPosition));
+    public boolean isSamePosition(final CarPosition carPosition) {
+        return this.carPosition.equals(carPosition);
     }
 
     public String getName() {
@@ -29,6 +29,10 @@ public class Car {
 
     public int getPosition() {
         return carPosition.getPosition();
+    }
+
+    public CarPosition getCarPosition() {
+        return carPosition;
     }
 
     @Override
