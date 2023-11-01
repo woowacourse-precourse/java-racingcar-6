@@ -27,8 +27,10 @@ public class Application {
 
     private static Racing createRacing() {
         InputView inputView = new InputView();
+
         List<String> carNames = inputView.askCarNames();
         List<Car> cars = createCars(carNames);
+
         int roundNumber = inputView.askRoundNumber();
         return new Racing(cars, roundNumber);
     }

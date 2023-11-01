@@ -4,14 +4,18 @@ package racingcar.racing;
 import racingcar.car.Car;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Racing {
 
+    private static final String ERROR_DUPLICATE_CAR_NAME_EXIST = "중복된 이름이 존재합니다.";
     private final List<Car> cars;
     private final int roundNumber;
 
     public Racing(List<Car> cars, int roundNumber) {
+        validateIsDuplicateCarNameExist(cars);
         this.cars = cars;
         this.roundNumber = roundNumber;
     }
@@ -71,5 +75,20 @@ public class Racing {
             carStatuses.add(car.getCurrentStatus());
         }
         return carStatuses;
+    }
+
+    private void validateIsDuplicateCarNameExist(List<Car> cars) {
+        Set<String> carNames = getCarNames(cars);
+        if (carNames.size() != cars.size()) {
+            throw new IllegalArgumentException(ERROR_DUPLICATE_CAR_NAME_EXIST);
+        }
+    }
+
+    private Set<String> getCarNames(List<Car> cars) {
+        Set<String> carNames = new HashSet<>();
+        for (Car car : cars) {
+            carNames.add(car.getName());
+        }
+        return carNames;
     }
 }
