@@ -11,7 +11,7 @@ public class RandomRacingCarMovingStrategy implements RacingCarMovingStrategy {
     private final RangedRandomNumberPicker rangedRandomNumberPicker;
 
     public RandomRacingCarMovingStrategy() {
-        this.rangedRandomNumberPicker = new RangedRandomNumberPicker(new Range(RANDOM_RANGE_START, RANDOM_RANGE_END));
+        this.rangedRandomNumberPicker = new RangedRandomNumberPicker(RANDOM_RANGE_START, RANDOM_RANGE_END);
     }
 
     @Override
