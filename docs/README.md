@@ -30,6 +30,7 @@
 |                            |                             | 🚨 IllegalArgumentException 발생가능 |
 |    compareCarPosition()    |      어느 차가 가장 멀리있는지 확인      |               void               |
 | setPlayingCar(parsedInput) |        게임 시작시 차량을 세팅        |               void               |
-|   setPlayTime(playTime)    |                             |                                  |
+|   setPlayTime(playTime)    |                             |               void               |
+|   generateRandomValue()    |         차량마다 랜덤값 생성         |               int                |
 
 
