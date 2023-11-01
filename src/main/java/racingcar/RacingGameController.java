@@ -17,8 +17,13 @@ public class RacingGameController {
             gameData = new GameData(carNames, tryCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
-        }finally {
-
+        }
+    }
+    // Cars 초기화.
+    private void initializeCars() {
+        cars = new ArrayList<>();
+        for (String name : gameData.getCarNames()) {
+            cars.add(new Car(name.trim()));
         }
     }
 
