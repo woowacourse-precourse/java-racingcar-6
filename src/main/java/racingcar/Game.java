@@ -33,6 +33,10 @@ public class Game {
             if (car.checkForward()) {
                 carList.put(carName, carList.get(carName) + "-");
             }
+
+            outputView.printCarResult(carName, carList.get(carName));
         }
+
+        System.out.println();
     }
 }
