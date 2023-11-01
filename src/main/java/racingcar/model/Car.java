@@ -6,6 +6,9 @@ import racingcar.util.Validator;
 public class Car {
 
     public static final int INIT_MOVE = 0;
+    private static final int START_OF_RANGE = 0;
+    private static final int END_OF_RANGE = 9;
+    private static final int ACCEPT_MOVE = 4;
     private String carName;
     private int move;
 
@@ -15,7 +18,7 @@ public class Car {
     }
 
     public void carMoveOrStay() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(START_OF_RANGE, END_OF_RANGE) >= ACCEPT_MOVE) {
             move++;
         }
     }
