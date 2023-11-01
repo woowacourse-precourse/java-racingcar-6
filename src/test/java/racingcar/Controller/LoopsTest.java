@@ -1,11 +1,9 @@
-package racingcar.controller;
+package racingcar.Controller;
 
 import org.junit.jupiter.api.Test;
-import racingcar.view.RacingOutput;
+import racingcar.View.RacingOutput;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;

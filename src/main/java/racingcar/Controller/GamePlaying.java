@@ -1,7 +1,7 @@
-package racingcar.controller;
+package racingcar.Controller;
 
-import racingcar.model.*;
-import racingcar.view.RacingGameDescription;
+import racingcar.Model.*;
+import racingcar.View.RacingGameDescription;
 
 public class GamePlaying {
 

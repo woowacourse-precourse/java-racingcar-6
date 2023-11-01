@@ -1,8 +1,8 @@
-package racingcar.controller;
+package racingcar.Controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.Car;
-import racingcar.model.RacingData;
+import racingcar.Model.Car;
+import racingcar.Model.RacingData;
 
 public class TakeInputs {
 
