@@ -17,6 +17,14 @@ public class TypeConvertor {
         return cars;
     }
 
+    public Long convertStringToLong(String input) {
+        try {
+            return Long.parseLong(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.NUMERIC_ERROR);
+        }
+    }
+
 
     private Car toCar(String s) {
         if(s.isEmpty() || s.length() > 5) {
