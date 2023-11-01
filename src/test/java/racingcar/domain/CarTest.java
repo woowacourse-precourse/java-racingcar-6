@@ -22,4 +22,16 @@ class CarTest {
         int expected = 0;
         Assertions.assertThat(result).isEqualTo(expected);
     }
+
+    @Test
+    void Car_전진한다() {
+        Car car = new Car("자동차");
+
+        car.go();
+        car.go();
+
+        int result = car.getLocation();
+        int expected = 2;
+        Assertions.assertThat(result).isEqualTo(expected);
+    }
 }
