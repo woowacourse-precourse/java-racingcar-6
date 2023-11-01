@@ -17,8 +17,8 @@ public class OutputView {
     }
 
     private void addCarMovingLine(StringBuilder result, String carName, int movedDistance) {
-        result.append(carName+" : ");
-        for (int i=0; i<movedDistance; i++) {
+        result.append(carName + " : ");
+        for (int i = 0; i < movedDistance; i++) {
             result.append("-");
         }
         result.append("\n");
@@ -28,14 +28,14 @@ public class OutputView {
         StringBuilder result = new StringBuilder();
         result.append("최종 우승자 : ");
         appendWinner(result, winners);
-        String formattedResult = result.substring(0,result.length()-2);
+        String formattedResult = result.substring(0, result.length() - 2);
         System.out.println(formattedResult);
         return formattedResult;
     }
 
     private void appendWinner(StringBuilder result, List<String> winners) {
         for (String winner : winners) {
-            result.append(winner+", ");
+            result.append(winner + ", ");
         }
     }
 }

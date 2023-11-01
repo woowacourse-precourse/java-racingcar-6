@@ -28,7 +28,7 @@ public class Validator {
 
     private static void checkNumberZero(String string) {
         int number = Integer.parseInt(string);
-        if (Integer.parseInt(string)== 0) {
+        if (Integer.parseInt(string) == 0) {
             throw new IllegalArgumentException();
         }
     }

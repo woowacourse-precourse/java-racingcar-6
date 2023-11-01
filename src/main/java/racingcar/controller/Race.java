@@ -17,7 +17,7 @@ public class Race {
 
     void playRaceAllRounds(int roundNumber) {
         System.out.println("실행 결과");
-        for (int i=0; i<roundNumber; i++) {
+        for (int i = 0; i < roundNumber; i++) {
             playRaceSingleRound(cars);
         }
     }

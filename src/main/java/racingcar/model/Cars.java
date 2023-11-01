@@ -15,7 +15,7 @@ public class Cars {
     private List<Car> addCars(String carListString) {
         List<Car> carList = new ArrayList<>();
 
-        StringTokenizer st = new StringTokenizer(carListString,",");
+        StringTokenizer st = new StringTokenizer(carListString, ",");
         while (st.hasMoreTokens()) {
             String carNameWithWhiteSpace = st.nextToken();
             String carNameWithoutWhiteSpace = removeWhiteSpace(carNameWithWhiteSpace);
@@ -38,7 +38,7 @@ public class Cars {
     }
 
     public void carsMoving(Cars cars) {
-        for (int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
             car.move(RandomNumber.generateRandomNumber());
         }

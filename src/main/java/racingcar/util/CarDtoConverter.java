@@ -16,7 +16,7 @@ public class CarDtoConverter {
     public static List<CarDto> convertCarsToCarDtoList(Cars cars) {
         List<CarDto> carDtoList = new ArrayList<>();
 
-        for (int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
             carDtoList.add(new CarDto(car));
         }

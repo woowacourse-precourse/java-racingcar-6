@@ -31,6 +31,7 @@ class ValidatorTest {
         Cars carDuplicateName = new Cars("car1, car2, car2");
         assertThrows(IllegalArgumentException.class, () -> Validator.validateCars(carDuplicateName));
     }
+
     @Test
     public void 유효한_정수값을_반환한다() {
         String validNumber = "5";

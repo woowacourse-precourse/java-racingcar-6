@@ -47,7 +47,7 @@ public class Game {
 
     private int findTopDistance(Cars cars) {
         int max = 0;
-        for (int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
             if (max < car.getMovedDistance()) {
                 max = car.getMovedDistance();

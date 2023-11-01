@@ -17,11 +17,11 @@ class ApplicationTest extends NsTest {
     @DisplayName("한 명은 정진, 한 명은 정지")
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -57,13 +57,14 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,lazy", "3");
-                    assertThat(output()).contains("pobi : ", "woni : ","lazy : ", "최종 우승자 : pobi, woni, lazy");
+                    assertThat(output()).contains("pobi : ", "woni : ", "lazy : ", "최종 우승자 : pobi, woni, lazy");
                 },
                 STOP, STOP, STOP,
                 STOP, STOP, STOP,
                 STOP, STOP, STOP
         );
     }
+
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
