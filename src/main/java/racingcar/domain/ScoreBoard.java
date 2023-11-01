@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,7 @@ public class ScoreBoard {
     public Map<String, Integer> write(List<Car> cars) {
         // Map에 자동차 정보 입력 (이름, 이동 거리)
         for (Car car : cars) {
-            raceResult.put(car.getName(), car.getScore());
+            raceResult.put(car.getName(), car.getPosition());
         }
 
         return raceResult;
