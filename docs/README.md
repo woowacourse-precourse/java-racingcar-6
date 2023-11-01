@@ -6,7 +6,7 @@
 - [x] 자동차 전진 여부를 결정할 무작위 숫자 생성 - NumberGenerator
 - [x] 자동차 전진 여부 - CarMovementDecision
 - [x] 자동차 전진 - CarControl
-- [ ] 승자 발표 - WinnerAnnouncement
+- [x] 승자 발표 - WinnerAnnouncement
 
 
 ## 기능 요구 사항
