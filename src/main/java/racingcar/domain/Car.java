@@ -34,15 +34,15 @@ public class Car {
         this.move++;
     }
 
-    public int getMove() {
+    protected int getMove() {
         return move;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public String getCarStatus() {
+    protected String getCarStatus() {
         String name = this.name + DELIMITER;
 
         String move = IntStream.range(0, this.move)
