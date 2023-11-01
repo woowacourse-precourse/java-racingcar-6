@@ -46,6 +46,6 @@ public class Cars {
     }
 
     private int getMaxScore() {
-        return racingCars.stream().mapToInt(Car::getCarPosition).max().orElseThrow(NoSuchElementException::new);
+        return racingCars.stream().mapToInt(Car::getPosition).max().orElseThrow(NoSuchElementException::new);
     }
 }

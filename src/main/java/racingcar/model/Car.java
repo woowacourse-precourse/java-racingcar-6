@@ -17,11 +17,11 @@ public class Car {
     }
 
     public boolean isWinnerCondition(int maxScore) {
-        return position.getPosition() == maxScore && position.getPosition() > 0;
+        return position.makeInt() == maxScore && position.makeInt() > 0;
     }
 
-    public int getCarPosition() {
-        return position.getPosition();
+    public int getPosition() {
+        return position.makeInt();
     }
 
     @Override

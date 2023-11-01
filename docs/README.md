@@ -21,6 +21,25 @@
   - `[조건]` 전진한 자동차가 없는 경우 '최종 우승자가 없습니다!' 문구 출력
 - 게임 종료 기능
 
+### 파일 구조
+```bash
+├── Application.java
+│ 
+├── controller
+│   └── Game.java
+│ 
+├── model
+│   ├── Car.java
+│   ├── Cars.java
+│   ├── Name.java
+│   ├── Position.java
+│   └── RandomNumber.java
+│ 
+└── view
+    ├── InputView.java
+    └── OutputView.java
+```
+
 ---
 
 ## ✅ 체크리스트

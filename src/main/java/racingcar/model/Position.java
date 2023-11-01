@@ -12,7 +12,7 @@ public class Position {
         this.position++;
     }
 
-    public int getPosition() {
+    public int makeInt() {
         return this.position;
     }
 }
