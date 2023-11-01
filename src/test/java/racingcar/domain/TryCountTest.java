@@ -12,7 +12,7 @@ class TryCountTest {
 
     @DisplayName("사용자는 몇 번의 이동을 할 것인지 입력할 수 있다.")
     @Test
-    void inputUserTryCount() throws Exception{
+    void inputUserTryCount() throws Exception {
         //given
         String userInput = "3";
         TryCount tryCount = new TryCount(userInput);
@@ -23,8 +23,8 @@ class TryCountTest {
 
     @DisplayName("이동할 횟수는 자연수여야 한다.")
     @ParameterizedTest
-    @ValueSource(strings = {"0","qw","!@","-1","은"})
-    void isNaturalNumberValidate(String input) throws Exception{
+    @ValueSource(strings = {"0", "qw", "!@", "-1", "은"})
+    void isNaturalNumberValidate(String input) throws Exception {
         //given
 
         //when //then

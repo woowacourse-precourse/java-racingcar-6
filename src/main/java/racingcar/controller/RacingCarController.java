@@ -12,7 +12,8 @@ public class RacingCarController {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
     private final RacingCarRandomMoveUtils racingCarRandomMoveUtils = new RacingCarRandomMoveUtils();
-    public void startGame(){
+
+    public void startGame() {
         Cars racingCars = createRacingCars();
         TryCount tryCount = getTryCount();
 

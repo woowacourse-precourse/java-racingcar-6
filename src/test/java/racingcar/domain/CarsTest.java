@@ -11,11 +11,11 @@ class CarsTest {
 
     @DisplayName("자동차 이름은 중복으로 사용될 수 없다.")
     @Test
-    void isDifferentCarName() throws Exception{
+    void isDifferentCarName() throws Exception {
         //given
         String racingCarName = "pobi";
         Car car = createCar(racingCarName, 0);
-        
+
         List<Car> cars = List.of(car, car);
 
         //when //then
@@ -26,7 +26,7 @@ class CarsTest {
 
     @DisplayName("자동차경주를 하기위해 자동차는 최소 2대이상 생성해야합니다.")
     @Test
-    void minimumCountOfCars() throws Exception{
+    void minimumCountOfCars() throws Exception {
         //given
         String racingCarName = "pobi";
         Car car = createCar(racingCarName, 0);
@@ -38,10 +38,10 @@ class CarsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차는 최소 2대 이상 생성해야 합니다.");
     }
-    
+
     @DisplayName("자동차 경주 게임의 우승자를 확인할 수 있다.")
     @Test
-    void findWinners() throws Exception{
+    void findWinners() throws Exception {
         //given
         Car myCar = createCar("pobi", 3);
         Car competeCar1 = createCar("woni", 2);
@@ -53,7 +53,7 @@ class CarsTest {
 
         //then
         Assertions.assertThat(winners).hasSize(2)
-                .containsExactly("pobi","jun");
+                .containsExactly("pobi", "jun");
     }
 
     private static Car createCar(String carName, int location) {

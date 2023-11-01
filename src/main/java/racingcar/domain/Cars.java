@@ -24,7 +24,7 @@ public class Cars {
         }
     }
 
-    public List<String> findWinners(){
+    public List<String> findWinners() {
         Car maxDistanceCar = findMaxDistanceCar();
         List<String> winnerCarNameList = findSameDistanceList(maxDistanceCar);
         return winnerCarNameList;
@@ -50,13 +50,13 @@ public class Cars {
 
         HashSet<String> carNameDuplicateSet = new HashSet<>(carName);
 
-        if (carNameDuplicateSet.size() != carName.size()){
+        if (carNameDuplicateSet.size() != carName.size()) {
             throw new IllegalArgumentException("자동차 이름은 중복으로 사용될 수 없습니다.");
         }
     }
 
     private void minimumCountOfCars(int size) {
-        if (size < CAR_COUNT_MINIMUM){
+        if (size < CAR_COUNT_MINIMUM) {
             throw new IllegalArgumentException("자동차는 최소 2대 이상 생성해야 합니다.");
         }
     }

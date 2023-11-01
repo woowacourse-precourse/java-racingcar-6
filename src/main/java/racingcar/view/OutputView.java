@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+
 public class OutputView {
 
     private static final String INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -14,19 +15,19 @@ public class OutputView {
     private static final String MOVE_SIGN = "-";
     private static final String COMMA_SIGN = ", ";
 
-    public void printRequestCarNames(){
+    public void printRequestCarNames() {
         System.out.println(INPUT_CAR_NAMES);
     }
 
-    public void printRequestTryCount(){
+    public void printRequestTryCount() {
         System.out.println(INPUT_TRY_COUNT);
     }
 
-    public void printExecutionResult(){
+    public void printExecutionResult() {
         System.out.println(NEW_LINE + EXECUTION_RESULT);
     }
 
-    public void printRoundByExecutionResults(final Cars cars){
+    public void printRoundByExecutionResults(final Cars cars) {
         StringBuilder resultByRound = new StringBuilder();
         for (Car car : cars.getCars()) {
             resultByRound.append(car.getCarName())
@@ -37,7 +38,7 @@ public class OutputView {
         System.out.println(resultByRound);
     }
 
-    public void printRacingCarWinnerResult(final Cars cars){
+    public void printRacingCarWinnerResult(final Cars cars) {
         List<String> winners = cars.findWinners();
         StringBuilder winnerRacingCar = new StringBuilder();
         winnerRacingCar.append(FINAL_WINNER)
@@ -45,7 +46,7 @@ public class OutputView {
 
         for (int i = 0; i < winners.size(); i++) {
             winnerRacingCar.append(winners.get(i));
-            if (isJointWinner(i, winners)){
+            if (isJointWinner(i, winners)) {
                 winnerRacingCar.append(COMMA_SIGN);
             }
         }

@@ -11,7 +11,7 @@ class SplitCarNameTest {
 
     @DisplayName("자동차는 쉼표(,)를 기준으로 구분하여 생성된다.")
     @Test
-    void splitCarName() throws Exception{
+    void splitCarName() throws Exception {
         //given
         String playerInput = "pobi,woni,jun,cobi";
         SplitCarName splitCarName = new SplitCarName();
@@ -19,6 +19,6 @@ class SplitCarNameTest {
 
         //when //then
         assertThat(strings).hasSize(4)
-                .containsExactly(new String[]{"pobi","woni","jun","cobi"});
+                .containsExactly(new String[]{"pobi", "woni", "jun", "cobi"});
     }
 }

@@ -22,7 +22,7 @@ class CarNameTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"","avante", "sonata"})
+    @ValueSource(strings = {"", "avante", "sonata"})
     @DisplayName("경주할 자동차 이름은 유효한 범위(1이상 5이하)를 가져야한다. ")
     void setRacingCarNameLengthCorrect(String carName) {
         // given

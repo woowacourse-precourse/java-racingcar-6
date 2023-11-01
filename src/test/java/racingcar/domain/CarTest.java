@@ -30,10 +30,10 @@ public class CarTest {
 
     @DisplayName("같은 위치의 자동차가 존재하는지 확인할 수 있다.")
     @ParameterizedTest
-    @CsvSource({"2,2,true","2,1,false"})
+    @CsvSource({"2,2,true", "2,1,false"})
     void isSameDistanceOfCar(int myCarLocation,
                              int competeCarLocation,
-                             boolean sameDistanceCheck) throws Exception{
+                             boolean sameDistanceCheck) throws Exception {
         //given
         Car myCar = new Car("pobi", myCarLocation);
         Car competeCar = new Car("woni", competeCarLocation);
@@ -47,11 +47,11 @@ public class CarTest {
 
     @DisplayName("전진한 자동차들을 비교할 수 있다.")
     @Test
-    void compareDistanceToCar() throws Exception{
+    void compareDistanceToCar() throws Exception {
 
         //given
         String myCarName = "pobi";
-        String competeCarName= "woni";
+        String competeCarName = "woni";
         Car myCar = new Car(myCarName, 3);
         Car competeCar = new Car(competeCarName, 2);
 

@@ -5,12 +5,12 @@ import racingcar.util.SplitCarName;
 
 public class InputView {
 
-    public String[] inputCarNames(){
+    public String[] inputCarNames() {
         String carNames = Console.readLine();
         return SplitCarName.splitCarNames(carNames);
     }
 
-    public String inputTryCount(){
+    public String inputTryCount() {
         return Console.readLine();
     }
 }
