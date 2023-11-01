@@ -18,7 +18,7 @@ public class RacingCarController {
         String carNameString = Console.readLine();
 
         String[] splitCarNames = carNameString.split(",");
-        // r
+        // 자동차 이름 길이 유효성 검사
         for (String carName : splitCarNames) {
             checkValidation(carName);
         }
