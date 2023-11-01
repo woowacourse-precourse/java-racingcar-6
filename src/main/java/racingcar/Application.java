@@ -35,4 +35,18 @@ public class Application {
             distList.set(i, distList.get(i) + getGoDist());
         }
     }
+
+    public static void printGameScreen(List<String> carList, List<Integer> distList){
+        for(int i = 0; i < carList.size(); ++i){
+            System.out.print(carList.get(i) + " : ");
+            pringCarDist(distList.get(i));
+        }
+    }
+
+    public static void pringCarDist(int n){
+        for(int i = 0; i < n; ++i){
+            System.out.print("-");
+        }
+        System.out.print("\n");
+    }
 }
