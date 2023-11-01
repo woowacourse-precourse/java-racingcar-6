@@ -19,16 +19,9 @@ public class Car {
     return position;
   }
 
-  public int getRandomValue(){
+  public int getRandomValue() {
     return Randoms.pickNumberInRange(0, 9);
   }
-
-//  public void move() {
-//    int randomValue = getRandomValue();
-//    if (randomValue >= 4) {
-//      position++;
-//    }
-//  }
 
   public void move() {
     int randomValue = getRandomValue();
@@ -37,6 +30,7 @@ public class Car {
     }
     System.out.println(name + ": " + randomValue);
   }
+
   public String getMovement() {
     StringBuilder movement = new StringBuilder();
     for (int i = 0; i < position; i++) {

@@ -26,7 +26,6 @@ public class GameController {
 
     int moveCount = inputView.getMoveCount();
 
-
     race = new Race(cars);
     for (int move = 0; move < moveCount; move++) {
       race.startRace(1);
