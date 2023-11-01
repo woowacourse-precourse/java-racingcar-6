@@ -52,7 +52,7 @@ public class GameService {
         }
     }
 
-    private List<String> findWinner(List<Car> cars) {
+    public List<String> findWinner(List<Car> cars) {
         int maxPosition = findMaxPosition(cars);
         List<String> winner = cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)

@@ -7,6 +7,7 @@ import random.Random;
 import service.CarService;
 import service.GameService;
 import util.Parser;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,11 +37,27 @@ public class FunctionTest {
     }
 
     @Test
-    @DisplayName("자동차가 전진인지 정지인지 판별해주는 기능")
-    void isMove() {
-        Car car = new Car("pobi", 2, new Random(5,6));
+    @DisplayName("자동차가 전진라고 판별 내렸을때 움직임 저장되는 기능")
+    void go() {
+        Car car = new Car("pobi", 2, new Random(5, 6));
         car.move();
         assertThat(car.getPosition()).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("자동차가 정지라고 판별 내렸을때 움직임 저장되는 기능")
+    void stop() {
+        Car car = new Car("pobi", 2, new Random(1, 3));
+        car.move();
+        assertThat(car.getPosition()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("승자를 찾는 기능")
+    void findWinner() {
+        List<Car> cars = Arrays.asList(new Car("son", 3), new Car("jun", 4), new Car("pobi", 4));
+        List<String> winner = gameService.findWinner(cars);
+        assertThat(winner).containsExactly( "jun","pobi");
     }
 
 }
