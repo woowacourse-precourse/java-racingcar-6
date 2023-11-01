@@ -10,6 +10,12 @@ public class Car {
         this.movingCount = movingCount;
     }
 
+    public void checkCarNameLength() {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름이 5자 초과인 잘못된 입력입니다.");
+        }
+    }
+
     public int getMovingCount() {
         return movingCount;
     }
