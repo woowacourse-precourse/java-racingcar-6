@@ -42,4 +42,8 @@ public class Game {
             car.move(RandomNumber);
         }
     }
+
+    public int getNumber() {
+        return Randoms.pickNumberInRange(0,9);
+    }
 }
