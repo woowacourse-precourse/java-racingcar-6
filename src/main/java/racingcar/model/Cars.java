@@ -23,15 +23,15 @@ public class Cars {
                 .map(Car::new)
                 .forEach(cars::add);
     }
+
     public List<Car> getCars() {
         return cars;
     }
 
     public void moveAll() {
-        for (Car car : cars) {
-            car.go(RandomGenerator.generateNumber(MIN_NUMBER, MAX_NUMBER + 1));
-        }
+        cars.forEach(car -> car.go(RandomGenerator.generateNumber(MIN_NUMBER, MAX_NUMBER + 1)));
     }
+
     public Winner getWinners() {
         return new Winner(cars);
     }
