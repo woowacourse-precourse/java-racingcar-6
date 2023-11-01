@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class WinnersNameResponse {
-
     private List<String> names;
 
     private WinnersNameResponse(List<String> names) {

@@ -3,10 +3,8 @@ package racingcar.domain;
 import racingcar.util.ExceptionMessage;
 
 public class TryCount {
-
     private static final int MIN_TRY_COUNT = 1;
     private static final int MAX_TRY_COUNT = 15;
-
     private final int tryCount;
 
     public TryCount(int tryCount) {

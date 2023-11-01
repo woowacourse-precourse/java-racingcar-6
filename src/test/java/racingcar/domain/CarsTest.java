@@ -10,7 +10,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.CarFactory;
 
 public class CarsTest {
-
     @DisplayName("자동차 개수가 1대 이하 시 예외를 발생시킨다.")
     @ParameterizedTest
     @ValueSource(strings = {"poby"})
@@ -46,8 +45,8 @@ public class CarsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
     @DisplayName("getWinnerCars()는 가장 큰 position을 가진 모든 차들을 가져온다.")
+    @Test
     void getWinnersCars() {
         Cars cars = createCars();
         cars.move();

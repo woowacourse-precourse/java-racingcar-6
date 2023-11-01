@@ -6,11 +6,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class NameTest {
-
     @DisplayName("1~5자 내의 크기를 가진 이름 입력 시 Name 인스턴스를 반환한다.")
     @ParameterizedTest
     @ValueSource(strings = {"poby", "woni", "junnn", "n"})
-    void rightNameTest(String rightName) {
+    void validNameTest(String rightName) {
         Assertions.assertThatNoException().isThrownBy(() -> new Name(rightName));
     }
 

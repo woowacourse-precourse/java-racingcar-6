@@ -8,7 +8,6 @@ import racingcar.domain.TryCount;
 import racingcar.util.ExceptionMessage;
 
 public class InputView {
-
     private static final String CAR_NAME_SEPARATOR = ",";
 
     public static List<String> inputCarNames() {

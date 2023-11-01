@@ -5,7 +5,6 @@ import racingcar.dto.CarPositionResponse;
 import racingcar.dto.WinnersNameResponse;
 
 public class OutputView {
-
     private static final String COLON = " : ";
     private static final String DASH = "-";
     private static final String DELIMITER = ", ";

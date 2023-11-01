@@ -10,7 +10,6 @@ import racingcar.view.OutputView;
 import racingcar.util.CarFactory;
 
 public class RacingCarGame {
-
     private static OutputView outputView;
 
     public RacingCarGame() {
@@ -26,6 +25,7 @@ public class RacingCarGame {
 
         for (int i = 0; i < tryCount.getTryCount(); i++) {
             cars.move();
+
             List<CarPositionResponse> executionResult = cars.getCars().stream()
                     .map(CarPositionResponse::create)
                     .collect(Collectors.toList());

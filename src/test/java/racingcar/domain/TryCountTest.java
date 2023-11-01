@@ -6,7 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class TryCountTest {
-
     @DisplayName("0 이하 혹은 15 초과인 정수를 입력하면 예외를 발생시킨다.")
     @ParameterizedTest
     @ValueSource(ints = {0, -1, -10, 16, 20})

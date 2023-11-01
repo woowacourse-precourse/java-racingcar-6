@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import racingcar.util.ExceptionMessage;
 
 public class Cars {
-
     private final List<Car> cars;
 
     private Cars(List<Car> cars) {
@@ -29,6 +28,7 @@ public class Cars {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_DUPLICATE);
         }
     }
+
     public void move() {
         cars.forEach(Car::tryMove);
     }
