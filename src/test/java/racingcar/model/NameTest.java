@@ -2,6 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.CarNameIsNumberException;
 import racingcar.exception.CarNameLengthException;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -30,6 +31,17 @@ class NameTest {
             assertThatThrownBy(() -> new Name(input))
                     .isInstanceOf(CarNameLengthException.class)
                     .hasMessageContaining("빈 자동차 이름은 입력할 수 없습니다.");
+        }
+
+        @Test
+        void 자동차_이름_숫자일_경우_예외() {
+            // given
+            String input = "1";
+
+            // when & then
+            assertThatThrownBy(() -> new Name(input))
+                    .isInstanceOf(CarNameIsNumberException.class)
+                    .hasMessageContaining("자동차 이름은 숫자가 아니여야 합니다.");
         }
     }
 }
