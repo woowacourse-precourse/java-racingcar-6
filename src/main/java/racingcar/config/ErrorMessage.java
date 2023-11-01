@@ -9,10 +9,10 @@ import static racingcar.config.RacingConfig.SPLIT_CAR_NAME_LENGTH_MAX;
 import static racingcar.config.RacingConfig.SPLIT_CAR_NAME_LENGTH_MIN;
 
 public enum ErrorMessage {
-    SPLIT_CAR_REGEX_ERROR_MESSAGE("자동차 이름은 영어 소문자, 숫자만 입력 가능합니다. 잘못 입력한 자동차 이름 : %s"),
-    SPLIT_CAR_LENGTH_ERROR_MESSAGE(String.format("자동차 이름의 길이는 %d자 이상 %d자 이하여야 합니다.",
+    SPLIT_CAR_REGEX_ERROR_MESSAGE("자동차 이름은 영어 소문자, 숫자만 입력 가능합니다. 잘못 입력한 자동차 이름 : "),
+    SPLIT_CAR_LENGTH_ERROR_MESSAGE(String.format("자동차 이름의 길이는 %d자 이상 %d자 이하여야 합니다. 잘못 입력한 자동차 이름 : ",
             SPLIT_CAR_NAME_LENGTH_MIN.getValue(), SPLIT_CAR_NAME_LENGTH_MAX.getValue())),
-    SPLIT_CAR_UNIQUE_ERROR_MESSAGE("자동차 이름은 서로 다른 이름만 입력해야 합니다. 잘못 입력한 자동차 이름 : %s"),
+    SPLIT_CAR_UNIQUE_ERROR_MESSAGE("자동차 이름은 서로 다른 이름만 입력해야 합니다. 잘못 입력한 자동차 이름 : "),
     INPUT_CAR_NAME_LENGTH_ERROR_MESSAGE(String.format("입력값은 %d자 이상 %d자 이하여야 합니다.",
             INPUT_CAR_NAME_LENGTH_MIN.getValue(), INPUT_CAR_NAME_LENGTH_MAX.getValue())),
 

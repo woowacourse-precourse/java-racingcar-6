@@ -16,15 +16,25 @@ public class InputCarNameValidator implements Validator<String> {
             Pattern.compile(INPUT_CAR_NAME_COMMA_REGEX.getRegex());
 
     public String validate(String inputCarName) {
+        validateInputCarNameLength(inputCarName);
+        validateFirstOrLastCharHasComma(inputCarName);
+
+        return inputCarName;
+    }
+
+    private void validateInputCarNameLength(String inputCarName) {
         String lengthErrorMessage = INPUT_CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage();
-        String commaErrorMessage = INPUT_CAR_NAME_COMMA_ERROR_MESSAGE.getMessage();
 
         if (PatternChecker.checkPattern(INPUT_CAR_NAME_LENGTH_PATTERN, inputCarName)) {
             ErrorThrower.throwIAE(lengthErrorMessage);
         }
+    }
+
+    private void validateFirstOrLastCharHasComma(String inputCarName) {
+        String commaErrorMessage = INPUT_CAR_NAME_COMMA_ERROR_MESSAGE.getMessage();
+
         if (PatternChecker.checkPattern(INPUT_CAR_NAME_COMMA_PATTERN, inputCarName)) {
             ErrorThrower.throwIAE(commaErrorMessage);
         }
-        return inputCarName;
     }
 }
