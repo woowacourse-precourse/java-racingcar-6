@@ -20,15 +20,15 @@ public class racingcarGame {
 
     public void startGame(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        splitNames(readLine());
+        createListOfCars(splitNames(readLine()));
 
         System.out.println("시도할 회수는 몇회인가요?");
         times=exception.checkNumberException(readLine());
     }
 
-    public void splitNames(String namelist){
+    public List<String> splitNames(String namelist){
         List<String> names = Arrays.asList(namelist.split(","));
-        createListOfCars(names);
+        return names;
     }
 
     public void createListOfCars(List<String> names){
