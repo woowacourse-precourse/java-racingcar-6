@@ -7,7 +7,7 @@ public interface PlayGame {
     void initGame();
 
     // 플레이어 값 초기화
-    void initPlayers(ArrayList<String> names);
+    void initPlayers(String[] names);
 
     // 게임의 전체 진행을 위한 메서드
     void playGame();

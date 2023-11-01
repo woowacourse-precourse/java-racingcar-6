@@ -1,12 +1,12 @@
 package racingcar.domain;
 
 public class Player {
-    private String name;
-    private int winCount;
+    public String name;
+    public int winCount;
 
-    Player(String name) {
-        name = name;
-        winCount = 0;
+    public Player(String name) {
+        this.name = name;
+        this.winCount = 0;
     }
 
     public void addWinCount() {
