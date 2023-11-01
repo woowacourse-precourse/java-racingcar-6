@@ -16,4 +16,12 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void move() {
+        this.distance++;
+    }
 }

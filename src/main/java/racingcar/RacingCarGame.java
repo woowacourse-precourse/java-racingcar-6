@@ -1,10 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class RacingCarGame {
     List<Car> racingCars;
@@ -35,5 +38,25 @@ public class RacingCarGame {
     private int readMoveCount() {
         System.out.println("시도할 횟수는 몇회인가요?");
         return Integer.parseInt(Console.readLine());
+    }
+
+    // 기능 3) 0에서 9 사이의 무작위 값을 구한 후, 그 값이 4 이상인 경우에는 자동차가 전진하고 그렇지 않으면 멈춘다.
+    private void moveOrStop(Car car) {
+        int randomNumber = makeRandomNumber();
+
+        if(randomNumber >= 4) {
+            car.move();
+        }
+
+        writeCarTrace(car);
+    }
+
+    private int makeRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private void writeCarTrace(Car car) {
+        String trace = IntStream.range(0, car.getDistance()).mapToObj(i -> "-").collect(Collectors.joining());
+        System.out.println(car.getName() + " : " + trace);
     }
 }
