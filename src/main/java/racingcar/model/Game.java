@@ -39,5 +39,21 @@ public class Game {
         }
     }
 
+    public void showFinalWinCar() {
+        cars.sort((car1, car2) -> car2.getAdvanceCount() - car1.getAdvanceCount());
 
+        List<String> winCarNames = new ArrayList<>(){{
+            add(cars.get(0).getName());
+        }};
+
+        for(int i = 1; i < cars.size(); i++) {
+            if(cars.get(i-1).getAdvanceCount() == cars.get(i).getAdvanceCount()) {
+                winCarNames.add(cars.get(i).getName());
+            }else {
+                break;
+            }
+        }
+
+        OutputView.outputFinalWinner(winCarNames);
+    }
 }
