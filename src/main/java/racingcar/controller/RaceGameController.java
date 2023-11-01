@@ -17,12 +17,17 @@ public class RaceGameController {
 
     public void startGame() {
         RacingCars racingCars = initializeGame();
-
+        int inputLoop = getInputLoopCount();
     }
 
     private RacingCars initializeGame() {
         outputView.printStartMessage();
         List<String> carNames = inputView.inputNamesStringToList();
         return new RacingCars(carNames);
+    }
+
+    private int getInputLoopCount() {
+        outputView.printLoopSetMessage();
+        return inputView.inputLoopStringToInt();
     }
 }
