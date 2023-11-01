@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+    String winnerResult;
     int totalMove;
     List<Car> CarList;
     public Game(){
@@ -56,7 +57,7 @@ public class Game {
             System.out.println(car.howFar());
         }
     }
-    void Winner() {
+    String Winner() {
         int maxMoveCnt = 0;
         List<String> winners = new ArrayList<>();
 
@@ -64,20 +65,22 @@ public class Game {
             maxMoveCnt = Math.max(maxMoveCnt, car.moveCnt);
         }
 
+        StringBuilder result = new StringBuilder("최종 우승자 : ");
         for (Car car : CarList) {
             if (car.moveCnt == maxMoveCnt) {
                 winners.add(car.name);
             }
         }
 
-        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             if (i > 0) {
-                System.out.print(", ");
+                result.append(", ");
             }
-            System.out.print(winners.get(i));
+            result.append(winners.get(i));
         }
-        System.out.println();
+
+        winnerResult = result.toString();
+        return winnerResult;
     }
 
 }
