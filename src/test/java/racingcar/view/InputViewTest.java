@@ -54,6 +54,16 @@ public class InputViewTest {
         }
 
         @Test
+        public void 실행횟수_입력값_숫자형식예외_숫자글자혼합() {
+            String input = "errorValue123";
+            InputStream in = new ByteArrayInputStream(input.getBytes());
+            System.setIn(in);
+
+            Assertions.assertThatThrownBy(() -> inputView.readNumberInput())
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Test
         public void 실행횟수_입력값_숫자형식예외_int범위외() {
             String input = "2147483648";
             InputStream in = new ByteArrayInputStream(input.getBytes());

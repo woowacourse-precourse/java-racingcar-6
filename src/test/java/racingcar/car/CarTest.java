@@ -37,6 +37,12 @@ public class CarTest {
         }
 
         @Test
+        void 자동차_생성_실패_글자_숫자_입력() {
+            assertThatThrownBy(()-> new Car("123car"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Test
         void 자동차_생성_성공() {
             Car car = new Car("pobi");
             assertThat(car.getName()).isEqualTo("pobi");
