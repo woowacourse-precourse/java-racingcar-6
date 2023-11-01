@@ -11,9 +11,9 @@
 - [X] 각 게임 시 현재 차량 진행상태 출력
 
 ### 게임 후
-- [ ] 게임승리 차량 표시
+- [X] 게임승리 차량 표시
 
 ### 확인할 것
-- [ ] ApplicationTest는 통과되어야 한다. (gradle 명령어로 확인할 것)
-- [ ] 사용자의 잘못된 입력 값 확인 후 IllegalArgumentException 던지기
+- [X] ApplicationTest는 통과되어야 한다. (gradle 명령어로 확인할 것)
+- [X] 사용자의 잘못된 입력 값 확인 후 throw new IllegalArgumentException (차량 이름, 게임 횟수)
 - [ ] 내가 정리한 기능을 테스트 코드로 구현하고 확인하기
