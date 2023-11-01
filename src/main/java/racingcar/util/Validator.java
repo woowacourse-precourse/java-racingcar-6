@@ -15,4 +15,10 @@ public class Validator {
             throw new IllegalArgumentException();
         }
     }
+
+    private void validateSymbolPosition(String carsName) {
+        if (carsName.startsWith(SYMBOL) || carsName.endsWith(SYMBOL)) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
