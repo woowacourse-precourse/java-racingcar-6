@@ -17,6 +17,7 @@ public class GameController {
         String carNames = gamePlayView.inputCarName();
         List<String> carNameList = carRaceModel.generateCarName(carNames);
         validator.validateCarName(carNameList);
+        validator.isCarNameUnique(carNameList);
 
         List<Car> carList = carRaceModel.generateCar(carNameList);
 
