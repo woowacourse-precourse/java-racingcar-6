@@ -14,9 +14,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameControllerTest {
-    private GameController gameController;
-    private ByteArrayOutputStream outputStream;
-    private InputStream inputStream;
+    GameController gameController;
+    ByteArrayOutputStream outputStream;
+    InputStream inputStream;
 
     @BeforeEach
     public void setUp() {

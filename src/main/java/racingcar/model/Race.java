@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Race {
-    private List<Car> cars;
-    private List<Car> winners = new ArrayList<>();
+    List<Car> cars;
+    List<Car> winners = new ArrayList<>();
 
 
     public Race(List<Car> cars) {
