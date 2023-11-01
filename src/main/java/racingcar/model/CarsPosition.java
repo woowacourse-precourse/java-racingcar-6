@@ -34,8 +34,7 @@ public final class CarsPosition {
     public RaceResultTexts getEachRaceResult() {
         List<String> eachResults = carsPosition.keySet()
                 .stream()
-                .map(key ->
-                        StringFormatter.raceResultFormat(key, carsPosition.get(key)))
+                .map(key -> StringFormatter.raceResultFormat(key, carsPosition.get(key)))
                 .toList();
         return new RaceResultTexts(eachResults);
     }

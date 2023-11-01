@@ -7,7 +7,6 @@ import static racingcar.constant.RaceConfig.MINIMUM_RANDOM_NUMBER;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class StepForwardValidator {
-
     private StepForwardValidator() {
     }
 
