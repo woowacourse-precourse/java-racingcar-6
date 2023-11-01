@@ -16,12 +16,16 @@ public class GameController {
     }
 
     public void playGame(int numberOfAttempts) {
+        moveCarsAndPrintPositions(numberOfAttempts);
+        List<Car> winners = racingGame.getWinners();
+        consoleView.printWinners(winners);
+    }
+
+    private void moveCarsAndPrintPositions(int numberOfAttempts) {
         for (int i = 0; i < numberOfAttempts; i++) {
             racingGame.moveCars();
             consoleView.printCurrentPositions(racingGame.getCars());
         }
-
-        List<Car> winners = racingGame.getWinners();
-        consoleView.printWinners(winners);
     }
+
 }
