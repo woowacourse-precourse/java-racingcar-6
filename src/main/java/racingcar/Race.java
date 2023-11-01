@@ -16,10 +16,10 @@ import java.util.stream.Collectors;
 
 public class Race {
     private String userInput;
-    public static List<String> players;
+    private static List<String> players;
     private HashMap<String, Integer> playingStatus = new HashMap<>();
     private Integer roundInt;
-    public static List<String> winners = new ArrayList<>();
+    private static List<String> winners = new ArrayList<>();
 
 
     public void run() {
