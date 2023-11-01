@@ -25,4 +25,11 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name);
     }
+
+    public void move(int randomNumber) {
+        if (randomNumber >= 4) {
+            distance++;
+        }
+    }
+
 }
