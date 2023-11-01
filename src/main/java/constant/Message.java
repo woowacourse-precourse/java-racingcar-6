@@ -1,6 +1,6 @@
 package constant;
 
-import controller.dto.CarDto;
+import mapper.dto.CarDto;
 
 import java.util.List;
 import java.util.stream.Collectors;

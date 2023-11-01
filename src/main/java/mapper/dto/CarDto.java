@@ -1,4 +1,4 @@
-package controller.dto;
+package mapper.dto;
 
 public class CarDto {
     private final String name;
