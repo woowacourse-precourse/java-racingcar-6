@@ -40,7 +40,7 @@ public class Game {
                     winners.append(car.getCarName());
                     isFirstWinner = false;
                 } else {
-                    winners.append(",").append(car.getCarName());
+                    winners.append(", ").append(car.getCarName());
                 }
             }
         }
@@ -63,5 +63,6 @@ public class Game {
             gameProgress.add(progress.toString());
         }
     }
+
 
 }
