@@ -4,8 +4,8 @@ import static racingcar.constant.GameMessage.COLON;
 import static racingcar.constant.GameMessage.DASH;
 import static racingcar.constant.GameNumber.STOP_ATTEMPT_NUMBER;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.view.OutputView;
 
 public class Game {
@@ -33,14 +33,9 @@ public class Game {
     }
 
     public List<String> getRoundResult() {
-        List<String> roundResult = new ArrayList<>();
-
-        for (Car car : cars) {
-            String moveDash = DASH.repeat(car.getPosition());
-            roundResult.add(car.getName() + COLON + moveDash);
-        }
-
-        return roundResult;
+        return cars.stream()
+                .map(car -> car.getName() + COLON + DASH.repeat(car.getPosition()))
+                .collect(Collectors.toList());
     }
 
     public void moveCar() {
