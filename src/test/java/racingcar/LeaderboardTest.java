@@ -23,16 +23,4 @@ class LeaderboardTest {
             assertThat(car).isInstanceOf(Car.class);
         }
     }
-
-    @Test
-    void race() {
-    }
-
-    @Test
-    void printRaceProgress() {
-    }
-
-    @Test
-    void printResult() {
-    }
 }
