@@ -15,6 +15,15 @@ public class RacingCarGame {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
+    public void startRacingCarGame() {
+        List<RacingCar> racingCars = getRacingCarsFromInput();
+        int tryCount = getTryCountFromInput();
+
+        startRace(racingCars, tryCount);
+
+        printGameResults(racingCars);
+    }
+
     private List<RacingCar> getRacingCarsFromInput() {
         String racingCarNames = inputView.getRacingCarNames();
         String[] carNames = racingCarNames.split(SEPARATOR);
