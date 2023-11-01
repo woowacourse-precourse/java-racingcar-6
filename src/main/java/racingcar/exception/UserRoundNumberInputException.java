@@ -13,21 +13,21 @@ public class UserRoundNumberInputException {
     }
 
     private void isNumber(String userInput) {
-        try{
+        try {
             Integer.parseInt(userInput);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(IS_NOT_NUMBER_MESSAGE);
         }
     }
 
     private void isBlank(String userInput) {
-        if(userInput == null || userInput.trim().isEmpty()){
+        if (userInput == null || userInput.trim().isEmpty()) {
             throw new IllegalArgumentException(IS_BLANK_MESSAGE);
         }
     }
 
     private void isZeroMinus(String userInput) {
-        if(Integer.parseInt(userInput) <= Zero){
+        if (Integer.parseInt(userInput) <= Zero) {
             throw new IllegalArgumentException(IS_NOT_ZERO_OR_MINUS);
         }
     }

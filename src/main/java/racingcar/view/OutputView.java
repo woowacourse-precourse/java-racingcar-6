@@ -10,8 +10,8 @@ public class OutputView {
     private static final String MVP = "최종 우승자 : ";
     private static final String Comma = ", ";
 
-    public static void printResult(){
-        System.out.println("");
+    public static void printResult() {
+        System.out.println();
         System.out.println(GAME_RESULT);
     }
 
@@ -19,15 +19,16 @@ public class OutputView {
         System.out.println(MVP + String.join(Comma, mvpList));
     }
 
-    public static void carPosition(int forward){
-        for(int i = 0; i < forward; i++){
+    public static void carPosition(int forward) {
+        for (int i = 0; i < forward; i++) {
             System.out.print(FORWARD_SYMBOL);
         }
         System.out.println();
     }
-    public static void printForward(LinkedHashMap<String, Integer> forwardStateList){
-        for(Map.Entry<String, Integer> entry : forwardStateList.entrySet()){
-            System.out.print(entry.getKey()+ " : ");
+
+    public static void printForward(LinkedHashMap<String, Integer> forwardStateList) {
+        for (Map.Entry<String, Integer> entry : forwardStateList.entrySet()) {
+            System.out.print(entry.getKey() + " : ");
             carPosition(entry.getValue());
         }
     }

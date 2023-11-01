@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserInputCarName {
-    private List<String> carName = new ArrayList<>();
+    private final List<String> carName = new ArrayList<>();
 
     public List<String> createCarName(String userInput) {
         List<String> carNameList = stringToList(userInput);

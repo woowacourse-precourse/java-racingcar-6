@@ -5,31 +5,27 @@ import racingcar.util.RandomNumber;
 import java.util.*;
 
 public class Cars {
-    private UserInputCarName userInputCarName;
     public static Map<String, Integer> findMax = new HashMap<>();
-    private RandomNumber randomNumber = new RandomNumber();
-    public static List<Car> cars = new ArrayList<Car>();
+    public static List<Car> cars = new ArrayList<>();
+    private final UserInputCarName userInputCarName;
+    private final RandomNumber randomNumber = new RandomNumber();
+
     public Cars(String input) {
         userInputCarName = new UserInputCarName();
         List<String> carName = userInputCarName.createCarName(input);
-        for(String name : carName) {
+        for (String name : carName) {
             Car car = new Car(name);
             cars.add(car);
         }
     }
 
-    public void depart(){
-        for (Car car : cars){
-            car.goForward(randomNumber.createRandomNumber());
-        }
-    }
-    private static void makeHash(){
-        for(Car car : cars){
+    private static void makeHash() {
+        for (Car car : cars) {
             findMax.put(car.getName(), car.getForward());
         }
     }
 
-    private static int findMaxForward(){
+    private static int findMaxForward() {
         makeHash();
         int maxForward = findMax.values().stream()
                 .mapToInt(Integer::intValue)
@@ -38,7 +34,7 @@ public class Cars {
         return maxForward;
     }
 
-    public static List<String> getMVP(){
+    public static List<String> getMVP() {
         int maxForward = findMaxForward();
         List<String> mvpList = new ArrayList<>();
 
@@ -49,15 +45,21 @@ public class Cars {
         return mvpList;
     }
 
-    public static LinkedHashMap<String, Integer> getForwardState(){
+    public static LinkedHashMap<String, Integer> getForwardState() {
         LinkedHashMap<String, Integer> forwardState = new LinkedHashMap<>();
-        for(Car car : cars){
+        for (Car car : cars) {
             forwardState.put(car.getName(), car.getForward());
         }
         return forwardState;
     }
 
-    public List<Car> getCars(){
+    public void depart() {
+        for (Car car : cars) {
+            car.goForward(randomNumber.createRandomNumber());
+        }
+    }
+
+    public List<Car> getCars() {
         return cars;
     }
 

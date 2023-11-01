@@ -13,32 +13,32 @@ public class UserCarNameInputException {
 
 
     public static void isLength(String carName) {
-        if(carName.length() > MAX_LENGTH || carName.length() < MIN_LENGTH) {
+        if (carName.length() > MAX_LENGTH || carName.length() < MIN_LENGTH) {
             throw new IllegalArgumentException(LENGTH_ERROR_MESSAGE);
         }
     }
 
     public static void isBlank(String carName) {
-        if(carName.contains(" ")) {
+        if (carName.contains(" ")) {
             throw new IllegalArgumentException(BLANK_STRING_MESSAGE);
         }
     }
 
     public static void isDuplicate(List<String> carNameList) {
-        if(!(carNameList.size() == carNameList.stream().distinct().count())) {
+        if (!(carNameList.size() == carNameList.stream().distinct().count())) {
             throw new IllegalArgumentException(DUPLICATE_MESSAGE);
         }
     }
 
     public static void isComma(String carName) {
         for (char c : carName.toCharArray())
-        if(!(Character.isLetterOrDigit(c) || c == ',' || Character.isWhitespace(c))){
-            throw new IllegalArgumentException(ONLY_COMMA);
-        }
+            if (!(Character.isLetterOrDigit(c) || c == ',' || Character.isWhitespace(c))) {
+                throw new IllegalArgumentException(ONLY_COMMA);
+            }
     }
 
     public static void isMoreThan(List<String> carNameList) {
-        if(carNameList.size() < 2){
+        if (carNameList.size() < 2) {
             throw new IllegalArgumentException(INPUT_MORE_THAN_TWO);
         }
     }
