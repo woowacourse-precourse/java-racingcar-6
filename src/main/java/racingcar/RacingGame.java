@@ -111,7 +111,7 @@ public class RacingGame {
             }
         }
 
-        String result = String.join(",", winner);
+        String result = String.join(", ", winner);
         System.out.println("최종 우승자 : " + result);
     }
 }
