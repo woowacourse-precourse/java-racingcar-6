@@ -1,8 +1,6 @@
 package racingcar.service;
 
-import org.mockito.internal.util.StringUtil;
 import racingcar.model.Car;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,8 +11,7 @@ public class Output {
     public void printCarStatus(Car car, int index) {
         String carName = car.carName.get(index);
         int carDistance = car.carDistance[index];
-        String carDistanceCharacter = "-";
-        carDistanceCharacter = carDistanceCharacter.repeat(carDistance);
+        String carDistanceCharacter = "-".repeat(carDistance);
 
         System.out.println(String.format("%s : %s", carName, carDistanceCharacter));
     }

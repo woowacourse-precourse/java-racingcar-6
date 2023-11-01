@@ -5,7 +5,6 @@ import racingcar.model.Car;
 import racingcar.service.Input;
 import racingcar.service.Move;
 import racingcar.service.Output;
-import racingcar.service.Random;
 
 public class RacingCar {
 
