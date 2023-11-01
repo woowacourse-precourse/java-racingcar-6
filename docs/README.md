@@ -6,6 +6,10 @@
 
 * 자동차의 이름이 5글자 이상일 경우  `IllegalArgumentException`을 발생시킨다.
 
+* 자동차 이름에 빈공간이 있을 경우 `IllegalArgumentException`을 발생시킨다.
+
+  
+
 
 
 시도 횟수를 사용자로부터 입력을 받는다.
