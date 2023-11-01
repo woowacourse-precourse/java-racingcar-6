@@ -10,7 +10,7 @@ public class TryCountValidator {
         }
     }
 
-    public void isZero(String tryCount) {
+    public void isBelowZero(String tryCount) {
         if (Integer.parseInt(tryCount) <= 0) {
             throw new IllegalArgumentException("경주는 최소 1회 이상 시도되어야 합니다");
         }

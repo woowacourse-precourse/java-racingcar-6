@@ -56,7 +56,7 @@ public class RacingController {
         racingViewer.showTryCountMessage();
         String tryCount = tryCountInput.returnTryCount();
         tryCountValidator.isNumber(tryCount);
-        tryCountValidator.isZero(tryCount);
+        tryCountValidator.isBelowZero(tryCount);
 
         return Integer.parseInt(tryCount);
     }

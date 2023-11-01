@@ -32,7 +32,7 @@ class TryCountValidatorTest {
         //when, then
         assertThatThrownBy(() -> tryCountValidator.isNumber(tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자가 아닙니다");
+                .hasMessage("시도 횟수는 Integer 범위의 값만 가능합니다.");
     }
 
     @Test
@@ -41,7 +41,7 @@ class TryCountValidatorTest {
         String tryCount = "-1";
 
         //when, then
-        assertThatThrownBy(() -> tryCountValidator.isZero(tryCount))
+        assertThatThrownBy(() -> tryCountValidator.isBelowZero(tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("경주는 최소 1회 이상 시도되어야 합니다");
     }
@@ -52,7 +52,7 @@ class TryCountValidatorTest {
         String tryCount = "1";
 
         //when, then
-        assertThatCode(() -> tryCountValidator.isZero(tryCount))
+        assertThatCode(() -> tryCountValidator.isBelowZero(tryCount))
                 .doesNotThrowAnyException();
     }
 
