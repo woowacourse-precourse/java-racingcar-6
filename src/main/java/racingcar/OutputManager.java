@@ -37,18 +37,15 @@ public class OutputManager {
 
     private void printPositionBar(int position) {
         System.out.print("-".repeat(position));
-        System.out.println();
     }
 
     public void printWinners(List<CarSnapshot> winners) {
-        System.out.println(WINNERS_INFO_MESSAGE);
+        System.out.print(WINNERS_INFO_MESSAGE);
 
         System.out.print(winners.get(0).name());
         winners.stream()
                 .skip(1)
                 .forEach(this::printNextCarName);
-
-        System.out.println();
     }
 
     private void printNextCarName(CarSnapshot car) {
