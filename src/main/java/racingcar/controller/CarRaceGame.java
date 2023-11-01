@@ -1,8 +1,6 @@
 package racingcar.controller;
 
 
-import static racingcar.constant.GameConstants.EXECUTION_RESULT;
-
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
@@ -40,10 +38,10 @@ public class CarRaceGame {
     }
 
     public static int getGameRoundAndValidate() {
-        CarRaceGameView.printAttemptNumber();
-        String attemptNumberString = CarRaceGameView.getInput();
-        validateGameRoundNumber(attemptNumberString);
-        return Integer.parseInt(attemptNumberString);
+        CarRaceGameView.printGameRoundNumberToRun();
+        String gameRoundNumberString = CarRaceGameView.getInput();
+        validateGameRoundNumber(gameRoundNumberString);
+        return Integer.parseInt(gameRoundNumberString);
     }
 
     private static void setCarImpls(List<String> carNameList) {

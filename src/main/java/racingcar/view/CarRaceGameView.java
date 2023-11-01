@@ -17,8 +17,8 @@ public class CarRaceGameView {
         return readLine();
     }
 
-    public static void printAttemptNumber() {
-        System.out.println(ATTEMPT_NUMBER);
+    public static void printGameRoundNumberToRun() {
+        System.out.println(GAME_ROUND_NUMBER_TO_RUN);
     }
 
     public static void printOneRoundResult(String carName, int advanceNumber) {
