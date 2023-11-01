@@ -34,7 +34,7 @@ public class AttemptCountValidator {
     }
 
     public static void validateIsPositive(int number) {
-        if (number <= 0) {
+        if (number < 1) {
             throw new IllegalArgumentException();
         }
     }
