@@ -1,8 +1,9 @@
-package Validator;
+package racingcar.Validator;
 
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import Validator.NumberValidator;
 import org.assertj.core.api.Assertions.*
 
 import org.junit.jupiter.api.Test;

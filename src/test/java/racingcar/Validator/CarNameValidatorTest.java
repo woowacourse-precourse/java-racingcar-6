@@ -1,7 +1,8 @@
-package Validator;
+package racingcar.Validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import Validator.CarNameValidator;
 import org.junit.jupiter.api.Test;
 
 public class CarNameValidatorTest {
