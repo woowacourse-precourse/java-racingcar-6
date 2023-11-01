@@ -20,11 +20,19 @@ public class Cars {
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
-    
+
     public List<String> getWinnersName() {
         int maxPosition = getMaxPosition();
 
+        if (noMovementCheck(maxPosition)) {
+            return Collections.emptyList();
+        }
+
         return findWinners(maxPosition);
+    }
+
+    private boolean noMovementCheck(int maxPosition) {
+        return maxPosition == 0;
     }
 
     private List<String> findWinners(int maxPosition) {
