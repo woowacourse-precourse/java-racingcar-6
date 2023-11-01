@@ -1,4 +1,4 @@
-package service;
+package racingcar.service;
 
 import racingcar.model.Car;
 import racingcar.model.CarList;
@@ -18,8 +18,7 @@ public class RacingGameService {
         }
     }
 
-    public CarList makeCarList(String cars) {
-        List<String> carNames = Arrays.stream(cars.split(",")).toList();
+    public CarList makeCarList(List<String> carNames) {
         List<Car> collect = carNames.stream()
                 .map(carName -> new Car(carName))
                 .collect(Collectors.toList());

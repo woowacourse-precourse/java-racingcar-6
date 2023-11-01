@@ -18,7 +18,7 @@
     - [x] 자동차 이름은 5자 이하로만 가능하다.
     - [x] 자동차 이름에는 공백이 있으면 안된다.
     - [x] 자동차 이름은 빈칸이면 안된다.
-- [ ] 사용자가 잘못된 입력을 했을 경우 `IllegalArgumentException`을 발생시키고 게임을 종료한다.
+- [x] 사용자가 잘못된 입력을 했을 경우 `IllegalArgumentException`을 발생시키고 게임을 종료한다.
 - [x] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
 
 ## 출력 기능
