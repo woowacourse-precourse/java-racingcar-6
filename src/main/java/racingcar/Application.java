@@ -28,7 +28,14 @@ public class Application {
                     cars_move[j] += 1;
                 }
             }
-
+            for (int j = 0; j < len; j++) {
+                System.out.println(cars[j] + " : ");
+                for (int k = 0; k < cars[j].length(); k++) {
+                    System.out.print("_");
+                }
+            }
         }
+
+
     }
 }
