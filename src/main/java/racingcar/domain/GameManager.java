@@ -61,8 +61,6 @@ public class GameManager {
             validateRacingCarName(racingcarName);
         }
 
-        instantiateRacingCars();
-
         return true;
     }
 
@@ -83,6 +81,12 @@ public class GameManager {
         return true;
     }
 
+    private static void printRacingCarsPosition() {
+        for (RacingCar racingCar : racingCars) {
+            System.out.println(racingCar.name + " : " + racingCar.position);
+        }
+    }
+
 
     public static void runGame() {
 
@@ -92,5 +96,13 @@ public class GameManager {
         printGameTryCountMessage();
         userInput = readUserInput();
         validateUserInputForTryCount(userInput);
+        instantiateRacingCars();
+
+        for (int i = 0; i < tryCount; i++) {
+            for (RacingCar racingCar : racingCars) {
+                racingCar.tryMove();
+            }
+            printRacingCarsPosition();
+        }
     }
 }
