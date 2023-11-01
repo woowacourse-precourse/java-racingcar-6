@@ -57,8 +57,8 @@ public class Game {
         }
     }
 
-    public void printWinner() {
-
+    public void printWinners() {
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
 }
