@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.global;
 
 import java.util.regex.Pattern;
 

@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.InputVerifier;
+import racingcar.global.InputVerifier;
 
 public class InputManager {
     public String readLine() {
