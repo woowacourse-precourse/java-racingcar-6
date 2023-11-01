@@ -17,6 +17,5 @@ public class PlayerTest {
 
         ArrayList<String> userInputCarList = cars.createPlayerCarList(testInput);
         assertThat(userInputCarList).contains("Tom", "tyla", "Judy");
-
     }
 }
