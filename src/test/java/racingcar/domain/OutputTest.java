@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -35,9 +35,9 @@ public class OutputTest {
     @Test
     void 모든_차의_전진한_횟수를_형식에_맞게_출력() {
         Car car = new Car("a,b");
-        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, "1");
+        GameConsole gameConsole = new GameConsole(car, "1");
 
-        racingCarGameConsole.race();
+        gameConsole.race();
 
         assertThat(out.toString()).contains("실행 결과", "a : ", "b : ");
     }
@@ -46,9 +46,9 @@ public class OutputTest {
     void 전진한_횟수_출력을_입력_횟수만큼_반복() {
         Car car = new Car("a,b");
         String timesToTry = "3";
-        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, timesToTry);
+        GameConsole gameConsole = new GameConsole(car, timesToTry);
 
-        racingCarGameConsole.race();
+        gameConsole.race();
 
         assertThat(out.toString().split("실행 결과", -1))
                 .hasSize(Integer.parseInt(timesToTry) + 1);

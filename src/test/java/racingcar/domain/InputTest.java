@@ -1,13 +1,13 @@
-package racingcar;
+package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static racingcar.ExceptionCase.CAR_NAME_DUPLICATION;
-import static racingcar.ExceptionCase.CAR_NAME_HAS_BLANK;
-import static racingcar.ExceptionCase.CAR_NAME_LENGTH_OVERED;
-import static racingcar.ExceptionCase.INPUT_UNGIVEN;
-import static racingcar.ExceptionCase.TIMES_TO_TRY_TYPE_MISMATCH;
-import static racingcar.ExceptionCase.UNNAMED_CAR_EXIST;
+import static racingcar.domain.ExceptionCase.CAR_NAME_DUPLICATION;
+import static racingcar.domain.ExceptionCase.CAR_NAME_HAS_BLANK;
+import static racingcar.domain.ExceptionCase.CAR_NAME_LENGTH_OVERED;
+import static racingcar.domain.ExceptionCase.INPUT_UNGIVEN;
+import static racingcar.domain.ExceptionCase.TIMES_TO_TRY_TYPE_MISMATCH;
+import static racingcar.domain.ExceptionCase.UNNAMED_CAR_EXIST;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -52,7 +52,7 @@ public class InputTest {
     @MethodSource("invalidTimesToTryParameters")
     void 이동_횟수_예외_처리(String timesToTry, String exceptionMessage, String name) {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> new RacingCarGameConsole(VALID_CAR, timesToTry));
+                () -> new GameConsole(VALID_CAR, timesToTry));
         assertThat(e.getMessage()).isEqualTo(exceptionMessage);
     }
 
