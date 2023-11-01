@@ -16,6 +16,10 @@ public class Cars {
         }
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public static Cars create(String carNameString) {
         String[] carNamesWithBlank = splitCarNames(carNameString);
         List<String> trimmedCarNames = trimCarNames(carNamesWithBlank);
