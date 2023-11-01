@@ -13,8 +13,8 @@ final class CoordinateTest {
     @Test
     void Coordinate_withPositive_shouldCreateCoordinate() {
         // given
-        int input1 = 0;
-        int input2 = 10;
+        final int input1 = 0;
+        final int input2 = 10;
 
         // when
         final Coordinate coordinate1 = new Coordinate(input1);
@@ -29,7 +29,7 @@ final class CoordinateTest {
     @Test
     void Coordinate_withNegative_shouldThrowException() {
         // given
-        int input1 = -1;
+        final int input1 = -1;
 
         // when
         // then
@@ -97,5 +97,25 @@ final class CoordinateTest {
         // when
         // then
         assertThat(coordinate1.value()).isZero();
+    }
+
+
+    @DisplayName("서로 다른 Coordinate를 비교할 수 있다")
+    @Test
+    void compareTo_ofCoordinate_shouldResultInAscendOrder() {
+        // given
+        final Coordinate coordinate1 = new Coordinate(2);
+        final Coordinate coordinate2 = new Coordinate(1);
+        final Coordinate coordinate3 = new Coordinate(1);
+
+        // when
+        final int result1 = coordinate1.compareTo(coordinate2);
+        final int result2 = coordinate2.compareTo(coordinate1);
+        final int result3 = coordinate2.compareTo(coordinate3);
+
+        // then
+        assertThat(result1).isPositive();
+        assertThat(result2).isNegative();
+        assertThat(result3).isZero();
     }
 }

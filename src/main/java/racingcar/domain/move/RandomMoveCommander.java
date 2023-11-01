@@ -1,6 +1,7 @@
 package racingcar.domain.move;
 
 import number.NumberPicker;
+import racingcar.exception.InvalidMoveCommandNumberException;
 
 public final class RandomMoveCommander implements MoveCommander {
 
@@ -21,6 +22,13 @@ public final class RandomMoveCommander implements MoveCommander {
 
     private boolean canGo() {
         final int number = numberPicker.pick();
+        validateNumber(number);
         return number >= MIN_GO_NUMBER;
+    }
+
+    private void validateNumber(final int number) {
+        if (number < 0 || number > 9) {
+            throw new InvalidMoveCommandNumberException();
+        }
     }
 }

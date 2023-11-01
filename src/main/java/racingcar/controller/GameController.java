@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.domain.car.CarsRacing;
-import racingcar.domain.car.dto.output.CarsRacingDto;
 import racingcar.domain.car.dto.output.WinnersDto;
 import racingcar.domain.move.MoveCommander;
 import racingcar.domain.round.boxed.CurrentRound;
@@ -45,8 +44,7 @@ public final class GameController {
             return;
         }
         cars.moveAllBy(moveCommander);
-        final CarsRacingDto carsDto = cars.toCarsRacingDto();
-        outputView.printRoundResult(carsDto);
+        outputView.printRoundResult(cars.toCarsRacingDto());
         _playUntilMaxRound(cars, currentRound.nextRound(), maxRound);
     }
 

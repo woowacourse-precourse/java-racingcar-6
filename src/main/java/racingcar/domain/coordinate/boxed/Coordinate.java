@@ -3,7 +3,7 @@ package racingcar.domain.coordinate.boxed;
 import java.util.Objects;
 import racingcar.exception.coordinate.InvalidCoordinateException;
 
-public final class Coordinate {
+public final class Coordinate implements Comparable<Coordinate> {
     private static final int MIN_COORDINATE = 0;
     private int value;
 
@@ -38,7 +38,7 @@ public final class Coordinate {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Coordinate that = (Coordinate) o;
+        final Coordinate that = (Coordinate) o;
         return value == that.value;
     }
 
@@ -49,5 +49,10 @@ public final class Coordinate {
     @Override
     public int hashCode() {
         return Objects.hash(value);
+    }
+
+    @Override
+    public int compareTo(final Coordinate other) {
+        return value - other.value;
     }
 }

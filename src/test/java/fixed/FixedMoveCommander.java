@@ -1,4 +1,4 @@
-package racingcar.domain.car;
+package fixed;
 
 import racingcar.domain.move.MoveCommand;
 import racingcar.domain.move.MoveCommander;
