@@ -3,7 +3,7 @@ package racingcar.game;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.game.Car.Car;
 import racingcar.game.Car.CarFactory;
-import racingcar.utils.UserInputReciver;
+import racingcar.utils.UserInputReceiver;
 import racingcar.view.View;
 
 import java.util.Arrays;
@@ -24,13 +24,13 @@ public class RacingGame {
 
     private static List<Car> createCarsByInput() {
         String message = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
-        List<String> carNames = Arrays.asList(UserInputReciver.messageToUser(message).split(","));
+        List<String> carNames = Arrays.asList(UserInputReceiver.messageToUser(message).split(","));
         return CarFactory.createByNames(carNames);
     }
 
     private static int turnCountByInput() {
         String message = "시도할 회수는 몇회인가요?";
-        String turnCount = UserInputReciver.messageToUser(message);
+        String turnCount = UserInputReceiver.messageToUser(message);
         try {
             return Integer.parseInt(turnCount);
         } catch(Exception e) {
