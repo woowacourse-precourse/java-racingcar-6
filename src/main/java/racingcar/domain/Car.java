@@ -27,8 +27,8 @@ public class Car {
         return "-".repeat(position);
     }
 
-    public boolean isEqual(int winnerPosition) {
-        return this.position == winnerPosition;
+    public boolean isEqual(int position) {
+        return this.position == position;
     }
 
     @Override

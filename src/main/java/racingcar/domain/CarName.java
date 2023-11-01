@@ -13,6 +13,7 @@ public class CarName {
     public static CarName of(String name) {
         validateEmpty(name);
         validateLength(name);
+
         return new CarName(name);
     }
 

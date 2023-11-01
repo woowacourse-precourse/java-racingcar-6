@@ -6,8 +6,8 @@ public enum GameConstants {
     LAST_ROUND(0),
     MAX_CAR_NAME_LENGTH(5),
     MIN_ROUND(1),
-    MIN_NUMBER(0),
-    MAX_NUMBER(9);
+    MIN_RANDOM_NUMBER(0),
+    MAX_RANDOM_NUMBER(9);
 
     private final int value;
 
