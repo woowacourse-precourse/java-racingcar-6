@@ -1,18 +1,16 @@
 package racingcar.mock;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import racingcar.io.writer.Writer;
 
 public class MockWriter implements Writer {
-    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+    private String output;
 
     @Override
     public void writeLine(String message) {
-        new PrintStream(output).println(message);
+        output = message + "\n";
     }
 
     public String getOutput() {
-        return output.toString();
+        return output;
     }
 }
