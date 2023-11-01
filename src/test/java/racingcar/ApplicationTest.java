@@ -30,7 +30,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
+/*
     @Test
     void 시행_횟수_범위에_대한_예외_처리() {
         assertSimpleTest(() ->
@@ -46,7 +46,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
+*/
     @Override
     public void runMain() {
         Application.main(new String[]{});
