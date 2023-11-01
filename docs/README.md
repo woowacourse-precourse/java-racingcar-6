@@ -7,12 +7,19 @@
 - [ ] 자동차 이름을 입력받는다. - UserInputHandler#inputNames()
   - [ ] 문자열을 쉼표(,)로 구분해 문자열 리스트로 얻을 수 있다. - UserInputHandler#makeSeparationNames()
 - [ ] 문자열 리스트 만큼 자동차를 만들 수 있다. - Game#createCars()
-- [ ] 사용자가 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨다. 
-  - [ ] 이름이 5자가 넘으면 프로그램 종료 - ExceptionInput#checkNameLength()   
 <br>
 
 - [ ] 레이싱 시도 횟수를 입력받는다. - UserInputHandler#InputRacingNumber()
   - [ ] 주어진 횟수로 경주(게임)를 진행 횟수를 변경한다.
+<br>
+
+- [ ] 사용자가 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨다. 
+  - [ ] 이름 입력에 관한 오류 - ExceptionInput#checkNameLength()
+    - [ ] 이름이 5자가 넘으면 프로그램 종료 
+    - [ ] 이름입력 끝이 쉼표(,)일 경우 프로그램 종료
+    - [ ] 이름입력 중간에 쉼표(,)가 연속 입력될 경우 프로그램 종료
+  - [ ] 레이싱 시도 횟수에 관한 오류
+    - [ ] 0 이하 수 입력 시 프로그램 입력 - ExceptionInput#checkRacingNumber()
 <br>
 
 ### 게임 진행
