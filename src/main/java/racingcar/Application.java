@@ -1,15 +1,13 @@
 package racingcar;
 
-import java.util.Scanner;
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = scanner.nextLine();
+        String input = Console.readLine();
         input = input.trim();
 
         String[] carNames = input.split(",");
@@ -21,7 +19,7 @@ public class Application {
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int raceCount = scanner.nextInt();
+        int raceCount = Integer.parseInt(Console.readLine());
 
         if (raceCount <= 0) {
             throw new IllegalArgumentException("횟수는 양수여야 합니다.");
@@ -73,7 +71,7 @@ public class Application {
             }
         }
 
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
 
         boolean flag = false;
 
