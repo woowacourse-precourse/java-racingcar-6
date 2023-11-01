@@ -71,7 +71,7 @@ public class RaceTest {
         int lineCount = contents.length;
 
         assertThat(lineCount)
-                .isEqualTo(CAR_COUNT * ROUND_COUNT);
+                .isEqualTo((CAR_COUNT + 1) * ROUND_COUNT - 1);
     }
 
     @Test

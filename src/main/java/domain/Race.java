@@ -23,6 +23,7 @@ public class Race {
     public void repeatRound(int attempt) {
         for (int i = 0; i < attempt; i++) {
             startRound();
+            System.out.println();
         }
     }
 
@@ -30,9 +31,9 @@ public class Race {
         ArrayList<Car> result = new ArrayList<Car>();
         Car maxDistanceCar = getMaxDistanceCar(carList);
 
-        for (int i = 0; i < carList.size(); i++) {
-            if (carList.get(i) == maxDistanceCar)
-                result.add(carList.get(i));
+        for (Car car : carList) {
+            if (car.equals(maxDistanceCar))
+                result.add(car);
         }
 
         return result;
