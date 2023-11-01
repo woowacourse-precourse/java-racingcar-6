@@ -18,4 +18,8 @@ public class Car {
     public String getMyName() {
         return name.toString();
     }
+
+    public boolean isNamesake(Car car) {
+        return this.name.equals(car.name);
+    }
 }
