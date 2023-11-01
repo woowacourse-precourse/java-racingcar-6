@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.CarDto;
 import racingcar.model.Cars;
 import racingcar.model.RandomGenerator;
 import racingcar.model.TryCount;
@@ -10,10 +11,10 @@ import racingcar.view.OutputView;
 
 public class CarController {
 
-    private Cars cars;
-    private TryCount tryCount;
     private final InputView inputView;
     private final OutputView outputView;
+    private Cars cars;
+    private TryCount tryCount;
 
     public CarController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -21,36 +22,66 @@ public class CarController {
     }
 
     public void play() {
-        cars = new Cars(inputView.getPlayerNamesInput());
-        inputTryCount();
-        race();
-        terminate();
-    }
-    private void inputTryCount() {
-            tryCount = new TryCount(inputView.inputTryCount());
-            if (tryCount.isNotValid()) {
-                inputTryCount();
-            }
-    }
-    private void race() {
-        outputView.printStartMessage();
-        raceRecursive(0);
+        initializeGame();
+        startRace();
+        endRace();
     }
 
-    private void raceRecursive(int nowTryCnt) {
-        if (!tryCount.isNotSame(nowTryCnt)) {
+    private void initializeGame() {
+        inputCarNames();
+        inputTryCount();
+    }
+
+    private void inputCarNames() {
+        cars = new Cars(inputView.getPlayerNamesInput());
+    }
+
+    private void inputTryCount() {
+        tryCount = new TryCount(inputView.inputTryCount());
+        if (tryCount.isNotValid()) {
+            inputTryCount();
+        }
+    }
+
+    private void startRace() {
+        outputView.printStartMessage();
+        executeRounds(0);
+    }
+
+    private void executeRounds(int currentRound) {
+        if (tryCount.isNotSame(currentRound)) {
             return;
         }
-
-        cars.moveAll();
-        for (Car car : cars.getCars()) {
-            outputView.printCarStatus(car);
-        }
-        raceRecursive(nowTryCnt + 1);
+        executeSingleRound();
+        executeRounds(currentRound + 1);
     }
-    private void terminate() {
-        cars.getCars().forEach(outputView::printCarStatus);
+
+    private void executeSingleRound() {
+        cars.moveAll();
+        printCarStatuses();
+    }
+
+    private void printCarStatuses() {
+        cars.getCars().forEach(this::printCarStatus);
+    }
+
+    private void printCarStatus(Car car) {
+        CarDto carDto = CarDto.convertToDto(car);
+        outputView.printCarStatus(carDto);
+    }
+
+    private void endRace() {
+        printFinalCarStatuses();
+        printWinners();
+    }
+
+    private void printFinalCarStatuses() {
+        cars.getCars().stream()
+                .map(CarDto::convertToDto)
+                .forEach(outputView::printCarStatus);
+    }
+
+    private void printWinners() {
         outputView.printWinners(cars.getWinners().getWinnerNames());
     }
-
 }
