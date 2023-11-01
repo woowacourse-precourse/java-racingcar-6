@@ -36,12 +36,17 @@
 |play| 모든 자동차 객체에 대해 playGame을 호출한다.|
 
 ### GameService
-|   Method   | Description                                             |
-|:----------:|---------------------------------------------------------|
-| createCars | 넘겨받은 carNames의 각 원소를 save에 인자로 넘겨 호출한다.                 | 
-| nameCheck  | 넘겨받은 carNames의 각 원소가 5자 이하인 지 검사한다.                     |
-|  playGame  | 넘겨받은 idx에 해당하는 car 객체에 대해 carForward를 호출하고 반환값을 다시 반환한다 |
-| resultGame | findAllMaxForward를 호출하고 그 반환값을 다시 반환한다.                 |
+|        Method         | Description                                               |
+|:---------------------:|-----------------------------------------------------------|
+|      createCars       | 넘겨받은 carNames의 각 원소를 save에 인자로 넘겨 호출한다.                   | 
+|       nameCheck       | 넘겨받은 carNames의 각 원소가 5자 이하인 지 검사한다.                       |
+|       playGame        | 넘겨받은 idx에 해당하는 car 객체에 대해 carForward를 호출하고 반환값을 다시 반환한다   |
+|      resultGame       | findAllMaxForward를 호출하고 그 반환값을 다시 반환한다.                   |
+|    emptyNameCheck     | 넘겨받은 시도 회수가 빈 문자열이면 IllegalArgumentException을 throw한다     |
+|       parseName       | 넘겨받은 string을 ,를 기준으로 parsing해 List<String>에 저장해 반환한다.     |
+|   attemptValidCheck   | numericAttemptCheck와 negativeAttemptCheck를 호출합니다          |
+|  numericAttemptCheck  | 넘겨받은 값이 숫자인 지 확인하고 아니라면 IllegalArgumentException을 throw한다 |
+| negativeAttemptCheck  | 넘겨받은 값이 음수인 지 확인하고 아니라면 IllegalArgumentException을 throw한다   |
 
 ### Car
 |   Method   | Description                      |
