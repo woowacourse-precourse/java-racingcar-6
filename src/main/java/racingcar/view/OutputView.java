@@ -15,11 +15,10 @@ public class OutputView {
             System.out.print(car.getName() + " : ");
             printCarPosition(car);
         }
-
+        System.out.println();
     }
 
     public static void printCarPosition(Car car) {
-        System.out.println("car name&position : " + car.getName() + car.getPosition());
         for (int i = 0; i < car.getPosition(); i++) {
             System.out.print("-");
         }

@@ -23,6 +23,7 @@ public class GameService {
 
     public void playSingleRoundGame() {
         moveCarsByRandomNumber();
+        addCurrentAttempt();
     }
 
     public void printCurrentGameResult() {
