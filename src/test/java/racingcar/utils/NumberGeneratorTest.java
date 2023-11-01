@@ -1,4 +1,4 @@
-package study.utils;
+package racingcar.utils;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
