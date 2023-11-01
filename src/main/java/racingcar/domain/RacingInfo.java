@@ -32,7 +32,7 @@ public class RacingInfo {
         }
 
         if (!validateCarName(carNames)) {
-            throw new IllegalArgumentException("중복되지 않는 자동차 이름을 입력해주세요.");
+            throw new IllegalArgumentException("중복되지 않는 5자 이하의 자동차 이름을 입력해주세요.");
         }
     }
 
