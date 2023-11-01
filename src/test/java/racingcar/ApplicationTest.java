@@ -31,6 +31,13 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_리스트_입력받은_문자열에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("one two three four", "3"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
