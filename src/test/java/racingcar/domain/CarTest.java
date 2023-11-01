@@ -29,4 +29,13 @@ public class CarTest {
 
         assertThat(car.getName()).isEqualTo(input);
     }
+
+    @Test
+    @DisplayName("성공 : 차량객체_이동여부_확인")
+    public void 차량객체_이동여부_확인() {
+        String input = "test";
+
+        final Car car = new Car(input);
+        assertThat(car.run()).isEqualTo(car.getScore());
+    }
 }
