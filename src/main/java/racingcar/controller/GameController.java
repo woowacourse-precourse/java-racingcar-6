@@ -19,7 +19,10 @@ public class GameController {
         String carNames = view.readCarNames();
         InputValidator.validateInputFormat(carNames);
 
-        List<Car> cars = createCars(Arrays.asList(carNames.split(",")));
+        List<String> carNameList = Arrays.asList(carNames.split(","));
+        InputValidator.validateDuplicateCarNames(carNameList);
+
+        List<Car> cars = createCars(carNameList);
         Race race = new Race(cars);
 
         int movement = view.readMovement();
