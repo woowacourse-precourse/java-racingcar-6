@@ -13,9 +13,11 @@ public class CarNamesInputTest {
 	void splitByCommaToList_메서드로_이름은_쉼표로_구분한다() {
 		//given
 		String names = "pobi,crong";
+
 		// when
 		CarNamesInput carNamesInput = new CarNamesInput(names);
 		List<String> nameList = carNamesInput.splitByCommaToList(names);
+
 		//then
 		Assertions.assertThat(nameList).containsExactly("pobi", "crong");
 	}
@@ -34,6 +36,7 @@ public class CarNamesInputTest {
 	public void validateNameBlank_매서드로_이름이_공백이면_예외_발생() {
 		//given
 		String name = " ";
+
 		// when & then
 		Assertions.assertThatThrownBy(() -> validatedCarNamesInput.validateNameBlank(name))
 				.isInstanceOf(IllegalArgumentException.class);
@@ -43,6 +46,7 @@ public class CarNamesInputTest {
 	void validateNameEmpty_메서드로_이름이_빈_값이면_예외_발생() {
 		//given
 		String name = "";
+
 		// when & then
 		Assertions.assertThatThrownBy(() -> validatedCarNamesInput.validateNameEmpty(name))
 				.isInstanceOf(IllegalArgumentException.class);
@@ -63,8 +67,11 @@ public class CarNamesInputTest {
 		//given
 		String name = " asdf ";
 		CarNamesInput carNamesInput = new CarNamesInput("abc");
-		// when & then
+
+		// when
 		String trimmedName = carNamesInput.trimName(name);
+
+		// then
 		Assertions.assertThat(trimmedName).isEqualTo("asdf");
 	}
 }
