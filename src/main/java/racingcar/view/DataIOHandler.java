@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.game.CarList;
 
 /**
  * 입출력을 담당하는 클래스

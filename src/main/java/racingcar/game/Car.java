@@ -43,8 +43,6 @@ public class Car {
 
     @Override
     public String toString() {
-        String result = this.name + " : " + "-".repeat(this.distance);
-
-        return result.trim();
+        return this.name + " : " + "-".repeat(this.distance);
     }
 }
