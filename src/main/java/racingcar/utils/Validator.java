@@ -19,9 +19,15 @@ public class Validator {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
 
-        if (Integer.parseInt(attempt_count) < MIN_ATTEMPT_COUNT) {
-            throw new IllegalArgumentException("양수를 입력하세요.");
+        try {
+            if (Integer.parseInt(attempt_count) < MIN_ATTEMPT_COUNT) {
+                throw new IllegalArgumentException("양수를 입력하세요.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("문자가 아닌 숫자를 입력해주세요.");
         }
+
+
     }
 
 }
