@@ -8,10 +8,8 @@ import racingcar.generator.WinArrayGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.entity.Participantes.InputParticipantes;
-import static racingcar.entity.Winner.InputWinner;
+import static racingcar.entity.Participantes.inputParticipantes;
 import static racingcar.generator.DashStringGenerator.DashStringGenerator;
-import static racingcar.generator.WinArrayGenerator.win;
 
 
 public class Application {
@@ -20,7 +18,7 @@ public class Application {
 
         // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> participantes=InputParticipantes();
+        List<String> participantes=inputParticipantes();
         GameController gameController=new GameController();
         MaxController maxController=new MaxController();
         List<Integer> index = new ArrayList<Integer>();

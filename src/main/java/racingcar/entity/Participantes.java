@@ -8,7 +8,7 @@ import java.util.List;
 import static racingcar.exception.LengthException.validateLength;
 
 public class Participantes {
-    public static List<String> InputParticipantes(){
+    public static List<String> inputParticipantes(){
         String str = Read.input();
         List<String> participantes = new ArrayList<String>();
         String[] splitstr = str.split(",");

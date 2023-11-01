@@ -1,12 +1,7 @@
 package racingcar.entity;
 
-
-import racingcar.generator.ListLengthGenerator;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static racingcar.entity.Participantes.InputParticipantes;
 
 public class GameCount {
     public List<String> participantes;
@@ -17,14 +12,14 @@ public class GameCount {
         this.participantes = new ArrayList<>(participantes);
     }
 
-    public void MakeWinCountList() {
+    public void makeWinCountList() {
         for (int i = 0; i < participantes.size(); i++) {
             wincount.add(0);
         }
     }
 
     public List<Integer> getWincount() {
-        MakeWinCountList();
+        makeWinCountList();
         return wincount;
     }
 }
