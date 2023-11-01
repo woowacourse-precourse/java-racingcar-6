@@ -3,6 +3,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -26,14 +27,14 @@ class CarTest {
 
     @Test
     @DisplayName("자동차 이름이 공백이면 예외를 던진다.")
-    void exception_if_car_name_is_empty(){
+    void exception_if_car_name_is_empty() {
         assertThatThrownBy(() -> new Car(" "))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("자동차 이름이 null이면 예외를 던진다.")
-    void exception_if_car_name_is_null(){
+    void exception_if_car_name_is_null() {
         assertThatThrownBy(() -> new Car(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
@@ -47,7 +48,7 @@ class CarTest {
 
     @Test
     @DisplayName("자동차가 움직일 수 있다.")
-    void car_can_move(){
+    void car_can_move() {
         Car car = new Car("pobi");
         car.move();
         assertThat(car.getPosition()).isEqualTo(1);
