@@ -30,7 +30,7 @@ public class Racing {
         if (isFinished()) {
             throw new IllegalRacingStatusException();
         }
-        cars.forEach(car -> car.randomGoForward());
+        cars.forEach(car -> car.tryMove());
         currentTryCount++;
     }
 
