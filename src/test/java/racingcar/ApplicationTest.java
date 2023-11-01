@@ -35,6 +35,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    /* 예외 처리 테스트 */
     @Test
     void 이름이_입력되지_않을때() {
         assertSimpleTest(() ->
@@ -72,7 +73,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도횟수로_0이_입력되었을_때() {
+    void 시행횟수로_0이_입력되었을때() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -81,7 +82,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도횟수로_음수가_입력되었을_때() {
+    void 시행횟수로_음수가_입력되었을때() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
