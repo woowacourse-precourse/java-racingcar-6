@@ -11,6 +11,7 @@ public class PlayCars {
     private List<String> cars;
     private Map<String, Integer> carToDistance;
     private int numberOfTry;
+    private List<String> winners;
 
     public PlayCars(Scanner scanner) {
         this.scanner = scanner;
@@ -56,5 +57,17 @@ public class PlayCars {
             System.out.printf("%s : %s%n", car, "-".repeat(carToDistance.get(car)));
         }
         System.out.println();
+    }
+
+    public void getWinner() {
+        int maxOfDistance = carToDistance.values().stream().mapToInt(i -> i).max().orElseThrow(() -> new IllegalArgumentException("문제가 발생했습니다."));
+
+        for (String car : cars) {
+            if (carToDistance.get(car) == maxOfDistance) {
+                this.winners.add(car);
+            }
+        }
+        System.out.printf("최종 우승자 : %s", String.join(", ", winners));
+
     }
 }
