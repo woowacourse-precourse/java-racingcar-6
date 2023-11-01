@@ -16,13 +16,13 @@ public class Referee {
         int furthestDistance = getFurthestDistance(cars);
         return cars.stream()
                 .filter(car -> car.getDistance() == furthestDistance)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public List<String> getFurthestCarNames(List<Car> cars) {
         List<Car> furthestCars = getFurthestCar(cars);
         return furthestCars.stream()
                 .map(Car::getName)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
