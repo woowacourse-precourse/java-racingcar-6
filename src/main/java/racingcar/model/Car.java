@@ -11,7 +11,7 @@ public class Car {
     public static final int NAME_MAX_LENGTH = 5;
     public static final int NAME_MIN_LENGTH = 1;
     public static final String LOCATION = "-";
-    private String name;
+    private final String name;
     private int location = 0;
 
     public Car(String name) {

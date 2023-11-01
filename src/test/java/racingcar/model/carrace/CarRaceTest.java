@@ -4,8 +4,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
@@ -48,8 +46,8 @@ public class CarRaceTest {
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        carRace.runRaceWithIteration(cars, THREE_TIMES);
-                        List<Car> winners = carRace.getWinner(cars);
+                        carRace.runRaceWithIteration(THREE_TIMES);
+                        List<Car> winners = carRace.getWinner();
                         assertThat(winners.size()).isEqualTo(1);
                         assertThat(winners.get(0).getName()).isEqualTo("pobi");
                     },
@@ -70,8 +68,8 @@ public class CarRaceTest {
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        carRace.runRaceWithIteration(cars, THREE_TIMES);
-                        List<Car> winners = carRace.getWinner(cars);
+                        carRace.runRaceWithIteration(THREE_TIMES);
+                        List<Car> winners = carRace.getWinner();
                         assertThat(winners.size()).isEqualTo(2);
                         assertThat(winners.containsAll(predictedWinners)).isTrue();
                     },
@@ -107,7 +105,7 @@ public class CarRaceTest {
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        carRace.runRace(cars);
+                        carRace.runRace();
                         Car pobi = cars.get(0);
                         Car woni = cars.get(1);
                         Car java = cars.get(2);
@@ -130,7 +128,7 @@ public class CarRaceTest {
 
             assertRandomNumberInRangeTest(
                     () -> {
-                        carRace.runRaceWithIteration(cars, THREE_TIMES);
+                        carRace.runRaceWithIteration(THREE_TIMES);
                         Car pobi = cars.get(0);
                         Car woni = cars.get(1);
                         Car java = cars.get(2);

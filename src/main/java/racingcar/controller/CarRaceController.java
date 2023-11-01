@@ -17,12 +17,12 @@ public class CarRaceController {
 
         int iteration = inputView.readNumberInput();
         CarRace carRace = new CarRace(cars, iteration);
-        for (int i = 0; i < iteration; i++) {
-            carRace.runRace(cars);
+        for (int i = 0; i < carRace.getIteration(); i++) {
+            carRace.runRace();
             outputView.displayPerRace(cars);
         }
 
-        List<Car> winners = carRace.getWinner(cars);
+        List<Car> winners = carRace.getWinner();
         outputView.displayResults(winners);
     }
 }
