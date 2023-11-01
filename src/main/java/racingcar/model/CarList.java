@@ -37,11 +37,11 @@ public class CarList {
     public void doRound(NumberGenerator numberGenerator) {
         for (Car car : cars) {
             int number = numberGenerator.generateRandomNumber();
-            moveCarWhenNumberFourOrAbove(numberGenerator, car, number);
+            moveCarWhenNumberFourOrAbove(car, number);
         }
     }
 
-    private void moveCarWhenNumberFourOrAbove(NumberGenerator numberGenerator, Car car, int number) {
+    private void moveCarWhenNumberFourOrAbove(Car car, int number) {
         if (isNumberFourOrAbove(number)) {
             car.move();
         }
