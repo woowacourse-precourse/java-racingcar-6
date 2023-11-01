@@ -6,6 +6,15 @@ import org.junit.jupiter.api.Test;
 class PreprocessorTest {
 
     @Test
+    void 자동차_이름_저장_테스트() {
+        String[] carNames = Preprocessor.processCarNames("pobi,woni".split(","));
+        Assertions.assertThat(carNames).containsExactly("pobi", "woni");
+
+        String[] noName = Preprocessor.processCarNames(new String[]{" "});
+        Assertions.assertThat(noName).containsExactly("null");
+    }
+
+    @Test
     void 자동차_이름_길이_테스트() {
 
         Preprocessor.checkCarNamesLength("pobi,woni".split(","));
