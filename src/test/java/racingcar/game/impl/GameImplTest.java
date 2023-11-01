@@ -31,6 +31,5 @@ class GameImplTest {
                 List.of(ne, na), 3
         );
         game.play();
-        game.end();
     }
 }

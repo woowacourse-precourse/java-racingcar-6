@@ -35,10 +35,9 @@ public class GameImpl implements Game {
         this.cars = this.cars.stream()
                 .sorted(Comparator.comparingInt(Car::getMovedDistance))
                 .collect(Collectors.toList());
+        end();
     }
-
-    @Override
-    public void end() {
+    private void end() {
         int criteria = this.cars.get(0).getMovedDistance();
         int length = this.cars.size();
         System.out.print("최종우승자 : " + cars.get(0).getName());
