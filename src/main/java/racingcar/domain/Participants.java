@@ -8,6 +8,7 @@ import racingcar.exception.DomainExceptionCode;
 import racingcar.strategy.RacingCarMoveStrategy;
 
 public class Participants {
+    
     private final List<Car> cars;
 
     private Participants(List<Car> cars) {

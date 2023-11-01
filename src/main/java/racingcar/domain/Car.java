@@ -22,7 +22,7 @@ public class Car {
         if (racingCarMoveStrategy.isMovable()) {
             return new Car(name, lap.nextLap());
         }
-        return new Car(name, lap);
+        return this;
     }
 
     public String getName() {
