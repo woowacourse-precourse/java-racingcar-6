@@ -94,7 +94,7 @@ public class RacingCarGame {
      * @param carNames 참가하는 자동차들의 이름 리스트
      * @return 최종 우승자의 이름 리스트
      */
-    private static List<String> findWinners(List<String> carStatus, List<String> carNames) {
+    public static List<String> findWinners(List<String> carStatus, List<String> carNames) {
         int maxDistance = 0;
         List<String> winners = new ArrayList<>();
 
