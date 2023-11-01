@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarInput {
     public List<String> getCarNames() {
@@ -12,7 +13,9 @@ public class CarInput {
         String input = Console.readLine();
 
         // 입력 받은 문자열을 쉽표로 나누어 리스트로 반환
-        List<String> carNames = Arrays.asList(input.split(","));
+        List<String> carNames = Arrays.stream(input.split(","))
+                                      .map(String::trim) // 각 요소의 양쪽 공백을 제거
+                                      .collect(Collectors.toList());
         
         return carNames;
     }
