@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,16 @@ public class GameService {
             int number = generateRandomNumber();
             forwardOrStopAccordingToNumber(number, name, distance);
         });
+    }
+
+    public void calculateWinnerCar(Car car) {
+        List<String> names = car.getNames();
+        Map<String, Integer> distance = car.getDistance();
+        Integer maxDistance = Collections.max(distance.values());
+        List<String> winners = names.stream()
+                .filter(name -> distance.get(name) >= maxDistance)
+                .toList();
+        car.setWinners(winners);
     }
 
     private int generateRandomNumber() {
