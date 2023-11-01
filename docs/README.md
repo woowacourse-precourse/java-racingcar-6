@@ -29,27 +29,13 @@
         -> 5글자 넘으면 에러 (생성자)
         
 ----
-## 사용자 클래스
-
-
-   ## 필드
-      * id (int): 사용자 아이디
-      * cars (List<Car>): 사용자의 자동차 목록들
-
-   ## 생성자
-      * 생성 ex) new User(1);
-
-## 메서드
-       * getId(): 사용자의 아이디를 반환한다
-       * addCar(Car car): 사용자의 자동차 목록에 자동차를 추가한다.
-       * getCars() (return List<car>): 사용자의 자동차 목록을 반환한다.
 ---
 ## 게임 클래스
 
 * 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
 
   ## 필드
-      * user (User) : 유저목록
+      * cars (List<Car>) : 자동차 목록
       * rounds (int) : 라운드 수 (IllegalArgumentException)
 
   ## 생성자
