@@ -38,7 +38,7 @@ class CarTest {
 
         // String의 길이가 <=5이면 true, 아니면 false
     @Test
-    void isLengthFive() {
+    void isCarNameLengthFive() {
         String carName = "1231";
         boolean expected = (carName.length() <= 5);
         assertThat(false).isEqualTo(expected);
