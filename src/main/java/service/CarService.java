@@ -42,6 +42,9 @@ public class CarService {
     public List<Car> getWinner(){
         return carRepository.getWinner();
     }
+    public void updateWinner(){
+        carRepository.updateWinner();
+    }
 
     public void repositoryClear(){
         carRepository.clear();

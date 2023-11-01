@@ -27,17 +27,19 @@ public class CarRepository {
         if(move == Move.STOP)
             return;
         carList.get(carIndex).moveForward();
-        updateWinner(carList.get(carIndex));
+
     }
-    public void updateWinner(Car car){
-        if(winner.isEmpty())
-            winner.add(car);
-        else if(winner.get(0).getForward() == car.getForward()){
-            winner.add(car);
-        }
-        else if(winner.get(0).getForward() < car.getForward()) {
-            winner.clear();
-            winner.add(car);
+    public void updateWinner(){
+        for(Car car : carList){
+            if(winner.isEmpty())
+                winner.add(car);
+            else if(car.getForward() == winner.get(0).getForward()){
+                winner.add(car);
+            }
+            else if(car.getForward() > winner.get(0).getForward()){
+                winner.clear();
+                winner.add(car);
+            }
         }
     }
     public List<Car> getWinner(){
