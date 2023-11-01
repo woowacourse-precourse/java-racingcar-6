@@ -17,4 +17,10 @@ public class InputValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> InputValidator.includeNumberOrSymbol("123"));
         InputValidator.includeNumberOrSymbol("pobi, woni");
     }
+
+    @Test
+    public void 공백이_포함된_경우() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.includeSpace("pobi, woni"));
+        InputValidator.includeSpace("pobi,woni");
+    }
 }
