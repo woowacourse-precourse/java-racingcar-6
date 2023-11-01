@@ -18,23 +18,18 @@ public class GameController {
     }
 
     public void startGame() {
+        initializeGame();
+        playGame();
+        determineWinners();
+    }
+
+    private void initializeGame() {
         String[] carNames = inputView.readCarNames();
         int attemptCount = inputView.readAttemptCount();
         this.gameService = GameService.startGame(carNames, attemptCount);
-
-        attempt();
-
-        Winners winners = gameService.findWinners();
-        outputView.printWinners(getWinnersName(winners));
     }
 
-    private List<String> getWinnersName(Winners winners) {
-        return winners.getWinners().stream()
-                .map(Car::getName)
-                .toList();
-    }
-
-    private void attempt() {
+    private void playGame() {
         outputView.printGameResultMessage();
 
         while (gameService.isGameEnd()) {
@@ -46,5 +41,16 @@ public class GameController {
 
     private void printAttemptResult(Car car) {
         outputView.printCarNameAndPosition(car.getName(), car.getPosition());
+    }
+
+    private void determineWinners() {
+        Winners winners = gameService.findWinners();
+        outputView.printWinners(getWinnersName(winners));
+    }
+
+    private List<String> getWinnersName(Winners winners) {
+        return winners.getWinners().stream()
+                .map(Car::getName)
+                .toList();
     }
 }
