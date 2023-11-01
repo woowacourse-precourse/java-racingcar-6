@@ -22,7 +22,7 @@ public class CarsController implements CarsCreator {
     }
 
     private List<String> splitInputNames(String inputName) {
-        List<String> carNames =  Arrays.asList(inputName.split(SEPARATOR));
+        List<String> carNames = Arrays.asList(inputName.split(SEPARATOR));
         checkCarNamesIsEmpty(carNames);
         return carNames;
     }

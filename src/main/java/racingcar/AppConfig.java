@@ -14,6 +14,7 @@ public class AppConfig {
     private static CarsCreator carsCreator() {
         return new CarsController();
     }
+
     private static RepeatNumCreator repeatNumCreator() {
         return new RepeatController();
     }

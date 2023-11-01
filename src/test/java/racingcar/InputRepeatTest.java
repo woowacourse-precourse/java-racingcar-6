@@ -3,8 +3,6 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RepeatController;
 import racingcar.controller.RepeatNumCreator;
@@ -19,6 +17,7 @@ public class InputRepeatTest {
         int expected = 4;
         assertThat(repeatNum).isEqualTo(expected);
     }
+
     @Test
     void setRepeatNum_에러() {
         assertThatThrownBy(() -> repeatNumCreator.createRepeatNum("abc"))

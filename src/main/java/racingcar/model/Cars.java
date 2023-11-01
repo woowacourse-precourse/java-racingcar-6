@@ -18,6 +18,7 @@ public class Cars {
                 .filter(this::isMoving)
                 .forEach(car -> car.moveCount++);
     }
+
     private boolean isMoving(Car car) {
         return Randoms.pickNumberInRange(0, 9) >= MOVING_NUM;
     }
@@ -33,6 +34,7 @@ public class Cars {
                 .map(car -> car.name)
                 .toList();
     }
+
     private int getMaxMoveCount() {
         Optional<Integer> maxMoveCount = cars.stream()
                 .map(car -> car.moveCount)

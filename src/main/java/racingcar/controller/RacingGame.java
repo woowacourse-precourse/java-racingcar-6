@@ -15,11 +15,12 @@ public class RacingGame {
         this.carsCreator = carsCreator;
         this.repeatNumCreator = repeatNumCreator;
     }
+
     public void playRacingGame() {
         initRacingGameInput();
 
         OutputView.printResult();
-        while(repeatNum > 0) {
+        while (repeatNum > 0) {
             raceCars();
             repeatNum--;
         }
@@ -41,9 +42,11 @@ public class RacingGame {
         initCars(InputView.inputName());
         initRepeat(InputView.inputRepeat());
     }
+
     private void initCars(String inputName) {
         this.cars = carsCreator.createCars(inputName);
     }
+
     private void initRepeat(String inputRepeat) {
         this.repeatNum = repeatNumCreator.createRepeatNum(inputRepeat);
     }

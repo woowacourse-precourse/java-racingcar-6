@@ -27,7 +27,7 @@ public class InputNameTest {
 
     @Test
     void inputName_5자_초과_에러() {
-        assertThatThrownBy(() -> carsCreator.createCars( "a,abcdefg"))
+        assertThatThrownBy(() -> carsCreator.createCars("a,abcdefg"))
                 .isInstanceOf(IllegalArgumentException.class);
 
         assertThatThrownBy(() -> carsCreator.createCars("abcdefg"))

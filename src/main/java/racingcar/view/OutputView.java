@@ -8,15 +8,16 @@ public class OutputView {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String MOVE_MESSAGE = "-";
 
-    private OutputView() {}
+    private OutputView() {
+    }
 
     public static void printResult() {
         System.out.println(RESULT_MESSAGE);
     }
 
     public static void printRace(Car car) {
-        System.out.print(car.name + " : " );
-        for(int i = 0; i < car.moveCount; i++) {
+        System.out.print(car.name + " : ");
+        for (int i = 0; i < car.moveCount; i++) {
             System.out.print(MOVE_MESSAGE);
         }
         printNewLine();

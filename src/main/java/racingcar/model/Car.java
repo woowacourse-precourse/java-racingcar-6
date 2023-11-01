@@ -16,12 +16,14 @@ public class Car {
     }
 
     private static void checkNameLength(String name) {
-        if (name.length() > NAME_LENGTH)
+        if (name.length() > NAME_LENGTH) {
             throw new IllegalArgumentException("유효하지 않은 입력입니다.");
+        }
     }
 
     private static void checkNameIsEmpty(String name) {
-        if (name.isEmpty())
+        if (name.isEmpty()) {
             throw new IllegalArgumentException("유효하지 않은 입력입니다.");
+        }
     }
 }
