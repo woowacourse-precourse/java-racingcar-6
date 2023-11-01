@@ -71,4 +71,17 @@ public class ExceptionTest {
             exception.validateDuplicateCarName(splitCarName2);
         });
     }
+
+    @Test
+    void 시도할_회수_1_이상() {
+        int number1 = 3;
+        Assertions.assertDoesNotThrow(() -> {
+            exception.validateNumber(number1);
+        });
+
+        int number2 = -3;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            exception.validateNumber(number2);
+        });
+    }
 }
