@@ -19,6 +19,11 @@ class NameTest {
 
     @Test
     void 유효하지_않은_문자열로_Name_객체_생성하면_실패() {
+        // 널
+        assertThrows(IllegalArgumentException.class, () -> {
+            Name n1 = new Name(null);
+        });
+
         // 빈 문자열
         assertThrows(IllegalArgumentException.class, () -> {
             Name n1 = new Name("");
