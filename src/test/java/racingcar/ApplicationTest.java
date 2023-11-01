@@ -31,6 +31,53 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_이름_입력_중복_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("king,king,king,King,king"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름_입력_길이초과_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("dokgomay,uncleking"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름_입력_쉼표제외_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("dokgo may cat uncle king"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름_입력_숫자포함_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("dokgo,may,cat1,uncle2,king3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이동_횟수_0_입력_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이동_횟수_문자_입력_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
