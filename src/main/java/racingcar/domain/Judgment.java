@@ -24,6 +24,28 @@ public class Judgment {
 
     }
 
+    public int howManyTimesGameStart(String input) {
+        int howManyMoves;
+        try {
+            howManyMoves = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 횟수는 정수로 입력해주세요.");
+        }
+
+        if (howManyMoves < 1) {
+            throw new IllegalArgumentException("시도할 횟수는 0보다 큰 수를 입력해주세요.");
+        }
+
+        return howManyMoves;
+    }
+
+    public String[] checkCarsName(String names) {
+
+        String[] namelist = names.split(",");
+        checkCarName(List.of(namelist), names);
+        return namelist;
+    }
+
     public void checkCarNameSame(List<String> carNames) {
         Set<String> nameSet = new HashSet<>();
         for (String name : carNames) {
