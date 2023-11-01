@@ -28,17 +28,14 @@ public class GameController {
 
     private void proceedGame() {
         OUTPUT_VIEW.printResultMessage();
-        printRoundResult();
+        for (int i = 0; i < numberOfAttempt; i++) {
+            cars.driveAll();
+            OUTPUT_VIEW.printRoundResult(cars.getRoundResult());
+        }
     }
 
     private void endGame() {
         OUTPUT_VIEW.printWinner(cars.getWinnersName());
     }
 
-    private void printRoundResult() {
-        for (int i = 0; i < numberOfAttempt; i++) {
-            cars.driveAll();
-            OUTPUT_VIEW.printResultRound(cars.getRoundResult());
-        }
-    }
 }

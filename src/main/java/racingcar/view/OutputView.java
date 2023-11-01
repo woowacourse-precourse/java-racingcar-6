@@ -15,14 +15,13 @@ public class OutputView {
 
     public void printNumberOfAttemptPrompt() {
         System.out.println(NUMBER_OF_ATTEMPT_PROMPT_MESSAGE.get());
-        ;
     }
 
     public void printResultMessage() {
         System.out.println(RUN_RESULT_PRINT_MESSAGE.get());
     }
 
-    public void printResultRound(List<String> result) {
+    public void printRoundResult(List<String> result) {
         result.forEach(System.out::println);
         System.out.println();
     }
