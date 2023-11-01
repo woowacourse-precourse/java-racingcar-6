@@ -20,8 +20,9 @@ public class CarRepository {
 
         result = new ResultDto(client.getTotalRounds());
 
-        cars = new ArrayList<>(carsDto.getNumberOfCars());
-        for (int i = 0; i < carsDto.getNumberOfCars(); i++) {
+        int numberOfCars = carsDto.getNumberOfCars();
+        cars = new ArrayList<>(numberOfCars);
+        for (int i = 0; i < numberOfCars; i++) {
             String singleCarName = carsDto.getSingleCarName(i);
             cars.add(Car.createCar(idProvider, singleCarName));
             idGenerate(); // id는 0부터 1씩 증가한다.
@@ -44,20 +45,14 @@ public class CarRepository {
     }
 
     private List<Car.CarResultDto> generateCarResults() {
-        return cars
-                .stream()
+        return cars.stream()
                 .map(Car::createCarResultDto)
                 .toList();
     }
 
     public ResultDto finishFinalRound() {
         long maxDistance = calculateMaxDistance();
-        cars.stream()
-                .map(Car::createCarResultDto)
-                .filter(carResult ->
-                        carResult.getDistance() == maxDistance)
-                .map(Car.CarResultDto::getName)
-                .forEach(result::addFinalWinner);
+        generateFinalWinners(maxDistance);
         return result;
     }
 
@@ -72,6 +67,14 @@ public class CarRepository {
             }
         }
         return maxDistance;
+    }
+
+    private void generateFinalWinners(long maxDistance) {
+        cars.stream()
+                .map(Car::createCarResultDto)
+                .filter(carResult -> carResult.getDistance() == maxDistance)
+                .map(Car.CarResultDto::getName)
+                .forEach(result::addFinalWinner);
     }
 
     public boolean isFinalRound() {

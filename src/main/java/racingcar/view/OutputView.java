@@ -68,8 +68,7 @@ public class OutputView {
         }
     }
 
-    private static boolean checkNotLastWinner(int finalWinnerNumber, int i) {
-        return i < finalWinnerNumber - 1;
+    private static boolean checkNotLastWinner(int finalWinnerNumber, int index) {
+        return index < finalWinnerNumber - 1;
     }
-
 }

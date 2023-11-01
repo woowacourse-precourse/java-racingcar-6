@@ -8,6 +8,14 @@ import static racingcar.util.Consts.CAR_NAME_SPLITTER;
 
 public class CarNamesValidator extends Validator {
 
+    public static List<String> getValidatedCarNamesList(String inputtedString) {
+        List<String> carNames = validateSplit(inputtedString);
+        for (String carName : carNames) {
+            validateLessThanLength(carName);
+        }
+        return carNames;
+    }
+
     private static List<String> validateSplit(String inputtedCarNames) {
         List<String> resultCarNames = null;
         try {
@@ -45,13 +53,5 @@ public class CarNamesValidator extends Validator {
         if (carName.length() > CAR_NAME_LIMIT) {
             throwIllegalArgumentException(Error.LONG_CAR_NAME_ERROR.getMessage());
         }
-    }
-
-    public static List<String> getValidatedCarNamesList(String inputtedString) {
-        List<String> carNames = validateSplit(inputtedString);
-        for (String carName : carNames) {
-            validateLessThanLength(carName);
-        }
-        return carNames;
     }
 }

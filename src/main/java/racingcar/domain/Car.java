@@ -8,7 +8,7 @@ import java.math.BigInteger;
 import static racingcar.util.Consts.START_INCLUSIVE;
 import static racingcar.util.Consts.END_INCLUSIVE;
 import static racingcar.util.Consts.MOVEMENT_CRITERIA;
-import static racingcar.util.Consts.MOVEMENT_DISTANCE;
+import static racingcar.util.Consts.SINGLE_MOVEMENT_DISTANCE;
 
 public class Car {
     private final BigInteger id;
@@ -29,7 +29,7 @@ public class Car {
     public void raceOneRound() {
         int randomResult = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
         if (randomResult >= MOVEMENT_CRITERIA) {
-            distance = distance.add(BigInteger.valueOf(MOVEMENT_DISTANCE));
+            distance = distance.add(BigInteger.valueOf(SINGLE_MOVEMENT_DISTANCE));
         }
     }
 
