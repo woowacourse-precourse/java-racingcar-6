@@ -25,6 +25,7 @@ public class Game {
 		OutputView.printWinner(racingCars.getCarNames(winners));
 	}
 
+	//사용자의 입력을 RacingCars에 적합하게 반환한다
 	private List<Car> getRacingCars(){
 		String input = InputView.getCarNamesInput();
 		InputValidator.validateCarNamesInput(input);
@@ -36,6 +37,8 @@ public class Game {
 		}
 		return racingCars;
 	}
+
+	//사용자의 입력을 roundCount에 적합하게 변환한다
 	private int getRoundCount(){
 		String input = InputView.getRoundCountInput();
 		InputValidator.validateRoundCountInput(input);

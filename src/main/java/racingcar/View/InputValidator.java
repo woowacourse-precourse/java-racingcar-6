@@ -1,3 +1,4 @@
+//InputValidator.java
 package racingcar.View;
 
 public class InputValidator {

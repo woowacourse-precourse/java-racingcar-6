@@ -1,9 +1,6 @@
 //Car.java
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -14,9 +11,10 @@ public class Car {
 		this.moveCount = 0;
 	}
 
+	//랜덤한 숫자가 4 이상이면 moveCount를 1 증가시킨다
 	public void move(){
 		int randomNumber = makeRandomNumber();
-		if(randomNumber >= 4){
+		if(randomNumber >= Constants.MOVE_STANDARD){
 			++this.moveCount;
 		}
 	}
@@ -25,7 +23,7 @@ public class Car {
 		return this.moveCount > otherCar.getMoveCount();
 	}
 
-	public boolean checkIsSame(Car otherCar){
+	public boolean checkIsEqualSpeed(Car otherCar){
 		return this.moveCount == otherCar.getMoveCount();
 	}
 
