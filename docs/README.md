@@ -52,7 +52,7 @@
 - getRound()
 - getWinner()
 
-RaceGameController클래스
+### RaceGameController클래스
 변수
 view
 
@@ -71,6 +71,16 @@ view
 3. 자동차 이름 중 중복도니 이름이 있는 경우
 - validRoundInput() : 라운드 수 입력값이 정수인지 검증
 
-View클래스
-- getInputString()
-- showOutputString()
+### View클래스
+변수
+PLEASE_INPUT_CARS
+PLEASE_INPUT_ROUND
+RESULT_PREFIX
+WINNER_PREFIX
+
+메서드
+- getInput() : 유저에게서 입력을 받을 때 호출
+- showInputCars() : 자동차 이름 입력 요구 시 호출
+- showInputRound() : 라운드 수 입력 요구 시 호출
+- showResult() : 결과 출력 시 호출
+- showWinner() : 우승자 출력 시 호출
