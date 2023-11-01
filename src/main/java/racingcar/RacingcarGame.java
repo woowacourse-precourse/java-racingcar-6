@@ -9,6 +9,13 @@ public class RacingcarGame {
     private List<String> winners = new ArrayList<>();
     private int tryCount;
 
+    private String[] getCarNames() {
+        String carNamesWithComma = InputOutput.getCarNames();
+        String[] carNames = carNamesWithComma.split(",");
+        Validator.carNames(carNames);
+        return carNames;
+    }
+
     private void getTryCount() {
         String tryCountString = InputOutput.getTryCount();
         tryCount = Validator.tryCountInput(tryCountString);
