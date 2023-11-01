@@ -45,6 +45,7 @@ public class RacingGameController {
         for(int i=0; i<tryCount.getTryCount(); i++){
             racingCars.moveCars();
             OutputView.printCarPositionMessage(racingCars.getRacingCars());
+            System.out.println();
         }
     }
 
