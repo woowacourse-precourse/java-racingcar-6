@@ -1,14 +1,10 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.IoManager;
-import racingcar.firstClassCollection.RoundTryCount;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.IoManager;
+import racingcar.firstClassCollection.RoundTryCount;
 
 public class GameManager {
     CarFactory carFactory;
