@@ -21,16 +21,12 @@ public class GameViewer {
     private String getCarPositionString(int position) {
         String s = "-";
         s = s.repeat(position);
-        
+
         return s;
     }
 
     public void displayGameWinner(String winner) {
-        if (winner.isEmpty()) {
-            // 에러 처리
-        } else {
-            System.out.println("최종 우승자 : " + winner);
-        }
+        System.out.println("최종 우승자 : " + winner);
     }
 
 }
