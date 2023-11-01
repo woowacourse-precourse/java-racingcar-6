@@ -8,6 +8,7 @@ public class Cars {
     public Cars() {
         String carNames = Console.readLine();
         nameLengthError(carNames);
+        emptyError(carNames);
         this.carNames = carNames.split(",");
     }
     public void nameLengthError(String carNames){  //길이가 5글자 이상일 때
@@ -18,5 +19,13 @@ public class Cars {
             }
         }
     }
-    
+
+    public void emptyError(String carNames){ // 공백을 입력했을 때
+        String[] carNameArray = carNames.split(",");
+        for (String oneCarName : carNameArray) {
+            if (oneCarName.trim().isEmpty()) {
+                throw new IllegalArgumentException(ExceptionError.emptyError);
+            }
+        }
+    }
 }
