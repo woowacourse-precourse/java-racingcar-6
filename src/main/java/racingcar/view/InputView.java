@@ -46,4 +46,20 @@ public class InputView {
         }
         return trimmedCarNames;
     }
+    public int inputCounts(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = readLine().trim();
+        int intCounts = stringToInteger(input);
+        validateEqualMoreOne(intCounts);
+        return intCounts;
+    }
+    public int stringToInteger(String str){
+        int intNum = Integer.parseInt(str);
+        return intNum;
+    }
+    public static void validateEqualMoreOne(int num){
+        if( !(num>=1)){
+            throw new IllegalArgumentException("입력값은 1 이상이어야 합니다.");
+        }
+    }
 }
