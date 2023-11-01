@@ -48,6 +48,18 @@ class CarTest {
 
     @Test
     @DisplayName("입력된 자동차 이름을 쉼표(,)를 기준으로 구분")
+    void testSplitWithEmptyInputNames() {
+        String input = "pobi,woni,";
+
+        List<String> expected = List.of("pobi","woni", "");
+
+        assertThatThrownBy(() -> car.splitInputNames(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 빈값이 있습니다.");
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름을 쉼표(,)를 기준으로 구분")
     void testFailSplitInputNames() {
         String input = "pobi,woni,jun";
 
