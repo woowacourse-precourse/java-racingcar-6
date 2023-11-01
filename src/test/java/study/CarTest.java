@@ -9,6 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
 
+@DisplayName("자동차 객체 기능 테스트")
 public class CarTest {
     @DisplayName("실패 : 자동차의 이름의 글자수가 1~5글자를 벗어나는 경우")
     @ParameterizedTest
