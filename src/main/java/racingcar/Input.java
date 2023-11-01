@@ -48,6 +48,7 @@ public class Input {
 
     static String[] getCarName() {
         String carNameInput = "";
+        String[] carNames = {};
         try {
             carNameInput = Console.readLine();
         } catch (NoSuchElementException noSuchElementException) {
@@ -55,7 +56,11 @@ public class Input {
         }
         carNameInput = carNameInput.replaceAll("^,+|,+$", "").replaceAll(",+", ",");
         checkEmptyOrBlankCarNames(carNameInput);
-        String[] carNames = carNameInput.split(",");
+        try {
+            carNames = carNameInput.split(",");
+        } catch (Error OutOfMemoryError){
+            Exception.generateOutOfMemoryError();
+        }
         checkDuplicateCarNames(carNames);
         return (carNames);
         }

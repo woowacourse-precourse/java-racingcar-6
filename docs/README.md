@@ -16,7 +16,7 @@
 #### 3. 중복된 자동차 이름이 없는지 확인하는 기능 [O] [<span style="color:green">TEST_OK</span>]
 #### 4. 시도 횟수가 숫자인지 확인하는 기능 [O] [<span style="color:green">TEST_OK</span>]
 #### 5. 시도 횟수의 범위를 확인하는 기능 [O] [<span style="color:green">TEST_OK</span>]
-#### 6. 너무 많은 자동차가 배열에 할당되어 메모리가 부족했을 떄의 예외처리 []
+#### 6. 너무 많은 자동차가 배열에 할당되어 메모리가 부족했을 떄의 예외처리 [O]
 ### 핵심 기능
 #### 1. 자동차 객체를 만드는 기능 [O] [<span style="color:green">TEST_OK</span>]
 #### 2. 랜덤 수 생성 기능 [O] [<span style="color:green">TEST_OK</span>]
