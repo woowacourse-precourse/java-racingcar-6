@@ -10,4 +10,8 @@ public class InputView {
     public String[] carNameList() {
         return readLine().split(",");
     }
+
+    public int roundAmount() {
+        return Integer.parseInt(readLine());
+    }
 }
