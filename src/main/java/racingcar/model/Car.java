@@ -24,4 +24,7 @@ public class Car {
     public boolean isWinner(int winDistance) {
         return position == winDistance;
     }
+    public String getRoundResult() {
+        return NAME + Constants.ROUND_RESULT_DELIMITER + Utils.dashRepeat(position);
+    }
 }
