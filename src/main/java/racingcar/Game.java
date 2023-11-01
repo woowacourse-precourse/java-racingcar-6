@@ -37,7 +37,7 @@ public class Game {
         return players;
     }
 
-    public String decideWinners() {
+    public String printWinners() {
         List<String> winners = new ArrayList<>();
 
         String maxState = "";
