@@ -13,10 +13,9 @@ public class GameController {
 
     public void runGame() {
         initGame();
-        do {
+        while (isRacing()) {
             processGame();
         }
-        while (isRacing());
         endGame();
     }
 
