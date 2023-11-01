@@ -50,10 +50,10 @@ public class RaceController {
 
     private void calculateRanking(List<String> names, List<Car> carNames) {
         for (int i = 0; i < carNames.size(); i++) {
-            int compare = cars.compare(carNames.get(i));
-            List<String> rank = ranks.getOrDefault(compare, new ArrayList<>());
+            int lost = cars.compare(carNames.get(i));
+            List<String> rank = ranks.getOrDefault(lost, new ArrayList<>());
             rank.add(names.get(i));
-            ranks.put(compare, rank);
+            ranks.put(lost, rank);
         }
     }
 }
