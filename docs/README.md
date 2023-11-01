@@ -18,3 +18,7 @@
 
 [x] 유효 체크
 -  잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료
+
+[x] 이동
+- 전진 count
+

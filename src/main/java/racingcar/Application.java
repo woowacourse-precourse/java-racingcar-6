@@ -20,21 +20,14 @@ public class Application {
         int[] positions = new int[carQuantity];
 
         for (int i = 0; i < trys; i++) {
-            moveForward(carQuantity, positions);
+            Move.moveForward(carQuantity, positions);
             printRoundResults(cars, positions);
         }
 
         printWinners(cars, positions);
     }
 
-    private static void moveForward(int carQuantity, int[] positions) {
-        for (int j = 0; j < carQuantity; j++) {
-            int randomValue = Randoms.pickNumberInRange(0, 9);
-            if (randomValue >= 4) {
-                positions[j]++;
-            }
-        }
-    }
+
 
 
 
