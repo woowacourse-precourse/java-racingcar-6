@@ -12,8 +12,8 @@ import racingcar.domain.core.car.CarName;
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.system.game.round.result.RoundResult;
 import racingcar.domain.system.host.Host;
-import racingcar.domain.system.manager.car.key.CarKey;
 import racingcar.domain.system.manager.car.CarManager;
+import racingcar.domain.system.manager.car.key.CarKey;
 import racingcar.domain.system.manager.car.value.SavedCar;
 import racingcar.domain.system.manager.position.CarPositionManager;
 import racingcar.domain.system.manager.position.value.SavedCarPosition;
@@ -103,6 +103,7 @@ public class RacingGame extends BasicGame {
         List<CarKey> keys = winnerCars.stream().map(SavedCarPosition::getSavedCar)
             .map(SavedCar::getKey).collect(Collectors.toList());
         List<SavedCar> winners = carManager.findAll(keys);
-        return winners.stream().map(SavedCar::getCarName).toList();
+        return winners.stream().map(SavedCar::getCarName)
+            .sorted(Comparator.comparing(CarName::getName)).toList();
     }
 }
