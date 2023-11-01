@@ -20,7 +20,7 @@ public class Car {
 		this.distance = 0;
 	}
 
-	public void MoveCondition() { // 전진 조건
+	public void moveCondition() { // 전진 조건
 		int randomNumber = Randoms.pickNumberInRange(0, 9);
 
 		if (randomNumber >= 4) {

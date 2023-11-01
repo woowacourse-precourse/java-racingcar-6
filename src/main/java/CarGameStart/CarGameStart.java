@@ -7,18 +7,18 @@ import Carset.CarNamedSet;
 import Carset.PrintResult;
 
 public class CarGameStart {
-	CarNamedSet nameset;
-	PrintResult result;
-	List<String> CarNameds;
+	private CarNamedSet nameset;
+	private PrintResult result;
+	private List<String> carNameds;
 
-	public CarGameStart() {
+	public CarGameStart() { //Game을 시작하는 생성자
 		nameset = new CarNamedSet();
-		CarNameds = nameset.NameSetting();
-		result = new PrintResult(CarNameds);
+		carNameds = nameset.NameSetting();
+		result = new PrintResult(carNameds);
 
 	}
 
-	public void run() {
+	public void run() {//전반적인 게임을 시작과 출력을 함
 		result.printStatus();
 
 	}
