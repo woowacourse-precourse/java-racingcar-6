@@ -29,7 +29,7 @@ public class Validation {
 
     public static void checkCountType(String count) {
         String regex = "[0-9]+";
-        if(!count.matches(regex)) {
+        if (!count.matches(regex)) {
             throw new IllegalArgumentException(INVALID_COUNT_TYPE);
         }
     }

@@ -2,7 +2,6 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.Validation;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Validate;
 
 public class InputView {
 

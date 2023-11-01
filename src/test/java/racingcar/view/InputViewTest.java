@@ -2,7 +2,6 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -16,7 +15,7 @@ public class InputViewTest {
     @ValueSource(strings = "pobi,woni,jun")
     public void inputCarNameTest(String input) {
         List<String> carNames = new ArrayList<>(List.of(input.split(",")));
-        assertThat(carNames).contains("pobi","woni","jun");
+        assertThat(carNames).contains("pobi", "woni", "jun");
     }
 
     @ParameterizedTest

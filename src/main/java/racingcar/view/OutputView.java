@@ -19,7 +19,7 @@ public class OutputView {
     }
 
     public static void carResult(List<CarDTO> carDTOs) {
-        for(CarDTO carDTO :carDTOs) {
+        for (CarDTO carDTO : carDTOs) {
             System.out.print(carDTO.getName() + COLON);
             printMoveCount(carDTO.getMoveCount());
         }
@@ -27,7 +27,7 @@ public class OutputView {
     }
 
     private static void printMoveCount(int moveCount) {
-        for(int i = 0; i < moveCount; i++) {
+        for (int i = 0; i < moveCount; i++) {
             System.out.print(HYPHEN);
         }
         System.out.println();
