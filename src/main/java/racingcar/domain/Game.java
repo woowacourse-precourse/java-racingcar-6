@@ -24,7 +24,6 @@ public class Game {
     }
 
     public void playRacing() {
-        OutputView.printResultMessage();
         while (attemptNumber != STOP_ATTEMPT_NUMBER) {
             moveCar();
             OutputView.printRoundResult(getRoundResult());
@@ -44,13 +43,7 @@ public class Game {
     }
 
     public void showWinner() {
-        OutputView.printFinalWinner(listWinner());
-    }
-
-    public String listWinner() {
-        List<String> winners = findWinner();
-
-        return String.join(DELIMITER_WINNER, winners);
+        OutputView.printFinalWinner(findWinner());
     }
 
     public int findMaxPosition() {
@@ -62,7 +55,7 @@ public class Game {
         return maxPosition;
     }
 
-    public List<String> findWinner() {
+    public String findWinner() {
         List<String> winners = new ArrayList<>();
         int maxPosition = findMaxPosition();
 
@@ -72,7 +65,7 @@ public class Game {
             }
         }
 
-        return winners;
+        return String.join(DELIMITER_WINNER, winners);
     }
 
     public void moveCar() {
