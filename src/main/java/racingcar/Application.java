@@ -17,6 +17,7 @@ public class Application {
         startRacing(attempts, cars);
 
         List<String> winners = determineWinners(cars);
+        printWinners(winners);
 
     }
 
@@ -53,5 +54,15 @@ public class Application {
             }
         }
         return winners;
+    }
+
+    private static void printWinners(List<String> winners) {
+        System.out.print("최종 우승자: ");
+        for (int i = 0; i < winners.size(); i++) {
+            if (i != 0) {
+                System.out.print(", ");
+            }
+            System.out.print(winners.get(i));
+        }
     }
 }
