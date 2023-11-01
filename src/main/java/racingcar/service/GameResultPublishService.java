@@ -10,5 +10,4 @@ public class GameResultPublishService {
     public GameResultDto publishGameResult(List<RoundResultDto> roundHistories, List<CarStatusDto> winners) {
         return GameResultDto.of(winners, roundHistories);
     }
-
 }

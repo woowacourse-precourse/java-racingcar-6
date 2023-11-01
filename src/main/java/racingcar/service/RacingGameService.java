@@ -31,6 +31,4 @@ public class RacingGameService {
         List<CarStatusDto> winners = winnerSelectionService.selectWinners(participants);
         return gameResultPublishService.publishGameResult(roundHistories, winners);
     }
-
-
 }

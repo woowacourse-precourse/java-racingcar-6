@@ -9,5 +9,4 @@ public class WinnerSelectionService {
     public List<CarStatusDto> selectWinners(Cars cars) {
         return cars.getWinners();
     }
-
 }
