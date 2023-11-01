@@ -17,6 +17,13 @@ class JudgeMovementTest {
     }
 
     @Test
-    void moveForward() {
+    void 전진_조건_확인() {
+        int[] positions = new int[]{0, 0, 0};
+        int[] randomNumbers = new int[]{5, 3, 7};
+        JudgeMovement judgeMovement = new JudgeMovement();
+
+        judgeMovement.moveForward(positions, randomNumbers);
+
+        assertArrayEquals(new int[]{1, 0, 1}, positions);
     }
 }
