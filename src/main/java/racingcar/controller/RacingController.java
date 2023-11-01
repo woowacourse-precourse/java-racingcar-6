@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.model.CarState;
 import racingcar.model.Racing;
+import racingcar.model.intgenerator.RandomIntGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -19,7 +20,7 @@ public class RacingController {
     public void createRacing() {
         List<String> carNames = inputView.askCarNames();
         int tryCount = inputView.askTryCount();
-        this.racing = new Racing(carNames, tryCount);
+        this.racing = new Racing(carNames, tryCount, new RandomIntGenerator());
     }
 
     public void playRacing() {

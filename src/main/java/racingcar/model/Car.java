@@ -2,7 +2,6 @@ package racingcar.model;
 
 import racingcar.exception.ErrorCode;
 import racingcar.model.intgenerator.IntGenerator;
-import racingcar.model.intgenerator.RandomIntGenerator;
 
 public class Car {
     private static final int MAXIMUM_NAME_LENGTH = 5;
@@ -11,10 +10,6 @@ public class Car {
     private final String name;
     private final IntGenerator intGenerator;
     private int forwardCount;
-
-    public Car(String name) {
-        this(name, new RandomIntGenerator());
-    }
 
     public Car(String name, IntGenerator intGenerator) {
         validateNameLength(name);

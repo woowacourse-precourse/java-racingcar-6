@@ -18,7 +18,7 @@ public class CarsTest {
     void 자동차들_생성시_이름이_중복되면_예외가_발생한다() {
         List<String> names = List.of("pobi", "pobi");
 
-        assertThatThrownBy(() -> Cars.fromNames(names))
+        assertThatThrownBy(() -> Cars.fromNames(names, new CustomIntGenerator(0)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorCode.DUPLICATE_NAME.getMessage());
     }

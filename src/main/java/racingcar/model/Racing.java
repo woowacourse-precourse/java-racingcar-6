@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.List;
 import racingcar.exception.ErrorCode;
+import racingcar.model.intgenerator.IntGenerator;
 import racingcar.model.winnerstrategy.MaximumForwardStrategy;
 
 public class Racing {
@@ -9,10 +10,10 @@ public class Racing {
     private int tryCount;
     private final Cars cars;
 
-    public Racing(List<String> carNames, int tryCount) {
+    public Racing(List<String> carNames, int tryCount, IntGenerator intGenerator) {
         validateTryCount(tryCount);
         this.tryCount = tryCount;
-        this.cars = Cars.fromNames(carNames);
+        this.cars = Cars.fromNames(carNames, intGenerator);
     }
 
     public boolean canMove() {
