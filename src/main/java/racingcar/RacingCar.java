@@ -10,7 +10,13 @@ public class RacingCar implements Comparable<RacingCar>{
         this.name = name;
         this.advanceCount = 0;
     }
+    public int getAdvanceCount(){
+        return this.advanceCount;
+    }
 
+    public String getName(){
+        return this.name;
+    }
     public void playRound(){
         int randomValue = Randoms.pickNumberInRange(0, 9);
 
@@ -19,7 +25,11 @@ public class RacingCar implements Comparable<RacingCar>{
             advanceCount+=1;
         }
 
-        System.out.println(this.name + " : " + "-".repeat(advanceCount));
+    }
+
+    public String progressStatus(){
+        return this.name.concat(" : ")
+                        .concat("-".repeat(advanceCount));
     }
 
     @Override
