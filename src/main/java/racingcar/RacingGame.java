@@ -9,17 +9,21 @@ public class RacingGame {
 
     public void start() {
         HashMap<String, String> racingProgress = inputCarNames();
-        for (String name : racingProgress.keySet()) {
-            // need change variable name - name > carName
-            System.out.println(name + racingProgress.get(name));
-        }
+        // for (String name : racingProgress.keySet()) {
+        // // need change variable name - name > carName
+        // System.out.println(name + racingProgress.get(name));
+        // }
 
         Integer gameTimes = inputGameTimes();
-        System.out.println(gameTimes);
-
+        // System.out.println(gameTimes);
+        System.out.println("");
+        System.out.println("실행 결과");
         for (int i = 0; i < gameTimes; i++) {
             racingProgress = eachRace(racingProgress);
         }
+        // for (String name : racingProgress.keySet()) {
+        // System.out.println(name + racingProgress.get(name));
+        // }
 
         racingResult(racingProgress, gameTimes);
 
@@ -31,6 +35,7 @@ public class RacingGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         try {
             readlineCarNames = Console.readLine().split(",");
+            // System.out.println(readlineCarNames[0]);
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
@@ -61,11 +66,12 @@ public class RacingGame {
             if (Randoms.pickNumberInRange(1, 9) >= 4) {
                 racingProgress.put(carName, racingProgress.get(carName) + "-");
             }
-            System.out.println(carName + racingProgress.get(carName));
+            System.out.println(carName + " : " + racingProgress.get(carName));
 
             ;
 
         }
+        System.out.println("");
         return racingProgress;
     }
 
