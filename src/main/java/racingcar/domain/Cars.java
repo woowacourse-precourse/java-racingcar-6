@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import racingcar.util.RandomNumbersGenerator;
 import racingcar.validation.InputValidation;
-import racingcar.view.Message;
 
 import java.util.ArrayList;
 import java.util.Arrays;
