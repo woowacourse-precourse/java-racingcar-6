@@ -23,14 +23,18 @@ public class Race {
         System.out.println("실행 결과");
 
         while (count > 0) {
-            cars.forEach(Car::move);
-            cars.forEach(Car::printNameAndPosition);
-
-            System.out.println();
+            moveAndPrint();
             count--;
         }
 
         printWinners();
+    }
+
+    private void moveAndPrint() {
+        cars.forEach(Car::move);
+        cars.forEach(Car::printNameAndPosition);
+
+        System.out.println();
     }
 
     private void printWinners() {

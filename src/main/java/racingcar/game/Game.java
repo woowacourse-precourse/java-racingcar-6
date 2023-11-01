@@ -12,6 +12,13 @@ public class Game {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNames = toCarNames(Console.readLine());
 
+        int count = getCount();
+
+        Race race = new Race(carNames, count);
+        race.start();
+    }
+
+    private static int getCount() {
         int count;
         try {
             System.out.println("시도할 횟수는 몇회인가요?");
@@ -19,9 +26,7 @@ public class Game {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자로 입력해주세요.");
         }
-
-        Race race = new Race(carNames, count);
-        race.start();
+        return count;
     }
 
     private static String[] toCarNames(String carNameString) {
