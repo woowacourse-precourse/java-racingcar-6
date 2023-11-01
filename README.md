@@ -185,6 +185,8 @@ Randoms.pickNumberInRange(0,9);
 ###  ✅ 출력
 - [x] 승리한 자동차가 두개 이상이라면 쉼표를 기준으로 출력하고 한 개라면 그냥 출력한다. 
 
+<br/>
+
 ## 👍🏻 이런 점에 주목했어요!
 ### ✅ static 키워드를 잘 사용하려고 노력했어요.
  - [x] GameController, Cars, CarNameValidator, InputView, OutputView 에서는 모든 인스턴스에서 변수와 메서드가 공유돼도 상관없어 static 키워드를 사용했어요
@@ -193,4 +195,10 @@ Randoms.pickNumberInRange(0,9);
 - Heap 영역이 아닌 Static 메모리 영역에 저장되어 고정된 메모리 영역을 사용하기 매번 인스턴스를 생성하여 낭비되는 메모리를 줄일 수 있다.
 - 객체를 생성하지 않 사용가능하기 때문에 속도가 빠르다
 
-### ✅ [자바 코딩 컨벤션](https://myeonguni.tistory.com/1596)을 지키려고 노력했어요
+### ✅ [자바 코딩 컨벤션](https://myeonguni.tistory.com/1596)을 지키려고 노력했어요.
+
+### ✅ 객체 지향적으로 코드를 짜기 위해 노력했어요.
+- [x] 하나의 클래스는 하나의 역할, 책임만 가져야한다. - SRP(단일 책임 원칙)
+
+### ✅ MVC 디자인 패턴을 지키려고 노력했어요.
+- [x] controller 에서만 model 과 view를 참조하고 변경할 수 있게 코드를 짜려고 노력했어요.
