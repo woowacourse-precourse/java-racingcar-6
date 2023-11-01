@@ -18,6 +18,7 @@ public class ScorePrint {
     private static void carMoveDistance(int distance) {
         while (distance > 0) {
             System.out.print("-");
+            distance--;
         }
         System.out.println('\n');
     }
