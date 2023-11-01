@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RacingCarGame {
@@ -26,7 +27,7 @@ public class RacingCarGame {
         checkInputValid(carNames,inputNum);
 
         setNumOfPlaying(Integer.parseInt(inputNum));
-        generateRacingCar(carNames);
+        generateListOfRacingCars(carNames);
     }
 
     private void checkInputValid(String carNames,String inputNum){
@@ -35,10 +36,20 @@ public class RacingCarGame {
         //TODO: inputNum이 숫자로 변환할수 있는지 확인
     }
 
-    private void generateRacingCar(String carNames){
-        //TODO: StringToListOfString() - carNames 문자열에서 List<String>으로 변환
+    private void generateListOfRacingCars(String carNames){
 
-        //TODO: List<String>에서 1개씩 꺼내며 RacingCar 객체 생성 후 List<RacingCar>에 넣기
+        List<String> listOfCarNames = stringToListOfString(carNames);
+
+        for(String carName:listOfCarNames){
+            RacingCar racingCar = generateRacingCar(carName);
+            racingCars.add(racingCar);
+        }
+    }
+    private List<String> stringToListOfString(String carNames){
+        return Arrays.asList(carNames.split(","));
+    }
+    private RacingCar generateRacingCar(String carName){
+        return new RacingCar(carName);
     }
     private void setNumOfPlaying(int numOfPlaying) {
         this.numOfPlaying = numOfPlaying;
