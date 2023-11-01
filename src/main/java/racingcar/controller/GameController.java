@@ -20,15 +20,12 @@ public class GameController {
     }
 
     public void play() {
-        List<Car> carList = new ArrayList<>();
         while (game.isPlay()) {
-            carList = game.getCarList();
-            moveCars(carList);
-
+            moveCars();
             game.updateTryNumber();
             System.out.println();
         }
-
+        List<Car> carList = game.getCarList();
         sortFinalWinner(carList);
     }
 
@@ -51,7 +48,8 @@ public class GameController {
         }
     }
 
-    private void moveCars(List<Car> carList) {
+    private void moveCars() {
+        List<Car> carList = game.getCarList();
         carList.forEach(car -> {
             int randomDistance = Randoms.pickNumberInRange(0,9);
                     if(randomDistance >= 4) {
