@@ -21,7 +21,6 @@ public class CarControl {
             if(carName.isEmpty()) {
                 throw new IllegalArgumentException("자동차 이름에 공백은 허용되지 않습니다.");
             }
-
         }
     }
 
