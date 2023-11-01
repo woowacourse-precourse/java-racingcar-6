@@ -16,7 +16,7 @@ public class RaceGameController {
 
     public void run() {
         int attemptCount = InputView.inputAttemptCount();
-        OutputView.beforeRaceMessage();
+        OutputView.displayRaceResultMessage();
         runRace(attemptCount);
         OutputView.displayScoreBoard(scoreBoardService.getScoreBoard());
         OutputView.displayWinners(scoreBoardService.findFinalRoundWinners());

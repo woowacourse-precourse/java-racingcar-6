@@ -8,7 +8,7 @@ import racingcar.model.ScoreDto;
 public class OutputView {
     private static final String DISTANCE_DASH = "-";
 
-    public static void beforeRaceMessage() {
+    public static void displayRaceResultMessage() {
         printEmptyLine();
         System.out.println("실행 결과");
     }
