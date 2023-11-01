@@ -31,4 +31,20 @@ class ExceptionHandlerTest {
     );
   }
 
+  @DisplayName("시도 횟수 입력에 대한 예외처리 테스트")
+  @ParameterizedTest
+  @MethodSource("readTrialNum")
+  void trialNumExceptionTest(String trialNum) {
+    assertThatThrownBy(() -> exceptionHandler.trialNumException(trialNum))
+      .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  static Stream<Arguments> readTrialNum() {
+    return Stream.of(
+      Arguments.of(""),
+      Arguments.of("35h"),
+      Arguments.of("-10"),
+      Arguments.of("3.14")
+    );
+  }
 }
