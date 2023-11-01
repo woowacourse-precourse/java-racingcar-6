@@ -27,16 +27,10 @@ public class OutputView {
     }
 
 
-    public void printWinner(List<Car> winnerList){
+    public void printWinner(List<String> winnerList){
         System.out.print("최종 우승자 : ");
-        for(int i=0;i<winnerList.size();i++){
-            if(i != winnerList.size() -1){
-                System.out.print(winnerList.get(i).getName()+", ");
-            } else if (i == winnerList.size()-1) {
-                System.out.print(winnerList.get(i).getName());
-            }
-
-        }
+        String result = String.join(",", winnerList);
+        System.out.println(result);
     }
 
 }
