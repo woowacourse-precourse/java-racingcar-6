@@ -9,6 +9,7 @@ public class RacingGame {
 
     private Track track;
     private View view;
+    private List<RacingCar> racingCars;
     private int raceCount;
 
     public RacingGame() {
@@ -16,26 +17,29 @@ public class RacingGame {
         ready();
     }
 
-    public void race() {
-        view.showRaceResultHeader();
-        for (int roundNumber = 0; roundNumber < raceCount; roundNumber++) {
-            Map<String, Integer> roundResult = track.round(roundNumber);
-            view.showRoundResultView(roundResult);
-        }
-        result();
-    }
-
-    private void result() {
-        List<String> selectedWinners = track.selectWinners();
-        view.showWinnerView(selectedWinners);
-    }
-
     private void ready() {
         List<String> carNames = acceptApplicants();
         raceCount = assignRaceCount();
 
-        List<RacingCar> racingCars = createRacingCars(carNames);
-        track = new Track(racingCars);
+        racingCars = createRacingCars(carNames);
+        track = new Track();
+    }
+
+    public void race() {
+        int roundNumber = 0;
+
+        view.showRaceResultHeader();
+
+        while (roundNumber < raceCount) {
+            Map<String, Integer> roundResult = track.round(racingCars);
+            view.showRoundResultView(roundResult);
+            roundNumber++;
+        }
+    }
+
+    public void result() {
+        List<String> selectedWinners = track.selectWinners(racingCars);
+        view.showWinnerView(selectedWinners);
     }
 
     public List<RacingCar> createRacingCars(List<String> carNames) {
@@ -46,7 +50,7 @@ public class RacingGame {
         return applicants;
     }
 
-    public int assignRaceCount() {
+    private int assignRaceCount() {
         return view.showRaceCountView();
     }
 
