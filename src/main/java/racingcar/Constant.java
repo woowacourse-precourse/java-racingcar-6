@@ -7,4 +7,7 @@ public class Constant {
     static final String MOVECOUNT_RESULT_MESSAGE = "실행 결과";
     static final String PRINT_WINNER_MESSAGE = "최종 우승자 : ";
     static final String UNIT_MOVE_BLOCK = "-";
+
+    static final int CARNAME_MAX_LENGTH = 5;
+    static final int THRESHOLD_NUMBER = 4;
 }

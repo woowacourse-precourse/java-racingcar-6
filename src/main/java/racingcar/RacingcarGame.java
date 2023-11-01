@@ -49,7 +49,7 @@ public class RacingcarGame {
     private void runRound(List<Car> cars) {
         for (Car car : cars) {
             String name = car.getName();
-            if (Random.isNumOverFour()) {
+            if (Random.isOverThresholdNum()) {
                 car.moveForward();
             }
             int moveCount = car.getMoveCount();

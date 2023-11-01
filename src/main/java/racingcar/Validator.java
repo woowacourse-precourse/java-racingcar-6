@@ -10,7 +10,7 @@ public class Validator {
             if (carName.contains(" ")) {
                 throw new IllegalArgumentException();
             }
-            if (carName.length() > 5) {
+            if (carName.length() > Constant.CARNAME_MAX_LENGTH) {
                 throw new IllegalArgumentException();
             }
         }
