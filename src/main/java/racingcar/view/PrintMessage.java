@@ -19,9 +19,19 @@ public class PrintMessage {
         System.out.println(text);
     }
 
-    public void printEnd(){
+    public String printSymbolA(){
+        text = " " + Messages.SYMBOL_COLON + " ";
+        return text;
+    }
+
+    public String printSymbolB(){
+        text = Messages.SYMBOL_DASH;
+        return text;
+    }
+
+    public String printEnd(){
         text = Messages.PRINT_END_MESSAGE;
-        System.out.println(text);
+        return text;
     }
     
 }

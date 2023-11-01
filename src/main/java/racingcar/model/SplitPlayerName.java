@@ -10,7 +10,11 @@ public class SplitPlayerName {
 
         String[] delimeter = input.split(",");
         for(String name : delimeter){
-            tmpList.add(name.trim());
+            String exceptionCheck = name.trim();
+            if(exceptionCheck.length() > 5){
+                throw new IllegalArgumentException();
+            }
+            tmpList.add(exceptionCheck);
         }
 
         return tmpList;

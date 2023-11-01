@@ -4,22 +4,24 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class GenerateRandomNumber {
 
-    private int randomNumber;
+    public int randomNumber;
 
-    private GenerateRandomNumber(){
-        generateRandomNumber();
-    }
+    // public GenerateRandomNumber(){
+    //     generateRandomNumber();
+    // }
 
-    private void generateRandomNumber(){
+    public int generateRandomNumber(){
         randomNumber = Randoms.pickNumberInRange(0, 9);
-    }
-
-    public int getRandomNumber(){
-        generateRandomNumber();
         return randomNumber;
     }
+
+    // public int getRandomNumber(){
+    //     generateRandomNumber();
+    //     return randomNumber;
+    // }
     
-    public static GenerateRandomNumber create() {
-        return new GenerateRandomNumber();
-    }
+    // public static GenerateRandomNumber create() {
+    //     return new GenerateRandomNumber();
+    // }
+
 }
