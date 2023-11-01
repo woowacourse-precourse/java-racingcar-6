@@ -32,4 +32,17 @@ public class AttemptsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자만");
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "-2", "-3"})
+    @DisplayName("시도 횟수 음수 입력시 예외 테스트")
+    void 시도_횟수_음수_입력_예외_테스트(String input) {
+        //given
+        String userInput = input;
+
+        //when, then
+        Assertions.assertThatThrownBy(() -> new Attempts(userInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("양수만 입력");
+    }
 }
