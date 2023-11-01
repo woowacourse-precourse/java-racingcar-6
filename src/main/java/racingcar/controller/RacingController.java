@@ -3,6 +3,8 @@ package racingcar.controller;
 import static racingcar.utils.RacingConfig.NAME_SEPARATOR;
 import static racingcar.utils.Validator.validIsNumber;
 import static racingcar.utils.Validator.validNameFormat;
+import static racingcar.utils.Validator.validNotZero;
+import static racingcar.utils.Validator.validSingleName;
 
 import java.util.Arrays;
 import racingcar.domain.result.FinalResult;
@@ -36,6 +38,7 @@ public class RacingController {
     }
     private String[] parseCarNames(String inputCarNames) {
         validNameFormat(inputCarNames);
+        validSingleName(inputCarNames);
         return Arrays.stream(inputCarNames.split(NAME_SEPARATOR))
                 .map(String::trim)
                 .distinct()
@@ -50,6 +53,7 @@ public class RacingController {
     }
     private int parseRoundNumber(String inputNumber) {
         validIsNumber(inputNumber);
+        validNotZero(inputNumber);
         return Integer.parseInt(inputNumber);
     }
 
