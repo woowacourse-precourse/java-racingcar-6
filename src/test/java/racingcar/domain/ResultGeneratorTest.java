@@ -139,7 +139,42 @@ class ResultGeneratorTest {
     }
 
     @Test
-    void printFinalResult() {
+    void printFinalResult_메서드로_최종_결과_출력_우승자_1명() {
+        // given
+        List<String> winnerList = List.of("A");
+
+        // when
+        resultGenerator.printFinalResult(winnerList);
+
+        // then
+        assertThat(outputStreamCaptor.toString())
+                .contains("최종 우승자 :", "A");
+    }
+
+    @Test
+    void printFinalResult_메서드로_최종_결과_출력_우승자_2명() {
+        // given
+        List<String> winnerList = List.of("A,B");
+
+        // when
+        resultGenerator.printFinalResult(winnerList);
+
+        // then
+        assertThat(outputStreamCaptor.toString())
+                .contains("최종 우승자 :", "A,B");
+    }
+
+    @Test
+    void printFinalResult_메서드로_최종_결과_출력_우승자_3명() {
+        // given
+        List<String> winnerList = List.of("A,B,C");
+
+        // when
+        resultGenerator.printFinalResult(winnerList);
+
+        // then
+        assertThat(outputStreamCaptor.toString())
+                .contains("최종 우승자 :", "A,B,C");
     }
 
     @AfterEach
