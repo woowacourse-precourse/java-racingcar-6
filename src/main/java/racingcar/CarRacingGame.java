@@ -24,7 +24,7 @@ public class CarRacingGame {
         }
     }
 
-    protected String getProcessResultAsString(List<Car> cars) {
+    private String getProcessResultAsString(List<Car> cars) {
         StringBuilder processString = new StringBuilder();
         cars.forEach(car -> {
             car.updateScore();
@@ -33,7 +33,7 @@ public class CarRacingGame {
         return processString.toString();
     }
 
-    protected void processStringBuilderWriter(StringBuilder processString, Car car) {
+    private void processStringBuilderWriter(StringBuilder processString, Car car) {
         processString.append(car.getName()).append(" : ");
         processString.append("-".repeat(car.getScore()));
         processString.append("\n");
