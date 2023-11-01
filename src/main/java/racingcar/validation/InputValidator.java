@@ -1,8 +1,9 @@
 package racingcar.validation;
 
+import racingcar.Constants;
 public class InputValidator {
     public static void validateCarName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > Constants.CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("자동차 이름이 5글자를 초과해선 안됩니다.");
         }
 

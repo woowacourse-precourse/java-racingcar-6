@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.Constants;
 public class Car {
     private String name;
     private int position;
@@ -10,7 +11,7 @@ public class Car {
     }
 
     public void move(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= Constants.MOVE_THRESHOLD) {
             position++;
         }
     }

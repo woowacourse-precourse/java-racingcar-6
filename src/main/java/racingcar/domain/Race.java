@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import racingcar.Constants;
 public class Race {
     private List<Car> cars;
 
@@ -21,7 +21,7 @@ public class Race {
 
     private void moveCars() {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            int randomNumber = Randoms.pickNumberInRange(Constants.RANDOM_NUMBER_MIN, Constants.RANDOM_NUMBER_MAX);
             car.move(randomNumber);
         }
     }
