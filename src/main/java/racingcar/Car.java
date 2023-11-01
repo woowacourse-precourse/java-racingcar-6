@@ -18,6 +18,10 @@ public class Car {
         this.distance = distance;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getDistance() {
         return distance;
     }
@@ -48,7 +52,7 @@ public class Car {
 
         for (String carName : carNames) {
             if (carName.length() > 5) {
-                throw new IllegalArgumentException(OutputMessage.ERROR_CAR_NAME_LENGTH_LIMIT);
+                throw new IllegalArgumentException(OutputMessage.ERROR_CAR_NAME_LENGTH_LIMIT_OVER);
             }
 
             Car car = new Car(carName);

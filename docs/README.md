@@ -1,9 +1,9 @@
 ### `class` RacingCarGame
-  -  [ ] run
+  -  [x] run
 
     - 자동차 경주 게임을 실행합니다.
 
-  - [ ] moveCars
+  - [x] moveCars
 
     - 자동차들을 각각 한 번씩 움직입니다.
 

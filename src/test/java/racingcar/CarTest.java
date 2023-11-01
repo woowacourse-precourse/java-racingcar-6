@@ -67,7 +67,7 @@ class CarTest {
         String string = "cpp,java,js,python";
         assertThatThrownBy(() -> Car.parseCars(string))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(OutputMessage.ERROR_CAR_NAME_LENGTH_LIMIT);
+                .hasMessageContaining(OutputMessage.ERROR_CAR_NAME_LENGTH_LIMIT_OVER);
     }
 
     @Test

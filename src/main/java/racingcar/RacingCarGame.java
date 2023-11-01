@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
@@ -11,13 +11,13 @@ public class RacingCarGame {
         cars = Controller.inputNames();
         count = Controller.inputCount();
 
-        Controller.printResultText();
+        Controller.printResultTitle();
         for (int i = 0; i < count; i++) {
             moveCars();
             Controller.printCarStates(cars);
         }
 
-        printResult();
+        printWinner();
     }
 
     public void moveCars() {
@@ -26,12 +26,24 @@ public class RacingCarGame {
         }
     }
 
-    public void printResult() {
-        // "최종 우승자 : pobi, jun";
+    public void printWinner() {
+        List<Car> winners = getWinners();
+        Controller.printWinners(winners);
     }
 
     public List<Car> getWinners() {
-        // TODO
-        return new List<Car>();
+        int maxDistance = 0;
+        for (Car car : cars) {
+            maxDistance = Math.max(maxDistance, car.getDistance());
+        }
+
+        ArrayList<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getDistance() == maxDistance) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
     }
 }
