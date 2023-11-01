@@ -1,4 +1,4 @@
-package study;
+package racingcar.MyTest;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
