@@ -26,7 +26,7 @@ public class CarTest {
     @Test
     void name_속성이_5글자를_초과하면_IllegalArgumentException_예외() {
         assertThatThrownBy(() -> new Car("abcdef"))
-            .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
