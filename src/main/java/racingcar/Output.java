@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.Domain.Car;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Output {
@@ -26,6 +27,16 @@ public class Output {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition().intValue()));
         }
         System.out.println();
+    }
+
+    public static void printWinner(List<Car> cars) {
+        System.out.print("최종 우승자: ");
+        for(Car car : cars) {
+            System.out.print(car.getName());
+            if (cars.indexOf(car) != cars.size() - 1) {
+                System.out.print(", ");
+            }
+        }
     }
 
 }

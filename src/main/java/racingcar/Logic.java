@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Domain.Car;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -22,11 +23,19 @@ public class Logic {
 
         Output.printResultMessage();
 
+        List<Car> cars = createCars(carNames);
         for(Long i = 0L; i < tryCount; i++) {
-            List<Car> cars = createCars(carNames);
             moveCars(cars); //3번 기능
             Output.printResult(cars); //6번 기능
         }
+
+        List<Car> carsWithMaxPosition = new ArrayList<>();
+        Long maxPosition = Long.MIN_VALUE;
+        for(Car car : cars) {
+            int compareResult = isMaxPosition(car, maxPosition);
+            maxPosition = setCarsWithMaxPosition(carsWithMaxPosition, compareResult, car, maxPosition);
+        }
+        Output.printWinner(carsWithMaxPosition); //7번 기능
     }
 
     private static List<Car> createCars(List<String> carNames) {
@@ -39,5 +48,27 @@ public class Logic {
         for(Car car : cars) {
             car.move(Randoms.pickNumberInRange(0,9));
         }
+    }
+
+    private static int isMaxPosition(Car car, Long maxPosition) {
+        if (car.getPosition() > maxPosition) {
+            return 1;
+        }
+        if (car.getPosition() == maxPosition) {
+            return 0;
+        }
+        return -1;
+    }
+
+    private static Long setCarsWithMaxPosition(List<Car> carsWithMaxPosition, int compareResult, Car car, Long maxPosition) {
+        if (compareResult == 1) {
+            carsWithMaxPosition.clear();
+            carsWithMaxPosition.add(car);
+            return car.getPosition();
+        }
+        if (compareResult == 0) {
+            carsWithMaxPosition.add(car);
+        }
+        return maxPosition;
     }
 }
