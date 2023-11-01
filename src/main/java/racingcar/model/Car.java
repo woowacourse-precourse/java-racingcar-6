@@ -14,4 +14,8 @@ public class Car {
 
     public void moveForwardRandomly() {
     }
+
+    public boolean isPositionGreaterThan(int num) {
+        return false;
+    }
 }
