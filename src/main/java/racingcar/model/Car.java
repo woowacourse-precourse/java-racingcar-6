@@ -42,6 +42,14 @@ public class Car {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
     private void checkMaxNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(MAX_NAME_ERROR_MESSAGE);
