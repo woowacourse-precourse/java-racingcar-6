@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class racingcarExceptionTest {
   @Test
-  void car_개수가_0인_경우_예외_처리() {
+  void car_개수가_2_미만인_경우_예외_처리() {
     String[] input = {""};
     assertSimpleTest(() ->
             assertThatThrownBy(() -> modules.racingcarException.exception_len_under_2(input))
