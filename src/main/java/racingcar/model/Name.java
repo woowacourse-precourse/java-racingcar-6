@@ -24,4 +24,9 @@ public class Name {
         // and 단축평가 고려할 것
         return (name instanceof Name) && (((Name) name).name.equals(this.name));
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
