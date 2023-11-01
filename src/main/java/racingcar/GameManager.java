@@ -8,15 +8,14 @@ import java.util.Map;
 
 public class GameManager {
     private  Input input = new Input();
+    private final RacingScoreBoard racingScoreBoard;
     private  RandomNumber randomNumber = new RandomNumber();
-    private  final RacingScoreBoard racingScoreBoard;
-
 
     public GameManager() {
         String carNames = input.carName();
         racingScoreBoard = new RacingScoreBoard(carNames);
     }
-    //test코드용 생성자
+//    test코드용 생성자
     public GameManager(Input input, RandomNumber randomNumber) {
         this.input = input;
         this.randomNumber = randomNumber;
@@ -35,7 +34,7 @@ public class GameManager {
         Output.printWinners(getWinners());
     }
 
-    public void playRound() {
+    private void playRound() {
         for (String car : racingScoreBoard.currentScores().keySet()) {
             if (randomNumber.generator() >= 4) {
                 racingScoreBoard.moveCar(car);
@@ -43,7 +42,7 @@ public class GameManager {
         }
     }
 
-    public int findMaxPosition() {
+    private int findMaxPosition() {
         return Collections.max(racingScoreBoard.currentScores().values());
     }
 

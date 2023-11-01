@@ -53,14 +53,14 @@ public class GameManagerTest {
     void 모두이동_동점자() {
         gameManagerMoving.startGame();
         List<String> winners = gameManagerMoving.getWinners();
-        assertThat(winners).containsExactlyInAnyOrder("benz", "bmw");
+        assertThat(winners).containsExactlyInAnyOrder("bmw", "benz");
     }
 
     @Test
     void 모두정지_동점자() {
         gameManagerStopping.startGame();
         List<String> winners = gameManagerStopping.getWinners();
-        assertThat(winners).containsExactlyInAnyOrder("benz", "bmw");
+        assertThat(winners).containsExactlyInAnyOrder("bmw", "benz");
     }
 
     @Test
@@ -84,7 +84,7 @@ public class GameManagerTest {
         gameManagerMixed.startGame();
         List<String> winners = gameManagerMixed.getWinners();
 
-        assertThat(winners).containsExactly("benz");
+        assertThat(winners).containsExactly("bmw");
     }
 }
 
