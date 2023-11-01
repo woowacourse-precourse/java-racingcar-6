@@ -45,6 +45,17 @@
 ## Moving
 - Moving은 차의 전진 여부를 랜덤으로 결정하는 클래스이다
 
+## GameAttemptCount
+- GameAttemptCount는 게임 시도 회수를 가지는 클래스이다
+- 게임 시도 회수는 0보다 크고 100보다 작은 값을 가진다
+- 게임 시도 회수를 1씩 감소시킬 수 있다
+- 게임 시도 회수가 0인지 비교해 게임이 끝났는 지 알 수 있다
+
+## RacingGame
+- RacingGame은 게임의 흐름을 관리하는 클래스이다
+- Cars와 AttemptCount를 가진다
+- 게임을 진행시키고, 결과를 반환할 수 있다
+
 ## InputView
 - InputView는 사용자에게 게임 안내 문구를 출력하고 입력을 받는 클래스이다
 - 자동차의 이름을 입력받을 수 있다
@@ -52,10 +63,9 @@
   - 정규표현식을 통해 올바른 입력인지 검증한다
 - 시도 횟수를 입력받을 수 있다
 
-## RacingGame
-- RacingGame은 게임의 흐름을 관리하는 클래스이다
-- Cars와 AttemptCount를 가진다
-- 게임을 진행시키고, 결과를 출력할 수 있다
+## OutputView
+- OutputView는 게임의 진행결과와 우승자를 출력하는 클래스이다
+- 
 
 
 
