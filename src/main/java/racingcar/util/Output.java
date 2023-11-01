@@ -2,7 +2,6 @@ package racingcar.util;
 
 import racingcar.car.Car;
 import racingcar.car.Cars;
-import racingcar.car.Cars;
 
 import java.util.List;
 

@@ -20,7 +20,7 @@ public class Car {
     }
 
     public void canMove(int randomNum) {
-        if(randomNum >= CONDITION_NUM) {
+        if (randomNum >= CONDITION_NUM) {
             plusPosition();
         }
     }
