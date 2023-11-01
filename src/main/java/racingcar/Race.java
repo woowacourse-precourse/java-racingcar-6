@@ -4,6 +4,7 @@ import java.util.List;
 
 import racingcar.dto.Car;
 import racingcar.global.Validator;
+import racingcar.global.util.RandomUtil;
 
 public class Race {
     public static final int MIN_NUMBER = 1;
@@ -22,5 +23,20 @@ public class Race {
 
         RaceIO.announceGetCount();
         count = Validator.count(RaceIO.getCount());
+    }
+
+    public void start() {
+        for (int i = 0; i < count; ++i) {
+            this.randomMove();
+        }
+    }
+
+    private void randomMove() {
+        cars.forEach(car -> {
+            boolean moveForward = RandomUtil.trueOrFalse(MIN_NUMBER, MAX_NUMBER, MIN_FORWARD_NUMBER);
+            if (moveForward) {
+                car.moveForward();
+            }
+        });
     }
 }
