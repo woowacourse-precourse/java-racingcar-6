@@ -22,6 +22,9 @@ public class Game {
     }
     private int getMaximumPosition() {
         int max = 0;
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
         return max;
     }
 
