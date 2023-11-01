@@ -24,4 +24,13 @@ public class CarImpl implements Car {
     public String getName() {
         return this.name;
     }
+
+    @Override
+    public void printProcess() {
+        System.out.print(name + " : ");
+        for (int i = 0 ; i < movedDistance ; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
