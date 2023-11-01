@@ -69,6 +69,21 @@ public class CarListTest {
         assertThat(maxPosition).isEqualTo(4);
     }
 
+    @Test
+    @DisplayName("우승자 찾기")
+    public void findWinnersTest() {
+
+        List<String> singleWinner = cars.findWinners(3);
+        assertThat(singleWinner).containsExactly("pobi");
+        assertThat(singleWinner).hasSize(1);
+
+        moveCarOnePosition(woniCar);
+        List<String> multipleWinners = cars.findWinners(3);
+        assertThat(multipleWinners).containsExactly("pobi", "woni");
+        assertThat(multipleWinners).hasSize(2);
+
+    }
+
     private void moveCarOnePosition(Car carName) {
         cars.moveCarWhenNumberFourOrAbove(carName, 4);
     }
