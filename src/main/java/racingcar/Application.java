@@ -27,17 +27,18 @@ class RacingController {
                 String[] names = participantInputName.split(",");
                 for (int i = 0; i < names.length; i++) {
                         String name = names[i];
-                        validateName(names, name);
+                        validateName(participants, name);
                         participants.add(new Car(name, 0));
                 }
+
                 String participant = String.join(", ", names);
                 System.out.println(participant);
                 return participants;
         }
 
-        public static boolean validateName(String[] names, String name) {
-                for (String existName : names) {
-                        if (existName.equals(name)) {
+        public static void validateName(List<Car> participants, String name) {
+                for (Car car : participants) {
+                        if (car.equals(new Car(name, 0))) {
                                 System.out.println("중복된 이름이 있습니다.");
                                 throw new IllegalArgumentException();
                         }
@@ -46,7 +47,6 @@ class RacingController {
                         System.out.println("5글자 이상의 이름이 있습니다.");
                         throw new IllegalArgumentException();
                 }
-                return true;
         }
 
         public static void attemptInput(List<Car> participants, String inputMoves) {
@@ -57,7 +57,6 @@ class RacingController {
                                 car.move();
                                 System.out.println(car.getName() + " : " + car.getMoveStatus());
                         }
-                        System.out.println();
                 }
         }
 
@@ -74,9 +73,10 @@ class RacingController {
                                 winner.add(car.getName());
                         }
                 }
-                System.out.print("최종 우승자: " + String.join(", ", winner));
+                System.out.println("최종 우승자 : " + String.join(", ", winner));
         }
 }
+
 // Ming,Seo,Park,Bin,Seong
 class Car {
         private String name;
