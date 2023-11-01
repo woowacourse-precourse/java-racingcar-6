@@ -28,4 +28,5 @@
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다.
 
 ### 5. 테스트 코드
-- [O] CarTest
+- [O] CarTest 작성
+- [O] GameTest 작성
