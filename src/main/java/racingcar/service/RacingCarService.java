@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import racingcar.domain.RacingCar;
+import racingcar.model.RacingCar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,6 @@ public class RacingCarService {
 
     public int initNumberOfAttempts(String input) {
         int numberOfAttempts = validateInputNumberFormat(input);
-        System.out.println();
         validateInputNumberRange(numberOfAttempts);
         return numberOfAttempts;
     }
@@ -35,30 +34,11 @@ public class RacingCarService {
         return racingCars;
     }
 
-    public void getRaceResult(List<RacingCar> racingCars) {
-        for (RacingCar racingCar : racingCars) {
-            printResult(racingCar);
-        }
-        System.out.println();
-    }
-
-    private void printResult(RacingCar racingCar) {
-        System.out.println(racingCar.getUsername() + " : " + racingCar.getCurrentLocation());
-    }
-
     public List<String> getFinalWinner(List<RacingCar> racingCars) {
         List<String> finalWinners = new ArrayList<>();
 
         int maxDistance = findMaxDistance(racingCars);
         return findWinners(racingCars, finalWinners, maxDistance);
-    }
-
-    public void printWinners(List<String> finalWinners) {
-        String winners = String.join(", ", finalWinners);
-        if(finalWinners.size() > FINAL_WINNER_COUNT) {
-            winners = validatePrintWinners(winners);
-        }
-        System.out.println(FINAL_WINNERS + " : " + winners);
     }
 
     public List<String> findWinners(List<RacingCar> racingCars, List<String> finalWinners, int maxDistance) {

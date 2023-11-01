@@ -1,6 +1,6 @@
 package racingcar.util.parsing;
 
-import racingcar.domain.RacingCar;
+import racingcar.model.RacingCar;
 
 import java.util.ArrayList;
 
