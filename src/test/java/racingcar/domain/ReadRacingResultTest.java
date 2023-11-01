@@ -29,7 +29,7 @@ class ReadRacingResultTest {
 
         String result = readRacingResult.readHashMap(racingResult);
         assertThat(result).isEqualTo("CarA : ----\n");
-        //차가 3대일때
+        //차가 여러대일때
         entry1 = new AbstractMap.SimpleEntry<>(0, "CarA");
         racingResult.put(entry1, 1);
         Map.Entry<Integer, String> entry2 = new AbstractMap.SimpleEntry<>(1, "CarB");
