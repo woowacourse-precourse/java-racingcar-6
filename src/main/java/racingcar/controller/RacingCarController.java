@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.util.RandomNumber;
 import racingcar.model.Car;
 import racingcar.service.CarService;
 import racingcar.view.RacingCarView;
@@ -25,7 +26,7 @@ public class RacingCarController {
         racingCarView.printRaceStart();
         for (int i = 0; i < totalRounds; i++) {
             for (Car car : carService.cars) {
-                car.moveForward();
+                car.moveForward(RandomNumber.getNumber());
                 racingCarView.printRoundResult(car);
             }
             racingCarView.printEmptyLine();
