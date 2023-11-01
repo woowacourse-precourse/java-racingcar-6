@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.utils.CarExceptionMessage;
 
 class CarTest {
 
@@ -74,7 +75,7 @@ class CarTest {
         @DisplayName("[실패 테스트] 자동차 이름에 콤마가 존재")
         void commaExistsTest(String name) {
             Assertions.assertThatThrownBy(() -> new Car(name, new WootecoCarEngine()))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(CarExceptionMessage.COMMA_EXISTS.getError());
         }
 
         @ParameterizedTest
@@ -82,7 +83,7 @@ class CarTest {
         @DisplayName("[실패 테스트] 자동차 이름에 공백만 존재")
         void blankTest(String name) {
             Assertions.assertThatThrownBy(() -> new Car(name, new WootecoCarEngine()))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(CarExceptionMessage.ONLY_BLANK_NAME.getError());
         }
 
         @ParameterizedTest
@@ -90,7 +91,7 @@ class CarTest {
         @DisplayName("[실패 테스트] 유효하지 않은 자동차 길이")
         void outOfLengthTest(String name) {
             Assertions.assertThatThrownBy(() -> new Car(name, new WootecoCarEngine()))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(CarExceptionMessage.OUT_OF_NAME_LENGTH.getError());
         }
     }
 }
