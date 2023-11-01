@@ -12,8 +12,8 @@ public class OutputView {
         System.out.println(name + " : " + "-".repeat(movedLately));
     }
 
-    public static void printResult(List<String> winnerCarNames) {
+    public static void printWinnerNames(List<String> winnerNames) {
         System.out.println();
-        System.out.println("최종 우승자 : " + String.join(", ", winnerCarNames));
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }

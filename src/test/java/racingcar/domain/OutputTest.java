@@ -58,7 +58,7 @@ public class OutputTest {
     void 승자를_출력() {
         List<String> winnerList = List.of("a");
 
-        OutputView.printResult(winnerList);
+        OutputView.printWinnerNames(winnerList);
 
         assertThat(out.toString()).contains("최종 우승자 : a");
     }
@@ -67,7 +67,7 @@ public class OutputTest {
     void 승자를_두명_출력() {
         List<String> winnerList = List.of("a", "b");
 
-        OutputView.printResult(winnerList);
+        OutputView.printWinnerNames(winnerList);
 
         assertThat(out.toString()).contains("최종 우승자 : a, b");
     }

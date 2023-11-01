@@ -75,7 +75,7 @@ public class GameConsole {
 
     private void printWinnerNames() {
         makeWinnerNamesList();
-        OutputView.printResult(winnerNames);
+        OutputView.printWinnerNames(winnerNames);
     }
 
     public void makeWinnerNamesList() {
