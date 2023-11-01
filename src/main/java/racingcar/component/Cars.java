@@ -24,10 +24,12 @@ public class Cars {
         return nameList;
     }
 
-    /*
-    public void addCarsByNames(List<String> names) {
 
+    public void addCarsByNames(List<String> names) {
+        for (String name : names) {
+            cars.add(new Car(name));
+        }
     }
-    */
+
 
 }
