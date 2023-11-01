@@ -1,12 +1,12 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.Validator;
 
 public class Car {
 
     private String name;
     private int position;
-    final static int MAX_NAME_LENGTH = 5;
 
     final static int MIN_RANDOM_NUM = 0;
     final static int MAX_RANDOM_NUM = 9;
@@ -14,19 +14,9 @@ public class Car {
     final static int FORWARD_CRITERIA = 4;
 
     public Car(String name) {
-        nameValidate(name);
+        Validator.carName(name);
         this.name = name;
         this.position = 0;
-    }
-
-    private void nameValidate(String name) {
-        if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("공백은 이름으로 사용할 수 없습니다.");
-        }
-
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("5자 이하의 이름을 입력해주세요.");
-        }
     }
 
     public void move() {

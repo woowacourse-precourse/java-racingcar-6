@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
+import racingcar.utils.Validator;
 
 import java.util.List;
 
@@ -16,7 +17,10 @@ public class InputView {
 
     public int setPlayCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int play_count = Integer.parseInt(Console.readLine());
+        String num = Console.readLine();
+        Validator.playCount(num);
+        int play_count = Integer.parseInt(num);
+
         return play_count;
     }
 }
