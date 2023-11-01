@@ -35,7 +35,7 @@ public class Cars {
 
         return cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
-                .map(Car::getCarName)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
@@ -47,17 +47,17 @@ public class Cars {
                 .orElseThrow(() -> new IllegalArgumentException(CARS_ARE_EMPTY));
     }
 
-    public void randomCarMove(RandomGenerator randomGenerator) {
+    public void randomMove(RandomGenerator randomGenerator) {
         cars.stream()
                 .filter(car -> randomGenerator.isCanMove())
                 .forEach(Car::moveCar);
     }
 
-    public Map<String, String> generateCarStatus() {
+    public Map<String, String> generateStatus() {
         Map<String, String> carStatusMap = new HashMap<>();
 
         cars.forEach(car ->
-                carStatusMap.put(car.getCarName(), generateStatusString(car.getDistance())));
+                carStatusMap.put(car.getName(), generateStatusString(car.getDistance())));
 
         return carStatusMap;
     }

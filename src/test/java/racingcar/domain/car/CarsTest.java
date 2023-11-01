@@ -38,8 +38,8 @@ public class CarsTest extends NsTest {
         Cars cars = new Cars(Arrays.asList("pobi", "wooni"));
         RandomGenerator randomGenerator = new RandomNumberGeneratorTest(MOVING_FORWARD);
 
-        cars.randomCarMove(randomGenerator);
-        Map<String, String> carStatus = cars.generateCarStatus();
+        cars.randomMove(randomGenerator);
+        Map<String, String> carStatus = cars.generateStatus();
 
         assertEquals("{pobi=-, wooni=-}", carStatus.toString());
     }
@@ -49,8 +49,8 @@ public class CarsTest extends NsTest {
         Cars cars = new Cars(Arrays.asList("pobi", "wooni"));
         RandomGenerator randomGenerator = new RandomNumberGeneratorTest(STOP);
 
-        cars.randomCarMove(randomGenerator);
-        Map<String, String> carStatus = cars.generateCarStatus();
+        cars.randomMove(randomGenerator);
+        Map<String, String> carStatus = cars.generateStatus();
 
         assertEquals("{pobi=, wooni=}", carStatus.toString());
     }

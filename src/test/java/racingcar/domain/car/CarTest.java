@@ -10,7 +10,7 @@ public class CarTest extends NsTest {
     @Test
     void 차_이름을_가져오는지_Test() {
         Car car = new Car("뛰뛰빵빵");
-        assertThat(car.getCarName()).isEqualTo("뛰뛰빵빵");
+        assertThat(car.getName()).isEqualTo("뛰뛰빵빵");
     }
 
     @Test

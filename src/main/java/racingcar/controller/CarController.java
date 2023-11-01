@@ -37,8 +37,8 @@ public class CarController {
         printMessage(OutputMessage.EXECUTION_RESULT);
 
         for (int trial = 0; trial < trialAmount; trial++) {
-            cars.randomCarMove(randomGenerator);
-            Map<String, String> carStatus = cars.generateCarStatus();
+            cars.randomMove(randomGenerator);
+            Map<String, String> carStatus = cars.generateStatus();
 
             printStatusMessage(OutputMessage.PROGRESS_RESULT, carStatus);
             printNewLine();
