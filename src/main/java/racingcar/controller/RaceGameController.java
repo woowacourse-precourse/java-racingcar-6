@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.model.Car;
+import racingcar.model.RandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,7 +17,19 @@ public class RaceGameController {
     }
 
     public void play() {
-        List<String> carNameList = inputView.getCarNameList();
+        List<Car> carList = inputView.getCarNameList().stream()
+                .map(Car::new).toList();
         int roundTime = inputView.getRoundTime();
+
+        while (roundTime-- > 0) {
+            carList.forEach(car -> {
+                int randomNumber = RandomNumber.generateRandomNumber();
+                if (randomNumber > Car.MOVE_FORWARD_THRESHOLD) {
+                    car.moveForward();
+                }
+            });
+
+            outputView.printRoundResult(carList);
+        }
     }
 }
