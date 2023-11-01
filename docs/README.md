@@ -153,3 +153,11 @@
 ### RacingResultDto
 
 - `RacingResult`클래스에 들어있는 결과의 최종 승리자를 담는 DTO.
+
+---
+
+## Enum
+
+### RacingCarExceptionMessage
+
+- 자동차 경주 게임에 관련한 예외 메세지를 관리하는 enum.
