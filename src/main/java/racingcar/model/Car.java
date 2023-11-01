@@ -1,0 +1,40 @@
+package racingcar.model;
+
+import racingcar.config.CarNameLength;
+import racingcar.util.MessageFactory;
+import racingcar.config.MoveThreshold;
+
+public class Car {
+    private final String name;
+    private int position;
+
+    public Car(String name) {
+        validateCarName(name);
+        this.name = name;
+        this.position = 0;
+    }
+
+    private void validateCarName(String name) {
+        if (name.isEmpty() || name.length() > CarNameLength.MAX_LENGTH.getValue()) {
+            throw new IllegalArgumentException(MessageFactory.getInvalidCarNameMessage(CarNameLength.MAX_LENGTH.getValue()));
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getMoveResult() {
+        return "-".repeat(Math.max(0, position));
+    }
+
+    public void move(int move) {
+        if (move >= MoveThreshold.MIN_THRESHOLD.getValue()) {
+            position++;
+        }
+    }
+}
