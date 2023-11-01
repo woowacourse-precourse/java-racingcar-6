@@ -77,6 +77,25 @@ public class RacingCar {
         printRoundResult();
     }
 
+    public int getMaxValue() {
+
+        int max = 0;
+        for (String player : playersMap.values()) {
+            int result = player.length();
+            if (max < result) {
+                max = result;
+            }
+        }
+
+        return max;
+    }
+
+    public void endGame(){
+        int valueOfWinner = getMaxValue();
+
+    }
+
+
     public void run(){
         System.out.println(Notification.inputCarsName);
         initPlayer(Console.readLine());
@@ -88,5 +107,6 @@ public class RacingCar {
         for (int i = 0; i < numOfRounds; i++) {
             play();
         }
+
     }
 }
