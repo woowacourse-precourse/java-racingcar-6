@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,4 +33,9 @@ public class Cars {
         return carName.length() <= NAME_LENGTH;
     }
 
+    public void move() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
