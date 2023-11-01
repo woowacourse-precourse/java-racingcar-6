@@ -28,8 +28,10 @@ public class Controller {
 
     private void play(Game game) {
         OutputView.printHead();
-        gameService.play(game);
-        OutputView.showScore(game.getCars());
+        while (!gameService.isEndGame(game)) {
+            gameService.play(game);
+            OutputView.showScore(game.getCars());
+        }
         OutputView.showWinners(gameService.findWinners(game));
     }
 

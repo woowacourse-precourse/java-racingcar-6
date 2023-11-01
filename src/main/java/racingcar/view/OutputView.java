@@ -9,9 +9,9 @@ public class OutputView {
     public static void printHead() {
         System.out.println("실행결과");
     }
-    
+
     private static void showPosition(Car car) {
-        for (int i = 0; i <= car.getCurrentPosition(); i++) {
+        for (int i = 0; i < car.getCurrentPosition(); i++) {
             System.out.print("-");
         }
     }

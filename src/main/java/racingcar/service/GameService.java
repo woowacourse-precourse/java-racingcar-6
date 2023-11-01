@@ -48,4 +48,8 @@ public class GameService {
         }
         return max;
     }
+
+    public boolean isEndGame(Game game) {
+        return game.isReachTrialNumToTrial();
+    }
 }
