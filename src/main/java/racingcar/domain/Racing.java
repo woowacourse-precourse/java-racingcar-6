@@ -1,14 +1,14 @@
 package racingcar.domain;
 
 public class Racing {
-    private final int count;
+    private static int count;
 
     public Racing(String count) {
         validateMoveCount(count);
         this.count = Integer.parseInt(count);
     }
 
-    public int getCount() {
+    public static int getCount() {
         return count;
     }
 

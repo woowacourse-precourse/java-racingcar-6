@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import static racingcar.constant.Constant.CAR_NAME_MAX_LENGTH;
 import static racingcar.constant.Constant.START_POSITION;
 import static racingcar.constant.ErrorMessage.CAR_NAME_BLANK_ERROR_MESSAGE;
@@ -30,6 +32,13 @@ public class car {
     private static void validateIsCarNameBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException(String.valueOf(CAR_NAME_BLANK_ERROR_MESSAGE));
+        }
+    }
+
+    public void triesToMove() {
+        int power = Randoms.pickNumberInRange(0, 9);
+        if (power >= 4) {
+            position++;
         }
     }
     public String getName() {
