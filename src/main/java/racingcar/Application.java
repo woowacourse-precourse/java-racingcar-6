@@ -4,6 +4,7 @@ import racingcar.domain.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -46,9 +47,16 @@ public class Application {
 
     public static List<String> askName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
         String[] names = readLine().split(",");
+        validateNames(names);
         return new ArrayList<>(Arrays.asList(names));
+    }
+    private static void validateNames(String[] names) {
+        for (String name : names) {
+            if (name.trim().isEmpty() || name.contains(" ") || name.length() > 5) {
+                throw new IllegalArgumentException("잘못된 이름이 포함되어 있습니다. 이름을 다시 입력하세요.");
+            }
+        }
     }
 
     public static int askCount() {
