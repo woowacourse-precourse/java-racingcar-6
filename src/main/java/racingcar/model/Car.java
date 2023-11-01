@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.util.Validate;
 
 public class Car {
@@ -32,5 +33,11 @@ public class Car {
     // 현재 위치 정보 출력 (예시: member : --- (position = 3))
     public String getForwardPosition() {
         return this.member + " : " + "-".repeat(this.position);
+    }
+
+    public boolean move() {
+        int randomValue = Randoms.pickNumberInRange(1, 9);
+
+        return (randomValue >= 4);
     }
 }

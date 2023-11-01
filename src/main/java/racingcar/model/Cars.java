@@ -49,6 +49,7 @@ public class Cars {
 
     public void forward() {
         cars.stream()
-                .forEach(car -> randomForward(car));
+                .filter(Car::move)
+                .forEach(Car::forward);
     }
 }
