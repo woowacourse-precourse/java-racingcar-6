@@ -12,6 +12,7 @@ public class RacingGame {
     public void start() {
         Cars cars = setupCarsName();
         TryCount tryCount = setupTryCount();
+        race(cars, tryCount);
     }
 
     private Cars setupCarsName() {
@@ -22,5 +23,13 @@ public class RacingGame {
     private TryCount setupTryCount() {
         output.printMessageLine(Messages.INPUT_TRY_COUNT.getMessage());
         return input.readTryCount();
+    }
+
+    private void race(Cars cars, TryCount tryCount) {
+        output.printMessageLine(Messages.RESULT.getMessage());
+        while (tryCount.isMoreTry()) {
+            cars.tried();
+            tryCount.tried();
+        }
     }
 }

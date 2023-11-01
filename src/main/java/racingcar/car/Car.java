@@ -11,6 +11,16 @@ public class Car {
         this.position = position;
     }
 
+    public void move(MoveNumber number) {
+        if (isMovable(number)) {
+            position.move();
+        }
+    }
+
+    private static boolean isMovable(MoveNumber number) {
+        return number.isMovable();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

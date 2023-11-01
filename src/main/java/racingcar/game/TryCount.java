@@ -32,6 +32,14 @@ public class TryCount {
         }
     }
 
+    public boolean isMoreTry() {
+        return this.tryCount > FINISH_COUNT;
+    }
+
+    public void tried() {
+        this.tryCount--;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) {
