@@ -14,9 +14,17 @@ public class Application {
         String input = Console.readLine();
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int gameCnt = Integer.parseInt(Console.readLine());
+        int gameCnt;
+        try {
+            gameCnt = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
 
         String[] carNameArray  = input.split(",");
+        if (carNameArray.length < 2){
+            throw new IllegalArgumentException();
+        }
 
         for (String name : carNameArray) {
             if (name.length() > 5) {

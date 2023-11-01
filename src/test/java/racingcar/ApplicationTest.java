@@ -43,6 +43,22 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_수_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "1회"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 우승자_여러명_전진() {
         assertRandomNumberInRangeTest(
                 () -> {
