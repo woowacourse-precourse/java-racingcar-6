@@ -20,4 +20,14 @@ public class Cars {
         }
         return maxDistance;
     }
+
+    public Cars determineWinner(int maxDistance) {
+        ArrayList<Car> bestCars = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getDistance() == maxDistance) {
+                bestCars.add(car);
+            }
+        }
+        return Cars.of(bestCars);
+    }
 }
