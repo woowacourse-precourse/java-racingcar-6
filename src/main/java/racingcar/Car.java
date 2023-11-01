@@ -15,6 +15,10 @@ public class Car {
         this.currentLocation = 0;
     }
 
+    public void setCurrentLocation(int locationValue) {
+        this.currentLocation = locationValue;
+    }
+
     public String getCurrentStatus() {
 
     }
