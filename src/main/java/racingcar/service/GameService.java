@@ -3,12 +3,16 @@ package racingcar.service;
 
 import java.util.List;
 import racingcar.controller.InputResolver;
+import racingcar.domain.Car;
 
-public class RacingService {
+
+public class GameService {
     private final InputResolver inputResolver;
+    private final CarService carService;
 
-    public RacingService(InputResolver inputResolver) {
+    public GameService(InputResolver inputResolver, CarService carService) {
         this.inputResolver = inputResolver;
+        this.carService = carService;
     }
 
     public void game(){
@@ -16,7 +20,10 @@ public class RacingService {
     }
 
     private void settingGame() {
-        List<String> carNameList = inputResolver.preprocessCarName();
+        List<Car> carList = carService.createCarList();
         int count = inputResolver.preprocessCount();
     }
+
+
+
 }
