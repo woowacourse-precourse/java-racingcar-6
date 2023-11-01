@@ -2,11 +2,24 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.CarInformation;
+import racingcar.domain.GameManagement;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        List<String> carNames = Arrays.asList(getCarNames());
+        int roundCount = getRoundCount();
+
+        GameManagement game = new GameManagement(carNames);
+
+        for (int i = 0; i < roundCount; i++) {
+            game.playRound();
+            printRoundResult(game);
+        }
     }
 
     private static String[] getCarNames() {
@@ -23,6 +36,16 @@ public class Application {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("올바른 숫자를 입력하세요.");
+        }
+    }
+
+    private static void printRoundResult(GameManagement game) {
+        for (CarInformation car : game.getWinners()) {
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
         }
     }
 }
