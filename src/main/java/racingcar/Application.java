@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import view.InputView;
 
 public class Application {
@@ -12,5 +13,9 @@ public class Application {
         }
 
         int testNumber = InputView.inputTestNumber();
+
+        if (testNumber < 0) {
+            throw new IllegalArgumentException("숫자 입력은 양수만 가능합니다.");
+        }
     }
 }
