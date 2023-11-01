@@ -11,4 +11,10 @@ public class GameInterface {
         checkCarNames(inputCarNames);
         return inputCarNames;
     }
+
+    private static void checkCarNames(String[] carNames){
+        for (String name : carNames) {
+            checkCarNameLength(name);
+        }
+    }
 }
