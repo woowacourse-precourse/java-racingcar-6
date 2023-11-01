@@ -1,12 +1,12 @@
 package racingcar.domain;
 
 public class RacingCar {
-    private final String name;
     private Integer countAdvance = 0;
+    private final String NAME;
     private final String ROAD = "-";
 
     public RacingCar(String name) {
-        this.name = name;
+        this.NAME = name;
     }
 
     private boolean isPossibleAdvance(Integer num) {
