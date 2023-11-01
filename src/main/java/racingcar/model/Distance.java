@@ -1,10 +1,14 @@
 package racingcar.model;
 
+import racingcar.enums.Constants;
+
+import java.util.Objects;
+
 public class Distance {
     private Integer distance;
 
-    public Distance(Integer distance) {
-        this.distance = distance;
+    public Distance() {
+        this.distance = Constants.INITIAL_DISTANCE.getNumber();
     }
 
     public Integer getDistance() {

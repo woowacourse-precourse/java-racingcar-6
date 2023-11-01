@@ -9,6 +9,7 @@ public enum Constants {
     NAME_SPLITTER(","),
     FORWARD(1),
     ZERO(0),
+    INITIAL_DISTANCE(0),
     ;
 
     private int number;

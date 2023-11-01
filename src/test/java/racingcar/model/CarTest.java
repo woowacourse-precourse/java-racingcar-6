@@ -11,7 +11,7 @@ class CarTest {
    class MoveCarTest {
         // given
         Name testName = new Name("car");
-        Distance testDistance = new Distance(0);
+        Distance testDistance = new Distance();
         Car testCar = new Car(testName, testDistance);
 
         @Test
