@@ -1,29 +1,42 @@
 package racingcar.view;
 
+import racingcar.constant.GameMessage;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import java.util.List;
 
 public class OutputView {
-    public final String GAME_START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    public void displayGameStartMessage() {
-        System.out.println(GAME_START_MESSAGE);
+
+    public void displayCarNamesInputMessage() {
+        System.out.println(GameMessage.GAME_START_MESSAGE);
     }
 
+    public void displayNumberOfTrialsQuestion() {
+        System.out.println(GameMessage.ASK_TRIAL_NUMBERS_MESSAGE);
+    }
+
+    public void displayRoundResultMessage() {
+        printBlankLine();
+        System.out.println(GameMessage.ROUND_RESULT);
+    }
     public void displayRaceStatus(Cars cars) {
         for (Car car : cars.getCars()) {
             System.out.println(car.getName() + " : " + getFormattedPosition(car.getPosition()));
         }
-        System.out.println();
+        printBlankLine();
     }
 
     public void displayWinners(List<String> winnerNames) {
-        System.out.print("최종 우승자 : ");
-        System.out.println(String.join(",", winnerNames));
+        System.out.print(GameMessage.WINNER_MESSAGE);
+        System.out.println(String.join(", ", winnerNames));
 
     }
 
     public String getFormattedPosition(int position) {
         return "-".repeat(position);
+    }
+
+    public void printBlankLine() {
+        System.out.println();
     }
 }
