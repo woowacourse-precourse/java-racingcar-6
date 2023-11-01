@@ -16,13 +16,13 @@ public class GameController {
     }
 
     public void play() {
-        racingCarGamePlayerInputInfo();
+        racingCarGamePlayerInput();
         player.settingCarNames(player.getCarNameStore());
         printCarStatus();
         finishGameResult();
     }
 
-    private void racingCarGamePlayerInputInfo() {
+    private void racingCarGamePlayerInput() {
         printRequestInputCarName();
         settingPlayerCarNames();
         printRequestInputTryNumber();
@@ -62,17 +62,17 @@ public class GameController {
     }
 
     private void getCarMove() {
-        for (Car car : getPlayerCarInfo()) {
+        for (Car car : getPlayerCar()) {
             gameService.move(car);
         }
     }
 
-    private List<Car> getPlayerCarInfo() {
-        return player.getCarInfo();
+    private List<Car> getPlayerCar() {
+        return player.getCars();
     }
 
     private void finishGameResult() {
-        gameService.getMaxPosition(getPlayerCarInfo());
-        outputView.printCarGameWinnerName(gameService.findGameWinner(getPlayerCarInfo()));
+        gameService.getMaxPosition(getPlayerCar());
+        outputView.printCarGameWinnerName(gameService.findGameWinner(getPlayerCar()));
     }
 }

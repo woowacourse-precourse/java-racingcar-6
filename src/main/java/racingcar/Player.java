@@ -7,7 +7,7 @@ import java.util.List;
 public class Player {
     private final List<String> carNameStore = new ArrayList<>();
     private int tryNumber;
-    private List<Car> carInfo;
+    private List<Car> cars;
 
     public void settingPlayerCarNameStore(String[] carNames) {
         this.carNameStore.addAll(Arrays.asList(carNames));
@@ -18,7 +18,7 @@ public class Player {
     }
 
     public void settingCarNames(List<String> carNameStore) {
-        this.carInfo = new ArrayList<>();
+        this.cars = new ArrayList<>();
         for (String carName : carNameStore) {
             createCar(carName);
         }
@@ -28,8 +28,8 @@ public class Player {
         return carNameStore;
     }
 
-    public List<Car> getCarInfo() {
-        return carInfo;
+    public List<Car> getCars() {
+        return cars;
     }
 
     public int getTryNumber() {
@@ -38,6 +38,6 @@ public class Player {
 
     private void createCar(String carName) {
         Car car = new Car(carName);
-        carInfo.add(car);
+        cars.add(car);
     }
 }

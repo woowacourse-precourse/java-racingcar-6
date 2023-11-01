@@ -28,16 +28,16 @@ public class GameService {
         }
     }
 
-    public void getMaxPosition(List<Car> carInfos) {
-        for (Car carInfo : carInfos) {
-            findMaxPosition(carInfo);
+    public void getMaxPosition(List<Car> cars) {
+        for (Car car : cars) {
+            findMaxPosition(car);
         }
     }
 
-    public List<String> findGameWinner(List<Car> carInfos) {
-        return carInfos
+    public List<String> findGameWinner(List<Car> cars) {
+        return cars
                 .stream()
-                .filter(carInfo -> gameWinnerPosition == carInfo.getPosition())
+                .filter(car -> gameWinnerPosition == car.getPosition())
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
@@ -48,9 +48,9 @@ public class GameService {
         return randomNumber >= CONDITION_CAR_MOVEMENT_NUMBER;
     }
 
-    private void findMaxPosition(Car carInfo) {
-        if (gameWinnerPosition < carInfo.getPosition()) {
-            gameWinnerPosition = carInfo.getPosition();
+    private void findMaxPosition(Car cars) {
+        if (gameWinnerPosition < cars.getPosition()) {
+            gameWinnerPosition = cars.getPosition();
         }
     }
 }
