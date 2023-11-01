@@ -27,4 +27,8 @@ public class Winner {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
+
+    public void printWinners() {
+        System.out.println(GAME_WINNER_MESSAGE + String.join(", ", searchWinners()));
+    }
 }
