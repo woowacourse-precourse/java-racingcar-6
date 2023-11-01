@@ -5,15 +5,18 @@ import racingcar.domain.RacingGame;
 import racingcar.dto.RacingCarDto;
 import racingcar.dto.RacingGameRq;
 import racingcar.dto.RacingGameRs;
+import racingcar.view.ViewResolver;
 import racingcar.view.output.OutputView;
 
 public class RacingGameController {
     private final RacingGame racingGame;
     private final OutputView outputView;
+    private final ViewResolver viewResolver;
 
-    public RacingGameController(RacingGame racingGame, OutputView outputView) {
+    public RacingGameController(RacingGame racingGame, OutputView outputView, ViewResolver viewResolver) {
         this.racingGame = racingGame;
         this.outputView = outputView;
+        this.viewResolver = viewResolver;
     }
 
     public void startRacingGame(List<String> carNames, long numberOfAttempts) {
@@ -25,11 +28,7 @@ public class RacingGameController {
             racingGameRq = updateRacingGameRq(racingGameRs);
         }
 
-        outputView.printWinners(racingGameRq.getRacingCarDtoList());
-    }
-
-    private RacingGameRq updateRacingGameRq(RacingGameRs racingGameRs) {
-        return RacingGameRq.valueOf(racingGameRs.getRacingCarDtoList(), racingGameRs.getLeftNumberOfAttempts());
+        outputView.printWinners(resolveWinner(racingGameRq));
     }
 
     private RacingGameRq createRacingGameRq(List<String> carNames, long numberOfAttempts) {
@@ -43,7 +42,19 @@ public class RacingGameController {
 
     private RacingGameRs startSingleGame(RacingGameRq racingGameRq) {
         RacingGameRs racingGameRs = racingGame.startGame(racingGameRq);
-        outputView.printExecutionResult(racingGameRs.getRacingCarDtoList());
+        outputView.printExecutionResult(resolveSingleResult(racingGameRs));
         return racingGameRs;
+    }
+
+    private String resolveSingleResult(RacingGameRs racingGameRs) {
+        return viewResolver.singleGameResult(racingGameRs.getRacingCarDtoList());
+    }
+
+    private RacingGameRq updateRacingGameRq(RacingGameRs racingGameRs) {
+        return RacingGameRq.valueOf(racingGameRs.getRacingCarDtoList(), racingGameRs.getLeftNumberOfAttempts());
+    }
+
+    private List<String> resolveWinner(RacingGameRq racingGameRq) {
+        return viewResolver.winners(racingGameRq.getRacingCarDtoList());
     }
 }
