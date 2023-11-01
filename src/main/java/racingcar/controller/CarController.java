@@ -13,7 +13,7 @@ public class CarController {
         createRacingGame(userCars, userCount);
     }
 
-    private void createRacingGame(String userCars, String userCount) {
+    public void createRacingGame(String userCars, String userCount) {
         RacingGame race = CarService.createRace(userCars, userCount);
         race.startGame();
     }
