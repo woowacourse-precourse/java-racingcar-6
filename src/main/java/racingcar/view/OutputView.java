@@ -33,14 +33,18 @@ public class OutputView {
     /**
      * 우승자 출력
      *
-     * @param cars 우승 차량들
+     * @param winnersNames 우승 차량 이름 배열
      */
-    public static void printWinners(CarModel[] cars) {
+    public static void printWinners(String[] winnersNames) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (CarModel car : cars) {
-            stringBuilder.append(car.getName()).append(", ");
+
+        for (String winnerName : winnersNames) {
+            stringBuilder.append(winnerName)
+                    .append(", ");
         }
+
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+
         System.out.println("최종 우승자 : " + stringBuilder);
     }
 }
