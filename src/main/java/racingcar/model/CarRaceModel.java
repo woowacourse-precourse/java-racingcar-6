@@ -1,9 +1,8 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map.Entry;
 import java.util.List;
 
 public class CarRaceModel {
