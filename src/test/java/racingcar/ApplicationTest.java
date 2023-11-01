@@ -56,6 +56,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void printWinner_메서드_테스트() {
+        assertRandomNumberInRangeTest(() ->
+        {
+            run("son,kane","1");
+            assertThat(output()).contains("kane");},
+                3,9
+        );
+    }
+
 
 
     @Override
