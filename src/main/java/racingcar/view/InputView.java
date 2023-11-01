@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static racingcar.constant.message.ExceptionMessage.DUPLICATE_CAR_NAME_EXCEPTION_MESSAGE;
 import static racingcar.constant.message.ExceptionMessage.INVALID_INPUT_RACING_COUNT_EXCEPTION_MESSAGE;
 
 public class InputView {
@@ -22,6 +23,7 @@ public class InputView {
         List<String> inputCarNameList = Stream.of(playerString.split(CAR_NAME_SEPERATOR))
                 .map(String::trim).collect(Collectors.toList());
 
+        checkForDuplication(inputCarNameList);
         return inputCarNameList;
     }
 
@@ -46,6 +48,15 @@ public class InputView {
         if (playerNumber < RACING_COUNT_MINIMUM) {
             throw new NumberFormatException();
         }
+    }
+
+    public static void checkForDuplication(List<String> inputCarNameList){
+        List<String> uniquelist = inputCarNameList.stream().distinct().collect(Collectors.toList());
+
+        if(inputCarNameList.size()!=uniquelist.size()){
+            throw new IllegalArgumentException(DUPLICATE_CAR_NAME_EXCEPTION_MESSAGE);
+        }
+
     }
 
 }
