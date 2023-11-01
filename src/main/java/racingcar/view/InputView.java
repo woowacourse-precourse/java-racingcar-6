@@ -9,7 +9,11 @@ import java.util.List;
 public class InputView {
     public List<String> readCars() {
         String input = Console.readLine();
-        return Converter.toList(input);
+        List<String> carNames = Converter.toList(input);
+        for (String name : carNames) {
+            Validator.validateCarName(name);
+        }
+        return carNames;
     }
 
     public int readNumOfExecutions() throws IllegalArgumentException {
