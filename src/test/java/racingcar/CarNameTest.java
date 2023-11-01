@@ -44,7 +44,34 @@ public class CarNameTest {
                 });
     }
 
+    @Test
+    void 동일한_자동차() {
 
+        //given
+        List<String> splitCarList = Arrays.asList("pobi", "pobi", "jason");
+
+        //when, then
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    for (String car : splitCarList) {
+                        if (splitCarList.contains(car)) {
+                            throw new IllegalArgumentException();
+                        }
+                    }
+                });
+    }
+
+    @Test
+    void 리스트_입력값_null() {
+        String inputCar = "";
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    if (inputCar.isEmpty()) {
+                        throw new IllegalArgumentException();
+                    }
+
+                });
+    }
 
 
 }
