@@ -2,9 +2,7 @@ package racingcar.repository;
 
 import racingcar.domain.Racer;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MemoryRacerRepository implements RacerRepository {
     private static Map<Long, Racer> racerMap = new HashMap<>();
@@ -25,8 +23,21 @@ public class MemoryRacerRepository implements RacerRepository {
                 .findAny();
     }
 
-    public int getMoving(String name){
+    public int getMoveByName(String name){
         Racer currRacer = findByName(name).get();
         return currRacer.getCurrentMove();
+    }
+
+    public void setMoveByName(String name){
+        Racer currentRacer = findByName(name).get();
+        currentRacer.setCurrentMove();
+    }
+
+    public List<Racer> findAll(){
+        return new ArrayList<>(racerMap.values());
+    }
+
+    public void clearStore(){
+        racerMap.clear();
     }
 }
