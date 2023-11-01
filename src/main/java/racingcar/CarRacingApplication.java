@@ -1,9 +1,11 @@
 package racingcar;
 
+import racingcar.controller.CarFactoryController;
 import racingcar.controller.RacingController;
 import racingcar.domain.ForwardTryCount;
 import racingcar.domain.RacingCars;
 import racingcar.domain.RacingWinners;
+import racingcar.view.CarNamesInputView;
 import racingcar.view.OutputMessageView;
 import racingcar.view.RacingTurnsInputView;
 import racingcar.view.RacingWinnersOutputView;
@@ -12,9 +14,17 @@ import racingcar.view.RoundResultOutputView;
 public class CarRacingApplication {
 
     RacingController racingController = new RacingController();
+    CarFactoryController carFactoryController = new CarFactoryController();
 
-    public void runWith(RacingCars racingCars) {
 
+    public RacingCars produceCarsWithInput() {
+
+        return carFactoryController.createRacingCars(CarNamesInputView.input());
+
+    }
+
+    public void run() {
+        RacingCars racingCars = produceCarsWithInput();
         playRacingTurnsWith(racingCars);
         String racingWinners = getRacingWinnersFrom(racingCars);
 
