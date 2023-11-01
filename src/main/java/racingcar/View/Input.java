@@ -20,7 +20,7 @@ public class Input {
             throw new InputException(Error.ROUND_COUNT_UNDEFIND_ERROR);
         }
 
-        if (Round > 5) {
+        if (Round > 20) {
             throw new InputException(Error.ROUND_COUNT_MAXIMUM_ERROR);
         }
     }
