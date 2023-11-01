@@ -32,6 +32,14 @@ public class CarNameValidatorTest extends NsTest {
         );
     }
 
+    @Test
+    void 입력한_자동차_길이가_5를_초과하는_경우_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobiii,woni,jun", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
