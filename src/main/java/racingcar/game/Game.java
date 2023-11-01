@@ -33,6 +33,7 @@ public class Game {
             this.randomNumberGenerator.rerollRandomNumber();
         }
     }
+
     public void displayGameScore() {
         for (GameCar gameCar : this.gameCars) {
             System.out.println(gameCar.getName() + " : " + "-".repeat(gameCar.getPosition()));

@@ -25,6 +25,7 @@ public class GameTest {
         //then;
         assertThat(position).isEqualTo(2);
     }
+
     @Test
     void move_게임_차_이동_테스트() {
         //given
@@ -36,11 +37,11 @@ public class GameTest {
     }
 
     @Test
-    void moveGameCar_랜덤값에따라_차_이동_테스트(){
+    void moveGameCar_랜덤값에따라_차_이동_테스트() {
         //given
         List<String> carNameList = InputManager.parseCarName("choi,jong,geun");
         int turn = InputManager.parseIntTurnAnswer("5");
-        Game game = new Game(turn,carNameList);
+        Game game = new Game(turn, carNameList);
 
         //when
         game.moveGameCars();
@@ -51,6 +52,7 @@ public class GameTest {
         System.out.println(gameScore.get(1));
         System.out.println(gameScore.get(2));
     }
+
     @Test
     void readLine_테스트() {
         //given
@@ -90,6 +92,7 @@ public class GameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("차 이름은 5글자 이하로 해주세요.");
     }
+
     @Test
     void parseIntTurnAnswer_성공_테스트() {
         //given
@@ -119,8 +122,8 @@ public class GameTest {
     @Test
     void displayGameScore_테스트() {
         //given
-        List<String> gameCars = new ArrayList<>(Arrays.asList("choi","jong"));
-        Game game = new Game(1,gameCars);
+        List<String> gameCars = new ArrayList<>(Arrays.asList("choi", "jong"));
+        Game game = new Game(1, gameCars);
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
@@ -135,7 +138,7 @@ public class GameTest {
     void displayGameWinner_테스트() {
         //given
         List<String> gameCars = new ArrayList<>(Arrays.asList("choi"));
-        Game game = new Game(1,gameCars);
+        Game game = new Game(1, gameCars);
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
