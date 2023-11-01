@@ -28,9 +28,9 @@ class CarsTest {
                 () -> {
                     cars.forward(numberGenerator);
                     assertAll(
-                            () -> assertThat(cars.getCars().get(0).getPoint()).isEqualTo(1),
-                            () -> assertThat(cars.getCars().get(1).getPoint()).isEqualTo(1),
-                            () -> assertThat(cars.getCars().get(2).getPoint()).isEqualTo(0)
+                            () -> assertThat(cars.getCars().get(0).getPosition()).isEqualTo(1),
+                            () -> assertThat(cars.getCars().get(1).getPosition()).isEqualTo(1),
+                            () -> assertThat(cars.getCars().get(2).getPosition()).isEqualTo(0)
                     );
 
                 },

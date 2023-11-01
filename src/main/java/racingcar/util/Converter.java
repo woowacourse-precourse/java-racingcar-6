@@ -45,6 +45,6 @@ public class Converter {
     }
 
     private static String formatCarResult(Car car) {
-        return car.getName() + SINGLE_BLANK + COLON + SINGLE_BLANK + HYPHEN.repeat(car.getPoint());
+        return car.getName() + SINGLE_BLANK + COLON + SINGLE_BLANK + HYPHEN.repeat(car.getPosition());
     }
 }

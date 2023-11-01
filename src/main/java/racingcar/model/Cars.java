@@ -9,21 +9,21 @@ public record Cars(List<Car> cars) {
     }
 
     public Cars judgeWinner() {
-        int maxPoint = findMaxPoint();
-        List<Car> winners = findWinners(maxPoint);
+        int maxPosition = findMaxPosition();
+        List<Car> winners = findWinners(maxPosition);
         return new Cars(winners);
     }
 
-    private int findMaxPoint() {
+    private int findMaxPosition() {
         return cars.stream()
-                .mapToInt(Car::getPoint)
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(IllegalStateException::new);
     }
 
-    private List<Car> findWinners(int maxPoint) {
+    private List<Car> findWinners(int maxPosition) {
         return cars.stream()
-                .filter(car -> car.getPoint() == maxPoint)
+                .filter(car -> car.getPosition() == maxPosition)
                 .toList();
     }
 

@@ -9,24 +9,24 @@ public class Car {
     private static final int MAX_NUMBER = 9;
 
     private final String name;
-    private int point;
+    private int position;
 
     public Car(String name) {
         this.name = name;
-        this.point = 0;
+        this.position = 0;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPoint() {
-        return point;
+    public int getPosition() {
+        return position;
     }
 
     public void forward(NumberGenerator numberGenerator) {
         if (generateNumber(numberGenerator) >= FORWARD_STANDARD) {
-            point += INCREASE_AMOUNT;
+            position += INCREASE_AMOUNT;
         }
     }
 

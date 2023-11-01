@@ -15,7 +15,7 @@ class CarTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     car.forward(numberGenerator);
-                    assertThat(car.getPoint()).isEqualTo(0);
+                    assertThat(car.getPosition()).isEqualTo(0);
                 },
                 2
         );
@@ -28,7 +28,7 @@ class CarTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     car.forward(numberGenerator);
-                    assertThat(car.getPoint()).isEqualTo(1);
+                    assertThat(car.getPosition()).isEqualTo(1);
                 },
                 5
         );
