@@ -36,7 +36,7 @@ public class PrinterTest {
                 test2 : --
                 test3 : ---""";
 
-        Printer.printInProgress(racerList);
+        Printer.printCurrentRaceResult(racerList);
         Assertions.assertEquals(expectedPrint,outputStreamCaptor.toString().trim());
     }
     @Test
@@ -44,7 +44,7 @@ public class PrinterTest {
         List<String> winnerList = new ArrayList<>();
         winnerList.add("pobi");
 
-        Printer.printTotalWinners(winnerList);
+        Printer.printFinalResult(winnerList);
         String expectedResult = "최종 우승자 : pobi";
 
         Assertions.assertEquals(expectedResult,outputStreamCaptor.toString().trim());
@@ -56,7 +56,7 @@ public class PrinterTest {
         winnerList.add("pobi");
         winnerList.add("jun");
 
-        Printer.printTotalWinners(winnerList);
+        Printer.printFinalResult(winnerList);
         String expectedResult = "최종 우승자 : pobi, jun";
 
         Assertions.assertEquals(expectedResult, outputStreamCaptor.toString().trim());

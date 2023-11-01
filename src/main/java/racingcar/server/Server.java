@@ -35,7 +35,7 @@ public class Server {
         System.out.println("실행 결과");
         for (int i = 0; i < raceRound; i++){
             continueRace();
-            Printer.printInProgress(racerList);
+            Printer.printCurrentRaceResult(racerList);
         }
 
     }
@@ -46,7 +46,7 @@ public class Server {
     }
     public void finishRace(){
         List<String> winnerList = aggregateRaceResults();
-        Printer.printTotalWinners(winnerList);
+        Printer.printFinalResult(winnerList);
     }
     private List<String> aggregateRaceResults(){
         int maxPos = 0;
