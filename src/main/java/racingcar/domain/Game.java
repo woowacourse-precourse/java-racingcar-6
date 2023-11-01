@@ -16,5 +16,11 @@ public class Game {
         player.createCars();
         printer.printCountMessage();
         player.pickRaceCount();
+        printer.printBlankLine();
+        race();
+    }
+
+    private void race() {
+        printer.printResult();
     }
 }
