@@ -56,7 +56,7 @@
 - [x] 4이상이면 true를 아니면 false를 전달하는 기능 (isMove)
 - [x] 0~ 9까지의 랜덤 숫자를 하나 만드는 기능 (makeRandom)
 
-### 자동차의 전진 결과를 만드는 기능(service.CarGame)
+### 자동차의 전진 결과를 만드는 기능(controller.CarGame)
 
 - [x] 시도 회수만큼 게임을 한다 (run)
 - [x] 게임을 한번 시도하여 이동거리를 변화 시키는 기능을 실행한다 (saveResult)
@@ -72,7 +72,7 @@
 
 - [x] 사용자에게 시도 회수를 입력 받아 전달하는 기능 (makeTryNumber)
 
-### 최종 우승자를 보여주는 기능(service.FinalWinner)
+### 최종 우승자를 보여주는 기능(controller.FinalWinner)
 
 - [x] 최종 우승자의 출력하는 기능을 실행하는 기능 (showCars)
 - [x] 최종 우승자를 출력하는 기능 (showCarList)

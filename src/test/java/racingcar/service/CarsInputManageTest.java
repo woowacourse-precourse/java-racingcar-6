@@ -2,6 +2,7 @@ package racingcar.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,8 @@ public class CarsInputManageTest {
         String names = "pobi,woo,teco";
         InputStream in = new ByteArrayInputStream(names.getBytes());
         System.setIn(in);
-        
+
         assertThat(manage.makeCars(input)).isInstanceOf(TotalCar.class);
+        Console.close();
     }
 }
