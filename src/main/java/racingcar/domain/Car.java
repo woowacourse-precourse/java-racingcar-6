@@ -29,7 +29,7 @@ public class Car {
 
     private void checkNull(String name) {
         if (name == null) {
-            throw new NullPointerException("자동차 이름 null 불가");
+            throw new IllegalArgumentException("자동차 이름 null 불가");
         }
     }
 
