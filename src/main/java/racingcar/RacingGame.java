@@ -56,6 +56,21 @@ public class RacingGame {
         System.out.println(); // 각 레이스 후 빈 줄 출력
     }
 
+    private static List<String> getWinners(List<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
     public void startGame() {
         List<Car> cars = createCars();
         int attempt = getAttempts();
@@ -64,6 +79,8 @@ public class RacingGame {
         for (int i = 0; i < attempt; i++) {
             race(cars);
         }
+
+        List<String> winners = getWinners(cars);
     }
 
 }
