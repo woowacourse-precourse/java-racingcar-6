@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarList {
-    public static List<Car> carList;
+    public List<Car> carList;
     public CarList(List<String> nameList){
         for (String name : nameList) {
             carList.add(new Car(name));
         }
     }
-    public static void carListMove() {
+    public void carListMove() {
         for (Car car : carList) {
             car.randomMove();
         }
     }
-    public static List<String> carListWinners(){
+    public List<String> carListWinners(){
         int maxMoveCount = Integer.MIN_VALUE;
         for (Car car : carList) {
             if (car.moveCount > maxMoveCount) {
@@ -30,7 +30,7 @@ public class CarList {
         }
         return winners;
     }
-    public static String carListMoveCountString(){
+    public String carListMoveCountString(){
         String carListMoveCountString = "";
         for (Car car : carList) {
             carListMoveCountString += car.moveCountString() + '\n';

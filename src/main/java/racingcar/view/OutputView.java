@@ -5,6 +5,6 @@ import racingcar.model.CarList;
 
 public class OutputView {
     public static void gameRoundResultPrint(CarList carList){
-
+        System.out.println(carList.carListMoveCountString());
     }
 }
