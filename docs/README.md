@@ -16,9 +16,9 @@
 
 ## 전진 시도 횟수를 입력받는다.
 - [X] 사용자가 입력한 문자열을 정수로 변환해 리턴한다. - TotalRoundsConverter#convert()
-- [ ] 잘못된 값을 입력할 경우 `IllegalArgumentException`을 던진다.
+- [X] 잘못된 값을 입력할 경우 `IllegalArgumentException`을 던진다.
   - [X] 0~9로 이루어진 문자열이 아닌 경우 - TotalRoundsConverter#checkIsDigit()
-  - [ ] 1 미만의 수를 입력한 경우 - TotalRoundsConverter#checkUnder1()
+  - [X] 1 미만의 수를 입력한 경우 - TotalRoundsConverter#checkUnder1()
 
 
 ## 모든 자동차에 대해

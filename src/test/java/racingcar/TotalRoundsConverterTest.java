@@ -24,4 +24,12 @@ public class TotalRoundsConverterTest {
 
         assertThatThrownBy(() -> totalRoundsConverter.convert(input)).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void convert_메서드가_checkUnder1_메서드를_호출해_사용자_입력값이_1보다_작으면_예외_발생() {
+        String input = "000";
+        TotalRoundsConverter totalRoundsConverter = new TotalRoundsConverter();
+
+        assertThatThrownBy(() -> totalRoundsConverter.convert(input)).isInstanceOf(IllegalArgumentException.class);
+    }
 }
