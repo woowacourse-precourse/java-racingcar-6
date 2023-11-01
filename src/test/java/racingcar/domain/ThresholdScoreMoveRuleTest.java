@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ThresholdMoveRuleTest {
+class ThresholdScoreMoveRuleTest {
     private NumberGenerator getTargetNumber(int number) {
         return new RandomNumberGenerator() {
             @Override
@@ -20,7 +20,7 @@ class ThresholdMoveRuleTest {
     void 숫자4_1_반환() {
         //given
         NumberGenerator numberGenerator = getTargetNumber(4);
-        MoveRule moveRule = new ThresholdMoveRule(numberGenerator);
+        MoveRule moveRule = new ThresholdScoreMoveRule(numberGenerator);
         //when
         int distance = moveRule.tryMove();
         //then
@@ -32,7 +32,7 @@ class ThresholdMoveRuleTest {
     void 숫자5_1_반환() {
         //given
         NumberGenerator numberGenerator = getTargetNumber(5);
-        MoveRule moveRule = new ThresholdMoveRule(numberGenerator);
+        MoveRule moveRule = new ThresholdScoreMoveRule(numberGenerator);
         //when
         int distance = moveRule.tryMove();
         //then
@@ -44,7 +44,7 @@ class ThresholdMoveRuleTest {
     void 숫자3_0_반환() {
         //given
         NumberGenerator numberGenerator = getTargetNumber(3);
-        MoveRule moveRule = new ThresholdMoveRule(numberGenerator);
+        MoveRule moveRule = new ThresholdScoreMoveRule(numberGenerator);
         //when
         int distance = moveRule.tryMove();
         //then

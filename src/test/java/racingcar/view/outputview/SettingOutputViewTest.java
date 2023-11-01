@@ -23,7 +23,7 @@ class SettingOutputViewTest {
 
     @AfterEach
     void restoresStreams() {
-        System.setOut(System.out); // 원상복귀
+        System.setOut(System.out);
     }
 
     @Test
