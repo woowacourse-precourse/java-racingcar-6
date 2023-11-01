@@ -10,7 +10,7 @@ public class Racing {
 
     public Racing() {
         this.attemptCount = 0;
-        this.cars = new ArrayList<Car>();
+        this.cars = new ArrayList<>();
     }
 
     void setCars(String[] carNames) {
