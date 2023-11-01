@@ -1,6 +1,5 @@
 package racingcar.input.count;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.constant.ErrorMessage;
 
 public class CountValidator {
