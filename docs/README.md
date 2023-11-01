@@ -215,15 +215,19 @@
 
 - 생성자 메소드 (생성자를 사용하지 못하도록 private으로 선언)
 
-**🛠️ public static void checkNameLength(String)**
+**🛠️ public static void checkAll(String)**
+
+- 자동차 이름에 대한 모든 예외를 실행
+
+**🛠️ private static void checkNameLength(String)**
 
 - 자동차 이름의 길이가 5 초과라면 예외 발생
 
-**🛠️ public static void checkOnlyInt(String)**
+**🛠️ private static void checkOnlyInt(String)**
 
 - 자동차 이름이 숫자로만 이루어져 있으면 예외 발생
 
-**🛠️ public static void checkExistCar(String)**
+**🛠️ private static void checkExistCar(String)**
 
 - 자동차 이름이 이미 존재한다면 예외 발생
 
