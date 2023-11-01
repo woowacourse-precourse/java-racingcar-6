@@ -8,8 +8,18 @@ public class InputHandler {
     private static final String NUMBER_REGEX = "[^0-9]";
     private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_REGEX);
 
-    public static String getUserInput() {
-        return Console.readLine().trim();
+    public static String getUserInputString() {
+        String userInput = Console.readLine().trim();
+
+        validateIsEmpty(userInput);
+
+        return userInput;
+    }
+
+    private static void validateIsEmpty(String userInput) {
+        if (userInput.isEmpty()) {
+            throw new IllegalArgumentException("User input is empty.");
+        }
     }
 
     public static Integer getUserInputNumber() {
@@ -22,7 +32,7 @@ public class InputHandler {
 
     private static void validateIsNumber(String userInput) {
         if (isNotNumber(userInput)) {
-            throw new IllegalArgumentException("user input is not number. user input : " + userInput);
+            throw new IllegalArgumentException("User input is not number. user input : " + userInput);
         }
     }
 
