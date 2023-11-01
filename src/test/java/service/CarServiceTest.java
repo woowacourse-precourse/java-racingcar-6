@@ -77,6 +77,7 @@ class CarServiceTest {
         list2.add(5);
 
         carService.moveAllCars(list2);
+        carService.updateWinner();
 
         Assertions.assertThat(carService.getWinner()).containsExactly(new Car("jade",2));
     }
