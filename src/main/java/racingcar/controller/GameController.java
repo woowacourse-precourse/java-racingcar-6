@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static racingcar.model.Cars.generateCar;
-import static racingcar.util.CarNameValidator.validateCarNameInput;
+import static racingcar.util.Validator.validateCarNameInput;
+import static racingcar.util.Validator.validateNumericInput;
 import static racingcar.view.InputView.promptCarNames;
 import static racingcar.view.InputView.promptTryCount;
 import static racingcar.view.OutputView.printExecutionResultMessage;
@@ -20,7 +21,7 @@ public class GameController {
 
     public static void startGame() {
         carsList = generateCar(validateCarNameInput(promptCarNames()));
-        tryCount = promptTryCount();
+        tryCount = validateNumericInput(promptTryCount());
         printExecutionResultMessage();
         executionResult();
         printFinalWinnerMessage();
