@@ -10,6 +10,9 @@ public class Attempts {
     }
 
     void decreaseAttempts() {
+        if (value < MIN_ATTEMPT) {
+            throw new IllegalArgumentException("[ERROR] 횟수가 1보다 작습니다.");
+        }
         value--;
     }
 
