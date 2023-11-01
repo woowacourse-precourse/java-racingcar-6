@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private final String name;
     private int totalForward;
 
@@ -19,8 +19,13 @@ public class Car implements Comparable<Car>{
         this.totalForward = 0;
     }
 
+    public Car(String name, int totalForward) {
+        this.name = name;
+        this.totalForward = totalForward;
+    }
+
     public void tryMoving() {
-        int number = Randoms.pickNumberInRange(0,9);
+        int number = Randoms.pickNumberInRange(0, 9);
         if (number >= 4) {
             totalForward++;
         }
