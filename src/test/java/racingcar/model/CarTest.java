@@ -21,4 +21,11 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
     }
+
+    @Test
+    void validateCarNames_should_throw_exception_when_name_is_empty() {
+        assertThatThrownBy(() -> CarNameValidator.validateCarNames(List.of("pobi", " ", "woni")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 공백일 수 없습니다.");
+    }
 }
