@@ -44,4 +44,36 @@ class CarTest {
         assertFalse(c2.isNamesake(c3));
         assertFalse(c3.isNamesake(c2));
     }
+
+    /**
+     * drive_메소드_전진_확률_테스트 에서 사용
+     * @return
+     */
+    int countFowardDuringDrive1000000000Times() {
+        Car car = new Car(new Name("test"));
+        final int rep = 1_000_000_000;
+
+        int cnt = 0;
+        for (int i = 0; i < rep; i++) {
+            if (car.drive()) {
+                cnt++;
+            }
+        }
+
+        return cnt;
+    }
+    @Test
+    void drive_메소드_전진_확률_테스트() {
+
+        int cnt;
+        for (int i = 0; i < 10; i++) {
+            System.out.print("#" + (i+1));
+            cnt = countFowardDuringDrive1000000000Times();
+            System.out.println(" -> " + cnt);
+            if (cnt < 590_000_000 || 610_000_000 < cnt) {
+                fail();
+            }
+        }
+
+    }
 }
