@@ -23,7 +23,7 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> result) {
-        String winner = String.join(",", result);
+        String winner = String.join(", ", result);
 
         System.out.println(OUTPUT_WINNER + " : " + winner);
     }

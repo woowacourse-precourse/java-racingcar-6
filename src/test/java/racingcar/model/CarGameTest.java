@@ -32,7 +32,7 @@ class CarGameTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"JiHun:Mac:2:1:JiHun", "JiHun:Mac:1:1:JiHun,Mac"}, delimiter = ':')
+    @CsvSource(value = {"JiHun:Mac:2:1:JiHun", "JiHun:Mac:1:1:JiHun, Mac"}, delimiter = ':')
     public void 최종_우승자_테스트(String car1, String car2, int distance1, int distance2, String expected) {
         //given
         List<Cars> input = Arrays.asList(new Cars(car1, distance1), new Cars(car2, distance2));
@@ -40,7 +40,7 @@ class CarGameTest {
 
         //when
         List<String> result = carGame.getWinner();
-        String winner = String.join(",", result);
+        String winner = String.join(", ", result);
 
         //then
         Assertions.assertThat(expected).isEqualTo(winner);
