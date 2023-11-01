@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.domain;
 
 public class Constants {
     public static final int MIN_RANDOM_NUMBER = 0;
