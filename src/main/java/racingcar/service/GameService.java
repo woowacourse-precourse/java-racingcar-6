@@ -1,10 +1,12 @@
 package racingcar.service;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
+import racingcar.util.Constant;
 
 public class GameService {
 
@@ -31,7 +33,7 @@ public class GameService {
 
     public void decideMovement(List<Car> carList, int randomNumber) {
         for (Car car : carList) {
-            if (randomNumber >= 4) {
+            if (randomNumber >= Constant.NUMBER_FOR_MOVE) {
                 car.move();
                 car.moveCount();
             }
@@ -46,7 +48,7 @@ public class GameService {
         int maxCount = carList.stream()
                 .mapToInt(Car::moveCount)
                 .max()
-                .orElseThrow(() -> new NoSuchElementException("No maximum value found."));
+                .orElseThrow(NoSuchElementException::new);
 
         return carList.stream()
                 .filter(car -> car.moveCount() == maxCount)

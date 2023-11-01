@@ -22,6 +22,7 @@ public class Car {
         return count;
     }
 
+    // GameTest를 위한 method
     public int setCount(int count) {
         return this.count = count;
     }
