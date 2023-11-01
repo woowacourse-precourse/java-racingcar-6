@@ -12,6 +12,8 @@ public class Application {
 
         int carsNum = cars.length;
 
+        String[] forwardCount = new String[carsNum];
+
         // TODO: 시도할 회수 입력 받기
         System.out.println("시도할 회수는 몇회인가요?");
         int gameCount = Integer.parseInt(Console.readLine());
@@ -28,8 +30,6 @@ public class Application {
             }
 
             // TODO: 랜덤값이 4 이상이면 전진
-            String[] forwardCount = new String[carsNum];
-
             for (int k = 0; k < carsNum; k++) {
                 if (randomNumArray[k] >= 4) {
                     forwardCount[k] += "-";
