@@ -16,13 +16,12 @@
 		- [x] 생성된 수가 4 이상 이라면 현재 상황에 '-' 추가
 		- [x] 현재 자동차의 정보 담기
 		- [x] 각 자동차의 이름 및 현재 상황 출력
-		- [x] 결과 리스트에 현재 자동차의 정보 담기
-	- [x] 결과 리스트 받아서 출력
 
 - [x] 최종 우승자 결과 계산
 	- [x] 자동차의 수만큼 loop
-      - [x] 가장 멀리 간 수 찾기
-	  - [x] 가장 멀리 간 수 와 같은 자동차들은 우승자로 저장
+      - [x] 가장 멀리 간 거리 찾기
+	- [x] 자동차의 수만큼 loop
+	  - [x] 가장 멀리 간 거리 와 같은 자동차들은 우승자로 저장
 	
 - 최종 우승자 결과 출력 printWinnersNames(List<String> winners) - join 함수 사용해보기
 
@@ -36,8 +35,9 @@
 - [x] model
 	- [x] Car - 자동차 - 이름, 이동 거리 / 전진 하는 기능
 	- [x] Cars - 자동차 목록 - 자동차 목록 저장 / 전부 전진 하는 기능
-	- [x] Winners - 우승자 목록 - 우승자들 저장 / 우승자 정보 출력
-	- [x] Attemps - 시도할 횟수 저장 / 시도 횟수 출력
+    - [x] Attemps - 시도할 횟수 저장 / 시도 회수 출력
+	- [x] GameSetting - 자동차 정보와 시도 회수 저장 / 게임 정보 호출
+    - [x] Winners - 우승자 목록 - 우승자들 저장 / 우승자 정보 출력
 - view
 	- [x] InputView 입력값 가져오기 담당
 	- [x] OutputView 출력하기 담당
@@ -48,26 +48,7 @@
 - MAX_NUMBER = 9
 - MAX_LENGTH = 5
 - SEPARATOR = ","
-
-#### enum 사용해보기
-- 커뮤니티에서 만난 여러 사람들의 코드를 보니 enum을 사용하여 상수를 대체하는 경우가 있었다.
-- 이번기회에 공부해서 내것으로 만들어 보자
-
-- enum 이라는 타입을 생성한다.
-- 값이 정해진 문자들을 선언한다.
-- MONDAY,TUESDAY... 
-- 가져올 때는 MyEnum.MONDAY 와 같이 가져온다.
-- 다른 값과 비교시 equals() 와 == 둘 다 사용 가능하다.
-- enum의 equals()는 내부에서 ==를 이미 사용하고 있었다고 한다.
-- 단, equals() 사용시 NullPointerException에 주의해야 한다.
-- NPE 를 피하기 위해서는 MyEnum.MONDAY.eqauls(Other.MONDAY) 같은 식으로 만들어 주어야 한다.
-
-- STANDARD_NUMBER가 4의 값을 가지기 위해서는
-- STANDARD_NUMBER(4)와 같이 선언을 한다.
-	- 1. private int intValue; 를 선언
-	- 2. private(밖에서 재생성하면 안돼) MyEnum (int intValue) {this.intValue = intValue} 로 생성자를 만든다.
-	- 3. public int getIntValue() {return intValue}; 메서드
-- 이러면 이제 밖에서 MyEnum.STANDARD_NUMBER.getIntValue()로 사용할 수 있다.
+- [x]enum 사용해 보기
 ---
 
 ## 🚀 기능 요구 사항
