@@ -1,7 +1,6 @@
-package racingcar.View;
+package racingcar.ViewTest;
 
 import java.util.List;
-import java.util.Map;
 
 public class OutView {
     public static void printCurrentRoundResult(List<String> roundResult) {
