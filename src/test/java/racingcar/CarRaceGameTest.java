@@ -123,4 +123,39 @@ class CarRaceGameTest {
         //then
         assertThat(players[2].getDistance()).isEqualTo(maxDistance);
     }
+    @DisplayName("getWinner 메서드 동작 테스트(우승자가 한명일때)")
+    @Test
+    void getSoloWinnerTest(){
+        //given
+        Player[] players = new Player[3];
+        for(int i = 0; i < players.length; i++) {
+            players[i] = new Player("Player " + i);
+            players[i].setDistance(i);
+        }
+
+        //when
+        List<String> winners = getWinner(players);
+
+        //then
+        assertThat(players[2].getName()).isEqualTo(winners.get(0));
+    }
+
+    @DisplayName("getWinner 메서드 동작 테스트(우승자가 여러명일때)")
+    @Test
+    void getNotSoloWinnerTest(){
+        //given
+        Player[] players = new Player[3];
+        for(int i = 0; i < players.length; i++) {
+            players[i] = new Player("Player " + i);
+            players[i].setDistance(1);
+        }
+
+        //when
+        List<String> winners = getWinner(players);
+
+        //then
+        assertThat(players[0].getName()).isEqualTo(winners.get(0));
+        assertThat(players[1].getName()).isEqualTo(winners.get(1));
+        assertThat(players[2].getName()).isEqualTo(winners.get(2));
+    }
 }

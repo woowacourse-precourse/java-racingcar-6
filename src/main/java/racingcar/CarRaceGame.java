@@ -27,6 +27,13 @@ public class CarRaceGame {
             System.out.println();
         }
         System.out.print("최종 우승자 :");
+        List<String> winners = getWinner(players);
+        for(int i = 0; i < winners.size(); i++){
+            if(i == winners.size()-1)
+                System.out.print(winners.get(i));
+            else
+                System.out.print(winners.get(i) + ", ");
+        }
 
 
         // 입력한 값 숫자가 맞는지 에러처리기능(추후 메서드 화 시켜야함) - docs 변경 리펙토링
@@ -61,5 +68,14 @@ public class CarRaceGame {
                 maxDistance = player.getDistance();
         }
         return maxDistance;
+    }
+    public static List<String> getWinner(Player[] players){
+        List<String> winners = new ArrayList<>();
+        int maxDistance = getMaxDistance(players);
+        for(Player player : players){
+            if(player.getDistance() == maxDistance)
+                winners.add(player.getName());
+        }
+        return winners;
     }
 }
