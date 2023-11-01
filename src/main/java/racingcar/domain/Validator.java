@@ -6,6 +6,7 @@ import racingcar.common.Constants;
 public class Validator {
 
     public static void validateInputNames(String inputNames) {
+        validateNotEndsWithComma(inputNames);
         String[] names = inputNames.split(Constants.COMMA);
         for (String name : names) {
             validateName(name);
@@ -15,7 +16,6 @@ public class Validator {
     private static void validateName(String name) {
         validateNameLengthLessThanEqualToFive(name);
         validateNameNotBlank(name);
-        validateNotEndsWithComma(name);
     }
 
     private static void validateNameLengthLessThanEqualToFive(String name) {
@@ -30,8 +30,8 @@ public class Validator {
         }
     }
 
-    private static void validateNotEndsWithComma(String name) {
-        if (name.endsWith(Constants.COMMA)) {
+    private static void validateNotEndsWithComma(String inputNames) {
+        if (inputNames.endsWith(Constants.COMMA)) {
             throw new IllegalArgumentException(ExceptionMessage.ENDS_WITH_COMMA.getMessage());
         }
     }
