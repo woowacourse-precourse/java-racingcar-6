@@ -12,6 +12,7 @@ public class CarNameValidator {
         for (String name : carNames) {
             validateNotEmpty(name);
             validateNameLength(name);
+            validateNameStart(name);
         }
         validateNoDuplicateNames(carNames);
     }
@@ -32,6 +33,12 @@ public class CarNameValidator {
     private static void validateNoDuplicateNames(List<String> carNames) {
         Set<String> uniqueNames = new HashSet<>(carNames);
         if (uniqueNames.size() < carNames.size()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static void validateNameStart(String name) {
+        if (name.startsWith(",")) {
             throw new IllegalArgumentException();
         }
     }
