@@ -4,6 +4,12 @@ import racingcar.domain.Car;
 
 public class CarService {
 
+    private final int FORWARD_COUNT;
+
+    public CarService(int FORWARD_COUNT) {
+        this.FORWARD_COUNT = FORWARD_COUNT;
+    }
+
     public void ForwardOrStop(Car car) {
 
         int engine = car.generateRandomNumber();
@@ -14,6 +20,6 @@ public class CarService {
     }
 
     private boolean isForward(int engine) {
-        return engine >= 4;
+        return engine >= FORWARD_COUNT;
     }
 }

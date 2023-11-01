@@ -13,7 +13,7 @@ public class RaceConfig {
     public RaceManager getRaceManager() {
 
         List<Car> cars = getCars();
-        CarService carService = new CarService();
+        CarService carService = new CarService(4);
         InputManager inputManager = new InputManager();
         OutputManager outputManager = new OutputManager(cars);
 
