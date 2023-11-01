@@ -6,8 +6,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.Cars;
+import racingcar.domain.game.Game;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -24,24 +25,15 @@ public class GameController {
 
     public void play() {
         List<String> carNames = inputCarNames();
-        Cars cars = new Cars(carNames);
-
         int tryNumber = inputView.askTryNumber();
+        Game game = new Game(tryNumber, carNames);
 
         List<Car> carList = new ArrayList<>();
-        int count = 0;
-        while (count < tryNumber) {
-//            for (Car car : cars) {
-//                int randomDistance = Randoms.pickNumberInRange(0, 9);
-//                if(randomDistance >= 4) {
-//                    car.updateCarLocation(randomDistance);
-//                }
-//                outputView.outputCarMoveDistance(car.getCarName(), randomDistance);
-//            }
-            carList = cars.getCars();
+        while (game.isPlay()) {
+            carList = game.getCarList();
             moveCars(carList);
 
-            count += 1;
+            game.updateTryNumber();
             System.out.println();
         }
 
