@@ -15,20 +15,15 @@ public class Application {
 
     public static void main(String[] args) {
         List<Integer> position = new ArrayList<>();
-        List<String> winners = new ArrayList<>();
         List<String> car = inputCarNames();
-
         int tryCount = inputTryCount();
-        validatePositiveTryCount(tryCount);
 
+        validatePositiveTryCount(tryCount);
         for (int i = 0; i < car.size(); i++) {
             position.add(0);
         }
-
         getResult(car, tryCount, position);
-
-        winners = getWinners(car, position);
-
+        List<String> winners = getWinners(car, position);
         printWinners(winners);
     }
 
