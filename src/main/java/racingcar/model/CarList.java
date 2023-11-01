@@ -41,7 +41,7 @@ public class CarList {
         }
     }
 
-    private void moveCarWhenNumberFourOrAbove(Car car, int number) {
+    public void moveCarWhenNumberFourOrAbove(Car car, int number) {
         if (isNumberFourOrAbove(number)) {
             car.move();
         }
