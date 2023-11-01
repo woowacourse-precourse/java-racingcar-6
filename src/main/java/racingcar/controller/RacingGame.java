@@ -23,11 +23,11 @@ public class RacingGame {
 
     public void start() {
         List<Car> cars = getCarList();
-        int count = getCount();
+        int remainingRace = getRaceCount();
         outputView.printConsole();
         do {
             printGameResult(cars);
-        } while (count-- > 1);
+        } while (remainingRace-- > 1);
         printGameWinner(cars);
     }
 
@@ -36,8 +36,8 @@ public class RacingGame {
         return gameManager.createCarListFromPlayerInput(userInput);
     }
 
-    private int getCount() {
-        String countInput = InputView.getCountFromPlayerInput();
+    private int getRaceCount() {
+        String countInput = InputView.getRaceCountFromPlayerInput();
         return gameManager.createCountFromPlayerInput(countInput);
     }
 
