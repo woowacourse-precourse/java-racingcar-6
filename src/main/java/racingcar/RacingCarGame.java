@@ -22,27 +22,24 @@ public class RacingCarGame {
     }
 
     static boolean validateCarNameLength(List<String> carNamesList) {
-        boolean isPossible = true;
         for (int i = 0; i < carNamesList.size(); i++) {
             if (carNamesList.get(i).length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
-        return isPossible;
+        return true;
     }
 
     static boolean validateCarNameBlankness(List<String> carNamesList) {
-        boolean isPossible = true;
         for (int i = 0; i < carNamesList.size(); i++) {
             if (carNamesList.get(i).trim().isEmpty()) {
                 throw new IllegalArgumentException();
             }
         }
-        return isPossible;
+        return true;
     }
 
     static boolean validateCarNameRepetition(List<String> carNamesList) {
-        boolean isPossible = true;
         Set<String> carNamesSet = new HashSet<>(carNamesList);
         if (carNamesList.size() != carNamesSet.size()) {
             throw new IllegalArgumentException();
