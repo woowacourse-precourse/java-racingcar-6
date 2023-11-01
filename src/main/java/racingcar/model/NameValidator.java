@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class nameValidator {
+public class NameValidator {
     public static List<String> namesException(String names){
         isNamesNull(names);
         List<String> nameList = List.of(names.split(","));

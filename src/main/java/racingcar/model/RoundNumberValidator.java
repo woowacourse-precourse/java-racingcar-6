@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class roundNumberValidator {
+public class RoundNumberValidator {
     public static int roundNumberException(String roundNumberString){
         isRoundNumberNull(roundNumberString);
         isRoundNumberNumeric(roundNumberString);
