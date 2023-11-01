@@ -5,6 +5,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 public class PlayCars {
 
     private final Scanner scanner;
@@ -19,9 +22,9 @@ public class PlayCars {
 
     public void input() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        this.cars = Arrays.asList(scanner.next().split(","));
+        this.cars = Arrays.asList(readLine().split(","));
         System.out.println("시도할 회수는 몇회인가요?");
-        this.numberOfTry = scanner.nextInt();
+        this.numberOfTry = Integer.parseInt(readLine());
         System.out.println();
 
         this.carToDistance = this.cars.stream().collect(Collectors.toMap(car -> car, car -> 0));
@@ -36,7 +39,7 @@ public class PlayCars {
     }
 
     private boolean runOrStop() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+        return pickNumberInRange(0, 9) >= 4;
     }
 
     public void getResult() {
