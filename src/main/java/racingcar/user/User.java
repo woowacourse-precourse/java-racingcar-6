@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class UserInput {
+public class User {
 
     private List<String> carNames = new ArrayList<>();
     private int attemptCount;
@@ -21,32 +21,35 @@ public class UserInput {
         return input;
     }
 
-    public List<String> carNames() {
+    public void parseCarNamesInput() {
         String input = input();
         String[] arr = input.split(",");
-        carNames = Arrays.asList(arr);
-        return validation.carNameInputValidation(carNames);
+        carNames= validation.carNameInputValidation(Arrays.asList(arr));
     }
 
-    public int attemptCountInput() {
-        String input = input();
-        return Integer.parseInt(input);
+    public void attemptCountInput() {
+        attemptCount = Integer.parseInt(input());
     }
 
     public void startRace() {
-        List<String> carNames = this.carNames;
-        int tryCount = this.attemptCount;
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        parseCarNamesInput();
+        System.out.println("시도할 횟수는 몇회인가요?");
+        attemptCountInput();
 
-        // car 객체 저장
+        System.out.println("실행 결과");
+
+        // Car 객체 생성
         List<Car> cars = new ArrayList<>();
         Referee referee = new Referee();
 
-        // Car 객체 생성
         for(String carName: carNames) {
             Car car = new Car(carName, referee);
             cars.add(car);
         }
 
-        referee.runRace(cars, tryCount);
+        referee.runRace(cars, attemptCount);
+        System.out.println("최종 우승자 : " + referee.determineWinner());
+
     }
 }

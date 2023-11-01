@@ -3,13 +3,11 @@ package racingcar.game;
 import racingcar.car.Car;
 import racingcar.numberGenerator.NumberGenerator;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 
 public class Referee {
     private final Map<String, String> raceScore = new HashMap<>();
-
 
     NumberGenerator numberGenerator = new NumberGenerator();
 
@@ -27,31 +25,35 @@ public class Referee {
 
     public void collectSteps(List<Car> cars) {
         for (Car car : cars) {
-            String key = getRaceScoreMapKey(car);
+            String key = car.getCarName();
             String value = getRaceScoreMapValue(car);
-            updateRaceProgress(key, value);
+            raceScore.put(key, value);
             System.out.println(key + " : " + value);
         }
     }
 
-    private String getRaceScoreMapKey(Car car) {
-        return car.getCarName();
-    }
-
     private String getRaceScoreMapValue(Car car) {
-        String key = getRaceScoreMapKey(car);
-        String value = raceScore.get(key) + car.goStep();
-        if (isCarRaceScoreValueNull(key)) {
-            value = car.goStep();
+        String key = car.getCarName();
+        String value = raceScore.get(key);
+        if (value==null) {
+            value = "";
         }
+        value += car.goStep();
         return value;
     }
 
-    private void updateRaceProgress(String key, String value) {
-        raceScore.put(key, value);
+
+    public String determineWinner() {
+        String topScore = Collections.max(raceScore.values());
+
+        List<String> winner = new ArrayList<>();
+        for (String key : raceScore.keySet()) {
+            if (raceScore.get(key).equals(topScore)) {
+                winner.add(key);
+            }
+        }
+
+        return String.join(",", winner);
     }
 
-    private boolean isCarRaceScoreValueNull(String key) {
-        return raceScore.get(key) == null;
-    }
 }
