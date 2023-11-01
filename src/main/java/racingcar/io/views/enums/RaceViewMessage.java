@@ -7,6 +7,7 @@ public enum RaceViewMessage {
     EXCEPTION_WRONG_NAME_LENGTH("이름의 길이는 1~5자리여야 합니다."),
     EXCEPTION_WRONG_ROUND_NUMBER("진행회수는 1~100회여야 합니다."),
     EXCEPTION_DUPLICATE_NAME("중복된 이름은 입력할 수 없습니다."),
+    DELIMITER_NAMES(","),
     ;
 
     private final String message;

@@ -2,6 +2,7 @@ package racingcar.io.views;
 
 import static racingcar.io.views.enums.RaceViewMessage.ASK_RACERS_NAMES;
 import static racingcar.io.views.enums.RaceViewMessage.ASK_ROUND_NUMBER;
+import static racingcar.io.views.enums.RaceViewMessage.DELIMITER_NAMES;
 import static racingcar.io.views.enums.RaceViewMessage.EXCEPTION_DUPLICATE_NAME;
 import static racingcar.io.views.enums.RaceViewMessage.EXCEPTION_WRONG_NAME_LENGTH;
 import static racingcar.io.views.enums.RaceViewMessage.EXCEPTION_WRONG_ROUND_NUMBER;
@@ -17,7 +18,7 @@ public class RaceView {
     public List<Racer> askRacersNames() {
         Output.consoleLine(ASK_RACERS_NAMES.get());
 
-        List<String> inputNames = Input.consoleStrings(",").stream()
+        List<String> inputNames = Input.consoleStrings(DELIMITER_NAMES.get()).stream()
                 .map(String::strip)
                 .toList();
 
