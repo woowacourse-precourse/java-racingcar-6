@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
   private final String name;
-  private int num;
+  private int num = 0;
 
   public Car(String car_name) {
     name = car_name;
