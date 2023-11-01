@@ -3,7 +3,6 @@ package racingcar.utils;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Utils {
     private static final int MIN_RANDOM_NUMBER = 0;

@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Attempt;
 import racingcar.domain.Car;
 import racingcar.service.RacingcarGame;
@@ -10,7 +9,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
-    RacingcarGame racingcarGame = new RacingcarGame();
+    private final RacingcarGame racingcarGame = new RacingcarGame();
 
     public void run() {
         OutputView.printInputCarName();

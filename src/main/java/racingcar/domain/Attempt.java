@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class Attempt {
-    private int attemptCount;
+    private final int attemptCount;
 
     public Attempt(int attemptCount) {
         this.attemptCount = attemptCount;
