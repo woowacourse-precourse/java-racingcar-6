@@ -1,25 +1,34 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.InputView;
 import racingcar.view.outputView;
 import racingcar.repository.CarAdmin;
 import racingcar.util.Parser;
 import racingcar.domain.Car;
+import racingcar.domain.Round;
+import racingcar.service.Game;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import java.util.ArrayList;
 
 public class Controller {
     private final Parser parser = new Parser();
     private final CarAdmin carAdmin = new CarAdmin();
+    private Round round;
 
-    public void testRun(){
-        createCars(inputCarNames()); //자동차 생성
-
-        //outputView.printRacingResult(inputCarNames(), inputRacingRound());
+    public void run(){
+        createCars(inputCarNames());
+        setRound();
+        outputView.printTitle();
+        setGameClass();
     }
-
+    private void setGameClass(){
+        Game game = new Game(carAdmin, round);
+        game.roundProcess();
+    }
+    private void setRound() {
+        round = new Round(inputRacingRound()); //라운드 생성
+    }
     private void createCars(List<String> carNames) {
         for (String carName : carNames) {
             carAdmin.createCar(new Car(carName)); //자동차별 객체 생성
