@@ -23,7 +23,7 @@
 - [x] 최종 우승자 출력
   - [x] 우승자는 한 명이상일 수 있다.  
   - [x] 여러 명일 경우 쉼표(,)를 이용하여 구분한다.     
-     
+</br>  
 
 ## 2. MVC 기능 분리
 ### Controller
@@ -36,7 +36,8 @@
 ### View
 * InputView - 입력
 * OutputView - 출력
-     
+</br>
+
 ## 3. 패키지 구조
 ```bash
 com.woowacourse.java-racingcar-6
@@ -56,6 +57,7 @@ com.woowacourse.java-racingcar-6
 ┃ ┣ InputView.java
 ┃ ┗ OutputView.java
 ```
+</br>
 
 ## 4. Git 커밋 컨벤션
 ```
@@ -73,7 +75,7 @@ type: subject
 ### Subject
 * 50자를 넘기지 않고, 마침표를 붙이지 않습니다.
 * 과거 시제를 사용하지 않고 명령어로 작성합니다.
-
+</br>
 
 ## 5. Java 코드 컨벤션
 https://github.com/woowacourse/woowacourse-docs/tree/main/styleguide/java#java-style-guide
