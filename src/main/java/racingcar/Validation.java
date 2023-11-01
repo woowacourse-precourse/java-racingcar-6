@@ -48,6 +48,18 @@ public class Validation {
         }
     }
 
+    public static void checkCountEmpty(String count) {
+        if (count.isEmpty()) {
+            throw new IllegalArgumentException("시도할 회수를 입력해주세요.");
+        }
+    }
+
+    public static void checkCount(int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException("시도할 회수는 1 이상이어야 합니다.");
+        }
+    }
+
     public static void checkRound(String round) {
         if (round.isEmpty()) {
             throw new IllegalArgumentException("시도할 회수를 입력해주세요.");
