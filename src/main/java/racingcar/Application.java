@@ -13,7 +13,7 @@ public class Application {
         // TODO: 프로그램 구현
         List<Car> cars = new ArrayList<Car>();
         List<String> names = askName();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < names.size(); i++) {
             cars.add(new Car(names.get(i)));
         }
 
@@ -28,34 +28,35 @@ public class Application {
         printResult(cars);
     }
     public static void play(List<Car> cars){
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < cars.size(); i++) {
             cars.get(i).tryToMove();
         }
 
         // 결과출력
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < cars.size(); i++) {
             System.out.print(cars.get(i).getName()+" : ");
             for (int j = 0; j < cars.get(i).getMoveCount(); j++) {
                 System.out.print("-");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public static List<String> askName(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String[] names = readLine().split(",");
         return new ArrayList<>(Arrays.asList(names));
     }
     public static int askCount(){
-        System.out.println("시도할 회수는 몇회인가요?\n");
+        System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(readLine());
     }
     public static void printResult(List<Car> cars){
         int maxValue = Integer.MIN_VALUE;
         List<String> winers = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < cars.size(); i++) {
             int moveCount = cars.get(i).getMoveCount();
             if (moveCount > maxValue){
                 maxValue = moveCount;
