@@ -5,23 +5,26 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.CarFactory;
 
 public class CarsTest {
 
-    @Test
-    @DisplayName("자동차 개수가 2대 미만이면 예외를 발생시킨다.")
-    void carSizeOneTest() {
+    @DisplayName("자동차 개수가 1대 이하 시 예외를 발생시킨다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"poby"})
+    void failCarSizeSmallTest(String name) {
         List<String> carNames = new ArrayList<>();
-        carNames.add(Integer.toString(0));
+        carNames.add(name);
 
         Assertions.assertThatThrownBy(() -> CarFactory.generate(carNames))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("자동차 개수가 10대 초과 시 예외를 발생시킨다.")
     @Test
-    @DisplayName("자동차 개수가 10대보다 많으면 예외를 발생시킨다.")
-    void carSizeOverTest() {
+    void failCarSizeOverTest() {
         List<String> carNames = new ArrayList<>();
         for (int i = 0; i < 11; i++) {
             carNames.add(Integer.toString(i));
@@ -31,11 +34,11 @@ public class CarsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
     @DisplayName("중복된 자동차 이름은 예외를 발생시킨다.")
-    void carNameDuplicateTest() {
+    @ParameterizedTest
+    @ValueSource(strings = {"poby"})
+    void failCarNameDuplicateTest(String duplicateName) {
         List<String> carNames = new ArrayList<>();
-        String duplicateName = Integer.toString(0);
         carNames.add(duplicateName);
         carNames.add(duplicateName);
 
@@ -44,25 +47,27 @@ public class CarsTest {
     }
 
     @Test
-    @DisplayName("가장 큰 position을 가진 차들은 모두 우승자여야 한다.")
-    void winnerPositionTest() {
-        List<String> carNames = new ArrayList<>();
-        String carNamePrefix = "abcde";
-        for (int i = 0; i < 5; i++) {
-            carNames.add("car" + carNamePrefix.charAt(i));
-        }
-
-        Cars cars = CarFactory.generate(carNames);
-        for (int i = 0; i < 5; i++) {
-            cars.move();
-        }
-
+    @DisplayName("getWinnerCars()는 가장 큰 position을 가진 모든 차들을 가져온다.")
+    void getWinnersCars() {
+        Cars cars = createCars();
+        cars.move();
         List<Car> winnerCars = cars.getWinnerCars();
+
         int maxPosition = winnerCars.get(0).getPosition();
         int maxPositionCarCount = (int) cars.getCars().stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .count();
 
         Assertions.assertThat(winnerCars.size()).isEqualTo(maxPositionCarCount);
+    }
+
+    private Cars createCars() {
+        List<String> carNames = new ArrayList<>();
+        String carNamePrefix = "abcde";
+        for (int i = 0; i < 5; i++) {
+            carNames.add("car" + carNamePrefix.charAt(i));
+        }
+
+        return CarFactory.generate(carNames);
     }
 }
