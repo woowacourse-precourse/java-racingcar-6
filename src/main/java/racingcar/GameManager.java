@@ -23,7 +23,15 @@ public class GameManager {
         racingCarGame.saveMovingCount(movingCount);
 
         outputView.printResultMessage();
-        
+
+        while (true) {
+            if (racingCarGame.isGameOver()) {
+                outputView.printWinnerMessage();
+                System.out.println(racingCarGame.getWinnerName());
+                break;
+            }
+            outputView.printRacingCarGameResult(racingCarGame.getCarNameList(), racingCarGame.getCarMovingCountList());
+        }
 
     }
 }
