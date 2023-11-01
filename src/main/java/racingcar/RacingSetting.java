@@ -1,14 +1,12 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.Arrays;
 
 public class RacingSetting {
     private CarNum carNum;
     private MoveNum moveNum;
 
-    String[] getName() {
+    String[] getCarName() {
         String inputCarName;
         String[] parsedCarName;
 

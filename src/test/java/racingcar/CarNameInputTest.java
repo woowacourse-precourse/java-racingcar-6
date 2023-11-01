@@ -42,7 +42,7 @@ public class CarNameInputTest {
         InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
         System.setIn(input);
-        assertArrayEquals(answer, racingSetting.getName());
+        assertArrayEquals(answer, racingSetting.getCarName());
     }
 
     @ParameterizedTest
@@ -53,7 +53,7 @@ public class CarNameInputTest {
         InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
         System.setIn(input);
-        assertThatThrownBy(racingSetting::getName)
+        assertThatThrownBy(racingSetting::getCarName)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
     }
@@ -66,7 +66,7 @@ public class CarNameInputTest {
         InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
         System.setIn(input);
-        assertThatThrownBy(racingSetting::getName)
+        assertThatThrownBy(racingSetting::getCarName)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
     }
@@ -97,7 +97,7 @@ public class CarNameInputTest {
         InputStream input = new ByteArrayInputStream("부릉이,부릉이".getBytes());
 
         System.setIn(input);
-        assertThatThrownBy(() -> racingSetting.getName())
+        assertThatThrownBy(() -> racingSetting.getCarName())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 중복된 자동차 이름이 있습니다 중복되지않게 입력해 주세요");
     }
@@ -110,7 +110,7 @@ public class CarNameInputTest {
         InputStream input = new ByteArrayInputStream("부릉이".getBytes());
 
         System.setIn(input);
-        racingSetting.getName();
+        racingSetting.getCarName();
         assertThat(output.toString())
                 .isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + lineSeparator);
     }

@@ -23,7 +23,7 @@ public class RacingGame {
     }
 
     private void initializeGameSettings() {
-        String[] CarNames = racingSetting.getName();
+        String[] CarNames = racingSetting.getCarName();
         for (String currentName: CarNames) {
             carList.add(new Car(currentName));
         }
