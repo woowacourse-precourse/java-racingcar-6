@@ -62,4 +62,10 @@ class RacingCarGameTest {
 		assertThatThrownBy(racingCarGame::startGame).isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("자동차 이름이 중복되었습니다.");
 	}
+
+	@Test
+	public void testStartGameWithLegalValues() {
+		System.setIn(new ByteArrayInputStream((inputForName + inputForAttempts).getBytes()));
+		assertThatCode(() -> racingCarGame.startGame()).doesNotThrowAnyException();
+	}
 }
