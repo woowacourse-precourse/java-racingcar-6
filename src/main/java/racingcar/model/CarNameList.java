@@ -22,17 +22,20 @@ public class CarNameList {
     }
 
     public void NameSizeExceededCheck() {
-        for (int i = 0; i < carNameList.length; i++) {
-            if (carNameList[i].length() > CHECK_NAME_EXCEED_SIZE) {
+        for (String carName : carNameList) {
+            if (carName.length() > CHECK_NAME_EXCEED_SIZE) {
                 throw new IllegalArgumentException();
             }
         }
     }
     public void NameValueCheck(){
-        for(int i=0; i<carNameList.length; i++){
-            if(!Pattern.matches(CHAR_DIGIT, carNameList[i])){
+        for (String carName : carNameList) {
+            if (carNameValueChecker(carName)) {
                 throw new IllegalArgumentException();
             }
         }
+    }
+    public boolean carNameValueChecker(String carName){
+        return !Pattern.matches(CHAR_DIGIT, carName);
     }
 }
