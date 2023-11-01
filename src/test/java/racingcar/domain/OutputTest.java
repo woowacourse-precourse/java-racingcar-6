@@ -17,6 +17,10 @@ public class OutputTest {
     Output output = new Output();
     OutputStream outputStream;
 
+    List<CarName> carNameList = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
+    CarNames carNames = new CarNames(carNameList);
+    Cars cars = new Cars(carNames);
+
     @BeforeEach
     void setOutput() {
         outputStream = new ByteArrayOutputStream();
@@ -27,9 +31,9 @@ public class OutputTest {
     @DisplayName("자동차이름 입력요구 출력")
     void printInputCarNameMessageTest() {
         //given
-        output.printInputCarNameMessage();
 
         //when
+        output.printInputCarNameMessage();
 
         //then
         assertThat(outputStream.toString()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -39,9 +43,9 @@ public class OutputTest {
     @DisplayName("게임횟수 입력요구 출력")
     void printInputGameCountMessageTest() {
         //given
-        output.printInputGameCountMessage();
 
         //when
+        output.printInputGameCountMessage();
 
         //then
         assertThat(outputStream.toString()).contains("시도할 회수는 몇회인가요?");
@@ -51,9 +55,9 @@ public class OutputTest {
     @DisplayName("실행결과 출력")
     void printResultMessageTest() {
         //given
-        output.printResultMessage();
 
         //when
+        output.printResultMessage();
 
         //then
         assertThat(outputStream.toString()).contains("실행 결과");
@@ -63,9 +67,6 @@ public class OutputTest {
     @DisplayName("Cars의 move()결과 출력")
     void printMoveResultTest() {
         //given
-        List<CarName> carNameList = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
-        CarNames carNames = new CarNames(carNameList);
-        Cars cars = new Cars(carNames);
 
         //when
         output.printMoveResult(cars);
@@ -78,9 +79,6 @@ public class OutputTest {
     @DisplayName("우승자 명단 출력")
     void printWinner() {
         //given
-        List<CarName> carNameList = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
-        CarNames carNames = new CarNames(carNameList);
-        Cars cars = new Cars(carNames);
 
         //when
         output.printWinner(cars);
