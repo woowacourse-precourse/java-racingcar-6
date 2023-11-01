@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -13,11 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CarTest {
     private Car car1;
     private Car car2;
+
     @BeforeEach
     void setUp() {
         car1 = new Car("robin");
         car2 = new Car("hood");
     }
+
     @Test
     void 자동차_이름_조회() {
         assertThat(car1.getName()).isEqualTo("robin");
@@ -45,6 +48,7 @@ public class CarTest {
     }
 
     @Test
+    @DisplayName("Car의 전진 횟수 증가 함수 동작 테스트")
     void 자동차_객체_전진_증가_테스트() {
         assertSimpleTest(() -> {
             assertThat(car1.getForwardNum()).isEqualTo(0);

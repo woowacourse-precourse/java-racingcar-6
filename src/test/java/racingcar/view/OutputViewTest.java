@@ -35,17 +35,8 @@ public class OutputViewTest extends NsTest {
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
-
     @Test
-    void 우승자_출력_테스트() {
-        List<String> winners = new ArrayList<>(List.of("woni, pobi"));
-
-        outputView.printWinner(winners);
-        assertThat(getOutput()).isEqualTo("최종 우승자 : woni, pobi");
-    }
-
-    @Test
-    void 경주_출력_확인_테스트1() {
+    void 경주_실행_결과_출력_확인_테스트1() {
         car1.increaseForwardNum();
         car1.increaseForwardNum();
         List<Car> carList = new ArrayList<>(List.of(car1, car2, car3));
@@ -60,7 +51,7 @@ public class OutputViewTest extends NsTest {
     }
 
     @Test
-    void 경주_출력_확인_테스트2() {
+    void 경주_실행_결과_출력_확인_테스트2() {
         car2.increaseForwardNum();
         car2.increaseForwardNum();
         List<Car> carList = new ArrayList<>(List.of(car1, car2));
@@ -74,6 +65,13 @@ public class OutputViewTest extends NsTest {
         );
     }
 
+    @Test
+    void 우승자_출력_테스트() {
+        List<String> winners = new ArrayList<>(List.of("woni, pobi"));
+
+        outputView.printWinner(winners);
+        assertThat(getOutput()).isEqualTo("최종 우승자 : woni, pobi");
+    }
     String getOutput() {
         return outputStreamCaptor.toString();
     }

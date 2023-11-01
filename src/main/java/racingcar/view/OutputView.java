@@ -9,6 +9,7 @@ import static racingcar.util.ProgramMessage.*;
 public class OutputView {
     private static final String BAR = "-";
     private static final String COMMA = ", ";
+    private static final String RESULT_FORMAT = "%s : %s";
     private static final int STRING_FIRST_INDEX = 0;
     private static final int NUMBER_FOR_LAST_COMMA_REMOVE = 2;
 
@@ -23,7 +24,7 @@ public class OutputView {
     public void printRacingResult(List<Car> carList) {
         for (Car car : carList) {
             String bar = BAR.repeat(car.getForwardNum());
-            System.out.println(String.format("%s : %s", car.getName(), bar));
+            System.out.println(String.format(RESULT_FORMAT, car.getName(), bar));
         }
         System.out.print(NEXT_LINE.getMessage());
     }
