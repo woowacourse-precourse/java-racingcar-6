@@ -8,16 +8,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Winners {
+    private final static int MIN_DISTANCE = 0;
     private final List<Car> winners;
 
     public Winners(Cars cars) {
         validateWinners(cars);
-        int max = cars.getCars().stream()
-                .mapToInt(car -> car.getDistance())
-                .boxed()
-                .max(Integer::compare)
-                .get();
-        winners = cars.getCars().stream().filter(car -> car.getDistance() == max).collect(Collectors.toList());
+        winners = cars.getCars().stream()
+                .filter(car -> car.getDistance() == getMaxDistance(cars))
+                .collect(Collectors.toList());
     }
 
     public List<String> getWinnersNames() {
@@ -26,6 +24,13 @@ public class Winners {
             winnersNames.add(car.getName());
         }
         return winnersNames;
+    }
+
+    private int getMaxDistance (Cars cars) {
+        return cars.getCars().stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(MIN_DISTANCE);
     }
 
     private void validateWinners(Cars cars) {
