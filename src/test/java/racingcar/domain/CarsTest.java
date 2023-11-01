@@ -1,8 +1,8 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.RandomNumberGenerator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -16,9 +16,9 @@ class CarsTest {
         String inputNamesSpace = "pobi, ";
 
         // then
-        assertThatThrownBy(() -> new Cars(inputNamesNonSpace))
+        assertThatThrownBy(() -> new Cars(inputNamesNonSpace, RandomNumberGenerator.getInstance()))
                 .isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> new Cars(inputNamesSpace))
+        assertThatThrownBy(() -> new Cars(inputNamesSpace, RandomNumberGenerator.getInstance()))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -29,7 +29,7 @@ class CarsTest {
         String inputNames = "pobi";
 
         // then
-        assertThatThrownBy(() -> new Cars(inputNames))
+        assertThatThrownBy(() -> new Cars(inputNames, RandomNumberGenerator.getInstance()))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -40,7 +40,7 @@ class CarsTest {
         String inputNames = "pobi,pobi";
 
         // then
-        assertThatThrownBy(() -> new Cars(inputNames))
+        assertThatThrownBy(() -> new Cars(inputNames, RandomNumberGenerator.getInstance()))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
