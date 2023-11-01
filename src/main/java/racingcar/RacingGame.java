@@ -17,6 +17,6 @@ public class RacingGame {
 
     private void proceedRound(List<Car> cars) {
         cars.forEach(Car::move);
-        cars.forEach(car -> OutputView.printRoundResult(car));
+        cars.forEach(OutputView::printRoundResult);
     }
 }
