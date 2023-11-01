@@ -7,6 +7,7 @@ import racingcar.generic.RaceTotalProgress;
 
 public class Race {
 
+    public static final int MIN_PARTICIPANTS = 2;
     private final List<LapProgress> lapProgresses;
     private List<Racer> racers;
     private Integer numberOfRound;
@@ -16,7 +17,14 @@ public class Race {
     }
 
     public void registerRacer(List<Racer> racers) {
+        validateRegisterRacerRule(racers);
         this.racers = racers;
+    }
+
+    private void validateRegisterRacerRule(List<Racer> racers) {
+        if (racers.size() < MIN_PARTICIPANTS) {
+            throw new IllegalArgumentException("최소 참가인원은 2인입니다.");
+        }
     }
 
     public void decideRoundNumber(Integer numberOfRound) {
