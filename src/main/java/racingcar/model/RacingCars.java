@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.Utils;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -17,6 +18,13 @@ public class RacingCars {
         OutputView.printRoundResult(new ArrayList<>(CARS.stream()
                                                         .map(Car::getRoundResult)
                                                         .collect(Collectors.toList())));
+    }
+
+    public void showWinners() {
+        OutputView.printWinner(new ArrayList<>(CARS.stream()
+                .filter(car -> car.isWinner(Utils.getMax(getPosition())))
+                .map(Car::getName)
+                .collect(Collectors.toList())));
     }
 
     private void go() {
