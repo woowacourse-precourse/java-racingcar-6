@@ -12,11 +12,11 @@ public class OutputView {
     private static final String COLON = " : ";
     private static final String NEW_LINE = "\n";
 
-    public void printOperationResultLetters() {
+    public void printResultMsg() {
         System.out.println("실행결과");
     }
 
-    public void showAttemptResult(final List<ResultPerAttempt> results) {
+    public void displayResult(List<ResultPerAttempt> results) {
         StringBuilder output = new StringBuilder();
         results.forEach(result -> output
                 .append(result.toString())
@@ -26,7 +26,7 @@ public class OutputView {
         System.out.println(output);
     }
 
-    public void showWinners(final Winners winners) {
+    public void displayWinners(Winners winners) {
         List<String> winnerNames = winners.getWinnerNames();
         StringBuilder output = new StringBuilder("최종 우승자");
         output.append(COLON);

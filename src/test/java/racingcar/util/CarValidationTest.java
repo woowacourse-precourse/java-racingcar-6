@@ -23,7 +23,7 @@ class CarValidationTest {
     public void CarName_중복입력() {
         List<String> carNames = Arrays.asList("hwan", "hwan");
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> CarValidation.validateOverlap(carNames));
+                () -> CarValidation.validateDuplicated(carNames));
         assertEquals("이름들 간에 중복이 있습니다.", exception.getMessage());
     }
 

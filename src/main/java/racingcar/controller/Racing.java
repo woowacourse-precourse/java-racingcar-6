@@ -27,12 +27,12 @@ public class Racing {
     }
 
     public void run() {
-        outputView.printOperationResultLetters();
+        outputView.printResultMsg();
         while (attemptCount.isNotZero()) {
             race();
             attemptCount.decrease();
         }
-        showWinners();
+        winnersDisplay();
     }
 
     private void race() {
@@ -40,12 +40,12 @@ public class Racing {
         List<ResultPerAttempt> result = cars.getResult().stream()
                 .map(ResultPerAttempt::new)
                 .collect(Collectors.toList());
-        outputView.showAttemptResult(result);
+        outputView.displayResult(result);
     }
 
-    private void showWinners() {
+    private void winnersDisplay() {
         List<Car> winnerCars = cars.getWinners();
         Winners winners = new Winners(winnerCars);
-        outputView.showWinners(winners);
+        outputView.displayWinners(winners);
     }
 }
