@@ -11,6 +11,8 @@ public record RacingGame(List<Car> cars, int round) {
     }
 
     public void proceedRound() {
-        cars.forEach(Car::move);
+        for (Car car : cars) {
+            car.move();
+        }
     }
 }
