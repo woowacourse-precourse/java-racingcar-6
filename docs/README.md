@@ -94,10 +94,11 @@ Service
     - count가 숫자가 아닌 문자를 포함하는지 검증 isDigit 활용
    
 2. AddValueService
-    public List<String> carNameList = new ArrayList<String>;
-    public Int countValue;
-    2-1. addCarNames(String carNames)
+    public String[] carNameList ;
+    public int countValue;
+    2-1. public String[] addCarNames(String carNames)
     - ","를 구분자로 하여 리스트 carNameList에 add
+    - return carNameList;
 
     2-2. addCarCount(String count)
     - count를 integer 타입의 countValue로 add
