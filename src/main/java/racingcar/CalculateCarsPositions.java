@@ -6,14 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CalculateCarsPositions {
-    public static void initializationCarsPositions(List<String> cars) {
+    public static List<Integer> initializationCarsPositions(List<String> cars) {
         List<Integer> carsPositions = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             carsPositions.add(0);
         }
+
+        return carsPositions;
     }
 
-    public static void calculateCarsProgresses(List<Integer> carsPositions) {
+    public static List<Integer> calculateCarsProgresses(List<Integer> carsPositions) {
         for (int i = 0; i < carsPositions.size(); i++) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
 
@@ -21,5 +23,7 @@ public class CalculateCarsPositions {
                 carsPositions.set(i, carsPositions.get(i) + 1);
             }
         }
+
+        return carsPositions;
     }
 }
