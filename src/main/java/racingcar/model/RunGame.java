@@ -12,4 +12,9 @@ public class RunGame {
             car.moveForward();
         }
     }
+    public void iteration(List<Car> carList) {
+        for (Car car : carList) {
+            moveOrStop(car);
+        }
+    }
 }
