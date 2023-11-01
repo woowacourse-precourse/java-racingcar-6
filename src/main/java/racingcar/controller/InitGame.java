@@ -10,15 +10,15 @@ public class InitGame {
     private final int count;
 
     public InitGame() {
-        OutputString.printGuessName();      // 1. 이름입력
+        OutputString.printGuessName();
 
-        CarListController carList = new CarListController();    // 2. 자동차클래스리스트 생성
-        classList = carList.getClassList(); // 3. 자동차클래스리스트 저장
+        CarListController carList = new CarListController();
+        classList = carList.getClassList();
 
-        OutputString.printGuessCount();     // 4. 횟수입력
+        OutputString.printGuessCount();
 
-        InputCount inputCount = new InputCount(); // 횟수객체 생성
-        count = inputCount.getCount(); // 횟수저장
+        InputCount inputCount = new InputCount();
+        count = inputCount.getCount();
 
         System.out.println();
     }

@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.model.InputToName.Separator;
+
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
@@ -23,8 +25,12 @@ public class CarListController {
     }
 
     private void validateInput(String input) {
-        if (input.trim().isEmpty())
+        if (input.trim().isEmpty()
+            || input.startsWith(Separator)
+            || input.endsWith(Separator)) {
+
             throw new IllegalArgumentException();
+        }
 
     }
 

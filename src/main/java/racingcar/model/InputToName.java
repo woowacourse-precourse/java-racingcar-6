@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class InputToName {
 
-    private final String Separator = ",";
+    public static final String Separator = ",";
     private final int MaxNameLength = 5;
 
     private final ArrayList<String> nameList;
@@ -20,13 +20,12 @@ public class InputToName {
         return nameList;
     }
 
-    private void validateCarNameSize(ArrayList<String> NameList) {
-        for (String Name : NameList) {
-
-            if (Name.length() > MaxNameLength)
+    private void validateCarNameSize(ArrayList<String> nameList) {
+        for (String name : nameList) {
+            if (name.length() > MaxNameLength)
                 throw new IllegalArgumentException("자동차 이름 5자 이하 가능");
 
-            if (Name.isEmpty())
+            if (name.isEmpty() || name != name.trim())
                 throw new IllegalArgumentException("공백 불가");
         }
     }
