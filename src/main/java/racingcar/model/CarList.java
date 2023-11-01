@@ -6,7 +6,7 @@ public class CarList {
     private ArrayList<Car> carList;
 
     public CarList() {
-        this.carList = new ArrayList<Car>();
+        this.carList = new ArrayList<>();
     }
 
     public Car get(int index) {
@@ -22,8 +22,8 @@ public class CarList {
     }
 
     public void printCarsState() {
-        for (int i = 0; i < carList.size(); i++) {
-            System.out.println(carList.get(i).toString());
+        for (Car car : carList) {
+            System.out.println(car.toString());
         }
         System.out.println();
     }
