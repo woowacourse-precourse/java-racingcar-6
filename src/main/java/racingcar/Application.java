@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.*;
 
 public class Application {
@@ -23,28 +22,36 @@ public class Application {
         //실행 알고리즘 + 출력 결과(cycle별)
         System.out.println("실행 결과");
         for(int i = 0; i < cycleNumber; i++) {
-            //전체 반복 횟수
-            for(int j = 0; j < carNames.size(); j++) {
-                System.out.print(carNames.get(j) + " : ");
-                //자동차별
-                int currentForward = carForward.get(j);
-                if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                    //전진 +1
-                    carForward.set(j, currentForward +1);
-                    System.out.println("-".repeat(currentForward + 1));
-                }
-                else {
-                    System.out.println("-".repeat(currentForward));
-                }
-            }
+            processPerCycle(carNames, carForward);
         }
 
+        finalResult(carNames, carForward);
+
+    }
+
+    private static void processPerCycle(List<String> cars, List<Integer> forwards) {
+        for(int j = 0; j < cars.size(); j++) {
+            System.out.print(cars.get(j) + " : ");
+            //자동차별
+            int currentForward = forwards.get(j);
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                //전진 +1
+                forwards.set(j, currentForward +1);
+                System.out.println("-".repeat(currentForward + 1));
+            }
+            else {
+                System.out.println("-".repeat(currentForward));
+            }
+        }
+    }
+
+    private static void finalResult(List<String> cars, List<Integer> forwards) {
         System.out.print("최종 우승자 : ");
-        int carMax = Collections.max(carForward);
-        for(int i = 0; i < carForward.size(); i++) {
+        int carMax = Collections.max(forwards);
+        for(int i = 0; i < forwards.size(); i++) {
             //가장 큰 car 찾기
-            if(carMax == carForward.get(i)) {
-                System.out.print(carNames.get(i) + " ");
+            if(carMax == forwards.get(i)) {
+                System.out.print(cars.get(i) + " ");
             }
         }
     }
