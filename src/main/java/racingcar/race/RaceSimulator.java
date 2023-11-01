@@ -11,7 +11,7 @@ public class RaceSimulator {
         }
     }
 
-    private void simulateSingleRace(Map<String, String> driverMap) {
+    public void simulateSingleRace(Map<String, String> driverMap) {
         for (String driverName : driverMap.keySet()) {
             System.out.print(driverName + " : ");
             int randomNum = Randoms.pickNumberInRange(0, 9);
