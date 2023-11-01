@@ -27,4 +27,7 @@ public class Car {
     public String getRoundResult() {
         return NAME + Constants.ROUND_RESULT_DELIMITER + Utils.dashRepeat(position);
     }
+    public String getName() {
+        return NAME;
+    }
 }
