@@ -22,10 +22,12 @@ public class Car {
         return count;
     }
 
+    public int setCount(int count) {
+        return this.count = count;
+    }
+
     @Override
     public String toString() {
         return this.name;
     }
-
-
 }

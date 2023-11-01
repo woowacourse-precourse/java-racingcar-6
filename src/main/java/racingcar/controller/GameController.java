@@ -21,8 +21,9 @@ public class GameController {
         GameView.printCarNames(carList);
         String tryCountString = GameView.printTryCountMessage();
         int tryCount = Integer.parseInt(tryCountString);
+        int randomNumber = Game.generateRandomNumber();
         for (int i = 0; i < tryCount; i++) {
-            gameService.decideMovement(carList);
+            gameService.decideMovement(carList, randomNumber);
         }
         GameView.printResultMessage();
         for (Car car : carList) {
