@@ -14,11 +14,10 @@ public class InputOutput {
         return cars;
     }
 
-    static Integer getTryCount() {
+    static String getTryCount() {
         System.out.println(Constant.ASK_CARS_NAME_MESSAGE);
         String tryCountString = Console.readLine();
-        Integer tryCount = Integer.parseInt(tryCountString);
-        return tryCount;
+        return tryCountString;
     }
 
     static void printEmptyLine() {
