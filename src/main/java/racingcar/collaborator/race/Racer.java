@@ -17,9 +17,13 @@ public class Racer {
     }
 
     public void drive() {
-        if (CRITERIA_FOR_MOVING_FORWARD <= randoms.getSingleNumber()) {
+        if (canMoveForward()) {
             mileage++;
         }
+    }
+
+    private boolean canMoveForward() {
+        return CRITERIA_FOR_MOVING_FORWARD <= randoms.getSingleNumber();
     }
 
     public RacerProgress getProgress() {
