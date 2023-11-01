@@ -1,9 +1,7 @@
-package racingcar;
+package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.nio.channels.Pipe;
-import java.util.Comparator;
 import java.util.List;
 
 public class Car {
@@ -18,10 +16,6 @@ public class Car {
     public Car(String name) {
         position = 0;
         this.name = name;
-    }
-
-    public int getPosition() {
-        return position;
     }
 
     public void move() {
