@@ -115,9 +115,27 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @DisplayName("[시도 횟수] 예외 발생 - 숫자가 아닌 문자 포함")
+    @DisplayName("[시도 횟수] 예외 발생 - 공백 포함")
     @Test
     void trialNumberExceptionTest2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", " 100"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 숫자가 아닌 문자 포함")
+    @Test
+    void trialNumberExceptionTest3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "150!"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 음수인 경우")
+    @Test
+    void trialNumberExceptionTest4() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "-150"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -126,7 +144,7 @@ class ApplicationTest extends NsTest {
 
     @DisplayName("[시도 횟수] 예외 발생 - 0으로 시작")
     @Test
-    void trialNumberExceptionTest3() {
+    void trialNumberExceptionTest5() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
