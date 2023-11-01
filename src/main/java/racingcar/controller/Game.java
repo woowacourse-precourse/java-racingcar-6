@@ -28,6 +28,8 @@ public class Game {
     }
 
     public void match(Cars cars, int attemptCount) {
+        OutputView.showHeadOfRoundResult();
+
         for (int round = 0; round < attemptCount; round++) {
             moveForwardByRandomNumber(cars);
             showRoundResult(cars);

@@ -9,6 +9,10 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
+    public static void showHeadOfRoundResult() {
+        System.out.println("실행 결과");
+    }
+
     public static void showRoundResultByCar(String carName, String positionToDash) {
         System.out.println(carName + " : " + positionToDash);
     }
