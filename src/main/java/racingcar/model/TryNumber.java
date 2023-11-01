@@ -12,6 +12,10 @@ public class TryNumber {
         this.number = number;
     }
 
+    public Integer getNumber() {
+        return number;
+    }
+
     private void validateTryNumberSize(Integer number) {
         if (isNumberUnder0(number)) {
             throw new TryNumberSizeException(Exceptions.TRY_NUMBER_IS_UNDER_0.getMessage());
