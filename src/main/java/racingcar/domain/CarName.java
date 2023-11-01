@@ -15,15 +15,23 @@ public class CarName {
     }
 
     private void validateLength(String carName) {
-        if (carName.isEmpty() || carName.isBlank() || MAX_CAR_NAME_LENGTH < carName.length()) {
+        if (isInvalidCarNameLength(carName)) {
             throw new IllegalArgumentException(NOT_AVAILABLE_CAR_NAME_LENGTH_RANGE.getMessage());
         }
     }
 
+    private static boolean isInvalidCarNameLength(String carName) {
+        return carName.isEmpty() || carName.isBlank() || MAX_CAR_NAME_LENGTH < carName.length();
+    }
+
     private void validateCharacter(String carName) {
-        if (!carName.matches(AVAILABLE_CHARACTER_REGEX)) {
+        if (isInvalidCarNameCharacter(carName)) {
             throw new IllegalArgumentException(NOT_AVAILABLE_CAR_NAME_CHARACTER.getMessage());
         }
+    }
+
+    private static boolean isInvalidCarNameCharacter(String carName) {
+        return !carName.matches(AVAILABLE_CHARACTER_REGEX);
     }
 
     public String getName() {
