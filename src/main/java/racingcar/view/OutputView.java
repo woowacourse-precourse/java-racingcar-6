@@ -12,6 +12,7 @@ public class OutputView {
     private static final String RACING_WINNER_MESSAGE = "최종 우승자 : ";
     private static final String SINGLE_DASH = "-";
     private static final String COLON = " : ";
+    private static final String DELIMITER_COMMA_AND_ONE_BLANK = ", ";
 
     public void printResultMessage(){
         System.out.println(RESULT_MESSAGE);
@@ -28,7 +29,7 @@ public class OutputView {
         System.out.println();
     }
     public void printRacingWinner(List<String> winners){
-        String result = winners.stream().collect(Collectors.joining(", "));
+        String result = winners.stream().collect(Collectors.joining(DELIMITER_COMMA_AND_ONE_BLANK));
         System.out.println(RACING_WINNER_MESSAGE + result);
     }
 }
