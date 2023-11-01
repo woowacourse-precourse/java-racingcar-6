@@ -23,5 +23,7 @@ public class Application {
             judgeMovement.moveForward(positions, randomNumbers);
             result.printRapResult(carNames, positions);
         }
+
+        result.printWinner(carNames, positions);
     }
 }

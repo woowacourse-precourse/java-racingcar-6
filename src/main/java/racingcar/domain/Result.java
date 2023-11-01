@@ -25,7 +25,18 @@ public class Result {
     }
 
 
-    public void printWinner() {
-
+    public void printWinner(String[] carNames, int[] positions) {
+        int winner = pickWinners(positions);
+        System.out.print("최종 우승자: ");
+        boolean isFinalWinner = true;
+        for (int i = 0; i < carNames.length; i++) {
+            if (positions[i] == winner) {
+                if (!isFinalWinner) {
+                    System.out.print(", ");
+                }
+                System.out.print(carNames[i]);
+                isFinalWinner = false;
+            }
+        }
     }
 }
