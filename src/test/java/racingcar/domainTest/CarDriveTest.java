@@ -1,16 +1,16 @@
 package racingcar.domainTest;
 
-import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
+
+import racingcar.domain.Car;
 
 public class CarDriveTest {
     @Test
     public void testDrive() {
         Car car = new Car("TestCar");
 
-        // Simulate a few drives
         car.drive();
         car.drive();
         car.drive();
