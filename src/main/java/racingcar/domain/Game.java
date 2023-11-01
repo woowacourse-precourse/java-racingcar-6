@@ -1,9 +1,12 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class Game {
     private final Printer printer;
     private final Player player;
     private final Reader reader;
+    private final Referee referee;
     private int raceCount;
 
     public Game() {
@@ -11,6 +14,7 @@ public class Game {
         reader = new Reader(validator);
         printer = new Printer();
         player = new Player(reader);
+        referee = new Referee();
     }
 
     public void start() {
@@ -33,5 +37,6 @@ public class Game {
             printer.printRaceResult(player.getCars());
             printer.printBlankLine();
         }
+        List<Car> winners = referee.judgeWinner(player.getCars());
     }
 }
