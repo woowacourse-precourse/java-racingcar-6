@@ -1,22 +1,14 @@
 package racingcar.model;
 
-import static racingcar.view.ExceptionMessage.NOT_NULL;
-import static racingcar.view.ExceptionMessage.NOT_OVER_FIVE_OR_LESS_ZERO;
-import static racingcar.view.ExceptionMessage.NOT_KOREAN_OR_ENGLISH;
 import static racingcar.view.OutputView.LOCATION_AND_NAME_DELIMITER;
 
-import racingcar.view.ExceptionMessage;
-
 public class Car {
-    public static final int NAME_MAX_LENGTH = 5;
-    public static final int NAME_MIN_LENGTH = 1;
     public static final String LOCATION = "-";
-    private final String name;
+    private final CarName name;
     private int location = 0;
 
     public Car(String name) {
-        validateName(name);
-        this.name = name;
+        this.name = new CarName(name);
     }
 
     @Override
@@ -28,21 +20,8 @@ public class Car {
         return result;
     }
 
-    private static void validateName(String name) {
-        checkConditionAndThrow(name == null, NOT_NULL);
-        checkConditionAndThrow(name.length() > NAME_MAX_LENGTH || name.length() < NAME_MIN_LENGTH,
-                NOT_OVER_FIVE_OR_LESS_ZERO);
-        checkConditionAndThrow(!name.matches("^[a-zA-Z가-힣]*$"), NOT_KOREAN_OR_ENGLISH);
-    }
-
-    private static void checkConditionAndThrow(boolean condition, ExceptionMessage message) {
-        if (condition) {
-            throw new IllegalArgumentException(message.getMessage());
-        }
-    }
-
     public String getName() {
-        return name;
+        return name.name();
     }
 
     public void goOrStop(int i) {
