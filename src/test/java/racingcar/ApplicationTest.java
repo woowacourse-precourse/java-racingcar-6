@@ -25,8 +25,16 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름에_대한_예외_처리() {
+
+        //5글자 이상인 경우
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+        //영어가 아닌 경우
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("123,12", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
