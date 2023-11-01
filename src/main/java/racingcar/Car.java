@@ -17,7 +17,7 @@ public class Car {
         return this.distance;
     }
 
-    private void move(int number) {
+    public void move(int number) {
         if (number >= MOVE_CONDITION) {
             addDistance();
         }
