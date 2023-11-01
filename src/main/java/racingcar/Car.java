@@ -23,11 +23,14 @@ public class Car {
 
     /**
      * 자동차의 전진 상태를 출력
-     *
      */
     public void showStatus(){
         System.out.println(name+" : "+getProgress());
     }
+
+    /**
+     * 필드의 forwardCount를 1 증가
+     */
 
     public void incrementForwardCount(){
         forwardCount++;
