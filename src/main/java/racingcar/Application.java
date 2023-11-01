@@ -2,7 +2,7 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        raceCarsInput inputManager = new raceCarsInput();
+        RaceCarsInput inputManager = new RaceCarsInput();
 
         int times = inputManager.getTimes();
 
