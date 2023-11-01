@@ -2,7 +2,9 @@ package racingcar.validation;
 
 import racingcar.constant.RacingConstant;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class InputValidation {
 
