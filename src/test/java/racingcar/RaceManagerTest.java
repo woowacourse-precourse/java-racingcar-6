@@ -1,12 +1,12 @@
 package racingcar;
 
-import java.util.ArrayList;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 public class RaceManagerTest {
     @Test
     public void return_correct_winners() {
