@@ -1,7 +1,8 @@
 package view;
 
+import static message.OutputMessages.RACE_WINNERS;
+
 import java.util.List;
-import message.OutputMessages;
 import model.Car;
 import model.Winner;
 
@@ -14,7 +15,7 @@ public class OutputView {
     }
 
     public static void printWinners(List<Car> carList) {
-        System.out.println(OutputMessages.RACE_WINNERS + winner.getWinners(carList));
+        System.out.println(RACE_WINNERS + winner.getWinners(carList));
     }
 
 }

@@ -1,14 +1,17 @@
 package validator;
 
+import static message.Constants.CAR_NAME_MAX_LENGTH;
+import static message.ErrorMessages.NAME_DUPLICATE_ERROR;
+import static message.ErrorMessages.NAME_LENGTH_ERROR;
+
 import java.util.Set;
-import message.ErrorMessages;
 
 public class CarNameValidator {
 
     public static void validateCarNameLength(String[] carNames) {
         for (String carName : carNames) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException(ErrorMessages.NAME_LENGTH_ERROR);
+            if (carName.length() > CAR_NAME_MAX_LENGTH) {
+                throw new IllegalArgumentException(NAME_LENGTH_ERROR);
             }
         }
     }
@@ -17,7 +20,7 @@ public class CarNameValidator {
         try {
             Set.of(carNames);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(ErrorMessages.NAME_DUPLICATE_ERROR);
+            throw new IllegalArgumentException(NAME_DUPLICATE_ERROR);
         }
     }
 

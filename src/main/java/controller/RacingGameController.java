@@ -1,5 +1,6 @@
 package controller;
 
+import static message.OutputMessages.RACE_START;
 import static validator.CarNameValidator.validateCarNameDuplicate;
 import static validator.CarNameValidator.validateCarNameLength;
 import static validator.TryCountValidator.validateTryCountMin;
@@ -7,7 +8,6 @@ import static validator.TryCountValidator.validateTryCountNumber;
 
 import java.util.ArrayList;
 import java.util.List;
-import message.OutputMessages;
 import model.Car;
 import view.InputView;
 import view.OutputView;
@@ -31,7 +31,7 @@ public class RacingGameController {
     }
 
     private void startRace(List<Car> carList, int tryCountNumber) {
-        System.out.println(OutputMessages.RACE_START);
+        System.out.println(RACE_START);
 
         while (tryCountNumber > 0) {
             for (Car car : carList) {

@@ -1,18 +1,20 @@
 package view;
 
+import static message.InputMessages.REQUEST_CAR_NAMES;
+import static message.InputMessages.REQUEST_TRY_COUNT;
+
 import camp.nextstep.edu.missionutils.Console;
-import message.InputMessages;
 
 public class InputView {
 
     public static String[] getCarNames() {
-        System.out.println(InputMessages.REQUEST_CAR_NAMES);
+        System.out.println(REQUEST_CAR_NAMES);
         String inputCarNames = Console.readLine();
         return inputCarNames.split(",");
     }
 
     public static String getTryCount() {
-        System.out.println(InputMessages.REQUEST_TRY_COUNT);
+        System.out.println(REQUEST_TRY_COUNT);
         String tryCount = Console.readLine();
         System.out.println();
         return tryCount;

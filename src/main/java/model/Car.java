@@ -1,5 +1,10 @@
 package model;
 
+import static message.Constants.INIT_POSITION;
+import static message.Constants.MOVE_CONDITION;
+import static message.Constants.RANDOM_NUMBER_MAX;
+import static message.Constants.RANDOM_NUMBER_MIN;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -9,7 +14,7 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-        this.position = 0;
+        this.position = INIT_POSITION;
     }
 
     public String getName() {
@@ -21,13 +26,13 @@ public class Car {
     }
 
     public void move() {
-        if (createRandomNumber() >= 4) {
+        if (createRandomNumber() >= MOVE_CONDITION) {
             this.position++;
         }
     }
 
     public int createRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
     }
 
 

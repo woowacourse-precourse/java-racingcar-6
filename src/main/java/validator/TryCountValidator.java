@@ -1,6 +1,8 @@
 package validator;
 
-import message.ErrorMessages;
+import static message.Constants.TRY_COUNT_MIN;
+import static message.ErrorMessages.COUNT_NOT_NUMBER_ERROR;
+import static message.ErrorMessages.TRY_COUNT_MIN_ERROR;
 
 public class TryCountValidator {
 
@@ -8,13 +10,13 @@ public class TryCountValidator {
         try {
             Integer.parseInt(tryCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessages.COUNT_NOT_NUMBER_ERROR);
+            throw new IllegalArgumentException(COUNT_NOT_NUMBER_ERROR);
         }
     }
 
     public static void validateTryCountMin(String tryCount) {
-        if (Integer.parseInt(tryCount) < 1) {
-            throw new IllegalArgumentException(ErrorMessages.TRY_COUNT_MIN_ERROR);
+        if (Integer.parseInt(tryCount) < TRY_COUNT_MIN) {
+            throw new IllegalArgumentException(TRY_COUNT_MIN_ERROR);
         }
     }
 }
