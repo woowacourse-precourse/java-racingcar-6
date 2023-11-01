@@ -7,6 +7,8 @@ public class RacingGame {
     public List<String> race(List<String> carNames, int attemptCount) {
 
         MovingCondition movingCondition = new MovingCondition();
+        int condition;
+        boolean isMovingForward;
         List<String> racingProgress = new ArrayList<>();
         for(int c = 0; c < carNames.size(); c++){
             racingProgress.add("");
@@ -16,7 +18,12 @@ public class RacingGame {
 
         for (int a = 0; a < attemptCount; a++){
             for (int c = 0; c < carNames.size(); c++){
-                boolean isMovingForward = movingCondition.isMoveForward();
+
+                condition = movingCondition.getRandomNumber();
+                isMovingForward = movingCondition.isMovingForward(condition);
+                System.out.println("condition: " + condition);
+                System.out.println("isMovingForward: "+isMovingForward);
+
                 if(isMovingForward){
                     String currentProgress = racingProgress.get(c);
                     racingProgress.set(c, currentProgress + "-");
