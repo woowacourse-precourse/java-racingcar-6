@@ -12,6 +12,9 @@ public class NewRacingCarTest {
         public String[] carNames() {
             return new String[] { "A", "B", "C"};
         }
+        public String racingRound() {
+            return "3";
+        }
     }
     @Test
     void addRacingCarTest() {
@@ -25,5 +28,14 @@ public class NewRacingCarTest {
         // then
         Assertions.assertThat(racingCarList.size()).isEqualTo(3);
 
+    }
+    @Test
+    void racingRoundTest() {
+        // given
+        User user = new User();
+        // when
+        String racingRound = user.racingRound();
+        // then
+        Assertions.assertThat(racingRound).isEqualTo("3");
     }
 }
