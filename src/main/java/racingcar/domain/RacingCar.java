@@ -9,9 +9,14 @@ public class RacingCar {
         this.name = name;
     }
 
-    public void advance() {
-        // 4~9인 숫자여야만 한다.
-        countAdvance++;
+    private boolean isPossibleAdvance(Integer num) {
+        return num >= 4 && num <= 9;
+    }
+
+    public void advance(Integer num) {
+        if (isPossibleAdvance(num)) {
+            countAdvance++;
+        }
     }
 
     public String getAdvancedRoad() {
