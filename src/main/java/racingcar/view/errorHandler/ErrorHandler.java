@@ -13,6 +13,9 @@ public class ErrorHandler {
             if (name.length() > MAX_NAME_SIZE) {
                 throw new IllegalArgumentException("사용 가능한 최대 글자수는 5 입니다.");
             }
+            if(name.equals("")){
+                throw new IllegalArgumentException("공백을 입력할 수 없습니다..");
+            }
         }
     }
 
