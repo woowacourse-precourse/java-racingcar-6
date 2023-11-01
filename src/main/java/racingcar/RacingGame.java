@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.stream.IntStream;
+
 public class RacingGame {
     public void start() {
         String userInput = InputView.requestUserInputNames();
@@ -14,12 +16,15 @@ public class RacingGame {
     }
 
     private void progressRound(Cars cars, String runningNumber) {
+        try {
+            Integer runningCount = parseInputToInt(runningNumber);
 
-        Integer runningCount = Integer.parseInt(runningNumber);
+            OutputView.noticeRunningResult();
 
-        OutputView.noticeRunningResult();
-
-        IntStream.range(0, runningCount).forEach(i -> progressOneRound(cars));
+            IntStream.range(0, runningCount).forEach(i -> progressOneRound(cars));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자 이외의 값은 입력할 수 없습니다.");
+        }
     }
 
     private void progressOneRound(Cars cars) {
@@ -32,5 +37,9 @@ public class RacingGame {
 
         OutputView.noticeFinalWinner();
         OutputView.printWinnerNames(cars.findWinnerCars());
+    }
+
+    private Integer parseInputToInt(String userInputNumber) {
+        return Integer.parseInt(userInputNumber);
     }
 }
