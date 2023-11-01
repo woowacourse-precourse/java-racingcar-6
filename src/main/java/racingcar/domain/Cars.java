@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.List;
 import racingcar.view.InputView;
 
-public class CarsFactory {
+public class Cars {
     private final List<Car> cars = new ArrayList<>();
 
     public void startCreateCars() {

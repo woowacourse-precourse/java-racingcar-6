@@ -12,15 +12,15 @@ import org.junit.jupiter.api.Test;
 import racingcar.Application;
 import racingcar.constant.ExceptionMessage;
 import racingcar.domain.Attempt;
-import racingcar.domain.CarsFactory;
+import racingcar.domain.Cars;
 
 public class ValidationTest extends NsTest {
-    private CarsFactory carsFactory;
+    private Cars cars;
     private Attempt attempt;
 
     @BeforeEach
     public void setUp() {
-        carsFactory = new CarsFactory();
+        cars = new Cars();
         attempt = new Attempt();
     }
 
@@ -28,7 +28,7 @@ public class ValidationTest extends NsTest {
     void 자동차_이름_검증하기() {
         List<String> carNames1 = Arrays.asList("pobi", "woni", "jun");
 
-        assertThatCode(() -> carsFactory.validateCarNames(carNames1)).doesNotThrowAnyException();
+        assertThatCode(() -> cars.validateCarNames(carNames1)).doesNotThrowAnyException();
     }
 
     @Test

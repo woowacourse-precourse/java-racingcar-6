@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.domain.Attempt;
-import racingcar.domain.CarsFactory;
+import racingcar.domain.Cars;
 import racingcar.domain.Game;
 
 /**
@@ -10,13 +10,13 @@ import racingcar.domain.Game;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        CarsFactory carsFactory = new CarsFactory();
-        carsFactory.startCreateCars();
+        Cars cars = new Cars();
+        cars.startCreateCars();
 
         Attempt attempt = new Attempt();
         attempt.saveAttemptNumber();
 
-        Game game = new Game(carsFactory.getCars(), attempt.getCount());
+        Game game = new Game(cars.getCars(), attempt.getCount());
         game.startRacing();
     }
 }
