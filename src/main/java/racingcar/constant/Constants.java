@@ -5,8 +5,13 @@ public class Constants {
     public static final String KEY_VALUE_SEPARATOR = " : ";
     public static final String VALUE_SEPARATOR = ", ";
 
+    // 쉼표 앞뒤에 있는 공백을 포함하여 쉼표로 문자열을 분리하는 용도
     public static final String DIVIDE_BY_COMMA = "\\s*,\\s*";
+
+    // 유효하지 않은 문자(영문 대소문자, 숫자, 공백, 쉼표를 제외한 문자)를 포함하는 문자열을 찾는 용도
     public static final String INVALID_CHARACTER = ".*[^a-zA-Z0-9 ,].*";
+
+    // 0으로 시작하지 않는 숫자만을 포함하는 문자열을 찾는 용도
     public static final String VALID_NUMBER = "[1-9][0-9]*";
 
     public static final int MAX_RANDOM_NUM = 9;
