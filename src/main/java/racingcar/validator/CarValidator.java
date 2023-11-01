@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class CarNameValidator {
-
+public class CarValidator {
     private final static int LENGTH_STANDARD = 5;
 
     public void checkCarCount(String[] carNameInput) {

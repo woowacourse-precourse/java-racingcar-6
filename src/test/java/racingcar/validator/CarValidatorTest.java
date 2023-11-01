@@ -11,14 +11,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class CarNameValidatorTest {
+class CarValidatorTest {
 
     @Test
     void 이름이_기준_길이_초과하는_경우_예외_발생() {
         String inputCarName = "다섯글자 넘는 자동차 이름";
-        CarNameValidator carNameValidator = new CarNameValidator();
+        CarValidator carValidator = new CarValidator();
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> carNameValidator.checkCarName(inputCarName))
+                assertThatThrownBy(() -> carValidator.checkCarName(inputCarName))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining("Length must be less or equal than")
         );
@@ -27,9 +27,9 @@ class CarNameValidatorTest {
     @Test
     void 이름이_비어있는_경우_예외_발생() {
         String inputCarName = "";
-        CarNameValidator carNameValidator = new CarNameValidator();
+        CarValidator carValidator = new CarValidator();
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> carNameValidator.checkCarName(inputCarName))
+                assertThatThrownBy(() -> carValidator.checkCarName(inputCarName))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining("Car name cannot be blank")
         );
@@ -38,9 +38,9 @@ class CarNameValidatorTest {
     @Test
     void 이름이_공백으로만_이루어져_있는_경우_예외_발생() {
         String inputCarName = "  ";
-        CarNameValidator carNameValidator = new CarNameValidator();
+        CarValidator carValidator = new CarValidator();
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> carNameValidator.checkCarName(inputCarName))
+                assertThatThrownBy(() -> carValidator.checkCarName(inputCarName))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining("Car name cannot be blank")
         );
@@ -58,9 +58,9 @@ class CarNameValidatorTest {
         when(carList.get(1).getName()).thenReturn("중복");
         when(carList.get(2).getName()).thenReturn("중복아님");
 
-        CarNameValidator carNameValidator = new CarNameValidator();
+        CarValidator carValidator = new CarValidator();
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> carNameValidator.checkDuplicate(carList))
+                assertThatThrownBy(() -> carValidator.checkDuplicate(carList))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining("Name must not be duplicated")
         );

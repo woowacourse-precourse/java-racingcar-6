@@ -4,7 +4,7 @@ import racingcar.domain.Announcer;
 import racingcar.domain.Car;
 import racingcar.domain.Random;
 import racingcar.domain.Referee;
-import racingcar.validator.CarNameValidator;
+import racingcar.validator.CarValidator;
 import racingcar.validator.TryCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -19,7 +19,7 @@ public class Controller {
     private final static Announcer announcer = new Announcer();
     private final static InputView inputView = new InputView();
     private final static OutputView outputView = new OutputView();
-    private final static CarNameValidator carNameValidator = new CarNameValidator();
+    private final static CarValidator carValidator = new CarValidator();
     private final static TryCountValidator tryCountValidator = new TryCountValidator();
 
     public void start() {
@@ -40,7 +40,7 @@ public class Controller {
             carNameValidator.checkCarName(name);
             list.add(new Car(name));
         }
-        carNameValidator.checkDuplicate(list);
+        carValidator.checkDuplicate(list);
         return list;
     }
 
