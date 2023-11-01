@@ -11,7 +11,7 @@ public class GameService {
 
     private static final int MIN_RANDOM_VALUE = 1;
     private static final int MAX_RANDOM_VALUE = 9;
-    private static Game game = new Game();
+    private Game game;
 
     public GameService(Game game) {
         this.game = game;
