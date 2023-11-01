@@ -57,4 +57,22 @@ class ModelTest {
             assertThat(1).isEqualTo(race.getCars().get(i).getPosition());
         }
     }
+
+    @Test
+    void testMaxPositionReturn() {
+        List<String> name = Arrays.asList("pobi","woni","jun","han");
+        Race race = new Race(name);
+        int maxPosition = 0;
+
+        for (int i = 0; i < 5; i++) {
+            race.playRound();
+        }
+
+        for (Car car : race.getCars()) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+
+        race.maxPosition();
+        assertThat(maxPosition).isEqualTo(race.getMaxPosition());
+    }
 }
