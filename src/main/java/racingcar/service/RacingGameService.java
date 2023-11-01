@@ -1,13 +1,11 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.repository.Car;
 import racingcar.repository.CarInfo;
 import racingcar.repository.RacingGameRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingGameService {
     private RacingGameRepository racingGameRepository;
