@@ -13,6 +13,8 @@ public class User {
         String userInput = Console.readLine();
 
         List<String> carList = splitCarNames(userInput);
+        Checker.checkNameLength(carList);
+        Checker.checkNameDuplication(carList);
 
         return carList;
     }
@@ -21,9 +23,9 @@ public class User {
         System.out.print("시도할 회수는 몇회인가요?");
         String userInputTurn = Console.readLine();
 
-        int numberOfTurns = Integer.parseInt(userInputTurn);
+        int turns = Checker.checkValidTurn(userInputTurn);
 
-        return numberOfTurns;
+        return turns;
     }
 
     private static List<String> splitCarNames(String carNames) {
