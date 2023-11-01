@@ -23,7 +23,7 @@ public class Race {
             String eachCarRaceResult = readyForRaceHMap.get(carNameKey);
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             if (randomNumber >= 4) {
-                eachCarRaceResult += "-"; // 이부분에서 deep copy vs shallow copy
+                eachCarRaceResult += "-";
             }
             readyForRaceHMap.put(carNameKey, eachCarRaceResult);
         }
@@ -34,7 +34,7 @@ public class Race {
     }
 
 
-    public static void showRace(Map<String, String> raceResultsHMap) {
+    public static void showEachRace(Map<String, String> raceResultsHMap) {
         Set<Map.Entry<String, String>> raceResultsES = raceResultsHMap.entrySet();
 
         for (var entry : raceResultsES) {

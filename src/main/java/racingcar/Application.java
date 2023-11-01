@@ -41,9 +41,10 @@ public class Application {
         Map<String, String> raceResultsHMap = new LinkedHashMap<>();
 
         Map<String, String> readyForRaceHMap = Race.registerCars(carNamesArrayList);
+
         for (int i = 0; i < trialNumber; i++) {
             raceResultsHMap = Race.doRace(readyForRaceHMap);
-            Race.showRace(raceResultsHMap);
+            Race.showEachRace(raceResultsHMap);
         }
 
         return raceResultsHMap;
