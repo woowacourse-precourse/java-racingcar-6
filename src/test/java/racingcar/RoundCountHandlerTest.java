@@ -1,7 +1,7 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,26 +19,20 @@ public class RoundCountHandlerTest {
     @Test
     public void testHandleValidInput() {
         roundCountHandler.handle("5");
-        assertEquals(5, roundCountHandler.getHandledResult());
+        assertThat(roundCountHandler.getHandledResult()).isEqualTo(5);
     }
 
     @Test
     public void testHandleZeroInput() {
-        try {
-            roundCountHandler.handle("0");
-            fail("Expected IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            assertEquals(ErrorMessage.NO_ROUND_EXCEPTION_MESSAGE, e.getMessage());
-        }
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> roundCountHandler.handle("0"))
+                .withMessage(ErrorMessage.NO_ROUND_EXCEPTION_MESSAGE);
     }
 
     @Test
     public void testHandleNonNumericInput() {
-        try {
-            roundCountHandler.handle("absy");
-            fail("Expected IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            assertEquals(ErrorMessage.NON_NUMERIC_EXCEPTION_MESSAGE, e.getMessage());
-        }
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> roundCountHandler.handle("absy"))
+                .withMessage(ErrorMessage.NON_NUMERIC_EXCEPTION_MESSAGE);
     }
 }
