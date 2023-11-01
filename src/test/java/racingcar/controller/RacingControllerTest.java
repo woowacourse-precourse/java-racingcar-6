@@ -6,6 +6,7 @@ import racingcar.domain.Car;
 import racingcar.util.Validation;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Fail.fail;
 
 public class RacingControllerTest {
 
@@ -23,5 +24,17 @@ public class RacingControllerTest {
     void carNameLengthTest() {
         String carName = "qwerty";
         Validation.checkAll(carName);
+    }
+
+    @Test
+    @DisplayName("자동차 이름 타입 테스트")
+    void carNameTypeTest() {
+        try {
+            String carName = "pobi,qwe";
+            Validation.checkCarNameType(carName);
+        } catch (IllegalArgumentException e) {
+            return;
+        }
+        fail("예외 실패 처리");
     }
 }
