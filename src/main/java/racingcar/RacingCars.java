@@ -3,7 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import racingcar.enums.ErrorMessage;
+import racingcar.enums.ErrorMessages;
 
 public class RacingCars {
     private final List<RacingCar> racingCars = new ArrayList<>();
@@ -41,7 +41,7 @@ public class RacingCars {
     private RacingCar findMaxDistance() {
         return racingCars.stream()
                 .max(RacingCar::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.LIST_EMPTY.getMessage()));
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessages.LIST_EMPTY.getMessage()));
     }
 
     private List<String> findSameDistanceRacingCar(RacingCar maxDistanceRacingCar) {

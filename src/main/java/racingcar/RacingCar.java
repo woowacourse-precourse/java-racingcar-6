@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.enums.ErrorMessage;
+import racingcar.enums.ErrorMessages;
 
 public class RacingCar implements Comparable<RacingCar> {
     private final String name;
@@ -13,7 +13,7 @@ public class RacingCar implements Comparable<RacingCar> {
 
     private void validateCarName(String carName) {
         if (carName.length() > 5) {
-            throw new IllegalArgumentException(ErrorMessage.UNDER_FIVE.getMessage());
+            throw new IllegalArgumentException(ErrorMessages.UNDER_FIVE.getMessage());
         }
     }
 
