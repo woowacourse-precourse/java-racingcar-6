@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.model.Cars;
 import racingcar.model.RacingManager;
 import racingcar.model.RacingResult;
+import racingcar.model.winnerstrategy.MaximumForwardStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -22,6 +23,7 @@ public class RacingController {
     public void run() {
         setting();
         startRacing();
+        summarizeRace();
     }
 
     private void setting() {
@@ -38,5 +40,10 @@ public class RacingController {
             racingManager.countMove();
             outputView.printAllCarPositionByState(cars.collectAllState());
         }
+    }
+
+    private void summarizeRace() {
+        racingResult = new RacingResult(cars, new MaximumForwardStrategy());
+        outputView.printWinnerCar(racingResult.determineWinnerNames());
     }
 }
