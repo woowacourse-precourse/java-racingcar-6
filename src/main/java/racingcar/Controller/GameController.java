@@ -11,8 +11,6 @@ import racingcar.View.GameResultView;
 
 public class GameController {
 
-    // TODO: 변수명 정리, 멤버 변수들 정리, 우승자 계산 및 출력 구현
-
     private final int MOVE_THRESHOLD = 4;
 
     private ArrayList<Car> carList = new ArrayList<Car>();
@@ -22,7 +20,7 @@ public class GameController {
     GameResultView gameResultView = new GameResultView();
     WinnerSelector winnerSelector = new WinnerSelector();
 
-    Random random = new Random();
+    private Random random = new Random();
 
     public void gameProcess() {
         initGame();
