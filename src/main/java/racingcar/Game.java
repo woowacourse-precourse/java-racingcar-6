@@ -1,9 +1,9 @@
 package racingcar;
 
 
-public class Game {
-    private Cars cars;
-    private Integer attempts;
+public final class Game {
+    private final Cars cars;
+    private final Integer attempts;
 
     private Game(String[] carNames, Integer attempts) {
         this.cars = new Cars(carNames);
