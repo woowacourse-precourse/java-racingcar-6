@@ -1,5 +1,6 @@
 package view;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import model.Car;
 import model.Cars;
@@ -28,12 +29,13 @@ public class OutputView {
 
     public void printWinner(Winners winners) {
         if (winners.isMultiple()) {
-            System.out.print(FINAL_WINNER +
-                    winners.getWinners()
-                            .stream().map(Car::getName)
-                            .collect(Collectors.joining(DELIMITER)));
+            System.out.print(FINAL_WINNER + addDelimiter(winners.getWinners()));
             return;
         }
         System.out.println(FINAL_WINNER + winners.getOne());
+    }
+    public String addDelimiter(List<Car> car){
+        return car.stream().map(Car::getName)
+                .collect(Collectors.joining(DELIMITER));
     }
 }
