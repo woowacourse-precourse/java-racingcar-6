@@ -51,4 +51,18 @@ public class OutputViewTest {
 
         System.setOut(outputBackUp);
     }
+
+    @Test
+    @DisplayName("공동 우승자 발표 테스트")
+    public void announceMultipleWinnerTest() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        List<String> winnerNames = Arrays.asList("pobi", "jun");
+
+        outputView.announceMultipleWinner(winnerNames);
+        assertThat(outputStream.toString().trim())
+                .isEqualTo("최종 우승자 : pobi, jun");
+
+        System.setOut(outputBackUp);
+    }
 }
