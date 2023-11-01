@@ -20,7 +20,7 @@ public class GameController {
     private static List<Car> carsList;
     private static List<Car> winnerList;
 
-    public static void startGame() { // 뷰는 컨트롤러에만 의존한다.
+    public static void startGame() {
         carsList = generateCar(promptCarNames());
         tryCount = promptTryCount();
         printExecutionResultMessage();
