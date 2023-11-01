@@ -36,7 +36,7 @@ public class GameController {
 
     public void start() {
         String carNameContext = inputCarName();
-        String attemptCount = inputattemptCount();
+        String attemptCount = inputAttemptCount();
         validateInputs(carNameContext, attemptCount);
         List<String> carNames = makeCarNames(carNameContext);
         racingCarGame.play(carNames, Integer.parseInt(attemptCount));
@@ -51,7 +51,7 @@ public class GameController {
         attemptCountValidator.validate(attemptCount);
     }
 
-    private String inputattemptCount() {
+    private String inputAttemptCount() {
         writer.write(inputAttemptCountContext);
         return reader.read();
     }
