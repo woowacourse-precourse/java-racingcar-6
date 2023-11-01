@@ -2,7 +2,9 @@ package racingcar.utility;
 
 import racingcar.constant.Error;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ExceptionHandler {
 
@@ -44,10 +46,10 @@ public class ExceptionHandler {
     }
 
     public void isDuplicationName(List<String> carNames) {
-        for (String carName : carNames) {
-            if (carNames.contains(carName)) {
-                throw new IllegalArgumentException(Error.DUPLICATED_NAME);
-            }
+        Set<String> nonoverlappingList = new HashSet<>(carNames);
+
+        if(nonoverlappingList.size() != carNames.size()) {
+            throw new IllegalArgumentException(Error.DUPLICATED_NAME);
         }
     }
 

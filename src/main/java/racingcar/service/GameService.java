@@ -50,7 +50,7 @@ public class GameService {
             nameList.add(carName);
         }
 
-        exceptionHandler.isDuplicationName(nameList);
+        //exceptionHandler.isDuplicationName(nameList);
 
         return nameList;
     }
