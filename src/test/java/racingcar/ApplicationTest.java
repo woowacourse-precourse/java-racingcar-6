@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.message.ErrorMessage;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -30,6 +31,46 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+//    @Test
+//    // isMoveAble에 대한 테스트
+//    void 전진여부에_대한_예외_처리() {
+//        //given
+//        CarInput carInput = CarInput.of("test1,test2");
+//        RacingGame racingGame = new RacingGame.Builder()
+//                .carInput(carInput)
+//                .tryCount(1)
+//                .build();
+//
+//        test.moveForward();
+//    }
+
+    @Test
+    void 게임_종료_전_우승자_확인_금지() {
+        //given
+        CarInput carInput = CarInput.of("test1,test2");
+        RacingGame racingGame = new RacingGame.Builder()
+                .carInput(carInput)
+                .tryCount(1)
+                .build();
+
+        // when + then
+        assertThatThrownBy(racingGame::getWinner)
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining(ErrorMessage.GAME_NOT_FINISHED);
+    }
+
+
+
+    @Test
+    // atPosition
+    void 자동차_위치_확인() {
+        Car car = new Car("test");
+        car.moveForward();
+
+        assertThat(car.atPosition(1)).isTrue();
+    }
+
 
     @Override
     public void runMain() {
