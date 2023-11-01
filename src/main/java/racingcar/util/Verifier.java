@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Verifier {
     private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
+
     /**
      * 차량 이름들 검증
      *
