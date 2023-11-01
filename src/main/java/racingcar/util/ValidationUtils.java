@@ -48,22 +48,22 @@ public class ValidationUtils {
     }
 
     private static boolean hasNameOver5Letters(String input) {
-        return Arrays.stream(input.split(CAR_NAME_DELIMITER.getValue()))
+        return Arrays.stream(input.split(CAR_NAME_DELIMITER.getSymbol()))
                 .anyMatch(carName -> carName.length() > 5);
     }
 
     private static boolean hasBlankName(String input) {
         return input == null
                 || input.isBlank()
-                || input.contains(CAR_NAME_DELIMITER.getValue().repeat(2));
+                || input.contains(CAR_NAME_DELIMITER.getSymbol().repeat(2));
     }
 
     private static boolean hasEmptyName(String input) {
-        return !input.contains(CAR_NAME_DELIMITER.getValue());
+        return !input.contains(CAR_NAME_DELIMITER.getSymbol());
     }
 
     private static boolean hasNotUniqueNames(String input) {
-        String[] carNames = input.split(CAR_NAME_DELIMITER.getValue());
+        String[] carNames = input.split(CAR_NAME_DELIMITER.getSymbol());
         HashSet<String> carNameSet = new HashSet<>(List.of(carNames));
         return carNameSet.size() != carNames.length;
     }

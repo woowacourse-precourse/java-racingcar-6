@@ -27,7 +27,7 @@ public class RacingCar {
     }
 
     public String getPositionMarkers() {
-        return POSITION_MARKER.getValue()
+        return POSITION_MARKER.getSymbol()
                 .repeat(this.position);
     }
 

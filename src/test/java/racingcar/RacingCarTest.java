@@ -34,6 +34,6 @@ public class RacingCarTest extends RacingCarStub {
                 .forEach(i -> racingCar.moveForward());
 
         assertThat(racingCar.getPositionMarkers())
-                .isEqualTo(Symbol.POSITION_MARKER.getValue().repeat(repeatCount));
+                .isEqualTo(Symbol.POSITION_MARKER.getSymbol().repeat(repeatCount));
     }
 }

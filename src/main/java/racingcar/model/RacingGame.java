@@ -53,7 +53,7 @@ public class RacingGame {
                 .getRacingCars()
                 .forEach(racingCar -> {
                     stringBuilder.append(racingCar.getName());
-                    stringBuilder.append(Symbol.KEY_VALUE_SEPARATOR.getValue());
+                    stringBuilder.append(Symbol.KEY_VALUE_SEPARATOR.getSymbol());
                     stringBuilder.append(racingCar.getPositionMarkers());
                     stringBuilder.append("\n");
                 });
@@ -82,7 +82,7 @@ public class RacingGame {
 
     public String getFinalWinnerMessage() {
         return Message.FINAL_WINNER.getMessage()
-                + Symbol.KEY_VALUE_SEPARATOR.getValue()
+                + Symbol.KEY_VALUE_SEPARATOR.getSymbol()
                 + winners.toNameString();
     }
 }

@@ -6,13 +6,13 @@ public enum Symbol {
     WINNER_DELIMITER(", "),
     POSITION_MARKER("-");
 
-    private final String value;
+    private final String symbol;
 
-    Symbol(String value) {
-        this.value = value;
+    Symbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public String getValue() {
-        return value;
+    public String getSymbol() {
+        return symbol;
     }
 }
