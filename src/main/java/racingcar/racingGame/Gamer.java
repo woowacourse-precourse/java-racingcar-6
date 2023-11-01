@@ -10,8 +10,6 @@ public class Gamer {
     public List<String> getCarName() {
 
         String inputCarName = Console.readLine();
-        
-        //TODO: 입력 유효성 검사 필요
 
         List<String> carNameList = divideCarName(inputCarName);
 
@@ -25,7 +23,7 @@ public class Gamer {
         String[] splitArr = inputCarName.split(",");
         checkCarName(splitArr);
 
-        for(String car: splitArr) {
+        for (String car : splitArr) {
             carNameList.add(car);
         }
 
@@ -35,8 +33,8 @@ public class Gamer {
     public int getTryNum() {
 
         String tryNum = Console.readLine();
-        
-        //TODO: 시도 횟수 유효성 검사 필요
+
+        checkTryNum(tryNum);
 
         return Integer.parseInt(tryNum);
     }
@@ -52,5 +50,16 @@ public class Gamer {
         }
     }
 
+    public void checkTryNum(String tryNum) {
 
+        try {
+            Integer.parseInt(tryNum);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자가 아닌 값이 입력되었습니다.");
+        }
+
+        if (Integer.parseInt(tryNum) <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
+    }
 }

@@ -70,6 +70,14 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class));
     }
 
+    @Test
+    @DisplayName("이동하는 횟수는 숫자만 가능해야함")
+    void t005() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "a"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
