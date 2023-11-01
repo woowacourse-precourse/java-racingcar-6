@@ -18,6 +18,7 @@ public class Input {
     public Integer readRounds() {
         System.out.println(ROUND_INPUT_MSG);
         String userInput = Console.readLine();
+        Valid.checkNaturalNumber(userInput);
         int rounds = Integer.parseInt(userInput);
         return rounds;
     }
