@@ -21,11 +21,14 @@ public class GameSystem {
         Race race = new Race();
         race.addCars(carNames);
 
+        System.out.println();
+        System.out.println("실행 결과");
         for(int i = 0; i < roundNumber; i++){
             race.moveCars();
             Broadcaster.printCurrentRace(race.getEachCarNameAndLocation());
         }
 
+        Broadcaster.printWinner(race.getFastestCarNames());
     }
     private static void validateCarNames(List<String> carNames){
         for(String carName : carNames){
