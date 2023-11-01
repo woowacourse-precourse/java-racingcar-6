@@ -16,7 +16,7 @@ public class Application {
         Integer trialNumber = saveTrialNumber(Console.readLine().trim());
         System.out.println("\n실행결과");
         DriveProcedure.drive(trialNumber);
-        showWinner(decideWinner(getMaxScore()));
+        RacingResult.showWinner();
     }
     private static void createCars(String carNames) {
         InputException.isContainComma(carNames);
@@ -32,40 +32,6 @@ public class Application {
         }
     }
 
-    private static int getMaxScore() {
-        int max = 0;
-        int countPerson = 0;
-        for (Car car : cars) {
-            max = setMaxScore(max,car.getDriveNum());
-        }
-        return max;
-    }
-    private static int setMaxScore(int max, int driveNum) {
-        if (max < driveNum)
-            max = driveNum;
-        return max;
-    }
-    private static boolean decideWinner(int max) {
-        boolean isSolo = true;
-        int countPerson = 0;
-        for (Car car : cars) {
-            if (max == car.getDriveNum()) {
-                winners.add(car.getName());
-                countPerson++;
-            }
-        }
-        if (countPerson > 1) isSolo = false;
-        return isSolo;
-    }
-
-    private static void showWinner(boolean decideWinner) {
-        if (decideWinner) {
-            System.out.println("최종 우승자 : "+ winners.get(0));
-        } else {
-            String winnerNames = String.join(", ",winners);
-            System.out.println("최종 우승자 : "+winnerNames);
-        }
-    }
 
     private static Integer saveTrialNumber(String trialNumberInput) {
         return InputException.isNumberFormat(trialNumberInput);
