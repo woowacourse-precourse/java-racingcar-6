@@ -27,6 +27,7 @@ public class Controller {
     }
 
     private void play(Game game) {
+        System.out.println();
         OutputView.printHead();
         while (!gameService.isEndGame(game)) {
             gameService.play(game);
