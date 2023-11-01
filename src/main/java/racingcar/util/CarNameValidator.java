@@ -5,7 +5,7 @@ public class CarNameValidator {
 
     public static String validateCarName(String carName) {
         if (carName.length() > MAX_CARNAME) {
-            throw new IllegalArgumentException("자동차 이름이 5글자 이하이어야 합니다");
+            throw new IllegalArgumentException(String.format("자동차 이름이 %s글자 이하이어야 합니다", MAX_CARNAME));
         } else return carName;
     }
 }
