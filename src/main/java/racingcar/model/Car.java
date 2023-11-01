@@ -13,15 +13,8 @@ public class Car {
     private int point;
 
     public Car(String name) {
-        validateLength(name);
         this.name = name;
         this.point = 0;
-    }
-
-    private void validateLength(String name) {
-        if (name.length() > LENGTH_LIMITER) {
-            throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다");
-        }
     }
 
     public String getName() {
