@@ -18,7 +18,7 @@ public class Car {
     }
 
     private String toResult() {
-        return name.toString() + " : " + location.toString();
+        return name.getName() + " : " + location.getLocation();
     }
 
     public Integer getCarLocationLength() {
