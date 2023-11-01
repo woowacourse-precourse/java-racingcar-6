@@ -69,19 +69,19 @@ public class GameServiceTest extends NsTest {
         String carNames = "habi,son";
         Cars cars = gameService.makeCars(carNames);
 
-        MockedStatic<Randoms> mock = mockStatic(Randoms.class);
-        mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(forward, stop);
+        try(MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
+            mohck.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(forward, stop);
 
-        gameService.forwardStart(1);
+            gameService.forwardStart(1);
 
-        List<CarRecord> carRecords = cars.saveRecord();
+            List<CarRecord> carRecords = cars.saveRecord();
 
-        assertThat(carRecords.get(0).getCarName()).isEqualTo("habi");
-        assertThat(carRecords.get(0).getNumberOfStep()).isEqualTo(1);
-        assertThat(carRecords.get(1).getCarName()).isEqualTo("son");
-        assertThat(carRecords.get(1).getNumberOfStep()).isEqualTo(0);
+            assertThat(carRecords.get(0).getCarName()).isEqualTo("habi");
+            assertThat(carRecords.get(0).getNumberOfStep()).isEqualTo(1);
+            assertThat(carRecords.get(1).getCarName()).isEqualTo("son");
+            assertThat(carRecords.get(1).getNumberOfStep()).isEqualTo(0);
 
-        mock.close();
+        }
     }
 
 
@@ -89,17 +89,16 @@ public class GameServiceTest extends NsTest {
     @DisplayName("우승자 테스트")
     public void 우승자_테스트() {
         String carNames = "habi,son,uni";
-        Cars cars = gameService.makeCars(carNames);
+        gameService.makeCars(carNames);
 
-        MockedStatic<Randoms> mock = mockStatic(Randoms.class);
-        mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(forward, stop);
+        try(MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
+            mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(forward, stop);
 
-        gameService.forwardStart(1);
-        List<String> winners = gameService.selectWinners();
+            gameService.forwardStart(1);
+            List<String> winners = gameService.selectWinners();
 
-        assertThat(winners.size()).isEqualTo(1);
-
-        mock.close();
+            assertThat(winners.size()).isEqualTo(1);
+        }
     }
 
     @Override
