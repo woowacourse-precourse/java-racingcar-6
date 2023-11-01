@@ -3,9 +3,7 @@ package controller;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static controller.InputValidator.checkIfInputExists;
-import static controller.InputValidator.validateCarNameLength;
-import static org.assertj.core.api.Assertions.assertThat;
+import static controller.InputValidator.*;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -39,6 +37,24 @@ public class InputValidatorTest {
         assertDoesNotThrow(()-> {
             checkIfInputExists(arrayWithNotEmptyValues);
         });
+    }
+
+    @DisplayName("입력한 글자가 숫자가 아닐경우 예외처리 테스트 코드")
+    @Test
+    void isNumbericTest() {
+
+        String gameStringCount = "abc";
+        String gameintCount = "1";
+
+        assertThrows(IllegalArgumentException.class, () ->{
+           isNumberic(gameStringCount);
+        });
+
+        assertDoesNotThrow(() -> {
+           isNumberic(gameintCount);
+        });
+
+
     }
 
 }

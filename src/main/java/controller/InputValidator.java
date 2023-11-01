@@ -14,11 +14,26 @@ public class InputValidator {
                 throw new IllegalArgumentException("이름이 5글차를 초과했습니다.");
         }
     }
-
     public static void checkIfInputExists(String[] carNameArray) {
         for (String carName : carNameArray) {
             if (carName == null || carName.trim().isEmpty())
                 throw new IllegalArgumentException("이름이 입력되지 않았습니다.");
         }
     }
+
+    public static int numberHandlingException(String gameCount){
+        return isNumberic(gameCount);
+    }
+
+
+    public static int isNumberic(String gameCount) {
+        try {
+            int returnNumber = Integer.parseInt(gameCount);
+            return returnNumber;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("입력값이 숫자가 아닙니다.");
+        }
+    }
+
 }
+
