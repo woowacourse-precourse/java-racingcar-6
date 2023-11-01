@@ -164,7 +164,7 @@ Randoms.pickNumberInRange(0,9);
 
 ## 기능 목록
 
-- Player 도메인 구현하기 
+- Player 도메인 구현하기 v
 - 사용자에게 보여주는 기능을 할 printGame 부분 구현하기 
 - 기본적인 게임을 제공할 틀 만들기 
 - 사용자로부터 입력을 받을 수 있는 기능 만들기 
