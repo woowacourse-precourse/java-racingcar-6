@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.Objects;
-
 public class Car {
 
     private static final int MINIMUM_RACE_VALUE = 4;
