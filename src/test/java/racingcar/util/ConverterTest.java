@@ -24,6 +24,13 @@ class ConverterTest {
     }
 
     @Test
+    void 자동차의_이름이_한_글자_미만인_경우_예외를_발생한다() {
+        assertThatThrownBy(() -> Converter.parseCars(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차의 이름을 1글자 이상 입력해주세요");
+    }
+
+    @Test
     void 자동차_경주_단건_실행_결과를_변환한다() {
         Cars cars = new Cars(
                 List.of(new Car("pobi"), new Car("woni"), new Car("jun"))
