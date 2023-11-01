@@ -10,6 +10,7 @@
    - startGame() 메서드로 게임 정보 input을 받고 초기화
    - playGame() 메서드로 게임을 진행
    - determineMove() 메서드로 전진 or 멈춤 파악
+   - printResultOfRounds() 메서드로 게임의 라운드 당 결과 출력
 
    
 3. InputCarInfo
