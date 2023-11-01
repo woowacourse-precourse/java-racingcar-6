@@ -2,8 +2,8 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.Car;
-import racingcar.model.dto.CarDTO;
+import racingcar.domain.Car;
+import racingcar.domain.dto.CarDTO;
 
 public class CarService {
 

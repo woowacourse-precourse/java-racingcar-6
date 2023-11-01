@@ -1,8 +1,8 @@
-package racingcar.model;
+package racingcar.domain;
 
 import static racingcar.util.Constants.*;
 
-import racingcar.model.dto.CarDTO;
+import racingcar.domain.dto.CarDTO;
 
 public class Car {
     private final String name;

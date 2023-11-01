@@ -3,7 +3,7 @@ package racingcar.view;
 import static racingcar.util.Messages.*;
 
 import java.util.List;
-import racingcar.model.dto.CarDTO;
+import racingcar.domain.dto.CarDTO;
 
 public class OutputView {
     public static void printInputCarName() {

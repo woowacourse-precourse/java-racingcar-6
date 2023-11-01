@@ -1,11 +1,14 @@
 package racingcar.service;
 
+import static racingcar.util.Constants.*;
+import static racingcar.util.Messages.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.model.Car;
-import racingcar.model.dto.CarDTO;
+import racingcar.domain.Car;
+import racingcar.domain.dto.CarDTO;
 
 public class RacingService {
     private final CarService carService;
@@ -19,14 +22,14 @@ public class RacingService {
     }
 
     public static List<Car> convertToCarList(String cars) {
-        return Arrays.stream(cars.split(","))
+        return Arrays.stream(cars.split(COMMA))
                 .map(Car::of)
                 .collect(Collectors.toList());
     }
 
     public void race() {
         List<Car> cars = carService.findCars();
-        cars.forEach(car -> car.move(Randoms.pickNumberInRange(1, 9)));
+        cars.forEach(car -> car.move(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER)));
     }
 
     public List<String> getWinner() {
@@ -42,6 +45,6 @@ public class RacingService {
 
     public String winnerToString() {
         List<String> winner = getWinner();
-        return String.join(",", winner);
+        return String.join(COMMA, winner);
     }
 }

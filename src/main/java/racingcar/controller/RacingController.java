@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.model.Car;
+import racingcar.domain.Car;
 import racingcar.service.RacingService;
 import racingcar.view.OutputView;
 import racingcar.view.InputView;
