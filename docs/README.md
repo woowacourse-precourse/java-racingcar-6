@@ -21,3 +21,27 @@
 ## 흐름도
 
 시작 --> [게임 시작] --> [자동차 이름 입력] --> (입력 유효성 확인) --> [시도 횟수 입력] --> (입력 유효성 확인) --> (시도 횟수 반복) --> [시도] --> (무작위 값 계산) --> [전진 여부 확인] --> (전진) --> [현재 상태 출력] --> [다음 시도 또는 게임 종료] --> (게임 종료) --> [우승자 출력] --> 종료
+
+## Java Class 설계
+
+- 자동차(Car)
+  1. 기능
+     - void moveForward()
+     - String getName()
+     - int getPosition()
+  2. 속성
+     - private String name
+     - private int position
+  3. 생성자
+     - Car(String name)
+
+- 게임(RacingCarGame)
+  1. 기능
+     - void startGame()
+     - void attemptMove(Car car)
+     - void printCurrentState()
+     - void printWinners()
+  2. 속성
+     - BigInteger attemptNum
+     - int carNum
+     - List\<Car> cars
