@@ -67,7 +67,7 @@ public class CarStateTest {
         cars.getCars().stream()
                 .filter(car -> car.getCarName().equals("Hyun"))
                 .findFirst()
-                .ifPresent(hyun -> hyun.setPosition(3));
+                .ifPresent(hyun -> hyun.setCarPosition(3));
 
         position = cars.getMaxPosition();
         assertThat(position).isEqualTo(3);
@@ -83,7 +83,7 @@ public class CarStateTest {
         cars.getCars().stream()
                 .filter(car -> car.getCarName().equals("Hyun"))
                 .findFirst()
-                .ifPresent(hyun -> hyun.setPosition(3));
+                .ifPresent(hyun -> hyun.setCarPosition(3));
 
         winners = cars.getWinners();
         assertThat(winners).containsExactly("Hyun");
@@ -96,7 +96,7 @@ public class CarStateTest {
         cars.getCars().stream()
                 .filter(car -> car.getCarName().equals("Hyun"))
                 .findFirst()
-                .ifPresent(hyun -> hyun.setPosition(3));
+                .ifPresent(hyun -> hyun.setCarPosition(3));
 
         HashMap<String, Integer> carStates = cars.carsStates();
 

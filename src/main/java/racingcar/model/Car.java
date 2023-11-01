@@ -4,7 +4,7 @@ public class Car {
 
     private final String carName;
     private int position;
-    private int MOVE_NUM = 4;
+    private static final int MOVE_NUM = 4;
 
     public Car(String name) {
         carName = name;
@@ -25,7 +25,7 @@ public class Car {
         return position;
     }
 
-    public void setPosition(int position) {
+    public void setCarPosition(int position) {
         this.position = position;
     }
 }
