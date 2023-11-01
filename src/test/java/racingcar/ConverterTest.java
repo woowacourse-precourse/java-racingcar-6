@@ -17,4 +17,15 @@ public class ConverterTest {
         // then
         assertThat(nameList).containsExactly("apple", "banana", "cherry");
     }
+
+    @Test
+    void 문자열을_정수로_반환() {
+        // given
+        String count = "5";
+        int expected = 5;
+        // when
+        int actualCount = Converter.toInteger(count);
+        //then
+        assertThat(actualCount).isEqualTo(expected);
+    }
 }
