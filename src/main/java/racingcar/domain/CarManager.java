@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.domain.validator.Validator;
+import racingcar.validator.Validator;
 
 public class CarManager {
     private Cars cars;

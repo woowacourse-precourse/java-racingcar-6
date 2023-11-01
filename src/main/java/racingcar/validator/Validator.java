@@ -1,4 +1,4 @@
-package racingcar.domain.validator;
+package racingcar.validator;
 
 import java.util.List;
 import racingcar.option.GameOption;
