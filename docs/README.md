@@ -4,46 +4,46 @@
 
 ### 입력
 
-- [ ] 자동차 이름을 입력받는다. - UserInputHandler#inputNames()
-  - [ ] 문자열을 쉼표(,)로 구분해 문자열 리스트로 얻을 수 있다. - UserInputHandler#makeSeparationNames()
-- [ ] 문자열 리스트 만큼 자동차를 만들 수 있다. - Game#createCars()
+- [x] 자동차 이름을 입력받는다. - UserInputHandler#inputNames()
+  - [x] 문자열을 쉼표(,)로 구분해 문자열 리스트로 얻을 수 있다. - UserInputHandler#makeSeparationNames()
+- [x] 문자열 리스트 만큼 자동차를 만들 수 있다. - Game#createCars()
 <br>
 
-- [ ] 레이싱 시도 횟수를 입력받는다. - UserInputHandler#InputRacingNumber()
-  - [ ] 주어진 횟수로 경주(게임)를 진행 횟수를 변경한다.
+- [x] 레이싱 시도 횟수를 입력받는다. - UserInputHandler#InputRacingNumber()
+  - [x] 주어진 횟수로 경주(게임)를 진행 횟수를 변경한다.
 <br>
 
-- [ ] 사용자가 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨다. 
-  - [ ] 이름 입력에 관한 오류 - ExceptionInput#checkNameLength()
-    - [ ] 이름이 5자가 넘으면 프로그램 종료 
-    - [ ] 이름입력 끝이 쉼표(,)일 경우 프로그램 종료
-    - [ ] 이름입력 중간에 쉼표(,)가 연속 입력될 경우 프로그램 종료
-  - [ ] 레이싱 시도 횟수에 관한 오류
-    - [ ] 0 이하 수 입력 시 프로그램 입력 - ExceptionInput#checkRacingNumber()
+- [x] 사용자가 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨다. 
+  - [x] 이름 입력에 관한 오류 - ExceptionInput#checkNameLength()
+    - [x] 이름이 5자가 넘으면 프로그램 종료 
+    - [x] 이름입력 끝이 쉼표(,)일 경우 프로그램 종료
+    - [x] 이름입력 중간에 쉼표(,)가 연속 입력될 경우 프로그램 종료
+  - [x] 레이싱 시도 횟수에 관한 오류
+    - [x] 0 미만 수 입력 시 프로그램 입력 - ExceptionInput#checkRacingNumber()
 <br>
 
 ### 게임 진행
 
-- [ ] 전체적인 게임 실행한다. - Game#start()
-- [ ] 레이싱을 하나씩 실행한다. - Cars#racing()
+- [x] 전체적인 게임 실행한다. - Game#start()
+- [x] 레이싱을 하나씩 실행한다. - Cars#racing()
 <br>
 
-- [ ] 0에서 9 사이에 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
-- [ ] 값이 일정 수(4) 이상인지 확인한다. - Car#checkValueGreaterNumber()
-  - [ ] 4이상 : 전진 - Car#forward()
-  - [ ] 4미만 : 멈춤 
+- [x] 0에서 9 사이에 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
+- [x] 값이 일정 수(4) 이상인지 확인한다. - Car#checkValueGreaterNumber()
+  - [x] 4이상 : 전진 - Car#forward()
+  - [x] 4미만 : 멈춤 
 
 <br>
 
-- [ ] 숫자 리스트에서 가장 높은 수의 자동차 이름 리스트(중복 고려)를 알 수 있다. - Cars#getMaxForwardCarNames()
+- [x] 숫자 리스트에서 가장 높은 수의 자동차 이름 리스트(중복 고려)를 알 수 있다. - Cars#getMaxForwardCarNames()
 
 <br>
 
 ### 출력
 
-- [ ] 각 자동차의 경주 결과를 출력한다. - Cars#printRoundRacingResult()
-- [ ] 최종 우승자를 알아낸다. - cars#getFinalWinners()
-- [ ] 최종 결과를 쉼표(,)를 이용하여 출력한다. - Game#printFinalResult()
+- [x] 각 자동차의 경주 결과를 출력한다. - Cars#printRoundRacingResult()
+- [x] 최종 우승자를 알아낸다. - cars#getFinalWinners()
+- [x] 최종 결과를 쉼표(,)를 이용하여 출력한다. - Game#printFinalResult()
 
 <br>
 <br>
