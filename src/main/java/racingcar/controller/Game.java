@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.InputView;
 import racingcar.OutputView;
 import racingcar.domain.Car;
@@ -25,6 +26,8 @@ public class Game {
     }
 
     public void start(int count) {
+        outputView.execution();
+        IntStream.range(0, count).mapToObj(i -> carService.carOneRound()).forEach(this::running);
     }
 
     public void running(List<Car> cars) {
