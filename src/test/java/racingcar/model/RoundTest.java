@@ -22,4 +22,13 @@ class RoundTest {
             Round r = new Round(-1);
         });
     }
+
+    @Test
+    void decreaseByOne_실행후_결과_테스트() {
+        Round r1 = new Round(0);
+        Round r2 = new Round(1);
+
+        assertFalse(r1.decreaseByOne());
+        assertTrue(r2.decreaseByOne());
+    }
 }
