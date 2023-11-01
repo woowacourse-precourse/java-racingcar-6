@@ -16,7 +16,7 @@ class InMemoryCarStorageTest {
 	void saveAll() {
 		// given
 		List<String> names = List.of("김수민", "안녕", "하이");
-		Cars cars = new Cars(CarFactory.generateCar(names, 0));
+		Cars cars = new Cars(CarFactory.generateSamePositionCar(names, 0));
 
 		CarStorage carStorage = new InMemoryCarStorage();
 
@@ -36,7 +36,7 @@ class InMemoryCarStorageTest {
 	void findAll() {
 		// given
 		List<String> names = List.of("김수민", "안녕", "하이");
-		Cars cars = new Cars(CarFactory.generateCar(names, 0));
+		Cars cars = new Cars(CarFactory.generateSamePositionCar(names, 0));
 
 		CarStorage carStorage = new InMemoryCarStorage();
 		List<Car> savedCars = carStorage.saveAll(cars.getCars());

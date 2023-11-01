@@ -30,7 +30,7 @@ public class Game {
 	private void init() {
 		OutputView.print(OutputView.REQUEST_CAR_NAME);
 		Cars initialCars = new Cars(
-				CarFactory.generateCar(InputView.readCarNames(), INITIAL_POSITION));
+				CarFactory.generateSamePositionCar(InputView.readCarNames(), INITIAL_POSITION));
 		carStorage.saveAll(initialCars.getCars());
 
 		OutputView.print(OutputView.REQUEST_TRY_COUNT);

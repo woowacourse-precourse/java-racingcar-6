@@ -21,7 +21,7 @@ class RoundTest {
 		int initialPosition = 0;
 
 		List<String> names = List.of("김수민", "안녕", "하이");
-		Cars cars = new Cars(CarFactory.generateCar(names, initialPosition));
+		Cars cars = new Cars(CarFactory.generateSamePositionCar(names, initialPosition));
 		Round round = new Round(cars);
 		MoveStrategy moveStrategy = () -> 1;
 

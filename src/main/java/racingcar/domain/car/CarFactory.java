@@ -8,7 +8,7 @@ public class CarFactory {
 		throw new IllegalStateException();
 	}
 
-	public static List<Car> generateCar(List<String> names, int position) {
+	public static List<Car> generateSamePositionCar(List<String> names, int position) {
 		return names.stream()
 				.map(name -> new Car(new Position(position), new CarName(name)))
 				.toList();
