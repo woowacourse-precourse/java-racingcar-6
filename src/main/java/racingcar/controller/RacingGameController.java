@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.service.RacingCarService;
 import racingcar.utils.InputValidator;
 import racingcar.utils.Message;
@@ -17,7 +18,9 @@ public class RacingGameController {
 
     public void racingGameStart() {
         String input = InputView.inputCarsName();
-        List<String> cars = Arrays.asList(input.split(","));
+        List<String> cars = Arrays.stream(input.split(","))
+                .map(String::trim)
+                .collect(Collectors.toList());
         racingGameService.registerCars(cars);
 
         int moveCount = validateMoveCount();
@@ -26,7 +29,7 @@ public class RacingGameController {
     }
 
     private int validateMoveCount() {
-        String moveCountStr = InputView.inputMovesCount();
+        String moveCountStr = InputView.inputMovesCount().trim();
         InputValidator.validateEmptyInput(moveCountStr);
         int moveCount = InputValidator.validateNonNumeric(moveCountStr);
         InputValidator.validateNegativeInput(moveCount);
