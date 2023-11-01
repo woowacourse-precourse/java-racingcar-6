@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 import racingcar.model.CarNameList;
 import racingcar.model.ResultList;
 import racingcar.view.View;
@@ -16,6 +17,9 @@ public class RacingGameController {
     private static ResultList resultList;
     private static Integer tryNumber;
     private static View view;
+    private final int CHECK_FORWARD = 4;
+
+    private final String REGEX_DIGIT = "^[\\d]*$";
 
     public void init() {
         view = new View();
@@ -43,7 +47,7 @@ public class RacingGameController {
     }
 
     public void MovingForward(int idx, List<String> result) {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(0, 9) >= CHECK_FORWARD) {
             result.set(idx, result.get(idx) + "-");
         }
     }
@@ -56,8 +60,16 @@ public class RacingGameController {
 
     public Integer getTryNumber() {
         view.tryNumberView();
-        Integer inputNumber = parseInt(Console.readLine());
+        String inputTryNumber = Console.readLine();
+        if(!checkTryNumber(inputTryNumber)){
+            throw new IllegalArgumentException();
+        }
+        Integer inputNumber = parseInt(inputTryNumber);
         return inputNumber;
+    }
+
+    public boolean checkTryNumber(String inputTryNumber){
+        return Pattern.matches(REGEX_DIGIT, inputTryNumber);
     }
 
     public List<String> getResultList() {
@@ -81,10 +93,10 @@ public class RacingGameController {
     }
 
     public int getMaxForward() {
-        int maxNumber = 0;
+        int maxForwardNumber = 0;
         for (String s : resultList.getResultList()) {
-            maxNumber = max(maxNumber, s.length());
+            maxForwardNumber = max(maxForwardNumber, s.length());
         }
-        return maxNumber;
+        return maxForwardNumber;
     }
 }

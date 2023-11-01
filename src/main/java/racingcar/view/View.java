@@ -3,20 +3,24 @@ package racingcar.view;
 import java.util.List;
 
 public class View {
-    public View() {
+    private final String INIT_STRING = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private final String SET_TRYNUMBER_STRING = "시도할 회수는 몇회인가요?";
+    private final String RESULT_MENT_STRING = "실행 결과";
+    private final String GAMERESULT_STRING = "최종 우승자 : ";
 
+    public View() {
     }
 
     public void initView() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INIT_STRING);
     }
 
     public void tryNumberView() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(SET_TRYNUMBER_STRING);
     }
 
     public void resultView() {
-        System.out.println("실행 결과");
+        System.out.println(RESULT_MENT_STRING);
     }
 
     public void resultViewperIter(String[] carNameList, List<String> resultList) {
@@ -27,8 +31,8 @@ public class View {
     }
 
     public void winnerView(List<String> winners) {
-        String exitString = "최종 우승자 : ";
-        exitString += String.join(", ", winners);
-        System.out.println(exitString);
+        String winnerString = "";
+        winnerString += String.join(", ", winners);
+        System.out.println(GAMERESULT_STRING+winnerString);
     }
 }
