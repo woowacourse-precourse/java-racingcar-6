@@ -28,4 +28,18 @@ class CarTest {
 
         assertThat(result).isEqualTo(0);
     }
+
+    @Test
+    void getName_매서드로_자동차_이름_반환() {
+        String result = car.getName();
+
+        assertThat(result).isEqualTo("aaa");
+    }
+
+    @Test
+    void getDistance_메서드로_자동차_이동거리_반환() {
+        int result = car.getDistance();
+
+        assertThat(result).isEqualTo(0);
+    }
 }
