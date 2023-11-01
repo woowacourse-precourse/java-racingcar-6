@@ -21,6 +21,8 @@ public class RacingGame {
             racingProgress = eachRace(racingProgress);
         }
 
+        racingResult(racingProgress, gameTimes);
+
     }
 
     private HashMap<String, String> inputCarNames() {
@@ -67,4 +69,21 @@ public class RacingGame {
         return racingProgress;
     }
 
+    private void racingResult(HashMap<String, String> racingProgress, Integer gameTimes) {
+        // eachRace(racingProgress)
+        int winnerLength = 0;
+        ArrayList<String> test = new ArrayList<>();
+        for (String carName : racingProgress.keySet()) {
+            // System.out.println(racingProgress.get(carName).length());
+            if (winnerLength < racingProgress.get(carName).length()) {
+                test.clear();
+                test.add(carName);
+                winnerLength += 1;
+            } else if (winnerLength == racingProgress.get(carName).length()) {
+                test.add(carName);
+            }
+        }
+        String result = String.join(",", test);
+        System.out.println("최종 우승자 : " + result);
+    }
 }
