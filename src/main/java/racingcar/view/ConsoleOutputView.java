@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import racingcar.domain.car.Car;
-import racingcar.domain.RacingGame;
+import racingcar.domain.racing.car.Car;
+import racingcar.domain.racing.RacingGame;
 
 public class ConsoleOutputView implements OutputView {
     private static final String EXECUTION_RESULT_LABEL = "실행 결과";

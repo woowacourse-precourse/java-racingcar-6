@@ -4,10 +4,11 @@ import static racingcar.domain.Constants.MAX_RANDOM_NUMBER;
 import static racingcar.domain.Constants.MIN_RANDOM_NUMBER;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.car.Car;
-import racingcar.domain.Participations;
-import racingcar.domain.RacingGame;
-import racingcar.domain.Winners;
+import racingcar.domain.racing.TryCount;
+import racingcar.domain.racing.car.Car;
+import racingcar.domain.racing.Participations;
+import racingcar.domain.racing.RacingGame;
+import racingcar.domain.racing.Winners;
 import racingcar.repository.RacingGameRepository;
 import racingcar.util.StringUtil;
 import racingcar.validation.IntegerValidator;
@@ -23,7 +24,7 @@ public class RacingGameServiceImpl implements RacingGameService {
     @Override
     public RacingGame generateRacing(String carNames, String strTryCount) {
         Participations participations = Participations.create(carNames);
-        int tryCount = processTryCountInput(strTryCount);
+        TryCount tryCount = TryCount.create(strTryCount);
         Winners winners = Winners.createEmpty();
 
         return RacingGame.create(participations, tryCount, winners);
@@ -53,12 +54,5 @@ public class RacingGameServiceImpl implements RacingGameService {
             int randomNum = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             car.addPositionByRandomNum(randomNum);
         }
-    }
-
-    private int processTryCountInput(String input) {
-        input = StringUtil.deleteAllSpaces(input);
-        IntegerValidator.validateInteger(input);
-
-        return Integer.parseInt(input);
     }
 }

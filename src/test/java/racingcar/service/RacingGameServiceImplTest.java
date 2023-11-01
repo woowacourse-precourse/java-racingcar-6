@@ -9,10 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
-import racingcar.domain.car.Car;
-import racingcar.domain.Participations;
-import racingcar.domain.RacingGame;
-import racingcar.domain.Winners;
+import racingcar.domain.racing.TryCount;
+import racingcar.domain.racing.car.Car;
+import racingcar.domain.racing.Participations;
+import racingcar.domain.racing.RacingGame;
+import racingcar.domain.racing.Winners;
 import racingcar.repository.CarRepository;
 
 public class RacingGameServiceImplTest {
@@ -148,7 +149,7 @@ public class RacingGameServiceImplTest {
 
         Participations participations = Participations.create(carList);
 
-        int tryCount = 2;
+        TryCount tryCount = TryCount.create("3");
         Winners winners = Winners.createEmpty();
         RacingGame racingGame = RacingGame.create(participations, tryCount, winners);
 

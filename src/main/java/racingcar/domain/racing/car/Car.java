@@ -1,4 +1,4 @@
-package racingcar.domain.car;
+package racingcar.domain.racing.car;
 
 import java.util.List;
 import java.util.stream.Collectors;

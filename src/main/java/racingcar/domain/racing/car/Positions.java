@@ -1,4 +1,4 @@
-package racingcar.domain.car;
+package racingcar.domain.racing.car;
 
 import static racingcar.domain.Constants.MIN_MOVE_NUMBER;
 

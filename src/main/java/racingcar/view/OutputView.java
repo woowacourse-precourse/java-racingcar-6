@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.domain.RacingGame;
+import racingcar.domain.racing.RacingGame;
 
 public interface OutputView {
     void outputExcutionResult(RacingGame racingGame);

@@ -7,9 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
-import racingcar.domain.Participations;
-import racingcar.domain.RacingGame;
-import racingcar.domain.Winners;
+import racingcar.domain.racing.Participations;
+import racingcar.domain.racing.RacingGame;
+import racingcar.domain.racing.TryCount;
+import racingcar.domain.racing.Winners;
 
 
 public class MemoryRacingGameRepositoryTest {
@@ -17,7 +18,7 @@ public class MemoryRacingGameRepositoryTest {
     Config config = AppConfig.getInstance();
     private RacingGameRepository racingGameRepository = config.racingRepository();
     Participations participations = Participations.create(new ArrayList<>());
-    int tryCount = 5;
+    TryCount tryCount = TryCount.create("5");
     Winners winners = Winners.createEmpty();
 
     @BeforeEach

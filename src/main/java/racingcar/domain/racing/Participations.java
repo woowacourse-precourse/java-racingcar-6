@@ -1,10 +1,9 @@
-package racingcar.domain;
+package racingcar.domain.racing;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import racingcar.domain.car.Car;
+import racingcar.domain.racing.car.Car;
 import racingcar.util.ExceptionUtil;
 import racingcar.util.StringUtil;
 

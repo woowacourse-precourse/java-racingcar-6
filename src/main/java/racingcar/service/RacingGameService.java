@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import racingcar.domain.RacingGame;
+import racingcar.domain.racing.RacingGame;
 
 public interface RacingGameService {
 

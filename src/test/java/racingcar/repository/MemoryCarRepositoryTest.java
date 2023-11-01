@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
-import racingcar.domain.car.Car;
+import racingcar.domain.racing.car.Car;
 
 public class MemoryCarRepositoryTest {
 
