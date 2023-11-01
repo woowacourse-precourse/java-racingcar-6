@@ -17,7 +17,9 @@ public class UserInputService {
         return carNames;
     }
 
-    public Integer roundCnt(String round) {
+    public Integer roundCnt() {
+        String round = Console.readLine();
+
         return UserInputValidation.checkNumber(round);
     }
 }

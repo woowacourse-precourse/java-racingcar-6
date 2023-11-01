@@ -14,7 +14,7 @@ public class TransformUtil {
     }
 
     public static String commasToString(List<String> winnerData) {
-        return String.join(",", winnerData);
+        return String.join(", ", winnerData);
     }
 
     public static List<String> commasToList(String carData) {

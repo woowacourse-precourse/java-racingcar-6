@@ -16,7 +16,8 @@ public class Car {
         return position;
     }
 
-    public void initGame() {
+    public void initGame(String carName) {
+        name = carName;
         position = 0;
     }
 
