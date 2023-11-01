@@ -5,12 +5,14 @@ import racingcar.domain.RacingCar;
 import racingcar.service.RacingCarList;
 import racingcar.util.InputValidator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarGame {
 
     private static final String SEPARATOR = ",";
 
     InputView inputView = new InputView();
+    OutputView outputView = new OutputView();
 
     private List<RacingCar> getRacingCarsFromInput() {
         String racingCarNames = inputView.getRacingCarNames();
@@ -25,6 +27,17 @@ public class RacingCarGame {
         InputValidator.validateTryCount(tryCountString);
 
         return Integer.parseInt(tryCountString);
+    }
+
+    private void startRace(List<RacingCar> racingCars, int tryCount) {
+        outputView.printExecutionResult();
+
+        for (int i = 0; i < tryCount; i++) {
+            RacingCarList.moveAllRacingCarsForward(racingCars);
+
+            List<String> carsStatus = RacingCarList.generateAllRacingCarsStatusList(racingCars);
+            outputView.printRacingCarStatus(carsStatus);
+        }
     }
 
 }
