@@ -9,7 +9,7 @@
   ⇒ `IllegalArgumentException`을 발생 후 애플리케이션 종료
 
 - [ ]  레이싱 시도 횟수
-    - [ ]  [예외] input 속 문자 중 숫자가 아닌 경우
+    - [x]  [예외] input 속 문자 중 숫자가 아닌 경우
 
   ⇒ `IllegalArgumentException`을 발생 후 애플리케이션 종료
 
