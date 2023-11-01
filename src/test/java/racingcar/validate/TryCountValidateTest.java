@@ -13,4 +13,12 @@ public class TryCountValidateTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("시도 횟수를 입력해주세요.");
     }
+
+    @Test
+    void isInputNumberTest() {
+
+        assertThatThrownBy(() -> TryCountValidate.validateTryCount("백번"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자만 입력해주세요.");
+    }
 }
