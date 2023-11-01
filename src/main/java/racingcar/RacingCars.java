@@ -1,7 +1,5 @@
 package racingcar;
 
-import static racingcar.ErrorMessage.CAR_NAME_DUPLICATED;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,14 +14,7 @@ public class RacingCars {
     }
 
     public static RacingCars from(String[] carNames) {
-        validateCarNameDuplicate(carNames);
         return new RacingCars(Arrays.stream(carNames).map(RacingCar::new).toList());
-    }
-
-    private static void validateCarNameDuplicate(String[] carNames) {
-        if(Arrays.stream(carNames).distinct().count()!= carNames.length){
-            throw new IllegalArgumentException(CAR_NAME_DUPLICATED);
-        }
     }
 
     public void race() {
