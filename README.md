@@ -56,7 +56,7 @@ BUILD SUCCESSFUL in 0s
 pobi,woni,jun
 ```
 
-- 시도할 회수
+- 시도할 횟수
 
 ```
 5
