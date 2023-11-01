@@ -29,4 +29,7 @@ public class GameController {
             carList.add(car);
         }
     }
+    private void initTryCount() {
+        tryCount = inputController.inputTryCount();
+    }
 }
