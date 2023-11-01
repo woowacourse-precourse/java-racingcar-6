@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.domain.Car;
-
 import java.util.List;
 
 public class RacingGame {

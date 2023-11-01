@@ -18,6 +18,11 @@ public class RacingGameService {
 
     private int highDistance = 0;
 
+    public RacingGameService(InputView inputView, OutputView outputView) {
+    }
+    public RacingGameService() {
+    }
+
     public int getPlayCount() {
         outputView.countMessage();
         return inputView.playCount();
