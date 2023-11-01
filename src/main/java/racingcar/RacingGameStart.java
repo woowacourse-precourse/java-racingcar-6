@@ -52,8 +52,8 @@ public class RacingGameStart {
 
         for (int i = 0; i < num; i++) {
             for (RacingCar car : racingCars) {
-                RapsResult rR = new RapsResult(car);
-                System.out.println(rR.forwardOrNot());
+                RapsResult rapsResult = new RapsResult(car);
+                System.out.println(rapsResult.forwardOrNot());
             }
             System.out.println();
         }

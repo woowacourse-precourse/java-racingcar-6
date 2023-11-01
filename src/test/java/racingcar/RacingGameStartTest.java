@@ -27,14 +27,6 @@ class RacingGameStartTest {
         assertEquals(racingCar.getName(), "Fast");
         assertEquals(0, racingCar.getDistance());
     }
-    @Test
-    void checkNameLength_자동차_이름_5자리_이상시_에러_처리() {
-        String name ="f1o2u3r4";
-
-        assertThatThrownBy(() -> {
-            RacingGameStart.checkNameLength(name);
-        }).isInstanceOf(IllegalArgumentException.class).hasMessage("이름은 5자 이하만 가능합니다");
-    }
 
     @Test
     public void printWinners_우승자_이름_출력() {
@@ -49,5 +41,15 @@ class RacingGameStartTest {
 
         assertThat(printWinner.winnerListPrint()).isEqualTo("최종 우승자 : Car1, Car3");
     }
+
+    @Test
+    void checkNameLength_자동차_이름_5자리_이상시_에러_처리() {
+        String name ="f1o2u3r4";
+
+        assertThatThrownBy(() -> {
+            RacingGameStart.checkNameLength(name);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessage("이름은 5자 이하만 가능합니다");
+    }
+
 
 }
