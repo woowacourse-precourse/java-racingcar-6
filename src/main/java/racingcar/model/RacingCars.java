@@ -15,7 +15,7 @@ public class RacingCars {
     }
 
     public void printCarsPosition() {
-        RacingCarsCurrentPositionDisplay.displayCurrentRacingCarsPosition(racingCars);
+        RacingCarsCurrentPositionDisplay.displayCurrentRacingCarsPosition(List.copyOf(racingCars));
     }
 
     public void printWinnersName() {
