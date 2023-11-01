@@ -29,7 +29,7 @@ public class Application {
 
     public static void validateInputCarName(String inputCarNames) {
         List<String> carNames = getCarNames(inputCarNames);
-        if (carNames.isEmpty()) {
+        if (StringUtils.isBlank(inputCarNames)) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_EMPTY_MESSAGE);
         }
         if (StringUtils.containsWhitespace(inputCarNames)) {
