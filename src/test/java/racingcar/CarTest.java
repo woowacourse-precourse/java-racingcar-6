@@ -16,6 +16,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import racingcar.model.Car;
 import racingcar.model.Result;
+import racingcar.util.RandomUtil;
 
 @DisplayName("자동차 모델에 대한 테스트")
 class CarTest {
@@ -61,10 +62,12 @@ class CarTest {
         // given
         Car car = Car.from("beom");
         MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class);
+        int minRandomValue = 0;
+        int maxRandomValue = 9;
 
         //when
-        when(Randoms.pickNumberInRange(0, 9)).thenReturn(value);
-        Result result = car.move();
+        when(Randoms.pickNumberInRange(minRandomValue, maxRandomValue)).thenReturn(value);
+        Result result = car.moveOrStop(RandomUtil.generateRandomValue(minRandomValue, maxRandomValue));
 
         // then
         assertAll(
@@ -81,10 +84,12 @@ class CarTest {
         // given
         Car car = Car.from("beom");
         MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class);
+        int minRandomValue = 0;
+        int maxRandomValue = 9;
 
         //when
-        when(Randoms.pickNumberInRange(0, 9)).thenReturn(value);
-        Result result = car.move();
+        when(Randoms.pickNumberInRange(minRandomValue, maxRandomValue)).thenReturn(value);
+        Result result = car.moveOrStop(RandomUtil.generateRandomValue(minRandomValue, maxRandomValue));
 
         // then
         assertAll(
