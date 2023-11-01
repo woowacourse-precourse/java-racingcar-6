@@ -14,6 +14,7 @@ public class PlayGameService {
     }
 
     public void playGame(List<RacingCarEntity> cars, Integer tryCount) {
+        System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) moveAndPrint(cars);
     }
 
