@@ -18,12 +18,12 @@ public class CarController {
         OutputView.printWinners(game.getWinners());
     }
 
-    public void setGameValues() {
+    private void setGameValues() {
         game = convertStringToList(InputView.carInput());
         roundNum = convertStringToInt(InputView.roundInput());
     }
 
-    public void play() {
+    private void play() {
         OutputView.printStartGameMessage();
         for (int i = 0; i < roundNum; i++) {
             OutputView.printRoundResult(game.getRoundResult());

@@ -20,18 +20,18 @@ public class Validator {
         isNotDuplicate(carNames);
     }
 
-    public void isRightNameLength(String carName) {
+    private void isRightNameLength(String carName) {
         if (carName.length() < CAR_NAME_LENGTH_MIN || carName.length() > CAR_NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(WRONG_LENGTH_ERROR_MESSAGE);
         }
     }
 
-    public void isNotContainSpace(String carName) {
+    private void isNotContainSpace(String carName) {
         if (carName.contains(SPACE)) {
             throw new IllegalArgumentException(SPACE_ERROR_MESSAGE);
         }
     }
-    public void isNotDuplicate(List<String> carNames) {
+    private void isNotDuplicate(List<String> carNames) {
         if (carNames.size() != carNames.stream().distinct().count()) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATE_ERROR);
         }

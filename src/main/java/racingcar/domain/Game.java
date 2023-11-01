@@ -19,7 +19,7 @@ public class Game {
         return cars;
     }
 
-    public ArrayList<Integer> getPositions() {
+    private ArrayList<Integer> getPositions() {
         ArrayList<Integer> positions = new ArrayList<>();
         for (Car car : cars) {
             positions.add(car.getPosition());
@@ -27,7 +27,7 @@ public class Game {
         return positions;
     }
 
-    public int getMaxPosition(ArrayList<Integer> positions) {
+    private int getMaxPosition(ArrayList<Integer> positions) {
         return Collections.max(positions);
     }
 
