@@ -9,11 +9,8 @@ public class Car {
         this.name = name;
     }
 
-    public int moveForward(boolean isSuccessForward) {
-        if (isSuccessForward) {
-            currentPosition++;
-        }
-        return currentPosition;
+    public void moveForward(int distance) {
+        currentPosition += distance;
     }
 
     public String getName() {

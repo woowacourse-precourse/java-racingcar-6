@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
+import racingcar.service.GameService;
 import racingcar.util.Parser;
 import racingcar.util.Validator;
 import racingcar.view.InputView;
@@ -16,6 +17,7 @@ public class Controller {
     private Map<Car, List<Integer>> positionHistory = new HashMap<>();
     private final Validator validator = new Validator();
     private final Parser parser = new Parser();
+    private final GameService gameService = new GameService();
 
     public void run() {
         saveCars(parser.parseCarNames(getCarNamesByUserInput()));
@@ -29,6 +31,7 @@ public class Controller {
 
     private void play(Game game) {
         OutputView.printHead();
+        gameService.play(game);
     }
 
     Map<Car, List<Integer>> getPositionHistory() {
