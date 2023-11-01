@@ -30,8 +30,10 @@ public class Game {
             for (Car car : players) {
                 car.decideGo(car.drawNumber());
             }
+            players.stream()
+                    .forEach(car->System.out.println(car.name+" : "+car.state));
+            System.out.println("");
         }
-
         return players;
     }
 
