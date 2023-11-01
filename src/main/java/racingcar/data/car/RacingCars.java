@@ -8,6 +8,7 @@ public class RacingCars {
     private final List<Car> cars;
     private static final int INIT_POS = 0;
     private static final String RACING_CARS_DELIMITER = "\n";
+    private static final String DUPLICATE_RACING_CAR_NAME_MESSAGE = "CarNames should be distinct.";
 
     public RacingCars() {
         this.cars = new ArrayList<>();
@@ -19,6 +20,7 @@ public class RacingCars {
 
     public void createCar(String name) {
         Car newCar = new Car(name, INIT_POS);
+        validateRacingCarsName(cars, name);
         cars.add(newCar);
     }
 
@@ -48,6 +50,15 @@ public class RacingCars {
             }
         }
         return players;
+    }
+
+    public static void validateRacingCarsName(List<Car> cars, String name) {
+        boolean hasName = cars.stream()
+                .map(Car::getName)
+                .anyMatch(name::equals);
+        if (hasName) {
+            throw new IllegalArgumentException(DUPLICATE_RACING_CAR_NAME_MESSAGE);
+        }
     }
 
     @Override
