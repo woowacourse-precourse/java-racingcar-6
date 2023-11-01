@@ -14,7 +14,7 @@ public class RaceManager {
 
     public void race() {
         for (int i = 0; i < rounds; i++) {
-            for (Car car: cars) {
+            for (Car car : cars) {
                 car.move();
             }
             OutputManager outputManager = new OutputManager();
