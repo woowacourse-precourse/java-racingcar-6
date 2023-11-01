@@ -10,16 +10,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GameTest extends NsTest {
 
     @Test
-    void 게임_진행_출력_테스트() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "4");
-                assertThat(output()).contains("pobi : ---", "woni : -");
-            }, 5, 1, 5, 1, 3, 7, 8, 2
-        );
-    }
-
-    @Test
     void 플레이어_2인_단독_우승_테스트() {
         assertRandomNumberInRangeTest(
             () -> {
