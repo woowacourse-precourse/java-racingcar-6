@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class RacingCarGame {
@@ -27,7 +28,28 @@ public class RacingCarGame {
     }
 
     private void printWinner(){
+        List<String> winnerList = whoIsWinner();
+        System.out.print("최종 우승자 :");
+        for(int i=0;i<winnerList.size();i++){
+            if(i>1){
+                System.out.print(",");
+            }
+            System.out.print(" " + winnerList.get(i));
+        }
+    }
 
+    private List<String> whoIsWinner(){
+
+        List<String> winnerList = new ArrayList<>();
+
+        int maxDistance = racingCars.stream().max(Comparator.comparing(RacingCar::getDistance)).get().getDistance();
+
+        for(RacingCar racingCar:racingCars){
+            if(racingCar.getDistance()==maxDistance){
+                winnerList.add(racingCar.getCarName());
+            }
+        }
+        return winnerList;
     }
 
     private void play(){
