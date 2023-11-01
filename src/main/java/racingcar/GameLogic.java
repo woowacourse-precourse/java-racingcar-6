@@ -6,23 +6,30 @@ import java.util.Random;
 public class GameLogic {
     private final Random random = new Random();
     private int maxPosition = 0;
+    private String[] progress;
 
     public void runGame(List<String> carNames, int raceRounds) {
-        System.out.println();
-        System.out.println("실행 결과");
+        initializeProgress(carNames.size());
+        System.out.println("\n실행 결과");
         for (int i = 0; i < raceRounds; i++) {
-            for (String carName : carNames) {
-                String progress = generateProgress();
-                System.out.println(carName + " : " + progress);
+            for (int j = 0; j < carNames.size(); j++) {
+                updateProgress(j);
+                System.out.println(carNames.get(j) + " : " + progress[j]);
             }
             System.out.println();
         }
     }
 
-    private String generateProgress() {
-        if (random.nextInt(10) >= 4) {
-            return "-";
+    private void initializeProgress(int size) {
+        progress = new String[size];
+        for (int i = 0; i < size; i++) {
+            progress[i] = "";
         }
-        return "";
+    }
+
+    private void updateProgress(int index) {
+        if (random.nextInt(10) >= 4) {
+            progress[index] += "-";
+        }
     }
 }
