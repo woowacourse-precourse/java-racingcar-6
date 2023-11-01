@@ -24,11 +24,53 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 지문_예시() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "5");
+                    assertThat(output()).contains(
+                            "pobi : -", "woni : ", "jun : -",
+                            "pobi : --", "woni : -", "jun : --",
+                            "pobi : ---", "woni : --", "jun : ---",
+                            "pobi : ----", "woni : ---", "jun : ----",
+                            "pobi : -----", "woni : ----", "jun : -----",
+                            "최종 우승자 : pobi, jun");
+                },
+                MOVING_FORWARD, STOP,MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 자동차이름_공백_입력_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 자동차이름_마지막_쉼표_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 이동횟수_공백_입력_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", " "))
+                        .isInstanceOf(IllegalArgumentException.class));
     }
 
     @Override
