@@ -5,6 +5,6 @@ public class Application {
         // TODO: 프로그램 구현
 
         RacingSystem temp = new RacingSystem();
-        temp.nameInput();
+        temp.run();
     }
 }
