@@ -1,27 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
-
-class Car{
-    private String name;
-    public int position =0;
-
-    public Car(String name){
-        this.name=name;
-    }
-
-    public String getCarName(){
-        return name;
-    }
-
-    public int getCarPosition(){
-        return position;
-    }
-}
 
 public class Application {
     public static void main(String[] args) {
@@ -53,34 +35,10 @@ public class Application {
         }
 
         System.out.println("실행 결과");
-        for (int i=1;i<tryCount+1;i++){
-            for (Car car : cars){
-                // 자동차 이동
-                int randomNumber= Randoms.pickNumberInRange(0,9);
-                if(randomNumber>=4){
-                    car.position++;
-                }
-                //실행값 출력
-                System.out.println(car.getCarName()+" : "+"-".repeat(car.getCarPosition()));
-            }
-            System.out.println();
-        }
 
-        //차들의 이동거리 최댓값 구하기
-        int maxPosition=0;
-        for (Car car: cars){
-            maxPosition=Math.max(maxPosition, car.getCarPosition());
-        }
-
-        List<String> winners=new ArrayList<>();
-        for (Car car: cars){
-            if(car.getCarPosition()==maxPosition){
-                winners.add(car.getCarName());
-            }
-        }
-
+        Race race = new Race(cars, tryCount);
+        race.conductRace();
+        List<String> winners=race.getWinners();
         System.out.println("최종 우승자 : "+String.join(", ", winners));
-
-
     }
 }
