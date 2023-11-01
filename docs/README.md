@@ -56,9 +56,9 @@ $ cd java-racingcar-vina
 
 
 
-| 게임시작                             | 게임진행                             | 게임종료                             |
-|----------------------------------|----------------------------------|----------------------------------|
-| <!--![game1](./img/game1.png)--> | <!--![game2](./img/game2.png)--> | <!--![game3](./img/game3.png)--> |
+| 게임시작                      | 게임진행                      | 게임종료                      |
+|---------------------------|---------------------------|---------------------------|
+| ![game1](./img/game1.png) | ![game2](./img/game2.png) | ![game3](./img/game3.png) |
 
 
 <br>
@@ -68,6 +68,7 @@ $ cd java-racingcar-vina
 ### 자동차 생성 기능
 - 사용자가 입력한 자동차 이름만큼 자동차 객체를 생성한다
   - [검증] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다
+  - [검증] 아무것도 입력하지 않으면 안 된다
 
 ### 자동차 전진 또는 멈춤 기능
 - 사용자는 몇 번의 이동을 할 것인지를 입력한다
@@ -82,7 +83,8 @@ $ cd java-racingcar-vina
 
 ## :mag: 아키텍쳐 (추가예정)
 ### 디렉토리 구조
-<!--![architecture1](./img/architecture1.PNG)-->
+![architecture1](./img/architecture1.png)
+
 
 ### 작업 흐름
-<!--![architecture2](./img/architecture2.PNG)-->
+![architecture2](./img/architecture2.png)
