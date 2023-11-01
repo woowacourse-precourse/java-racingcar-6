@@ -14,8 +14,8 @@ class MoveContextTest {
     // given
     List<String> poo = List.of("poo");
     int roundCount = 3;
-    // when
 
+    // when
     List<CarRaceRecord> carRaceRecords = MoveContext.generateRaceRecords(roundCount,
         poo, (n) -> new Go(1));
 
@@ -36,8 +36,8 @@ class MoveContextTest {
     // when
     List<CarRaceRecord> carRaceRecords = MoveContext.generateRaceRecords(roundCount,
         cars, (n) -> new Stop(0));
-    // then
 
+    // then
     assertThat(carRaceRecords).hasSize(1);
     assertThat(carRaceRecords.get(0).getCarName()).isEqualTo("다함");
     assertThat(carRaceRecords.get(0).getRoundRecord().getRoundRaceResults()).containsExactly(0, 0,

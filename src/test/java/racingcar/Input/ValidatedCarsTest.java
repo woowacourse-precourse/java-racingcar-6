@@ -14,7 +14,7 @@ class ValidatedCarsTest {
     // given
     UnValidatedCars unValidatedCars = UnValidatedCars.of(List.of("poo0000", "zoo", "zaa"));
 
-    // when// then
+    // when && then
     assertThrows(IllegalArgumentException.class, () -> ValidatedCars.of(unValidatedCars));
   }
 
@@ -24,7 +24,7 @@ class ValidatedCarsTest {
     // given
     UnValidatedCars unValidatedCars = UnValidatedCars.of(List.of("poo", "", "zaa"));
 
-    // when// then
+    // when && then
     assertThrows(IllegalArgumentException.class, () -> ValidatedCars.of(unValidatedCars));
   }
 }

@@ -12,7 +12,8 @@ class ValidatedRoundCountTest {
   void if_input_zero_throw_exception() {
     // given
     String roundCount = "0";
-    // when // then
+
+    // when && then
     assertThrows(IllegalArgumentException.class, () -> ValidatedRoundCount.of(roundCount));
   }
 
@@ -21,7 +22,8 @@ class ValidatedRoundCountTest {
   void if_input_is_not_number_throw_exception() {
     // given
     String roundCount = "a";
-    // when // then
+
+    // when && then
     assertThrows(IllegalArgumentException.class, () -> ValidatedRoundCount.of(roundCount));
   }
 }
