@@ -8,4 +8,7 @@ public class CarPosition {
         this.position = position;
     }
 
+    public void increase() {
+        position++;
+    }
 }

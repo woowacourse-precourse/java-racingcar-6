@@ -12,4 +12,9 @@ public class CarName {
         }
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }
