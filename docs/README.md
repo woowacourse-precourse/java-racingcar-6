@@ -3,18 +3,18 @@
 
 ## car
 Car
-- [x] 심판에게 시도 횟수를 받는다.
 - [x] Referee의 전진 조건에 따라 달린다.
 - [x] 횟수 별 실행 결과를 도출한다. -> Referee
 
 ## game
 - Referee
+- [x] 관리 : car의 현재 위치 (실행 결과) 
 - [x] user에게 시도 횟수를 요청한다.
 - [x] NumberGenerator에게 무작위 값을 받는다.
   - [x] 무작위 값이 전진 조건에 맞는지 확인한다.(랜덤 숫자가 4 이상)
 - [x] 횟수 별 실행 결과를 도출한다. -> User
 - [x] 최종 경기 결과(최종 우승자)를 도출한다.-> User
-- [x] 관리 : car의 현재 위치 (실행 결과)
+
 
 ## numberGenerator
 - NumberGenerator
@@ -22,12 +22,13 @@ Car
 
 ## user
 - User
+- [x] 관리 : Car 명단, 시도 횟수
 - [x] 자동차 이름을 입력한다.
 - [x] 자동차 객체를 생성하고 초기화한다.
 - [x] 시도 횟수를 입력한다. -> Referee
-- [x] 관리 : Car 명단, 시도 횟수
 - [x] 횟수 별 실행 결과를 출력한다.
 - [x] 최종 경기 결과(최종 우승자)를 출력한다.
+
 
 ## utils
 - Validation

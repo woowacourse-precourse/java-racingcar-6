@@ -1,8 +1,6 @@
 package racingcar.utils;
 
-
 import org.assertj.core.api.Assertions;
-
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -23,7 +21,7 @@ class ValidationTest {
                 .isThrownBy(() -> validation.nullStringInput(null));
     }
 
-   // carName validation
+    // carName validation
     @Test
     void 예외_carName_글자수_6자_이상() {
         carNameListExceptionTest(Arrays.asList("pobi", "javaji"));
@@ -31,13 +29,14 @@ class ValidationTest {
 
     @Test
     void 예외_carName_자동차_1대만_입력() {
-        carNameListExceptionTest(Arrays.asList("pobi"));
+        carNameListExceptionTest(List.of("pobi"));
     }
 
     @Test
     void 예외_자동차이름이_null1() {
         carNameListExceptionTest(Arrays.asList("pobi", ""));
     }
+
     @Test
     void 예외_자동차이름이_null2() {
         carNameListExceptionTest(Arrays.asList("pobi", ""));

@@ -1,4 +1,5 @@
 package racingcar;
+
 import racingcar.user.User;
 
 public class Application {
