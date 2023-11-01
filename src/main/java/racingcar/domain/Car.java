@@ -15,4 +15,14 @@ public class Car {
     public int generateNumber() {
         return Randoms.pickNumberInRange(GameRule.MIN_INPUT_NUMBER, GameRule.MAX_INPUT_NUMBER);
     }
+
+    public void moveForward(int randomNumber) {
+        if (isMove(randomNumber)) {
+            moveCnt++;
+        }
+    }
+
+    public boolean isMove(int randomNumber) {
+        return randomNumber >= GameRule.MOVING_FORWARD;
+    }
 }
