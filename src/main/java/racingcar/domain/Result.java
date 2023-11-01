@@ -23,7 +23,6 @@ public class Result {
 
     public int getLeaderDistance(List<Car> carList) {
         int leaderDistance = carList.stream().map(Car::getState).mapToInt(String::length).max().getAsInt();
-        // car 하나씩 빼서 car.getState 가장 긴 것 반환
         return leaderDistance;
     }
 
