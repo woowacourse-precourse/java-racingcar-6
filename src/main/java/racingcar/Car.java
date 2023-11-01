@@ -27,6 +27,12 @@ public class Car {
         return false;
     }
 
+    public void raiseMovingCount() {
+        if (isOverFour()) {
+            movingCount++;
+        }
+    }
+
     public int getMovingCount() {
         return movingCount;
     }
