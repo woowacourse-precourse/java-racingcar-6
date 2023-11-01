@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int MINIMUM_RANDOM_NUMBER = 0;
     private static final int MAXIMUM_RANDOM_NUMBER = 9;
     private static final int MOVABLE_RANDOM_NUMBER = 4;
@@ -29,6 +29,19 @@ public class Car {
     @Override
     public String toString() {
         return name + NAME_POSITION_DELIMITER + position;
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.position.compareTo(other.position);
+    }
+
+    public boolean isSamePosition(final Car other) {
+        return this.position.equals(other.position);
+    }
+
+    public CarDto toCarDto() {
+        return new CarDto(name, position);
     }
 
     private int generateRandomNumber() {
