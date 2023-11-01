@@ -14,13 +14,23 @@ public class GameController {
     private static List<Car> cars;
 
     public static void start() {
+        inputCarName();
+        inputMoveCount();
+        ResultView.printWinnerMessage(cars);
+    }
+
+    private static void inputCarName() {
         CarView.printCarCreateMessage();
         cars = CarFactory.createCar(Console.readLine());
+    }
 
+    private static void inputMoveCount() {
         CarView.printCarMoveMessage();
         int inputMoveCount = Integer.parseInt(Console.readLine());
         moveCar(inputMoveCount);
     }
+
+
 
     private static void moveCar(int inputMoveCount) {
         for (int tryCount = 0; tryCount < inputMoveCount; tryCount++) {
@@ -31,7 +41,5 @@ public class GameController {
             ResultView.printResultCoverMessage();
             ResultView.printMoveResultMessage(cars);
         }
-
-        ResultView.printWinnerMessage(cars);
     }
 }
