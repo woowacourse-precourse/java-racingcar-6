@@ -26,7 +26,7 @@ public class InputView {
         return Integer.parseInt(trialNum);
     }
 
-    public void validateNum(String trialNum) {
+    private void validateNum(String trialNum) {
         if (!trialNum.matches("\\d+")) {
             throw new IllegalArgumentException(InputException.NOT_INTEGER.getExceptionMessage());
         }
