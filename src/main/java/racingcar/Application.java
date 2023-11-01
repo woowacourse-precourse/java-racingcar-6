@@ -1,7 +1,13 @@
 package racingcar;
 
+import java.util.Map;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Map<String, Integer> carNameAndMovementCountMap = UserInput.inputCarNames();
+        int numberOfRounds = UserInput.inputNumberOfRounds();
+
+        RacingCarGame.executeAllRounds(carNameAndMovementCountMap, numberOfRounds);
+        RacingCarGame.selectFinalWinner(carNameAndMovementCountMap);
     }
 }
