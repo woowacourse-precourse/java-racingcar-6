@@ -6,7 +6,9 @@
 - [x] CarMap은 carList를 LinkHashMap형태로 변경하여 저장한다.
   - [x] makeInitMap과 updateMap이 있다.
 - [x] Play는 show를 통해 실행 결과를 attempts 만큼 반복 출력한다.
-- [x] RamdonValue는 랜덤값관련 class이다.
+- [x] RandomValue는 랜덤값관련 class이다.
   - [x] forwardDecision메서드를 이용하여 전진 여부를 결정한다.
+- [x] ExecutionResult는 map을 출력한다.
 - [x] Referee는 최종 우승자를 가려낸다.
   - [x] find_maxKeys에 해당하는 members를 출력한다.
+
