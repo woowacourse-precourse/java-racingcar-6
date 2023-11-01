@@ -66,7 +66,7 @@ public class RaceController {
             if (i == winner.size() - 1) {
                 continue;
             }
-            winnerNames.append(GameSettingCharacter.SEPARATOR_CHARACTER.get()).append(" ");
+            winnerNames.append(", ");
         }
 
         return winnerNames.toString();
