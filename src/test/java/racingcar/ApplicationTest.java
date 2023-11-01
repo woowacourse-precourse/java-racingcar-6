@@ -31,6 +31,12 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 전진_조건_테스트() {
+        Car car = new Car("pobi");
+
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
