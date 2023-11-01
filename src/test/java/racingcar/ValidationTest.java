@@ -26,4 +26,23 @@ public class ValidationTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 시도_회수가_음수인_경우() {
+        String repetitions = "-5";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> checkIsPositiveInteger(repetitions))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_회수가_0인_경우() {
+        String repetitions = "0";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> checkIsPositiveInteger(repetitions))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 }
