@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void printCarNamePrompt() {
@@ -30,6 +31,14 @@ public class Application {
         }
         System.out.println();
     }
+    public static void moveCarForwardOrStop(String[] processCar){
+        for (int i = 0; i< processCar.length; i++){
+            int random = Randoms.pickNumberInRange(0, 9);
+            if (random > 4) {
+                processCar[i] += "-";
+            }
+        }
+    }
     public static void main(String[] args) {
         printCarNamePrompt();
         String inputCarNames = getUserInput();
@@ -43,6 +52,7 @@ public class Application {
         String[] processCar = new String[splitCarNames.length];
         java.util.Arrays.fill(processCar, "");
         for (int i = 0; i<Integer.parseInt(inputAttempts); i++) {
+            moveCarForwardOrStop(processCar);
             printProcessCar(splitCarNames, processCar);
         }
 
