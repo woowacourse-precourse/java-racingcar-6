@@ -21,4 +21,11 @@ class NumberOfAttemptsTest {
                 .hasMessageContaining(NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER);
     }
 
+    @Test
+    void 입력_받은_시도_횟수는_1이상_이어야_한다() {
+        assertThatThrownBy(() -> new NumberOfAttempts("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER);
+    }
+
 }
