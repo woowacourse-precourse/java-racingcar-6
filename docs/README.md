@@ -59,26 +59,26 @@
 
 ## ✅ 체크 리스트
 
-- [ ] 과제 제출용 브랜치 생성 및 변경
-- [ ] JDK 17 버전에서 실행 가능한지 확인
-- [ ] 출력값 형식 준수
-- [ ] 주어진 테스트 모두 통과
-- [ ] 프로그램 시작점 `Application`의 `main()` 준수
-- [ ] `build.gradle` 변경 X
-- [ ] 외부 라이브러리 사용 X
-- [ ] Java 코드 컨벤션 가이드 준수
-- [ ] 프로그램 종료 시 `System.exit()` 호출 X
-- [ ] 요구 사항에서 명시하지 않은 파일, 패키지 변동 X
-- [ ] `camp.nextstep.edu.missionutils`의 `Randoms` 및 `Console` API 사용
-    - [ ] Random 값 추출 시 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()` 활용
-    - [ ] 사용자 입력 시 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용
+- [X] 과제 제출용 브랜치 생성 및 변경
+- [X] JDK 17 버전에서 실행 가능한지 확인
+- [X] 출력값 형식 준수
+- [X] 주어진 테스트 모두 통과
+- [X] 프로그램 시작점 `Application`의 `main()` 준수
+- [X] `build.gradle` 변경 X
+- [X] 외부 라이브러리 사용 X
+- [X] Java 코드 컨벤션 가이드 준수
+- [X] 프로그램 종료 시 `System.exit()` 호출 X
+- [X] 요구 사항에서 명시하지 않은 파일, 패키지 변동 X
+- [X] `camp.nextstep.edu.missionutils`의 `Randoms` 및 `Console` API 사용
+    - [X] Random 값 추출 시 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()` 활용
+    - [X] 사용자 입력 시 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용
 
 ---
 
 ## 🚨 추가된 요구 사항
 
-- [ ] Git의 커밋 단위는 위에 정리한 기능 목록 단위로 추가
-- [ ] indent(인덴트, 들여쓰기)의 depth가 3이 넘지 않도록 구현, 2까지만 허용됨.
-- [ ] 3항 연산자 쓰지 않기
-- [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들기
-- [ ] JUnit 5와 AssertJ를 이용한 테스트를 작성하여 위 기능 목록이 정상 동작함을 확인하기
+- [X] Git의 커밋 단위는 위에 정리한 기능 목록 단위로 추가
+- [X] indent(인덴트, 들여쓰기)의 depth가 3이 넘지 않도록 구현, 2까지만 허용됨.
+- [X] 3항 연산자 쓰지 않기
+- [X] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들기
+- [X] JUnit 5와 AssertJ를 이용한 테스트를 작성하여 위 기능 목록이 정상 동작함을 확인하기
