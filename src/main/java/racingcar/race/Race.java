@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.StringTokenizer;
 
 import racingcar.car.Car;
+import racingcar.util.Validator;
 
 public class Race {
 	private int laps;
@@ -20,20 +21,19 @@ public class Race {
 	public void init() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String input = readLine();
+		Validator.inputEndsWithComma(input);
+		Validator.inputStartsWithComma(input);
 		StringTokenizer st = new StringTokenizer(input, ",");
 		while (st.hasMoreTokens()) {
 			Car car = new Car(st.nextToken().toString());
-			if (car.getName().length() == 0 || car.getName().length() > 5) {
-				throw new IllegalArgumentException("자동차 이름은 한 글자 이상, 다섯 글자 이하로 입력되어야 합니다.");
-			}
 			cars.add(car);
 		}
+		Validator.distinctNameOnly(cars);
 		System.out.println("시도할 회수는 몇회인가요?");
 		String tryNumStr = readLine();
+		Validator.parsableToNumber(tryNumStr);
 		int tryNum = Integer.parseInt(tryNumStr);
-		if (tryNum <= 0) {
-			throw new IllegalArgumentException("시도 횟수는 0 보다 커야합니다.");
-		}
+		Validator.numberIsOverZero(tryNum);
 		this.laps = tryNum;
 	}
 

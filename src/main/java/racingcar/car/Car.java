@@ -2,6 +2,8 @@ package racingcar.car;
 
 import static camp.nextstep.edu.missionutils.Randoms.*;
 
+import racingcar.util.Validator;
+
 public class Car {
 	private String name;
 	private int moveCount;
@@ -10,6 +12,8 @@ public class Car {
 	public Car(String name) {
 		this.name = name;
 		this.moveCount = 0;
+		Validator.carNameLength(name);
+		Validator.onlyWhiteSpace(name);
 	}
 
 	public boolean decideMoveOrNot() {

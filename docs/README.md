@@ -14,8 +14,11 @@
     - method : `decideMoveOrNot(), move(), getName(), getMoveCount(), printMoveResult()`
     - 구현완료 기능 : 1. Random 숫자에 따라 전진 혹은 정지한다. 2. 현재까지 움직인 횟수만큼 진행상황을 출력한다.
 
-### `23.10.31 12:00
+### `23.11.01 12:00
 
 1. TestCode 짜기
 2. Test Case에 맞는 예외 처리 추가
 3. Style 수정
+4. Validator 추가
+   `carNameLength(String carName), onlyWhiteSpace(String carName), inputStartsWithComma(String input),
+   inputEndsWithComma(String input), parsableToNumber(String input), numberIsOverZero(Integer num), distinctNameOnly(ArrayList<Car> cars)`
