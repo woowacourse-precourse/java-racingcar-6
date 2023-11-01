@@ -10,8 +10,19 @@ public class RacingCar {
         return input.split(",");
     }
 
+    //자동차 이름 입력 예외
+    public void checkCarsNameLength(String[] players) {
+
+        for (String player : players) {
+            if (player.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
     public void initPlayer(String input){
         String [] cars = splitCarsName(input);
+        checkCarsNameLength(cars);
 
     }
 
