@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class HashMapTest {
     @Test
-    void HahsMap_put_테스트() {
+    void HashMap_put_테스트() {
         HashMap<String, Integer> map = new HashMap<>();
         map.put("rukka", 1);
 
@@ -17,7 +17,7 @@ public class HashMapTest {
     }
 
     @Test
-    void HahsMap_반복문_테스트() {
+    void HashMap_반복문_테스트() {
         HashMap<String, Integer> map = new HashMap<>();
 
         map.put("rukka", 1);
