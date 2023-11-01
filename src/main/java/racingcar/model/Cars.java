@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.exception.ErrorCode;
-import racingcar.model.intgenerator.IntGenerator;
 
 public class Cars {
     private final List<Car> cars;
@@ -22,14 +21,6 @@ public class Cars {
         validateDuplicateName(names);
         List<Car> cars = names.stream()
                 .map(Car::new)
-                .toList();
-        return new Cars(cars);
-    }
-
-    public static Cars fromNamesWithIntGenerator(List<String> names, IntGenerator intGenerator) {
-        validateDuplicateName(names);
-        List<Car> cars = names.stream()
-                .map(name -> new Car(name, intGenerator))
                 .toList();
         return new Cars(cars);
     }

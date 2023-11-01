@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.exception.ErrorCode;
 import racingcar.model.intgenerator.CustomIntGenerator;
 
@@ -20,15 +18,20 @@ public class CarsTest {
                 .hasMessageContaining(ErrorCode.DUPLICATE_NAME.getMessage());
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {"1,0", "3,0", "5,1", "9,1"}, delimiter = ',')
-    void 자동차들_이동_시_고른_숫자가_기준점을_넘은_자동차들만_전진횟수가_증가한다(int pickedNumber, int expectedForwardCount) {
-        List<String> names = List.of("pobi", "woni");
-        Cars cars = Cars.fromNamesWithIntGenerator(names, new CustomIntGenerator(pickedNumber));
+    @Test
+    void 자동차들_이동_시_고른_숫자가_기준점을_넘은_자동차들만_전진횟수가_증가한다() {
+        Car movingCar = new Car("pobi", new CustomIntGenerator(6));
+        Car nonMovingCar = new Car("woni", new CustomIntGenerator(1));
+        Cars cars = Cars.fromCars(List.of(movingCar, nonMovingCar));
 
         cars.move();
 
-        assertThat(cars.collectAllState())
-                .allMatch(state -> state.forwardCount() == expectedForwardCount);
+        assertCarHasMovedForward(movingCar, 1);
+        assertCarHasMovedForward(nonMovingCar, 0);
+    }
+
+    private void assertCarHasMovedForward(Car car, int expectedForwardCount) {
+        CarState state = car.summarizeState();
+        assertThat(state.forwardCount()).isEqualTo(expectedForwardCount);
     }
 }
