@@ -7,7 +7,6 @@ public class Car {
     private int position;
     private static final int MOVE_STANDARD = 4;
 
-
     public Car(String name) {
         this.name = name;
         this.position = 0;
