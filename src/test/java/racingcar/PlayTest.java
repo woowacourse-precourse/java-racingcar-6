@@ -24,21 +24,21 @@ public class PlayTest {
     @Test
     public void testJudgeMoveOrStop(){
 
-        test.playersMap.put("go", "");
-        test.playersMap.put("stop", "");
+        test.carsMap.put("go", "");
+        test.carsMap.put("stop", "");
 
         test.judgeMoveOrStop("go", 4);
         test.judgeMoveOrStop("stop", 3);
 
-        assertThat(test.playersMap.get("go")).isEqualTo("-");
-        assertThat(test.playersMap.get("stop")).isEqualTo("");
+        assertThat(test.carsMap.get("go")).isEqualTo("-");
+        assertThat(test.carsMap.get("stop")).isEqualTo("");
     }
 
     @Test
     public void testPrintRoundResult(){
 
-        test.playersMap.put("aa", "");
-        test.playersMap.put("bb", "----");
+        test.carsMap.put("aa", "");
+        test.carsMap.put("bb", "----");
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));

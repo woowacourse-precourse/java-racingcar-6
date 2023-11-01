@@ -38,7 +38,7 @@ public class InitPlayerTest {
         String [] input = {"aa", "bb", "cc"};
         test.saveCars(input);
 
-        assertThat(test.playersMap)
+        assertThat(test.carsMap)
                 .containsEntry("aa","")
                 .containsEntry("bb","")
                 .containsEntry("cc","");

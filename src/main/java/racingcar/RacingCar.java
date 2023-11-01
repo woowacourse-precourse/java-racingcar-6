@@ -10,8 +10,44 @@ import java.util.Map;
 
 public class RacingCar {
 
-    Map<String, String> playersMap = new HashMap<>();
+    Map<String, String> carsMap = new HashMap<>();
     List<String> winnerList = new ArrayList<>();
+
+    public void run(){
+        System.out.println(Notification.inputCarsName);
+        initPlayer(Console.readLine());
+
+        System.out.println(Notification.inputNumOfRounds);
+        int numOfRounds = checkRoundsInput(Console.readLine());
+
+        System.out.println(Notification.result);
+        for (int i = 0; i < numOfRounds; i++) {
+            play();
+        }
+
+        endGame();
+    }
+
+    public void initPlayer(String input){
+        String [] cars = splitCarsName(input);
+        checkCarsNameLength(cars);
+        saveCars(cars);
+    }
+
+    public void play(){
+        for(String car : carsMap.keySet()){
+            int moveOrStop = getRandomValue();
+            judgeMoveOrStop(car, moveOrStop);
+        }
+        printRoundResult();
+    }
+
+    public void endGame(){
+        int valueOfWinner = getMaxValue();
+        getWinner(valueOfWinner);
+        printWinner();
+    }
+
 
     //입력 분할
     public String[] splitCarsName(String input){
@@ -29,19 +65,15 @@ public class RacingCar {
         }
     }
 
+    //자동차 이름 저장
     public void saveCars(String[] cars) {
 
         for (String car : cars) {
-            playersMap.put(car, "");
+            carsMap.put(car, "");
         }
     }
 
-    public void initPlayer(String input){
-        String [] cars = splitCarsName(input);
-        checkCarsNameLength(cars);
-        saveCars(cars);
-    }
-
+    //움직일 횟수 입력
     public Integer checkRoundsInput(String input) {
 
         try {
@@ -51,39 +83,35 @@ public class RacingCar {
         }
     }
 
+    //랜덤값 추출
     public int getRandomValue(){
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    //전진 여부 판단
     public void judgeMoveOrStop(String car, int moveOrStop){
         if (moveOrStop >= 4) {
-            String roundResult = new StringBuilder(playersMap.get(car)).append("-").toString();
-            playersMap.put(car, roundResult);
+            String roundResult = new StringBuilder(carsMap.get(car)).append("-").toString();
+            carsMap.put(car, roundResult);
         }
     }
 
+    //라운드 결과 출력
     public void printRoundResult() {
 
         StringBuilder sb = new StringBuilder();
-        for (String player : playersMap.keySet()) {
-            sb.append(player).append(" : ").append(playersMap.get(player)).append("\n");
+        for (String player : carsMap.keySet()) {
+            sb.append(player).append(" : ").append(carsMap.get(player)).append("\n");
         }
 
         System.out.println(sb);
     }
 
-    public void play(){
-        for(String car : playersMap.keySet()){
-            int moveOrStop = getRandomValue();
-            judgeMoveOrStop(car, moveOrStop);
-        }
-        printRoundResult();
-    }
-
+    //가장 많이 움직인 횟수 구하기
     public int getMaxValue() {
 
         int max = 0;
-        for (String player : playersMap.values()) {
+        for (String player : carsMap.values()) {
             int result = player.length();
             if (max < result) {
                 max = result;
@@ -93,16 +121,18 @@ public class RacingCar {
         return max;
     }
 
+    //우승자 판단
     public void getWinner(int max) {
 
-        for (String player : playersMap.keySet()) {
-            int roundResultLength = playersMap.get(player).length();
+        for (String player : carsMap.keySet()) {
+            int roundResultLength = carsMap.get(player).length();
             if (roundResultLength == max) {
                 winnerList.add(player);
             }
         }
     }
 
+    //결과 출력
     public void printWinner() {
         StringBuilder sb = new StringBuilder(Notification.winners);
         int i;
@@ -115,25 +145,4 @@ public class RacingCar {
         System.out.println(sb);
     }
 
-    public void endGame(){
-        int valueOfWinner = getMaxValue();
-        getWinner(valueOfWinner);
-        printWinner();
-    }
-
-
-    public void run(){
-        System.out.println(Notification.inputCarsName);
-        initPlayer(Console.readLine());
-
-        System.out.println(Notification.inputNumOfRounds);
-        int numOfRounds = checkRoundsInput(Console.readLine());
-
-        System.out.println(Notification.result);
-        for (int i = 0; i < numOfRounds; i++) {
-            play();
-        }
-
-        endGame();
-    }
 }

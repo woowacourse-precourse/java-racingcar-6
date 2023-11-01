@@ -15,10 +15,10 @@ public class EndGameTest {
     @Test
     public void testGetMaxValue(){
 
-        test.playersMap.put("aa", "----");
-        test.playersMap.put("bb", "---");
-        test.playersMap.put("cc", "-------");
-        test.playersMap.put("dd", "--");
+        test.carsMap.put("aa", "----");
+        test.carsMap.put("bb", "---");
+        test.carsMap.put("cc", "-------");
+        test.carsMap.put("dd", "--");
 
         int result = test.getMaxValue();
 
@@ -28,28 +28,31 @@ public class EndGameTest {
     @Test
     void testGetWinner(){
 
-        test.playersMap.put("aa", "----");
-        test.playersMap.put("bb", "---");
-        test.playersMap.put("cc", "-------");
-        test.playersMap.put("dd", "--");
+        //우승자가 혼자일 경우
+        test.carsMap.put("aa", "----");
+        test.carsMap.put("bb", "---");
+        test.carsMap.put("cc", "-------");
+        test.carsMap.put("dd", "--");
 
         test.getWinner(7);
 
         assertThat(test.winnerList).containsExactly("cc");
 
         test.winnerList.clear();
-        test.playersMap.clear();
+        test.carsMap.clear();
 
-        test.playersMap.put("aa", "----");
-        test.playersMap.put("bb", "----");
-        test.playersMap.put("cc", "--");
-        test.playersMap.put("dd", "-");
+        //우승자가 여럿일 경우
+        test.carsMap.put("aa", "----");
+        test.carsMap.put("bb", "----");
+        test.carsMap.put("cc", "--");
+        test.carsMap.put("dd", "-");
 
         test.getWinner(4);
 
         assertThat(test.winnerList).containsExactly("aa", "bb");
     }
 
+    //우승자가 하나일 경우
     @Test
     public void testPrintOnlyWinner(){
 
@@ -64,6 +67,7 @@ public class EndGameTest {
         assertThat(resultOnlyWinner).isEqualTo("최종 우승자 : aa");
     }
 
+    //우승자가 여럿일 경우
     @Test
     void testPrintMultiWinner(){
 
