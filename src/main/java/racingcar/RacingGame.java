@@ -30,4 +30,12 @@ public class RacingGame extends Game{
         OutputHandler.printWinners(winners);
     }
 
+    private void playRound() {
+        for (RacingCar car : cars) {
+            car.move(Randoms.pickNumberInRange(0, 9));
+            OutputHandler.printCarStatus(car.getName(), car.getPosition());
+        }
+    }
+
+    
 }
