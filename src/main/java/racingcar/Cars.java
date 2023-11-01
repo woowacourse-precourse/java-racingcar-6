@@ -22,19 +22,22 @@ public class Cars {
     }
 
     public List<String> getWinners() {
-        int maxPosition = 0;
-        List<String> winners = new Stack<>();
+        int maxPosition = getMaxPosition();
+        List<String> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getPosition() > maxPosition) {
-                winners.clear();
-                winners.add(car.getName());
-                maxPosition = car.getPosition();
-            } else if (car.getPosition() == maxPosition) {
+            if (car.getPosition() == maxPosition) {
                 winners.add(car.getName());
             }
         }
-
         return winners;
+    }
+
+    public int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
     }
 
 }
