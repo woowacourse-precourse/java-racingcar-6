@@ -14,7 +14,7 @@ import racingcar.dto.GameResultDto;
 import racingcar.dto.RoundResultDto;
 
 @DisplayName("심판 테스트")
-class RefereeServiceTest {
+class GameResultPublishServiceTest {
 
     @DisplayName("단일 우승자를 올바르게 가려낸다")
     @Test
@@ -33,8 +33,8 @@ class RefereeServiceTest {
         List<RoundResultDto> roundHistories = Arrays.asList(round1);
         List<CarStatusDto> raceEndStatusSnapShot = Arrays.asList(dto1, dto2, dto3);
 
-        RefereeService refereeService = new RefereeService();
-        GameResultDto result = refereeService.publishGameResult(roundHistories, raceEndStatusSnapShot);
+        GameResultPublishService gameResultPublishService = new GameResultPublishService();
+        GameResultDto result = gameResultPublishService.publishGameResult(roundHistories, raceEndStatusSnapShot);
 
         Assertions.assertThat(result.getWinners().size()).isEqualTo(1);
     }
@@ -56,8 +56,8 @@ class RefereeServiceTest {
         List<RoundResultDto> roundHistories = Arrays.asList(round1);
         List<CarStatusDto> raceEndStatusSnapshot = Arrays.asList(dto1, dto2, dto3);
 
-        RefereeService refereeService = new RefereeService();
-        GameResultDto result = refereeService.publishGameResult(roundHistories, raceEndStatusSnapshot);
+        GameResultPublishService gameResultPublishService = new GameResultPublishService();
+        GameResultDto result = gameResultPublishService.publishGameResult(roundHistories, raceEndStatusSnapshot);
 
         Assertions.assertThat(result.getWinners().size()).isEqualTo(2);
     }

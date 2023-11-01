@@ -10,19 +10,23 @@ import racingcar.dto.RoundResultDto;
 
 public class RacingGameService {
 
-    private final RefereeService refereeService;
+    private final GameResultPublishService gameResultPublishService;
     private final CarFactoryService carFactoryService;
+    private final RoundExecutionService roundExecutionService;
 
-    public RacingGameService(RefereeService refereeService, CarFactoryService carFactoryService) {
-        this.refereeService = refereeService;
+    public RacingGameService(GameResultPublishService gameResultPublishService,
+                             CarFactoryService carFactoryService,
+                             RoundExecutionService roundExecutionService) {
+        this.gameResultPublishService = gameResultPublishService;
         this.carFactoryService = carFactoryService;
+        this.roundExecutionService = roundExecutionService;
     }
 
     public GameResultDto run(List<CarName> carNames, RoundCount roundCount) {
         List<Car> participants = carFactoryService.prepareRacingCars(carNames);
-        List<RoundResultDto> roundHistories = refereeService.executeAllRounds(participants, roundCount);
+        List<RoundResultDto> roundHistories = roundExecutionService.executeAllRounds(participants, roundCount);
         List<CarStatusDto> carsStatusAtRaceEnd = getRaceEndStatus(participants);
-        return refereeService.publishGameResult(roundHistories, carsStatusAtRaceEnd);
+        return gameResultPublishService.publishGameResult(roundHistories, carsStatusAtRaceEnd);
     }
 
     private static List<CarStatusDto> getRaceEndStatus(List<Car> participants) {
