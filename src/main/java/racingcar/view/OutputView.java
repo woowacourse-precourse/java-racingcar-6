@@ -21,7 +21,7 @@ public class OutputView {
         StringBuilder sb = new StringBuilder();
         sb.append(winnerMessage()).append(colonWithSpaceBar());
         for(Car car : carWinnerList){
-            sb.append(car.getCarName()).append(colonString());
+            sb.append(car.getCarName()).append(commaString());
         }
 
         //끝 부분 삭제
@@ -31,25 +31,29 @@ public class OutputView {
         System.out.println(sb);
     }
 
+    private String commaString(){
+        return GameViewMessage.COMMA.getMessage();
+    }
+
     private String colonWithSpaceBar(){
-        String colon = GameViewMessage.spaceBar.getMessage();
-        colon += GameViewMessage.colonString.getMessage();
-        colon += GameViewMessage.spaceBar.getMessage();
+        String colon = GameViewMessage.SPACEBAR.getMessage();
+        colon += GameViewMessage.COLONSTRING.getMessage();
+        colon += GameViewMessage.SPACEBAR.getMessage();
         return colon;
     }
 
     private String colonString(){
-        return GameViewMessage.colonString.getMessage();
+        return GameViewMessage.COLONSTRING.getMessage();
     }
 
     
     public void outputFirstLine(){
-        System.out.println(GameViewMessage.outputFirstLineMessage.getMessage());
+        System.out.println(GameViewMessage.OUTPUT_FIRST_LINE_MESSAGE.getMessage());
     }
 
 
 
     private String winnerMessage(){
-        return GameViewMessage.outputWinnerMessage.getMessage();
+        return GameViewMessage.OUTPUT_WINNER_MESSAGE.getMessage();
     }
 }
