@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
@@ -23,13 +23,11 @@ public class InputView {
     }
 
     public static List<Car> convertStringArrayToCarList(String[] carNames) {
-        List<Car> cars = new ArrayList<>();
-
-        for (String carName : carNames) {
-            cars.add(new Car(carName, 0));
-        }
-        return cars;
+        return Arrays.stream(carNames)
+                .map(name -> new Car(name, 0))
+                .toList();
     }
+
 
     public static int inputRound() {
         System.out.println("시도할 회수는 몇회인가요?");
