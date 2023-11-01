@@ -6,12 +6,12 @@ import java.util.Set;
 public class ResultStringBuilder {
 
     public String stringBuild(HashMap<String, Integer> result) {
-        Set<String> key = result.keySet();
+        Set<String> names = result.keySet();
         StringBuilder stringBuilder = new StringBuilder();
-        for (String s : key) {
-            stringBuilder.append(s)
+        for (String name : names) {
+            stringBuilder.append(name)
                     .append(" : ")
-                    .append(barStringBuild(result.get(s)))
+                    .append(barStringBuild(result.get(name)))
                     .append("\n");
         }
         return stringBuilder.toString();
