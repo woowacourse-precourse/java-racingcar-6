@@ -1,12 +1,15 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.logging.Logger;
+import racingcar.domain.Race;
 import racingcar.service.RaceService;
 import racingcar.view.RaceView;
 
 public class RaceController {
 
     public static final String LOGGERNAME = "RacingCar Logger";
+    Logger logger = Logger.getLogger(LOGGERNAME);
 
     private static RaceController raceController;
     RaceView raceView;
@@ -25,10 +28,12 @@ public class RaceController {
     }
 
     public void run() {
-        startRace();
+        Race race = startRace();
+        logger.info("경주가 시작되었습니다: " + race.toString());
     }
 
-    private void startRace() {
+    private Race startRace() {
         List<String> raceInfo = raceView.startRace();
+        return raceService.startRace(raceInfo);
     }
 }
