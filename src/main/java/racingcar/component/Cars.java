@@ -62,4 +62,11 @@ public class Cars {
 
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
+
+    public void runARound() {
+        for (Car car : cars) {
+            car.moveOrNot();
+            car.printPosition();
+        }
+    }
 }
