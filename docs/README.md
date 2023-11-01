@@ -68,7 +68,7 @@
     - [ ] 매 이동마다 자동차 들의 지금까지 이동한 경로를 문자열 형태에 맞춰 가공하여 List형태로 반환한다.
     - [ ] 우승자들을 찾아서 문자열 형태에 맞춰 가공하여 List형태로 반환한다.
 - [ ] 문자열 List 형태로 자동차 이름들을 받아와서 Car 객체들을 만든다.
-- [ ] racingProcessor에게 moveProcess 메서드를 요청한다.
+- [x] racingProcessor에게 moveProcess 메서드를 요청한다.
 
 
 ### 자동차 경주 게임에서 자동차 들을 조건에 맞춰 움직이는 객체를 구현 -> DefaultProcessor(RacingProcessor의 구현체)
