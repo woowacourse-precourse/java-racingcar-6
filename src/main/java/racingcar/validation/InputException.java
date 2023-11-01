@@ -10,7 +10,7 @@ public class InputException {
         containBlank(input);
         black(input);
         carNameCheckEqual(input);
-        carNameError(input);
+//        carNameError(input);
         return input;
     }
     public static String numberValidation(String input){
@@ -59,9 +59,9 @@ public class InputException {
             throw new IllegalArgumentException("0보다 큰 값을 입력해주세요");
         }
     }
-    public static void carNameError(String input){
-        if (input.matches("^,.*") || input.matches(".*,$")) {
-            throw new IllegalArgumentException("모든 이름을 입력해주세요.");
-        }
-    }
+//    public static void carNameError(String input){
+//        if (input.matches("^,.*") || input.matches(".*,$")) {
+//            throw new IllegalArgumentException("모든 이름을 입력해주세요.");
+//        }
+//    }
 }
