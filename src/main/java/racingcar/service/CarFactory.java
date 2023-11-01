@@ -12,6 +12,7 @@ public class CarFactory {
     private InputManager inputManager = new InputManager();
 
     public List<Car> generateCars() {
+
         List<String> carNames = splitCarNamesToComma(inputManager.inputCarNames());
         List<Car> cars = new ArrayList<>();
 
@@ -19,7 +20,6 @@ public class CarFactory {
         CarValidator.validateDuplicatedCarName(carNames);
 
         for (String carName : carNames) {
-
             CarValidator.validateCarName(carName);
             cars.add(new Car(carName));
         }

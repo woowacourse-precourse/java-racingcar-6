@@ -14,23 +14,19 @@ public class Car implements Comparable<Car> {
     }
 
     public int generateRandomNumber() {
-
         return Randoms.pickNumberInRange(0, 9);
     }
 
     public void forward() {
-
         forwardCount++;
     }
 
     public String getName() {
-
         return name;
     }
 
     @Override
     public int compareTo(Car o) {
-
         return this.forwardCount - o.forwardCount;
     }
 
