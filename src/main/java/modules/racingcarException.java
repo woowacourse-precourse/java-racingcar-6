@@ -21,4 +21,10 @@ public class racingcarException {
       throw new IllegalArgumentException();
     }
   }
+
+  public static void exception_negative(String num) {
+    if (Integer.parseInt(num) < 0) {
+      throw new IllegalArgumentException();
+    }
+  }
 }
