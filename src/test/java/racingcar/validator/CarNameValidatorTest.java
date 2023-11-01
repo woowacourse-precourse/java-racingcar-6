@@ -9,8 +9,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarNameValidatorTest {
     @Test
-    @DisplayName("이름 입력 통과 케이스")
-    void testName() {
+    @DisplayName("성공 - 요구사항에 맞는 이름 입력")
+    void right_Name() {
         //given
         List<String> input = List.of("a", "b", "c");
         //when
@@ -19,8 +19,8 @@ class CarNameValidatorTest {
     }
 
     @Test
-    @DisplayName("이름 5자 초과시 실패")
-    void testNameLength() {
+    @DisplayName("실패 - 이름 5자 초과")
+    void name_Length_Over() {
         //given
         List<String> input = List.of("abcdef", "b", "c");
         //when
@@ -31,8 +31,8 @@ class CarNameValidatorTest {
     }
 
     @Test
-    @DisplayName("중복된 이름 있을시 실패")
-    void testDuplicatedName() {
+    @DisplayName("실패 - 중복된 이름 존재")
+    void name_Duplicate() {
         //given
         List<String> input = List.of("a", "a", "c");
         //when
@@ -43,8 +43,8 @@ class CarNameValidatorTest {
     }
 
     @Test
-    @DisplayName("이름 공백 포함시 실패")
-    void testIfNameIsEmpty() {
+    @DisplayName("실패 - 이름 공백 포함")
+    void name_Empty() {
         //given
         List<String> input = List.of("a", " ", "c");
         //when
