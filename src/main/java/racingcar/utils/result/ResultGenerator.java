@@ -16,7 +16,8 @@ public class ResultGenerator {
     }
 
     public String makeWinnersResult(List<Car> winners) {
-        return FINAL_WINNERS_COLON + winners.stream()
+        return FINAL_WINNERS_COLON +
+            winners.stream()
             .map(Car::getName)
             .collect(Collectors.joining(COMMA_SPACE));
     }
