@@ -24,7 +24,9 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinners(List<Car> cars){
+    public void printWinners(List<String> cars){
+
+
 
     }
 

@@ -36,8 +36,37 @@ public class RacingGame {
         return this.cars;
     }
 
-    public List<Car> findWinners(){
-        return null;
+    public List<String> findWinners(){
+
+        Integer highestPoint = findHighestPoint();
+        List<String> winnerList = findCarNames(highestPoint);
+
+        return winnerList;
+    }
+
+    private Integer findHighestPoint(){
+        List<Integer> carPointList = new ArrayList<>();
+        for(Car car : this.cars){
+            carPointList.add(car.getPoint());
+        }
+
+        Integer highestPoint = Collections.max(carPointList);
+
+        return highestPoint;
+    }
+
+    private List<String> findCarNames(Integer highestPoint){
+
+        List<String> names = new ArrayList<>();
+
+        for(Car car : this.cars){
+          if(car.point.equals(highestPoint)) {
+            names.add(car.name);
+          }
+        }
+
+        return names;
+
     }
 
 }
