@@ -85,6 +85,22 @@ public class Application {
         System.out.println();
     }
 
+    private static ArrayList<String> findWinners(Car[] cars) {
+        int maxCount = 0;
+        ArrayList<String> winnerCars = new ArrayList<>();
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].moveForwardCount > maxCount) {
+                maxCount = cars[i].moveForwardCount;
+
+                winnerCars = new ArrayList<>();
+                winnerCars.add(cars[i].name);
+            } else if (cars[i].moveForwardCount == maxCount) {
+                winnerCars.add(cars[i].name);
+            }
+        }
+        return winnerCars;
+    }
+
     public static void main(String[] args) {
         String[] carNamesArray = inputNames();
         Car[] cars = new Car[carNamesArray.length];
@@ -94,5 +110,7 @@ public class Application {
 
         int tryCount = inputCount();
         cars = moveForwardAll(cars, tryCount);
+
+        ArrayList<String> winnerCars = findWinners(cars);
     }
 }
