@@ -1,5 +1,6 @@
 package racingcar.racing;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.GameInfo;
 import racingcar.service.RacingCarService;
 import racingcar.view.View;
@@ -10,19 +11,20 @@ public class Racing {
     private final RacingCarService racingCarService = new RacingCarService();
     private GameInfo gameInfo;
 
-
-    public void racingConfig() {
-        String driverNames = view.driverInjectionView();
-        String roundNumber = view.roundInjectionView();
-        gameInfo = new GameInfo(driverNames, roundNumber);
-        racingCarService.createCars(gameInfo.getRacingCarDrivers());
-        view.roundResultTitleView();
-    }
-
     public void startRacing() {
         racingConfig();
         runRacingDuringRounds();
         finishRacing();
+    }
+
+    public void racingConfig() {
+        String driverNames = view.driverInjectionView();
+        String roundNumber = view.roundInjectionView();
+        Console.close();
+
+        gameInfo = new GameInfo(driverNames, roundNumber);
+        racingCarService.createCars(gameInfo.getRacingCarDrivers());
+        view.roundResultTitleView();
     }
 
     public void runRacingDuringRounds() {

@@ -11,7 +11,7 @@ public class View {
 
     public String driverInjectionView() {
         System.out.println(START_TEXT);
-        return (readLine());
+        return readLine();
     }
 
     public String roundInjectionView() {
