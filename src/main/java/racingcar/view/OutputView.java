@@ -13,6 +13,12 @@ public class OutputView {
             System.out.print("-");
         }
     }
+    private static void printCarScore(Car car) {
+        System.out.print(car.getName() + " : ");
+        printPosition(car);
+        System.out.println();
+    }
+
     public static void printException(String message) {
         System.out.println(message);
     }
