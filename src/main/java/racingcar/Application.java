@@ -13,11 +13,13 @@ public class Application {
 
         String carNames = Console.readLine();
         Validator.validateNotNullAndEmpty(carNames);
-        Validator.validateNameLength(carNames);
         Validator.validateNoSpacesBetweenCommas(carNames);
 
         ArrayList<Car> cars = Arrays.stream(carNames.split(","))
-                .map(name -> new Car(name))
+                .map(name -> {
+                    Validator.validateNameLength(name); // 유효성 검사를 실행
+                    return new Car(name);
+                })
                 .collect(Collectors.toCollection(ArrayList::new));
 
         // 시도 횟수 입력
