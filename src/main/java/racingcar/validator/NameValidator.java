@@ -23,7 +23,7 @@ public class NameValidator {
     }
 
     public void isRightNameString(){
-        if (!Constants.namesStringPattern.matcher(NAMESTRING).matches()) {
+        if (!Constants.namesStringPattern.matcher(NAMESTRING).matches()|| NAMES.stream().anyMatch(name -> name.matches("[0-9]+"))) {
             throw new IllegalArgumentException(CARNAME_WRONG_ERROR);
         }
     }
