@@ -6,11 +6,14 @@ import java.util.stream.Collectors;
 
 public class Parser {
     private static final String COMMA = ", ";
+    private static final String COLON = " : ";
+    private static final String HYPHEN = "-";
+    private static final String ENTER = "\n";
 
     public static String parseCarMapToString(Map<CarName, Integer> carMap) {
         String carStatus = carMap
                 .entrySet().stream()
-                .map(entry -> entry.getKey().getName() + " : " + "-".repeat(entry.getValue()) + "\n")
+                .map(entry -> entry.getKey().getName() + COLON + HYPHEN.repeat(entry.getValue()) + ENTER)
                 .collect(Collectors.joining());
 
         return carStatus;
