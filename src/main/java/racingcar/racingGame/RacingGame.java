@@ -31,15 +31,14 @@ public class RacingGame {
 
     public void raceStart(List<Car> carList, int tryNum) {
 
-        //입력한 시도 횟수만큼 생성된 각 자동차들이 움직임을 시도함
+        System.out.println("\n실행 결과");
         for (int i=0; i < tryNum; i++) {
             for (Car car : carList) {
-                car.tryMove();
+                String score = car.tryMove();
 
-                System.out.println(car.getName() + " : " + car.getDistance());
+                System.out.println(car.getName() + " : " + score);
             }
-
-            System.out.println("---".repeat(20));
+            System.out.println();
         }
     }
 
