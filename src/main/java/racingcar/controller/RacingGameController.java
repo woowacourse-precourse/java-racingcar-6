@@ -9,6 +9,7 @@ import racingcar.dto.CarDto;
 import racingcar.model.Cars;
 import racingcar.model.RacingGame;
 import racingcar.model.Referee;
+import racingcar.util.validation.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.vo.CarName;
@@ -36,13 +37,21 @@ public class RacingGameController {
 
     private Cars getCars() {
         outputView.printRequestCarNameMessage();
-        List<CarName> carNames = stringToCarNameListByDelimiter(inputView.inputCarNames());
+
+        String inputCarNames = inputView.inputCarNames();
+        InputValidator.validateInputCarNames(inputCarNames);
+
+        List<CarName> carNames = stringToCarNameListByDelimiter(inputCarNames);
         return new Cars(carNames);
     }
 
     private TryNumber getTryNumber() {
         outputView.printRequestTryNumberMessage();
-        return stringToTryNumber(inputView.inputTryNumber());
+
+        String inputTryNumber = inputView.inputTryNumber();
+        InputValidator.validateInputTryNumber(inputTryNumber);
+
+        return stringToTryNumber(inputTryNumber);
     }
 
     private RacingGame setGame(Cars cars) {
