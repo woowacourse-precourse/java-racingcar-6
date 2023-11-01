@@ -3,6 +3,7 @@ package racingcar.race;
 import racingcar.race.totalRound.TotalRoundRecord;
 
 public class RaceEndedEvent {
+
   private final TotalRoundRecord totalRoundRecord;
 
   private RaceEndedEvent(TotalRoundRecord totalRoundRecord) {
@@ -15,5 +16,9 @@ public class RaceEndedEvent {
 
   public TotalRoundRecord getTotalRoundRecord() {
     return totalRoundRecord;
+  }
+
+  public OutPutCommand outPutCommand() {
+    return OutPutCommand.of(totalRoundRecord);
   }
 }
