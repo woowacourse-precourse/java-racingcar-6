@@ -20,8 +20,8 @@
 - 주어진 이동 횟수만큼 다음 로직 반복
 
 
-- [ ]  각 자동차에 대해서 0~9 사이의 랜덤 값 생성 - RandomUtils#generateRandomValue
-  - [ ]  랜덤 값 4 이상인 경우 해당 자동차 전진 - RaceService#moveCarByLogic
+- [x]  각 자동차에 대해서 0~9 사이의 랜덤 값 생성 - RandomUtils#generateRandomValue
+  - [x]  랜덤 값 4 이상인 경우 해당 자동차 전진 - RaceService#moveCarByLogic
 - [ ]  각 차수별 실행 결과 출력 - OutputView#showCurrentMove
 
 

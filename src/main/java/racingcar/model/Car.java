@@ -17,4 +17,8 @@ public class Car {
         advanceNum++;
     }
 
+    public int getAdvanceNum(){
+        return advanceNum;
+    }
+
 }
