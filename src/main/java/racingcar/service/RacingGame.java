@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.ServiceMessage;
+import racingcar.input.count.CountReader;
 import racingcar.input.count.CountValidator;
 import racingcar.input.name.NameReader;
 import racingcar.input.name.NameValidator;
@@ -27,16 +28,11 @@ public class RacingGame {
         servicePrinter.printInputMessage();
 
         // 횟수 입력 받기
-        String inputCount = Console.readLine();
-        if(!CountValidator.isValid(inputCount)) {
-            throw new IllegalArgumentException(ErrorMessage.getErrorMessage("count"));
-        }
-
-        int n = Integer.parseInt(inputCount);
+        int count = CountReader.read();
 
         System.out.print(ServiceMessage.OUTPUT.serviceMessage);
         int totalName = names.length;
-        while(n-- > 0) {
+        while(count-- > 0) {
             for(int t = 0; t < totalName; t++) {
                 String key = names[t];
                 if(RacingCarController.isMoveForward()) {
