@@ -1,4 +1,6 @@
-package racingcar.util;
+package racingcar.helper;
+
+import racingcar.util.NumberGenerator;
 
 public class SubNumberGenerator implements NumberGenerator {
     private final int number;
