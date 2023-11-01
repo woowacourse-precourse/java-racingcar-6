@@ -25,10 +25,9 @@ public class GameController {
 
   private void initializeGame() {
     outputView.displayCarName();
-    List<String> nameList = inputView.getCarName();
+    racingCars = new Cars(inputView.readCarName());
     outputView.displayGameCount();
-    gameCount = inputView.getCount();
-    racingCars = new Cars(nameList);
+    gameCount = inputView.readCount();
   }
 
   private void startGame() {
@@ -36,12 +35,12 @@ public class GameController {
     while (gameCount != 0) {
       gameCount--;
       racingCars.moveCars();
-      outputView.displayMovement(racingCars.getCarList());
+      outputView.displayMovement(racingCars.getCars());
     }
   }
 
   private void endGame() {
-    List<String> winnerList = racingCars.getWinnerList();
+    List<String> winnerList = racingCars.getWinners();
     outputView.displayWinner(winnerList);
   }
 }
