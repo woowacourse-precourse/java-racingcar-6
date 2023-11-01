@@ -12,5 +12,7 @@ public class Logic {
         List<String> carNames = Input.getCarNames(); //1번 기능
 
         Output.printGuideTryCount(); //5번 기능
+
+        Long tryCount = Input.getTryCount(); //2번 기능
     }
 }

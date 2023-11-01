@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class ExceptionHandler {
     public static List<String> checkNameLength(List<String> input) {
@@ -25,6 +26,13 @@ public class ExceptionHandler {
     public static void checkNull(String input) {
         if (Objects.isNull(input)) {
             throw new IllegalArgumentException("입력값이 null입니다.");
+        }
+    }
+
+    public static void checkNaturalNumber(String input) {
+        String regex = "^[1-9]\\d*$";
+        if(!Pattern.matches(regex, input)) {
+            throw new IllegalArgumentException("시도 횟수는 자연수만 가능합니다.");
         }
     }
 }

@@ -12,6 +12,13 @@ public class Input {
         return splitCarNames(input);
     }
 
+    public static Long getTryCount() {
+        String input = readLine();
+        checkNull(input);
+        checkNaturalNumber(input);
+        return Long.parseLong(input);
+    }
+
     private static List<String> splitCarNames(String input) {
         return checkNameLength(checkEmpty(List.of(input.split(","))));
     }
