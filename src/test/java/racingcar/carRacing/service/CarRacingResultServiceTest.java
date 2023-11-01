@@ -14,11 +14,14 @@ import racingcar.carRacing.model.CarRacing;
 
 public class CarRacingResultServiceTest {
 
+    private CarRacing carRacing;
+
     private CarRacingGameService carRacingGameService;
 
     @BeforeEach
     public void beforEach() {
-        carRacingGameService = new CarRacingGameService(new CarRacing());
+        carRacing = new CarRacing();
+        carRacingGameService = new CarRacingGameService(carRacing);
     }
 
     @AfterEach
@@ -37,6 +40,20 @@ public class CarRacingResultServiceTest {
         carRacingGameService.doRace();
 
         assertThat(out.toString()).contains("pobi : ", "woni : ", "jun : ");
+    }
+
+    @Test
+    void 게임_종료_결과_출력() {
+        String input = "pobi,woni,jun\n" + "3";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        carRacingGameService.waitInput();
+        carRacingGameService.doRace();
+        printRacingResult(carRacing);
+
+        assertThat(out.toString()).contains("최종 우승자 : ");
     }
 
 }
