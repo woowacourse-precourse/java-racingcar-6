@@ -13,7 +13,7 @@ public enum Constants {
 
     NAME_VALIDATION_REGEX("^[가-힣\\w]+[가-힣\\w,]*[가-힣\\w]$"),
     //NAME_VALIDATION_REGEX("^[가-힣\\w]+(,[가-힣\\w]+)*$"),
-    NUMBER_VALIDATION_REGEX("^[1-9]\\d*$"),
+    NUMBER_VALIDATION_REGEX("^(?!$)[1-9]\\d*$"),
     SPACE_REGEX("\\s")
     ;
 
