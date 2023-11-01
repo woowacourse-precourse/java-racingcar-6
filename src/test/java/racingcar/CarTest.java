@@ -31,4 +31,11 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("길이를 0보다 크게 입력하셔야 합니다.");
     }
+    @Test
+    @DisplayName("자동차 이름의 길이가 5를 넘으면 예외")
+    void validateLengthUnderFive(){
+        assertThatThrownBy(() -> new Car("123456"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("길이를 5이하로 입력해주세요.");
+    }
 }
