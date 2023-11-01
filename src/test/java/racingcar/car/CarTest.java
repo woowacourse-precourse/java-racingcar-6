@@ -66,4 +66,12 @@ public class CarTest {
             InputValidator.validateNameLength(names);
         });
     }
+
+    @Test
+    public void 연이은_쉼표_검증() throws Exception{
+        String alignedNames = "brian,poby,,jake";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateConsecutiveCommas(alignedNames);
+        });
+    }
 }
