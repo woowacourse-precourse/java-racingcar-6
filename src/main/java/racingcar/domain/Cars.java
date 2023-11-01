@@ -8,7 +8,6 @@ import static racingcar.constant.GameMessage.DELIMITER;
 import static racingcar.constant.GameNumber.NAME_EMPTY_LENGTH;
 import static racingcar.constant.GameNumber.NAME_MAXIMUM_LENGTH;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -18,18 +17,13 @@ import racingcar.view.InputView;
 public class Cars {
     private final List<Car> cars = new ArrayList<>();
 
-    public void startCreateCars() {
-        InputView.printRequestName();
-        createCars();
-    }
-
     public void createCars() {
         List<String> carNames = inputCarNames();
         carNames.forEach(name -> cars.add(new Car(name)));
     }
 
     public List<String> inputCarNames() {
-        String inputNames = Console.readLine();
+        String inputNames = InputView.printRequestName();
         List<String> carNames = Arrays.asList(inputNames.split(DELIMITER, -1));
         validateCarNames(carNames);
 
