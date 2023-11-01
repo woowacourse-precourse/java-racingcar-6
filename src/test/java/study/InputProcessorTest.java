@@ -58,4 +58,14 @@ public class InputProcessorTest {
         assertThatThrownBy(()->inputProcessor.getRound())
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("실패: 라운드 횟수에 1보다 작은 값이 담길 수 없다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"-1","0"})
+    void test5(String minusNumber) {
+        System.setIn(new ByteArrayInputStream(minusNumber.toString().getBytes()));
+        InputProcessor inputProcessor = new InputProcessor();
+        assertThatThrownBy(()->inputProcessor.getRound())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

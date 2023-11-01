@@ -22,8 +22,16 @@ public class InputProcessor {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
             String readLine = Console.readLine();
-            return Integer.parseInt(readLine);
+            int parseInt = Integer.parseInt(readLine);
+            checkRoundValue(parseInt);
+            return parseInt;
         } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void checkRoundValue(Integer input) {
+        if (input < 1) {
             throw new IllegalArgumentException();
         }
     }
