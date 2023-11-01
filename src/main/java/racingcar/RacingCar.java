@@ -6,6 +6,7 @@ import java.util.TreeSet;
 public class RacingCar implements Comparable {
     String name;
     int advance;
+    static List<RacingCar> carOrder;
 
     public RacingCar (String name) {
         this.name = name;
@@ -16,17 +17,11 @@ public class RacingCar implements Comparable {
         this.advance++;
     }
 
-    //		public static 메서드
-    public static TreeSet<RacingCar> createRacingCarSetFromParticipantList (List<String> names) {
-        TreeSet<RacingCar> participants = new TreeSet<>();
-
-        for (String name : names) {
-            RacingCar applicant = new RacingCar(name);
-            participants.add(applicant);
-        }
-
-        return participants;
+    public String showCarsStatus () {
+        return "-".repeat(this.advance);
     }
+
+    //		public static 메서드
 
     @Override
     public int compareTo (Object o) {
@@ -41,6 +36,10 @@ public class RacingCar implements Comparable {
         } else {
             return 1;
         }
+    }
 
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
