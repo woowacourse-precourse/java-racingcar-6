@@ -7,7 +7,7 @@ public class RandomNumber {
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 9;
 
-    public int generateRandomNumber() {
+    public static int generateRandomNumber() {
         return pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 }
