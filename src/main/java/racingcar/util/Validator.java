@@ -10,6 +10,11 @@ public class Validator {
         }
     }
 
+    public static void validateRounds(String input) {
+        int round = validateRoundsIsInteger(input);
+        validateRoundsIsPositive(round);
+    }
+
     private static void validateCarListSize(int carsLen) {
         if (carsLen == 0) {
             throw new IllegalArgumentException();
@@ -22,11 +27,6 @@ public class Validator {
         if (carLen < Constant.MIN_CAR_NAME || carLen > Constant.MAX_CAR_NAME) {
             throw new IllegalArgumentException();
         }
-    }
-
-    public static void validateRounds(String input) {
-        int round = validateRoundsIsInteger(input);
-        validateRoundsIsPositive(round);
     }
 
     private static int validateRoundsIsInteger(String input) {
