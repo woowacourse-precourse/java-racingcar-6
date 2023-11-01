@@ -34,7 +34,7 @@ public class GameService {
             }
 
             tracks.print1st();
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자로 횟수를 입력해야 합니다.");
         }
     }

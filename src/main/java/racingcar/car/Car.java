@@ -15,23 +15,23 @@ public class Car {
         this.dist = 0;
     }
 
-    public void jump(){
-        if(Randoms.pickNumberInRange(0,9) >= toJumpVal){
-            this.dist ++;
+    public void jump() {
+        if (Randoms.pickNumberInRange(0, 9) >= toJumpVal) {
+            this.dist++;
         }
     }
 
-    public int getDist(){
+    public int getDist() {
         return this.dist;
     }
 
-    public String printDist(){
+    public String printDist() {
         StringBuilder sb = new StringBuilder();
         sb.append("-".repeat(Math.max(0, dist)));
         return sb.toString();
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 }

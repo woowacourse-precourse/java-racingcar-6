@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UnitTest extends NsTest {
 
     @Test
-    public void strToList(){
+    public void strToList() {
         String input = "a,b,c,d,";
-        List<String> expected = List.of("a","b","c","d");
+        List<String> expected = List.of("a", "b", "c", "d");
 
         List<String> actual = InputUtil.inputNames(input);
 
@@ -27,7 +27,7 @@ public class UnitTest extends NsTest {
     }
 
     @Test
-    public void strToListForException(){
+    public void strToListForException() {
         String input = "abcdef,ab,abcd";
         assertThatThrownBy(() -> InputUtil.inputNames(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -36,7 +36,7 @@ public class UnitTest extends NsTest {
 
 
     @Test
-    public void jumpTest(){
+    public void jumpTest() {
         Mockito.mockStatic(Randoms.class);
         Car car = new Car("test");
         int beforeDist = car.getDist();
@@ -58,14 +58,14 @@ public class UnitTest extends NsTest {
 
 
     @Test
-    public void pickTest(){
+    public void pickTest() {
         Track track = Track.getInstance();
 
-        track.setCars(List.of("a","b","c"));
+        track.setCars(List.of("a", "b", "c"));
 
         Mockito.mockStatic(Randoms.class);
 
-        Mockito.when(Randoms.pickNumberInRange(0,9)).thenReturn(3,4,5);
+        Mockito.when(Randoms.pickNumberInRange(0, 9)).thenReturn(3, 4, 5);
 
         track.runCars();
 
@@ -77,7 +77,7 @@ public class UnitTest extends NsTest {
     }
 
     @Override
-    protected void runMain()  {
+    protected void runMain() {
         Application.main(new String[]{});
     }
 }

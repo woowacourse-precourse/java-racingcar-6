@@ -30,14 +30,14 @@ public class Track {
         }
     }
 
-    public void print1st(){
+    public void print1st() {
         StringBuilder sb = new StringBuilder();
         sb.append("최종 우승자 : ");
         Iterator<Car> iterator = pick1st().listIterator();
 
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             sb.append(iterator.next().getName());
-            if(iterator.hasNext()) sb.append(",");
+            if (iterator.hasNext()) sb.append(",");
         }
 
         System.out.println(sb);
