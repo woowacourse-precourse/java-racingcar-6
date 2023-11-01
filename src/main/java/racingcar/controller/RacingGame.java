@@ -1,9 +1,10 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.Garage;
+import racingcar.domain.RaceCount;
 import racingcar.domain.Winner;
 import racingcar.util.GameResultMaker;
-import racingcar.util.RacingGameManager;
 import racingcar.view.OutputView;
 import racingcar.view.InputView;
 
@@ -11,11 +12,9 @@ import java.util.List;
 
 public class RacingGame {
 
-    private RacingGameManager gameManager;
     private GameResultMaker gameResultMaker;
 
-    public RacingGame(RacingGameManager gameManager, GameResultMaker gameResultMaker) {
-        this.gameManager = gameManager;
+    public RacingGame(GameResultMaker gameResultMaker) {
         this.gameResultMaker = gameResultMaker;
     }
 
@@ -30,13 +29,15 @@ public class RacingGame {
     }
 
     private List<Car> getCarList() {
-        String userInput = InputView.getCarNamesFromPlayerInput();
-        return gameManager.createCarListFromPlayerInput(userInput);
+        String playerInput = InputView.getCarNamesFromPlayerInput();
+        Garage garage = new Garage(playerInput);
+        return garage.getCarList();
     }
 
     private int getRaceCount() {
         String countInput = InputView.getRaceCountFromPlayerInput();
-        return gameManager.createCountFromPlayerInput(countInput);
+        RaceCount raceCount = new RaceCount(countInput);
+        return raceCount.getCount();
     }
 
     private void printGameResult(List<Car> cars) {
