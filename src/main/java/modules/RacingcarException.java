@@ -7,7 +7,6 @@ import java.util.List;
 public class RacingcarException {
   public static void exception_len_under_2(String[] carNames) {
     if (carNames.length < 2) {
-      System.out.println("exception_len_0의 if문 안에 들어옴");
       throw new IllegalArgumentException();
     }
   }
