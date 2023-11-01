@@ -32,9 +32,25 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도회수에_대한_예외_처리() {
+    void 공백이름에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도회수에_문자_입력에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,java", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도회수에_음수_입력에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
