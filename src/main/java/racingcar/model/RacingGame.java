@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static java.util.Objects.isNull;
+import static racingcar.common.exception.ErrorMessage.DUPLICATED_NAME;
 import static racingcar.common.exception.ErrorMessage.EMPTY_INPUT_STRING;
 import static racingcar.common.exception.ErrorMessage.NULL_INPUT_STRING;
 
@@ -22,6 +23,7 @@ public class RacingGame {
         racingCarList = new ArrayList<>();
         Arrays.stream(carNames)
                 .forEach(name -> racingCarList.add(Car.from(name)));
+        validateDuplicateName();
     }
 
     public static RacingGame from(final String inputNameString) {
@@ -64,5 +66,16 @@ public class RacingGame {
 
     private String[] splitInputNameString(String inputNameString) {
         return inputNameString.split(REGEX_FOR_SEPARATE);
+    }
+
+    private void validateDuplicateName() {
+        long uniqueCarNameCount = racingCarList.stream()
+                .map(Car::getName)
+                .distinct()
+                .count();
+
+        if (uniqueCarNameCount != racingCarList.size()) {
+            throw new RacingGameException(DUPLICATED_NAME);
+        }
     }
 }
