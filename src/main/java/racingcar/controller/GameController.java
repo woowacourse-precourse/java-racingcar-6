@@ -30,7 +30,7 @@ public class GameController {
         InputValidator.checkNumeric(tryCount);
         InputValidator.checkZero(tryCount);
 
-        gameService.start(carNames, tryCount);
+        gameService.start(carNames, Integer.parseInt(tryCount));
     }
 
     private List<String> getCarNames(String carNameInput) {
