@@ -1,33 +1,13 @@
-package racingcar;
+package racingcar.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mock;
-import racingcar.model.RacingCarService;
 
 public class WinnerTest {
-    @Mock
     private RacingCarService service = new RacingCarService((minBound, maxBound) -> 4);
-
-    private static ByteArrayOutputStream outputMessage;
-
-    @BeforeEach
-    void setUpStreams() {
-        outputMessage = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputMessage));
-    }
-
-    @AfterEach
-    void restoresStreams() {
-        System.setOut(System.out);
-    }
 
     @Test
     void 레이싱을_0번했을때_모든_사용자가_우승한다() {

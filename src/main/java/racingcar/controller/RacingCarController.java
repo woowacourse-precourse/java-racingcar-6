@@ -24,10 +24,8 @@ public class RacingCarController {
     }
 
     public void racing() {
-        String userInputCarNames = userInputCarNames();
-        String userInputTryNumber = userInputTryNumber();
-        Integer tryNumber = service.parsingTryNumber(userInputTryNumber);
-        service.createCarList(userInputCarNames);
+        service.createCarList(userInputCarNames());
+        Integer tryNumber = service.parsingTryNumber(userInputTryNumber());
         OutputView.racingResultMessage();
 
         if (tryNumber == 0) {

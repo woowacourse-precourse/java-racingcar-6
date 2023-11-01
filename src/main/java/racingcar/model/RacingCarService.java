@@ -31,7 +31,7 @@ public class RacingCarService {
     }
 
     public void move() {
-        carList.move();
+        carList.moveCars();
     }
 
     public String racingResult() {

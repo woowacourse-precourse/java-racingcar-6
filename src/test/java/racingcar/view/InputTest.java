@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -7,20 +7,23 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.io.InputStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mock;
 import racingcar.model.RacingCarService;
 import racingcar.model.car.RandomNumber;
 import racingcar.model.car.RandomUtil;
 
 public class InputTest {
     private final InputStream standardIn = System.in;
-    private RandomUtil randomUtil = new RandomNumber();
+    private RacingCarService service;
 
-    @Mock
-    private RacingCarService service = new RacingCarService(randomUtil);
+    @BeforeEach
+    public void initializeService() {
+        RandomUtil randomUtil = new RandomNumber();
+        this.service = new RacingCarService(randomUtil);
+    }
 
     @AfterEach
     void restoreStreams() {

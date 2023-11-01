@@ -20,7 +20,7 @@ public class CarList {
         }
     }
 
-    public void move() {
+    public void moveCars() {
         for (Car car : carList) {
             car.move();
         }
@@ -28,7 +28,6 @@ public class CarList {
 
     public String showCarList() {
         StringBuilder translatedResult = new StringBuilder();
-        int size = carList.size();
         for (Car car : carList) {
             translatedResult
                     .append(car.getName())
