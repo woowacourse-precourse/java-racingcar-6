@@ -28,7 +28,7 @@ public class RacingController {
     }
 
     public void startRound(List<String> carNames, int tryCount) {
-        racingService.startRound(carNames,tryCount);
+        racingService.startRound(carNames);
         processRound(tryCount);
     }
 

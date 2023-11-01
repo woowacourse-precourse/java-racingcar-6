@@ -19,7 +19,7 @@ public class RacingService {
 
     private final static CarRepository carRepository = CarRepository.getInstance();
 
-    public void startRound(List<String> carNames, int tryCount) {
+    public void startRound(List<String> carNames) {
         createRacingCars(carNames);
     }
 
