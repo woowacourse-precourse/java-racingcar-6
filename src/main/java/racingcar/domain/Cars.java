@@ -29,6 +29,15 @@ public class Cars {
         return names;
     }
 
+    public void playOneRound() {
+        for (Car car : cars) {
+            boolean pass = car.checkRandomNumber();
+            if (pass) {
+                car.moveForward();
+            }
+        }
+    }
+
     private int findMaxPosition() {
         int maxPosition = Integer.MIN_VALUE;
         for (Car car : cars) {

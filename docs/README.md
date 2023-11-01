@@ -51,7 +51,7 @@
 
 ### 자동차 컬렉션 Cars
 - [x] 현재 시점의 최종 우승자를 확인하는 기능 - getFinalWinner()
-- [ ] 한 라운드 진행시키는 기능 - playOneRound()
+- [x] 한 라운드 진행시키는 기능 - playOneRound()
 
 ### 레이싱 게임 RacingGame
 - [ ] 게임을 시작시키는 기능 - play()
