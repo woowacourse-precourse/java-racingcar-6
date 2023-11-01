@@ -1,6 +1,5 @@
 package racingcar;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import java.util.ArrayList;
@@ -30,10 +29,8 @@ public class Game {
         this.roundCount = roundCount;
     }
 
-    public void generateCars() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNamesInput = readLine();
-        validateCarNames(carNamesInput);
+    public List<Car> generateCars(String carNamesInput) {
+
         String[] carNames = carNamesInput.split(",");
 
         List<Car> carList = new ArrayList<>();
@@ -41,67 +38,42 @@ public class Game {
             carList.add(new Car(carName, 0));
         }
         setCars(carList);
+        return carList;
     }
 
-    public void validateCarNames(String carNamesInput) {
-        String[] carNames = carNamesInput.split(",");
-        for (String carName : carNames) {
-            validateCarName(carName);
-        }
+    public int generateRoundCount(String roundCountInput) {
+        roundCount = Integer.parseInt(roundCountInput);
+        setRoundCount(roundCount);
+        return roundCount;
     }
 
-    public void validateCarName(String carName) {
-        if (carName.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-        }
-    }
-
-    public void generateRoundCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String roundCountInput = readLine();
-        validateRoundCount(roundCountInput);
-        setRoundCount(Integer.parseInt(roundCountInput));
-    }
-
-    public void validateRoundCount(String roundCountInput) {
-        for (int index = 0; index < roundCountInput.length(); index++) {
-            validateRoundCountCharacter(roundCountInput.charAt(index));
-        }
-    }
-
-    public void validateRoundCountCharacter(char characterAtRoundCountInput) {
-        if (!Character.isDigit(characterAtRoundCountInput)) {
-            throw new IllegalArgumentException("숫자를 입력해주세요");
-        }
-    }
-
-    public void showProcessingBoard() {
+    public void showProcessingBoard(List<Car> cars, int roundCount) {
         System.out.println();
         System.out.println("실행 결과");
 
-        for (int turn = 0; turn < getRoundCount(); turn++) {
-            moveCars();
-            printCars();
+        for (int turn = 0; turn < roundCount; turn++) {
+            moveCars(cars);
+            printCars(cars);
         }
     }
 
-    public void moveCars() {
-        for (Car car : getCars()) {
+    public void moveCars(List<Car> cars) {
+        for (Car car : cars) {
             int randomNumber = pickNumberInRange(0, 9);
             car.move(randomNumber);
         }
     }
 
-    public void printCars() {
-        for (Car car : getCars()) {
+    public void printCars(List<Car> cars) {
+        for (Car car : cars) {
             System.out.println(car.toString());
         }
         System.out.println();
     }
 
-    public void showResultBoard() {
-        int maxDistance = getMaxDistance();
-        List<String> winnerNames = getCars().stream()
+    public void showResultBoard(List<Car> cars) {
+        int maxDistance = getMaxDistance(cars);
+        List<String> winnerNames = cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .map(Car::getName)
                 .toList();
@@ -109,8 +81,8 @@ public class Game {
         System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 
-    public int getMaxDistance() {
-        return Objects.requireNonNull(getCars().stream()
+    public int getMaxDistance(List<Car> cars) {
+        return Objects.requireNonNull(cars.stream()
                         .max(Car::compareTo)
                         .orElse(null))
                 .getDistance();
