@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -103,7 +102,6 @@ public class CarController {
 
         return result;
     }
-
 
 
     private void attemptForwardAndOutputResult(int forwardAttempt, Cars cars) {
