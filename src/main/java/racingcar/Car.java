@@ -26,10 +26,7 @@ public class Car {
     }
 
     boolean isInvalidCarName(String name) {
-        if (name.length() > 5) {
-            return true;
-        }
-        return false;
+        return (name.length() > 5);
     }
 
 }
