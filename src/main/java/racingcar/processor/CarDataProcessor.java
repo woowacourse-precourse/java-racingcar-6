@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Name;
+import racingcar.game.GameRound;
 
 public class CarDataProcessor {
 
@@ -19,8 +20,9 @@ public class CarDataProcessor {
         return saveCars(carNames);
     }
 
-    public int processCount() {
-        return request.inputGameCount();
+    public GameRound processCount() {
+        int gameRounds = request.inputGameCount();
+        return new GameRound(gameRounds);
     }
 
     public List<Car> saveCars(String inputCars) {

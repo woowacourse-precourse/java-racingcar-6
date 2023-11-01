@@ -20,14 +20,15 @@ public class RacingGame {
 
     public void run() {
         List<Car> cars = processor.process();
-        int gameRounds = processor.processCount();
+        GameRound gameRound = processor.processCount();
 
-        while (gameRounds-- > 0) {
+        while (gameRound.isRunning()) {
             cars.forEach(car -> {
                 movement.moveCar(car);
                 Console.showCarStatus(car.getName(), car.toString());
             });
 
+            gameRound.decrease();
             Console.newLine();
         }
 
