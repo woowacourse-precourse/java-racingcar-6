@@ -63,13 +63,20 @@ public class RacingGame implements Game {
         stage = STAGES.END;
         gameOutput.print(MESSAGES.END);
 
+        printRaceResults();
+        printWinners();
+    }
+
+    private void printRaceResults(){
         List<List<Car>> results = racingService.results();
         for (List<Car> cars : results) {
             for (Car car : cars) {
                 gameOutput.print(car.getName() + " : " + "-".repeat(car.getPosition()));
             }
         }
+    }
 
+    private void printWinners(){
         List<String> winnerNames = racingService.winners()
                 .stream()
                 .map(Car::getName)
