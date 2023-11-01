@@ -5,9 +5,8 @@ public class Car {
     private String name;
     private Integer moves = 0;
 
-    public Car(String name, Integer moves) {
+    public Car(String name) {
         this.name = name;
-        this.moves = moves;
     }
 
     public String getName() {
