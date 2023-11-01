@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.Validator;
+import racingcar.util.Validator;
 import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.service.GameService;
