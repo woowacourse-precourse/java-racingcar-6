@@ -25,7 +25,7 @@ public class ConsolePrinter {
         System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
     }
 
-    public static void printFinalWinner(List<String> names) {
+    public static void printFinalWinners(List<String> names) {
         System.out.println("최종 우승자 : " + String.join(JOIN_DELIMITER, names));
     }
 }

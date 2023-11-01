@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.util.Validator;
+import racingcar.view.ConsolePrinter;
 
 public class Cars {
     public List<Car> cars;
@@ -18,7 +19,7 @@ public class Cars {
         this.cars = carList;
     }
 
-    public List<String> getFinalWinner() {
+    public List<String> getFinalWinners() {
         int maxPosition = findMaxPosition();
         List<String> names = new ArrayList<>();
         for (Car car : cars) {
@@ -35,6 +36,7 @@ public class Cars {
             if (pass) {
                 car.moveForward();
             }
+            ConsolePrinter.printCarPosition(car);
         }
     }
 
