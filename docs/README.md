@@ -1,45 +1,27 @@
-## 구현할 기능 목록
+### Car 클래스
 
-### 객체
+**멤버 변수:**
+- `name` (String): 자동차의 이름
+- `moveCnt` (int): 자동차의 이동 횟수
 
-#### 자동차
-멤버 변수
-- 이름 (string)
-- 전진횟수 (int)
+**함수:**
+- `pickNumber()` : 랜덤으로 0부터 9까지의 숫자 반환
+- `move()` : 자동차의 전진 횟수를 증가시킴
+- `howFar()` : 자동차의 이름과 현재까지의 전진 상황을 문자열로 반환
 
-함수
-- void 숫자 뽑는 함수(pickNumber) (return : int)
-- void 전진시키는 함수(move) (return : void)
-- void 메세지 출력 함수(howFar) (return : string)
+### Game 클래스
 
+**멤버 변수:**
+- `winnerResult` (String): 경주 결과 문자열
+- `totalMove` (int): 이동할 횟수
+- `CarList` (List<Car>): 참여한 자동차 리스트
 
-#### 게임
-멤버 변수
-- 이동할 횟수(int)
-- 
+**함수:**
+- `Start()` : 사용자로부터 자동차 이름과 이동 횟수를 입력받아 경주 실행
+- `Match()` : 각 자동차의 이동 여부를 결정하고 결과 출력
+- `Winner()` : 최종 우승자를 선정하고 결과 문자열을 반환
 
-함수
+### Application 클래스
 
-void 스타트함수(Start) 
-
-- 경주할 자동차 이름을 받고 자동차 객체 생성
-- 이동할 횟수입력
-- for 경기횟수 : (경기함수) 호출
-- 승자함수()
-
-void 경기함수(Match)
-- for 멤버 횟수
-  - 자동차 pickNumber
-  - if pickNumer
-  - 자동차 move
-  - 자동차 howFar
-
-void 승자함수(Winner)
-- for 멤버횟수
-  - 자동차.전진횟수
-  최대인 아이 출력
-
-    
-
-
-
+**함수:**
+- `main()` : Game 클래스를 생성하고 경주를 시작하며, 최종 우승자를 출력함.
