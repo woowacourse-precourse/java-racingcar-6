@@ -15,6 +15,11 @@ public class CarController {
     public void run() {
         initRacingcar();
         simulRacingcar();
+        awardRacingcar();
+    }
+
+    private void awardRacingcar() {
+        outputView.printWinners(carService.selectWinnerNames());
     }
 
     private void simulRacingcar() {
