@@ -22,6 +22,12 @@ public class Car {
         }
     }
 
+    public String printResult(){
+        return name+" : "+"-".repeat(score);
+    }
+
+
+
 
 
 }
