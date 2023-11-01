@@ -16,59 +16,59 @@ public class RaceService {
     Game game = new Game();
 
     // [readyRace]--------------------------------
-    public void askCarNames(){
-        String InputCars = Console.readLine();
-        String[] splitCarNames = splitNamesByComma(InputCars);
+//    public void askCarNames(){
+//        String InputCars = Console.readLine();
+//        String[] splitCarNames = splitNamesByComma(InputCars);
+//
+//        ArrayList<String> saveCarNames = new ArrayList<>();
+//        for(int i=0;i<splitCarNames.length;i++){
+//            saveCarNames.add(splitCarNames[i]);
+//        }
+//
+//        cars.setCarNames(saveCarNames);
+//    }
+//    // String형으로 받은 자동차 이름 쉼표로 분리하기
+//    public String[] splitNamesByComma(String InputCars) throws IllegalArgumentException{
+//        String[] splitCarNames = InputCars.split(",");
+//
+//        if(!isLimitFiveString(splitCarNames)) {
+//            throw new IllegalArgumentException();
+//        }
+//        return splitCarNames;
+//
+//    }
+//    // 자동차 이름이 5자가 넘어가는지 확인
+//    public boolean isLimitFiveString(String[] CarNames)throws IllegalArgumentException {
+//        for(int i=0;i<CarNames.length;i++) {
+//            if (CarNames[i].length() > 5) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+//
+//    //기능1-(2). 실행횟수 입력받기
+//    public void askExecuteNumber() throws IllegalArgumentException{
+//        String inputCount = Console.readLine();
+//
+//        if(isInt(inputCount)){
+//            cars.setRaceCount(Integer.parseInt(inputCount));
+//        }else if(!isInt(inputCount)){
+//            throw new IllegalArgumentException();
+//        }
+//    }
+//
+//    public boolean isInt(String strValue) {
+//        try {
+//            Integer.parseInt(strValue);
+//            return true;
+//        } catch (NumberFormatException e) {
+//            return false;
+//        }
+//    }
 
-        ArrayList<String> saveCarNames = new ArrayList<>();
-        for(int i=0;i<splitCarNames.length;i++){
-            saveCarNames.add(splitCarNames[i]);
-        }
 
-        cars.setCarNames(saveCarNames);
-    }
-    // String형으로 받은 자동차 이름 쉼표로 분리하기
-    public String[] splitNamesByComma(String InputCars) throws IllegalArgumentException{
-        String[] splitCarNames = InputCars.split(",");
-
-        if(!isLimitFiveString(splitCarNames)) {
-            throw new IllegalArgumentException();
-        }
-        return splitCarNames;
-
-    }
-    // 자동차 이름이 5자가 넘어가는지 확인
-    public boolean isLimitFiveString(String[] CarNames)throws IllegalArgumentException {
-        for(int i=0;i<CarNames.length;i++) {
-            if (CarNames[i].length() > 5) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    //기능1-(2). 실행횟수 입력받기
-    public void askExecuteNumber() throws IllegalArgumentException{
-        String inputCount = Console.readLine();
-
-        if(isInt(inputCount)){
-            cars.setRaceCount(Integer.parseInt(inputCount));
-        }else if(!isInt(inputCount)){
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public boolean isInt(String strValue) {
-        try {
-            Integer.parseInt(strValue);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-
-    // [startRace]--------------------------------
+    // [startRace]--------------------------------------
     public void raceStart(){
         int raceCount = cars.getRaceCount();
         ArrayList carNameList = cars.getCarNames();
@@ -90,14 +90,6 @@ public class RaceService {
         return raceLog;
     }
 
-    public HashMap rollRandomNumbers(ArrayList<String> carNameList){
-        HashMap<String, Integer> carsPickNumbers = new HashMap<>();
-        for(int i=0;i<carNameList.size();i++) {
-            int randomNumber = Randoms.pickNumberInRange(1, 9);
-            carsPickNumbers.put(carNameList.get(i),randomNumber);
-        }
-        return carsPickNumbers;
-    }
 
 
     public void updateRaceLog(ArrayList<String > carNameList,HashMap<String,Integer> tryOne, HashMap raceLog, int raceCount){

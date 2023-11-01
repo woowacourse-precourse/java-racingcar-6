@@ -6,6 +6,7 @@ public class InputValidation {
     public String[] splitNamesByComma(String InputCars) throws IllegalArgumentException{
         String[] splitCarNames = InputCars.split(",");
 
+        // 1-2. 자동차 이름은 5자가 넘어선 안된다
         if(!isLimitFiveString(splitCarNames)) {
             throw new IllegalArgumentException();
         }
