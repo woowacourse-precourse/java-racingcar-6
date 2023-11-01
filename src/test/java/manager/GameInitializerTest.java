@@ -31,7 +31,7 @@ public class GameInitializerTest {
 
         for (int i = 0; i < resultArray.length; i++) {
             resultArray[i] = new Car(carNameArray[i]);
-            resultStringifyArray[i] = resultArray[i].getName()+"-"+resultArray[i].getPosition();
+            resultStringifyArray[i] = resultArray[i].getName() + "-" + resultArray[i].getPosition();
         }
 
         assertThat(resultStringifyArray).isEqualTo(answerArray);
@@ -61,9 +61,9 @@ public class GameInitializerTest {
 
     public static Stream<Arguments> inputNumbersOfMatchTestArguments() {
         return Stream.of(
-            Arguments.of("1", 1),
-            Arguments.of("2", 2),
-            Arguments.of("3", 3)
+                Arguments.of("1", 1),
+                Arguments.of("2", 2),
+                Arguments.of("3", 3)
         );
     }
 }

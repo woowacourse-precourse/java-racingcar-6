@@ -20,7 +20,7 @@ public class GameInitializer {
 
         try {
             inputCarNameSplit = inputCarName.split(",");
-        } catch(Exception exception) {
+        } catch (Exception exception) {
             throw new IllegalArgumentException();
         }
 
@@ -44,7 +44,7 @@ public class GameInitializer {
 
         try {
             NumbersOfMatch = Integer.parseInt(inputNumbersOfMatch);
-        } catch(Exception exception) {
+        } catch (Exception exception) {
             throw new IllegalArgumentException();
         }
 

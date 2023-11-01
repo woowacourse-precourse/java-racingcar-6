@@ -15,7 +15,7 @@ public class CarTest {
     @ParameterizedTest
     @MethodSource("tryMovingTestArguments")
     public void tryMovingTest(Car[] carArray, int[] answerArray) {
-        int[] numberArray = new int[]{0,1,2,3,4,5,6,7,8,9};
+        int[] numberArray = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] resultArray = new int[carArray.length];
 
         for (int i = 0; i < numberArray.length; i++) {
@@ -31,8 +31,8 @@ public class CarTest {
 
     public static Stream<Arguments> tryMovingTestArguments() {
         return Stream.of(
-            Arguments.of(new Car[]{new Car("test1")}, new int[]{6}),
-            Arguments.of(new Car[]{new Car("test1"), new Car("test2")}, new int[]{3,3})
+                Arguments.of(new Car[]{new Car("test1")}, new int[]{6}),
+                Arguments.of(new Car[]{new Car("test1"), new Car("test2")}, new int[]{3, 3})
         );
     }
 
@@ -51,14 +51,14 @@ public class CarTest {
     public static Stream<Arguments> getNameTestArguments() {
         return Stream.of(
                 Arguments.of(new Car[]{new Car("test1")}, new String[]{"test1"}),
-                Arguments.of(new Car[]{new Car("test1"), new Car("test2")}, new String[]{"test1","test2"})
+                Arguments.of(new Car[]{new Car("test1"), new Car("test2")}, new String[]{"test1", "test2"})
         );
     }
 
     @ParameterizedTest
     @MethodSource("getPositionTestArguments")
     public void getPositionTest(Car[] carArray, int[] answerArray) {
-        int[] numberArray = new int[]{4,4,4,3,3,3,4,4,3,3,3,4,4,3,3,3,3,4,4,3};
+        int[] numberArray = new int[]{4, 4, 4, 3, 3, 3, 4, 4, 3, 3, 3, 4, 4, 3, 3, 3, 3, 4, 4, 3};
         int[] resultArray = new int[carArray.length];
 
         for (int i = 0; i < numberArray.length; i++) {
@@ -75,7 +75,7 @@ public class CarTest {
     public static Stream<Arguments> getPositionTestArguments() {
         return Stream.of(
                 Arguments.of(new Car[]{new Car("test1")}, new int[]{9}),
-                Arguments.of(new Car[]{new Car("test1"), new Car("test2")}, new int[]{5,4})
+                Arguments.of(new Car[]{new Car("test1"), new Car("test2")}, new int[]{5, 4})
         );
     }
 }

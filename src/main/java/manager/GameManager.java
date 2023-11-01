@@ -17,13 +17,13 @@ public class GameManager {
 
     // 디미터의 법칙 위반.
     public void progressMatch() {
-        for (Car car: carList) {
+        for (Car car : carList) {
             car.tryMoving(randomNumberGenerator.generatingForCarTryMoving());
         }
     }
 
     public void outputCurrentPosition() {
-        for (Car car: carList) {
+        for (Car car : carList) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
     }
@@ -32,7 +32,7 @@ public class GameManager {
         List<String> winnerCarNameList = new ArrayList<>();
         int topPositionLength = 0;
 
-        for (Car car: carList) {
+        for (Car car : carList) {
             if (car.getPosition() == topPositionLength) {
                 winnerCarNameList.add(car.getName());
             } else if (car.getPosition() > topPositionLength) {
@@ -42,6 +42,6 @@ public class GameManager {
             }
         }
 
-        System.out.println("최종 우승자 : " + String.join(", ",winnerCarNameList));
+        System.out.println("최종 우승자 : " + String.join(", ", winnerCarNameList));
     }
 }

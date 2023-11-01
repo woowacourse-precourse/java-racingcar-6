@@ -56,15 +56,15 @@ public class GameManagerTest {
                     }
                     assertThat(result).isEqualTo(answerArray);
                 },
-                4,3,3,3,4,4
+                4, 3, 3, 3, 4, 4
         );
     }
 
     public static Stream<Arguments> progressMatchTestArguments() {
         return Stream.of(
-                Arguments.of( 1, new int[]{1,0}),
-                Arguments.of( 2, new int[]{1,0}),
-                Arguments.of( 3, new int[]{2,1})
+                Arguments.of(1, new int[]{1, 0}),
+                Arguments.of(2, new int[]{1, 0}),
+                Arguments.of(3, new int[]{2, 1})
         );
     }
 
@@ -76,24 +76,24 @@ public class GameManagerTest {
         GameManager gameManager = new GameManager(carList);
 
         assertRandomNumberInRangeTest(
-            () -> {
-                for (int i = 0; i < numberOfMatch; i++) {
-                    gameManager.progressMatch();
-                }
+                () -> {
+                    for (int i = 0; i < numberOfMatch; i++) {
+                        gameManager.progressMatch();
+                    }
 
-                gameManager.outputCurrentPosition();
+                    gameManager.outputCurrentPosition();
 
-                assertThat(captor.toString().trim().replaceAll("(\r\n|\r|\n|\n\r)", ",")).isEqualTo(answer);
-            },
-            4,3,3,3,4,4
+                    assertThat(captor.toString().trim().replaceAll("(\r\n|\r|\n|\n\r)", ",")).isEqualTo(answer);
+                },
+                4, 3, 3, 3, 4, 4
         );
     }
 
     public static Stream<Arguments> outputCurrentPositionTestArguments() {
         return Stream.of(
-                Arguments.of( 1, "test1 : -,test2 :"),
-                Arguments.of( 2, "test1 : -,test2 :"),
-                Arguments.of( 3, "test1 : --,test2 : -")
+                Arguments.of(1, "test1 : -,test2 :"),
+                Arguments.of(2, "test1 : -,test2 :"),
+                Arguments.of(3, "test1 : --,test2 : -")
         );
     }
 
@@ -114,15 +114,15 @@ public class GameManagerTest {
 
                     assertThat(captor.toString().trim()).isEqualTo(answer);
                 },
-                4,3,3,3,4,4
+                4, 3, 3, 3, 4, 4
         );
     }
 
     public static Stream<Arguments> outputWinnerTestArguments() {
         return Stream.of(
-                Arguments.of( 1, "최종 우승자 : test1"),
-                Arguments.of( 2, "최종 우승자 : test1"),
-                Arguments.of( 3, "최종 우승자 : test1")
+                Arguments.of(1, "최종 우승자 : test1"),
+                Arguments.of(2, "최종 우승자 : test1"),
+                Arguments.of(3, "최종 우승자 : test1")
         );
     }
 }
