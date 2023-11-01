@@ -9,7 +9,7 @@ public class CarGroup {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int POSITION_INCREMENT_THRESHOLD = 4;
-    private static final String STRING_SEPARATOR = ",";
+    private static final String STRING_SEPARATOR = ", ";
     public List<Car> cars = new ArrayList<>();
 
     public void addCar(Car car) {
