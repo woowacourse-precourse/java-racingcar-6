@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private static final String RACE_START_MESSAGE = "\n실행결과";
+    private static final String RACE_START_MESSAGE = "실행결과";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private Car[] cars;
 
@@ -16,6 +16,7 @@ public class Cars {
     }
 
     public void raceStart(int round) {
+        System.out.println();
         System.out.println(RACE_START_MESSAGE);
         for (int i = 0; i < round; i++) {
             for (int j = 0; j < cars.length; j++) {
