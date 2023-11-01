@@ -14,6 +14,8 @@ public class Application {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^-?[0-9]+$");
     private static final int MIN_VALUE_TO_MOVE_CAR = 4;
     private static final int NAME_MAX_LENGTH = 5;
+    private static final int RANDOM_MIN_VALUE = 0;
+    private static final int RANDOM_MAX_VALUE = 9;
 
     public static void main(String[] args) {
         List<Integer> position = new ArrayList<>();
@@ -71,7 +73,7 @@ public class Application {
     }
 
     private static boolean canMoveForward() {
-        int forwardRandomValue = Randoms.pickNumberInRange(0, 9);
+        int forwardRandomValue = Randoms.pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
         return forwardRandomValue >= MIN_VALUE_TO_MOVE_CAR;
     }
 
