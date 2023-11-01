@@ -1,50 +1,28 @@
 package racingcar;
 
-import java.util.Objects;
-
 public class Car {
-	String name;
+
+	CarName carName;
 	int moveCount;
 
-	public Car(String name, int moveCount) {
-		this.name = name;
-		this.moveCount = moveCount;
+	public Car(CarName carName) {
+		this.carName = carName;
+		moveCount = 0;
 	}
 
-	public String getName() {
-		return name;
+	public boolean move(int random) {
+		if (random >= 4) {
+			moveCount++;
+			return true;
+		}
+		return false;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getCarName() {
+		return carName.getCarName();
 	}
 
 	public int getMoveCount() {
 		return moveCount;
 	}
-
-	public void setMoveCount(int moveCount) {
-		this.moveCount = moveCount;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (!(o instanceof Car car)) {
-			return false;
-		}
-		return Objects.equals(name, car.name);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(name);
-	}
-
-	public void increaseMoveCount() {
-		moveCount++;
-	}
 }
-
