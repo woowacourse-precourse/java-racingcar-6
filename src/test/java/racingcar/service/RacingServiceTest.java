@@ -36,8 +36,7 @@ class RacingServiceTest extends NsTest{
 
     @AfterEach
     void end() {
-        carRepository.clean();
-        resultRepository.clean();
+        racingService.removeAll();
     }
 
     @Test
