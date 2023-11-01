@@ -27,4 +27,8 @@ public class MessageUtil {
         System.out.print(carName + " : ");
     }
 
+    public void outPutEnter() {
+        System.out.println();
+    }
+
 }
