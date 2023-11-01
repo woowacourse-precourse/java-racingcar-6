@@ -6,6 +6,8 @@ public class Car {
 
   private final String carName;
   private int position = 0;
+  private static final int MOVE_THRESHOLD = 4;
+  private static final int RANDOM_RANGE = 10;
 
   public Car(String carName) {
     this.carName = carName;
@@ -17,8 +19,8 @@ public class Car {
   }
 
   public void moveForward() {
-    int randomNumber = Randoms.pickNumberInRange(0, 9);
-    if (randomNumber >= 4) {
+    int randomNumber = Randoms.pickNumberInRange(0, RANDOM_RANGE - 1);
+    if (randomNumber >= MOVE_THRESHOLD) {
       position++;
     }
   }
