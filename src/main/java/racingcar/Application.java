@@ -2,7 +2,11 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        RacingGame game = new RacingGame();
-        GameConsole.play(game);
+        try {
+            RacingGame game = new RacingGame();
+            GameConsole.play(game);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
