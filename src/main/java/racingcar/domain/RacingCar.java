@@ -10,8 +10,8 @@ public final class RacingCar {
     private final Name name;
     private MoveDistance moveDistance;
 
-    public RacingCar(final Name name) {
-        this.name = name;
+    public RacingCar(final String name) {
+        this.name = new Name(name);
         this.moveDistance = new MoveDistance();
     }
 

@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racingcar.domain.Name;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
@@ -29,7 +28,7 @@ class RacingCarServiceTest {
     void saveRacingCars() {
         // given
         final RacingCars racingCars =
-                new RacingCars(List.of(new RacingCar(new Name("a")), new RacingCar(new Name("b"))));
+                new RacingCars(List.of(new RacingCar("a"), new RacingCar("b")));
 
         // when
         racingCarService.saveRacingCars(racingCars);
@@ -58,7 +57,7 @@ class RacingCarServiceTest {
     void move() {
         // given
         final RacingCars racingCars =
-                new RacingCars(List.of(new RacingCar(new Name("a")), new RacingCar(new Name("b"))));
+                new RacingCars(List.of(new RacingCar("a"), new RacingCar("b")));
         racingCarService.saveRacingCars(racingCars);
 
         // when
@@ -86,7 +85,7 @@ class RacingCarServiceTest {
     void checkWinners() {
         // given
         final RacingCars racingCars =
-                new RacingCars(List.of(new RacingCar(new Name("a")), new RacingCar(new Name("b"))));
+                new RacingCars(List.of(new RacingCar("a"), new RacingCar("b")));
         racingCarService.saveRacingCars(racingCars);
 
         // when

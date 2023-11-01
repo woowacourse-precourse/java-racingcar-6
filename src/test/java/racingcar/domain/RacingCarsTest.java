@@ -22,7 +22,7 @@ class RacingCarsTest {
             // given
             // when
             // then
-            assertThatThrownBy(() -> new RacingCars(List.of(new RacingCar(new Name("abc")))))
+            assertThatThrownBy(() -> new RacingCars(List.of(new RacingCar("abc"))))
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
@@ -35,9 +35,7 @@ class RacingCarsTest {
             assertThatThrownBy(
                             () ->
                                     new RacingCars(
-                                            List.of(
-                                                    new RacingCar(new Name("abc")),
-                                                    new RacingCar(new Name("abc")))))
+                                            List.of(new RacingCar("abc"), new RacingCar("abc"))))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     }
@@ -46,8 +44,7 @@ class RacingCarsTest {
     @DisplayName("자동차 개수를 요청하면 올바른 개수를 반환하는가")
     void numOfElement() {
         // given
-        final List<RacingCar> elements =
-                List.of(new RacingCar(new Name("abc")), new RacingCar(new Name("def")));
+        final List<RacingCar> elements = List.of(new RacingCar("abc"), new RacingCar("def"));
         final RacingCars racingCars = new RacingCars(elements);
 
         // when
@@ -66,10 +63,7 @@ class RacingCarsTest {
         void greaterThan4() {
             // given
             final RacingCars racingCars =
-                    new RacingCars(
-                            List.of(
-                                    new RacingCar(new Name("abc")),
-                                    new RacingCar(new Name("def"))));
+                    new RacingCars(List.of(new RacingCar("abc"), new RacingCar("def")));
 
             // when
             racingCars.moveByNumbers(new Numbers(List.of(4, 5)));
@@ -83,10 +77,7 @@ class RacingCarsTest {
         void lessThan4() {
             // given
             final RacingCars racingCars =
-                    new RacingCars(
-                            List.of(
-                                    new RacingCar(new Name("abc")),
-                                    new RacingCar(new Name("def"))));
+                    new RacingCars(List.of(new RacingCar("abc"), new RacingCar("def")));
 
             // when
             racingCars.moveByNumbers(new Numbers(List.of(1, 2)));
@@ -103,10 +94,7 @@ class RacingCarsTest {
         final String firstCarName = "abc";
         final String secondCarName = "def";
         final RacingCars racingCars =
-                new RacingCars(
-                        List.of(
-                                new RacingCar(new Name(firstCarName)),
-                                new RacingCar(new Name(secondCarName))));
+                new RacingCars(List.of(new RacingCar(firstCarName), new RacingCar(secondCarName)));
 
         // when
         final String resultMessage = racingCars.toResultMessage();
@@ -122,10 +110,7 @@ class RacingCarsTest {
         final String firstWinner = "abc";
         final String secondWinner = "def";
         final RacingCars racingCars =
-                new RacingCars(
-                        List.of(
-                                new RacingCar(new Name(firstWinner)),
-                                new RacingCar(new Name(secondWinner))));
+                new RacingCars(List.of(new RacingCar(firstWinner), new RacingCar(secondWinner)));
         racingCars.moveByNumbers(new Numbers(List.of(4, 4)));
 
         // when

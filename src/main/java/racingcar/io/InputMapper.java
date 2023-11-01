@@ -1,7 +1,6 @@
 package racingcar.io;
 
 import racingcar.constant.Delimiter;
-import racingcar.domain.Name;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
@@ -13,7 +12,6 @@ public class InputMapper {
 
     public RacingCars toRacingCars(final String input) {
         return Arrays.stream(input.split(Delimiter.COMMA.toExpression()))
-                .map(Name::new)
                 .map(RacingCar::new)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), RacingCars::new));
     }
