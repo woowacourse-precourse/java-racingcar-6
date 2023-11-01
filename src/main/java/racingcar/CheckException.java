@@ -3,10 +3,15 @@ package racingcar;
 import java.util.*;
 public class CheckException {
     static void checkRightCarName(Set<String> carNameSet){
+        boolean hasInvalidName = false;
         for (String name : carNameSet){
             if (name.length() > 5) {
-                throw new IllegalArgumentException();
+                hasInvalidName = true;
+                break;
             }
+        }
+        if (hasInvalidName) {
+            throw new IllegalArgumentException();
         }
     }
 

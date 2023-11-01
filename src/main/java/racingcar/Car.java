@@ -6,7 +6,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Car{
-    Map<String,String> carInformation = new HashMap<>();
+    Map<String,String> carInformation = new LinkedHashMap<>();
     int repeatCount;
     public Car() {
         init();
