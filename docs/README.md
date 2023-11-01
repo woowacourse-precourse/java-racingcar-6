@@ -2,11 +2,11 @@
 
 ## 기능 목록
 
-- [ ] 자동차 전진 여부를 결정한다. Engine/isMovingForward()
-    - [ ] 0-9사이의 숫자를 생성한다. NumberGenerator/createRandomNumber()
-    - [ ] 생성한 숫자가 4 이상인지 판별한다. Judgement/isFourOrMore()
-- [ ] 주어진 횟수만큼 자동차들 전진시킬 수 있다. game/movingCars()
-- [ ] 우승자를 판별할 수 있다. Referee/getWinner()
+- [x] 자동차 전진 여부를 결정한다. Engine/isMovingForward()
+    - [x] 0-9사이의 숫자를 생성한다. NumberGenerator/createRandomNumber()
+    - [x] 생성한 숫자가 4 이상인지 판별한다. Judgement/isFourOrMore()
+- [x] 자동차를 전진시킬 수 있다. game/movingCars()
+- [x] 우승자를 판별할 수 있다. Referee/getWinner()
 
 ## 기능 요구 사항
 
