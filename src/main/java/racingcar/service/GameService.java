@@ -24,8 +24,8 @@ public class GameService {
         return cars;
     }
 
-    public Boolean canMove(int value) {
-        return value >= Constant.MIN_CAN_MOVE_VALUE;
+    public void move(Car car, int value) {
+        car.move(value);
     }
 
     public List<String> toCarString(List<Car> cars) {

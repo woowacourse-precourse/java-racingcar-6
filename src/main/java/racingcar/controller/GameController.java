@@ -56,17 +56,11 @@ public class GameController {
 
     private void race() {
         for (Car car : cars) {
-            if (canMove()) {
-                car.oneMoving();
-            }
+            gameService.move(car, RandomValue.getRandomValue());
         }
 
         List<String> results = gameService.toCarString(cars);
         outputView.printOneRoundResult(results);
-    }
-
-    private Boolean canMove() {
-        return gameService.canMove(RandomValue.getRandomValue());
     }
 
     private void findWinner() {
