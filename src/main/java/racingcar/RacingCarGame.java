@@ -25,9 +25,11 @@ public class RacingCarGame {
         inputNames(splitInputNames());
         inputTryLimit();
         System.out.println();
+
         System.out.println(race());
         setMax();
         setWinnerCars();
+
         System.out.println(getWinnerNames());
     }
 
@@ -48,9 +50,9 @@ public class RacingCarGame {
     }
 
     //only for test
-    public ArrayList<String> carsToString(List<Car> cars){
+    public ArrayList<String> carsToString(){
         ArrayList<String> s = new ArrayList<>();
-        if(winnerCars.size()>0){
+        if(cars.size()>0){
             for(Car car : cars){
                 s.add(car.getName());
             }
