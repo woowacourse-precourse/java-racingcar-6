@@ -165,11 +165,13 @@ Randoms.pickNumberInRange(0,9);
 ## 💡기능 구현 목록
 ### ✅ 입력
 - [x] 게임문구 출력 InputView
-  - [x] 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) InputView#generateCarNameInput
-  - [x] 시도할 회수는 몇회인가요? InputView#generateTryCountInput
-- [x] 쉼표를 기준으로 n개의 자동차 입력받음(자동차 이름은 5자 이하) InputView#generateCarNameInput
-- [x] 시도할 횟수를 입력받음 (n 대의 자동차가 전진 또는 멈추는 횟수) InputView#generateTryCountInput
-- [ ] 자동차 이름 값은 , 를 기준으로 5자 이하이어야 한다. CarNameValidator
+  - [x] 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) InputView#promptCarNames
+  - [x] 시도할 회수는 몇회인가요? InputView#promptTryCount
+- [x] 쉼표를 기준으로 n개의 자동차 입력받음(자동차 이름은 5자 이하) InputView#promptCarNames
+- [x] 시도할 횟수를 입력받음 (n 대의 자동차가 전진 또는 멈추는 횟수) InputView#promptTryCount
+- [x] 경주할 자동차 이름을 입력받는 부분은 빈 칸이면 안된다. checkIsEmptyInput
+- [x] 경주할 자동차 이름을 입력받는 부분에서 문자의 개수는 , 의 개수 +1 이어야한다. checkInputFormat
+- [x] 자동차 이름 값은 5자 이하이어야 한다. CarNameValidator
 
 <br/>
 
