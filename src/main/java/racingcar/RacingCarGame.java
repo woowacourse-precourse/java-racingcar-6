@@ -70,4 +70,19 @@ public class RacingCarGame {
             System.out.println();
         });
     }
+
+    // 기능 5) 자동차 경주 게임이 끝나면 우승자를 출력한다. 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
+    private void writeWinners() {
+        int maxDistance = this.racingCars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
+
+        String winners = this.racingCars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println("최종 우승자 : " + winners);
+    }
 }
