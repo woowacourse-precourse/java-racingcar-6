@@ -1,10 +1,12 @@
 package racingcar;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Racing {
     Car[] cars;
     int raceCount;
+    ArrayList<String> winnerList = new ArrayList<String>();
     public Racing(String[] carList, int raceCount) {
         this.raceCount = raceCount;
         cars = new Car[carList.length];
@@ -16,12 +18,12 @@ public class Racing {
         for (int i = 0; i < raceCount; i++) {
             for (Car j : cars)
                 j.moveCar();
+            outputRaceProcess();
         }
     }
 
     public void findWinner() {
         int maxPosition = -1;
-        ArrayList<String> winnerList = new ArrayList<String>();
 
         for (Car i : cars) {
             if (i.position > maxPosition) {
@@ -35,6 +37,10 @@ public class Racing {
         }
     }
 
-    
+    public void outputRaceProcess() {
+        for (Car i : cars) {
+            System.out.println(i.name + " : " + "-".repeat(i.position));
+        }
+    }
 
 }
