@@ -41,9 +41,25 @@ class CarsTest {
         }
     }
 
+    @DisplayName("우승자가 한 명일 때 우승자를 구할 수 있다")
+    @Test
+    void testFindWinner1() {
+        // given
+        Cars cars = new Cars(List.of("a"));
+        Movable movable = new FixedMovable(true);
+        cars.moveAllCars(movable);
+
+        // when
+        WinnerDto winnerDto = cars.findWinner();
+
+        // then
+        assertThat(winnerDto.winners().get(0).getName()).isEqualTo("a");
+        assertThat(winnerDto.winners().size()).isEqualTo(1);
+    }
+
     @DisplayName("우승자가 여러명일 때 우승자를 구할 수 있다")
     @Test
-    void testFindWinner() {
+    void testFindWinner2() {
         // given
         Cars cars = new Cars(List.of("a", "b", "c"));
         Movable movable = new FixedMovable(true);
