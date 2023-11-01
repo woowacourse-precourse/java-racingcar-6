@@ -19,8 +19,9 @@ public class Car {
         return this.forwardDistance;
     }
 
-    public void moveOnRandomCondition() {
-        if (NumberGenerator.generateRandom() >= 4) {
+    public void move(NumberGenerator generator) {
+        int number = generator.generate();
+        if (number >= 4) {
             forwardDistance++;
         }
     }

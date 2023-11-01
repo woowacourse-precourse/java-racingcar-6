@@ -1,14 +1,6 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
+public interface NumberGenerator {
 
-public class NumberGenerator {
-    private NumberGenerator() {
-    }
-
-    public static int generateRandom() {
-        int startInclusive = 0;
-        int endInclusive = 9;
-        return Randoms.pickNumberInRange(startInclusive, endInclusive);
-    }
+    int generate();
 }

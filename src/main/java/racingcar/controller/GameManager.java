@@ -8,13 +8,15 @@ import racingcar.view.RaceView;
 
 public class GameManager {
     private int remainingRounds;
-    private final List<Car> cars;
+    private List<Car> cars;
+    private NumberGenerator numberGenerator;
 
     public GameManager() {
-        this.cars = new ArrayList<>();
     }
 
     public void runGame() {
+        cars = new ArrayList<>();
+        numberGenerator = new RandomNumberGenerator();
         setupGame();
         playGame();
         displayGameResult();
@@ -23,14 +25,14 @@ public class GameManager {
     private void setupGame() {
         List<String> carsName = GameUI.promptForCarNames();
         for (String name : carsName) {
-            this.cars.add(new Car(name));
+            cars.add(new Car(name));
         }
-        this.remainingRounds = GameUI.promptForNumberOfRounds();
+        remainingRounds = GameUI.promptForNumberOfRounds();
     }
 
     private void playGame() {
-        for (; this.remainingRounds > 0; this.remainingRounds--) {
-            this.cars.forEach(Car::moveOnRandomCondition);
+        for (; remainingRounds > 0; remainingRounds--) {
+            cars.forEach(car -> car.move(numberGenerator));
             RaceView.displayRoundResults(cars);
         }
     }
