@@ -16,11 +16,10 @@ public class InputReader {
     }
 
     private static List<String> parseCarNamesToList(String carNames) {
-        List<String> carNameList = Arrays.stream(carNames.split(","))
-                .filter(name -> name.length() <= 5)
-                .collect(Collectors.toList());
+        carNamesValidation(carNames);
 
-        carNamesValidation(carNames, carNameList);
+        List<String> carNameList = Arrays.stream(carNames.split(","))
+                .collect(Collectors.toList());
 
         return carNameList;
     }

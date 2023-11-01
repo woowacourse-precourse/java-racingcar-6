@@ -1,11 +1,21 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Validator {
-    public static void carNamesValidation(String carNames, List<String> carNameList) {
+    public static void carNamesValidation(String carNames) {
+        List<String> carNameList = getCarNamesUnderFiveChar(carNames);
+
         checkHasOverFiveChar(carNames, carNameList);
         checkHasEmptyName(carNames, carNameList);
+    }
+
+    private static List<String> getCarNamesUnderFiveChar(String carNames) {
+        return Arrays.stream(carNames.split(","))
+                .filter(name -> name.length() <= 5)
+                .collect(Collectors.toList());
     }
 
     private static void checkHasOverFiveChar(String carNames, List<String> carNameList) {
