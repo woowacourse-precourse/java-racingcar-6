@@ -17,17 +17,21 @@ public class CarRace {
         }
 
         this.round = round;
-        this.carNames = Arrays.stream(carNames)
-                .filter(a -> a.length() <= 5)
-                .toList();
-        if (this.carNames.size() != carNames.length) {
-            throw new IllegalArgumentException("CarRace : name invalid");
-        }
+        this.carNames = Arrays.stream(carNames).toList();
+        nameCheck();
 
         this.results = new ArrayList<>(carNames.length);
 
         for (int i = 0; i < carNames.length; i++) {
             results.add(new StringBuilder());
+        }
+    }
+
+    private void nameCheck() {
+        for (String name : carNames) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("CarRace : name invalid");
+            }
         }
     }
 
