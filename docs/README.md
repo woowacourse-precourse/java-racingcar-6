@@ -1,11 +1,18 @@
 ## 🚀 기능 목록
 초간단 자동차 경주 게임을 구현한다.
+-자동차에 이름 부여 : setInputMembers
+-횟수 입력 : setAttempts
+-자동차 입력값 체크 : checkMembers
+-횟수 입력값 체크 : checkAttempts
+-횟수 만큼 게임 : startAttempts
+-가장 큰 거리 생성: setMaxDistance
+-우승자 출력 : showWinners
 
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다. 
 - 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
-  - 횟수 입력 : inputValue
+  - 횟수 입력 : setAttempts()
 - 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
-  - 자동차에 이름 부여 : askCar
+  - 자동차에 이름 부여 : setInputMembers
 - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
   - createCarList
   

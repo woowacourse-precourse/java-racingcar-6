@@ -19,6 +19,8 @@ public class Game{
         setAttempts();
         makeAttempts();
         startAttempts();
+        setMaxDistance();
+        showWinners();
     }
     public void setInputMembers(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -27,7 +29,7 @@ public class Game{
     }
     public void makeMembers(){
         for(String member:inputMembers.split(",")) {
-            checker.checkMember(member);
+            checker.checkMembers(member);
             Car car = new Car(member);
             members.add(car);
         }
@@ -35,7 +37,7 @@ public class Game{
     public void setAttempts(){
         System.out.println("시도할 회수는 몇회인가요?");
         inputAttempts = Console.readLine();
-        checker.checkNumber(inputAttempts);
+        checker.checkAttempts(inputAttempts);
     }
     public void makeAttempts(){
         attempts = Integer.parseInt(inputAttempts);
@@ -50,7 +52,7 @@ public class Game{
         }
     }
     public void playGame(){
-        for (Car car:members) {
+        for(Car car:members) {
             int randomNumber = Randoms.pickNumberInRange(0,9);
             if(randomNumber >= 4){
                 car.go();
@@ -58,11 +60,19 @@ public class Game{
         }
     }
     public void showGame(){
-        for (Car car:members) {
+        for(Car car:members) {
             car.display();
         }
     }
-    public void setWinners(){
+    public void setMaxDistance(){
+        for(Car car:members){
+            int newMaxDistance = car.compareMaxDistance(maxDistance);
+            if(newMaxDistance!=0){
+                maxDistance=newMaxDistance;
+            }
+        }
     }
+    public void showWinners(){
 
+    }
 }

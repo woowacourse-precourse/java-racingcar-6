@@ -11,14 +11,13 @@ public class Car {
         this.distance++;
         this.distanceImage+="-";
     }
-    public String getName(){
-        return name;
-    }
-    public int getDistance(){
-        return distance;
-    }
-
     public void display() {
         System.out.print(this.name + " : "+this.distanceImage+"\n");
+    }
+    public int compareMaxDistance(int maxDistance){
+        if(this.distance > maxDistance){
+            return this.distance;
+        }
+        return 0;
     }
 }

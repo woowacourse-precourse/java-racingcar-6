@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class Checker{
-    public void checkNumber(String inputAttempts){
+    public void checkAttempts(String inputAttempts){
         try{
             Integer.parseInt(inputAttempts);
         }catch (Exception e){
@@ -11,9 +11,9 @@ public class Checker{
         }
     }
 
-    public void checkMember(String carName){
+    public void checkMembers(String carName){
         if(carName.length()>5 || carName.length()<1){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("잘못된 값 입력");
         }
     }
 }
