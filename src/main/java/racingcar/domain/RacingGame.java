@@ -56,6 +56,14 @@ public class RacingGame {
             cars.add(car);
         }
     }
+
+    private void runGame() {
+        for (int i = 0; i < num; i++) {
+            moveCar();
+            printResult();
+        }
+    }
+
     private void printResult() {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
