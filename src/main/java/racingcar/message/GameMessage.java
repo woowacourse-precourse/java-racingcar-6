@@ -16,9 +16,11 @@ public class GameMessage {
         if (winners.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.NO_WINNER_EXISTS);
         }
+
         String winnerNames = winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
+
         return String.format(WINNER_FORMAT, winnerNames);
     }
 }

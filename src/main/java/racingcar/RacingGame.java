@@ -13,7 +13,10 @@ public class RacingGame {
     private Integer turnCount;
 
     private RacingGame(Builder builder) {
-        this.cars = builder.carInput.getCarNames().stream().map(Car::new).collect(Collectors.toList());
+        this.cars = builder.carInput.getCarNames().stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
+
         this.tryCount = builder.tryCount;
         this.turnCount = 0;
     }
@@ -30,7 +33,11 @@ public class RacingGame {
         if(!isGameOver()) {
             throw new IllegalStateException(ErrorMessage.GAME_NOT_FINISHED);
         }
-        Integer maxPosition = cars.stream().map(Car::getPosition).max(Integer::compareTo).get();
+        Integer maxPosition = cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compareTo)
+                .get();
+
         return this.cars.stream().filter(car -> car.atPosition(maxPosition)).toList();
     }
 
