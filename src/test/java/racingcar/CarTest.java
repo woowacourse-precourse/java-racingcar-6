@@ -27,6 +27,19 @@ public class CarTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("move 메서드 전진 실패 테스트")
+    void move_not_go() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run();
+                    assertThat(testCar.toString())
+                            .isEqualTo("test : ");
+                },
+                STOP
+        );
+    }
+
     @Override
     protected void runMain() {
         testCar.move();
