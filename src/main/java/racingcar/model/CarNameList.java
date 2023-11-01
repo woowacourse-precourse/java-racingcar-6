@@ -18,7 +18,6 @@ public class CarNameList {
 
     public void NameExceptionCheck(){
         for(int i=0; i<carNameList.length; i++){
-            System.out.println("carNameList[i] = " + carNameList[i]);
             if(carNameList[i].length() > 5){
                 throw new IllegalArgumentException();
             }
