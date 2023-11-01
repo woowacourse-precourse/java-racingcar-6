@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import racingcar.validation.InputCarNameValidation;
 import racingcar.view.InputUserCar;
 
 public class Car {
@@ -14,6 +15,7 @@ public class Car {
 
     public void setCars() {
         String inputValue = InputUserCar.inputName();
+        InputCarNameValidation.checkCarNames(inputValue);
         carSetting = new CarSetting(inputValue);
     }
 
