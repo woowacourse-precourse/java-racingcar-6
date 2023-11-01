@@ -20,9 +20,7 @@ public class RacingRuleMaker {
     public List<String> namingCar(String carNames) {
 
         //문자열 -> ArrayList , 자동차 이름 끝단 공백 제거
-        cars = Arrays.stream(carNames.split(","))
-                .map(String::strip)
-                .collect(Collectors.toList());
+        cars = Arrays.stream(carNames.split(",")).map(String::strip).collect(Collectors.toList());
 
         errorCheck.carNameCheck(cars);
         return cars;
