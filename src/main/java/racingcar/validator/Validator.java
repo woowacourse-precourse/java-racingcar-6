@@ -22,6 +22,10 @@ public class Validator {
         return input.chars().allMatch(Character::isDigit);
     }
 
+    public static boolean isPositive(String input){
+        return Integer.parseInt(input) > 0;
+    }
+
     public static boolean isFiveOrLessCharacter(List<String> names) {
         return names.stream().allMatch(name -> name.length() <= 5);
     }
