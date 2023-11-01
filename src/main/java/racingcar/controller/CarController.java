@@ -26,9 +26,11 @@ public class CarController {
 
     public void racing() {
         try {
+            // 자동차 이름들 입력 및 유효성 검사
             String inputCars = input.promptForCarNames();
             Validate.inputIsNull(inputCars);
 
+            // 입력받은 자동차 이름들을 Cars 변환
             cars = inputCarsStringToCarsClass(inputCars);
 
             String tempForwardAttempt = inputForForwardAndReturnStringType();
@@ -36,6 +38,7 @@ public class CarController {
 
             output.resultHeader();
 
+            // 입력 받은 시도횟수만큼 전진 반복하며 결과 출력
             attemptForwardAndOutputResult(forwardAttempt, cars);
 
             String winner = getWinner(cars);
@@ -54,7 +57,12 @@ public class CarController {
         return String.join(", ", winner);
     }
 
-    // 입력받은 자동차들 String -> Cars 변환
+    /**
+     * 입력받은 자동차들 String -> Cars 변환
+     *
+     * @param inputTemp : 입력받은 자동차들
+     * @return : Cars Class
+     */
     private Cars inputCarsStringToCarsClass(String inputTemp) {
         Validate.inputStringNotContainsComma(inputTemp); // 구분자가 컴마가 아닌 경우 유효성 검사
         Validate.lastCharIsComma(inputTemp); // 구분자 뒤 자동치 이름이 없는 경우 유효성 검사
@@ -64,7 +72,6 @@ public class CarController {
         return listToCarModel(carList);
     }
 
-    // 입력받은 자동차들 Type 변환 String -> List<String> 변환
     private List<String> splitCarNamesReturnList(String carMembers) {
         return Arrays.asList(carMembers.split(delimiter));
     }
