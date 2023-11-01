@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.InputValidator;
 
 public class Car {
+    private static final int MIN_NUM = 0;
+    private static final int MAX_NUM = 9;
     private final String name;
     private int moveDistance;
 
@@ -22,10 +24,10 @@ public class Car {
     }
 
     public void move() {
-        moveDistance += 1;
+        moveDistance++;
     }
 
     public int generateMoveValue() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
     }
 }
