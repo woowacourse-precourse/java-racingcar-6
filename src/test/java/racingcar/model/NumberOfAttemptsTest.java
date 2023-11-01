@@ -33,9 +33,10 @@ class NumberOfAttemptsTest {
                 .hasMessageContaining(NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS);
     }
 
-    @Test
-    void 입력_받은_시도_횟수는_공백이어선_안된다() {
-        assertThatThrownBy(() -> new NumberOfAttempts(" "))
+    @ParameterizedTest
+    @ValueSource(strings = {" ", ""})
+    void 입력_받은_시도_횟수는_공백이어선_안된다(String inputNumberOfAttempts) {
+        assertThatThrownBy(() -> new NumberOfAttempts(inputNumberOfAttempts))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(NUMBER_OF_ATTEMPTS_BLANK_OR_NULL);
     }
