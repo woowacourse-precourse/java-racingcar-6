@@ -78,9 +78,8 @@ public class CarController {
     private Cars convertStringListToCarsModel(List<String> carList) {
         List<Car> cars = new ArrayList<>();
 
-        for (String name : carList) {
-            cars.add(new Car(name));
-        }
+        carList.stream()
+                .forEach(car -> cars.add(new Car(car)));
 
         return new Cars(cars);
     }
