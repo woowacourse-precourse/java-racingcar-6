@@ -1,34 +1,36 @@
 package racingcar.domain;
 
+import static java.util.Arrays.stream;
 import static java.util.Collections.max;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Race {
-    private final List<Car> Cars = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
 
-    //forEach문 사용
-    public Race(List<String> cars){
-        cars.forEach(car -> Cars.add(new Car(car)));
+    public Race(List<String> carNames){
+        carNames.forEach(carName -> carList.add(new Car(carName)));
     }
 
+
     private void goForward(){
-        Cars.forEach(Car::moveForward);
+        carList.forEach(Car::moveForward);
     }
 
     public void playOneRound(){
         goForward();
-        InputOutputMessage.printRoundResult(new ArrayList<>(Cars.stream()
+        InputOutputMessage.printRoundResult(new ArrayList<>(carList.stream()
                 .map(Car::getRoundResult)
                 .collect(Collectors.toList())
 
         ));
     }
 
-    public void presentWinner(){
-        InputOutputMessage.presentWinner(new ArrayList<>(Cars.stream()
+    public void getWinner(){
+        InputOutputMessage.printWinner(new ArrayList<>(carList.stream()
                 .filter(car -> car.isWinner(max(getCarPosition())))
                 .map(Car::getName)
                 .collect(Collectors.toList())
@@ -37,8 +39,7 @@ public class Race {
 
     private List<Integer> getCarPosition(){
         List<Integer> positions = new ArrayList<>();
-        Cars.forEach(car -> positions.add(car.getPosition()));
-
+        carList.forEach(car -> positions.add(car.getPosition()));
         return positions;
     }
 }
