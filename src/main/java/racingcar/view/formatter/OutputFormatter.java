@@ -14,8 +14,8 @@ public class OutputFormatter {
     private static final String EMPTY_STRING = "";
     private static final String SPACE = " ";
     private static final String DASH = "-";
-    private static final String COLON_SEPARATOR = ":";
-    private static final String DELIMITER_COMMA = ",";
+    private static final String COLON = ":";
+    private static final String COMMA = ",";
 
     private static final int START_POSITION = 0;
 
@@ -23,7 +23,7 @@ public class OutputFormatter {
         return winners.stream()
                 .map(carDto -> carDto.name())
                 .map(nameDto -> nameDto.name())
-                .collect(Collectors.joining(DELIMITER_COMMA + SPACE, WINNER_MESSAGE, EMPTY_STRING));
+                .collect(Collectors.joining(COMMA + SPACE, WINNER_MESSAGE, EMPTY_STRING));
     }
 
     public static String makeRoundResult(List<CarDto> players) {
@@ -35,7 +35,7 @@ public class OutputFormatter {
     private static String makeOnePlayerResult(CarDto carDto) {
         NameDto nameDto = carDto.name();
         PositionDto positionDto = carDto.position();
-        return nameDto.name() + SPACE + COLON_SEPARATOR + SPACE + makeDash(positionDto.position());
+        return nameDto.name() + SPACE + COLON + SPACE + makeDash(positionDto.position());
     }
 
     private static String makeDash(int position) {
