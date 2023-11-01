@@ -19,7 +19,7 @@ public class ConvertorSplitTest {
         List<String> expectedResult = List.of("가나다", "라마", "바사아");
 
         // then
-        Assertions.assertEquals(result, expectedResult);
+        Assertions.assertEquals(expectedResult, result);
     }
 
 }

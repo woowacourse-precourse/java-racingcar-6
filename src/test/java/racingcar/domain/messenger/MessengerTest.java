@@ -20,7 +20,7 @@ public class MessengerTest {
         String string = messenger.getRequestCarNames();
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class MessengerTest {
         String string = messenger.getRequestRoundCount();
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class MessengerTest {
         String string = messenger.getPlayResultMessage();
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class MessengerTest {
         String string = messenger.getRoundResult(carsInformationDto);
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class MessengerTest {
         String string = messenger.getWinners(carNamesDto);
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class MessengerTest {
         String string = messenger.getWinners(carNamesDto);
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
 }

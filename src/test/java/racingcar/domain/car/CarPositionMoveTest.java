@@ -27,7 +27,7 @@ public class CarPositionMoveTest {
         int position = carPosition.getPosition();
 
         // then
-        Assertions.assertEquals(position, expectedPosition);
+        Assertions.assertEquals(expectedPosition, position);
     }
 
 }

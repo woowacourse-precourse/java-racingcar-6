@@ -39,7 +39,7 @@ public class CarsGetInformationTest {
         );
 
         // then
-        Assertions.assertEquals(carsInformationDto, expectedCarsInformationDto);
+        Assertions.assertEquals(expectedCarsInformationDto, carsInformationDto);
     }
 
 }

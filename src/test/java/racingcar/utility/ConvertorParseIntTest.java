@@ -17,7 +17,7 @@ public class ConvertorParseIntTest {
         int expectedResult = 123;
 
         // then
-        Assertions.assertEquals(result, expectedResult);
+        Assertions.assertEquals(expectedResult, result);
     }
 
     @Test

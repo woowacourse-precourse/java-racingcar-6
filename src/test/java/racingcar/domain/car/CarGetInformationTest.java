@@ -21,8 +21,8 @@ public class CarGetInformationTest {
         int position = carInformationDto.position();
 
         // then
-        Assertions.assertEquals(position, 0);
-        Assertions.assertEquals(name, carName);
+        Assertions.assertEquals(0, position);
+        Assertions.assertEquals(carName, name);
     }
 
 }

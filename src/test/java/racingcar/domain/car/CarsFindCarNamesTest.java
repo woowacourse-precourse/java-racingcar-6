@@ -32,7 +32,7 @@ public class CarsFindCarNamesTest {
         CarNamesDto expectedCarNamesDto = new CarNamesDto(List.of(name1, name2));
 
         // then
-        Assertions.assertEquals(carNamesDto, expectedCarNamesDto);
+        Assertions.assertEquals(expectedCarNamesDto, carNamesDto);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class CarsFindCarNamesTest {
         CarNamesDto expectedCarNamesDto = new CarNamesDto(List.of(name1, name2));
 
         // then
-        Assertions.assertEquals(carNamesDto, expectedCarNamesDto);
+        Assertions.assertEquals(expectedCarNamesDto, carNamesDto);
     }
 
 }
