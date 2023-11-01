@@ -63,3 +63,7 @@
   - GameState
     - 필드 : Map(carName, stepDistance)
     - 각라운드당 게임 참여 중인 Car들의 display할 상태
+
+---
+## 기능 조직도
+![img.png](img.png)
