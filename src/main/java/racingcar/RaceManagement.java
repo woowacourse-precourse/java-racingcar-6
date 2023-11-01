@@ -14,7 +14,7 @@ public class RaceManagement {
     }
 
     public void moveAllRound(){
-        System.out.print("실행 결과\n");
+        System.out.print("\n실행 결과\n");
         for (int moveIndex = 1; moveIndex <= moveNumber; moveIndex++) {
             moveOneRound();
             printCurrentStatus();

@@ -15,8 +15,9 @@ public class Input {
 
     public String inputCarName() {
         System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
-
-        return Console.readLine();
+        String input = Console.readLine();
+        checkInputCarNameContainComma(input);
+        return input;
     }
 
     public ArrayList<String> splitInputCarName(String input){
@@ -31,8 +32,9 @@ public class Input {
 
     public static int inputMoveNumber() {
         System.out.print("시도할 회수는 몇회인가요?\n");
-
-        return Integer.parseInt(Console.readLine());
+        String moveNumber = Console.readLine();
+        checkInputMoveNumber(moveNumber);
+        return Integer.parseInt(moveNumber);
     }
 
 
@@ -49,6 +51,20 @@ public class Input {
         for (String item : carNameArray){
             if (!set.add(item)){ //HashSet에 add하려는 값이 이미 있으면 false 반환
                 throw new IllegalArgumentException("자동차 이름 중복 오류");
+            }
+        }
+    }
+
+    public void checkInputCarNameContainComma(String input){
+        if (!input.contains(",")) {
+            throw new IllegalArgumentException("자동차 이름 문자열 , 포함 안함 오류");
+        }
+    }
+
+    public static void checkInputMoveNumber(String moveNumber){
+        for (char ch: moveNumber.toCharArray()) {
+            if (Character.isDigit(ch) == false) {
+                throw new IllegalArgumentException("이동 횟수 오류");
             }
         }
     }
