@@ -16,4 +16,16 @@ public class Cars {
     public void tryOnce() {
         cars.forEach(Car::tryOnce);
     }
+
+    public List<String> toResults() {
+        return cars.stream()
+                .map(car -> {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(car.getName());
+                    sb.append(" : ");
+                    sb.append("-".repeat(car.getMoveCount()));
+                    return sb.toString();
+                })
+                .collect(Collectors.toList());
+    }
 }

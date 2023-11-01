@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.*;
+import racingcar.car.Cars;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,5 +28,14 @@ public class IOManager {
     public int readTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(Console.readLine());
+    }
+
+    public void printRacingResult(Cars cars) {
+        cars.toResults().forEach(System.out::println);
+    }
+
+    public void notifyStartRacing() {
+        System.out.println();
+        System.out.println("실행 결과");
     }
 }

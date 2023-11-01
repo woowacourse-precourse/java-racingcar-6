@@ -22,10 +22,11 @@ public class GameManager {
         Cars cars = new Cars(nameList);
 
         int tryCount = IOManager.getInstance().readTryCount();
+
+        IOManager.getInstance().notifyStartRacing();
         for (int i = 0; i < tryCount; i++) {
             cars.tryOnce();
+            IOManager.getInstance().printRacingResult(cars);
         }
-
-
     }
 }
