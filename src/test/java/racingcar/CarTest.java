@@ -36,6 +36,7 @@ public class CarTest {
 
     @Test
     void 전진_2번() {
+
         //given
         String name = "car";
         Car car = new Car(name);
