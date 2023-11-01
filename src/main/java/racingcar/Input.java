@@ -9,8 +9,9 @@ import java.util.Set;
 public class Input {
 
     static boolean isOutOfRange(long tryNumber) {
-        return (tryNumber > 2000000000 || tryNumber < 0);
+        return (tryNumber > 100 || tryNumber < 1);
     }
+
      static  boolean containsDuplicates(String[] carNames) {
         Set<String> duplicateChecker = new HashSet<>();
         for (String carName : carNames) {
@@ -20,6 +21,7 @@ public class Input {
         }
         return false;
     }
+
 
     static String[] getCarName() {
         String carNameInput = "";
