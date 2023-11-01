@@ -17,6 +17,7 @@ public class Application {
 
         // 경주 진행 시 이동 시도 횟수 세팅
         String inputRacingCarMoveNum = inputRacingCarMoveNum();
+        int racingCarMoveNum = racingGameStartManager.convertInputRacingCarMoveNumToInt(inputRacingCarMoveNum);
     }
 
     private static String[] inputRacingCarNames() {

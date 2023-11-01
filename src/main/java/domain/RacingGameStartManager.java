@@ -19,6 +19,18 @@ public class RacingGameStartManager {
         return racingCarSet;
     }
 
+    public int convertInputRacingCarMoveNumToInt(String inputRacingCarMoveNum) {
+        int racingCarMoveNum = 0;
+
+        try {
+            racingCarMoveNum = Integer.parseInt(inputRacingCarMoveNum);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 횟수는 정수만 입력할 수 있습니다.");
+        }
+
+        return racingCarMoveNum;
+    }
+
     private void validateRacingCarName(String racingCarName, Set<RacingCar> racingCarSet) {
         if (!isRacingCarNameLengthInRange(racingCarName)) {
             throw new IllegalArgumentException(
