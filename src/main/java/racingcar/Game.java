@@ -31,7 +31,7 @@ public class Game {
     private String carNames;
     // 기능 5 작성: printExecuteText()
     public String printExecuteText() {
-        return "";
+        return "실행 결과 \n";
     }
     // (6) 프로그램을 실행하면 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
     //   를 출력하는 기능 -> printStartGameText()
