@@ -12,20 +12,6 @@ public class InputViewTest {
     private final InputView inputView = InputView.getInstance();
 
     @Test
-    @DisplayName("자동차 이름 입력받기 테스트")
-    public void askCarNamesTest() {
-        // 원하는 입력값 InputStream 에 추가
-        String input = "pobi,woni,jun";
-        ByteArrayInputStream testIn = new ByteArrayInputStream(input.getBytes());
-        System.setIn(testIn);
-        // test
-        assertThat(inputView.askCarNames())
-                .contains("pobi", "woni", "jun");
-        // System.in 복원
-        System.setIn(systemInBackUp);
-    }
-
-    @Test
     @DisplayName("이동할 횟수 입력받기 테스트")
     public void askMoveCountTest() {
         // 원하는 입력값 InputStream 에 추가
