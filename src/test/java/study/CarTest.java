@@ -3,15 +3,17 @@ package study;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
 
 public class CarTest {
+    @DisplayName("실패 : 자동차의 이름의 글자수가 1~5글자를 벗어나는 경우")
     @ParameterizedTest
     @ValueSource(strings = {"", "여섯글자입력"})
-    void Car_객체의_이름은_1글자에서_5글자이다_예외처리(String name) {
+    void test1(String name) {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
