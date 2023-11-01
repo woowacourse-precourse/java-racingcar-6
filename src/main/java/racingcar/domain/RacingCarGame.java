@@ -23,7 +23,7 @@ public class RacingCarGame {
 		}
 
 		int numberOfDelimiter = (int)inputString.chars().filter(c -> c == DELIMITER.charAt(0)).count();
-		List<String> carNames = Arrays.asList(inputString.split(DELIMITER));
+		List<String> carNames = Arrays.asList(inputString.split(DELIMITER + "+"));
 		if (numberOfDelimiter + 1 != carNames.size()) {
 			throw new IllegalArgumentException("자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능합니다.");
 		}
