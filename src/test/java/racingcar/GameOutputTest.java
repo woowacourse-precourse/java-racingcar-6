@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class GameOutputTestBase extends TestBase {
+class GameOutputTest extends TestBase {
     private GameOutput gameOutput = new GameOutput();
     private Game game = new Game();
 
