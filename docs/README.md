@@ -2,7 +2,8 @@
 ## The Rule of Racing Car Game
 
 1. **Input** - Racing Car
-
+    + The number of car
+      + the range of the # cars is upto 8
     + The name of car 
       + maximum length of name is 5
       + english, special character, number are allowed
