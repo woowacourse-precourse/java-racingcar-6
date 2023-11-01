@@ -52,4 +52,24 @@ public class CarListTest {
         assertThat(junCar.getPosition()).isEqualTo(2);
     }
 
+    @Test
+    @DisplayName("제일 멀리 있는 자동차 position 확인")
+    public void findMaxPosition() throws Exception {
+
+        int maxPosition = cars.findMaxPosition();
+        assertThat(maxPosition).isEqualTo(3);
+        System.out.println("woniCar.getPosition() = " + woniCar.getPosition());
+
+        moveCarOnePosition(woniCar);
+        maxPosition = cars.findMaxPosition();
+        assertThat(maxPosition).isEqualTo(3);
+
+        moveCarOnePosition(woniCar);
+        maxPosition = cars.findMaxPosition();
+        assertThat(maxPosition).isEqualTo(4);
+    }
+
+    private void moveCarOnePosition(Car carName) {
+        cars.moveCarWhenNumberFourOrAbove(carName, 4);
+    }
 }
