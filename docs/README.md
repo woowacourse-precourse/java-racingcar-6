@@ -12,7 +12,7 @@
     생성자 정의  
     각 차량에 대한 이동 시도를 run 메서드로 구현   
   - feat(Race): Implement Race class
-- [ ] ValidationUtil 클래스 구현
+- [x] ValidationUtil 클래스 구현
   -  사용자 입력값을 검증하는 메서드 구현 (이름의 길이, 시도 회수의 유효성 등)
   - feat(Utils): Add ValidationUtil for input validation
 - [ ] InputUtil 클래스 구현
