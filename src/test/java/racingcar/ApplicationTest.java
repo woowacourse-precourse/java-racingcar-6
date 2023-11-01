@@ -38,6 +38,14 @@ class ApplicationTest extends NsTest {
         assertThat(car.getPosition()).isEqualTo(1);
     }
 
+    @Test
+    void 이동횟수_입력_오류_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javai", "15b"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
