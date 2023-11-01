@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 
 public class InputViewTest extends IOTest {
@@ -71,106 +72,41 @@ public class InputViewTest extends IOTest {
     private static Stream<Arguments> provideNormalInputRacingCount() {
         return Stream.of(
                 Arguments.of("34",34),
-                Arguments.of(" 34 ",34),
+                Arguments.of("    34    ",34),
                 Arguments.of("  09 ",9)
         );
     }
 
-//    @DisplayName("플레이어 경주 횟수 입력 정상 테스트")
-//    @Test
-//    void inputRacingCountNormalTest(){
-//        //given
-//        final InputView inputView = new InputView();
-//        systemIn("34");
-//
-//        //when
-//        Integer racingCount = inputView.inputRacingCount();
-//
-//        //then
-//        assertThat(racingCount).isEqualTo(34);
-//
-//    }
 
-//
-//    @DisplayName("플레이어 경주 횟수 입력 공백포함 정상 테스트")
-//    @Test
-//    void inputRacingCountIncludedSpaceNormalTest(){
-//        //given
-//        final InputView inputView = new InputView();
-//        systemIn("    34    ");
-//
-//        //when
-//        Integer racingCount = inputView.inputRacingCount();
-//
-//        //then
-//        assertThat(racingCount).isEqualTo(34);
-//
-//    }
-//    @DisplayName("플레이어 경주 횟수 입력 첫자리수 0 정상 테스트")
-//    @Test
-//    void inputRacingCountStart0NormalTest(){
-//        //given
-//        final InputView inputView = new InputView();
-//        systemIn("034");
-//
-//        //when
-//        Integer racingCount = inputView.inputRacingCount();
-//
-//        //then
-//        assertThat(racingCount).isEqualTo(34);
-//
-//    }
-//
-//    @ValueSource(strings = { "ㅇㄹㅇㄹ", "3 4","-3","0"})
-//
-//    @DisplayName("플레이어 경주 횟수 문자열 입력 에러 테스트")
-//    @Test
-//    void inputRacingCountNotNumberErrorTest(){
-//        //given
-//        final InputView inputView = new InputView();
-//        systemIn("dfdf");
-//
-//        //when, then
-//        assertThatIllegalArgumentException().isThrownBy(() -> {inputView.inputRacingCount();});
-//
-//    }
-//
-//    @DisplayName("플레이어 경주 횟수 음수 입력 에러 테스트")
-//    @Test
-//    void inputRacingCountNotPositiveNumberErrorTest(){
-//        //given
-//        final InputView inputView = new InputView();
-//        systemIn("-3");
-//
-//        //when, then
-//        assertThatIllegalArgumentException().isThrownBy(() -> {inputView.inputRacingCount();});
-//
-//    }
-//
-//    @DisplayName("플레이어 경주 횟수 0 입력 에러 테스트")
-//    @Test
-//    void inputRacingCount0ErrorTest(){
-//        //given
-//        final InputView inputView = new InputView();
-//        systemIn("0");
-//
-//        //when, then
-//        assertThatIllegalArgumentException().isThrownBy(() -> {inputView.inputRacingCount();});
-//
-//    }
-//
-//
-//    @DisplayName("플레이어 경주 횟수 숫자사이 공백 입력 에러 테스트")
-//    @Test
-//    void inputRacingCountNumberBetweenSpaceErrorTest(){
-//        //given
-//        final InputView inputView = new InputView();
-//        systemIn("0 9 5");
-//
-//        //when, then
-//        assertThatIllegalArgumentException().isThrownBy(() -> {inputView.inputRacingCount();});
-//
-//    }
+    @DisplayName("플레이어 경주 횟수 입력 에러 테스트")
+    @ParameterizedTest
+    @MethodSource("provideExceptionInputRacingCount")
+    void inputRacingCountExceptionTest(String playerInput){
+        //given
+        final InputView inputView = new InputView();
+        systemInAndEnd(playerInput);
+
+        //when then
+        assertThatIllegalArgumentException().isThrownBy(() -> {inputView.inputRacingCount();});
+
+
+    }
+
+    private static Stream<Arguments> provideExceptionInputRacingCount() {
+        return Stream.of(
+                Arguments.of("dfdf"),
+                Arguments.of("    3  4    "),
+                Arguments.of("0"),
+                Arguments.of("-4")
+        );
+    }
+
+
+
+
+
+
+
 
 
 }
