@@ -10,8 +10,7 @@ import racingcar.Validator.TrialCountValidator;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
 
-public class RacingCarController {
-
+public class RacingCarGame {
     public void play() {
         String carNamesInput = InputView.inputCarName();
         String trialCountInput = InputView.inputRaceGameCount();
@@ -33,10 +32,8 @@ public class RacingCarController {
                 }
 
                 List<String> winners = racingCarService.selectWinners(race);
-                
                 OutputView.printSelectWinner(winners);
             }
-
         } catch (IllegalArgumentException e) {
             System.out.println("오류: " + e.getMessage());
         }
