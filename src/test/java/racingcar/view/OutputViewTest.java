@@ -12,17 +12,17 @@ import static racingcar.view.OutputView.*;
 
 class OutputViewTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream systemOut = System.out;
+    private final ByteArrayOutputStream testOutContent = new ByteArrayOutputStream();
+    private final PrintStream originalSystemOut = System.out;
 
     @BeforeEach
     public void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(testOutContent));
     }
 
     @AfterEach
     public void restoreStreams() {
-        System.setOut(systemOut);
+        System.setOut(originalSystemOut);
     }
 
     @Test
@@ -31,7 +31,7 @@ class OutputViewTest {
         //when
         displayCarNamePrompt();
         //then
-        assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", outContent.toString());
+        assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", testOutContent.toString());
     }
 
     @Test
@@ -40,18 +40,18 @@ class OutputViewTest {
         //when
         displayAttemptPrompt();
         //then
-        assertEquals("시도할 회수는 몇회인가요?\n", outContent.toString());
+        assertEquals("시도할 회수는 몇회인가요?\n", testOutContent.toString());
     }
 
     @Test
     public void 현재_게임_결과_출력() throws Exception {
         //given
-        String carName = "pobi";
+        String carNameForTest = "pobi";
         String positionInDashes = "-";
         //when
-        displayCurrentGameResult(carName, positionInDashes);
+        displayCurrentGameResult(carNameForTest, positionInDashes);
         //then
-        assertEquals("pobi : -\n", outContent.toString());
+        assertEquals("pobi : -\n", testOutContent.toString());
     }
 
     @Test
@@ -60,17 +60,17 @@ class OutputViewTest {
         //when
         displayResultHeader();
         //then
-        assertEquals("\n실행 결과\n", outContent.toString());
+        assertEquals("\n실행 결과\n", testOutContent.toString());
     }
 
     @Test
     public void 우승자_출력() throws Exception {
         //given
-        String name = "pobi";
+        String winnerName = "pobi";
         //when
-        displayWinner(name);
+        displayWinner(winnerName);
         //then
-        assertEquals("최종 우승자 : pobi\n", outContent.toString());
+        assertEquals("최종 우승자 : pobi\n", testOutContent.toString());
     }
 
 }
