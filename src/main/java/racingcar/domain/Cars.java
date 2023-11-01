@@ -44,8 +44,7 @@ public class Cars {
             .orElse(Integer.MIN_VALUE);
     }
 
-    public ArrayList<String> findWinners() {
-        int maxScore = findMaxScore();
+    public ArrayList<String> findWinners(int maxScore) {
         return carList.stream()
             .filter(car -> car.hasMaxScore(maxScore))
             .map(Car::getName)
