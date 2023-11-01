@@ -11,7 +11,7 @@ public class RacingGame {
     private ArrayList<String> winnerList = new ArrayList<>();
     private int attemptNumber, carNumber;
 
-    public void GameStart() {
+    public void gameStart() {
         scriptHandler.printGetCarNameScript();
         cars = gameSetting.createCarName();
         scriptHandler.printGetAttemptScript();
