@@ -1,13 +1,10 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
-import validate.InputValidation;
 
 import static org.assertj.core.api.Assertions.*;
 import static racingcar.RacingCarTestConstants.*;
 import static validate.InputValidation.*;
-import static validate.InputValidation.validateNumericInput;
-import static validate.InputValidation.validateInputLengthExceeded;
 
 public class ValidateTest {
 

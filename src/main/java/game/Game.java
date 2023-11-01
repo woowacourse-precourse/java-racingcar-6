@@ -3,14 +3,11 @@ package game;
 import Util.InputUtil;
 import car.Car;
 import car.CarCollection;
-import validate.InputValidation;
-
 import java.util.List;
 
 import static constants.RacingCarConstants.NUMBER_OF_ATTEMPTS_MESSAGE;
 import static constants.RacingCarConstants.PARTICIPANTS_INPUT_MESSAGE;
 import static validate.InputValidation.*;
-import static validate.InputValidation.validateNumericInput;
 
 public class Game {
 
