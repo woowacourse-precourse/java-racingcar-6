@@ -1,6 +1,6 @@
 package racingcar.io.writer;
 
-public class CommandLineWriter implements Writer {
+public class ConsoleWriter implements Writer {
 
     @Override
     public void writeLine(String message) {

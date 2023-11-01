@@ -2,9 +2,9 @@ package racingcar.common.config;
 
 import racingcar.game.RacingGameManager;
 import racingcar.game.RacingGameScreen;
-import racingcar.io.reader.CommandLineReader;
+import racingcar.io.reader.ConsoleReader;
 import racingcar.io.reader.Reader;
-import racingcar.io.writer.CommandLineWriter;
+import racingcar.io.writer.ConsoleWriter;
 import racingcar.io.writer.Writer;
 
 public class RacingCarConfig {
@@ -21,10 +21,10 @@ public class RacingCarConfig {
     }
 
     private Reader getReader() {
-        return new CommandLineReader();
+        return new ConsoleReader();
     }
 
     private Writer getWriter() {
-        return new CommandLineWriter();
+        return new ConsoleWriter();
     }
 }

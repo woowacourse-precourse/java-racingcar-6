@@ -2,7 +2,7 @@ package racingcar.io.reader;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class CommandLineReader implements Reader {
+public class ConsoleReader implements Reader {
 
     @Override
     public String readLine() {

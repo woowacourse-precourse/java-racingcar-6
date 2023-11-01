@@ -6,7 +6,7 @@ public class RacingTurn {
     private final int count;
 
     protected RacingTurn(int count) {
-        RacerValidator.validateTotalTurnRange(count);
+        RacerValidator.validateIsWithinRacingTurnRange(count);
 
         this.count = count;
     }

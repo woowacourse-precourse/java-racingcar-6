@@ -1,7 +1,6 @@
 package racingcar.game;
 
 import java.util.List;
-import racingcar.common.exception.RacingCarException;
 import racingcar.game.vo.RacingCarNamesInput;
 import racingcar.game.vo.TotalTurnInput;
 import racingcar.game.vo.TurnResult;
@@ -23,7 +22,7 @@ public class RacingGameManager {
             registerRacingCar();
             RacingTurn totalTurn = getTotalTurn();
             showFinalWinners(race(totalTurn));
-        } catch (RacingCarException e) {
+        } catch (Exception e) {
             racingGameScreen.showError(e.getMessage());
             throw e;
         } finally {
