@@ -1,12 +1,11 @@
 package racingcar.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingGame {
-    private List<Car> cars;
     private final Referee referee;
     private final int round;
+    private final List<Car> cars;
 
     public RacingGame(List<Car> carList, Referee referee, int round) {
         this.cars = carList;

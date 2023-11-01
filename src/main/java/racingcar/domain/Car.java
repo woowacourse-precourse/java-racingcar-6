@@ -15,13 +15,13 @@ public class Car {
     }
 
     private void checkNameLengthValid(String name) {
-        if(MIN_NAME_LENGTH > name.length() || name.length() > MAX_NAME_LENGTH) {
+        if (MIN_NAME_LENGTH > name.length() || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
 
     public void processTurn() {
-        if(this.engine.canMoveForward()) {
+        if (this.engine.canMoveForward()) {
             moveForward();
         }
         printResult();
@@ -32,7 +32,7 @@ public class Car {
     }
 
     private void printResult() {
-        System.out.println(String.format("%s : %s", this.name, this.result));
+        System.out.printf("%s : %s%n", this.name, this.result);
     }
 
     public int getDistance() {
