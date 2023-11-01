@@ -2,7 +2,7 @@ package racingcar.model;
 
 import static racingcar.constant.RacingCarGameConfig.GAME_WIN_CONDITION;
 import static racingcar.util.RacingCarGameUtils.generateRandomValuesForCarGame;
-import static racingcar.util.RacingCarGameUtils.joinWinners;
+import static racingcar.util.RacingCarGameUtils.joinStringWithComma;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +69,7 @@ public class Cars {
       return winnerList.get(0);
     }
 
-    return joinWinners(winnerList).toString();
+    return joinStringWithComma(winnerList).toString();
   }
 
   @Override
