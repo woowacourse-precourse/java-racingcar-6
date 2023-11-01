@@ -30,7 +30,7 @@ public class OutputViewTest {
     }
 
     @Test
-    void printWinner_메서드_테스트() {
+    void 최종_우승자_출력() {
         List<String> winners = List.of("matia", "maria");
         outputView.printWinners(winners);
 
@@ -38,14 +38,14 @@ public class OutputViewTest {
     }
 
     @Test
-    void printStatusGuide_메서드_테스트() {
+    void 실행결과_메시지_출력() {
         outputView.printResultMessage();
 
         assertThat(outputStream.toString()).contains("실행 결과");
     }
 
     @Test
-    void racingResult_결과_출력() {
+    void 경주_결과_출력() {
         var names = List.of("matia", "maria");
         var positions = List.of(0, 5);
         RacingResultDTO racingResultDTO = new RacingResultDTO(names, positions);
