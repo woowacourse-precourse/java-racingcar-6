@@ -35,4 +35,15 @@ class RacingCarsTest {
         List<Result> winners2 = racingCars2.findWinners();
         Assertions.assertThat(winners2.size()).isEqualTo(2);
     }
+
+    @Test
+    void 우승자_결과_테스트() {
+        List<Result> results1 = racingCars1.moveCars(canMoveNumGenerator);
+        Assertions.assertThat(results1.get(0).toString()).isEqualTo("pobi : -");
+        Assertions.assertThat(results1.get(1).toString()).isEqualTo("woni : -");
+
+        List<Result> results2 = racingCars2.moveCars(cannotMoveNumGenerator);
+        Assertions.assertThat(results2.get(0).toString()).isEqualTo("pobi : ");
+        Assertions.assertThat(results2.get(1).toString()).isEqualTo("woni : ");
+    }
 }
