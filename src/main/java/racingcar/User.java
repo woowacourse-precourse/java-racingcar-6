@@ -27,12 +27,12 @@ public class User {
         String stringBuilder = car.getName() + " : " +
                 "-".repeat(car.getDistance());
         System.out.println(stringBuilder);
-        System.out.println();
     }
 
     public void listOfResult (List<Car> carList) {
         for (Car car : carList) {
             printResult(car);
         }
+        System.out.println();
     }
 }
