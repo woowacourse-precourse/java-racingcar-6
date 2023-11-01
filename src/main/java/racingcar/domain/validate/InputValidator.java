@@ -1,4 +1,4 @@
-package racingcar.domain.validator;
+package racingcar.domain.validate;
 
 @FunctionalInterface
 public interface InputValidator {

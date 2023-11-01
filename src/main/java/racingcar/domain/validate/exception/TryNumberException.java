@@ -1,4 +1,4 @@
-package racingcar.domain.validator.exception;
+package racingcar.domain.validate.exception;
 
 public enum TryNumberException {
     NO_VALUE_TRY_NUMBER("시도할 회수가 입력되지 않았습니다."),

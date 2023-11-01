@@ -4,7 +4,7 @@ import racingcar.converter.DtoConverter;
 import racingcar.domain.*;
 import racingcar.domain.dto.RunningCarDto;
 import racingcar.domain.dto.WinnerDto;
-import racingcar.domain.validator.InputValidator;
+import racingcar.domain.validate.InputValidator;
 import racingcar.util.StringManipulator;
 
 import java.util.List;

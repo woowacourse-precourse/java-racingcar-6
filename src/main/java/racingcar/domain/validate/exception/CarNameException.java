@@ -1,4 +1,4 @@
-package racingcar.domain.validator.exception;
+package racingcar.domain.validate.exception;
 
 public enum CarNameException {
     NO_VALUE_NAME("자동차 이름을 위한 입력값이 입력되지 않았습니다."),

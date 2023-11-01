@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.dto.WinnerDto;
-import racingcar.domain.validator.CarNameValidator;
-import racingcar.domain.validator.TryNumberValidator;
+import racingcar.domain.validate.CarNameValidator;
+import racingcar.domain.validate.TryNumberValidator;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,9 +1,9 @@
-package racingcar.domain.validator;
+package racingcar.domain.validate;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.validator.exception.TryNumberException;
+import racingcar.domain.validate.exception.TryNumberException;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 

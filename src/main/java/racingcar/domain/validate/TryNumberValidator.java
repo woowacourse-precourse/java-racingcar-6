@@ -1,6 +1,6 @@
-package racingcar.domain.validator;
+package racingcar.domain.validate;
 
-import racingcar.domain.validator.exception.TryNumberException;
+import racingcar.domain.validate.exception.TryNumberException;
 
 public class TryNumberValidator implements InputValidator {
     @Override

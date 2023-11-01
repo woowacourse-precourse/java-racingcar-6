@@ -2,8 +2,8 @@ package racingcar.controller;
 
 import racingcar.domain.dto.RunningCarDto;
 import racingcar.domain.dto.WinnerDto;
-import racingcar.domain.validator.CarNameValidator;
-import racingcar.domain.validator.TryNumberValidator;
+import racingcar.domain.validate.CarNameValidator;
+import racingcar.domain.validate.TryNumberValidator;
 import racingcar.service.RacingCarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
