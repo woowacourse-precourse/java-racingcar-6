@@ -82,15 +82,15 @@
 
 ## view
 
-### InputView, OutputView
+### ConsoleInputView, ConsoleOutputView
 
 - 각 인스턴스가 별개의 값을 가질 필요가 없기 때문에 싱글톤으로 구현했습니다.
 
-### InputViewable, OutputViewable
+### InputView, OutputView
 
 - 정적 클래스가 아닌 싱글톤 패턴을 사용하면 인터페이스 구현이 가능합니다. 따라서 인터페이스 타입을 파라미터로 받는 생성자를 두면, 구현체가 변경되었을 때 유연하게 대처할 수 있습니다. 따라서 이러한 이점을 살리기
-  위해 InputViewable, OutputViewable 인터페이스를 생성하고, InputView와 OutputView는 각 인터페이스를 구현합니다.
-- 따라서 향후 구현체(InputView, OutputView)가 변경되더라도 RaceController의 생성자는 인터페이스 타입을 매개변수로 받기 때문에 코드를 수정하지 않아도 됩니다.
+  위해 InputView, OutputView 인터페이스를 생성하고, ConsoleInputView와 ConsoleOutputView는 각 인터페이스를 구현합니다.
+- 따라서 향후 구현체가 변경되더라도 RaceController의 생성자는 인터페이스 타입을 매개변수로 받기 때문에 코드를 수정하지 않아도 됩니다.
 
 # ✅ 회고
 
