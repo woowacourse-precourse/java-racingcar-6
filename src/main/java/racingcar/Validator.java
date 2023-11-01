@@ -2,6 +2,7 @@ package racingcar;
 
 public class Validator {
     public static final int CAR_NAME_LENGTH_LIMIT = 5;
+    public static final int ROUND_RANGE_LIMIT = 1;
 
     public static void validateCarNames(String[] delimitedCarNames) {
         if (isCarNamesOutOfLength(delimitedCarNames)) {
@@ -34,6 +35,6 @@ public class Validator {
     }
 
     private static boolean isRoundOutOfRange(String round) {
-        return Integer.parseInt(round) < 1;
+        return Integer.parseInt(round) < ROUND_RANGE_LIMIT;
     }
 }
