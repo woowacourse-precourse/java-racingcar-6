@@ -10,7 +10,7 @@ import racingcar.domain.RandomNumberGenerator;
 
 public class MovableTest {
     @Test
-    @DisplayName("4 이상에서 전진하는지 테스트")
+    @DisplayName("4 이상에서 전진하는지 검증")
     public void 전진_테스트() throws Exception {
         //given
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator() {
@@ -27,7 +27,7 @@ public class MovableTest {
     }
 
     @Test
-    @DisplayName("3 이하에서 정지하는지 테스트")
+    @DisplayName("3 이하에서 정지하는지 검증")
     public void 정지_테스트() throws Exception {
         //given
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator() {

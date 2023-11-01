@@ -11,8 +11,8 @@ public class RandomNumberGeneratorTest {
     private static int END_NUMBER_RANGE = 9;
 
     @Test
-    @DisplayName("0부터 9까지 숫자가 발생하는 지 확인")
-    void 범위_숫자_확인() throws Exception {
+    @DisplayName("0부터 9까지 숫자가 발생하는 지 검증")
+    void 범위_숫자_확인_테스트() throws Exception {
         //given
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 

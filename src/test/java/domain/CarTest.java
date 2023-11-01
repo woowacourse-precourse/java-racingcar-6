@@ -17,7 +17,7 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("자동차 생성자 생성 테스트")
+    @DisplayName("자동차 생성자 생성 검증")
     public void 자동차_생성자_테스트() throws Exception {
         assertEquals("pobi", car.getName());
         ;
@@ -25,7 +25,7 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("자동차의 전진과 후진이 되는지 테스트")
+    @DisplayName("자동차의 전진과 후진이 되는지 검증")
     public void 자동차_전진_후진_테스트() throws Exception {
         /*
         전진
@@ -51,7 +51,7 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("자동차 거리에 따른 출력이 되는지 테스트")
+    @DisplayName("자동차 거리에 따른 출력이 되는지 검증")
     public void 자동차_거리_출력_테스트() throws Exception {
         /*
         한 번 갈때

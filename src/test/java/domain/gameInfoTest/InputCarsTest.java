@@ -27,13 +27,13 @@ public class InputCarsTest {
 
     @Test
     @DisplayName("자동차 리스트에 공백이 존재하면 안 된다.")
-    public void 자동차_파싱_테스트() throws Exception {
+    public void 자동차_공백_테스트() throws Exception {
         assertThrows(IllegalArgumentException.class, () -> new InputCars("pobi, ,jun"));
     }
 
     @Test
     @DisplayName("자동차 리스트에 5글자를 넘어가는 자동차가 존재하면 안 된다.")
-    public void 자동차_공백_테스트() throws Exception {
+    public void 자동차_이름_초과_테스트() throws Exception {
         assertThrows(IllegalArgumentException.class, () -> new InputCars("pobi,seokhwan,jun"));
     }
 
