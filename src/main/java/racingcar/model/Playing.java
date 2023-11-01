@@ -1,10 +1,7 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.RacingCar;
-import racingcar.model.RacingCars;
 import racingcar.utils.RandomNumberGenerator;
 
 public class Playing {
