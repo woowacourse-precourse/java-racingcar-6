@@ -2,6 +2,10 @@ package racingcar.View;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
+import static racingcar.Message.ExceptionMessage.NOTHING_ERROR;
+import static racingcar.Message.ExceptionMessage.NULL_ERROR;
+import static racingcar.Message.ExceptionMessage.NUMBER_ERROR;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -43,11 +47,10 @@ public class InputViewTest {
     @DisplayName("유효하지 않은 자동차 이름을 입력하면 반환 값이 null 이어야 함")
     void givenInvalidCarNames_whenInputCar_thenReturnsNull() {
         String input = ",, car3";
-        System.setIn(new ByteArrayInputStream(input.trim().getBytes()));
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        String result = inputView.inputCar();
-
-        assertThat(result).isNull();
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> inputView.inputCar());
     }
 
     @Test
@@ -67,9 +70,8 @@ public class InputViewTest {
         String input = "invalid_time";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        int result = inputView.inputRaceTime();
-
-        assertThat(result).isEqualTo(-1);
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> inputView.inputCar());
     }
 
     @Test
@@ -80,6 +82,4 @@ public class InputViewTest {
         assertThatCode(() -> inputView.inputCar())
                 .isInstanceOf(NullPointerException.class);
     }
-
-
 }

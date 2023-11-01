@@ -1,5 +1,7 @@
 package racingcar.Exception;
 
+import static racingcar.Message.ExceptionMessage.NULL_ERROR;
+
 import java.util.*;
 import racingcar.Message.ExceptionMessage;
 
@@ -8,6 +10,9 @@ public class CarException {
     private final StringBuilder carNames = new StringBuilder();
 
     public String checkExceptionCar(String names) {
+        if (names == null) {
+            throw new IllegalArgumentException(NULL_ERROR);
+        }
         nameSet = new HashSet<>();
         String[] cars = checkNameCount(names);
         for (String car : cars) {
@@ -35,7 +40,7 @@ public class CarException {
         return true;
     }
 
-    public void checkFiveWords(String name) {
+    public void checkFiveWords(String name){
         if (name.length() > 5) {
             throw new IllegalArgumentException(ExceptionMessage.FIVE_LENGTH_ERROR);
         }
