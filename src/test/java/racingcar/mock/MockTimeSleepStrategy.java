@@ -3,7 +3,7 @@ package racingcar.mock;
 import racingcar.TimeSleepStrategy;
 
 public class MockTimeSleepStrategy implements TimeSleepStrategy {
-    private final static MockTimeSleepStrategy INSTANCE = new MockTimeSleepStrategy();
+    private final static MockTimeSleepStrategy instance = new MockTimeSleepStrategy();
 
     private final static int SLEEP_MILLISECONDS = 0;
 
@@ -11,7 +11,7 @@ public class MockTimeSleepStrategy implements TimeSleepStrategy {
     }
 
     public static MockTimeSleepStrategy getInstance() {
-        return INSTANCE;
+        return instance;
     }
 
     @Override

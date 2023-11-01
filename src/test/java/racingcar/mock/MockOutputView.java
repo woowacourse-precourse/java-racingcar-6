@@ -3,11 +3,11 @@ package racingcar.mock;
 import racingcar.view.OutputView;
 
 public class MockOutputView implements OutputView {
-    private static final MockOutputView INSTANCE = new MockOutputView();
+    private static final MockOutputView instance = new MockOutputView();
     private String printedMessage = "";
 
     public static MockOutputView getInstance() {
-        return INSTANCE;
+        return instance;
     }
 
     @Override
@@ -19,7 +19,8 @@ public class MockOutputView implements OutputView {
     }
 
     public String getPrintedMessageAndClear() {
+        String result = printedMessage;
         printedMessage = "";
-        return printedMessage;
+        return result;
     }
 }

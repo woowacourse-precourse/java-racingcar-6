@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class MockInputView implements InputView {
-    private static final MockInputView INSTANCE = new MockInputView();
+    private static final MockInputView instance = new MockInputView();
     private List<String> inputArguments;
     private Iterator<String> iterator;
 
@@ -15,7 +15,7 @@ public class MockInputView implements InputView {
     }
 
     public static MockInputView getInstance() {
-        return INSTANCE;
+        return instance;
     }
 
     public void init(String... args) {

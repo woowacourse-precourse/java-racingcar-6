@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MockRandomNumberGenerator implements RandomNumberGenerator {
-    private static final MockRandomNumberGenerator INSTANCE = new MockRandomNumberGenerator();
+    private static final MockRandomNumberGenerator instance = new MockRandomNumberGenerator();
 
     private final int MIN_RANDOM_NUMBER = 0;
     private final int MAX_RANDOM_NUMBER = 9;
@@ -19,7 +19,7 @@ public class MockRandomNumberGenerator implements RandomNumberGenerator {
     }
 
     public static MockRandomNumberGenerator getInstance() {
-        return INSTANCE;
+        return instance;
     }
 
     public void init(int... values) {

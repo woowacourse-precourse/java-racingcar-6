@@ -3,13 +3,13 @@ package racingcar;
 import racingcar.constant.FixedNumber;
 
 public class OneSecondSleepStrategy implements TimeSleepStrategy {
-    private final static OneSecondSleepStrategy INSTANCE = new OneSecondSleepStrategy();
+    private final static OneSecondSleepStrategy instance = new OneSecondSleepStrategy();
 
     private OneSecondSleepStrategy(){
     }
 
     public static OneSecondSleepStrategy getInstance() {
-        return INSTANCE;
+        return instance;
     }
 
     @Override
