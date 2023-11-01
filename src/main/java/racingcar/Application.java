@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.Arrays;
+import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     public static void main(String[] args) {
@@ -10,8 +11,8 @@ public class Application {
         String[] carNames = carInput.split(",");
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int gameCnt = Integer.parseInt(camp.nextstep.edu.missionutils.Console.readLine());
+        int gameCnt = Integer.parseInt(Console.readLine());
 
-        
+
     }
 }
