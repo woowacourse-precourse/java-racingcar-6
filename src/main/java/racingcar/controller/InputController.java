@@ -12,15 +12,13 @@ public class InputController {
     public static List<String> nameInput(){
         nameInputPrint();
         String names = Console.readLine();
-        List<String> nameList = namesException(names);
-        return nameList;
+        return namesException(names);
     }
 
     public static int roundNumberInput(){
         roundNumberInputPrint();
         String roundNumberString = Console.readLine();
-        int roundnumber = roundNumberException(roundNumberString);
-        return roundnumber;
+        return roundNumberException(roundNumberString);
     }
 
 }

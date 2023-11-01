@@ -5,8 +5,7 @@ public class RoundNumberValidator {
         isRoundNumberNull(roundNumberString);
         isRoundNumberNumeric(roundNumberString);
         try {
-            int roundNumber = Integer.parseInt(roundNumberString);
-            return roundNumber;
+            return Integer.parseInt(roundNumberString);
         }
         catch (NumberFormatException e){
             throw new IllegalArgumentException("시도 횟수가 너무 큽니다");

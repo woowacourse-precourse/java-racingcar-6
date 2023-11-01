@@ -32,11 +32,11 @@ public class CarList {
         return winners;
     }
     public String carListMoveCountString(){
-        String carListMoveCountString = "";
+        StringBuilder carListMoveCountString = new StringBuilder();
         for (Car car : carList) {
-            carListMoveCountString += car.moveCountString() + '\n';
+            carListMoveCountString.append(car.moveCountString()).append('\n');
         }
-        return carListMoveCountString;
+        return carListMoveCountString.toString();
     }
 
 }
