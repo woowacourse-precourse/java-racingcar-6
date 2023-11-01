@@ -13,7 +13,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.domain.Car;
 
 class WinnersDtoTest {
+
     private static Integer id = 0;
+
     @ParameterizedTest
     @MethodSource("우승자_설정")
     void 우승자_목록을_올바른형식으로_출력하기(List<String> carNames, String message) {

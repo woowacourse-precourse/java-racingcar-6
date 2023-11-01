@@ -25,6 +25,7 @@ class CarNamesDtoTest {
         });
         assertEquals(LENGTH_LIMIT + NAME_SIZE, exception.getMessage());
     }
+
     @ParameterizedTest
     @MethodSource("경주차이름_설정")
     void 공백을_제거하고_경주차이름_입력받기(String request, List<String> parsedNames) {
