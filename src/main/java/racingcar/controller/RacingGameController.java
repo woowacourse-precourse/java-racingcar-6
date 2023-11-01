@@ -6,15 +6,19 @@ import racingcar.view.InputView;
 
 public class RacingGameController {
     private final InputView inputView;
-    private RacingGameService gameService;
+    private RacingGameService service;
     private RacingGame racingGame;
 
     public RacingGameController(InputView inputView) {
         this.inputView = inputView;
+        service = RacingGameService.startGame();
     }
 
     public void run() {
         racingGame = inputView.getRacingGame();
         racingGame.setN(inputView.getMoveCount());
+        while(racingGame.isNotZero()) {
+            racingGame = service.moveCar(racingGame);
+        }
     }
 }
