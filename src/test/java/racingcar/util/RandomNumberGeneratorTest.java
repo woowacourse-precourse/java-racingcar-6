@@ -11,6 +11,7 @@ class RandomNumberGeneratorTest {
     @DisplayName("넘겨받은 크기의 리스트를 반환하는지 확인")
     public void createRandomNumbers() {
         List<Integer> randomNumbers = RandomNumberGenerator.createRandomNumbers(4);
+        
         assertThat(randomNumbers.size()).isEqualTo(4);
     }
 

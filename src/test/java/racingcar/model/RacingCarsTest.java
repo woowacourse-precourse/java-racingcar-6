@@ -14,6 +14,7 @@ class RacingCarsTest {
     public void createRacingCars() {
         List<String> carNames = Arrays.asList("pobi", "dobi");
         RacingCars racingCars = new RacingCars(carNames);
+
         assertThat(racingCars.getSize()).isEqualTo(2);
     }
 
@@ -21,6 +22,7 @@ class RacingCarsTest {
     @DisplayName("중복된 이름 입력 시 예외 처리")
     public void checkForDuplicates() {
         List<String> carNames = Arrays.asList("pobi", "pobi");
+
         assertThatThrownBy(() -> {
             RacingCars racingCars = new RacingCars(carNames);
         }).isInstanceOf(RuntimeException.class)
@@ -31,6 +33,7 @@ class RacingCarsTest {
     @DisplayName("두 개 미만의 자동차 입력 시 예외 처리")
     public void checkCarCountValidity() {
         List<String> carNames = Arrays.asList("pobi");
+
         assertThatThrownBy(() -> {
             RacingCars racingCars = new RacingCars(carNames);
         }).isInstanceOf(RuntimeException.class)
@@ -46,6 +49,7 @@ class RacingCarsTest {
 
         Car pobiCar = racingCars.getRacingCars().get(0);
         Car dobiCar = racingCars.getRacingCars().get(1);
+        
         assertThat(pobiCar.getDistance()).isEqualTo(0);
         assertThat(dobiCar.getDistance()).isEqualTo(1);
     }

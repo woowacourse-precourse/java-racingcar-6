@@ -12,6 +12,7 @@ class CarTest {
     public void createCar() {
         String name = "pobi";
         Car car = new Car(name);
+
         assertThat(car.getName()).isEqualTo(name);
     }
 
@@ -37,6 +38,7 @@ class CarTest {
     @DisplayName("이름이 같으면 같은 객체로 인식")
     public void nameEqualityTest() {
         Car pobiCar = new Car("pobi");
+
         assertThat(pobiCar).isEqualTo(new Car("pobi"));
     }
 
@@ -44,8 +46,11 @@ class CarTest {
     @DisplayName("4이상의 숫자를 넘겨받으면 앞으로 전진")
     public void moveForward() {
         Car pobiCar = new Car("pobi");
+
         assertThat(pobiCar.getDistance()).isEqualTo(0);
+
         pobiCar.moveForward(4);
+        
         assertThat(pobiCar.getDistance()).isEqualTo(1);
     }
 

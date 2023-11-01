@@ -14,6 +14,7 @@ class ScoreTest {
         ScoreDto dobiScore = new ScoreDto("dobi", 4);
         ScoreDto robiScore = new ScoreDto("dobi", 4);
         Score score = new Score(4, Arrays.asList(pobiScore, dobiScore, robiScore));
+        
         assertThat(score.findFarthestScores()).containsExactly(dobiScore, robiScore);
     }
 
@@ -24,9 +25,8 @@ class ScoreTest {
         ScoreDto dobiScore = new ScoreDto("dobi", 4);
         ScoreDto robiScore = new ScoreDto("dobi", 4);
         Score score = new Score(1, Arrays.asList(pobiScore, dobiScore, robiScore));
+
         assertThat(score.isSameRound(1)).isTrue();
-
-
     }
 
 }
