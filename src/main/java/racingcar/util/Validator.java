@@ -32,7 +32,7 @@ public class Validator {
         checkNull(input);
         boolean isValid = input.matches("^[1-9]\\d*$");
 
-        if(!isValid) {
+        if (!isValid) {
             throw new IllegalArgumentException();
         }
         return formatter.changeToInt(input);
@@ -50,6 +50,7 @@ public class Validator {
 
     private boolean hasDuplicates(List<String> list) {
         Set<String> uniqueItems = new HashSet<>(list);
+
         if (list.size() != uniqueItems.size()) {
             return true;
         }

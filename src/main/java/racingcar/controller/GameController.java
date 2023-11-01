@@ -72,7 +72,7 @@ public class GameController {
         for (String result: resultList) {
             outputView.printMessage(result);
         }
-            outputView.printEmptyLine();
+        outputView.printEmptyLine();
     }
 
     private void printWinner() {
