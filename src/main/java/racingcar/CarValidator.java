@@ -53,7 +53,9 @@ public class CarValidator {
 
         errorInTry(!numberCheck);
 
-
+        if (getIntNumber() < NumbersUtil.TryMin) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public int getIntNumber() {
