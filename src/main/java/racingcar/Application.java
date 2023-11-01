@@ -57,6 +57,19 @@ public class Application {
         System.out.println("");
     }
 
+    public static void startRacing(Map<String, Integer> carDistanceMap, Integer repeatCount) {
+        for (int i = 0; i < repeatCount; i++) {
+
+            if (repeatCount < 1) {
+                throw new IllegalArgumentException();
+            }
+
+            carDistanceMap = movingCar(carDistanceMap);
+
+            printResult(carDistanceMap);
+        }
+    }
+
     public static String getWinner(Map<String, Integer> carDistanceMap) {
 
         ArrayList<String> winnerList = new ArrayList<>();
@@ -85,12 +98,7 @@ public class Application {
 
         System.out.println("\n실행 결과");
 
-        for (int i = 0; i < repeatCount; i++) {
-
-            carDistanceMap = movingCar(carDistanceMap);
-
-            printResult(carDistanceMap);
-        }
+        startRacing(carDistanceMap, repeatCount);
 
         String winners = getWinner(carDistanceMap);
 
