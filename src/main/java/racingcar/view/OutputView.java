@@ -18,8 +18,8 @@ public class OutputView {
         System.out.println(resultMessage);
     }
 
-    public void printProcess(String process){
-        System.out.println(process);
+    public void printProcess(String currentStatus){
+        System.out.println(currentStatus);
     }
 
     public void printWinner(String winners){
