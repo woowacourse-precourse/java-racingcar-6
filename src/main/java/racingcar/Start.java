@@ -21,11 +21,15 @@ public class Start {
     public int times() {
         System.out.println("시도할 회수는 몇 회인가요?");
         String raw = Console.readLine();
-        int result = Integer.parseInt(raw);
 
-        if (result < 0) {
-            throw new IllegalArgumentException("음수를 입력할 수 없습니다.");
+        try {
+            int result = Integer.parseInt(raw);
+            if (result < 0) {
+                throw new IllegalArgumentException("음수를 입력할 수 없습니다.");
+            }
+            return result;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("숫자를 입력하세요.");
         }
-        return result;
     }
 }
