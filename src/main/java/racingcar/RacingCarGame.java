@@ -18,7 +18,9 @@ public class RacingCarGame {
     void startGame() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         setPlayers(readLine());
-        setGameCount();
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        setGameCount(readLine());
         for (int i = 0; i < gameCount; i++) {
             playGame();
             printResult();
@@ -42,10 +44,9 @@ public class RacingCarGame {
         }
     }
 
-    void setGameCount() {
+    void setGameCount(String item) {
         try {
-            System.out.println("시도할 회수는 몇회인가요?");
-            gameCount = Integer.parseInt(readLine());
+            gameCount = Integer.parseInt(item);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
