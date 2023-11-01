@@ -17,7 +17,7 @@ public class Validator {
     public static boolean isValidCar(String userInput) {
         String[] carList = userInput.split(",");
         return isValidListLength(carList) && isValidNameLength(carList)
-                && hasNotContainSpace(carList);
+                && hasNotContainSpace(carList) && streamDuplicateCheck(carList);
     }
 
     private static boolean isValidNameLength(String[] carList) {
@@ -41,7 +41,7 @@ public class Validator {
     }
 
     private static boolean streamDuplicateCheck(String[] carList) {
-        if (carList.stream().anyMatch(car -> car.equals(car))) {
+        if (carList.length != Arrays.stream(carList).distinct().count()) {
             OutputView.showError(DUPLICATED_NAME_ERROR);
             return false;
         }
