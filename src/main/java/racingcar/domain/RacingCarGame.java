@@ -9,10 +9,10 @@ import java.util.Set;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingCarGame {
-	static final String DELIMITER = ",";
-	int numberOfAttempts;
-	int numberOfCars;
-	List<Car> cars;
+	private static final String DELIMITER = ",";
+	private int numberOfAttempts;
+	private int numberOfCars;
+	private List<Car> cars;
 
 	private List<Car> getCarsFromInputString() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
