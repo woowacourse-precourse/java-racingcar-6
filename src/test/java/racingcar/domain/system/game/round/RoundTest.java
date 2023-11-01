@@ -1,5 +1,6 @@
 package racingcar.domain.system.game.round;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -7,9 +8,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
+import racingcar.domain.core.car.MoveSignal;
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.core.car.OnRaceCars;
 import racingcar.domain.system.game.round.reuslt.RoundResult;
+import racingcar.domain.system.host.Host;
 import racingcar.domain.system.host.RandomSignalHost;
 
 class RoundTest {
@@ -18,7 +21,7 @@ class RoundTest {
     @DisplayName("라운드 시작")
     void start() {
         // given
-        RandomSignalHost host = new RandomSignalHost();
+        Host host = new ForwardHost();
         OnRaceCar car1 = new OnRaceCar(new Car(new CarName("a")), 0L);
         OnRaceCar car2 = new OnRaceCar(new Car(new CarName("b")), 0L);
         OnRaceCar car3 = new OnRaceCar(new Car(new CarName("c")), 0L);
@@ -31,7 +34,15 @@ class RoundTest {
 
         // then
         for (OnRaceCar car : roundResult.getAllCars()) {
-            assertTrue(car.getPosition() >= 0L);
+            assertEquals(1L , car.getPosition());
+        }
+    }
+
+    private static class ForwardHost extends Host {
+
+        @Override
+        protected MoveSignal getSignal() {
+            return MoveSignal.FORWARD;
         }
     }
 }
