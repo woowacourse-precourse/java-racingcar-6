@@ -42,7 +42,7 @@
 ### RacingGameResponder
     결과를 유저에게 전달(stdout)하는 클래스
 - [ ] 실행 결과 출력
-    - [ ] 입력 타입은 RacingGame의 List<Car> cars의 position을 원소로 갖는 List<Integer>다.
+    - [ ] 입력 타입은 RacingGame의 List<Car>다.
 - [ ] 최종 우승자 출력
     - [ ] 입력 타입은 RacingGame의 List<Car> cars 중 우승자의 name을 원소로 갖는 List<String>이다.
 
