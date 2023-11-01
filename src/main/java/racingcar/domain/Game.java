@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.Input.UserInput;
+
 import java.util.HashMap;
 
 public class Game {
@@ -19,7 +21,7 @@ public class Game {
 
         for (int i = 0; i < numberOfMoves; i++) {
             carNames = raceSimulator.raceSimulation(carNames);
-            Output.raceOutput(carNames);
+            RaceOutput.raceOutput(carNames);
         }
         RaceSimulator.raceWinner(carNames);
     }
