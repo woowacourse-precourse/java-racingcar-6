@@ -2,11 +2,15 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
 
     private static final String NAME_DELIMITER = " : ";
     private static final String POSITION_REGEX = "-";
     private static final String NAME_RANGE_EXCEPTION_MESSAGE = " 이름은 5자 이하만 가능합니다.";
+    private static final int NAME_MAX_LENGTH = 5;
+    private static final int NAME_MIN_LENGTH = 1;
+    private static final int MOVABLE_THRESHOLD = 3;
+
     private int position;
     private final String name;
 
@@ -21,15 +25,13 @@ public class Car implements Comparable<Car>{
     }
 
     private void validateLengthOf(String name) {
-        //TODO
-        if (name.length() > 5 || name.length() < 1) {
+        if (name.length() > NAME_MAX_LENGTH || name.length() < NAME_MIN_LENGTH) {
             throw new IllegalArgumentException(NAME_RANGE_EXCEPTION_MESSAGE);
         }
     }
 
     public void move(int randomNumber) {
-        //TODO
-        if (randomNumber > 3) {
+        if (randomNumber > MOVABLE_THRESHOLD) {
             this.position++;
         }
     }
