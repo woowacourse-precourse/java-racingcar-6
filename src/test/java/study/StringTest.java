@@ -3,6 +3,8 @@ package study;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class StringTest {
@@ -48,4 +50,20 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void split_메서드_사용해_구분자로_나눈_리스트_검증() {
+        String input = "pobi,woni,jun";
+        List<String> result = Arrays.stream(input.split(",")).toList();
+
+        assertThat(result).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
+    }
+
+    @Test
+    void parseInt_메서드_사용시_정수로_변환_불가하면_예외_발생() {
+        String input = "a";
+
+        assertThatThrownBy(() -> Integer.parseInt(input))
+                .isInstanceOf(NumberFormatException.class)
+                .hasMessageContaining("For input string: \"a\"");
+    }
 }
