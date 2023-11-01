@@ -13,16 +13,18 @@ public class RacingController {
 
     public void startRace() {
         Cars cars = new Cars(generateRacersFromNames(InputView.readCarNames()));
+        List<Car> carList = cars.getCars();
         int count = InputView.readTryGame();
+
         Message.result();
         for (int i = 1; i <= count; i++) {
             cars.moveCars();
-            List<Car> carList = cars.getCars();
             for (Car car : carList) {
                 OutputView.printInfo(car.getName(), car.getPosition());
             }
             Message.insertSpace();
         }
+
         List<String> winners = cars.findWinners();
         OutputView.racingWinners(winners);
     }
