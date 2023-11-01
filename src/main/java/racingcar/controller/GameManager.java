@@ -50,5 +50,6 @@ public class GameManager {
 
     private void getFinalWinner(List<Car> carList) {
         String result = gameResultService.getFinalWinners(carList);
+        GameOutput.printFinalWinner(result);
     }
 }
