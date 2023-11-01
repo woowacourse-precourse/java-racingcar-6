@@ -9,32 +9,34 @@ public class Winners {
 
     public Winners(List<Car> cars) {
         searchMaxPlace(cars);
-        searchWinners(cars);
+        search(cars);
     }
 
     public List<Car> getWinners() {
         return winners;
     }
 
-    public int getMaxPlace(){
+    public int getMaxPlace() {
         return maxPlace;
     }
+
     public void searchMaxPlace(List<Car> cars) {
         maxPlace = cars.stream().map(car -> car.getNowPlace())
                 .max(Integer::compareTo)
                 .orElse(0);
     }
 
-    public void searchWinners(List<Car> cars) {
+    public void search(List<Car> cars) {
         winners = cars.stream().filter(car ->
-                        car.getNowPlace()== maxPlace)
+                        car.getNowPlace() == maxPlace)
                 .collect(Collectors.toList());
     }
 
-    public boolean getMultipleWinners() {
+    public boolean isMultiple() {
         if (winners.size() == 1) {
             return false;
         }
         return true;
     }
+
 }

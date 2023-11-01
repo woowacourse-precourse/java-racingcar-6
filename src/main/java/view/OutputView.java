@@ -1,6 +1,5 @@
 package view;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import model.Car;
 import model.Cars;
@@ -28,7 +27,7 @@ public class OutputView {
     }
 
     public void printWinner(Winners winners) {
-        if (winners.getMultipleWinners()) {
+        if (winners.isMultiple()) {
             System.out.print(FINAL_WINNER +
                     winners.getWinners()
                             .stream().map(Car::getName)
