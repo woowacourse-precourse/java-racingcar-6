@@ -31,11 +31,12 @@ public class Game { // 게임 진행 클래스
         saveCarNames(splitStr);
     }
 
-    public void saveCarNames(String[] splitStr) {
+    public List<Car> saveCarNames(String[] splitStr) {
         for (String str : splitStr) {
             minNameLengthExceptionCheck(str.strip());
             carList.add(new Car(str.strip()));
         }
+        return carList;
     }
 
     public void inputRepeatNumber() {
