@@ -6,24 +6,24 @@ public class Car {
 
     private final CarName name;
 
-    private int position;
+    private Position position;
 
-    private Car(final CarName name, final int position) {
+    private Car(final CarName name, final Position position) {
         this.name = name;
         this.position = position;
     }
 
     public static Car withName(final String name) {
-        return new Car(CarName.valueOf(name), 0);
+        return new Car(CarName.valueOf(name), Position.withZero());
     }
 
     public void moveForward(final int speed) {
         if (speed >= MIN_FORWARD_SPEED) {
-            position += 1;
+            position.moveForward();
         }
     }
 
     public int getPosition() {
-        return position;
+        return position.getPosition();
     }
 }
