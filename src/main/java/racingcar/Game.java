@@ -35,4 +35,11 @@ public class Game {
             trialNumber--;
         }
     }
+
+    public void doTrial(List<Car> carList) {
+        for (Car car : carList) {
+            int RandomNumber = getNumber();
+            car.move(RandomNumber);
+        }
+    }
 }
