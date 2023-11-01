@@ -99,7 +99,7 @@
         - 대칭성  
           n1.equals(n2) -> n2.equals(n1)
         - 추이성  
-          (n1.equals(n2) && n2.equals(n2)) -> n1.equals(n3)
+          (n1.equals(n2) && n2.equals(n3)) -> n1.equals(n3)
         - n1.equals(null) == false
         - 일관성은 별도로 검사하지 않는다.
 
