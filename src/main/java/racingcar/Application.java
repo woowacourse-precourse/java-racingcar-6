@@ -19,5 +19,6 @@ public class Application {
             System.out.println();
         }
 
+        host.announceWinner();
     }
 }

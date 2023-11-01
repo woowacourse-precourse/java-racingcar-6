@@ -67,4 +67,18 @@ public class HostReception {
         System.out.println(car.showCarsStatus());
     }
 
+    public void announceWinner () {
+        participants = participants.stream().sorted((a,b) -> b.advance - a.advance ).toList();
+
+        List<String> winners = participants.stream()
+                .filter(e -> participants.get(0).advance == e.advance)
+                .map(e -> e.name)
+                .toList();
+
+        String announcement = "최종 우승자 : " + String.join( ", ", winners);
+
+
+        System.out.println(announcement );
+    }
+
 }
