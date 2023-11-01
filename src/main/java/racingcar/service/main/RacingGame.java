@@ -6,6 +6,8 @@ import racingcar.input.count.CountReader;
 import racingcar.input.name.NameReader;
 import racingcar.service.movement.MovementStatus;
 import racingcar.output.ServicePrinter;
+import racingcar.service.movement.MovementStatus.RandomMovementStrategy;
+import racingcar.service.movement.RacingCarController.MovementStrategy;
 import racingcar.service.winner.WinnerSelector;
 
 public class RacingGame {
@@ -24,7 +26,10 @@ public class RacingGame {
 
         servicePrinter.printOutputMessage();
 
-        int[] countsByName = MovementStatus.race(names, count);
+        MovementStrategy randomMovementStrategy = new RandomMovementStrategy();
+        MovementStatus movementStatus = new MovementStatus(randomMovementStrategy);
+
+        int[] countsByName = movementStatus.race(names, count);
 
         if(count == 0) {
             ServicePrinter.printRaceStatus(names, countsByName);
