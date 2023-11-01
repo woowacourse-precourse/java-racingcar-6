@@ -13,7 +13,7 @@ public class InputValidator {
     }
 
     public void validateNonEmpty(String input) {
-        if (input.isBlank()) {
+        if (input == null || input.isBlank()) {
             throw new IllegalArgumentException(Err.NON_EMPTY_STRING.getMessage());
         }
     }
