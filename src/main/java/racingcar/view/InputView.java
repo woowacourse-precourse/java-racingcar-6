@@ -15,6 +15,13 @@ public class InputView {
         return carNameList;
     }
 
+    public int totalAttemptsInput() {
+        String userInput = Console.readLine();
+
+        int totalAttempts = Integer.parseInt(userInput);
+        return totalAttempts;
+    }
+
 }
 
 
