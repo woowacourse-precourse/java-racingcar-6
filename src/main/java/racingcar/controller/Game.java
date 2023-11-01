@@ -10,8 +10,8 @@ import java.util.stream.IntStream;
 import static racingcar.controller.constants.IntegerConstants.*;
 
 public class Game {
-    private Integer round;
-    private Cars cars;
+    public Integer round;
+    public Cars cars;
 
     public void run(){
         askCarNames();
