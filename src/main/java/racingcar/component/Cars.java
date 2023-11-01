@@ -2,10 +2,13 @@ package racingcar.component;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.util.RegexMatcher;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Cars {
     private List<Car> cars;
@@ -20,6 +23,9 @@ public class Cars {
         String names = Console.readLine();
 
         for (String name : names.split(",")) {
+            if (!RegexMatcher.match("^[a-zA-Z]{1,5}$", name)) {
+                throw new IllegalArgumentException("이름은 1~5 글자의 영문 대/소문자만 가능합니다.");
+            }
             nameList.add(name);
         }
         return nameList;
