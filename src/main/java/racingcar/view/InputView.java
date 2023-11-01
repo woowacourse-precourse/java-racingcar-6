@@ -1,12 +1,18 @@
 package racingcar.view;
 
+import java.util.Arrays;
+import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Car;
 
 public class InputView {
 
-	public static String inputCarNames() {
+	public List<Car> inputCarNames() {
 		//자동차 이름 입력
-		return Console.readLine();
+		String nameInput = Console.readLine();
+		//쉼표(,) 기준으로 구분
+		return Arrays.stream(nameInput.split(",")).map(Car::new).toList();
 	}
 
 }
