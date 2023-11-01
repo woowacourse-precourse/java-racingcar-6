@@ -2,7 +2,6 @@ package racingcar.dto;
 
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.domain.ControlTower;
 
 public class ControlTowerDto {
     private List<Car> cars;
