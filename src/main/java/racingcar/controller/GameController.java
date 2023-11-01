@@ -32,7 +32,7 @@ public class GameController {
     private void playGame() {
         outputView.printGameResultMessage();
 
-        while (gameService.isGameEnd()) {
+        while (gameService.isGameProgress()) {
             List<Car> racingCars = gameService.attemptDrive();
             racingCars.forEach(this::printAttemptResult);
             outputView.printNewLine();

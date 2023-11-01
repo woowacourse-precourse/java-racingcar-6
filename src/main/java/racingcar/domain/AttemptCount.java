@@ -18,7 +18,7 @@ public class AttemptCount {
         }
     }
 
-    public boolean isEnd() {
+    public boolean isProgress() {
         return attemptCount >= MINIMUM_ATTEMPT_COUNT;
     }
 

@@ -27,8 +27,8 @@ public class GameService {
         return new GameService(new RacingCars(racingCars), new AttemptCount(attemptCount));
     }
 
-    public boolean isGameEnd() {
-        return attemptCount.isEnd();
+    public boolean isGameProgress() {
+        return attemptCount.isProgress();
     }
 
     public List<Car> attemptDrive() {
