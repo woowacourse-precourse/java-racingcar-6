@@ -40,7 +40,6 @@ class ApplicationTest extends NsTest {
     }
 
 
-
     @Test
     void 이름에_대한_특수문자_예외_처리() {
         assertSimpleTest(() ->
@@ -86,6 +85,9 @@ class ApplicationTest extends NsTest {
                 STOP
         );
     }
+
+    @Test
+    void
 
     @Override
     public void runMain() {
