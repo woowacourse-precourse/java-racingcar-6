@@ -5,11 +5,10 @@ import java.util.List;
 
 public class RacingCarGame {
     private List<Car> cars;
-    private int count;
 
     public void run() {
         cars = Controller.inputNames();
-        count = Controller.inputCount();
+        int count = Controller.inputCount();
 
         Controller.printResultTitle();
         for (int i = 0; i < count; i++) {
