@@ -26,14 +26,14 @@ public class RacingCarController {
         findWinners();
     }
 
-    private String askCarNames() {
+    String askCarNames() {
         racingCarView.printStartMessage();
         String userInput = Console.readLine();
         UserInputValidator.validateUserInput(userInput);
         return userInput;
     }
 
-    private Integer askRepeatCount() {
+    Integer askRepeatCount() {
         racingCarView.printAskingRepeatCountMessage();
         String repeatCount = Console.readLine();
         UserInputValidator.validateNumberOfRetriesInput(repeatCount);
