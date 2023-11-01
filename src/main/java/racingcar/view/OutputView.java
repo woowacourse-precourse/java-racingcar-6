@@ -8,11 +8,14 @@ public class OutputView {
 
     private static final String POSITION_FORMAT = "-";
     private static final String EXECUTE_RESULT_MESSAGE = "실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자";
+    private static final String COLON = " : ";
+    private static final String JOIN_MARK = ", ";
     private static final String NEW_LINE = "\n";
 
     public static void executeResult(List<Car> carList) {
         for (Car car : carList) {
-            System.out.println(car.getCarName() + " : " + printPosition(car.getMove()));
+            System.out.println(car.getCarName() + COLON + printPosition(car.getMove()));
         }
         System.out.println();
     }
@@ -26,7 +29,7 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winnerCarList) {
-        System.out.println("최종 우승자 : " + String.join(", ", winnerCarList));
+        System.out.println(WINNER_MESSAGE + COLON + String.join(JOIN_MARK, winnerCarList));
     }
 
 }
