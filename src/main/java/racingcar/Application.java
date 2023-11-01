@@ -67,14 +67,22 @@ public class Application {
         return winners;
     }
 
+    static void printNamesOfRacers(List<Racer> racers){
+        int len = racers.size();
+        for (int i=0; i<len; i++){
+            if(i!=0){
+                System.out.print(", ");
+            }
+            System.out.print(racers.get(i).getName());
+        }
+    }
+
     public static void main(String[] args) {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
         Racer[] racers = createRacerFromInput();
 
         System.out.println("시도할 회수는 몇회인가요?");
-
         int attemptCount = setAttemptCountFromInput();
 
         System.out.println("실행 결과");
@@ -84,6 +92,8 @@ public class Application {
             System.out.println();
         }
 
+        System.out.print("최종 우승자 : ");
+        printNamesOfRacers(findWinner(racers));
 
     }
 }
