@@ -7,11 +7,11 @@ import java.util.Set;
 public final class GameRuleValidator implements GameRule {
     public static void validateName(final String givenName) {
         if (givenName.isEmpty()) {
-            throw new IllegalArgumentException("Name is Empty");
+            throw new IllegalArgumentException(RuleErrorMessage.EMPTY_NAME.getMessage());
         }
         int nameSize = givenName.split("").length;
         if (nameSize > MAX_NAME_LENGTH || nameSize < MIN_NAME_LENGTH) {
-            throw new IllegalArgumentException("Wrong Size Of Name");
+            throw new IllegalArgumentException(RuleErrorMessage.WRONG_SIZE_OF_NAME.getMessage());
         }
     }
 
@@ -26,7 +26,8 @@ public final class GameRuleValidator implements GameRule {
                 .filter(name -> !uniqueNames.add(name))
                 .findAny()
                 .ifPresent(duplicateName -> {
-                    throw new IllegalArgumentException("Duplicated Name : " + duplicateName);
+                    throw new IllegalArgumentException(
+                            RuleErrorMessage.DUPLICATED_NAME.getFormattedMessage(duplicateName));
                 });
     }
 }
