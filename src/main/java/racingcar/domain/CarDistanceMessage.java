@@ -17,7 +17,7 @@ public class CarDistanceMessage {
 
     @Override
     public boolean equals(Object o) {
-        if(o instanceof  CarDistanceMessage carDistanceMessage) {
+        if (o instanceof CarDistanceMessage carDistanceMessage) {
             return message.equals(carDistanceMessage.message);
         }
         return false;
