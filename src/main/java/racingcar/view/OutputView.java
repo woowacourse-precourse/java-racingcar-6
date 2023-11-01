@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import org.mockito.internal.verification.InOrderWrapper;
-
 import java.util.ArrayList;
 
 public class OutputView {
@@ -15,6 +13,7 @@ public class OutputView {
     }
 
     public static void printResultStartMessage() {
+        System.out.println(" ");
         System.out.println("실행 결과");
     }
 
