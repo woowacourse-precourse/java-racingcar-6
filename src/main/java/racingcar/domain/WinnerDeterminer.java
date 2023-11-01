@@ -11,7 +11,6 @@ public class WinnerDeterminer {
     private static String winnerName(List<Car> cars, int winnerScore) {
         String winners = "";
         for (Car car : cars) {
-            // Stringbuffer 또는 Stringbuilder로 변경하는걸 고민하기
             if (car.position < winnerScore)
                 continue;
             if (!winners.isEmpty()) {

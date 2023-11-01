@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class GameMaker {
     List<String> carNames;
@@ -13,7 +12,6 @@ public class GameMaker {
     public List<Car> cars;
     int carCount;
     public GameMaker() {
-        Scanner scanner = new Scanner(System.in);
         String carNameInput = setCarNames();
         setTotalRounds();
         splitCarNames(carNameInput);
@@ -28,22 +26,27 @@ public class GameMaker {
         initCar();
     }
     void initCar() {
-        cars = new ArrayList<Car>();
+        this.cars = new ArrayList<Car>();
         for (int i = 0; i < carCount; ++i) {
             // 입력받은 이름을 기반으로 차례대로 차량 생성
             Car car = new Car(carNames.get(i));
-            cars.add(car);
+            this.cars.add(car);
+        }
+        if (!InputValidator.isValidateCars(this.cars)) {
+            throw new IllegalArgumentException("차량 이름 오류 발생");
         }
     }
     void setTotalRounds() {
         System.out.println("시도할 회수는 몇회인가요?");
         String userInput = Console.readLine();
+        if (!InputValidator.isPositiveNumber(userInput)) {
+            throw new IllegalArgumentException("시도 회수 오류 발생");
+        }
         this.totalRounds = Integer.parseInt(userInput);
     }
     String setCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String userInput = Console.readLine();
-        // 유효하지 않은 값 : ,뒤에 아무것도 오지 않는 경우 처리 필요
         return userInput;
     }
 }

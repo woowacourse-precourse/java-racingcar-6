@@ -10,11 +10,6 @@ public class Game {
     public Game(List<Car> cars, int totalRounds) {
         this.cars = cars;
         this.totalRounds = totalRounds;
-        // 아래는 인자를 제대로 받아왔는지 확인하는 코드
-        /*
-        for (Car car : cars) {
-            System.out.println("car : " + car.name);
-        }*/
     }
 
     public void play() {
@@ -31,9 +26,8 @@ public class Game {
         System.out.print(winners);
     }
     void driveCars() {
-        decision = new RaceDecisionMaker();
         for (Car car : cars) {
-            boolean go = decision.raceDecision();
+            boolean go = RaceDecisionMaker.raceDecision();
             car.move(go);
         }
     }
