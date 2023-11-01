@@ -3,18 +3,18 @@
 - [X] 랜덤 값 판단하기 domain.Judgement # goStop()
   - [X] 무작위 값 4 이상: 전진
   - [X] 무작위 값 4 미만: 멈춤 
-- [] 입력하기 view.Input
-  - [] 자동차에 이름 부여하기 view.Input # getCarName()
-    - [] 이름은 쉼표 기준으로 나눈다
-    - [] 5자 이하만 가능
-    - [] 부여한 이름 갯수에 따라 자동차 갯수가 결정된다  
+- [X] 입력하기 view.Input
+  - [X] 자동차에 이름 부여하기 view.Input # getCarName()
+    - [X] 이름은 쉼표 기준으로 나눈다
+    - [X] 5자 이하만 가능 -> 예외 처리
+    - [X] 부여한 이름 갯수에 따라 자동차 갯수가 결정된다  
   - [X] 시도할 횟수 입력하기 view.Input # getTrialNumber()
-- [] 출력하기 view.Printer
-  - [] 자동차 이름 출력 (단, 전진하는 자동차 출력할 때 같이) view.Printer # printCar()
-  - [] 우승한 자동차 출력 (우승자는 1명 이상일 수 있다) view.Printer # printWinner()
-    - [] 우승자 여러명일 경우, 쉼표를 사용해서 구분한다 
-- [] 우승자 판단하기 domain.Judgement # countDash()
-- [] 예외 입력 값 처리하기
+- [X] 출력하기 view.Printer
+  - [X] 자동차 이름 출력 (단, 전진하는 자동차 출력할 때 같이) view.Printer # displayResult()
+  - [X] 우승한 자동차 출력 (우승자는 1명 이상일 수 있다) view.Printer # displayWinners()
+    - [X] 우승자 여러명일 경우, 쉼표를 사용해서 구분한다 
+- [X] 우승자 판단하기 domain.Judgement # getWinners()
+- [X] 예외 입력 값 처리하기 view.Input # checkWordsLimit()
 
 
 
