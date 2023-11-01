@@ -4,10 +4,15 @@ package racingcar.model;
 import racingcar.util.Constants;
 import racingcar.util.ExceptionMessages;
 
+import javax.print.attribute.standard.MediaSize;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RacingCar {
 
     private int distance;
     private String name;
+    private static final Pattern NAME = Pattern.compile(Constants.COMMA_MATCH_REGEX + Constants.PARSER_REGEX + Constants.COMMA_MATCH_REGEX);
 
     public int getDistance() {
         return this.distance;
@@ -34,7 +39,8 @@ public class RacingCar {
     }
 
     private static boolean checkSymbol(String name) {
-        return !name.matches(Constants.COMMA_MATCH_REGEX + Constants.PARSER_REGEX + Constants.COMMA_MATCH_REGEX);
+        Matcher matcher = NAME.matcher(name);
+        return !matcher.matches();
     }
 
     private static boolean checkNotEmpty(String name) {
