@@ -21,4 +21,17 @@ public class GameView {
         System.out.println("실행결과");
     }
 
+    public void printCarStatus(Car[] cars){
+        for (Car car : cars) {
+            System.out.println(car.getName()+" : "+getDashString(car.getScore()));
+        }
+        System.out.println();
+    }
+    private static String getDashString(int score){
+        StringBuilder dashes = new StringBuilder();
+        for (int i = 0; i < score; i++) {
+            dashes.append("-");
+        }
+        return dashes.toString();
+    }
 }
