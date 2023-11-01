@@ -23,9 +23,8 @@ public class Car {
         return number >= RandomNumber.MOVABLE_MIN;
     }
 
-    public void move() {
-        int randomNumber = RandomNumber.generateRandomNumber();
-        if (isMovable(randomNumber)) {
+    public void move(int number) {
+        if (isMovable(number)) {
             movedDistance++;
         }
     }

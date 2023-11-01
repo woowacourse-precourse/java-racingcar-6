@@ -1,10 +1,9 @@
 package racingcar.model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.StringTokenizer;
+import racingcar.util.RandomNumber;
 
 public class Cars {
     private final List<Car> cars;
@@ -41,7 +40,7 @@ public class Cars {
     public void carsMoving(Cars cars) {
         for (int i=0; i<cars.size(); i++) {
             Car car = cars.get(i);
-            car.move();
+            car.move(RandomNumber.generateRandomNumber());
         }
     }
 }
