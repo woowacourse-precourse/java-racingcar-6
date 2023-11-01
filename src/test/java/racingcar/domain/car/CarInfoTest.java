@@ -8,13 +8,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.Car;
 
 class CarInfoTest {
-    CarInfo carInfo = new CarInfo();
+    CarInfo carInfo;
 
+    @BeforeEach
+    void clear() {
+        carInfo = CarInfo.getInstance(); // CarInfo의 새 인스턴스를 생성하는 메서드
+        carInfo.reset();
+    }
 
     @DisplayName("자동차에 대한 정보를 저장할 수 있습니다.")
     @Test

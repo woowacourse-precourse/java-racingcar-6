@@ -33,4 +33,8 @@ public class CarRepository {
     public boolean hasName(String name) {
         return carRepository.containsKey(name);
     }
+
+    public void clear() {
+        carRepository.clear();
+    }
 }

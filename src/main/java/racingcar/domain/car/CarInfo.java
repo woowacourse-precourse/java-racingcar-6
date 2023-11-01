@@ -44,4 +44,8 @@ public class CarInfo {
     public List<Car> getAllCarInfo() {
         return carRepository.findByAll();
     }
+
+    public void reset() {
+        carRepository.clear();
+    }
 }
