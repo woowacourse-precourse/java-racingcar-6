@@ -3,7 +3,7 @@ package racingcar;
 import java.util.HashMap;
 import java.util.List;
 
-import modules.racingcarModules;
+import modules.RacingcarModules;
 
 public class Games {
   int move_num;
@@ -22,14 +22,14 @@ public class Games {
     System.out.println("실행 결과");
     for (var i = 0; i < move_num; i++) {
       for (String car_name : names) {
-        int value_update = car_situations.get(car_name) + racingcarModules.car_forward_or_not();
+        int value_update = car_situations.get(car_name) + RacingcarModules.car_forward_or_not();
         car_situations.put(car_name, value_update);
 
         System.out.println(car_name + " : " + "-".repeat(value_update));
       }
       System.out.println();
     }
-    List<String> champion_member = racingcarModules.campion_racing(car_situations);
+    List<String> champion_member = RacingcarModules.campion_racing(car_situations);
     System.out.print("최종 우승자 : " + String.join(", ", champion_member));
   }
 }

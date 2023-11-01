@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 
-public class racingcarException {
+public class RacingcarException {
   public static void exception_len_under_2(String[] carNames) {
     if (carNames.length < 2) {
       System.out.println("exception_len_0의 if문 안에 들어옴");

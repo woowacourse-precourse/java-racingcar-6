@@ -8,13 +8,13 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class racingcarModulesTest {
+public class RacingcarModulesTest {
   @Test
   void 랜덤_숫자가_4_이상이면_한_칸_앞으로() {
     int[] random_num_input = {1, 4, 5, 1};
     int result = 0;
     for (int num : random_num_input) {
-      result += racingcarModules.checked_random_num_over_4(num);
+      result += RacingcarModules.checked_random_num_over_4(num);
     }
 
     assertThat(result).isEqualTo(2);
@@ -29,7 +29,7 @@ public class racingcarModulesTest {
       add("pobi"); add("jun");
     }};
 
-    List<String> input_result = racingcarModules.campion_racing(input);
+    List<String> input_result = RacingcarModules.campion_racing(input);
     assertThat(result).isEqualTo(input_result);
   }
 }

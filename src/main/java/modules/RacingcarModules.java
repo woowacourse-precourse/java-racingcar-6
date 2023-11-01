@@ -6,22 +6,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class racingcarModules {
+public class RacingcarModules {
   public static void checked_car_name_len(String[] carNames) {
     for (String carName : carNames) {
-      racingcarException.exception_len_5(carName);
+      RacingcarException.exception_len_5(carName);
     }
   }
 
   public static void checked_car_name(String[] carNames) {
-    racingcarException.exception_len_under_2(carNames);
-    racingcarException.exception_same_name(carNames);
-    racingcarModules.checked_car_name_len(carNames);
+    RacingcarException.exception_len_under_2(carNames);
+    RacingcarException.exception_same_name(carNames);
+    RacingcarModules.checked_car_name_len(carNames);
   }
 
   public static void checked_move_num(String num) {
-    racingcarException.exception_not_int(num);
-    racingcarException.exception_negative(num);
+    RacingcarException.exception_not_int(num);
+    RacingcarException.exception_negative(num);
   }
 
   public static int checked_random_num_over_4(int random_num) {
@@ -34,7 +34,7 @@ public class racingcarModules {
 
   public static int car_forward_or_not() {
     int random_num = Randoms.pickNumberInRange(0, 9);
-    return racingcarModules.checked_random_num_over_4(random_num);
+    return RacingcarModules.checked_random_num_over_4(random_num);
   }
 
   public static List<String> campion_racing(HashMap<String, Integer> car_situations) {
