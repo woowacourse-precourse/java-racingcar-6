@@ -20,7 +20,7 @@ public class GameController {
         setUp();
         printGameNotice(EXECUTION_RESULT);
 
-        while (roundCount.hasRemainRound()) {
+        while (roundCount.hasRemain()) {
             referee.proceedRound();
             printRoundResult(cars);
         }

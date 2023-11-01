@@ -1,7 +1,7 @@
 package racingcar.util;
 
-import static racingcar.util.GameConfig.MAX_CAR_NAME_LENGTH;
-import static racingcar.util.GameConfig.MIN_ROUND;
+import static racingcar.util.GameConstants.MAX_CAR_NAME_LENGTH;
+import static racingcar.util.GameConstants.MIN_ROUND;
 import static racingcar.util.exception.ErrorMessage.*;
 
 import java.util.HashSet;
@@ -42,13 +42,13 @@ public class Validator {
     }
 
 
-    public static void validatePositive(String userInput) {
-        if (isLessThanOne(userInput)) {
+    public static void validateAboveZero(String userInput) {
+        if (isBelowZero(userInput)) {
             throw RacingCarException.of(LESS_THAN_ONE);
         }
     }
 
-    private static boolean isLessThanOne(String userInput) {
+    private static boolean isBelowZero(String userInput) {
         return Integer.parseInt(userInput) < MIN_ROUND.getValue();
     }
 

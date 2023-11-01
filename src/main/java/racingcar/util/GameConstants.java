@@ -1,6 +1,6 @@
 package racingcar.util;
 
-public enum GameConfig {
+public enum GameConstants {
     CAR_INITIAL_POSITION(0),
     MOVE_FORWARD_THRESHOLD(4),
     LAST_ROUND(0),
@@ -11,7 +11,7 @@ public enum GameConfig {
 
     private final int value;
 
-    GameConfig(int value) {
+    GameConstants(int value) {
         this.value = value;
     }
 

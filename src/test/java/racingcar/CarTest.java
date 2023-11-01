@@ -8,6 +8,7 @@ import racingcar.domain.Car;
 public class CarTest {
     private static final int TEST_COUNT = 4;
     private static final String MOVE_FORWARD_RESULT = "-";
+
     @Test
     void 자동차_전진() {
         Car car = Car.create("pobi");

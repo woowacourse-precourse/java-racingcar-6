@@ -6,13 +6,12 @@ public class CarName {
     private final String name;
 
     private CarName(String name) {
-        validateEmpty(name);
-        validateLength(name);
-
         this.name = name;
     }
 
     public static CarName of(String name) {
+        validateEmpty(name);
+        validateLength(name);
         return new CarName(name);
     }
 

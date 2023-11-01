@@ -10,6 +10,7 @@ import racingcar.domain.Car;
 
 public class CarNameTest extends NsTest {
     private Car car;
+
     @Test
     void 비어있는_이름_예외_처리() {
         assertThatThrownBy(() -> car = Car.create(""))

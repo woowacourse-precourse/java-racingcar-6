@@ -9,14 +9,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 
-public class RaceTest extends NsTest{
+public class RaceTest extends NsTest {
     private static final int MOVE_FORWARD = 4;
     private static final int INCLUDE_WINNER_OUTPUT = 5;
+
     @Test
     void 사용자_입력으로_자동차_생성() {
         assertSimpleTest(() -> {
             run("pobi,woni", "1");
-            assertThat(output()).contains("pobi","woni");
+            assertThat(output()).contains("pobi", "woni");
         });
     }
 
@@ -27,7 +28,7 @@ public class RaceTest extends NsTest{
                     run("pobi,woni", "1");
                     assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
                 },
-                MOVE_FORWARD,MOVE_FORWARD
+                MOVE_FORWARD, MOVE_FORWARD
         );
     }
 
@@ -39,7 +40,7 @@ public class RaceTest extends NsTest{
                     int count = 0;
                     Pattern pattern = Pattern.compile("pobi");
                     Matcher matcher = pattern.matcher(output());
-                    while(matcher.find()) {
+                    while (matcher.find()) {
                         count++;
                     }
                     assertThat(count).isEqualTo(INCLUDE_WINNER_OUTPUT);

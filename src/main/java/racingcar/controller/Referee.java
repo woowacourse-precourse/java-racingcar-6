@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
-import racingcar.domain.RandomNumber;
+import racingcar.domain.MovementCondition;
 
 public class Referee {
     private final List<Car> cars;
@@ -24,8 +24,8 @@ public class Referee {
     }
 
     private void decideMoveForward(Car car) {
-        RandomNumber randomNumber = RandomNumber.generate();
-        if (randomNumber.isEqualOrGreaterThanFour()) {
+        MovementCondition movementCondition = MovementCondition.generate();
+        if (movementCondition.isMovable()) {
             car.moveForward();
         }
     }
@@ -53,7 +53,7 @@ public class Referee {
     }
 
     private void compareCarToWinnerPosition(List<Car> winners, Car car, int winnerPosition) {
-        if (car.isWinner(winnerPosition)) {
+        if (car.isEqual(winnerPosition)) {
             winners.add(car);
         }
     }

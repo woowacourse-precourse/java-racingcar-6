@@ -16,7 +16,9 @@ public class OutputView {
 
     public static void printWinners(List<Car> winners) {
         printGameNotice(FINAL_WINNER);
-        System.out.println(winners.toString().replace("[", "").replace("]", ""));
+//        System.out.println(winners.toString().replace("[", "").replace("]", ""));
+        System.out.println(winners.toString().replaceAll("[\\[\\]]",""));
+
     }
 
     public static void printGameNotice(GameNotice gameNotice) {

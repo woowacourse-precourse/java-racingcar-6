@@ -9,6 +9,7 @@ import racingcar.domain.RoundCount;
 
 public class RoundCountTest {
     private RoundCount roundCount;
+
     @ParameterizedTest
     @DisplayName("1이하의 수에 대한 예외 처리")
     @ValueSource(strings = {"0", "-1"})

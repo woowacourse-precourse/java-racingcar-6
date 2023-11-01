@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.util.GameConfig.CAR_INITIAL_POSITION;
+import static racingcar.util.GameConstants.CAR_INITIAL_POSITION;
 
 public class Car {
     private final CarName carName;
@@ -27,7 +27,7 @@ public class Car {
         return "-".repeat(position);
     }
 
-    public boolean isWinner(int winnerPosition) {
+    public boolean isEqual(int winnerPosition) {
         return this.position == winnerPosition;
     }
 
