@@ -6,8 +6,9 @@ import java.util.List;
 public class RacingcarGame {
 
     private List<Car> racingcars = new ArrayList<>();
-    private List<String> winners = new ArrayList<>();
+    private List<String> winners;
     private int tryCount;
+    private int maxMoveCount = 0;
 
     public void start() throws IllegalArgumentException {
         set();
@@ -22,8 +23,8 @@ public class RacingcarGame {
 
     private void run() {
         runRounds(tryCount);
-        calculateWinners(racingcars);
-        InputOutput.printWinner(winners);
+        setWinners(racingcars);
+        printWinners();
     }
 
     private String[] getCarNames() throws IllegalArgumentException {
@@ -66,18 +67,30 @@ public class RacingcarGame {
         System.out.println();
     }
 
-    private void calculateWinners(List<Car> cars) {
-        int maxMoveCount = 0;
+    private void setWinners(List<Car> cars) {
+        initializeWinners();
         for (Car car : cars) {
-            int moveCount = car.getMoveCount();
-            String name = car.getName();
-            if (moveCount > maxMoveCount) {
-                winners = new ArrayList<>(); // 비우기
-                winners.add(name);
-                maxMoveCount = moveCount;
-            } else if (moveCount == maxMoveCount) {
-                winners.add(name);
-            }
+            setWinner(car);
         }
+    }
+
+    private void setWinner(Car car) {
+        int moveCount = car.getMoveCount();
+        String name = car.getName();
+        if (moveCount > maxMoveCount) {
+            initializeWinners();
+            winners.add(name);
+            maxMoveCount = moveCount;
+        } else if (moveCount == maxMoveCount) {
+            winners.add(name);
+        }
+    }
+
+    private void printWinners() {
+        InputOutput.printWinners(winners);
+    }
+
+    private void initializeWinners() {
+        winners = new ArrayList<>();
     }
 }

@@ -32,7 +32,7 @@ public class InputOutput {
         System.out.printf("%s : %s\n", name, UNIT_MOVE_BLOCK.repeat(moveCount));
     }
 
-    static void printWinner(List<String> names) {
+    static void printWinners(List<String> names) {
         System.out.print(Constant.PRINT_WINNER_MESSAGE);
         String namesWithComma = String.join(",", names);
         System.out.println(namesWithComma);
