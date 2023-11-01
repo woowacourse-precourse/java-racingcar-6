@@ -33,13 +33,17 @@ public class OutputView {
         while (round <= finalRound) {
             SingleRoundResultDto singleRoundResultDto = resultDto
                     .getSingleRoundResultDto(round);
-            long carNumbers = singleRoundResultDto.getCarNumbers();
-            for (int index = 0; index < carNumbers; index++) {
-                Car.CarResultDto carResult = singleRoundResultDto.getCarResultDto(index);
-                System.out.println(carResult);
-            }
+            printCarResultsPerSingleRound(singleRoundResultDto);
             round ++;
             System.out.print(Sentence.ALIGN_LINE.getMessage());
+        }
+    }
+
+    private static void printCarResultsPerSingleRound(SingleRoundResultDto singleRoundResultDto) {
+        int carNumbers = singleRoundResultDto.getCarNumbers();
+        for (int index = 0; index < carNumbers; index++) {
+            Car.CarResultDto carResult = singleRoundResultDto.getCarResultDto(index);
+            System.out.println(carResult);
         }
     }
 
