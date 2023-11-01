@@ -12,7 +12,7 @@ public class Controller{
     }
 
     private void validateCarName(String carName){
-        if(carName.isEmpty()){
+        if(carName.isBlank()){
             throw new IllegalArgumentException();
         }
         if(carName.length()>5){
