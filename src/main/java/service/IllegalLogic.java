@@ -5,7 +5,7 @@ import static model.Constants.CAR_NAME_MAXLENGTH;
 public class IllegalLogic {
 
     RacingCarGameLogic racingCarGameLogic = new RacingCarGameLogic();
-    public void processingIllegalLogic(String inputString){
+    public void processingIllegalLogicOfCarNames(String inputString){
         String[] splitName=splitCarName(inputString);
         if(stringLengthCheck(splitName)){
             racingCarGameLogic.insertCarName(splitName);

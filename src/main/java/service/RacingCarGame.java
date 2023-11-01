@@ -10,7 +10,7 @@ public class RacingCarGame {
     InputPhrase inputPhrase = new InputPhrase();
     public void run(){
         inputPhrase.startInputMessage();
-        illegalLogic.processingIllegalLogic(Console.readLine());
+        illegalLogic.processingIllegalLogicOfCarNames(Console.readLine());
         gameStart();
     }
 
