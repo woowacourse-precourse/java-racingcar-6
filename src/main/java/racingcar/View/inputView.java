@@ -9,13 +9,13 @@ import racingcar.Model.CarModel;
 
 public class InputView {
     public static List<CarModel> getCarNameFromUser(){
-        String input = Console.readLine();
+        String input = Console.readLine(); Console.close();
         List<CarModel> carList = stringToCarModelList(input);
         return carList;
     }
 
     public static Integer getCarCntFromUser(){
-        String input = Console.readLine();
+        String input = Console.readLine(); Console.close();
         Integer carCnt = stringToCarCntInteger(input);
         return carCnt;
     }
