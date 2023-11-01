@@ -12,6 +12,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        //시간 측정 실험할 코드 추가
+        long beforeTime = System.currentTimeMillis(); //코드 실행 전에 시간 받아오기
         int championCount =0;
         List<String> resultList = new ArrayList<>();
 
@@ -33,6 +35,10 @@ public class Application {
         printForward(championCount, resultList, carList);
         //우승자 출력.
         printChampion(championCount, resultList, carList);
+
+        long afterTime = System.currentTimeMillis(); // 코드 실행 후에 시간 받아오기
+        long secDiffTime = (afterTime - beforeTime)/1000; //두 시간에 차 계산
+        System.out.println("시간차이(m) : "+secDiffTime);
     }
 
     private static void printChampion(int championCount, List<String> resultList, List<RacingCar> carList) {
