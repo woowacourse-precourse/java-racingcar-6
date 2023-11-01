@@ -42,7 +42,7 @@ public class TryCount {
 
     private void checkLength(String refinedInput) {
         if (refinedInput.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("시도 횟수는 " + MAX_LENGTH +"자리 이하의 수여야 합니다.");
+            throw new IllegalArgumentException("시도 횟수는 " + MAX_LENGTH + "자리 이하의 수여야 합니다.");
         }
     }
 

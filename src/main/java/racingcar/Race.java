@@ -5,24 +5,25 @@ import java.util.List;
 
 public class Race {
 
-	Cars cars;
-	List<String> raceResult = new ArrayList<>();
-	public void start(Cars cars, TryCount tryCount) {
-		this.cars = cars;
+    Cars cars;
+    List<String> raceResult = new ArrayList<>();
 
-		Result result = new Result(cars);
+    public void start(Cars cars, TryCount tryCount) {
+        this.cars = cars;
 
-		for (int j=0; j< tryCount.getTryCount(); j++) {
-			round();
-			result.printRaceResult(raceResult);
-		}
-	}
+        Result result = new Result(cars);
 
-	private void round() {
-		CarController carController = new CarController();
+        for (int j = 0; j < tryCount.getTryCount(); j++) {
+            round();
+            result.printRaceResult(raceResult);
+        }
+    }
 
-		for (Car car : cars.getCars()) {
-			raceResult.add(carController.moveOrStop(car));
-		}
-	}
+    private void round() {
+        CarController carController = new CarController();
+
+        for (Car car : cars.getCars()) {
+            raceResult.add(carController.moveOrStop(car));
+        }
+    }
 }
