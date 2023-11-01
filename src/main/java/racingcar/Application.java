@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.UserCar;
 
 public class Application {
@@ -7,7 +8,5 @@ public class Application {
         // TODO: 프로그램 구현
         UserCar userCar = new UserCar();
         userCar.inputCarName();
-
-
     }
 }

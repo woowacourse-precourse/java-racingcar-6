@@ -8,10 +8,12 @@ import racingcar.controller.UserCarService;
 import racingcar.view.InputView;
 
 public class UserCar {
-    private Map<String, Integer> car;
-    private int roundNumber;
+    public Map<String, Integer> car;
+    public int roundNumber;
     private UserCarService userCarService = new UserCarService();
+
     public UserCar(){
+        inputCarName();
     }
     public void inputCarName(){
         Map<String, Integer> resource = InputView.inputCarNameView();
@@ -19,5 +21,6 @@ public class UserCar {
             this.car = resource;
         };
     }
+
 }
 

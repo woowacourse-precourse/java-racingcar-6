@@ -21,4 +21,4 @@
 - [ ] 자동차 마다 0에서 9사이에서 무작위 값을 생성한다. -RacingCarGame#generateCarNumber()
   - [ ] 4이상이면 전진하여 이동한 거리를 저장한다. -RacingCarGame#decideForward()
 - [ ] 이동의 횟수가 끝난 후 우승자를 알수 있어야 한다. -RacingCarGame#gameResult()
-- [ ] 라운드마다 이동된 위치를 출력한다. -RacingCarGame#currentLocation();
+- [ ] 라운드마다 이동된 위치를 출력한다. -OutputView#currentLocation()

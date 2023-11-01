@@ -10,7 +10,7 @@ public class UserCarService {
             count+=checkLength(key);
         }
         if(count>=1){
-            throw new IllegalArgumentException("5자 이하로 입력하시오");
+            throw new IllegalArgumentException("5자 이하로 입력하시ㅔ걒");
         }
         return true;
     }
