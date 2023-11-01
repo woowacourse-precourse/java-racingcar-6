@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.model.ConstantString.NAME_IS;
+import static racingcar.model.ConstantString.UNIT_MOVE;
 import static racingcar.util.ConstantNumbers.LOWER_BOUND;
 import static racingcar.util.ConstantNumbers.THRESHOLD;
 import static racingcar.util.ConstantNumbers.UPPER_BOUND;
@@ -10,8 +12,6 @@ public class Car implements Comparable<Car>, Model {
     private final String name;
     private int moved;
     private final int index;
-    private static final String NAME_IS = "%s : ";
-    private static final String CAR_MOVE = "-";
 
     Car(final String name, final int index) {
         this.name = name;
@@ -41,8 +41,9 @@ public class Car implements Comparable<Car>, Model {
     @Override
     public String toString() {
         StringBuilder print = new StringBuilder();
-        print.append(String.format(NAME_IS, name));
-        print.append(CAR_MOVE.repeat(moved));
+
+        print.append(String.format(NAME_IS.string(), name));
+        print.append(UNIT_MOVE.string().repeat(moved));
 
         return print.toString();
     }
