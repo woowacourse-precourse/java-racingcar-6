@@ -1,14 +1,25 @@
 package racingcar.domain.game;
 
-public class Game {
+import racingcar.enums.GameStatus;
 
+public class Game {
     private final int tryNumber;
+    private int currentTryNumber;
+    private GameStatus gameStatus;
 
     public Game(int tryNumber) {
         this.tryNumber = tryNumber;
+        gameStatus = GameStatus.PLAYING;
     }
 
-    public int getTryNumber() {
-        return tryNumber;
+    public boolean isPlay() {
+        return gameStatus == GameStatus.PLAYING;
+    }
+
+    public void countPlayNumber() {
+        currentTryNumber += 1;
+        if(currentTryNumber == tryNumber) {
+            gameStatus = GameStatus.END;
+        }
     }
 }

@@ -19,7 +19,6 @@ public class GameController {
 
         OutputView.informPlayResult();
         performRound(cars, game);
-
         informFinalWinner(cars);
     }
 
@@ -42,8 +41,9 @@ public class GameController {
     }
 
     private void performRound(Cars cars, Game game) {
-        for (int i = 0; i < game.getTryNumber(); i++) {
+        while(game.isPlay()) {
             cars.moveCars();
+            game.countPlayNumber();
             OutputView.informCarMoveDistance(cars.getCars());
         }
     }

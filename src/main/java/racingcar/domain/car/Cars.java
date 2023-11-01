@@ -32,7 +32,6 @@ public class Cars {
         List<Car> sortedCars = getSortedCars(cars);
         List<Car> farthestCars = getFarthestCars(sortedCars);
         return getWinnerCarNames(farthestCars);
-//        OutputView.informFinalWinner(winnerCarNames);
     }
 
     private List<Car> getSortedCars(List<Car> cars) {
