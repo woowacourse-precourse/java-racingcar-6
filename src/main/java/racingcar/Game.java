@@ -3,7 +3,6 @@ package racingcar;
 import java.util.List;
 
 public class Game {
-
     private final Cars cars;
 
     public Game(String carNames) {

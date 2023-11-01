@@ -3,7 +3,6 @@ package racingcar;
 import java.util.List;
 
 public class OutputView {
-
     private void printCar(Car car) {
         System.out.println(car.getName() + Constant.COLON + Constant.HYPHEN.repeat(car.getPosition()));
     }

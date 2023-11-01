@@ -53,15 +53,15 @@ public class InputView {
         }
     }
 
-    private void validateEachName(String name) {
-        validateNotBlank(name);
-        validateLength(name);
-    }
-
     private void validateMinimumCount(List<String> inputList) {
         if (inputList.size() < Constant.MINIMUM_CAR_COUNT) {
             throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
         }
+    }
+
+    private void validateEachName(String name) {
+        validateNotBlank(name);
+        validateLength(name);
     }
 
     private void validateLength(String input) {
