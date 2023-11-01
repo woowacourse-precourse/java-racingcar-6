@@ -215,9 +215,13 @@
 
 - 생성자 메소드 (생성자를 사용하지 못하도록 private으로 선언)
 
-**🛠️ public static void checkAll(String)**
+**🛠️ public static void checkAllCarName(String)**
 
 - 자동차 이름에 대한 모든 예외를 실행
+
+**🛠️ public static void checkAllTryCount(String)**
+
+- 실행횟수에 대한 모든 예외를 실행
 
 **🛠️ private static void checkNameLength(String)**
 
@@ -228,6 +232,14 @@
 - 자동차 이름이 숫자로만 이루어져 있으면 예외 발생
 
 **🛠️ private static void checkExistCar(String)**
+
+- 자동차 이름이 이미 존재한다면 예외 발생
+
+**🛠️ private static void checkTryCountOverZero(String)**
+
+- 자동차 이름이 이미 존재한다면 예외 발생
+
+**🛠️ private static void checkTryCountNonInteger(String)**
 
 - 자동차 이름이 이미 존재한다면 예외 발생
 
@@ -290,6 +302,25 @@
 
 - 자동차 이름이 이미 존재하는 것을 다시 입력하는 경우
 
+**🛠️ void 이름이_공백인_경우에_대한_예외_처리()**
+
+- 자동차 이름 리스트 중 하나가 공백인 경우
+
+**🛠️ void 이름이_공백인_경우에_대한_예외_처리_2()**
+
+- 자동차 이름 전체가 공백인 경우
+
+**🛠️ void 실행횟수가_음수인_경우에_대한_예외_처리()**
+
+- 실행횟수가 음수인 경우
+
+**🛠️ void 실행횟수가_0인_경우에_대한_예외_처리()**
+
+- 실행횟수가 0인 경우
+
+**🛠️ void 실행횟수가_정수가_아닌_경우에_대한_예외_처리()**
+
+- 실행횟수가 정수 타입이 아닌 경우
 
 
 ## 참고 자료
