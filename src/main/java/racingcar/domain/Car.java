@@ -8,7 +8,8 @@ public class Car {
     private final String name;
     private int position;
 
-    private final String PROGRESS_BAR = "-";
+    private static final String PROGRESS_BAR_UNIT = "-";
+    private static final String TO_STRING_FORMAT = "%s : %s";
 
     private Car(String name, int position) {
         this.name = name;
@@ -56,8 +57,11 @@ public class Car {
 
     @Override
     public String toString() {
-        String position = PROGRESS_BAR.repeat(this.getPosition());
-        return String.format("%s : %s", name, position);
+        return String.format(TO_STRING_FORMAT, name, getProgressBar());
+    }
+
+    private String getProgressBar() {
+        return PROGRESS_BAR_UNIT.repeat(this.getPosition());
     }
 
     @Override
