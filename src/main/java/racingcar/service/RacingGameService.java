@@ -59,7 +59,7 @@ public class RacingGameService {
         outputView.blank();
     }
 
-    public List<String> checkWinner(RacingGame racingGame) {
+    List<String> checkWinner(RacingGame racingGame) {
         List<String> winnerList = new ArrayList<>();
 
         List<Car> carList = racingGame.getCarList();
