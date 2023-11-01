@@ -1,24 +1,21 @@
 package racingcar.view.input;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-
-class InputCarNameTest {
+public class InputTryNumberTest {
     private Input inputView = new Input();
 
     @Test
-    @DisplayName("차 이름 받는 로직 테스트")
-    void inputCarNames() {
-        InputStream readLine = setReadLine("pobi,woni,jun");
+    void inputTryNumber() {
+        InputStream readLine = setReadLine("5");
         System.setIn(readLine);
 
-        String[] expect = new String[]{"pobi", "woni", "jun"};
-        String[] actual = inputView.inputCarNames();
+        Integer expect = 5;
+        Integer actual = inputView.inputTryNumber();
 
         Assertions.assertThat(actual).isEqualTo(expect);
     }

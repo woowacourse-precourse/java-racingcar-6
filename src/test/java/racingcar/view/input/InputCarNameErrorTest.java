@@ -7,20 +7,16 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-
-class InputCarNameTest {
+public class InputCarNameErrorTest {
     private Input inputView = new Input();
 
     @Test
-    @DisplayName("차 이름 받는 로직 테스트")
-    void inputCarNames() {
-        InputStream readLine = setReadLine("pobi,woni,jun");
+    @DisplayName("차 이름 받는 로직 중 이름이 5자 초과인 로직 확인")
+    void inputCarNamesThrowError() {
+        InputStream readLine = setReadLine("pobiee2,aaa,bbb");
         System.setIn(readLine);
-
-        String[] expect = new String[]{"pobi", "woni", "jun"};
-        String[] actual = inputView.inputCarNames();
-
-        Assertions.assertThat(actual).isEqualTo(expect);
+        Assertions.assertThatThrownBy(() -> inputView.inputCarNames())
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     public static InputStream setReadLine(String readLine) {
