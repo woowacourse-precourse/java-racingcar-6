@@ -20,10 +20,6 @@ public class Application {
         List<Integer> position = new ArrayList<>();
         int maxPosition;
 
-        if (!NUMBER_PATTERN.matcher(input).matches()) {
-            throw new IllegalArgumentException("시도할 회수는 숫자만 가능");
-        }
-
         if (tryCount <= 0) {
             throw new IllegalArgumentException("1 이상의 양수만 입력 가능.");
         }
@@ -83,6 +79,8 @@ public class Application {
 
     private static int inputTryCount() {
         String input = getInput("시도할 회수는 몇회인가요?");
+        validateBlank(input);
+        validateInputIsNumber(input);
 
         return Integer.parseInt(input);
     }
@@ -120,6 +118,12 @@ public class Application {
                 .count();
         if (carNames.size() != distinctCount) {
             throw new IllegalArgumentException("[중복 불가] 자동차 이름은 서로 다르게 입력해주세요.");
+        }
+    }
+
+    private static void validateInputIsNumber(String input) {
+        if (!NUMBER_PATTERN.matcher(input).matches()) {
+            throw new IllegalArgumentException("시도할 회수는 숫자만 가능");
         }
     }
 }
