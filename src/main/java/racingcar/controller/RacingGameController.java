@@ -23,7 +23,7 @@ public class RacingGameController {
             List<CarStatus> carStatuses = racingGameService.play();
             printCarStatus(carStatuses);
             if(i == tryCnt-1)
-                printWinnerResults(racingGameService);
+                printWinners(racingGameService);
         }
     }
 
@@ -32,13 +32,13 @@ public class RacingGameController {
         OutputView.println();
     }
 
-    private void printWinnerResults(RacingGameService racingGameService) {
-        List<String> winnerNameList = racingGameService.determineRaceWinners();
-        OutputView.printWinner(winnerNameList);
-    }
-
     private static void printBeforeResultsMessage() {
         OutputView.println();
         OutputView.printMessage(PRINT_RESULT);
+    }
+
+    private void printWinners(RacingGameService racingGameService) {
+        List<String> winnerNameList = racingGameService.getRaceWinners();
+        OutputView.printWinner(winnerNameList);
     }
 }
