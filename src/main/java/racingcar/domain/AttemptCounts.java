@@ -18,12 +18,6 @@ public class AttemptCounts {
         return new AttemptCounts(convertedAttemptCounts);
     }
 
-    private static void validateAttemptCounts(int attemptCounts) {
-        if (attemptCounts < MIN_ATTEMPT_NUMBER || MAX_ATTEMPT_NUMBER < attemptCounts) {
-            throw new IllegalArgumentException(ATTEMPT_COUNTS_NOT_IN_RANGE.getMessage());
-        }
-    }
-
     private static int convertAttemptCounts(String attempt) {
         int attemptNumber;
         try {
@@ -32,6 +26,16 @@ public class AttemptCounts {
             throw new IllegalArgumentException(ATTEMPT_COUNTS_NOT_NUMBER.getMessage());
         }
         return attemptNumber;
+    }
+
+    private static void validateAttemptCounts(int attemptCounts) {
+        if (isInvalidAttemptCountsInRange(attemptCounts)) {
+            throw new IllegalArgumentException(ATTEMPT_COUNTS_NOT_IN_RANGE.getMessage());
+        }
+    }
+
+    private static boolean isInvalidAttemptCountsInRange(int attemptCounts) {
+        return attemptCounts < MIN_ATTEMPT_NUMBER || MAX_ATTEMPT_NUMBER < attemptCounts;
     }
 
     public boolean isRemainAttemptCounts() {
