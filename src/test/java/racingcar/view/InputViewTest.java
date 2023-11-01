@@ -41,7 +41,7 @@ class InputViewTest {
     @Test
     void inputCarName_자동차_이름에_공백이_포함된_경우_에러() {
         //given
-        ArrayList<String> carNames = new ArrayList<>(List.of("pobi", "woni", "jun"));
+        ArrayList<String> carNames = new ArrayList<>(List.of("po bi", "woni", "jun"));
         //when, then
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             InputView.inputCars(carNames);
