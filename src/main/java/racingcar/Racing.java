@@ -61,6 +61,8 @@ public class Racing {
     }
 
     public void validateTryCount(String inputString) {
+        if(inputString.equals(""))
+            throw new IllegalArgumentException("시도회수가 입력되지 않았습니다.");
         for(char c : inputString.toCharArray()){
             if(!Character.isDigit(c))
                 throw new IllegalArgumentException("잘못된 값이 입력되었습니다.");
