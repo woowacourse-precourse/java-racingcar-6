@@ -69,6 +69,21 @@ class GarageTest {
     }
 
     @Test
+    @DisplayName("차의 이름이 하나밖에 없다면 예외를 발생시킨다.")
+    void validateSoloPlay_throwException() {
+        /**
+         * given : 사용자 입력이 주어진다.
+         * when : 차의 이름이 오직 하나가 입력된다면,
+         * then : IllegalArgumentException 예외를 발생시킨다.
+         */
+        String playerInput = "seoul";
+
+        assertThatThrownBy(() -> new Garage(playerInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("플레이어는 최소 2명 이상이어야 합니다. 자동차 경주 게임을 종료합니다.");
+    }
+
+    @Test
     @DisplayName("입력 조건에 부합하는 경우, 값을 검증한다.")
     void validateCarNames_successful() {
         /**

@@ -25,6 +25,7 @@ public class Garage {
         validateCarNamesUnderFive(carNames);
         validateDuplicatedCarName(carNames);
         validateEmptyCarName(carNames);
+        validateSoloPlay(carNames);
     }
 
     private void validateCarNamesUnderFive(String[] carNames) {
@@ -49,6 +50,12 @@ public class Garage {
             if (carName.trim().isEmpty()) {
                 throw new IllegalArgumentException("공백은 입력될 수 없습니다. 자동차 경주 게임을 종료합니다.");
             }
+        }
+    }
+
+    private void validateSoloPlay(String[] carNames) {
+        if (carNames.length <= 1) {
+            throw new IllegalArgumentException("플레이어는 최소 2명 이상이어야 합니다. 자동차 경주 게임을 종료합니다.");
         }
     }
 }
