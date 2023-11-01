@@ -3,7 +3,7 @@
 초간단 자동차 경주 게임을 구현한다.
 
 - [x] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다. - RacingCar#move()
-- [x] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
+- [x] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. - GameManager#printRacingCarsPosition()
 - [x] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다. - GameManager#validateUserInput()
 - [x] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. - GameManager#readUserInput()
 - [x] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
@@ -45,7 +45,7 @@ pobi,woni,jun
 
 #### 출력
 
-- [x] 각 차수별 실행 결과
+- [x] 각 차수별 실행 결과 - GameManager#printRacingCarsPosition()
 
 ```
 pobi : --
