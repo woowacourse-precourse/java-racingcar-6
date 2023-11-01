@@ -115,7 +115,7 @@ public class Application {
     }
 
     /**
-     *  검증 메서드
+     * 검증 메서드
      */
     private static void validateBlank(String input) {
         if (input.isBlank()) {
