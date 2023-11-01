@@ -34,6 +34,10 @@ public class Application {
                 System.out.println(moveResult);
             }
         }
+
+        // 경주 최종 우승자 발표
+        String racingGameResult = racingGamePlayManager.getRacingGameResult(racingCarSet);
+        System.out.println(racingGameResult);
     }
 
     private static String[] inputRacingCarNames() {

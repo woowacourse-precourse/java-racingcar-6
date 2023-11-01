@@ -19,6 +19,12 @@ public class RacingGamePlayManager {
         return racingCar.getName() + " : " + MOVING_FORWARD_SYMBOL.repeat(racingCar.getMoveCount());
     }
 
+    public String getRacingGameResult(Set<RacingCar> racingCarSet) {
+        List<String> winnerRacingCarList = findWinnerRacingGame(racingCarSet);
+        String result = String.join(", ", winnerRacingCarList);
+        return "최종 우승자 : " + result;
+    }
+
     private boolean decideMoveRacingCar(int randomValueInRange) {
         return (randomValueInRange >= MOVING_FORWARD_STANDARD_NUMBER);
     }
