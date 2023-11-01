@@ -34,9 +34,13 @@ public class Game {
 		}
 	}
 
-	static void getInputCycle() {
+	public static void getInputCycle() {
 		System.out.println("시도할 횟수는 몇 회인가요?");
-		cycle = Integer.parseInt(Console.readLine());
+		try {
+			cycle = Integer.parseInt(Console.readLine());
+		} catch(Exception e) {
+			throw new IllegalArgumentException("숫자를 입력해주세요.");
+		}
 	}
 
 	static void printOneRace() {

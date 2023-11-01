@@ -13,6 +13,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    @Test
+    void 횟수입력받기() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("test, pobi", "a"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Test
     void 자동차이름_공백() {
