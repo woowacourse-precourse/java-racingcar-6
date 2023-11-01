@@ -53,8 +53,9 @@ public class Application {
        }
     public static void howManyGo(List<String> cars,List<Integer> go, int many){
         for(int i=0;i<many;i++){
-            if(isCarMoved())
+            if(isCarMoved()){
                 go.set(i, go.get(i)+1);
+            }
             System.out.print(cars.get(i) +" : ");
             toPrint(go,i);
             System.out.println();
