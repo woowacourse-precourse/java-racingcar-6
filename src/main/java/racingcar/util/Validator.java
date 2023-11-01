@@ -1,11 +1,18 @@
 package racingcar.util;
 
 public class Validator {
-    public static void validateCarNames(String cars_str) {
-        String[] cars = cars_str.split(Constant.SPLIT_UNIT);
+    public static void validateCarNames(String input) {
+        String[] cars = input.split(Constant.SPLIT_UNIT);
 
+        validateCarListSize(cars.length);
         for (String car : cars) {
             validateCarNameLength(car);
+        }
+    }
+
+    private static void validateCarListSize(int carsLen) {
+        if (carsLen == 0) {
+            throw new IllegalArgumentException();
         }
     }
 
