@@ -25,6 +25,11 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(readLine());
     }
+
+    public static void printResult(Game game) {
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", game.findWinners(game.result())));
+    }
     public static void main(String[] args) {
         final List<String> racingCarList = askRacingCars();
         final int trial = askTrial();
@@ -34,9 +39,6 @@ public class Application {
         System.out.println("\n실행 결과");
         race.start();
 
-        System.out.print("최종 우승자 : ");
-        System.out.println(String.join(", ", race.findWinners(race.result())));
-
-
+        printResult(race);
     }
 }
