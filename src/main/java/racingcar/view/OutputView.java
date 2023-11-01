@@ -13,7 +13,9 @@ public class OutputView {
     }
 
     public static void printWinnerOfGameMessage(Cars cars) {
-        System.out.println(cars.toString());
+        String winnerFormat = OutputMessage.WINNER_OF_THIS_GAME_FORMAT.getMessage();
+        String winner = String.format(winnerFormat, cars);
+        System.out.println(winner);
     }
 
     public static void printLineFeed() {
