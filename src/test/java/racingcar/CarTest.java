@@ -40,7 +40,7 @@ class CarTest {
     }
 
     @Test
-    void 지정한_값을_미만_랜덤_값이_주어지면_포지션_증가() {
+    void 지정한_값_미만_랜덤_값이_주어지면_포지션_증가() {
         Car car = 자동차_생성(NAME_UNDER_LENGTH_LIMIT);
         assertRandomNumberInRangeTest(
                 () -> {

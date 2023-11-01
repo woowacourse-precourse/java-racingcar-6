@@ -18,7 +18,7 @@ class CarsTest {
     }
 
     @Test
-    void 게임에_진행_결과를_출력한다() {
+    void 게임의_진행_결과를_출력한다() {
         String[] carNames = {"love", "hate", "you"};
         String expected = "love : -\nhate : -\nyou : ";
         Cars cars = 자동차들_생성(carNames);
