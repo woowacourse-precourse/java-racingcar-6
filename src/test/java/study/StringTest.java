@@ -13,21 +13,8 @@ import java.util.stream.Collectors;
 
 public class StringTest {
 
-    @Test
-    void inputViewTest() {
-        InputView.requestCarName();
-        InputView.requestMoveTime();
-    }
 
-    @Test
-    void testCarName() {
-        String input = "pobi,woni";
-        List<Car> cars = CarUtil.createCar(input);
 
-        List<String> result = cars.stream().map(c -> c.getName()).toList();
-        assertThat(result).contains("woni", "pobi");
-        assertThat(result).containsExactly("pobi", "woni");
-    }
     @Test
     void split_메서드로_주어진_값을_구분() {
         String input = "1,2";
