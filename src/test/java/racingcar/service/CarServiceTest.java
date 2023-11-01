@@ -1,9 +1,7 @@
 package racingcar.service;
 
 import org.junit.jupiter.api.Test;
-import racingcar.object.Car;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
