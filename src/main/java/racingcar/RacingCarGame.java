@@ -63,12 +63,8 @@ public class RacingCarGame {
 
         System.out.print("최종 우승자 : ");
 
-        for (int i = 0; i < winnerNames.size(); i++) {
-            System.out.print(winnerNames.get(i));
-            if (i < winnerNames.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        String winnerNamesString = String.join(", ", winnerNames);
+        System.out.print(winnerNamesString);
     }
 
     public void printCarsLocation() {
