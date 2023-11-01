@@ -13,6 +13,7 @@ import racingcar.domain.Car;
 import racingcar.view.InputView;
 
 public class Game {
+
     static private final String PROMPT_CAR_NAME = "경주할 자동차 이름을 입력하세요.";
     static private final String PROMPT_TRY_NUMBER = "시도할 회수는 몇회인가요?";
     static private final String PROMPT_RUN = "실행 결과";
@@ -39,5 +40,28 @@ public class Game {
         System.out.println(PROMPT_TRY_NUMBER);
         this.tryNumber = InputView.getTryNumber();
         System.out.println();
+    }
+
+    public void run(BiFunction<Integer, Integer, Integer> randomFunction) {
+        System.out.println(PROMPT_RUN);
+        for (int tries = 0; tries < this.tryNumber; ++tries) {
+            carForward(randomFunction);
+            printCar();
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    private void carForward(BiFunction<Integer, Integer, Integer> randomFunction) {
+        for (Car car : this.cars) {
+            car.forward(randomFunction);
+        }
+
+    }
+
+    private void printCar() {
+        for (Car car : this.cars) {
+            System.out.println(car);
+        }
     }
 }
