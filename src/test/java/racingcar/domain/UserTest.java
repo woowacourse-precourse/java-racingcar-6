@@ -61,6 +61,15 @@ class UserTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("중복된 자동차 이름이 있으면 예외를 발생시킨다.")
+    void 자동차_중복_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
