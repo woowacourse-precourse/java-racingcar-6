@@ -45,6 +45,29 @@ public class RacingCarGame {
         }
     }
 
+    public boolean isGameOver() {
+        saveCarMovingCount();
+        for (int i = 0; i < carMovingCountList.size(); i++) {
+            if (carMovingCountList.get(i) == movingCount) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String getWinnerName() {
+        List<String> winner = new ArrayList<>();
+
+        for (int i = 0; i < carMovingCountList.size(); i++) {
+            if (carMovingCountList.get(i) == movingCount) {
+                Car oneCar = carList.get(i);
+                winner.add(oneCar.getCarName());
+            }
+        }
+
+        return String.join(", ", winner);
+    }
+
     public List<String> getCarNameList() {
         return carNameList;
     }
