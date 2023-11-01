@@ -101,6 +101,8 @@
 
 ###### inputTryingNum() 함수 : 시도할 횟수를 입력받음
 
+###### checkTryingNumCondition 함수 : 시도할 횟수 - 1 이상이어야 함 조건 처리
+
 ###### getRacingPlayerArr()함수 : 레이싱플레이어(자동차) 객체 리스트)를 반환
 
 ###### getTryingNum() 함수 :  TryingNum(시도할 횟수)를 반환

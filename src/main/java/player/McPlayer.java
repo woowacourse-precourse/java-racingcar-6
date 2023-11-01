@@ -71,9 +71,9 @@ public class McPlayer implements Player {
      * @Method : checkNameCondition()
      */
     public void checkNameCondition() throws IllegalArgumentException {
-        int NameLength = 5;
+        int NameLengthMax = 5;
         for (String racingPlayerName : racingPlayerNameArr) {
-            if (racingPlayerName.length() > NameLength) {
+            if (racingPlayerName.length() > NameLengthMax) {
                 throw new IllegalArgumentException();
             }
         }
@@ -110,8 +110,20 @@ public class McPlayer implements Player {
     public void inputTryingNum() {
         tryingNum = Integer.parseInt(display.input());
         display.output(CHANGING_LINE);
+        checkTryingNumCondition();
     }
 
+    /**
+     * Description :  시도할 횟수 - 1 이상이어야 함 조건 처리
+     *
+     * @Method : checkTryingNumCondition()
+     */
+    public void checkTryingNumCondition() throws IllegalArgumentException {
+        int NameLengthMin = 1;
+        if (tryingNum < NameLengthMin) {
+            throw new IllegalArgumentException();
+        }
+    }
 
     /**
      * Description :  racingPlayerArr( 레이싱플레이어(자동차) 객체 리스트)를 반환
