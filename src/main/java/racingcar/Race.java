@@ -1,0 +1,41 @@
+package racingcar;
+
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Race {
+    private final List<Car> cars;
+    private final TryCount tryCount;
+
+    public Race(List<Car> cars, TryCount tryCount) {
+        this.cars = cars;
+        this.tryCount = tryCount;
+    }
+
+    public void conductRace() {
+        for (int i = 1; i < tryCount.getTryCount() + 1; i++) {
+            for (Car car : cars) {
+                car.move();
+                View.printCarMove(car.getName(), car.getPosition());
+            }
+            System.out.println();
+        }
+    }
+
+    private int findMaxPosition() {
+        return cars.stream().mapToInt(Car::getPosition).max().orElseThrow();
+    }
+
+    public List<String> getWinners() {
+        int maxPosition = findMaxPosition();
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+}
