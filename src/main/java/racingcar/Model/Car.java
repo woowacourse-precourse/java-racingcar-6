@@ -40,7 +40,6 @@ public class Car {
     }
 
     public void race() {
-        int n = getRandomNumber();
         if (shouldMoveFoward()) {
             moveForward();
         }
