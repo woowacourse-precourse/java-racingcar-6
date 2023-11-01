@@ -19,15 +19,14 @@ public class GameController {
     OutputView outputView = new OutputView();
     Validator validator = new Validator();
 
+    private Game game;
+
     public void run() {
+        prepareSettingValue();
         play();
     }
 
     public void play() {
-        List<String> carNames = inputCarNames();
-        int tryNumber = inputView.askTryNumber();
-        Game game = new Game(tryNumber, carNames);
-
         List<Car> carList = new ArrayList<>();
         while (game.isPlay()) {
             carList = game.getCarList();
@@ -42,6 +41,12 @@ public class GameController {
         List<String> winnerCarNames = getWinnerCarNames(farthestCars);
 
         outputView.informFinalWinner(winnerCarNames);
+    }
+
+    private void prepareSettingValue() {
+        List<String> carNames = inputCarNames();
+        int tryNumber = inputView.askTryNumber();
+        game = new Game(tryNumber, carNames);
     }
 
     private void moveCars(List<Car> carList) {
