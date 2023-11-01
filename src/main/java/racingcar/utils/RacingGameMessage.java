@@ -11,29 +11,18 @@ public enum RacingGameMessage {
 
     MOVE("-");
 
-    private String name;
+    private String message;
 
-    RacingGameMessage(String name) {
-        this.name = name;
+    RacingGameMessage(String message) {
+        this.message = message;
     }
 
-    public String getStartMessage() {
-        return START_MESSAGE.name;
+    public String getMessage() {
+        return this.message;
     }
 
-    public String getRequestRaceCountMessage() {
-        return REQUEST_RACE_COUNT_MESSAGE.name;
-    }
+    public String getWinnersMessage(final String winners) {
 
-    public String getRaceResultMessage() {
-        return GAME_RESULT_MESSAGE.name;
-    }
-
-    public String getWinnerMessage(final String winners) {
-        return WINNER_MESSAGE.name + winners;
-    }
-
-    public String getMoveMessage() {
-        return MOVE.name;
+        return WINNER_MESSAGE.message + winners;
     }
 }

@@ -2,16 +2,17 @@ package racingcar.model;
 
 import racingcar.utils.ErrorMessage;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class RacingCar {
     private final int MOVE_LIMITS = 3;
+    private final String ENG_REGEX = "^[a-zA-Z]*$";
+    private final int CAR_NAME_LENGTH_LIMITS = 5;
     private final String racingCarName;
     private int moveCount;
 
     public RacingCar(final String carName) {
-        this.validateNotContainCarName(carName);
+        this.validateCarNameNotEmpty(carName);
         this.validateAlphaCarName(carName);
         this.validateCarNameLength(carName);
 
@@ -39,21 +40,21 @@ public class RacingCar {
         return score;
     }
 
-    public void validateNotContainCarName(final String name) {
+    public void validateCarNameNotEmpty(final String name) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.NO_NAME_ERROR.getNoCarsNameError());
+            throw new IllegalArgumentException(ErrorMessage.NO_NAME_ERROR.getMessage());
         }
     }
 
     public void validateAlphaCarName(final String name) {
-        if (!Pattern.matches("^[a-zA-Z]*$", name)) {
-            throw new IllegalArgumentException(ErrorMessage.ALPHA_NAME_ERROR.getAlphaCarNameError());
+        if (!Pattern.matches(ENG_REGEX, name)) {
+            throw new IllegalArgumentException(ErrorMessage.ALPHA_NAME_ERROR.getMessage());
         }
     }
 
     public void validateCarNameLength(final String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_ERROR.getCarNameLengthError());
+        if (name.length() > CAR_NAME_LENGTH_LIMITS) {
+            throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_ERROR.getMessage());
         }
     }
 

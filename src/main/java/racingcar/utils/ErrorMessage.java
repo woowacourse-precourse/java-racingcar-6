@@ -23,35 +23,7 @@ public enum ErrorMessage {
         this.error = error;
     }
 
-    public String getDelimiterError() {
-        return SPACE_ERROR.error;
-    }
-
-    public String getNoCarsNameError() {
-        return NO_NAME_ERROR.error;
-    }
-
-    public String getAlphaCarNameError() {
-        return ALPHA_NAME_ERROR.error;
-    }
-
-    public String getCarNameLengthError() {
-        return NAME_LENGTH_ERROR.error;
-    }
-
-    public String getDuplicatedCarNamesError() {
-        return DUPLICATED_NAME_ERROR.error;
-    }
-
-    public String getDigitRaceCountError() {
-        return DIGIT_RACE_COUNT_ERROR.error;
-    }
-
-    public String getEmptyRaceCountError() {
-        return EMPTY_RACE_COUNT_ERROR.error;
-    }
-
-    public String getZeroRaceCountError() {
-        return ZERO_RACE_COUNT_ERROR.error;
+    public String getMessage() {
+        return this.error;
     }
 }

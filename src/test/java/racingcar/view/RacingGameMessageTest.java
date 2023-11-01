@@ -15,7 +15,7 @@ public class RacingGameMessageTest {
         String startMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 
         //then
-        assertThat(RacingGameMessage.START_MESSAGE.getStartMessage()).isEqualTo(startMessage);
+        assertThat(RacingGameMessage.START_MESSAGE.getMessage()).isEqualTo(startMessage);
     }
 
     @DisplayName("게임 시도 횟수를 요청하는 메시지에 대한 테스트")
@@ -25,7 +25,7 @@ public class RacingGameMessageTest {
         String requestTryMessage = "시도할 회수는 몇회인가요?";
 
         //then
-        assertThat(RacingGameMessage.REQUEST_RACE_COUNT_MESSAGE.getRequestRaceCountMessage()).isEqualTo(requestTryMessage);
+        assertThat(RacingGameMessage.REQUEST_RACE_COUNT_MESSAGE.getMessage()).isEqualTo(requestTryMessage);
     }
 
     @DisplayName("게임 실행 결과 메시지에 대한 테스트")
@@ -35,7 +35,7 @@ public class RacingGameMessageTest {
         String gameResultMessage = "실행 결과";
 
         //then
-        assertThat(RacingGameMessage.GAME_RESULT_MESSAGE.getRaceResultMessage())
+        assertThat(RacingGameMessage.GAME_RESULT_MESSAGE. getMessage())
                 .isEqualTo(gameResultMessage);
     }
 
@@ -47,6 +47,6 @@ public class RacingGameMessageTest {
         String winner = "suhwpark";
 
         //then
-        assertThat(RacingGameMessage.WINNER_MESSAGE.getWinnerMessage(winner)).isEqualTo(winnerMessage + winner);
+        assertThat(RacingGameMessage.WINNER_MESSAGE.getWinnersMessage(winner)).isEqualTo(winnerMessage + winner);
     }
 }

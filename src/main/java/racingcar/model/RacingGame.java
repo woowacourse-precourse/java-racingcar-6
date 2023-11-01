@@ -71,7 +71,7 @@ public class RacingGame {
 
     public void validateContainSpace(final String carNameInputLine) {
         if (carNameInputLine.contains(" ")) {
-            throw new IllegalArgumentException(ErrorMessage.SPACE_ERROR.getDelimiterError());
+            throw new IllegalArgumentException(ErrorMessage.SPACE_ERROR.getMessage());
         }
     }
 
@@ -80,7 +80,7 @@ public class RacingGame {
         Set<String> dulplicateSet = Arrays.stream(carNames).collect(Collectors.toSet());
 
         if (dulplicateSet.size() != carNames.length) {
-            throw new IllegalArgumentException(ErrorMessage.DUPLICATED_NAME_ERROR.getDuplicatedCarNamesError());
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATED_NAME_ERROR.getMessage());
         }
     }
 
@@ -93,19 +93,19 @@ public class RacingGame {
 
     public void validateDigitRaceCount(final String raceCountInput) {
         if (raceCountInput.chars().anyMatch(c -> !Character.isDigit((char) c))) {
-            throw new IllegalArgumentException(ErrorMessage.DIGIT_RACE_COUNT_ERROR.getDigitRaceCountError());
+            throw new IllegalArgumentException(ErrorMessage.DIGIT_RACE_COUNT_ERROR.getMessage());
         }
     }
 
     public void validateEmptyRaceCount(final String raceCountInput) {
         if (raceCountInput.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.EMPTY_RACE_COUNT_ERROR.getEmptyRaceCountError());
+            throw new IllegalArgumentException(ErrorMessage.EMPTY_RACE_COUNT_ERROR.getMessage());
         }
     }
 
     public int convertStringToIntRaceCount(final String raceCountInput) {
         if (raceCountInput.equals("0")) {
-            throw new IllegalArgumentException(ErrorMessage.ZERO_RACE_COUNT_ERROR.getZeroRaceCountError());
+            throw new IllegalArgumentException(ErrorMessage.ZERO_RACE_COUNT_ERROR.getMessage());
         }
 
         final int raceCount = Integer.parseInt(raceCountInput);

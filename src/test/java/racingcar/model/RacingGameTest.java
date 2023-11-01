@@ -13,7 +13,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class RacingGameTest {
 
-    @DisplayName("레이싱 자동차 목록에 공복이 포함된 경우의 테스트")
+    @DisplayName("레이싱 자동차 목록에 공백이 포함된 경우의 테스트")
     @Test
     void carNameInputLineSpaceTest() {
         //when
@@ -232,7 +232,5 @@ public class RacingGameTest {
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.get(1)).isEqualTo("jnam");
         assertThat(winners.size()).isEqualTo(2);
-        assertThat(winners.size())
-                .isEqualTo(2);
     }
 }

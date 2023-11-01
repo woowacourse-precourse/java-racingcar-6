@@ -15,16 +15,16 @@ public class RacingGameView {
     }
 
     public void raceStartMessage() {
-        System.out.println(RacingGameMessage.START_MESSAGE.getStartMessage());
+        System.out.println(RacingGameMessage.START_MESSAGE.getMessage());
     }
 
     public void raceCountMessage() {
-        System.out.println(RacingGameMessage.REQUEST_RACE_COUNT_MESSAGE.getRequestRaceCountMessage());
+        System.out.println(RacingGameMessage.REQUEST_RACE_COUNT_MESSAGE.getMessage());
     }
 
     public void raceResults(final List<List<Score>> raceResult) {
         System.out.println();
-        System.out.println(RacingGameMessage.GAME_RESULT_MESSAGE.getRaceResultMessage());
+        System.out.println(RacingGameMessage.GAME_RESULT_MESSAGE.getMessage());
         raceResult.forEach(scores -> {
             System.out.print(convertScoreToString(scores));
             System.out.println();
@@ -41,7 +41,7 @@ public class RacingGameView {
 
     public String convertMoverCountToString(final int moveCount) {
         StringBuilder raceResult = new StringBuilder();
-        IntStream.range(0, moveCount).forEach(i -> raceResult.append(RacingGameMessage.MOVE.getMoveMessage()));
+        IntStream.range(0, moveCount).forEach(i -> raceResult.append(RacingGameMessage.MOVE.getMessage()));
 
         return raceResult.toString();
     }
@@ -49,6 +49,6 @@ public class RacingGameView {
     public void winners(final List<String> winners) {
         final String result = String.join(", ", winners);
 
-        System.out.println(RacingGameMessage.WINNER_MESSAGE.getWinnerMessage(result));
+        System.out.println(RacingGameMessage.WINNER_MESSAGE.getWinnersMessage(result));
     }
 }

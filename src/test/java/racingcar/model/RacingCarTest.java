@@ -2,6 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.utils.ErrorMessage;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -30,7 +31,7 @@ public class RacingCarTest {
 
         //then
         assertThatThrownBy(() -> new RacingCar(carName)).isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("레이싱 자동차 이름이 없습니다");
+                .hasMessage(ErrorMessage.NO_NAME_ERROR.getMessage());
     }
 
 
@@ -56,7 +57,7 @@ public class RacingCarTest {
                 .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
     }
 
-    @DisplayName("랜던한 숫자가 4이상 일때, 레이싱 자동차가 전진하는지에 대한 테스트")
+    @DisplayName("랜덤한 숫자가 4이상 일때, 레이싱 자동차가 전진하는지에 대한 테스트")
     @Test
     void racingCarMoveTest() {
         //when
@@ -64,7 +65,7 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar(carName);
 
         //given
-        int randomNumber = 5;
+        int randomNumber = 4;
         racingCar.move(randomNumber);
 
         //then
@@ -72,7 +73,7 @@ public class RacingCarTest {
         assertThat(racingCarMove).isEqualTo(1);
     }
 
-    @DisplayName("랜던한 숫자가 4이하 일때, 레이싱 자동차가 전진하지 않는지 대한 테스트")
+    @DisplayName("랜덤한 숫자가 4미만 일때, 레이싱 자동차가 전진하지 않는지 대한 테스트")
     @Test
     void racingCarNotMoveTest() {
         //when
