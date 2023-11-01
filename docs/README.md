@@ -42,7 +42,7 @@
 
 -[ ] 시도 횟수 입력 안내 문구 출력 이후 시도 횟수를 입력받는다.
  **[예외]** 숫자가 아닌 입력을 했을 경우 `IllegalArgumentException`을 발생시킨다.
- **[예외]** 횟수가 0이거나 5 초과일 경우 `IllegalArgumentException`을 발생시킨다.
+ **[예외]** 횟수가 0이거나 100 초과일 경우 `IllegalArgumentException`을 발생시킨다.
 
 ## 2. 게임 진행: 경주
 
