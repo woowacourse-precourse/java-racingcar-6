@@ -19,7 +19,7 @@ public class Application {
         }
 
         String winnerName = checkWinnerName(carNames, carProgress);
-        System.out.println("최종 우승자: " + winnerName);
+        System.out.println("최종 우승자 : " + winnerName);
     }
 
 
@@ -73,6 +73,7 @@ public class Application {
                 winnerName.setLength(0);
                 winnerName.append(carNames[i]);
             } else if (carProgress[i] == winner) {
+                winnerName.append(", ");
                 winnerName.append(carNames[i]);
             }
         }
