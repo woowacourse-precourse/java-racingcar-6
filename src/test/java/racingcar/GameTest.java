@@ -30,6 +30,12 @@ class GameTest {
                 .hasMessageContaining(INVALID_CAR_NAME_LENGTH);
     }
 
+    @Test
+    void 알맞은_입력_값_입력_시_Game_객체_정상_생성() {
+        입력("love,hate,you\n10");
+        Assertions.assertThatCode(() -> Game.create()).doesNotThrowAnyException();
+    }
+
     private void 입력(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
