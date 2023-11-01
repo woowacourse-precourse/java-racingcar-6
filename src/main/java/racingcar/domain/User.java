@@ -12,10 +12,6 @@ public class User {
     public int gameNumber;
     CarNameValidator validator = new CarNameValidator();
 
-    public User() {
-
-    }
-
     public void InitialSetting() {
         InputCarName();
         CheckCarName();
