@@ -1,8 +1,10 @@
 package racingcar.view;
+
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 
 import java.util.List;
+
+import racingcar.domain.Car;
 
 public class ConsoleView {
     public String readCarNames() {

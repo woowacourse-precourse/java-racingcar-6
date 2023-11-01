@@ -17,11 +17,13 @@ public class GameController {
 
     public void startGame() {
         String carNames = view.readCarNames();
-        int movement = view.readMovement();
-
         InputValidator.validateInputFormat(carNames);
+
         List<Car> cars = createCars(Arrays.asList(carNames.split(",")));
         Race race = new Race(cars);
+
+        int movement = view.readMovement();
+        InputValidator.validateMovement(movement);
 
         view.printGameStartMessage();
 
