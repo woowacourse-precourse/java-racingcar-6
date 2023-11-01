@@ -31,7 +31,15 @@ public class RacingTest extends NsTest{
         );
     }
 
-    
+    @Test
+    void 길이초과_이름에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("abceefef,pobi,jun", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
