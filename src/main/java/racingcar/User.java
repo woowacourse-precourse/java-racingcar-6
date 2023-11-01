@@ -20,34 +20,17 @@ public class User {
     public static int trialNumber;
 
 
-    public void setCarName() {
-        System.out.println(INPUT_CAR_NAME_MESSAGE);
-        String input = inputCarName();
-    }
-
-    private static String inputCarName() { return Console.readLine(); }
-
-    public void setTrialNumber() {
+    public int setTrialCount() {
         System.out.println(TRIAL_MESSAGE);
-        String input = inputTrialNumber();
-        this.trialNumber = Integer.parseInt(input);
-
-    }
-
-    private void vaildateCarNameLength(String input) {
-        if (input.length() > CAR_NAME_LENGTH_MAX) {
-            throw new IllegalArgumentException(EXCEPTION_NAME_LENGTH_MESSAGE);
+        String inputCountsByClient = Console.readLine();
+        int attemptCounts;
+        try {
+            Validation.checkException(inputCountsByClient);
+            attemptCounts = Integer.parseInt(inputCountsByClient);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            attemptCounts = setTrialCount();
         }
+        return attemptCounts;
     }
-
-    private void validateDuplication(String input) {
-//        java에 배열요소의 중복을 처리해주는 메서드가 제공되는지 확인하기
-    }
-
-    private void validationSeprator() {
-
-    }
-    private static String inputTrialNumber() { return Console.readLine(); }
-
-
 }

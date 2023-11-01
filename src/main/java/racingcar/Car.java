@@ -10,8 +10,8 @@ public class Car {
     private static final int MOVABLE_NUMBER = 4;
 
 
-    private int position = 0;
     private final String name;
+    private int position = 0;
 
     public Car(String name) {
         this.name = name;
@@ -34,7 +34,6 @@ public class Car {
     private boolean randomMoveNumber() {
         return Randoms.pickNumberInRange(MIN_RANGE_NUMBER, MAX_RANGE_NUMBER) >= MOVABLE_NUMBER;
     }
-
 
     public void printMovedResult() {
         System.out.print(name + " : ");

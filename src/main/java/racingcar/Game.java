@@ -1,9 +1,8 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class Game {
 
@@ -20,6 +19,7 @@ public class Game {
         trialCounts = 0;
     }
 
+
     public void play() {
         setRacingCarList();
         setAttemptCounts();
@@ -28,5 +28,24 @@ public class Game {
         for (int i = 0; i < trialCounts; i++) {
             run();
         }
-        printWinners();
     }
+
+    public void setRacingCarList() {
+        user.setCarName()
+                .forEach(carName -> cars.add(new Car(carName)));
+    }
+
+    public void setAttemptCounts() {
+        trialCounts = user.setTrialNumber();
+    }
+
+    public void run() {
+        for (Car car : cars) {
+            car.moveForward();
+            car.printMovedResult();
+        }
+        System.out.println();
+    }
+
+}
+
