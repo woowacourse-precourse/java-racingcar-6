@@ -2,6 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.validator.RacingGameValidator;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -14,12 +15,14 @@ public class RacingGameTest {
     private RacingGame racingGame;
     private MovingCount movingCount;
     private OutputView outputView;
+    private RacingGameValidator racingGameValidator;
 
     @BeforeEach
     void setUp() {
         movingCount = new MovingCount();
         outputView = new OutputView();
-        racingGame = new RacingGame(movingCount, outputView);
+        racingGameValidator = new RacingGameValidator();
+        racingGame = new RacingGame(movingCount, outputView, racingGameValidator);
         movingCount.initMovingCount(3);
     }
 
