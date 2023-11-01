@@ -16,7 +16,7 @@ public class CarService {
     public void addCars(NamesRequestDto cars) {
         List<Car> carList = new ArrayList<>();
         for (String name : cars.names()) {
-            carList.add(Car.CreateCar(name));
+            carList.add(Car.createCar(name));
         }
         carRepository.saveAll(carList);
     }
@@ -24,7 +24,7 @@ public class CarService {
     public CarsResponseDto raceCar() {
         List<Car> findCars = carRepository.findAll();
         for (Car car : findCars) {
-            car.move(GameUtil.move());
+            car.move(GameUtil.randomNumber());
         }
         List<Car> updateCars = carRepository.updateAll(findCars);
         return CarsResponseDto.createCarsResponseDto(updateCars);

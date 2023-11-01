@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Car {
     private static final int INIT_PROGRESS = 0;
+    private static final int MOVE_CONDITION = 4;
 
     private final String name;
     private int progress;
@@ -13,7 +14,7 @@ public class Car {
         this.progress = progress;
     }
 
-    public static Car CreateCar(String name) {
+    public static Car createCar(String name) {
         return new Car(name, INIT_PROGRESS);
     }
 
@@ -34,10 +35,14 @@ public class Car {
         return new Car(name, progress);
     }
 
-    public void move(boolean moveTrigger) {
-        if (moveTrigger) {
+    public void move(int moveTrigger) {
+        if (judgeMove(moveTrigger)) {
             progress++;
         }
+    }
+
+    private static boolean judgeMove(int moveTrigger) {
+        return MOVE_CONDITION <= moveTrigger;
     }
 
     public void updateProgress(int progress) {
