@@ -85,7 +85,7 @@ public class RacingCarGameTest {
         assertThat(gameCount).isEqualTo(2);
     }
     @Test
-    void printPlayerScore() {
+    void printRacingCarScore() {
         RacingCarGame game = new RacingCarGame();
         RacingCar racingCar = new RacingCar("dadi");
         for (int i=0; i<3; i++) {
