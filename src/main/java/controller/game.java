@@ -2,6 +2,7 @@ package controller;
 
 import static view.guideMessage.PLEASE_INPUT_RACINGCAR_NAMES;
 import static view.guideMessage.PLEASE_INPUT_RACING_COUNT;
+import static view.guideMessage.EXECUTION_RESULT;
 import static model.utilityModel.splitByComma;
 import static model.utilityModel.stringToInt;
 //import static model.utilityModel.stringArrayToStringArrayList;
@@ -28,7 +29,7 @@ public class game {
     }
     private void startRacing(int attemptCount, racingGameModel racingGameModel){
         raceStatus raceStatus = new raceStatus();
-
+        System.out.println(EXECUTION_RESULT);
         for(int i = 0;i<attemptCount;i++){
             racingGameModel.updateRaceStatus();
             raceStatus.printRaceStatus(racingGameModel);
