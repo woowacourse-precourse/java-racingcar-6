@@ -21,9 +21,11 @@ public class OutputView {
         System.out.println(INPUT_TOTAL_ATTEMPTS);
     }
 
-    public void printGameProgress(List<RacingCar> racingCarList) {
-        printRunResult();
+    public void printRunResult() {
+        System.out.println(RUN_RESULT);
+    }
 
+    public void printGameProgress(List<RacingCar> racingCarList) {
         racingCarList.forEach(racingCar -> {
             String progressString = toProgressString(racingCar);
             System.out.println(progressString);
@@ -41,10 +43,6 @@ public class OutputView {
             .append(COLON_SPACE)
             .append(DASH.repeat(racingCar.getPosition()));
         return stringBuilder.toString();
-    }
-
-    private void printRunResult() {
-        System.out.println(RUN_RESULT);
     }
 
     public void printNewLine() {
