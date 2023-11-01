@@ -27,8 +27,7 @@ public class RaceContext {
   }
 
   private static List<CarRaceRecord> race(RaceStartCommand command) {
-    MoveContext moveContext = new MoveContext();
-    return moveContext.generateRaceRecords(
+    return MoveContext.generateRaceRecords(
         command.getRoundCount().getRacingCount(),
         command.getRacingCars().getNames(), RaceContext::moveRuleFunction);
   }

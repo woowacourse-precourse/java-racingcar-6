@@ -7,30 +7,36 @@ import java.util.stream.IntStream;
 
 public class MoveContext {
 
-  public List<CarRaceRecord> generateRaceRecords(int roundCount, List<String> racingCars,
-      IntFunction<Movement> movementFunction){
+  private MoveContext() {
+  }
+
+  public static List<CarRaceRecord> generateRaceRecords(int roundCount, List<String> racingCars,
+      IntFunction<Movement> movementFunction) {
     return racingCars.stream().map(car -> race(roundCount, car, movementFunction))
         .toList();
   }
 
-  private CarRaceRecord race(int roundCount, String carName,
+  private static CarRaceRecord race(int roundCount, String carName,
       IntFunction<Movement> movementFunction) {
     return CarRaceRecord.of(carName, generateRoundRecord(roundCount, movementFunction));
   }
 
-  private RoundRecord generateRoundRecord(int roundCount, IntFunction<Movement> movementFunction) {
+  private static RoundRecord generateRoundRecord(int roundCount,
+      IntFunction<Movement> movementFunction) {
     List<Movement> movements = generateMovements(roundCount, movementFunction);
     List<Integer> list = movements.stream().map(Movement::getNumber).toList();
     return RoundRecord.of(calculateCumulativeSums(1, list, new ArrayList<>()));
   }
 
-  private List<Movement> generateMovements(int roundCount, IntFunction<Movement> movementFunction) {
+  private static List<Movement> generateMovements(int roundCount,
+      IntFunction<Movement> movementFunction) {
     return IntStream.range(0, roundCount)
         .mapToObj(movementFunction)
         .toList();
   }
 
-  private List<Integer> calculateCumulativeSums(int currentLimit, List<Integer> movementNumbers,
+  private static List<Integer> calculateCumulativeSums(int currentLimit,
+      List<Integer> movementNumbers,
       List<Integer> cumulativeSums) {
     if (currentLimit > movementNumbers.size()) {
       return cumulativeSums;
@@ -39,7 +45,7 @@ public class MoveContext {
     return calculateCumulativeSums(currentLimit + 1, movementNumbers, cumulativeSums);
   }
 
-  private int calculateSumUpToLimit(int n, List<Integer> movementNumbers) {
+  private static int calculateSumUpToLimit(int n, List<Integer> movementNumbers) {
     return movementNumbers.stream().limit(n).mapToInt(Integer::intValue).sum();
   }
 }
