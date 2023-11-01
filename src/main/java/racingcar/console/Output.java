@@ -1,11 +1,11 @@
 package racingcar.console;
 
+import racingcar.constants.Constants;
+
 public class Output {
-    private static final String CAR_STATE_FORMAT = "%s : %s";
-    private static final String WINNER_MESSAGE = "최종 우승자 : %s";
 
     public static void printCarState(String name, int position) {
-        System.out.println(String.format(CAR_STATE_FORMAT, name, "-".repeat(position)));
+        System.out.println(String.format(Constants.CAR_STATE_FORMAT.<String>getValue() , name, Constants.CAR_POSITION_SYMBOL.<String>getValue().repeat(position)));
     }
 
     public static void printNewLine() {
@@ -13,6 +13,6 @@ public class Output {
     }
 
     public static void printWinner(String winners) {
-        System.out.println(String.format(WINNER_MESSAGE, winners));
+        System.out.println(String.format(Constants.WINNER_MESSAGE.<String>getValue() , winners));
     }
 }

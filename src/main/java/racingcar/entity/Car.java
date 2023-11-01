@@ -1,8 +1,8 @@
 package racingcar.entity;
 
-public class Car {
+import racingcar.constants.Constants;
 
-    private static final int MAX_NAME_LENGTH = 5;
+public class Car {
 
     private final String name;
     private int position = 0;
@@ -13,8 +13,8 @@ public class Car {
     }
 
     private static void validate(String name) {
-        if (name.trim().length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        if (name.trim().length() > Constants.MAX_NAME_LENGTH.<Integer>getValue()) {
+            throw new IllegalArgumentException();
         }
     }
 
@@ -23,7 +23,7 @@ public class Car {
     }
 
     public void move(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= Constants.MIN_MOVE_NUMBER.<Integer>getValue()) {
             position++;
         }
     }

@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.console.Input;
 import racingcar.console.Output;
+import racingcar.constants.Constants;
 import racingcar.entity.Car;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class Race {
 
     private void initializeCars() {
         String carNames = Input.getCarNames();
-        for (String name : carNames.split(",")) {
+        for (String name : carNames.split(Constants.CAR_DELIMITER.getValue())) {
             cars.add(new Car(name.trim()));
         }
     }
@@ -39,7 +40,7 @@ public class Race {
 
     private void moveCars() {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            int randomNumber = Randoms.pickNumberInRange(Constants.RANDOM_MIN_RANGE.getValue(), Constants.RANDOM_MAX_RANGE.getValue());
             car.move(randomNumber);
         }
     }
@@ -59,7 +60,7 @@ public class Race {
                 winners.add(car.getName());
             }
         }
-        Output.printWinner(String.join(", ", winners));
+        Output.printWinner(String.join(Constants.NAME_SEPARATOR.getValue(), winners));
     }
 
     private int getMaxPosition() {
