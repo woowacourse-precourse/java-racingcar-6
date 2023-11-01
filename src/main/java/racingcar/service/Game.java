@@ -11,15 +11,8 @@ import racingcar.constant.Constant;
 public class Game {
     private List<Car> cars = new ArrayList<>();
 
-    private boolean isValid(String name){
-        return name.length() <= Constant.MAX_NAME_LENGTH;
-    }
-
     public void setUp(List<String> names){
         for(String name: names){
-            if(!isValid(name)){
-                throw new IllegalArgumentException(String.format(Constant.ERROR_CAR_NAME_MESSAGE, Constant.MAX_NAME_LENGTH));
-            }
             cars.add(new Car(name));
         }
     }
