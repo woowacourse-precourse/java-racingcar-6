@@ -91,6 +91,21 @@ class ApplicationTest extends NsTest {
         assertThat(winners).containsExactly("pobi");
     }
 
+    // Util class tests
+    @Test
+    void 랜덤_숫자_생성_범위_테스트() {
+        int randomNum = Util.makeRandomNumber();
+        assertThat(randomNum).isBetween(0, 9);
+    }
+
+    @Test
+    void 이동_결정_로직_확인() {
+        assertThat(Util.decideMovement(0)).isFalse();
+        assertThat(Util.decideMovement(3)).isFalse();
+        assertThat(Util.decideMovement(4)).isTrue();
+        assertThat(Util.decideMovement(9)).isTrue();
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
