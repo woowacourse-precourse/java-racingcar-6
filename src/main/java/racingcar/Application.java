@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
 import racingcar.domain.Game;
+import racingcar.domain.GameResult;
 import racingcar.domain.UserInput;
 
 public class Application {
@@ -26,5 +27,8 @@ public class Application {
 
         Game game = new Game(cars);
         game.play(Integer.parseInt(attempsNumber));
+
+        GameResult result = new GameResult(cars);
+        result.doGetResult();
     }
 }
