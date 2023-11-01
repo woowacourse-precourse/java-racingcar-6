@@ -6,6 +6,7 @@ public class Validator {
 
     public void validateCar(List<String> names) {
         isDuplicated(names);
+        isGreaterThanOne(names);
         names.forEach(name -> {
             isUnderFive(name);
             isBlank(name);
@@ -29,7 +30,7 @@ public class Validator {
     }
 
     private void isBlank(String name) {
-        if (name.isBlank()) {
+        if (name.isBlank() || name.isEmpty()) {
             throw new IllegalArgumentException("이름이 공백입니다.");
         }
     }

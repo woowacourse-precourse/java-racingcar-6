@@ -12,7 +12,6 @@ public class Printer {
 
     public static void printWinner(Car winner, List<Car> cars) {
         System.out.print("최종 우승자 : ");
-
         winner.printName(cars.stream().filter(car -> car.equals(winner)).toList());
     }
 
