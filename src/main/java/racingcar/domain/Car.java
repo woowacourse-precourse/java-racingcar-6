@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.RandomGenerator;
 
 public class Car {
     private static final int MINIMUM_NUMBER = 0;
@@ -14,7 +14,7 @@ public class Car {
     }
 
     private int getRandomNumber() {
-        return Randoms.pickNumberInRange(MINIMUM_NUMBER, MAXIMUM_NUMBER);
+        return RandomGenerator.getRandomNumber(MINIMUM_NUMBER, MAXIMUM_NUMBER);
     }
 
     public void move() {
