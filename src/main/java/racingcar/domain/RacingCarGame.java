@@ -60,7 +60,14 @@ public class RacingCarGame {
 		return numberOfAttempts;
 	}
 
-	void attemptMove(Car car) {
+	private static void attemptMove(Car car) {
 		car.moveForward(NumberGenerator.createRandomNumber(MAX_NUMBER));
+	}
+
+	private void printCurrentState() {
+		for (Car car : cars) {
+			System.out.printf("%s : %s\n", car.getName(), "-".repeat(car.getPosition()));
+		}
+		System.out.println();
 	}
 }
