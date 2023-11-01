@@ -6,8 +6,10 @@ import racingcar.domain.car.Name;
 import racingcar.domain.car.NameParser;
 import racingcar.domain.car.Position;
 import racingcar.domain.car.RacingGame;
+import racingcar.domain.car.dto.RaceResult;
 import racingcar.domain.random.RandomNumberGenerator;
 import racingcar.io.ConsoleManager;
+import racingcar.io.GameMessage;
 
 import java.util.List;
 
@@ -47,8 +49,10 @@ public class GameRunner {
     }
 
     private void playGame(List<Car> cars, GameCount count){
+        consoleManager.printGameMessage(GameMessage.EXECUTE_RESULT);
         for(int i=0; i<count.getCount(); i++){
-            racingGame.play(cars);
+            List<RaceResult> results = racingGame.play(cars);
+            consoleManager.printRaceResult(results);
         }
     }
 
