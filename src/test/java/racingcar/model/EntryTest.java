@@ -88,4 +88,23 @@ class EntryTest {
 
         assertEquals(compare, entry.getWinners());
     }
+
+    @Test
+    void toString_테스트() {
+        Car c1 = new Car(new Name("a"));
+        proceedNTimes(c1, 1);
+
+        Car c2 = new Car(new Name("b"));
+        proceedNTimes(c2, 2);
+
+        Car c3 = new Car(new Name("c"));
+        proceedNTimes(c3, 3);
+
+        Entry entry = new Entry();
+        entry.join(c1);
+        entry.join(c2);
+        entry.join(c3);
+
+        assertEquals("a : -\nb : --\nc : ---\n", entry.toString());
+    }
 }
