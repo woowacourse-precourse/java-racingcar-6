@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Car {
     GameManager gameManager = new GameManager();
-    private String carName;
+    private final String carName;
     private int position;
 
     public Car(String carName, int position) {
@@ -24,21 +24,5 @@ public class Car {
         if (gameManager.createRandomNumber() >= 4) {
             position++;
         }
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Car car = (Car) o;
-        return position == car.position && Objects.equals(carName, car.carName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(carName, position);
     }
 }

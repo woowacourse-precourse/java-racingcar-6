@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -22,10 +23,11 @@ public class GameManagerTest {
         when(input.getCarNameList()).thenReturn(Arrays.asList("pobi", "jun", "woni"));
         List<Car> carListForTest = gameManager.carSetting();
 
-        assertThat(carListForTest)
-                .contains(new Car("pobi", 0)
-                        , new Car("jun", 0)
-                        , new Car("woni", 0));
+        assertThat(carListForTest.stream().map(Car::getCarName).toList())
+                .isEqualTo(Arrays.asList("pobi", "jun", "woni"));
+        carListForTest.stream()
+                .map(Car::getPosition)
+                .forEach(position -> assertEquals(0, position));
     }
 
     @Test
