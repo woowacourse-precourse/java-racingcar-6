@@ -28,11 +28,11 @@ public class RacingCarGame implements Game {
     public boolean continues() {
         if (attempts > 0) {
             attempts--;
-            return false;
+            return true;
         }
 
         checkWinners();
-        return true;
+        return false;
     }
 
     public void makeCars(String carNames) {
