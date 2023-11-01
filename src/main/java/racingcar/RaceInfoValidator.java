@@ -1,46 +1,53 @@
 package racingcar;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class RaceInfoValidator {
 
 
-    public static void checkCarNameLength(String[] input) throws IllegalArgumentException {
-        for (String str : input) {
-            if (str.length() > Constants.NAME_LENGTH_MAX) {
+    public static void checkCarNameLength(String[] carNames) throws IllegalArgumentException {
+        for (String carName : carNames) {
+            if (carName.length() > Constants.NAME_LENGTH_MAX) {
                 throw new IllegalArgumentException(Constants.EXCEED_NAME_LENGTH);
             }
         }
 
     }
 
-    public static void hasNoName(String[] input) throws  IllegalArgumentException{
-        for (String str : input) {
-            if (str.isBlank()) {
+    public static void isNameEmpty(String[] carNames) throws  IllegalArgumentException{
+        for (String carName : carNames) {
+            if (carName.isBlank()) {
                 throw new IllegalArgumentException(Constants.EMPTY_CAR_NAME);
             }
         }
     }
 
-//    public static void hasDuplicateCarName(String[] input) throws IllegalArgumentException {
-//
-//    }g
+    public static void hasUniqueName(String[] carNames) throws IllegalArgumentException {
+        Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
+        if (uniqueNames.size() != carNames.length){
+            throw new IllegalArgumentException(Constants.DUPLICATE_CAR_NAME);
+        }
+    }
 
 
-    public static void hasMultipleCars(String[] input) throws IllegalArgumentException {
-        if (input.length <= 1) {
+    public static void hasMultipleCars(String[] carNames) throws IllegalArgumentException {
+        if (carNames.length <= 1) {
             throw new IllegalArgumentException(Constants.CAR_COUNT_INSUFFICIENT);
         }
     }
 
 
 
-    public static void checkAttemptCount(String input) throws IllegalArgumentException {
+    public static void checkAttemptCount(String attemptCount) throws IllegalArgumentException {
         try {
-            Integer.parseInt(input);
+            Integer.parseInt(attemptCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(Constants.INVALID_ATTEMPT_COUNT);
         }
 
-        if (Integer.parseInt(input) < 1) {
+        if (Integer.parseInt(attemptCount) < 1) {
             throw new IllegalArgumentException(Constants.INVALID_ATTEMPT_COUNT);
         }
     }
