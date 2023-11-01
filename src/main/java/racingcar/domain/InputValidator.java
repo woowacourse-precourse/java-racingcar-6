@@ -15,4 +15,10 @@ public class InputValidator {
         }
     }
 
+    public void validatePlayCountIsPositive(int countOfPlays){
+        if(countOfPlays < 1){
+            throw new IllegalArgumentException("플레이 횟수는 양의 정수가 입력되어야 합니다.");
+        }
+    }
+
 }
