@@ -41,16 +41,24 @@ public class InputConvertor {
     }
 
     private static void checkNameLength(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
+        if (isNameExceedLength(name)) {
             throw new IllegalArgumentException(NAME_LENGTH_EXCEED_ERROR);
         }
     }
 
+    private static boolean isNameExceedLength(String name) {
+        return name.length() > MAX_NAME_LENGTH;
+    }
+
     private static void checkNameDuplication(List<String> validNames) {
         Set<String> nameSet = new HashSet<>(validNames);
-        if (nameSet.size() != validNames.size()) {
+        if (!isSameSize(validNames, nameSet)) {
             throw new IllegalArgumentException(NAME_DUPLICATION_ERROR);
         }
+    }
+
+    private static boolean isSameSize(List<String> validNames, Set<String> nameSet) {
+        return nameSet.size() == validNames.size();
     }
 
     public static int parseTryCount(String input) {

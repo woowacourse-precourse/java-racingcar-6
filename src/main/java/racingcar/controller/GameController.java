@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.stream.IntStream;
 import racingcar.game.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -11,10 +10,14 @@ public class GameController {
         int tryCount = InputView.getTryCount();
         RacingGame racingGame = new RacingGame(carNames);
         OutputView.printResultCommand();
+        runGame(racingGame, tryCount);
+        OutputView.printWinners(racingGame.getWinners());
+    }
+
+    private void runGame(RacingGame racingGame, int tryCount) {
         for (int i = 0; i < tryCount; ++i) {
             racingGame.proceedRound();
             OutputView.printRoundResult(racingGame.getCarList());
         }
-        OutputView.printWinners(racingGame.getWinners());
     }
 }

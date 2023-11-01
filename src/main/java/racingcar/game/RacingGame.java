@@ -24,10 +24,13 @@ public class RacingGame {
 
     public void proceedRound() {
         for (Car car : carList) {
-            int number = RandomUtils.getRandomNumber();
-            if (canMove(number)) {
-                car.move();
-            }
+            move(car);
+        }
+    }
+
+    private void move(Car car) {
+        if (canMove(RandomUtils.getRandomNumber())) {
+            car.move();
         }
     }
 
