@@ -50,6 +50,10 @@ public class RacingCarException {
             throw new IllegalArgumentException("5자 이상의 자동차 이름은 입력 할 수 없습니다.");
         });
 
+        if(carName.size() == 1){
+            throw new IllegalArgumentException("자동차 경주는 2대 이상의 자동차 입력 시 가능합니다.");
+        }
+
         Set<String> carNameSet = new HashSet<>(carName);
 
         validateDuplicates(carName.size(),carNameSet.size());
