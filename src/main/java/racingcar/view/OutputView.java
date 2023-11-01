@@ -13,7 +13,7 @@ public class OutputView {
 
     public void printRoundResult(List<Car> carList) {
         carList.forEach(car -> {
-            System.out.println(car.getName() + " : " + car.getStatus());
+            System.out.println(car.getName() + " : " + car.getStatusBar());
         });
     }
 
