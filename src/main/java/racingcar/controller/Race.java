@@ -1,38 +1,33 @@
-package racingcar.service;
+package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.MoveCount;
-import racingcar.utils.ErrorMessage;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RaceService {
+public class Race {
 
     private final Cars cars;
     private final MoveCount moveCnt;
 
-    public RaceService(String[] carNames, MoveCount moveCnt) {
-        this.cars = new Cars(carNames);
+    public Race(Cars cars, MoveCount moveCnt) {
+        this.cars = cars;
         this.moveCnt = moveCnt;
     }
 
-    public List<Car> run() {
+    public void run() {
+        OutputView.printResult();
         while (moveCnt.isOn()) {
             cars.playSingleTurn();
             OutputView.printCarsMove(cars.carsInformation());
             moveCnt.next();
         }
-        return findWinners();
-    }
-
-    public static MoveCount getMoveCount() {
-        try {
-            return new MoveCount(Integer.parseInt(InputView.userInput()));
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.USER_INSERT_ONLY_NUMBER.getMessage());
-        }
+        List<String> winnerNames = findWinners().stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+        OutputView.printFindWinner(winnerNames);
     }
 
     private List<Car> findWinners() {
@@ -40,4 +35,3 @@ public class RaceService {
         return cars.findWinner(currentMaxPosition);
     }
 }
-
