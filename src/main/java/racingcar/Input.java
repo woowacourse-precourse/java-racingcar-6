@@ -16,6 +16,11 @@ public class Input {
     public static void checkCarNameValidation(String carName) {
         Validator.validateCarName(carName);
     }
+    
+    //한개의 자동차 이름만 적힌 경우 유효성 검사
+    public static void checkOnlyOneCarNameValidation(List<String> carList) {
+        Validator.validateOnlyOneCarName(carList);
+    }
 
     //입력받은 차 이름 분리하기(쉼표로 구분하기)
     public static List<String> separateCarNameInput(String carNames){
@@ -25,6 +30,7 @@ public class Input {
             checkCarNameValidation(carNamesArr[i]);
             carList.add(carNamesArr[i]);
         }
+        Validator.validateOnlyOneCarName(carList);
         return carList;
     }
 
@@ -38,7 +44,7 @@ public class Input {
 
     //차 이동횟수 유효성 검사
     public static void checkNumberValidation(String movingNumberStr) {
-        Validator.valdateMovingNumber(movingNumberStr);
+        Validator.validateMovingNumber(movingNumberStr);
     }
 
 }

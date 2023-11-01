@@ -8,8 +8,8 @@ public class Game {
     //전체 게임 과정
     public static void run() {
         Message.printCarNameMessage();
-        Message.printMovingNumberMessage();
         String carNames = Input.inputCarName();
+        Message.printMovingNumberMessage();
         List<String> carList = Input.separateCarNameInput(carNames);
         int movingNumber = Input.inputMovingNumber();
         Map<String, Integer> carRacingRecord = RacingCar.setCarRacingRecord(carList);
