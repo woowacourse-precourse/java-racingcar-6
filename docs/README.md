@@ -1,13 +1,13 @@
-## 기능 목록
+# 기능 목록
 - -> : 응답 방향
 
-### car
+## car
 Car
 - [x] 심판에게 시도 횟수를 받는다.
 - [x] Referee의 전진 조건에 따라 달린다.
 - [x] 횟수 별 실행 결과를 도출한다. -> Referee
 
-### game
+## game
 - Referee
 - [x] user에게 시도 횟수를 요청한다.
 - [x] NumberGenerator에게 무작위 값을 받는다.
@@ -20,7 +20,7 @@ Car
 - NumberGenerator
 - [x] 0~9사이의 무작위 값을 구한다. -> Referee
 
-### user
+## user
 - User
 - [x] 자동차 이름을 입력한다.
 - [x] 자동차 객체를 생성하고 초기화한다.
