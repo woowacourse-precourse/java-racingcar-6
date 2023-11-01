@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class CarInitialization {
     public static List<Car> initializeCars(String carNamesInput) {
