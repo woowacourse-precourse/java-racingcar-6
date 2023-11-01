@@ -2,6 +2,7 @@ package racingcar.util;
 
 import static racingcar.constant.GameOptions.MAX_NAME_LENGTH;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
@@ -10,6 +11,16 @@ public class Validator {
         validateFirstChar(carName);
         validateLastChar(carName);
         validateLength(carName);
+    }
+
+    public void validateCarNames(List<String> carNames) {
+        List<String> names = new ArrayList<>();
+        for (String name : carNames) {
+            if (names.contains(name)) {
+                throw new IllegalArgumentException();
+            }
+            names.add(name);
+        }
     }
 
     private void validateNotBlank(String carName) {
