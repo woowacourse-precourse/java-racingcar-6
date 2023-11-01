@@ -57,6 +57,13 @@ public class GameManager {
     }
 
     private int getMaxPosition() {
-        int 
+        int maxPosition = -1;
+        for (Car car : cars) {
+            int currentPosition = car.getCarCurrentPosition();
+            if (currentPosition > maxPosition) {
+                maxPosition = currentPosition;
+            }
+        }
+        return maxPosition;
     }
 }
