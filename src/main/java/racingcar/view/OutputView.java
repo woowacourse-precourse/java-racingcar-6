@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import racingcar.model.Cars;
 
 public class OutputView {
-    public static void gameStartMessage() {
+    public static void printGameStartMessage() {
         System.out.println("실행 결과");
     }
 
