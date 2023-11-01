@@ -29,18 +29,18 @@ public class CarRaceModel {
         List<String> winner = new ArrayList<>();
         int topMovement = 0;
 
-        for (int i = 0; i < carList.size(); i++) {
-            String carName = carList.get(i).getName();
-            int carMovement = carList.get(i).getDistance();
-
-            winner.add(carName);
+        for (Car car : carList) {
+            int carMovement = car.getDistance();
 
             if (carMovement > topMovement) {
-                winner.clear();
                 topMovement = carMovement;
-                winner.add(carName);
+                winner.clear();
+                winner.add(car.getName());
+            } else if (carMovement == topMovement) {
+                winner.add(car.getName());
             }
         }
+
         return winner;
     }
 
