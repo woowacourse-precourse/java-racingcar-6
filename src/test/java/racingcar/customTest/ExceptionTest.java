@@ -9,7 +9,7 @@ import racingcar.Application;
 
 public class ExceptionTest extends NsTest {
     @Test
-    void 이름에_대한_예외_처리_1자_이상() {
+    void 이름에_대한_예외_처리1_1자_이상() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -17,7 +17,7 @@ public class ExceptionTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리_5자_이하() {
+    void 이름에_대한_예외_처리2_5자_이하() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -25,15 +25,7 @@ public class ExceptionTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리_SPLIT_전_이름_입력1() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(",,", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 이름에_대한_예외_처리_SPLIT_전_이름_입력2() {
+    void 이름에_대한_예외_처리3_SPLIT_전_이름_입력() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException(",pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -41,7 +33,15 @@ public class ExceptionTest extends NsTest {
     }
 
     @Test
-    void 시도_회수에_대한_예외_처리_숫자만_입력() {
+    void 경주_자동차_개수에_대한_예외_처리1_1개_이상() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_회수에_대한_예외_처리1_숫자만_입력() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "woni"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -49,7 +49,7 @@ public class ExceptionTest extends NsTest {
     }
 
     @Test
-    void 시도_회수에_대한_예외_처리_양수만_입력() {
+    void 시도_회수에_대한_예외_처리2_양수만_입력() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
