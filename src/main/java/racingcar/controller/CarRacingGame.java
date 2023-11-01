@@ -11,7 +11,6 @@ public class CarRacingGame {
 
     // 레이싱 게임 시작 함수
     public void start() {
-
         setCarsName(cars);
         setTryNumber(cars);
         OutputView.printCarResult();
@@ -19,7 +18,6 @@ public class CarRacingGame {
 
     // 자동차 이름 설정하기
     public void setCarsName(Cars cars) {
-
         try {
             cars.addCar(InputView.printSetCarsNameMessage());
         } catch (IllegalArgumentException e){
