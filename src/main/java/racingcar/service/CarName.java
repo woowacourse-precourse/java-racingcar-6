@@ -29,7 +29,7 @@ public class CarName {
         return splitCarList;
     }
 
-    public List<String> range() {
+    public List<String> limitLength() {
 
         for (String range : splitCarList) {
             if (range.length() <= 5) {

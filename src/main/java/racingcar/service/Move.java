@@ -13,7 +13,7 @@ public class Move {
         this.cars = cars;
     }
 
-    public void AllCars() {
+    public void allCars() {
         for (Car car : cars) {
             if (randomNumber.generate() >= 4) {
                 car.move();

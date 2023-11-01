@@ -10,7 +10,7 @@ public class Application {
         // TODO: 프로그램 구현
 
         Start start = new Start();
-        start.Game();
+        start.play();
     }
 
 }

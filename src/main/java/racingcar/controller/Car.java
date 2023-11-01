@@ -3,32 +3,29 @@ package racingcar.controller;
 public class Car {
 
     private String name;
-    private int length;
+    private int distance;
 
-    public Car(String name, int length){
+    public Car(String name, int distance) {
         this.name = name;
-        this.length = length;
+        this.distance = distance;
     }
 
-    public void move(){
-        this.length +=1;
+    public void move() {
+        this.distance += 1;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getLength(){
-        return length;
+    public int getDistance() {
+        return distance;
     }
 
     @Override
-    public String toString(){
-        return name +": "+length;
+    public String toString() {
+        return name + ": " + distance;
     }
-
-
-
 
 
 }

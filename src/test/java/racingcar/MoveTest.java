@@ -12,6 +12,7 @@ public class MoveTest {
 
     private List<Car> cars;
 
+
     @BeforeEach
     void setUp() {
         cars = Arrays.asList(
@@ -69,6 +70,7 @@ public class MoveTest {
             assertThat(car.getLength()).isEqualTo(1);
         }
     }
+
 }
 
 
