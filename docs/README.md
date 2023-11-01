@@ -40,7 +40,7 @@
 ### Refactor
 - [x] position을 값 객체로 분리해 불변을 유지한다
 - [x] 정책들을 Rule 클래스로 묶어서 파라미터 개수 줄이기
-- [ ] 메서드 마다 테스트 작성
+- [x] 메서드 마다 테스트 작성
 
 
 ## 전체적인 구조
@@ -67,9 +67,9 @@
 - MovePolicy (이동 정책)
 
 ## 프로그래밍 요구사항 및 점검 사항
-- [ ] indent 2까지만 허용 (while문 안 if 까지가 indent 2)
-- [ ] 3항 연산자 사용 x
-- [ ] 메서드 한가지 일만 하도록 최대한 작게 만들기
-- [ ] 제공하는 Randoms 랜덤값 추출하기 (`Randoms.pickNumberInRange(0,9);`)
-- [ ] 제공하는 Console 클래스로 입력값 받기 (`Console.readLine();`)
-- [ ] clean -> test / clean -> test 확인 하기
+- [x] indent 2까지만 허용 (while문 안 if 까지가 indent 2)
+- [x] 3항 연산자 사용 x
+- [x] 메서드 한가지 일만 하도록 최대한 작게 만들기
+- [x] 제공하는 Randoms 랜덤값 추출하기 (`Randoms.pickNumberInRange(0,9);`)
+- [x] 제공하는 Console 클래스로 입력값 받기 (`Console.readLine();`)
+- [x] clean -> test / clean -> test 확인 하기
