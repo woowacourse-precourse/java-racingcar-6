@@ -17,6 +17,7 @@ public class Player {
     public Player(String names, String times){
         this.cars = convertStringToListCars(names);
         this.times = stringToInteger(times);
+        validateTime(this.times);
     }
 
     public List<Car> getCars() {

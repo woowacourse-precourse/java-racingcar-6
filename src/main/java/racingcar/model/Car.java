@@ -13,9 +13,12 @@ public class Car {
         this.name = name;
         this.move = 0;
     }
+    public Car (String name, int move){
+        this.name = name;
+        this.move = move;
+    }
 
-    public void run(){
-        int randomNum = getRandomNumber();
+    public void run(int randomNum){
         if(canMove(randomNum)){
             addMove();
         }
@@ -33,9 +36,6 @@ public class Car {
         return this.move;
     }
 
-    private int getRandomNumber(){
-        return Randoms.pickNumberInRange(0,9);
-    }
 
     private boolean canMove(int randomNum){
         return randomNum >= LIMIT_NUMBER;

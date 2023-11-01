@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.model.Player;
 import racingcar.view.Input;
@@ -28,11 +29,15 @@ public class Game {
 
         for(int i=0; i<times; i++){
             for (Car car : cars) {
-                car.run();
+                car.run(getRandomNumber());
                 output.printProgress(car.getName(), car.getMove());
             }
             System.out.println(" ");
         }
+    }
+
+    private int getRandomNumber(){
+        return Randoms.pickNumberInRange(0,9);
     }
 
 }
