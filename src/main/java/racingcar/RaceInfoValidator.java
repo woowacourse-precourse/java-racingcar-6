@@ -12,11 +12,21 @@ public class RaceInfoValidator {
 
     }
 
+    public static void hasNoName(String[] input) throws  IllegalArgumentException{
+        for (String str : input) {
+            if (str.isBlank()) {
+                throw new IllegalArgumentException("잘못된 입력 - 자동차 이름을 입력해주세요");
+            }
+        }
+    }
+
+
     public static void hasMultipleCarNames(String[] input) throws IllegalArgumentException {
         if (input.length <= 1) {
             throw new IllegalArgumentException("잘못된 입력 - 자동차 이름을 2개 이상 입력해주세요");
         }
     }
+
 
     public static void checkAttemptCount(String input) throws IllegalArgumentException {
         try {

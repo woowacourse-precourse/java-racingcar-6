@@ -28,6 +28,7 @@ public class RaceInfo {
 
     public void validateInput(String[] carNames, String attemptCount) {
         RaceInfoValidator.checkCarNameLength(carNames);
+        RaceInfoValidator.hasNoName(carNames);
         RaceInfoValidator.hasMultipleCarNames(carNames);
         RaceInfoValidator.checkAttemptCount(attemptCount);
     }
