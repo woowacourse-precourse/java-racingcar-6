@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
 
 public class ResultByRace {
     private static final String INPUT_TRY_TIMES = "시도할 회수는 몇회인가요?";
@@ -38,6 +37,6 @@ public class ResultByRace {
     }
 
     public void showWinner(Cars cars) {
-        cars.isWinner();
+        cars.determineWinners();
     }
 }

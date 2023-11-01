@@ -12,7 +12,7 @@ class CarTest {
     private static final int MIN_MOVABLE = 4;
     private Car car;
     @BeforeEach
-    void setUp() { //각 테스트 실행전에 매번 실행
+    void setUp() {
         car = new Car("TestCar");
     }
     @Test

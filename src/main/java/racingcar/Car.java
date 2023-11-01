@@ -5,9 +5,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private String name;
     private int position = 0;
-    private static final int MIN_MOVABLE_RANGE = 1;
-    private static final int MAX_MOVABLE_RANGE = 9;
-    private static final int MIN_MOVABLE = 4;
+    private static final int MIN_MOVE_RANGE = 1;
+    private static final int MAX_MOVE_RANGE = 9;
+    private static final int MOVE_THRESHOLD = 4;
 
     public Car(String name) {
         this.name = name;
@@ -25,18 +25,18 @@ public class Car {
         if (isMovable()) {
             position += 1;
         }
-        showRoad();
+        displayPosition();
     }
 
     private boolean isMovable() {
-        return Randoms.pickNumberInRange(MIN_MOVABLE_RANGE, MAX_MOVABLE_RANGE) >= MIN_MOVABLE;
+        return Randoms.pickNumberInRange(MIN_MOVE_RANGE, MAX_MOVE_RANGE) >= MOVE_THRESHOLD;
     }
 
-    private void showRoad() {
-        String load = "";
+    private void displayPosition() {
+        StringBuilder road = new StringBuilder();
         for (int i = 0; i < position; i++) {
-            load += "-";
+            road.append("-");
         }
-        System.out.println(name + " : " + load);
+        System.out.println(name + " : " + road.toString());
     }
 }
