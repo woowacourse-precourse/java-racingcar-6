@@ -59,15 +59,4 @@ class CarSettingTest {
         assertThat(carsSituation.values()).contains(0, 0);
     }
 
-    @Test
-    public void 최종_우승자_일치성공_확인() throws Exception {
-        //given
-
-        //when
-
-        //then
-
-    }
-
-
 }
