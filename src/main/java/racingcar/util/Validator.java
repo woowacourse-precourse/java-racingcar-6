@@ -55,4 +55,10 @@ public class Validator {
                     seen.add(name);
                 });
     }
+
+    private void validateMinimumLimit(int count) {
+        if (count < 1) {
+            throw new IllegalArgumentException("시도할 회수는 최소 1회 이상입니다.");
+        }
+    }
 }
