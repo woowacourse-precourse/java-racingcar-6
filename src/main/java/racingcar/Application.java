@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Movement;
+import racingcar.domain.Winner;
 
 import java.util.*;
 
@@ -37,13 +38,11 @@ public class Application {
         moving.forwardOrStop(attempt, carNameList, forwardCountStr, forwardCountInt);
 
         System.out.print("최종 우승자 : ");
-        List<String> winner = new ArrayList<>();
-        for (int i = 0; i < carNameList.size(); i++) {
-            if (forwardCountInt.get(i) == Collections.max(forwardCountInt)) {
-                winner.add(carNameList.get(i));
-            }
-        }
-        String winners = String.join(", ", winner);
+        List<String> winnerList;
+        Winner finalWinner = new Winner();
+        winnerList = finalWinner.gameResult(carNameList, forwardCountInt);
+
+        String winners = finalWinner.insertSeparator(winnerList);
         System.out.println(winners);
     }
 }
