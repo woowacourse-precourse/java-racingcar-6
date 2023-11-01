@@ -30,9 +30,13 @@ public class Car {
 		return distance;
 	}
 
-	public void validateName(String name){
-		if (name.length() > 5 || name.length() < 1) {
+	public void validateName(String name) {
+		if (isCollectNameLength(name)) {
 			throw new IllegalArgumentException(WRONG_NAME_LENGTH_EXCEPTION_MESSAGE);
 		}
+	}
+
+	private boolean isCollectNameLength(String name) {
+		return name.length() > 5 || name.length() < 1;
 	}
 }
