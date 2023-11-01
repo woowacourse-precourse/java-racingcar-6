@@ -18,7 +18,7 @@ public class CalculatorTest {
         cars.get(0).moveOrStop(true);
         cars.get(1).moveOrStop(false);
 
-        int max = Calculator.MaxMove(cars);
+        int max = Calculator.maxMove(cars);
         Assertions.assertThat(max).isEqualTo(1);
     }
 }

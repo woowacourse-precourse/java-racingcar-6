@@ -1,18 +1,16 @@
-package util;
+package racingcar;
 
-import util.NumberGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 public class NumberGeneratorTest {
 
     @Test
     void 범위_내_난수_생성() {
+        final NumberGenerator numberGenerator = new NumberGenerator(0, 9);
         final int MIN_RANGE = 0;
         final int MAX_RANGE = 9;
 
@@ -20,11 +18,12 @@ public class NumberGeneratorTest {
                 .boxed()
                 .toList();
 
-        Assertions.assertThat(intList.contains(NumberGenerator.createRandomNumber())).isEqualTo(true);
+        Assertions.assertThat(intList.contains(numberGenerator.randomNumber())).isEqualTo(true);
     }
 
     @Test
     void 범위_밖_난수_생성() {
+        final NumberGenerator numberGenerator = new NumberGenerator(0, 9);
         final int MIN_RANGE = 10;
         final int MAX_RANGE = 19;
 
@@ -32,6 +31,6 @@ public class NumberGeneratorTest {
                 .boxed()
                 .toList();
 
-        Assertions.assertThat(intList.contains(NumberGenerator.createRandomNumber())).isEqualTo(false);
+        Assertions.assertThat(intList.contains(numberGenerator.randomNumber())).isEqualTo(false);
     }
 }
