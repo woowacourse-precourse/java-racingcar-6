@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static racingcar.error.ErrorType.INVALID_ATTEMPT_COUNT_INPUT;
+import static racingcar.error.ErrorType.INVALID_CAR_NAME_LENGTH;
 
 class GameInputViewTest extends IOTest {
 
@@ -34,6 +35,7 @@ class GameInputViewTest extends IOTest {
 
         assertThat(output()).isEqualTo(GameInputView.INPUT_CAR_NAMES_MESSAGE);
         assertThat(t).isInstanceOf(IllegalArgumentException.class);
+        assertThat(t.getMessage()).isEqualTo(INVALID_CAR_NAME_LENGTH.getMessage());
     }
 
     @DisplayName("시도 회수를 입력하라는 안내 문구가 출력되고 시도 회수(정수)를 입력하면, 입력된 시도 회수가 반환된다.")
