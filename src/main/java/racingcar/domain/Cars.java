@@ -24,9 +24,13 @@ public class Cars {
         int distinctCount = (int) carNames.stream()
                 .distinct()
                 .count();
-        if (distinctCount != carNames.size()) {
+        if (isDuplicated(carNames, distinctCount)) {
             throw new IllegalArgumentException(DUPLICATED_CAR_NAMES.getMessage());
         }
+    }
+
+    private static boolean isDuplicated(List<String> carNames, int distinctCount) {
+        return distinctCount != carNames.size();
     }
 
     public void move() {
