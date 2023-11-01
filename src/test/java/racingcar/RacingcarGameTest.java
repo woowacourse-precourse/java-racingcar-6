@@ -48,7 +48,7 @@ public class RacingcarGameTest {
         List<String> expectedWinner = List.of("pobi", "woni");
 
         // when
-        List<String> winner = racingcarGame.createWinner(cars);
+        List<String> winner = racingcarGame.createWinners(cars);
 
         // then
         assertThat(winner).isEqualTo(expectedWinner);

@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 
@@ -8,25 +7,19 @@ public class RacingcarGame {
     private static final int CRITERION_FOUR = 4;
     private static final int MOVE_FORWARD_ONCE = 1;
 
-    public List<String> createWinner(List<Car> cars) {
-        List<String> winner = new ArrayList<>();
+    public List<String> createWinners(List<Car> cars) {
         int max = findMaxMoveForwardCount(cars);
-        for (Car car : cars) {
-            if (car.getMoveForwardCount() == max) {
-                winner.add(car.getCarName());
-            }
-        }
-        return winner;
+        return cars.stream()
+                   .filter(car -> car.getMoveForwardCount() == max)
+                   .map(Car::getCarName)
+                   .toList();
     }
 
     private int findMaxMoveForwardCount(List<Car> cars) {
-        int max = 0;
-        for (Car car : cars) {
-            if (car.getMoveForwardCount() > max) {
-                max = car.getMoveForwardCount();
-            }
-        }
-        return max;
+        return cars.stream()
+                   .mapToInt(Car::getMoveForwardCount)
+                   .max()
+                   .orElse(0);
     }
 
     public void increaseMoveForwardCount(Car car, int randomNumber) {

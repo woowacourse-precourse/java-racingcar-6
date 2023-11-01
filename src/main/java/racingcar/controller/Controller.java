@@ -22,8 +22,8 @@ public class Controller {
         OutputView.printRaceResult();
         iterateMoveCars(cars, attemptCount);
 
-        List<String> winner = racingcarGame.createWinner(cars);
-        OutputView.printWinner(winner);
+        List<String> winners = racingcarGame.createWinners(cars);
+        OutputView.printWinner(winners);
     }
 
     private void iterateMoveCars(List<Car> cars, int attemptCount) {
