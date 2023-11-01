@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Cars;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.IntStream;
 
 public class GameService {
@@ -16,7 +15,6 @@ public class GameService {
         IntStream.range(0, names.size())
                 .filter(i -> isWin())
                 .forEach(i -> scores.set(i, scores.get(i) + 1));
-
     }
 
     public boolean isWin() {
