@@ -4,7 +4,7 @@ import constant.ExceptionMessage;
 
 public class Car implements Comparable<Car>{
     public static final int MAXIMUM_NAME_LENGTH = 5;
-    private static final int INITIAL_POSITION = 0;
+    public static final int INITIAL_POSITION = 0;
 
     private final String name;
     private int position;

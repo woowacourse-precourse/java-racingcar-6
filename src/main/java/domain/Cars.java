@@ -3,16 +3,16 @@ package domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Cars {
     private final List<Car> carList;
 
     Cars(List<String> names) {
-        List<Car> newCarList = new ArrayList<>();
-        for (String name : names) {
-            newCarList.add(new Car(name));
-        }
-        carList = Collections.unmodifiableList(newCarList);
+        this(names, Stream.generate(() -> Car.INITIAL_POSITION)
+                .limit(names.size())
+                .toList()
+        );
     }
 
     Cars(List<String> names, List<Integer> position) {
