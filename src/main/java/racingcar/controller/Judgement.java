@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Judgement {
-    private List<Integer> carRandomNumbers;
     private int highScore;
     List<String> winnerList;
+
     List<Integer> isNumberMoreThan4(List<Integer> carRandomNumbers) {
-        for (int i=0; i<carRandomNumbers.size(); i++) {
+        for (int i = 0; i < carRandomNumbers.size(); i++) {
             if (carRandomNumbers.get(i) < 4) {
-                carRandomNumbers.set(i,0);
+                carRandomNumbers.set(i, 0);
             }
         }
         return carRandomNumbers;
@@ -23,14 +23,13 @@ public class Judgement {
         winnerList = new ArrayList<>();
         highScore = sortedCars.get(0).getCarBoost();
 
-        for(int i=0; i<sortedCars.size(); i++){
-            if(highScore == sortedCars.get(i).getCarBoost()){
+        for (int i = 0; i < sortedCars.size(); i++) {
+            if (highScore == sortedCars.get(i).getCarBoost()) {
                 winnerList.add(sortedCars.get(i).getCarName());
             }
         }
         return winnerList;
     }
-
 
 
 }

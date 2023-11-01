@@ -12,7 +12,7 @@ public class GameController {
 
     private List<Car> cars;
     private RaceView raceView;
-    private final NumberGenerator numberGenerator;
+    private NumberGenerator numberGenerator;
     private final Judgement judgement;
     private final UserInputManager userInputManager;
 
@@ -26,14 +26,17 @@ public class GameController {
 
     public GameController() {   //생성자
         userInputManager = new UserInputManager();
-        numberGenerator = new NumberGenerator(cars.size());
+        raceView = new RaceView();
         judgement = new Judgement();
     }
 
     private void initializeGame() {
+        userInputManager.inputCarNames();
+        userInputManager.inputAttempts();
         carNames = userInputManager.getCarNames();
         cars = carNames.stream().map(Car::new).collect(Collectors.toList());    //받은 자동차 이름으로 객체 각각 생성
         attempt = userInputManager.getAttempts();
+
     }
 
     public void startGame() {
@@ -44,9 +47,12 @@ public class GameController {
 
     public void conductRaces() {
         for (int i = 0; i < attempt; i++) {
+            numberGenerator = new NumberGenerator(cars.size());
             carBoosts = numberGenerator.getRandomNumbers();
+            int carIndex = 0;
             for (Car car : cars) {
-                car.moveForward(carBoosts.get(i));
+                car.moveForward(carBoosts.get(carIndex));
+                carIndex++;
             }
             raceView.displayRaceResults(cars);
         }
@@ -57,7 +63,7 @@ public class GameController {
                 .sorted((car1,car2)-> Integer.compare(car2.getCarBoost(),car1.getCarBoost()))   //carBoost 내림차순으로 Car 객체정렬
                 .collect(Collectors.toList());
         raceWinner = judgement.determineWinner(sortedCars);
-
+        raceView.displayWinner(raceWinner);
 
     }
 
