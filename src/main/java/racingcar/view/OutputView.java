@@ -26,7 +26,7 @@ public class OutputView {
         winners.stream()
                 .map(Car::getName)
                 .forEach(name -> sb.append(" ").append(name).append(","));
-        sb.deleteCharAt(sb.length() - 1);
+        sb.deleteCharAt(sb.length() - 1); // 마지막에 들어가는 쉼표 제거
         System.out.print(sb.toString());
     }
 }
