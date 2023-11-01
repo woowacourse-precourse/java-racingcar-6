@@ -15,4 +15,4 @@ class Game
 
 class Round
 
-- [ ] 차 이동 결과 출력 - printMovementResult(Car) 
+- [x] 차 이동 결과 출력 - printMovementResult(Car) 
