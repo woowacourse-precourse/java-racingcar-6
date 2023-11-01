@@ -3,6 +3,7 @@ package racingcar.domain.game;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -60,6 +61,21 @@ public class RaceGameTest {
             assertThat(raceGame.currentHeadOfRace())
                     .containsExactly(headOfRaceCar.getName())
                     .doesNotContainAnyElementsOf(otherCars.stream().map(Car::getName).toList());
+        }
+
+        @Test
+        @DisplayName("자동차 목록이 비어있으면 예외를 반환한다.")
+        void 자동차_목록이_비어있으면_예외를_반환한다() {
+            // given
+            var mockFormula = new MockFormula(MoveState.MOVING_FORWARD);
+            var emptyCars = new ArrayList<Car>();
+            var round = 1;
+
+            // when & then
+            var raceGame = new RaceGame(mockFormula, emptyCars, round);
+            assertThatThrownBy(raceGame::currentHeadOfRace)
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage("자동차 목록이 비어있습니다.");
         }
     }
 }
