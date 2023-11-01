@@ -44,7 +44,7 @@ public class RacingGame {
                 winners.append(car.getName());
             }
         }
-        System.out.println("최종 우승자: " + winners);
+        System.out.println("최종 우승자 : " + winners);
     }
 
     private int getMaxPosition() {
