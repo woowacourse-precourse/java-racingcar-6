@@ -4,29 +4,26 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import racingcar.Exception.Exception;
+import racingcar.Exception.RacingCarException;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class RacingCarService {
 
-    InputView inputView = new InputView();
-    OutputView outputView = new OutputView();
-    Exception exception = new Exception();
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
+    private final RacingCarException exception = new RacingCarException();
 
 
     public List<String> InputCarName() {
 
         inputView.carInput();
 
-        String s1 = Console.readLine();
-
-        List<String> carName = List.of(s1.split(","));
-        Set<String> carNameSet = new HashSet<>(carName);
+        List<String> carName = List.of(Console.readLine().split(","));
 
         exception.validateCarName(carName);
-        exception.validateDuplicates(carName.size(),carNameSet.size());
 
         return carName;
     }
@@ -37,13 +34,9 @@ public class RacingCarService {
 
         String count = Console.readLine();
 
-        exception.validateNonDigitCharacter(count);
+        exception.validateGameCount(count);
 
-        int cnt = Integer.parseInt(count);
-
-        exception.validateMinimumValue(cnt);
-
-        return cnt;
+        return Integer.parseInt(count);
     }
 
     public int[] playGame(int num, List<String> carList) {
@@ -51,54 +44,41 @@ public class RacingCarService {
         int[] move = new int[carList.size()];
 
         outputView.result();
-        for (int i = 0; i < num; i++) {
 
-            int[] score = score(carList, move);
-
-            result(score, carList);
-        }
+        IntStream.range(0, num).mapToObj(i ->
+                score(carList, move))
+                .forEach(score -> result(score, carList));
         return move;
     }
 
     private int[] score(List<String> name , int[] move){
-        for (int i = 0; i < name.size(); i++) {
+        IntStream.range(0, name.size()).forEach(i -> {
             int N = Randoms.pickNumberInRange(1, 9);
-            if(N>3){
+            if (N > 3) {
                 move[i] += 1;
             }
-        }
+        });
         return move;
     }
 
     private void result(int[] score, List<String> carList){
-        for (int i = 0; i < carList.size(); i++) {
+        IntStream.range(0, carList.size()).forEach(i -> {
             outputView.carNameOutView(carList.get(i));
-
-            for (int j = 0; j < score[i]; j++) {
-                outputView.score();
-            }
+            IntStream.range(0, score[i]).forEach(j -> outputView.score());
             outputView.newLine();
-        }
+        });
         outputView.newLine();
     }
 
     public void winner(List<String> name, int[] arr) {
-        Set<String> list;
+        int maxScore = Arrays.stream(arr).max().orElse(0);
 
-        HashMap<String, Integer> hashMap = new HashMap<>();
-
-        for (int i = 0; i < name.size(); i++) {
-            hashMap.put(name.get(i), arr[i]);
-        }
-        int max = Collections.max(hashMap.values());
-
-        list = hashMap.values().stream()
-                .filter(value -> value >= max)
-                .flatMap(value -> hashMap.keySet().stream())
-                .filter(s -> hashMap.get(s).equals(max))
+        Set<String> winners = IntStream.range(0, name.size())
+                .filter(i -> arr[i] == maxScore)
+                .mapToObj(name::get)
                 .collect(Collectors.toSet());
 
-        outputView.winnerOutView(list);
+        outputView.winnerOutView(winners);
 
     }
 
