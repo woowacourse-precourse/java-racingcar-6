@@ -1,7 +1,18 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.controller.Controller;
+import racingcar.model.Car;
+import racingcar.view.InputView;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -11,6 +22,15 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    @AfterEach
+    void closeConsole() {
+        Console.close();
+    }
+
+    public static InputStream generateUserInput(String input) {
+        return new ByteArrayInputStream(input.getBytes());
+    }
 
     @Test
     void 전진_정지() {
@@ -55,6 +75,29 @@ class ApplicationTest extends NsTest {
         // then
         assertThat(car.getTotalMove()).isEqualTo(0);
     }
+
+    @DisplayName("자동차 이름이 5자 초과하거나 비어있으면 에러")
+    @ParameterizedTest
+    @ValueSource(strings = {"123456", "@abcdef", "Abc12345", " "})
+    void ThrowErrorIfCarNameLengthOver5orEmpty(String input) {
+        System.setIn(generateUserInput(input));
+        InputView inputView = new InputView();
+
+        assertThatThrownBy(inputView::inputCarsName)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("자동차 이름이 하나만 입력되었을 경우 에러")
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "@abcf", "Abc"})
+    void ThrowErrorIfCarNameExistOne(String input) {
+        System.setIn(generateUserInput(input));
+        InputView inputView = new InputView();
+
+        assertThatThrownBy(inputView::inputCarsName)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     }
 
     @Test
