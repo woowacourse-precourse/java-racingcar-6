@@ -6,12 +6,13 @@ public class MainController {
 
     private final InputController inputController = new InputController();
     private Game game;
+    private TrialNumber trialNumber;
 
     public void initGame() {
         List<String> carNames = inputController.getCarNames();
-        int trialNumber = inputController.getTrialNumber();
-
-        game = new Game(carNames, trialNumber);
+        int trialNumberInput = inputController.getTrialNumber();
+        game = new Game(carNames);
+        trialNumber = new TrialNumber(trialNumberInput);
     }
 
     private void playGame() {
