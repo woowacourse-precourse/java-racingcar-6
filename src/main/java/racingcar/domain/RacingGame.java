@@ -3,6 +3,7 @@ package racingcar.domain;
 import racingcar.message.GameMessage;
 import racingcar.util.CarGenerator;
 import racingcar.util.RacingSimulator;
+import racingcar.util.WinnerCalculator;
 import racingcar.view.OutputView;
 import racingcar.view.Inputview;
 
@@ -16,17 +17,14 @@ public class RacingGame {
 
             printRequestNames();
             List<Car> cars = generateCars();
-
             printRequestNumber();
-
-            try {
-                RacingSimulator simulator = new RacingSimulator(Integer.parseInt(Inputview.consoleLine()));
-
-                System.out.println("");
-
+            RacingSimulator simulator = new RacingSimulator(Inputview.consoleLine());
+            simulator.checkNumberValidation();
+            simulator.invertStringToInt();
 
             System.out.println();
             printStartResult();
+
 
             while (simulator.checkZero()) {
                 simulator.playSimulator(cars);
@@ -34,15 +32,16 @@ public class RacingGame {
                 simulator.minusNumber();
             }
 
+            List<Integer> winnerList = simulator.checkMaxKey();
 
-            List<Integer> winnerList = simulator.checkWinner();
 
             System.out.println();
 
-            printWinner(winnerList, cars);
-            }catch(IllegalArgumentException e) {
-                System.out.println("숫자만 입력해 주세요");
-            }
+            WinnerCalculator winnerCalculator = new WinnerCalculator(cars, winnerList);
+
+
+
+
 
 
     }

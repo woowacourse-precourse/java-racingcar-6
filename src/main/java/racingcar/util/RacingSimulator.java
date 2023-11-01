@@ -1,6 +1,8 @@
 package racingcar.util;
 
 import racingcar.domain.Car;
+import racingcar.message.GameMessage;
+import racingcar.view.OutputView;
 
 
 import java.util.HashMap;
@@ -11,13 +13,22 @@ import java.util.stream.Collectors;
 
 
 public class RacingSimulator {
+    String turn;
     int number;
-
     Map<Integer, Integer> result = new HashMap<Integer, Integer>();
 
 
-    public RacingSimulator(int number) {
-        this.number = number;
+
+    public RacingSimulator(String turn) {
+        this.turn = turn;
+    }
+
+    public void checkNumberValidation() {
+        Validator.checkNumberValidation(this.turn);
+    }
+
+    public void invertStringToInt (){
+        this.number = Integer.parseInt(turn);
     }
 
     public void minusNumber(){
@@ -53,7 +64,7 @@ public class RacingSimulator {
         });
     }
 
-    public List<Integer> checkWinner() {
+    public List<Integer> checkMaxKey() {
         int max = result.values().stream()
                 .max(Integer::compare)
                 .orElse(0);
@@ -66,5 +77,13 @@ public class RacingSimulator {
         return maxKeys;
 
     }
+
+
+
+
+
+
+
+
 
 }

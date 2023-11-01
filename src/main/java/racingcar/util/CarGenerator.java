@@ -31,7 +31,7 @@ public class CarGenerator {
 
     public void checkLengthValidation () {
         for(String carName : namesList){
-            Validator.lengthvalidator(carName);
+            Validator.checkLengthvalidator(carName);
         }
     }
 
