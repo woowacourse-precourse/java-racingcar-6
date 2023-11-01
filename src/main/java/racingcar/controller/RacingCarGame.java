@@ -19,6 +19,7 @@ public class RacingCarGame {
         Cars racingCars = createRacingCars();
         int rounds = getRoundsToInt();
         playByRound(racingCars, rounds);
+        showWinners(racingCars);
 
     }
 
@@ -61,6 +62,11 @@ public class RacingCarGame {
             OutputView.printStatus(car.getName(), car.getPosition());
         }
         OutputView.printNewLine();
+    }
+
+    public void showWinners(Cars cars) {
+        List<String> winners = cars.findWinners();
+        OutputView.printWinners(winners);
     }
 
 }

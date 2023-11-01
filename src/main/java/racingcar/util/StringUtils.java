@@ -27,4 +27,8 @@ public class StringUtils {
     public String removeSpace(String carName) {
         return carName.replaceAll(SPACE, "");
     }
+
+    public String join(List<String> winners) {
+        return String.join(SEPARATOR + SPACE, winners);
+    }
 }
