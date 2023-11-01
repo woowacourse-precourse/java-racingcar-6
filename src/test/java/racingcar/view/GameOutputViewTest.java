@@ -28,6 +28,16 @@ class GameOutputViewTest extends IOTest {
         assertThat(output()).contains("test1 : ----", "test2 :");
     }
 
+    @DisplayName("우승자들의 이름이 주어지고, 주어진 우승자들의 이름을 출력한다.")
+    @Test
+    void givenWinnerNames_whenPrintWinnerNames_thenPrintNames() {
+        List<String> winnerNames = List.of("test1", "test2");
+
+        GameOutputView.printWinnerNames(winnerNames);
+
+        assertThat(output()).isEqualTo("최종 우승자 : " + String.join(", ", winnerNames));
+    }
+
     private Car createCar(String name, int position) {
         Car car = new Car(name);
         for (int i = 0; i < position; i++) {

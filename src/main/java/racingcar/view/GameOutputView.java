@@ -19,6 +19,9 @@ public class GameOutputView {
         System.out.println();
     }
 
+    public static void printWinnerNames(List<String> winnerNames) {
+    }
+
     private static String getDashLines(int numOfDashLines) {
         return DASH_LINE.repeat(numOfDashLines);
     }
