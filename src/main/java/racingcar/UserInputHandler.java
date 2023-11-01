@@ -15,6 +15,12 @@ public class UserInputHandler {
         return cars;
     }
 
+    public int getRepeatNumberInput(String userInput) {
+        int userInputNumber = convertStringToInteger(userInput);
+        checkPositiveValue(userInputNumber);
+        return userInputNumber;
+    }
+
     public String getUserInput() {
         return Console.readLine();
     }
@@ -25,6 +31,20 @@ public class UserInputHandler {
 
     private void checkCarNameLength(String carName) {
         if (carName.length() > 5 || carName.length() == 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private int convertStringToInteger(String userInput) {
+        try {
+            return Integer.parseInt(userInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void checkPositiveValue(int repeatNumber) {
+        if (repeatNumber < 0) {
             throw new IllegalArgumentException();
         }
     }
