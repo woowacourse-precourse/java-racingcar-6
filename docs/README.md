@@ -5,6 +5,8 @@
 피드백 및 새로운 적용
 아쉬운 점
 
+<br />
+
 ### 패키지 구조
 <table>
     <thead>
@@ -57,6 +59,8 @@
     </tbody>
 </table>
 
+<br />
+
 ### 기능 구현 목록
 1. 자동차 이름 입력 멘트 출력
 ```text
@@ -105,6 +109,7 @@
    ● 1명 출력: "최종 우승자 : 자동차1"
 ```
 
+<br />
 
 ### 리팩터링 목록
 1. 전체 입력 관리 객체 > 각 기능별 입력 객체 추가
@@ -153,11 +158,16 @@
 ```text
    ● 의미를 명확하게 전달할 수 있도록 실행시 정적 메서드로 변경
 ```
+
+<br />
+
 ### 새로운 도입 및 피드백
 #### 1. README 작성 방식 변경: @h-beeen님 
 1차 과제를 진행하며 @h-beeen님의 README가 너무 직관적이고 깔끔했습니다.
 
 그래서 이번 2차 과제를 진행하며 @h-beeen님의 README와 비슷한 구조로 가져왔습니다. 
+
+<br />
 
 #### 2. ENUM 메시지 및 Output 기능: @h-beeen님, @wooteco-daram님
 ##### 1차 과제: 인상적인 기능
@@ -177,7 +187,7 @@ public enum MessageType {
 ```
 MessageType은 INPUT_PRINT와 OUTPUT_PRINT로 분리되어 메시지를 출력합니다.
 
-INPUT_PRINT는 입력시 보여주는 메시지이고, OUTPUT_PRINT는 출력시 보여주는 메시즈를 말합니다.
+INPUT_PRINT는 입력시 보여주는 메시지이고, OUTPUT_PRINT는 출력시 보여주는 메시지를 말합니다.
 
 **Class: OutputCarRace**
 ```java
@@ -203,6 +213,8 @@ OutputCarRace는 출력(print), 형식 출력(printf)을 관리하는 메서드�
 
 당장은 적용을 못했지만 다음엔 다른 방식으로 적용하고 싶은 부분입니다.
 
+<br />
+
 #### 3. 입력은 정적 팩터리 메서드(input~): @h-beeen님
 >프로그래머가 찾기 힘들다는 말도 동의하지만, 이 부분은 팀의 네이밍 컨벤션이나, 기타 명세화 방법을 통해 정리할 수 있을 것 같아요!
 
@@ -224,6 +236,8 @@ public class Car {
     }
 }
 ```
+
+<br />
 
 #### 4. 정적 메서드 사용
 ##### 1차 과제 피드백: @h-beeen 님
@@ -250,6 +264,8 @@ public class Application {
 RacingCar를 생성자로 선언해 play 메서드를 호출하는 방식이 아닌, 정적 메서드로 play를 호출했습니다.
 
 이 과정을 **인스턴스 없이 호출**이 가능해졌고, **간결한 소스**를 얻을 수 있게 되었습니다.  
+
+<br />
 
 #### 5. validate~/get~ 외 메서드명 적용
 ##### 1차 과제 피드백: @jongmyeongbak
@@ -298,5 +314,7 @@ public class CheckMoveAndStop{
 InputValidator, Car 클래스에서 확인할 수 있듯이 어떤 상황에서 어떤 의미로 사용되는지 명확히 구분하였습니다. 
 
 또한 CheckMoveAndStop 클래스에서는 내부 로직 구현이 있음으로 setMaxDistance 대신 UpdateMaxDistance으로 수정하였습니다.
+
+<br />
 
 ### 아쉬운 점
