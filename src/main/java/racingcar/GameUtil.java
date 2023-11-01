@@ -2,23 +2,25 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class GameUtil {
 
-    public String getCarName(){
+    public String getCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         return Console.readLine();
     }
 
-    public int getMoveCount(){
+    public int getMoveCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         int res;
-        try{
+        try {
             String input = Console.readLine();
             res = Integer.parseInt(input);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
         }
         return res;
@@ -26,10 +28,10 @@ public class GameUtil {
 
     public void printWinner(List<Racer> winners) {
         System.out.print("최종 우승자 : ");
-        List<String> winnerNames = winners.stream()
+        String winnerNames = winners.stream()
                 .map(Racer::getName)
-                .toList();
-        System.out.println(String.join(", ", winnerNames));
+                .collect(Collectors.joining(", "));
+        System.out.println(winnerNames);
     }
 
     public void printEachResult(List<Racer> racerList) {
@@ -44,14 +46,17 @@ public class GameUtil {
     }
 
     public List<String> inputToNameList(String input) {
+        Set<String> nameSet = new HashSet<>();
         return Arrays.stream(input.split(","))
                 .map(String::trim)
                 .peek(name -> {
                     if (!isNameOK(name)) {
                         throw new IllegalArgumentException("이름은 한 글자 이상 다섯 글자 이하여야 합니다.");
                     }
-                })
-                .collect(Collectors.toList());
+                    if (!nameSet.add(name)) {
+                        throw new IllegalArgumentException("중복된 이름입니다.");
+                    }
+                }).collect(Collectors.toList());
     }
 
     /**
