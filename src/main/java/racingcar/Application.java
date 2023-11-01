@@ -13,6 +13,14 @@ class Car{
     public Car(String name){
         this.name=name;
     }
+
+    public String getCarName(){
+        return name;
+    }
+
+    public int getCarPositioin(){
+        return position;
+    }
 }
 
 public class Application {
@@ -44,6 +52,7 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
+        System.out.println("실행 결과");
         for (int i=1;i<tryCount+1;i++){
             for (Car car : cars){
                 // 자동차 이동
@@ -51,7 +60,10 @@ public class Application {
                 if(randomNumber>=4){
                     car.position++;
                 }
+                //실행값 출력
+                System.out.println(car.getCarName()+" : "+"-".repeat(car.getCarPositioin()));
             }
+            System.out.println();
         }
 
 
