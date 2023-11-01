@@ -21,7 +21,8 @@ public class InputView {
     public List<String> getCarNamesInput() {
         String carInput = receiveCarInput();
         validateCarInput(carInput);
-        return splitCarInput(carInput);
+        String[] carNamesArray = splitCarInputToArray(carInput);
+        return convertArrayToList(carNamesArray);
     }
 
     private String receiveCarInput() {
@@ -33,9 +34,12 @@ public class InputView {
         carInputValidation.validateCarInput(carInput);
     }
 
-    private List<String> splitCarInput(String carInput) {
-        String[] carsList = carInput.split(Util.CAR_NAME_DELIMITER);
-        return Arrays.asList(carsList);
+    private String[] splitCarInputToArray(String carInput) {
+        return carInput.split(Util.CAR_NAME_DELIMITER);
+    }
+
+    private List<String> convertArrayToList(String[] array) {
+        return Arrays.asList(array);
     }
 
     public int getMoveCountsInput() {
