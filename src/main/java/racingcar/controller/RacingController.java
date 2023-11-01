@@ -47,7 +47,7 @@ public class RacingController {
     }
 
     private int getMaxPosition(List<Car> cars){
-        int max = 0;
+        int max = -1;
         for (Car car : cars){
             if (max < car.getPosition()){
                 max = car.getPosition();
