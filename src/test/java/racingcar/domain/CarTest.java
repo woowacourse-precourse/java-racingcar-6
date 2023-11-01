@@ -3,6 +3,8 @@ package racingcar.domain;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.dto.PerGameCarResultDto;
 
 class CarTest {
@@ -32,6 +34,15 @@ class CarTest {
 
     @Test
     void isWinner() {
+        boolean isWinner = car.isWinner(0);
+        assertThat(isWinner).isTrue();
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1,2,3,4,5,-1,-5,11})
+    void isWinner_fail(int maxMoveCnt) {
+        boolean isWinner = car.isWinner(maxMoveCnt);
+        assertThat(isWinner).isFalse();
     }
 
     @Test
