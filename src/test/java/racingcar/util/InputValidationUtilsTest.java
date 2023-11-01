@@ -8,9 +8,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class InputValidationUtilsTest {
 
-    @DisplayName("입력받은 문자열을 검증 시 공백만 존재하거나 빈 값이면 IllegalArgumentException을 던진다.")
+    @DisplayName("입력 문자열 변환 예외 : 입력받은 문자열을 검증 시 공백만 존재하거나 빈 값이면 IllegalArgumentException을 발생")
     @ParameterizedTest
-    @ValueSource(strings = {" \n\t", "  ", " ", "  ", ""})
+    @ValueSource(strings = {" \n\t", "  ", " ", "\n", ""})
     public void validateHasInput_exception_empty(String input) throws Exception {
         // when, then
         assertThatThrownBy(() ->
@@ -20,7 +20,7 @@ public class InputValidationUtilsTest {
                 .hasMessageContaining("빈 값 혹은 공백만 입력되었습니다.");
     }
 
-    @DisplayName("입력받은 문자열을 Integer로 변환 불가 시 IllegalArgumentException을 던진다.")
+    @DisplayName("입력 문자열 변환 예외 : 입력받은 문자열을 Integer로 변환 불가 시 IllegalArgumentException을 발생")
     @ParameterizedTest
     @ValueSource(strings = {"3 1", "3_000_000_000", "-3_000_000_000", "1234\n"})
     public void validateCanBeInt_exception_format(String input) throws Exception {
