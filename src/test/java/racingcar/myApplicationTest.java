@@ -22,6 +22,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.controller.CarRaceGame;
 import racingcar.domain.Car;
+import racingcar.utility.GameSettingUtility;
 import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
 
@@ -45,7 +46,7 @@ public class myApplicationTest {
 
             //when,then
             Assertions.assertThatThrownBy(
-                    () -> CarRaceGame.validateCarName(carNameList)
+                    () -> GameSettingUtility.validateCarName(carNameList)
             ).isInstanceOf(IllegalArgumentException.class);
         }
 
@@ -58,7 +59,7 @@ public class myApplicationTest {
 
             //when,then
             Assertions.assertThatThrownBy(
-                    () -> CarRaceGame.validateCarName(carNameList)
+                    () -> GameSettingUtility.validateCarName(carNameList)
             ).isInstanceOf(IllegalArgumentException.class);
         }
 
