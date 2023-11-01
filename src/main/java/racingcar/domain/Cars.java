@@ -20,6 +20,24 @@ public class Cars {
         this.cars = cars;
     }
 
+    private void isDifferentCarName(List<Car> cars) {
+        List<String> carName = cars.stream()
+                .map(idx -> idx.getCarName())
+                .collect(Collectors.toList());
+
+        HashSet<String> carNameDuplicateSet = new HashSet<>(carName);
+
+        if (carNameDuplicateSet.size() != carName.size()) {
+            throw new IllegalArgumentException(DUPLICATED_CAR_NAME.getMessage());
+        }
+    }
+
+    private void minimumCountOfCars(int size) {
+        if (size < CAR_COUNT_MINIMUM) {
+            throw new IllegalArgumentException(NOT_MIN_CAR_COUNT.getMessage());
+        }
+    }
+
     public void moveAll(final RacingCarRandomMoveUtils racingCarRandomMoveUtils) {
         for (final Car car : cars) {
             int engine = racingCarRandomMoveUtils.generateRandomNumber();
@@ -44,24 +62,6 @@ public class Cars {
                 .filter(maxDistanceCar::isSameDistance)
                 .map(Car::getCarName)
                 .collect(Collectors.toList());
-    }
-
-    private void isDifferentCarName(List<Car> cars) {
-        List<String> carName = cars.stream()
-                .map(idx -> idx.getCarName())
-                .collect(Collectors.toList());
-
-        HashSet<String> carNameDuplicateSet = new HashSet<>(carName);
-
-        if (carNameDuplicateSet.size() != carName.size()) {
-            throw new IllegalArgumentException(DUPLICATED_CAR_NAME.getMessage());
-        }
-    }
-
-    private void minimumCountOfCars(int size) {
-        if (size < CAR_COUNT_MINIMUM) {
-            throw new IllegalArgumentException(NOT_MIN_CAR_COUNT.getMessage());
-        }
     }
 
     public List<Car> getCars() {
