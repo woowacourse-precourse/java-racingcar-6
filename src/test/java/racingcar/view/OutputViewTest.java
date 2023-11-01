@@ -95,7 +95,7 @@ public class OutputViewTest {
         return expectedOutput.toString();
     }
 
-    @DisplayName("경주 게임 진행 후, 우승자 출력 테스트")
+    @DisplayName("경주 게임 진행 후, 우승자 출력 테스트 ( 여러 명이 우승 시 쉼표(,)로 구분 )")
     @Test
     void 경주_게임_진행_후_우승자_출력_테스트() {
         // given
@@ -132,5 +132,4 @@ public class OutputViewTest {
         expectedOutput.append("\n");
         return expectedOutput.toString();
     }
-
 }
