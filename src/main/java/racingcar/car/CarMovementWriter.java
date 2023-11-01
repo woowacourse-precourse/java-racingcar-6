@@ -9,14 +9,19 @@ public class CarMovementWriter {
 	private static final String StepSign = "-";
 	private static final String EmptyInitialString = "";
 	private static final Integer StartCarSteps = 0;
+	private static final Integer IndexSteps = 1;
 
-	public void writeMovementOfCars(List<Car> carList,
+	public void writeMovementOfCars(List<Car> carList, Integer index,
 		CarMovementResultLogStorage carMovementResultLogStorage) {
-		for (Car car : carList) {
-			carMovementResultLogStorage.addLog(
-				car.name + Colon + checkMovedStepsOfCar(car) + ChangeLine);
+		if (index == carList.size()) {
+			return;
 		}
+		carMovementResultLogStorage.addLog(
+			carList.get(index).name + Colon + checkMovedStepsOfCar(carList.get(index))
+				+ ChangeLine);
+
 		carMovementResultLogStorage.addLog(ChangeLine);
+		writeMovementOfCars(carList, index + IndexSteps, carMovementResultLogStorage);
 	}
 
 	private String checkMovedStepsOfCar(Car car) {
