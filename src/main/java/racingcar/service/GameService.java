@@ -17,14 +17,14 @@ public class GameService {
     private static final Integer MIN_RANDOM_NUMBER = 0;
 
     public void initGame() {
-        // carNames를 입력받아 cars를 초기화
+        // 사용자에게 carNames를 입력받아 cars를 초기화
         String rawInputStringCarNames = InputView.requestInputCarNames();
         Set<String> carNames = convertInputToCarNameSet(rawInputStringCarNames);
         for(String carName : carNames) {
             cars.add(new Car(carName));
         }
 
-        // tryCount를 입력받아 tryCount를 초기화
+        // 사용자에게 tryCount를 입력받아 tryCount를 초기화
         String rawInputStringTryCount = InputView.requestInputTryCount();
         tryCount = convertInputToTryCount(rawInputStringTryCount);
     }
@@ -43,7 +43,6 @@ public class GameService {
     public void endGame() {
         List<Car> winners = getWinners();
         OutView.printWinners(winners);
-
     }
 
     private Set<String> convertInputToCarNameSet(String rawInputString) {
