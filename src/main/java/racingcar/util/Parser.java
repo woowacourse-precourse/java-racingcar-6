@@ -11,11 +11,8 @@ public final class Parser {
     public static List<String> splitName(String userInput, String regex) {
         String[] cutIntoComma = userInput.split(regex);
         List<String> nameList = new ArrayList<>(Arrays.asList(cutIntoComma));
-        try {
-            Validator.validateName(nameList);
-        } catch (Exception e) {
-            throw new IllegalArgumentException();
-        }
+        Validator.validateName(nameList);
+
         return nameList;
     }
 }
