@@ -37,5 +37,17 @@ public class RacingGame extends Game{
         }
     }
 
-    
+    private String determineWinners() {
+        int maxPosition = cars.stream()
+                .mapToInt(RacingCar::getPosition)
+                .max()
+                .orElse(-1);
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(RacingCar::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+
 }
