@@ -54,16 +54,15 @@ class CarTest {
     @Test
     void 포지션에_맞는_출력값_반환() {
         Car car = 자동차_생성(NAME_UNDER_LENGTH_LIMIT);
-        for (int attempt = 1; attempt <= 5; attempt++) {
-            car.attempt();
-        }
-        int position = car.getPosition();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int positionIndex = 1; positionIndex <= position; positionIndex++) {
-            stringBuilder.append("-");
-        }
-        Assertions.assertThat(car.toString())
-                .isEqualTo(String.format(CAR_FORMAT, car.getName(), stringBuilder.toString()));
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    car.attempt();
+                    Assertions.assertThat(car.toString())
+                            .isEqualTo(String.format(CAR_FORMAT, NAME_UNDER_LENGTH_LIMIT, "-"));
+                },
+                MOVING_FORWARD
+        );
     }
 
     private Car 자동차_생성(String name) {
