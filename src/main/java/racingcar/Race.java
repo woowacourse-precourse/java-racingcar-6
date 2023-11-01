@@ -7,15 +7,15 @@ import java.util.List;
 
 public class Race {
     private final List<Car> cars;
-    private final int tryCount;
+    private final TryCount tryCount;
 
-    public Race(List<Car> cars, int tryCount) {
+    public Race(List<Car> cars, TryCount tryCount) {
         this.cars = cars;
         this.tryCount = tryCount;
     }
 
     public void conductRace() {
-        for (int i = 1; i < tryCount + 1; i++) {
+        for (int i = 1; i < tryCount.getTryCount() + 1; i++) {
             for (Car car : cars) {
                 car.move();
                 View.printCarMove(car.getName(), car.getPosition());
