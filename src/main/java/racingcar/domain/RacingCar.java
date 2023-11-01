@@ -3,45 +3,40 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingCar {
-    private String name;
+    private final String name;
     private int move;
     private int randomNumber;
 
-    public RacingCar(String name){
+    public RacingCar(String name) {
         this.name = name;
         this.move = 0;
     }
 
-    public String getCarName(){
+    public String getCarName() {
         return this.name;
     }
 
 
-
-    public void moveRandomForward(){
+    public void moveRandomForward() {
         makeRandomNumber();
-        if (isOverFour(randomNumber)){
+        if (isOverFour(randomNumber)) {
             moveForward();
         }
     }
 
-    public void moveForward(){
+    public void moveForward() {
         move++;
     }
 
-    public void makeRandomNumber(){
+    public void makeRandomNumber() {
         randomNumber = Randoms.pickNumberInRange(Rule.minNumber, Rule.maxNumber);
     }
 
-    public boolean isOverFour(int value){
-        if (value >= Rule.standardValue){
-            return true;
-        } else{
-            return false;
-        }
+    public boolean isOverFour(int value) {
+        return value >= Rule.standardValue;
     }
 
-    public int getMove(){
+    public int getMove() {
         return this.move;
     }
 }

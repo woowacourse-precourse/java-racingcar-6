@@ -5,8 +5,8 @@ import java.util.List;
 
 public class RacingGame {
     public static int carCount;
-    private List<RacingCar> cars = new ArrayList<>();
-    private List<RacingCar> winners = new ArrayList<>();
+    private final List<RacingCar> cars = new ArrayList<>();
+    private final List<RacingCar> winners = new ArrayList<>();
 
     public RacingGame(List<String> names) {
         for (String name : names) {
@@ -22,8 +22,8 @@ public class RacingGame {
         }
     }
 
-    public void setCarCount(){
-        this.carCount = cars.size();
+    public void setCarCount() {
+        carCount = cars.size();
     }
 
     public int getCarMove(int index) {
@@ -32,7 +32,7 @@ public class RacingGame {
                 .getMove();
     }
 
-    public String getCarName(int index){
+    public String getCarName(int index) {
         return cars
                 .get(index)
                 .getCarName();
@@ -41,7 +41,7 @@ public class RacingGame {
     public List<String> getWinnerNames() {
         setWinners();
         List<String> winnerNames = new ArrayList<>();
-        for(RacingCar winner : winners){
+        for (RacingCar winner : winners) {
             winnerNames.add(winner.getCarName());
         }
         return winnerNames;
@@ -65,14 +65,14 @@ public class RacingGame {
         int max = 0;
         for (RacingCar car : cars) {
             int carMove = car.getMove();
-            if (max < carMove){
+            if (max < carMove) {
                 max = carMove;
             }
         }
         return max;
     }
 
-    public void moveForwardIndex(int i){
+    public void moveForwardIndex(int i) {
         cars.get(i).moveForward();
     }
 }
