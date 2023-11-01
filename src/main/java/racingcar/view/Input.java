@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.message.ConsoleMessage;
-import racingcar.model.ErrorManager;
+import racingcar.message.ErrorMessage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,9 +22,23 @@ public class Input {
         System.out.println(ConsoleMessage.INPUT_TRIAL.getMessage());
         String trial = Console.readLine();
 
-        ErrorManager.validateTrialIsNumber(trial);
-        ErrorManager.validateTrialZero(trial);
+        validateTrialIsNumber(trial);
+        validateTrialZero(trial);
 
         return Integer.parseInt(trial);
+    }
+
+    private static void validateTrialIsNumber(String trial) {
+        try {
+            Integer.parseInt(trial);
+        } catch (NumberFormatException e) {
+            System.out.println(ErrorMessage.INPUT_NOT_NUMBER.getMessage());
+        }
+    }
+
+    private static void validateTrialZero(String trial) {
+        if (Integer.parseInt(trial) < 1) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_ZERO.getMessage());
+        }
     }
 }
