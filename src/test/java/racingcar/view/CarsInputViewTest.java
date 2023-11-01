@@ -5,11 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.List;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.errormessage.InputError;
+import racingcar.model.Car;
 
 class CarsInputViewTest {
 
@@ -22,6 +25,23 @@ class CarsInputViewTest {
 
     InputStream createUserInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
+    }
+
+    @DisplayName("정상입력")
+    @Test
+    void isCorrectInput(){
+        // Given
+        String names ="pobi,woni,jun";
+        System.setIn(createUserInput(names));
+        String arr[] = names.split(",");
+
+        // When
+        List<Car> result = carsInputView.generateInputList();
+
+        // Then
+        for(int i=0;i<result.size();++i){
+            if(!result.get(i).getName().equals(arr[i])) fail();
+        }
     }
 
     @DisplayName("입력한이름갯수!=쉼표+1_일때")

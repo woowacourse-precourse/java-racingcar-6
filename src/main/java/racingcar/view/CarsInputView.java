@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
+import racingcar.model.Car;
 import racingcar.errormessage.InputError;
 
 import java.util.ArrayList;
