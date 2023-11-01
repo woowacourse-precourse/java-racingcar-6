@@ -1,5 +1,8 @@
 package racingcar.validation;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,8 +10,9 @@ import racingcar.view.InputManager;
 
 public class TryCountValidationTest {
     InputManager inputManager;
+
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() {
         inputManager = new InputManager();
     }
 
@@ -16,10 +20,10 @@ public class TryCountValidationTest {
     void isValidateTryCount_성공() {
         //given
         String input = "5";
-        //when
-        Boolean result = inputManager.isValidateTryCount(input);
-        //then
-        Assertions.assertEquals(true, result);
+        //when/then
+        assertDoesNotThrow(() -> {
+            inputManager.isValidateTryCount(input);
+        });
     }
 
     @Test
@@ -27,9 +31,9 @@ public class TryCountValidationTest {
         //given
         String input = "a";
         //when
-        Boolean result = inputManager.isValidateTryCount(input);
-        //then
-        Assertions.assertEquals(false, result);
+        assertThatThrownBy(() -> inputManager.isValidateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("INVALID tryCount : non-numeric characters");
     }
 
     @Test
@@ -37,8 +41,8 @@ public class TryCountValidationTest {
         //given
         String input = "0";
         //when
-        Boolean result = inputManager.isValidateTryCount(input);
-        //then
-        Assertions.assertEquals(false, result);
+        assertThatThrownBy(() -> inputManager.isValidateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("INVALID tryCount : number less than 1");
     }
 }
