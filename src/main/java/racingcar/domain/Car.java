@@ -6,7 +6,7 @@ public class Car {
     private int moveCount = 0;
 
     public void tryToMove(){
-        if (generateRandomNumber()>=4){
+        if (compare(generateRandomNumber())){
             moveCount++;
         }
     }
@@ -15,8 +15,8 @@ public class Car {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber;
     }
-    public void compare(){
-
+    public boolean compare(int x){
+        return x >=4;
     }
 
     public int getMoveCount() {
