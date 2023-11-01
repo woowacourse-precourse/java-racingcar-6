@@ -17,4 +17,12 @@ public class Car {
     public String getMoveResult() {
         return name + " : " + position;
     }
+
+    public int getPositionLength() {
+        return this.position.length();
+    }
+
+    public String getName() {
+        return name;
+    }
 }
