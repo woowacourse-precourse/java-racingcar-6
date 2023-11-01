@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+
 import racingcar.util.CarListEditor;
 import racingcar.util.CarNameValidator;
 import racingcar.util.MoveCountValidator;
@@ -38,5 +39,4 @@ public class InputView {
             this.message = message;
         }
     }
-
 }

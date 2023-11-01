@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarRegisterTest {
+
     @Test
     @DisplayName("자동차 이름 등록 시 준비 여부 검사")
     void 자동차_준비_검사() {

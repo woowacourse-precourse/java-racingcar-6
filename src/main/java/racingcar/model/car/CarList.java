@@ -2,6 +2,7 @@ package racingcar.model.car;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 import racingcar.model.manager.CarMoveManager;
 import racingcar.util.CarNameValidator;
 import racingcar.util.RandomNumberGenerator;
@@ -43,5 +44,4 @@ public class CarList {
                 .max()
                 .orElse(0);
     }
-
 }

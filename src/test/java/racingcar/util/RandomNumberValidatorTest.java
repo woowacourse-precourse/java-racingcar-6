@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.RandomNumberValidator.Message;
 
 public class RandomNumberValidatorTest {
+    
     @Nested
     @DisplayName("비정상 입력값")
     class 비정상_입력값_검사 {

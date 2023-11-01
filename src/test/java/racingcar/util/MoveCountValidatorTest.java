@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.MoveCountValidator.Message;
 
 public class MoveCountValidatorTest {
+
     @Nested
     @DisplayName("비정상 입력값")
     class 비정상_입력값_검사 {
@@ -32,6 +33,7 @@ public class MoveCountValidatorTest {
         }
 
     }
+
     @Nested
     @DisplayName("정상 입력값")
     class 정상_입력값_검사 {

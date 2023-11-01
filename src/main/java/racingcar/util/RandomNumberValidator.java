@@ -22,5 +22,4 @@ public class RandomNumberValidator {
             return message;
         }
     }
-
 }

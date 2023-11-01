@@ -13,9 +13,11 @@ import racingcar.model.car.CarList;
 import racingcar.util.CarNameValidator.Message;
 
 public class CarNameValidatorTest {
+
     @Nested
     @DisplayName("비정상 입력값")
     class 비정상_입력값_검사 {
+
         @Test
         @DisplayName("자동차의 수가 1대 이하일 경우 예외처리")
         void 자동차_수_검사() {

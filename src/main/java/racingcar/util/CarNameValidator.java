@@ -17,7 +17,7 @@ public class CarNameValidator {
 
     public static void validateContainBlank(List<String> carList) {
         for (String carName : carList) {
-            if(carName.contains(" ")) {
+            if (carName.contains(" ")) {
                 throw new IllegalArgumentException(Message.EXCEPTION_BLANK.message);
             }
         }

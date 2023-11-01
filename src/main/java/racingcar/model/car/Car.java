@@ -10,7 +10,7 @@ public class Car {
     }
 
     public void move(boolean isMove) {
-        if(isMove) {
+        if (isMove) {
             position++;
         }
     }
