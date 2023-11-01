@@ -12,4 +12,8 @@ public class Round {
                 .collect(Collectors.toList());
         this.cars = cars;
     }
+
+    public void racing() {
+        cars.forEach(car -> car.moveForward(car.generateNumber()));
+    }
 }

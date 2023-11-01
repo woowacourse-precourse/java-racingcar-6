@@ -10,4 +10,9 @@ public class OutputView {
     public static void printTryNumMessage() {
         System.out.println(GameMessage.TRY_NUMBER_MESSAGE.getMessage());
     }
+
+    public static void printResultMessage() {
+        System.out.println();
+        System.out.println(GameMessage.RESULT_MESSAGE.getMessage());
+    }
 }

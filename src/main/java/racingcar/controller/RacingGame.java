@@ -15,5 +15,11 @@ public class RacingGame {
 
         OutputView.printTryNumMessage();
         int tryNumber = InputView.readTryNumber();
+
+        play(tryNumber, round);
+    }
+
+    private void play(int tryNumber, Round round) {
+        OutputView.printResultMessage();
     }
 }
