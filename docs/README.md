@@ -86,9 +86,9 @@
 
 - 전체 경기 결과인 `RacingResult`와 시도 횟수인 `AttemptCounts`를 담고있다.
 - play(): 레이싱 게임 회차를 진행한다.
-    - [ ] 자동차 경주를 진행한다.
-    - [ ] 매 회차 경기 결과를 `RacingResult`에 저장한다.
-    - [ ] `AttemptCounts`클래스에 남은 시도 횟수를 감소를 요청한다.
+    - [x] 자동차 경주를 진행한다.
+    - [x] 매 회차 경기 결과를 `RacingResult`에 저장한다.
+    - [x] `AttemptCounts`클래스에 남은 시도 횟수를 감소를 요청한다.
 - isRemainAttemptCounts(): `AttemptCount`클래스에 시도 횟수가 남았는지 요청한다.
 - getWinners(): `RacingResult`클래스에 최종 승리자를 요청한다.
 
@@ -130,11 +130,11 @@
 ### RacingCarService
 
 - initializeRacingGame(): 레이싱 게임을 초기화한다.
-    - [ ] 사용자에게 입력받은 자동차 이름과 시도 횟수로 `RacingGame`을 초기화한다.
+    - [x] 사용자에게 입력받은 자동차 이름과 시도 횟수로 `RacingGame`을 초기화한다.
 - race(): 사용자가 입력한 자동차 이름과 시도 횟수를 바탕으로 레이스를 시작해 결과를 반환한다.
-    - [ ] 매 회차 경기 결과를 `RacingRoundResultDto`로 포장해서 반환한다.
+    - [x] 매 회차 경기 결과를 `RacingRoundResultDto`로 포장해서 반환한다.
 - isRemainAttemptCounts(): 시도 횟수가 남아있는지 확인한다.
-    - [ ] `RacingGame`클래스에 시도 횟수가 남아있는지 요청한다.
+    - [x] `RacingGame`클래스에 시도 횟수가 남아있는지 요청한다.
 - determineWinner(): 최종 승자를 반환한다.
     - [x] 최종 승자 리스트를 `RacingResultDto`로 포장해서 반환한다.
 
