@@ -35,5 +35,17 @@ public class carRaceOutputService {
 
     }
 
+    public void printRaceResult(ArrayList<Car> cars) {
+        System.out.print("최종 우승자 : ");
+        for (int car = 0; car < cars.size(); car++) {
+            System.out.print(cars.get(car).getName());
+
+            if (car != cars.size() - 1) {
+                System.out.print(CARS_SEPERATOR + " ");
+            }
+
+        }
+    }
+
 
 }

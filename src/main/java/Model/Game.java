@@ -1,5 +1,6 @@
 package Model;
 
+import View.carRaceOutputService;
 import java.util.ArrayList;
 
 public class Game {
@@ -23,6 +24,20 @@ public class Game {
 
     public int getRound() {
         return this.round;
+    }
+
+    public playGame() {
+        GameReferee.getInstance().setUpGameRound();
+        this.cars = GameReferee.getInstance().setUpCars();
+
+        while (GameReferee.getInstance().continueGame()) {
+            for (Car car : cars
+            ) {
+                car.race();
+                GameReferee.getInstance().setMaxScore(car.getMoves());
+            }
+        }
+        carRaceOutputService.getInstance().printRaceResult(GameReferee.getInstance().selectWinners(this.cars));
     }
 
 
