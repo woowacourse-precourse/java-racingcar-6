@@ -1,13 +1,11 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
 import racingcar.domain.Winners;
 import racingcar.utils.StringParser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
 import java.util.List;
 
 public class GameController {
@@ -36,22 +34,20 @@ public class GameController {
     }
 
     public void startGame() {
-
         outputView.displayRoundResultMessage();
+
         while (!race.currentTrialReachedTotal()) {
-            for (Car car : cars.getCars()) {
-                car.forwardOrStay(race.pickRandomNumber());
-            }
+            cars.carsForwardIfConditionMet();
             race.increaseCurrentTrial();
             outputView.displayRaceStatus(cars);
         }
-        Winners winners = cars.getWinners();
-        outputView.displayWinners(winners.getWinnersName());
+        outputView.displayWinners(new Winners(cars.getCars()).getWinnersName());
     }
 
     public List<String> getCarNames() {
+
         String inputCarNames = inputView.readCarNames();
-        return StringParser.splitCarNames(inputCarNames);
+        return StringParser.splitString(inputCarNames);
     }
 
 
