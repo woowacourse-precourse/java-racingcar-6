@@ -16,6 +16,7 @@ public class RacingCarGameMachine {
     private List<RacingCar> racingCarList = new ArrayList<>();
     private int currentRound = 1;
     private int maxRoundCount;
+    private boolean initialized = false;
 
     public RacingCarGameMachine(
             RacingCarGameMachineValidator racingCarGameMachineValidator,
@@ -30,6 +31,7 @@ public class RacingCarGameMachine {
     public void init(String nameInput, int roundCount) {
         initRacingCar(nameInput);
         initRoundCount(roundCount);
+        initialized = true;
     }
 
     private void initRacingCar(String nameInput) {
@@ -53,7 +55,8 @@ public class RacingCarGameMachine {
 
     private void initRoundCount(int roundCount) {
         racingCarGameMachineValidator.validateRoundCount(roundCount);
-        this.maxRoundCount = roundCount;
+        maxRoundCount = roundCount;
+        currentRound = 1;
     }
 
     public String getRoundResult() {
@@ -85,11 +88,16 @@ public class RacingCarGameMachine {
         if (isGameInProgress()) {
             throw new IllegalStateException();
         }
+        finishGame();
         return getGameResultMessage();
     }
 
     public boolean isGameInProgress() {
-        return currentRound <= maxRoundCount;
+        return initialized && currentRound <= maxRoundCount;
+    }
+
+    private void finishGame() {
+        initialized = false;
     }
 
     private String getGameResultMessage() {
