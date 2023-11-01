@@ -24,7 +24,7 @@ public class GameController {
 
         outputView.printResultMsg();
         repeatGame(cars, moveCount);
-
+        outputView.printWinner(cars.getWinner());
     }
 
     private void repeatGame(Cars cars, MoveCount moveCount) {
