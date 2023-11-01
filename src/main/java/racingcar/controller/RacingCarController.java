@@ -18,6 +18,8 @@ public class RacingCarController {
         TryCount tryCount = getTryCount();
 
         racing(racingCars, tryCount);
+
+        outputView.printRacingCarWinnerResult(racingCars);
     }
 
     private Cars createRacingCars() {
@@ -39,7 +41,6 @@ public class RacingCarController {
             cars.moveAll(racingCarRandomMoveUtils);
             outputView.printRoundByExecutionResults(cars);
         }
-        outputView.printRacingCarWinnerResult(cars);
     }
 
 
