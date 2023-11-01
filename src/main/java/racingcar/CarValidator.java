@@ -1,9 +1,5 @@
 package racingcar;
 
-import org.mockito.internal.matchers.Null;
-import racingcar.Input;
-import racingcar.NumbersUtil;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Pattern;

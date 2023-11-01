@@ -49,7 +49,7 @@ public class RacingGame {
     public void racingOutput () {
         for (String car:racingCars) {
             String movingProceed = "-".repeat(cars.get(car));
-            System.out.println(car+" : "+ movingProceed);
+            System.out.println(car + " : " + movingProceed);
         }
     }
 
