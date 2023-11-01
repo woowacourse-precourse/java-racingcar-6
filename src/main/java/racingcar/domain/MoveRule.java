@@ -1,5 +1,5 @@
 package racingcar.domain;
 
 public interface MoveRule {
-    int tryMove();
+    int tryMove(NumberGenerator generator);
 }
