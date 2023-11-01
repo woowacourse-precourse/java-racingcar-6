@@ -6,12 +6,12 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.InputProcessor;
 
 @DisplayName("입력 프로세서 테스트")
@@ -47,5 +47,15 @@ public class InputProcessorTest {
         System.setIn(new ByteArrayInputStream(String.join(",",names).getBytes()));
         InputProcessor inputProcessor = new InputProcessor();
         assertThat(inputProcessor.getCarNames().size()).isEqualTo(names.size());
+    }
+
+    @DisplayName("실패: 라운드 횟수에 잘못된 값이 담기면 안된다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"","asdf","d","f123ED@"})
+    void test4(String wrongInput) {
+        System.setIn(new ByteArrayInputStream(wrongInput.getBytes()));
+        InputProcessor inputProcessor = new InputProcessor();
+        assertThatThrownBy(()->inputProcessor.getRound())
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
