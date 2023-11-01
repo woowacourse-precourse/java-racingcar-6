@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.model.CarNameValidator.carNameValidation;
+import static racingcar.model.CarNameValidator.validateCarNames;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +9,7 @@ public class Cars {
     private List<Car> cars;
 
     public Cars(List<Car> cars) {
-        carNameValidation(cars);
+        validateCarNames(cars);
         this.cars = cars;
     }
 
