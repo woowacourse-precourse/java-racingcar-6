@@ -2,6 +2,7 @@ package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +15,7 @@ class CarsTest {
 
     @BeforeEach
     void init() {
-        cars = Cars.makeCars("ONE,TWO");
+        cars = Cars.makeCars(List.of("ONE", "TWO"));
     }
 
     @Test

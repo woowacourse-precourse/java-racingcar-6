@@ -24,8 +24,8 @@ public class GameController {
     }
 
     private CarService getCarController() {
-        Cars cars = inputView.inputCarNames();
-        CarMoveReader carMoveReader = inputView.inputTotalMoveNumber();
+        Cars cars = Cars.makeCars(inputView.inputCarNames());
+        CarMoveReader carMoveReader = new CarMoveReader(inputView.inputTotalMoveNumber());
         return new CarService(cars, carMoveReader);
     }
 

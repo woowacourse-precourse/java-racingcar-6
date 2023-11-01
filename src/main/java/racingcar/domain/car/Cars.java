@@ -1,6 +1,5 @@
 package racingcar.domain.car;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -8,7 +7,6 @@ import java.util.stream.Collectors;
 public class Cars {
     private static final String DELIMITER_AND_SUFFIX = "\n";
     private static final String WRONG_CARS_MESSAGE = "자동차가 비어있습니다.";
-    private static final String CAR_NAME_DELIMITER = ",";
 
     private final List<Car> cars;
 
@@ -17,8 +15,8 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars makeCars(String carNames) {
-        List<Car> cars = Arrays.stream(carNames.split(CAR_NAME_DELIMITER))
+    public static Cars makeCars(List<String> carNames) {
+        List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
         return new Cars(cars);
