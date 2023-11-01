@@ -10,7 +10,7 @@ public class CarNamesInputTest {
 	private static final CarNamesInput validatedCarNamesInput = new CarNamesInput("abc");
 
 	@Test
-	public void splitByCommaToList_메서드로_이름은_쉼표로_구분한다() {
+	void splitByCommaToList_메서드로_이름은_쉼표로_구분한다() {
 		//given
 		String names = "pobi,crong";
 		// when
@@ -40,7 +40,7 @@ public class CarNamesInputTest {
 	}
 
 	@Test
-	public void validateNameEmpty_메서드로_이름이_빈_값이면_예외_발생() {
+	void validateNameEmpty_메서드로_이름이_빈_값이면_예외_발생() {
 		//given
 		String name = "";
 		// when & then
@@ -49,9 +49,9 @@ public class CarNamesInputTest {
 	}
 
 	@Test
-	public void validateNamesDuplicate_메서드로_이름들에_중복이_있으면_에외_발생() {
+	void validateNamesDuplicate_메서드로_이름들에_중복이_있으면_에외_발생() {
 		//given
-		List<String> names = Arrays.asList("pobi","pobi");
+		List<String> names = Arrays.asList("pobi", "pobi");
 
 		// when & then
 		Assertions.assertThatThrownBy(() -> validatedCarNamesInput.validateNamesDuplicate(names))
@@ -59,7 +59,7 @@ public class CarNamesInputTest {
 	}
 
 	@Test
-	public void trimName_메서드로_이름_앞뒤로_공백시_없애기() {
+	void trimName_메서드로_이름_앞뒤로_공백시_없애기() {
 		//given
 		String name = " asdf ";
 		CarNamesInput carNamesInput = new CarNamesInput("abc");
