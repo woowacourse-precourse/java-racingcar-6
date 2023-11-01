@@ -44,7 +44,7 @@ public class RacingCarGame {
             return inputReader.get();
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return repeat(inputReader);
+            throw e;
         }
     }
 }
