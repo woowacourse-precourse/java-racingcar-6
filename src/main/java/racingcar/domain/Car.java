@@ -34,6 +34,7 @@ public class Car implements Comparable<Car> {
     public int compareTo(Car otherCar) {
         return this.position.getCarPosition() - otherCar.position.getCarPosition();
     }
+
     @Override
     public String toString() {
         return carName;
