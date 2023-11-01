@@ -17,14 +17,14 @@ public class Winners {
                 .collect(Collectors.toList());
     }
 
-    private int getMaxDistance(Cars cars) {
+    public int getMaxDistance(Cars cars) {
         return cars.getCars().stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(-1);
     }
 
-    private List<Car> getFinalWinnerCars(Cars cars, int maxDistance) {
+    public List<Car> getFinalWinnerCars(Cars cars, int maxDistance) {
         return cars.getCars().stream()
                 .filter(car -> car.getPosition() == maxDistance)
                 .collect(Collectors.toList());

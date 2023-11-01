@@ -15,6 +15,10 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
+    public Cars(List<Car> cars) {
+        this.cars = cars;
+    }
+
     public void forward() {
         for (Car car : cars) {
             car.forward(randomGenerator.createNumber());
