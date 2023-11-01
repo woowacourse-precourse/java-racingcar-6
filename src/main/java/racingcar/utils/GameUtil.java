@@ -18,8 +18,11 @@ public class GameUtil {
 
     }
 
-    public void judgeGo() {
-
+    public boolean judgeGo(int number) {
+        if (number >= 4) {
+            return true;
+        }
+        return false;
     }
 
 }
