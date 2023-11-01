@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.RaceResultDTO;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -11,7 +11,7 @@ public class Controller {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private Car car;
+    private Cars cars;
 
     public Controller(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -19,7 +19,7 @@ public class Controller {
     }
 
     public void run() {
-        car = new Car(askCarNames());
+        cars = new Cars(askCarNames());
         carRace(askNumberOfRaces());
     }
 
@@ -33,10 +33,14 @@ public class Controller {
 
     private void carRace(int numberOfRaces) {
         outputView.printResultMessage();
-        for (int raceCount = 0; raceCount < numberOfRaces; raceCount++) {
-            RaceResultDTO raceResultDTO = car.oneCarRace();
+        while (hasMoreRaces(numberOfRaces--)) {
+            RaceResultDTO raceResultDTO = cars.oneRace();
             outputView.printRaceResult(raceResultDTO);
         }
-        outputView.printWinners(car.getWinners());
+        outputView.printWinners(cars.getWinners());
+    }
+
+    private boolean hasMoreRaces(int numberOfRaces) {
+        return numberOfRaces > 0;
     }
 }

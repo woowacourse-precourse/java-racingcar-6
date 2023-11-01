@@ -5,12 +5,12 @@ import racingcar.util.Validation;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Cars {
+public class CarRacing {
 
     private List<Car> cars;
     private int farthestPosition;
 
-    public Cars(List<String> names) {
+    public CarRacing(List<String> names) {
         Validation.validateCarNames(names);
         cars = names.stream()
                 .map(Car::new)
