@@ -12,13 +12,13 @@ public class ParticipatingCars {
         this.cars = new ArrayList<>();
     }
 
-    void registerEachCar(List<String> carNames) {
+    public void registerEachCar(List<String> carNames) {
         for (String carName : carNames) {
             this.cars.add(new Car(carName));
         }
     }
 
-    void moveEachCar(Supplier<Integer> fuelSupplier) {
+    public void moveEachCar(Supplier<Integer> fuelSupplier) {
         cars.forEach(car -> car.tryMove(fuelSupplier.get()));
     }
 
