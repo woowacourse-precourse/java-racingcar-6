@@ -1,14 +1,15 @@
 package racingcar.value;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
 public class Value {
     public List<String> carNames;
     int numberOfAttempts;
-    private List<String> winners;
-    private List<Integer> carPositions;
+    private final List<String> winners;
+    private final List<Integer> carPositions;
 
     public Value() {
         this.carNames = new ArrayList<>();
@@ -17,9 +18,7 @@ public class Value {
     }
 
     public void addCarNames(String[] names) {
-        for (String name : names) {
-            carNames.add(name);
-        }
+        carNames.addAll(Arrays.asList(names));
     }
 
     public void setNumberOfAttempts(int numberOfAttempts) {
