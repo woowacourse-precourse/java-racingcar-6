@@ -6,11 +6,15 @@ import java.util.List;
 
 public class Validator {
 
-    public static boolean isFiveOrLessCharacter(List<String> names){
+    public static boolean isFiveOrLessCharacter(List<String> names) {
         return names.stream().allMatch(name -> name.length() <= 5);
     }
 
-    public static boolean isHasEmpty(List<String> names){
+    public static boolean isHasEmpty(List<String> names) {
         return names.stream().allMatch(name -> !name.contains(" "));
+    }
+
+    public static boolean isHasBlank(List<String> names) {
+        return names.stream().allMatch(name -> !name.isEmpty());
     }
 }
