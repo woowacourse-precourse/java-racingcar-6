@@ -8,6 +8,14 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
     @Test
+    @DisplayName("자동차가 잘 생성되는지 확인")
+    public void createCar() {
+        String name = "pobi";
+        Car car = new Car(name);
+        assertThat(car.getName()).isEqualTo(name);
+    }
+
+    @Test
     @DisplayName("자동차 이름에 공백이 입력되었을 시 예외 처리")
     public void checkEmptyName() {
         assertThatThrownBy(() -> {
@@ -40,6 +48,7 @@ class CarTest {
         pobiCar.moveForward(4);
         assertThat(pobiCar.getDistance()).isEqualTo(1);
     }
+
     @Test
     @DisplayName("이름에 공백이 입력되었을 시 예외 처리")
     public void checkNameForWhitespace() {
@@ -48,5 +57,5 @@ class CarTest {
         }).isInstanceOf(RuntimeException.class)
                 .hasMessageContaining("[ERROR] : 공백을 제외한 이름을 입력해주세요.");
     }
-    
+
 }
