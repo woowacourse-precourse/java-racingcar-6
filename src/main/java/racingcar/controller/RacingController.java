@@ -27,8 +27,13 @@ public class RacingController {
 
     private List<Car> getCars(String cars) {
         List<Car> carList = RacingService.convertToCarList(cars);
-        RacingService.saveCars(carList);
+        racingService.saveCars(carList);
 
         return carList;
+    }
+
+    private static int inputCount() {
+        OutputView.printInputRacingCount();
+        return InputView.inputRacingCount();
     }
 }
