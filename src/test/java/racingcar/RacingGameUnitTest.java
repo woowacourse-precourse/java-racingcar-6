@@ -2,22 +2,11 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class RacingGameUnitTest {
-
-    private final PrintStream standardOut = System.out;
-    private static final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
-    @BeforeAll
-    public static void setUp() {
-        System.setOut(new PrintStream(outputStreamCaptor));
-    }
 
     @Test
     void addParticipant_게임_참가자_추가() {
