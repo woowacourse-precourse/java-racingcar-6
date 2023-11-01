@@ -17,16 +17,19 @@ public class Game {
         printer.printStartMessage();
         player.createCars();
         printer.printCountMessage();
-        pickRaceCount();
+        readRaceCount();
         printer.printBlankLine();
         race();
     }
 
-    private void pickRaceCount() {
+    private void readRaceCount() {
         raceCount = reader.readOneNumber();
     }
 
     private void race() {
         printer.printResult();
+        for (int i = 0; i < raceCount; i++) {
+            player.moveCars();
+        }
     }
 }
