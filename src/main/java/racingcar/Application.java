@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class Application {
 public static void main(String[] args) {
@@ -23,7 +24,7 @@ public static void main(String[] args) {
     inputFormatValidation(input);
     tryNumberFormatValidation(tryNumber);
 
-    Map map = splitCars(input);
+    Map map = carsToMap(splitCars(input));
     System.out.println("실행 결과");
     for (int i = 0; i < Integer.valueOf(tryNumber); i++) {
         resultEachOrder(racingCar(map));
@@ -40,12 +41,21 @@ static Integer generateNumber() {
 }
 
 static void inputFormatValidation(String input) {
-    List<String> cars = Arrays.asList(input.split(","));
-//    System.out.println(cars);
+    List<String> cars = splitCars(input);
+    if (cars.isEmpty()){
+        throw new IllegalArgumentException("자동차 이름을 입력하시오");
+    }
+
     for (String car : cars) {
-        if (car.trim().length() > 5) {
-            throw new IllegalArgumentException("String index out of range: 5");
+        if (car.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5글자 이내로 입력되어야 합니다");
 //            System.out.println(car.length() + ":" + car);
+        }
+        if (car.contains(" ")) {
+            throw new IllegalArgumentException("자동차 이름에 공백이 포함되어 있으면 안됩니다");
+        }
+        if (car.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 공백이 될 수 없습니다");
         }
     }
 
@@ -53,7 +63,10 @@ static void inputFormatValidation(String input) {
 
 static void tryNumberFormatValidation(String tryNumber) {
     try {
-        Integer.parseInt(tryNumber);
+        int numberOfTries = Integer.parseInt(tryNumber);
+        if (numberOfTries <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다");
+        }
     } catch (NumberFormatException e) {
         throw new IllegalArgumentException("숫자를 입력하시오");
     }
@@ -62,14 +75,15 @@ static void tryNumberFormatValidation(String tryNumber) {
 }
 
 
-static Map splitCars(String input) {
-    List<String> cars = Arrays.asList(input.split(","));
+static List splitCars(String input) {
+    List<String> cars = Arrays.stream(input.split(",")).map(String::trim).filter(name -> !name.isEmpty()).collect(Collectors.toList());
+    return cars;
+}
+static Map carsToMap(List cars){
     Map map = new HashMap();
-    for (String car : cars) {
+    for (Object car : cars){
         map.put(car, 0);
     }
-//    System.out.println(map);
-
     return map;
 }
 
