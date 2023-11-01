@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.Validator;
 import racingcar.model.RacingCars;
 import racingcar.utils.Utils;
 import racingcar.view.InputView;
@@ -19,12 +20,13 @@ public class RaceService {
 
     private void initCars() {
         Utils.split(InputView.inputRacingCars()).forEach(carName -> {
+            Validator.validateCarNames(carName);
             racingCars.setCar(carName);
         });
     }
 
     private void initGames() {
-        this.maxGames = Integer.parseInt(InputView.inputGames());
+        this.maxGames = Integer.parseInt(Validator.validateTryGames(InputView.inputGames()));
     }
 
     public void play() {
