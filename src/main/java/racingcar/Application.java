@@ -1,7 +1,14 @@
 package racingcar;
 
+import racingcar.domain.game.controller.RacingGameController;
+import racingcar.domain.game.service.RacingGameServiceImpl;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        RacingGameController racingGameController =
+                new RacingGameController(new RacingGameServiceImpl());
+
+        racingGameController.run();
     }
+
 }
