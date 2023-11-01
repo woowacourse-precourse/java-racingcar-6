@@ -2,6 +2,8 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarList {
     private final ArrayList<Car> cars= new ArrayList<>();
@@ -22,9 +24,15 @@ public class CarList {
     }
 
 
-    public String[] getWinnerNames(){
+    public List<String> getWinnerNames(){
         int maxPosition= ArrayMax(getCarsPositions());
-        return cars.stream().map(car -> car.getPosition()==maxPosition).toArray(String[]::new);
+        List<String> winners= new ArrayList<>();
+        List<Car> winsCars= cars.stream().filter(car -> car.getPosition()==maxPosition).collect(Collectors.toList());
+        for(Car car: winsCars)
+        {
+            winners.add(car.getName());
+        }
+        return winners;
     }
 
     private ArrayList<Integer> getCarsPositions(){
