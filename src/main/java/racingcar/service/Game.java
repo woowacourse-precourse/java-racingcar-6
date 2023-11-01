@@ -2,7 +2,6 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
-import racingcar.controller.Controller;
 import racingcar.domain.Round;
 import racingcar.repository.CarAdmin;
 import racingcar.view.outputView;
