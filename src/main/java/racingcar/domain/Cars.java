@@ -3,7 +3,6 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 import racingcar.util.ExceptionMessage;
 
@@ -53,22 +52,5 @@ public class Cars {
         return cars.stream()
                 .filter(car -> car.isEqualPosition(maxPositionCar))
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (other == null || getClass() != other.getClass()) {
-            return false;
-        }
-        Cars that = (Cars) other;
-        return Objects.equals(this.cars, that.cars);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cars);
     }
 }

@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import racingcar.util.ExceptionMessage;
@@ -48,23 +47,6 @@ public class Car implements Comparable<Car> {
 
     public boolean isEqualPosition(Car other) {
         return this.position.getPosition() == other.getPosition();
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (other == null || getClass() != other.getClass()) {
-            return false;
-        }
-        Car that = (Car) other;
-        return this.name.getName().equals(that.name.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
     }
 
     @Override
