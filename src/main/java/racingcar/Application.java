@@ -3,6 +3,7 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static java.lang.Integer.parseInt;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,7 +91,8 @@ public class Application {
         for (int i = 0; i < tries; i++) {
             System.out.println("실행 결과 : " + (i+1));
             for (Car car : cars){
-                boolean canMove = car.canMove();
+                int number = Randoms.pickNumberInRange(0,9);
+                boolean canMove = car.canMove(number);
                 car.move(canMove);
                 System.out.println(car.display());
             }
