@@ -28,8 +28,7 @@ public class InputHandler {
 
     private static void validRange(int round) {
         if (round < InputConfig.RACE_INPUT_MIN) {
-            throw new IllegalArgumentException(InputConfig.RACE_INPUT_MIN + " ~ " +
-                    InputConfig.RACE_INPUT_MAX + "의 숫자를 입력하세요.");
+            throw new IllegalArgumentException(InputConfig.RACE_INPUT_MIN + "이상의 숫자를 입력하세요.");
         }
     }
 
@@ -37,7 +36,8 @@ public class InputHandler {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력하세요");
+            throw new IllegalArgumentException(InputConfig.RACE_INPUT_MIN + " ~ " +
+                    InputConfig.RACE_INPUT_MAX + "의 숫자를 입력하세요.");
         }
     }
 }
