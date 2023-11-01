@@ -32,8 +32,10 @@ public class OutputView {
         System.out.println(EXECUTION_RESULT_TEXT);
     }
 
-    public static void printRoundResult(Car car) {
-        System.out.println(car.getName() + DELIMITER + MOVE.repeat(car.getPosition()));
+    public static void printRoundResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + DELIMITER + MOVE.repeat(car.getPosition()));
+        }
     }
 
     public static void printWinners(List<Car> cars) {

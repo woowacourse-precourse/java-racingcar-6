@@ -1,8 +1,9 @@
 package racingcar;
 
 import java.util.List;
-import racingcar.controller.RacingGame;
+import racingcar.controller.RacingGameController;
 import racingcar.model.Car;
+import racingcar.model.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,6 +16,8 @@ public class Application {
         int round = InputView.inputRound();
 
         RacingGame racingGame = new RacingGame(cars, round);
-        racingGame.startGame();
+
+        RacingGameController racingGameController = new RacingGameController(racingGame);
+        racingGameController.play();
     }
 }
