@@ -16,6 +16,7 @@
 2. Game을 통해 직접 게임한 것 구현
 3. 올바른 출력을 위한 Game 리펙토링
 4. Game 내에 있는 함수를 클래스로 분리하고 각 클래스와 함수 이름 리펙토링
-5. MoveCheckerTester를 생성하여 MoveChecker를 테스트함
-6. MaxIndexFinderTester를 생성하여 MaxIndexFinder를 테스트함
-7. ReaderTester를 생성하여 Reader를 테스트함
+5. MoveCheckerTester를 생성하여 MoveChecker가 올바른 범위 내에 값을 가진 List를 return하는지 테스트함
+6. MaxIndexFinderTester를 생성하여 MaxIndexFinder가 올바른 최대값 인덱스를 return하는지 테스트함
+7. ReaderTester를 생성하여 Reader가 올바른 값을 읽어드리는지 테스트함
+8. ResultPrinterTester를 생성하여 ResultPrint가 올바른 결과를 출력하는지 테스트함
