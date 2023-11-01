@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Test;
 class CarTest {
 
     private Car car;
+    private final int INIT_POSITION_CRITERION = 0;
+    private final int MOVING_FORWARD_CRITERION = 4;
+    private final int STOP_CRITERION = 3;
 
     @BeforeEach
     void setup() {
@@ -29,14 +32,14 @@ class CarTest {
 
     @Test
     void 무작위_값이_4_이상이면_전진() {
-        car.moveForward(4);
-        assertThat(car.getPosition()).isEqualTo(1);
+        car.moveForward(MOVING_FORWARD_CRITERION);
+        assertThat(car.getPosition()).isEqualTo(INIT_POSITION_CRITERION+1);
     }
 
     @Test
     void 무작위_값이_4_미만이면_정지() {
-        car.moveForward(3);
-        assertThat(car.getPosition()).isEqualTo(0);
+        car.moveForward(STOP_CRITERION);
+        assertThat(car.getPosition()).isEqualTo(INIT_POSITION_CRITERION);
 
     }
 }
