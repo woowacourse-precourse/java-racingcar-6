@@ -3,10 +3,10 @@ package racingcar.Controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.CarComparator;
 import racingcar.Model.Car;
 import racingcar.Model.CarList;
 import racingcar.Model.TryNumber;
+import racingcar.Utils.CarComparator;
 import racingcar.View.ConsolePrint;
 
 public class RaceController {
@@ -24,9 +24,8 @@ public class RaceController {
 
     public void start() {
         carList = new CarList(ConsolePrint.readCars().split(","));
-
-//        System.out.println(carList);
         tryNumber = new TryNumber(ConsolePrint.readTryNum());
+
         race(tryNumber.getTryNum());
         findWinner();
     }
@@ -43,6 +42,7 @@ public class RaceController {
 
     void move() {
         for (Car car : carList.getCarList()) {
+
             if (3 < Randoms.pickNumberInRange(0, 9)) {
                 car.incrementDistance();
             }
@@ -53,9 +53,7 @@ public class RaceController {
         List<Car> sorted = carList.getCarList().stream()
                 .sorted(CarComparator.getInstance())
                 .collect(Collectors.toList());
-//        for (Car car : sorted) {
-//            System.out.println(car.getName() + " : " + car.getDistance());
-//        }
+
         ConsolePrint.printWinner(sorted);
     }
 

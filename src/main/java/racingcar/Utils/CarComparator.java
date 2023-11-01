@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Utils;
 
 import java.util.Comparator;
 import racingcar.Model.Car;

@@ -1,5 +1,13 @@
 package racingcar.View;
 
+import static racingcar.Constants.PrintMessage.COLON;
+import static racingcar.Constants.PrintMessage.DELIMITER;
+import static racingcar.Constants.PrintMessage.EXECUTE_RESULT;
+import static racingcar.Constants.PrintMessage.FINAL_WINNER;
+import static racingcar.Constants.PrintMessage.HYPHEN;
+import static racingcar.Constants.PrintMessage.INPUT_NAME;
+import static racingcar.Constants.PrintMessage.INPUT_TRYNUMBER;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,31 +16,33 @@ import racingcar.Model.Car;
 public class ConsolePrint {
 
     public static String readCars() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_NAME.getMessage());
         return Console.readLine();
     }
 
     public static String readTryNum() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_TRYNUMBER.getMessage());
         return Console.readLine();
     }
 
     public static void printOpening() {
-        System.out.println("\n실행 결과");
+        System.out.println(EXECUTE_RESULT.getMessage());
     }
 
     public static void printRace(List<Car> carList) {
         for (Car car : carList) {
-            System.out.print(car.getName() + " : ");
+            System.out.print(car.getName() + COLON.getMessage());
             printDistance(car);
         }
+
         System.out.println();
     }
 
     public static void printDistance(Car car) {
         for (int i = 0; i < car.getDistance(); i++) {
-            System.out.print("-");
+            System.out.print(HYPHEN.getMessage());
         }
+
         System.out.println();
     }
 
@@ -45,7 +55,7 @@ public class ConsolePrint {
                 .map(Car::getName)
                 .collect(Collectors.toList());
 
-        System.out.print("최종 우승자 : " + String.join(", ", winners));
+        System.out.print(FINAL_WINNER.getMessage() + String.join(DELIMITER.getMessage(), winners));
     }
 
 }

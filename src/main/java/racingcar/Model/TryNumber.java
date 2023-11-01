@@ -1,5 +1,7 @@
 package racingcar.Model;
 
+import static racingcar.Constants.ErrorMessage.NUM_POSITIVE;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,7 +9,8 @@ public class TryNumber {
 
     private int tryNum;
 
-    private static final Pattern NUMBER = Pattern.compile("[1-9]\\d*"); //cacheing to stop regenerating pattern instance
+    private static final Pattern NUMBER_POSITIVE = Pattern.compile(
+            "[1-9]\\d*"); //cacheing to stop regenerating pattern instance
 
     public TryNumber(String input) {
 
@@ -15,10 +18,10 @@ public class TryNumber {
     }
 
     int validatePositive(String input) {
-        Matcher matcher = NUMBER.matcher(input);
+        Matcher matcher = NUMBER_POSITIVE.matcher(input);
 
         if (!matcher.matches()) {
-            throw new IllegalArgumentException("시도 횟수는 양의정수만 입력하세요");
+            throw new IllegalArgumentException(NUM_POSITIVE.getMessage());
         }
 
         return Integer.parseInt(input);

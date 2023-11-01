@@ -4,7 +4,7 @@
 
 - ### [UserInput](#-userinput)
 - ### [Output](#-output)
-- ### [Race Progress](#-raceprogress)
+- ### [Race Progress](#-race-progress)
 - ### [Validate](#-validate)
 
 ---

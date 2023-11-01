@@ -1,5 +1,8 @@
 package racingcar.Model;
 
+import static racingcar.Constants.ErrorMessage.EMPTY_NAME;
+import static racingcar.Constants.ErrorMessage.NAME_LEN_MAX;
+
 public class Car {
     private String name;
 
@@ -7,20 +10,22 @@ public class Car {
 
     public Car(String name) {
         name = name.trim();
+
         validateEmpty(name);
         validateNameLength(name);
+
         this.name = name;
     }
 
     void validateNameLength(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름 길이가 5초과 입니다.");
+            throw new IllegalArgumentException(NAME_LEN_MAX.getMessage());
         }
     }
 
     void validateEmpty(String name) {
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름은 1글자 이상이여야 합니다");
+            throw new IllegalArgumentException(EMPTY_NAME.getMessage());
         }
     }
 

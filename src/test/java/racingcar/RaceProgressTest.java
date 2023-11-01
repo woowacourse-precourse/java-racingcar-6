@@ -47,6 +47,7 @@ public class RaceProgressTest extends NsTest {
     String makeMoveStr(Car car) {
         int len = car.getDistance();
         String distance = car.getName() + " : ";
+
         for (int i = 0; i < len; i++) {
             distance += "-";
         }
