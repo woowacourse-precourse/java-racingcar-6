@@ -16,16 +16,8 @@ public class User {
     public int initCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String countStr = Console.readLine();
-        int count = 0;
 
-        try {
-            count = Integer.parseInt(countStr);
-            if (count < 0) {
-                throw new Exception();
-            }
-        } catch (Exception e) {
-            throw new IllegalArgumentException();
-        }
+        int count = validateCount(countStr);
 
         return count;
     }
@@ -48,6 +40,21 @@ public class User {
         }
 
         return carArray;
+    }
+
+    private int validateCount(String countStr) {
+        int count = 0;
+
+        try {
+            count = Integer.parseInt(countStr);
+            if (count < 0) {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+
+        return count;
     }
 
 }

@@ -4,11 +4,12 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
 
-    User user;
-    CarList carList;
-    String[] carNameList;
-    int count;
-    StringBuilder sb;
+    private final User user;
+    private CarList carList;
+    private String[] carNameList;
+    private int count;
+    private int max = -1;
+    private final StringBuilder sb;
 
     public RacingGame() {
         user = new User();
@@ -23,7 +24,7 @@ public class RacingGame {
         for (int i=0; i<count; i++) {
             for (String carName : carNameList) {
                 checkMoving(carName);
-                printPosition(carName);
+                checkPositionAndMax(carName);
             }
             sb.append('\n');
         }
@@ -49,8 +50,15 @@ public class RacingGame {
         }
     }
 
-    private void printPosition(String carName) {
+    private void checkPositionAndMax(String carName) {
         int position = carList.getPosition(carName);
+        if (position > max) {
+            max = position;
+        }
+        printPosition(carName, position);
+    }
+
+    private void printPosition(String carName, int position) {
         sb.append(carName);
         sb.append(" : ");
         for (int i=0; i<position; i++) {
@@ -60,7 +68,6 @@ public class RacingGame {
     }
 
     private void checkWinner() {
-        int max = carList.getMax();
         boolean flag = false;
         int arrLength = carNameList.length;
 

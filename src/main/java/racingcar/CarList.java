@@ -7,7 +7,6 @@ import java.util.Set;
 public class CarList {
 
     private final Map<String, Integer> carList;
-    private int max = -1;
 
     public CarList(String[] carArray) {
         carList = new HashMap<>();
@@ -28,18 +27,10 @@ public class CarList {
         return carList.get(carName);
     }
 
-    public int getMax() {
-        return max;
-    }
-
     public void moveForward(String carName) {
         int position = carList.get(carName);
         position++;
         carList.put(carName, position);
-
-        if (position > max) {
-            max = position;
-        }
     }
 
     private void checkList(String carName) {
