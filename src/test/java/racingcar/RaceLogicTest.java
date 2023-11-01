@@ -10,6 +10,12 @@ class RaceLogicTest {
 
     @Test
     void attemptAllRacer() {
+        Racer[] racers = {new Racer("pobi"), new Racer("woni")};
+
+        RaceLogic.attemptAllRacer(racers, true);
+
+        assertEquals(1, racers[0].getProgress());
+        assertEquals(1, racers[1].getProgress());
     }
 
     @Test
