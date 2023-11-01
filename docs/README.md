@@ -51,8 +51,8 @@
         - 대칭성  
           d1.compareTo(d2) == d2.compareTo(d1) * (-1)
         - 추이성  
-          (d4.compareTo(d3) > 0 && d3.compareTo(d2) == 0 && d2.compareTo(d1))
-          -> d4.compareTo(d2) && d4.compareTo(d1)
+          (d4.compareTo(d3) > 0 && d3.compareTo(d2) == 0 && d2.compareTo(d1) > 0)
+          -> d4.compareTo(d2) > 0 && d4.compareTo(d1) > 0
         - 반사성  
           d2.compareTo(d3) == 0 -> ( sgn(d2.compareTo(d1)) == sgn(d3.compareTo(d1)) )
 
@@ -243,8 +243,8 @@
         - 대칭성  
           c1.compareTo(d2) == c2.compareTo(c1) * (-1)
         - 추이성  
-          (c4.compareTo(c3) > 0 && c3.compareTo(c2) == 0 && c2.compareTo(c1))
-          -> c4.compareTo(c2) && c4.compareTo(c1)
+          (c4.compareTo(c3) > 0 && c3.compareTo(c2) == 0 && c2.compareTo(c1) > 0)
+          -> c4.compareTo(c2) > 0 && c4.compareTo(c1) > 0
         - 반사성  
           c2.compareTo(c3) == 0 -> ( sgn(c2.compareTo(c1)) == sgn(c3.compareTo(c1)) )
 
