@@ -31,6 +31,7 @@ public class Game {
     }
 
     public void running(List<Car> cars) {
+        outputView.outputOneRaceResult(cars);
     }
 
     public void end() {
