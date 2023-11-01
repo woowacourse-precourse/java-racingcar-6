@@ -28,7 +28,8 @@ public class Application {
     }
     private static int initNumberOfTries()
     {
-
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Integer.parseInt(Console.readLine());
     }
     private static void start(List<Car> cars, int numberOfTries) {
         System.out.println("\n실행 결과");
