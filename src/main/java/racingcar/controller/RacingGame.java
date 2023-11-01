@@ -27,7 +27,7 @@ public class RacingGame {
         OutputView.printWinners(getWinnerNames());
     }
 
-    public void initRacingGame() {
+    private void initRacingGame() {
         String[] carNames = getCarNames();
 
         cars = new Cars(carNames);
@@ -35,13 +35,13 @@ public class RacingGame {
         attemptCount = new GameAttemptCount(getAttemptCount());
     }
 
-    public void progress() {
+    private void progress() {
         cars.progressAllCars();
         printAllProgress();
         attemptCount.reduceAttemptCount();
     }
 
-    public void printAllProgress() {
+    private void printAllProgress() {
         for (Car car : cars.getCars()) {
             printProgress(CarDto.from(car));
         }
