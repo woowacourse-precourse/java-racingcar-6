@@ -27,7 +27,7 @@ public class RacingGame {
         return this.ParticipationConfirmedCarList;
     }
 
-    public ArrayList<RacingCar> getWinners() {
+    public ArrayList<RacingCar> getWinnerList() {
         return this.winnerList;
     }
 }

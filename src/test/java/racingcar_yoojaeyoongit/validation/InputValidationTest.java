@@ -27,6 +27,15 @@ public class InputValidationTest {
     }
 
     @Test
+    void 유저입력_자동차_이름이_6글자_이상일_경우() {
+        String ApplicantCarList = "car1,car2,carcarcar3";
+
+        assertThatThrownBy(() -> validateInput.validateInputCarNameLength(ApplicantCarList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("잘못된 지원 형식입니다. (신청할 자동차 이름은 5글자 이하여야 합니다)");
+    }
+
+    @Test
     void 이동_횟수_입력이_1미만인_경우() {
         int raceCount = 0;
 

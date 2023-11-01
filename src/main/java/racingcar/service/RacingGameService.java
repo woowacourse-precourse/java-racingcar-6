@@ -94,6 +94,6 @@ public class RacingGameService {
                 racingGame.addWinnerList(racingCar);
             }
         }
-        return racingGame.getWinners();
+        return racingGame.getWinnerList();
     }
 }
