@@ -10,9 +10,6 @@ import java.util.List;
 import racingcar.model.CarList;
 
 public class GameController {
-    public GameController(){
-        game();
-    }
     public void game(){
         List<String> nameList = nameInput();
         int roundNumber = roundNumberInput();
