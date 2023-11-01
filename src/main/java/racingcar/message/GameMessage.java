@@ -6,5 +6,7 @@ public class GameMessage {
     public static final String INSERT_TURN_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String INSERT_RESULT_MESSAGE = "실행 결과";
     public static final String INSERT_GAME_RESULT_MESSAGE = "최종 우승자 : ";
+    public static final String INSERT_REST_MULTIPLE_WINNER= ", ";
+
 
 }

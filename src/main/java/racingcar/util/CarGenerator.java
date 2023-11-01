@@ -29,6 +29,12 @@ public class CarGenerator {
         return cars;
     }
 
+    public void checkLengthValidation () {
+        for(String carName : namesList){
+            Validator.lengthvalidator(carName);
+        }
+    }
+
 
 
 }

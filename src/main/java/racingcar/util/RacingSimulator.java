@@ -32,16 +32,19 @@ public class RacingSimulator {
     }
 
     public void playSimulator(List<Car> cars){
-        int orderNumber = 1;
+        int orderNumber = 0;
         for(Car car : cars) {
+
             if (RandomGenerator.generateNumber()>=4){
                   car.addResult();
                   addResult(orderNumber);
+
             }
+            ++orderNumber;
         }
     }
-    public void addResult(int order) {
-        result.compute(order, (key, value) -> {
+    public void addResult(int orderNumber) {
+        result.compute(orderNumber, (key, value) -> {
             if (value == null) {
                 return 1;
             } else {
