@@ -27,7 +27,7 @@ public class FailCaseTest {
     @DisplayName("중복된 자동차의 이름이 있는 경우")
     void duplicateCarName() {
         // given
-        List<String> cars = commaBasedSplitCarName( "user1,user2,user3,user1");
+        List<String> cars = commaBasedSplitCarName("user1,user2,user3,user1");
 
         // when
         Map<String, Integer> carNameSave = makePersonalCarAndForwardStatus(cars);

@@ -24,10 +24,11 @@ public class ExceptionController {
     }
 
     public static void carNameDuplicateException(Map<String, Integer> carPositionTable, List<String> carNames) {
-        if(new HashSet<>(carNames).size() != carNames.size())
+        if (new HashSet<>(carNames).size() != carNames.size()) {
             if (carPositionTable.size() != carNames.size()) {
                 throw new IllegalArgumentException("중복된 이름의 차량이 존재합니다.");
             }
+        }
     }
 
     public static void stringBlankException(String carName) {
@@ -58,7 +59,7 @@ public class ExceptionController {
     }
 
     public static void checkIsNotDuplicated(List<String> cars) {
-        if(new HashSet<>(cars).size() != cars.size()) {
+        if (new HashSet<>(cars).size() != cars.size()) {
             throw new IllegalArgumentException("중복된 이름의 차량이 존재합니다.");
         }
     }

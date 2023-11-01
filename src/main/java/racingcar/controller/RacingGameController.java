@@ -29,7 +29,7 @@ public class RacingGameController {
         return personalCar;
     }
 
-    public static List<String> mostMoveForwardCar(Map<String,Integer> carMoveStatus) {
+    public static List<String> mostMoveForwardCar(Map<String, Integer> carMoveStatus) {
         List<String> winners = new ArrayList<>();
         int max = Collections.max(carMoveStatus.values());
 
