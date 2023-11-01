@@ -10,11 +10,11 @@ public class Car implements Comparable<Car> {
     private static final String NAME_HYPHEN_SEPARATOR = " : ";
 
     private String name;
-    private StringBuilder moveHyphens;
+    private StringBuilder moveMarks;
 
     public Car(String name) {
         this.name = name;
-        moveHyphens = new StringBuilder();
+        moveMarks = new StringBuilder();
     }
 
     public void attemptMove() {
@@ -25,12 +25,12 @@ public class Car implements Comparable<Car> {
     }
 
     private void move() {
-        this.moveHyphens.append(MOVE_MARK);
+        this.moveMarks.append(MOVE_MARK);
     }
 
     @Override
     public String toString() {
-        return name + NAME_HYPHEN_SEPARATOR + moveHyphens.toString();
+        return name + NAME_HYPHEN_SEPARATOR + moveMarks.toString();
     }
 
 
@@ -40,7 +40,7 @@ public class Car implements Comparable<Car> {
     }
 
     public int getMoveCount() {
-        return moveHyphens.length();
+        return moveMarks.length();
     }
 
     public String getName() {
