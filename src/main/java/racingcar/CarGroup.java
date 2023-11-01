@@ -6,7 +6,6 @@ import java.util.List;
 public class CarGroup {
     private List<Car> carList;
     private List<String> winnerList;
-    private int maxDistance = Integer.MIN_VALUE;
 
 
     public CarGroup(List<Car> carList) {
@@ -20,7 +19,8 @@ public class CarGroup {
     public List<String> getWinnerList() {
         winnerList = new ArrayList<>();
         for (Car car : carList) {
-            if (car.getDistance() == this.maxDistance) {
+            int max = getMaxDistance();
+            if (car.getDistance() == max) {
                 winnerList.add(car.getName());
             }
         }
@@ -28,8 +28,9 @@ public class CarGroup {
     }
 
     public int getMaxDistance() {
+        int maxDistance = Integer.MIN_VALUE;
         for (Car car : carList) {
-            this.maxDistance = Math.max(this.maxDistance, car.getDistance());
+            maxDistance = Math.max(maxDistance, car.getDistance());
         }
         return maxDistance;
     }
