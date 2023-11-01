@@ -18,8 +18,9 @@ public class RacingGameServiceImpl implements RacingGameService {
     @Override
     public GameResult startGame(final Cars cars, final Trial trial) {
         GameResult gameResult = new GameResult();
-        for (int i = 1; i <= trial.get(); i++) {
+        while (trial.isRemainTrial()) {
             playRound(cars, gameResult);
+            trial.decreaseTrial();
         }
         return gameResult;
     }

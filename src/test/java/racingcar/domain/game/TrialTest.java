@@ -2,6 +2,7 @@ package racingcar.domain.game;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static racingcar.global.enums.ExceptionMessage.TRIAL_MINIMUM_MESSAGE;
 
 import org.junit.jupiter.api.Test;
@@ -29,4 +30,24 @@ class TrialTest {
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
+    @Test
+    void 시행_횟수_남았는지_체크_테스트() {
+        //given
+        Trial trial = new Trial(2);
+
+        //when and then
+        assertTrue(trial.isRemainTrial());
+    }
+
+    @Test
+    void 시행_횟수_감소_테스트() {
+        //given
+        Trial trial = new Trial(2);
+
+        //when
+        trial.decreaseTrial();
+
+        //then
+        assertThat(trial.get()).isEqualTo(1);
+    }
 }

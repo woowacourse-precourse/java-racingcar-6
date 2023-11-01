@@ -6,7 +6,7 @@ import static racingcar.global.enums.ExceptionMessage.TRIAL_MINIMUM_MESSAGE;
 
 public class Trial {
 
-    private final int trial;
+    private int trial;
 
     public Trial(int trial) {
         validateTrial(trial);
@@ -15,6 +15,14 @@ public class Trial {
 
     public int get() {
         return trial;
+    }
+
+    public void decreaseTrial() {
+        trial -= 1;
+    }
+
+    public boolean isRemainTrial() {
+        return trial > 0;
     }
 
     private void validateTrial(final int trial) {
