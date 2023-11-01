@@ -1,12 +1,12 @@
 package racingcar.model;
 
 public class CarRepository {
-    private CarCollection carCollection;
+    private CarCollection cars;
 
-    public void saveAll(CarCollection carCollection) {
-        this.carCollection = carCollection;
+    public void saveAll(CarCollection cars) {
+        this.cars = cars;
     }
 
-    public CarCollection findAll() { return carCollection; }
+    public CarCollection findAll() { return cars; }
 }
 

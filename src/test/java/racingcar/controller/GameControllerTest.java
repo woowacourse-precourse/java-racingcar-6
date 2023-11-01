@@ -24,14 +24,14 @@ public class GameControllerTest {
         List<String> carNames = Arrays.asList("car1", "car2", "car3");
 
         // When
-        CarCollection carCollection = gameController.createCarCollection(carNames);
+        CarCollection cars = gameController.createCarCollection(carNames);
 
         // Then
-        assertThat(carCollection.getCars())
+        assertThat(cars.getCars())
                 .extracting(Car::getName)
                 .containsExactlyElementsOf(carNames);
 
-        assertThat(carCollection.getCars())
+        assertThat(cars.getCars())
                 .extracting(Car::getCurrentLocation)
                 .containsOnly(0);
     }

@@ -24,8 +24,8 @@ public class GameController {
 
     public void run() {
         List<String> carNames = getCarNames();
-        CarCollection carCollection = createCarCollection(carNames);
-        model.saveAllCars(carCollection);
+        CarCollection cars = createCarCollection(carNames);
+        model.saveAllCars(cars);
 
         int trialNumber = getTrialNumber();
         gameStart(trialNumber);
@@ -54,18 +54,18 @@ public class GameController {
     }
 
     public void gameStart(int trialNumber) {
-        CarCollection carCollection = model.getAllCars();
+        CarCollection cars = model.getAllCars();
 
         view.printResultMessage();
         for (int i = 0; i < trialNumber; i++) {
             model.moveCars();
-            printEachCarCurrentStatus(carCollection);
+            printEachCarCurrentStatus(cars);
             view.printEnter();
         }
     }
 
-    public void printEachCarCurrentStatus(CarCollection carCollection) {
-        for (Car car : carCollection.getCars()) {
+    public void printEachCarCurrentStatus(CarCollection cars) {
+        for (Car car : cars.getCars()) {
             view.printCarCurrentStatus(car.getName(), car.getCurrentLocation());
         }
     }

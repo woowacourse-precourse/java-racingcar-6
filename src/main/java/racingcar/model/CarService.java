@@ -25,9 +25,9 @@ public class CarService {
     }
 
     public void moveCars() {
-        CarCollection carCollection = getAllCars();
+        CarCollection cars = getAllCars();
 
-        for (Car car : carCollection.getCars()) {
+        for (Car car : cars.getCars()) {
             moveIfSatisfyCondition(car);
         }
     }
@@ -43,11 +43,11 @@ public class CarService {
     }
 
     public List<String> getCarNameHasLongestDistance() {
-        CarCollection carCollection = getAllCars();
+        CarCollection cars = getAllCars();
         List<String> winnerName = new ArrayList<>();
         int longestDistance = MIN_DISTANCE;
 
-        for (Car car : carCollection.getCars()) {
+        for (Car car : cars.getCars()) {
             int currentLocation = car.getCurrentLocation();
             longestDistance = getLongestDistance(winnerName, longestDistance, car, currentLocation);
         }
