@@ -38,15 +38,27 @@ public class RacingCar {
     }
 
     private void verify(String name) {
+        validateMinimumSize(name);
+        validateMaximumSize(name);
+        validateInvalidInput(name);
+    }
 
-        if (name.length() < CAR_NAME_MIN_SIZE ||
-                name.length() > CAR_NAME_MAX_SIZE) {
-            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR);
-        }
-
+    private void validateInvalidInput(String name) {
         Pattern pattern = Pattern.compile(CAR_NAME_REGEX_EXPRESSION);
         if (pattern.matcher(name).find()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INVALID_CHARACTER_ERROR);
+        }
+    }
+
+    private void validateMaximumSize(String name) {
+        if (name.length() > CAR_NAME_MAX_SIZE) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR);
+        }
+    }
+
+    private void validateMinimumSize(String name) {
+        if (name.length() < CAR_NAME_MIN_SIZE) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR);
         }
     }
 }
