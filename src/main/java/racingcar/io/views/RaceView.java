@@ -12,19 +12,24 @@ public class RaceView {
     public List<Racer> askRacersNames() {
         Output.consoleLine(RaceViewMessage.ASK_RACERS_NAMES.get());
 
-        List<String> inputNames = Input.consoleStrings(",");
+        List<String> inputNames = Input.consoleStrings(",").stream()
+                .map(String::strip)
+                .toList();
+
+        validateNames(inputNames);
+
+        return inputNames.stream()
+                .map(RaceView::toRacer)
+                .toList();
+    }
+
+    private static void validateNames(List<String> inputNames) {
         long distinctCount = inputNames.stream()
                 .distinct()
                 .count();
-
         if (inputNames.size() != distinctCount) {
             throw new IllegalArgumentException("중복된 이름은 입력할 수 없습니다.");
         }
-
-        return inputNames.stream()
-                .map(String::strip)
-                .map(RaceView::toRacer)
-                .toList();
     }
 
     private static Racer toRacer(String name) {
