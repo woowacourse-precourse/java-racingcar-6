@@ -19,20 +19,19 @@ public class RacingcarGameController {
     public static void startRacingcarGame() {
         Printer.printCarChoiceMessage();
         String carChoiceInputMessage = InputHandler.getInputMessage();
+        Cars cars = racingcarGameService.generateCarsToRace(carChoiceInputMessage);
 
         Printer.printRoundChoiceMessage();
         String roundChoiceInputMessage = InputHandler.getInputMessage();
-
-        int roundToRace = TypeConverter.convertStringToInt(roundChoiceInputMessage);
         Printer.printLineBreak();
 
-        playRacingcarGame(carChoiceInputMessage, roundToRace);
+        int roundToRace = TypeConverter.convertStringToInt(roundChoiceInputMessage);
+
+        playRacingcarGame(cars, roundToRace);
     }
 
-    private static void playRacingcarGame(String carChoiceInputMessage, int roundToRace) {
+    private static void playRacingcarGame(Cars cars, int roundToRace) {
         GameStatus gameStatus = PLAYING;
-
-        Cars cars = racingcarGameService.generateCarsToRace(carChoiceInputMessage);
 
         Printer.printResultHeadMessage();
 
