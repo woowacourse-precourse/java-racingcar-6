@@ -1,54 +1,56 @@
 package racingcar.domain;
 
-import java.util.Collections;
 import java.util.List;
+import racingcar.domain.dto.CarDto;
 import racingcar.util.NumberGenerator;
 
 public class Cars {
 
-    private static final int STARTING_POSITION = 0;
-
     private final List<Car> cars;
 
     private Cars(List<String> names) {
-        this.cars = createCars(names);
+        this.cars = mapToCars(names);
     }
 
-    public static Cars of(List<String> names) {
+    public static Cars from(List<String> names) {
         return new Cars(names);
     }
 
-    private List<Car> createCars(List<String> names) {
+    private List<Car> mapToCars(List<String> names) {
         return names.stream()
-                .map(name -> Car.of(name, STARTING_POSITION))
+                .map(Car::from)
                 .toList();
     }
 
-    public List<Car> race(NumberGenerator numberGenerator) {
+    public void race(NumberGenerator numberGenerator) {
         cars.forEach(car -> car.move(numberGenerator.generate()));
-        return get();
     }
 
-    public List<Car> get() {
-        return Collections.unmodifiableList(cars);
-    }
-
-    public List<String> getWinnerNames() {
-        Car car = getMaxPositionCar();
-        return findSamePositionCarNames(car);
-    }
-
-    private Car getMaxPositionCar() {
+    public List<CarDto> toDto() {
         return cars.stream()
-                .max(Car::compareTo)
-                .get();
+                .map(Car::toDto)
+                .toList();
     }
 
-    private List<String> findSamePositionCarNames(Car car) {
+    public List<String> getWinnerNames(){
+        List<CarDto> carDtos = toDto();
+
+        int maxPosition = findMaxPosition(carDtos);
+        return findWinnerNamesBy(maxPosition, carDtos);
+    }
+
+
+    private int findMaxPosition(List<CarDto> cars) {
         return cars.stream()
-                .filter(car::isSamePosition)
-                .map(Car::getName)
-                .map(Name::toString)
+                .mapToInt(CarDto::position)
+                .max()
+                .orElse(Position.INITIAL_POSITION);
+    }
+
+    private List<String> findWinnerNamesBy(int maxPosition, List<CarDto> cars) {
+        return cars.stream()
+                .filter(car -> car.position() == maxPosition)
+                .map(CarDto::name)
                 .toList();
     }
 }
