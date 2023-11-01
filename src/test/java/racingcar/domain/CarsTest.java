@@ -14,7 +14,7 @@ class CarsTest {
     void isDifferentCarName() throws Exception{
         //given
         String racingCarName = "pobi";
-        Car car = new Car(racingCarName);
+        Car car = new Car(racingCarName, 0);
         
         List<Car> cars = List.of(car, car);
 
@@ -29,7 +29,7 @@ class CarsTest {
     void minimumCountOfCars() throws Exception{
         //given
         String racingCarName = "pobi";
-        Car car = new Car(racingCarName);
+        Car car = new Car(racingCarName, 0);
 
         List<Car> cars = List.of(car);
 
