@@ -4,12 +4,9 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -58,23 +55,6 @@ public class GameTest extends NsTest {
     }
 
     @Test
-    void 먀먀() {
-        List<Car> cars = Arrays.stream(names)
-                .map(Car::new)
-                .collect(Collectors.toList());
-
-        assertRandomNumberInRangeTest(
-                () -> {
-                    Umpire umpire = new Umpire(cars);
-                    String winnerResult = umpire.findWinner();
-
-                    assertEquals("pobi, woni", winnerResult);
-                },
-                MOVING_FORWARD, STOP, MOVING_FORWARD
-        );
-    }
-
-    @Test
     void 우승자_찾기() {
         List<Car> cars = Arrays.stream(names)
                 .map(Car::new)
@@ -94,27 +74,21 @@ public class GameTest extends NsTest {
     }
 
     @Test
-    void 각_라운드_결과_가져오기() {
-        List<Car> cars = new ArrayList<>();
-        Car car1 = mock(Car.class);
-        Car car2 = mock(Car.class);
-        Car car3 = mock(Car.class);
+    void 라운드_결과_가져오기() {
+        List<Car> cars = Arrays.stream(names)
+                .map(Car::new)
+                .collect(Collectors.toList());
 
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Game game = new Game(cars, 1);
+                    game.start();
+                    List<String> roundResult = game.getRoundResult();
 
-        when(car1.getName()).thenReturn("pobi");
-        when(car2.getName()).thenReturn("woni");
-        when(car3.getName()).thenReturn("jun");
-        when(car1.getPosition()).thenReturn(1);
-        when(car2.getPosition()).thenReturn(2);
-        when(car3.getPosition()).thenReturn(3);
-
-        Game game = new Game(cars, 5);
-        List<String> roundResult = game.getRoundResult();
-
-        assertEquals("pobi : -,woni : --,jun : ---", String.join(",", roundResult));
+                    assertEquals("pobi : -,woni : ,jun : -", String.join(",", roundResult));
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
     }
 
     private void command(final String... args) {
