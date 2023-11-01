@@ -1,14 +1,20 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 
 import java.util.List;
+import racingcar.util.ConsoleWrapper;
 
 public class ConsoleView {
+    private final ConsoleWrapper consoleWrapper;
+
+    public ConsoleView(ConsoleWrapper consoleWrapper) {
+        this.consoleWrapper = consoleWrapper;
+    }
+
     public List<String> getInputCarNames() {
         printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] carNamesArray = Console.readLine().split(",");
+        String[] carNamesArray = consoleWrapper.readLine().split(",");
         return List.of(carNamesArray);
     }
 
@@ -20,7 +26,7 @@ public class ConsoleView {
 
     private String readInput() {
         printMessage("시도할 회수는 몇회인가요?");
-        return Console.readLine();
+        return consoleWrapper.readLine();
     }
 
     public void printMessage(String message) {
