@@ -3,8 +3,8 @@ package racingcar;
 public class Discriminator {
 
     public static void validateCarNumber(int carNumber){
-        if (carNumber <= 0 || carNumber > 8) {
-            throw new IllegalArgumentException("The # cars should in range (1,8) ");
+        if (carNumber < 1 || carNumber > 8) {
+            throw new IllegalArgumentException("The # cars should be in range (1,8)");
         }
     }
 
