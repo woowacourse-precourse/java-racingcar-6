@@ -6,7 +6,7 @@ public class GameController {
     public static void startRacingCar(){
         GameService.startGame();
         GameService.playGame();
-        GameService.endGmae();
+        GameService.endGame();
 
     }
 }

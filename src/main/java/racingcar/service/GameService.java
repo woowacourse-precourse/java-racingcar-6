@@ -32,7 +32,7 @@ public class GameService {
         }
     }
 
-    public static void endGmae(){
+    public static void endGame(){
         List<String> winnerList = Racing.getWinner();
         OutputView.printWinnerMessage(winnerList);
     }
