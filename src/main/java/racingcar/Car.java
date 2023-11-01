@@ -4,28 +4,31 @@ public class Car {
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
     private static final int GO_STOP_STANDARD_NUMBER = 4;
+    private static final String LOCATION_STRING = "-";
     
     public String name;
-    public String movingDistance;
+    public int location;
     public boolean isWinner;
     
     public Car(String name) {
         if (!isValidName(name)) {
             throw new IllegalArgumentException("Car name is not valid.");
         }
-        
         this.name = name;
-        movingDistance = "";
     }
     
     public void go(int randomNumber) {
         if (randomNumber >= GO_STOP_STANDARD_NUMBER) {
-            this.movingDistance += "-";
+            this.location++;
         }
     }
     
     public void setWinner() {
         isWinner = true;
+    }
+    
+    public String getLocationStatus() {
+        return LOCATION_STRING.repeat(this.location);
     }
     
     private boolean isValidName(String name) {

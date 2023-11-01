@@ -99,33 +99,33 @@ public class GameSystem {
     
     private void makeResultMessageForCars(StringBuilder result) {
         for (Car car : cars) {
-            result.append(car.name).append(" : ").append(car.movingDistance).append("\n");
+            result.append(car.name).append(" : ").append(car.getLocationStatus()).append("\n");
         }
         result.append("\n");
     }
     
     private void executeWinner() {
-        int maxDistance = calculateMaxDistance();
-        determineWinner(maxDistance);
+        int maxLocation = calculateMaxLocation();
+        determineWinner(maxLocation);
         
-        List<Car> winners = findWinners(maxDistance);
+        List<Car> winners = findWinners(maxLocation);
         calculateWinnerMessage(winners);
     }
     
-    private int calculateMaxDistance() {
+    private int calculateMaxLocation() {
         return cars.stream()
-                .mapToInt(car -> car.movingDistance.length())
+                .mapToInt(car -> car.location)
                 .max()
                 .orElse(0);
     }
     
-    private void determineWinner(int maxDistance) {
+    private void determineWinner(int maxLocation) {
         cars.stream()
-                .filter(car -> car.movingDistance.length() == maxDistance)
+                .filter(car -> car.location == maxLocation)
                 .forEach(Car::setWinner);
     }
     
-    private List<Car> findWinners(int maxDistance) {
+    private List<Car> findWinners(int maxLocation) {
         List<Car> winners = new LinkedList<>();
         
         for (Car car : cars) {
