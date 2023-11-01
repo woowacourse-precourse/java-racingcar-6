@@ -64,6 +64,25 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_이름_분리_1명() {
+        String carsName = "abc";
+        String[] names = carsName.split(",");
+
+        assertThat(names).contains("abc");
+        assertThat(names).containsExactly("abc");
+    }
+
+
+    @Test
+    void 자동차_이름_분리_다수() {
+        String carsName = "abc,def,ghi,jkl";
+        String[] names = carsName.split(",");
+
+        assertThat(names).contains("ghi", "def", "jkl", "abc");
+        assertThat(names).containsExactly("abc", "def", "ghi", "jkl");
+    }
+
+    @Test
     void 레이스_횟수_입력_예외_처리() {
         String carName = "abc,def"; // there is no exception
         String raceTime = "5a"; // expect to occur exception
