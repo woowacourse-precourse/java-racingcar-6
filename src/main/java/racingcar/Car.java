@@ -19,25 +19,20 @@ public class Car implements Comparable<Car> {
         return movingCount;
     }
 
-    public void playRacing() {
-        int randomNumber = getRandomNumber();
-        updateMovingCountOrNot(randomNumber);
-        printResult();
-    }
-
-    private int getRandomNumber() {
+    public int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private void updateMovingCountOrNot(int randomNumber) {
+    public int updateMovingCountOrNot(int randomNumber) {
         if (randomNumber >= 4) {
-            movingCount++;
+            return movingCount++;
         }
+        return movingCount;
     }
 
-    private void printResult() {
+    public String getResult() {
         String movingWay = getMovingWay();
-        System.out.println(name + " : " + movingWay);
+        return name + " : " + movingWay;
     }
 
     private String getMovingWay() {
