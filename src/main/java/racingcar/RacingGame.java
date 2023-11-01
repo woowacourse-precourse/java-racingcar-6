@@ -5,23 +5,24 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RacingGame {
 
     private final User user;
-    private CarList carList;
-    private String[] carNameList;
-    private int count;
+    private final CarList carList;
+    private final String[] carNameList;
+    private final int count;
     private int max = -1;
     private final StringBuilder sb;
 
     public RacingGame() {
         user = new User();
-        retrieveCarList();
-        retrieveCount();
+        carList = new CarList(user.initCarList());
+        carNameList = retrieveCarList();
+        count = retrieveCount();
         sb = new StringBuilder();
     }
 
     public void startRacingGame() {
         sb.append("\n실행 결과\n");
 
-        for (int i=0; i<count; i++) {
+        for (int i = 0; i < count; i++) {
             for (String carName : carNameList) {
                 checkMoving(carName);
                 checkPositionAndMax(carName);
@@ -34,13 +35,12 @@ public class RacingGame {
         System.out.println(sb);
     }
 
-    private void retrieveCarList() {
-        carList = new CarList(user.initCarList());
-        carNameList = carList.getCarNameList();
+    private String[] retrieveCarList() {
+        return carList.getCarNameList();
     }
 
-    private void retrieveCount() {
-        count = user.initCount();
+    private int retrieveCount() {
+        return user.initCount();
     }
 
     private void checkMoving(String carName) {
@@ -61,27 +61,27 @@ public class RacingGame {
     private void printPosition(String carName, int position) {
         sb.append(carName);
         sb.append(" : ");
-        for (int i=0; i<position; i++) {
-            sb.append('-');
-        }
+        sb.append("-".repeat(position));
         sb.append('\n');
     }
 
     private void checkWinner() {
         boolean flag = false;
-        int arrLength = carNameList.length;
 
         sb.append("최종 우승자 : ");
 
-        for (int i=0; i<arrLength; i++) {
-            String carName = carNameList[i];
+        for (String carName : carNameList) {
             int position = carList.getPosition(carName);
 
-            if (flag && position == max) {
+            if (position < max) {
+                continue;
+            }
+
+            if (flag) {
                 sb.append(", ");
             }
-            if (position == max) {
-                sb.append(carName);
+            sb.append(carName);
+            if (!flag) {
                 flag = true;
             }
         }
