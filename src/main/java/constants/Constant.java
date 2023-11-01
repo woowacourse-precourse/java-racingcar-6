@@ -10,7 +10,8 @@ public class Constant {
     public static final String CMD_WINNER_RESULT = "최종 우승자 : ";
     public static final String SEP_COLON_STRING = " : ";
     public static final String NEW_LINE_STRING = "\n";
-    public static final String POSITION_ONE_TICK_STRING="-";;
+    public static final String POSITION_ONE_TICK_STRING = "-";
+
 
     public static final Integer START_RANDOM_NUM = 0;
     public static final Integer END_RANDOM_NUM = 9;

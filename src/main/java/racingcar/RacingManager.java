@@ -10,11 +10,12 @@ import java.util.*;
 public class RacingManager {
 
     private static final RacingData racingData = new RacingData();
-    private static final Map<String, Integer> playerResultMap = new HashMap<String, Integer>();
+    private static Map<String, Integer> playerResultMap = new HashMap<String, Integer>();
 
     public void run() {
-        initSettingForPlaying();
 
+        initializeDataset();
+        initSettingForPlaying();
         RacingController racingController = new RacingController(racingData);
         RacingView racingView = new RacingView(racingData);
 
@@ -22,18 +23,18 @@ public class RacingManager {
         System.out.println(CMD_PLAY_RESULT);
 
         do {
-           racingController.play(playerResultMap);
-           racingView.render(playerResultMap);
+            racingController.play(playerResultMap);
+            racingView.render(playerResultMap);
         }
-        while(!racingController.checkEnd(playerResultMap));
+        while (!racingController.checkEnd(playerResultMap));
 
         List<String> winnerString = racingController.getWinnerList();
         printWinnerString(winnerString);
     }
 
-    private void printWinnerString(List<String>inputString){
-        String result = String.join(SEP_COMMA_ONESPACE_STRING,inputString);
-        System.out.println(CMD_WINNER_RESULT+result);
+    private void printWinnerString(List<String> inputString) {
+        String result = String.join(SEP_COMMA_ONESPACE_STRING, inputString);
+        System.out.println(CMD_WINNER_RESULT + result);
     }
 
     private void initSettingForPlaying() {
@@ -55,13 +56,20 @@ public class RacingManager {
 
         racingData.saveRacingData(playerNamesList, tryNumber);
     }
-    private void validatePlayerName(List<String> playerNamesList){
-        for(String name: playerNamesList){
+
+    public void initializeDataset() {
+        racingData.initTryNumber();
+        racingData.initPlayerStringList();
+        playerResultMap = new HashMap<String, Integer>();
+    }
+
+    private void validatePlayerName(List<String> playerNamesList) {
+        for (String name : playerNamesList) {
             int nameLength = name.length();
-            if(nameLength>5)
+            if (nameLength > 5)
                 throw new IllegalArgumentException(wrongLengthError +
                         "\nExpect : maximum nameLength is 5" +
-                        "\nInput : " +name + " Length : " + nameLength);
+                        "\nInput : " + name + " Length : " + nameLength);
         }
 
     }

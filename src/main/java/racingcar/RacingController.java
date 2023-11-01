@@ -46,12 +46,12 @@ public class RacingController {
         return false;
     }
 
-    public boolean checkEnd(Map<String, Integer> playerResultMap){
+    public boolean checkEnd(Map<String, Integer> playerResultMap) {
         boolean checkEndFlag = false;
         for (String name : playerList) {
             Integer position = playerResultMap.get(name);
 
-            if(Objects.equals(position, tryNumber)){
+            if (Objects.equals(position, tryNumber)) {
                 winnerList.add(name);
                 checkEndFlag = true;
             }
@@ -59,7 +59,7 @@ public class RacingController {
         return checkEndFlag;
     }
 
-    public List<String>getWinnerList(){
+    public List<String> getWinnerList() {
         return winnerList;
     }
 
