@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class Player {
 
     private static final int MAX_NAME_LENGTH = 5;
-    private static final String REGEX = "^[a-zA-Z]*$";
+    private static final String NAME_PATTERN = "^[a-zA-Z]*$";
 
     private final List<Car> cars;
     private final int times;
@@ -64,7 +64,7 @@ public class Player {
         if (name.isEmpty()){
             throw new IllegalArgumentException("[ERROR] Car's name shouldn't be null.");
         }
-        if(!Pattern.matches(REGEX,name)){
+        if(!Pattern.matches(NAME_PATTERN,name)){
             throw new IllegalArgumentException("[ERROR] Car's name should have only english character.");
         }
     }

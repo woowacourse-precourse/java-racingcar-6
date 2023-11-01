@@ -2,10 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Car;
 import racingcar.model.Player;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,8 +11,7 @@ class PlayerTest {
     @Test
     @DisplayName("자동차, 횟수 모두 바르게 입력함")
     public void isInputPerfect() {
-        Player player = new Player("jenny,lisa,rose", "4");
-        List<Car> cars = player.getCars();
+        new Player("jenny,lisa,rose", "4");
     }
 
     @Test
@@ -27,10 +23,25 @@ class PlayerTest {
     }
 
     @Test
-    @DisplayName("자동차 이름의 길이에 알파벳 외의 문자,기호가 포함됨")
-    public void carNameShouldHaveOnlyAlphabets() {
+    @DisplayName("자동차 이름의 길이에 알파벳 외의 기호가 포함됨")
+    public void carNameShouldHaveOnlyAlphabets_1() {
         assertThrows(IllegalArgumentException.class, ()->{
             new Player("jenny,amy!,rose", "4");
+        });
+    }
+    @Test
+    @DisplayName("자동차 이름의 길이에 알파벳 외의 숫자가 포함됨")
+    public void carNameShouldHaveOnlyAlphabets_2() {
+        assertThrows(IllegalArgumentException.class, ()->{
+            new Player("jenny,amy0,rose", "4");
+        });
+    }
+
+    @Test
+    @DisplayName("자동차 이름의 길이에 알파벳 외의 한글이 포함됨")
+    public void carNameShouldHaveOnlyAlphabets_3() {
+        assertThrows(IllegalArgumentException.class, ()->{
+            new Player("jenny,amㄱy,rose", "4");
         });
     }
 

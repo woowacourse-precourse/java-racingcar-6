@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,9 +16,9 @@ class CarTest {
     private static final int STOP = 3;
 
     @ParameterizedTest
-    @ValueSource(strings = {"amy", "rose", "lisa"})
+    @ValueSource(strings = {"amy", "rose", "lisaa"})
     @DisplayName("이름 길이에 문제 없는 경우")
-    void 정상적인_경우(String name) {
+    void areNamesRight(String name) {
         Assertions.assertThat(new Car(name));
     }
 
