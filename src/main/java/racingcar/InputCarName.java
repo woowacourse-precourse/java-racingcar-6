@@ -1,11 +1,12 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class InputCarName {
 
-    public List<String> inputCar(String carNames) {
+    public List<Car> inputCar(String carNames) {
 
         try {
             if (carNames.isEmpty()) {
@@ -14,14 +15,18 @@ public class InputCarName {
 
             List<String> carNameList = Arrays.asList(carNames.split(","));
 
+            List<Car> cars = new ArrayList<>();
             for (String name : carNameList) {
                 System.out.println(name);
                 if (name.length() > 5) {
                     throw new IllegalArgumentException("6자 이상의 값을 입력하였습니다.");
                 }
+
+                Car car = new Car(name, 0);
+                cars.add(car);
             }
 
-            return carNameList;
+            return cars;
 
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());

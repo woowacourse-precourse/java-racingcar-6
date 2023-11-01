@@ -3,7 +3,6 @@ package racingcar;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,11 +19,13 @@ class InputCarNameTest {
         String input = "pobi,woni,jun";
 
         // when
-        List<String> result = inputCarName.inputCar(input);
+        List<Car> result = inputCarName.inputCar(input);
 
         // then
-        List<String> expected = Arrays.asList("pobi", "woni", "jun");
-        assertThat(result).isEqualTo(expected);
+        assertThat(result.get(0).getName()).isEqualTo("pobi");
+        assertThat(result.get(1).getName()).isEqualTo("woni");
+        assertThat(result.get(2).getName()).isEqualTo("jun");
+
     }
 
     @Test
@@ -34,12 +35,12 @@ class InputCarNameTest {
         String input = "pobi,woni,jun";
 
         // when
-        List<String> result = inputCarName.inputCar(input);
+        List<Car> result = inputCarName.inputCar(input);
 
         // then
         assertThatThrownBy(() -> {
-            for (String name : result) {
-                name.charAt(5);
+            for (Car name : result) {
+                name.getName().charAt(5);
             }
         }).isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
