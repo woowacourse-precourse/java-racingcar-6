@@ -13,3 +13,6 @@
 * 자동차의 이름이 없는 경우
 * 자동차의 이름이 5자 넘어가는 경우
 * 시도 횟수가 0이상의 정수가 아닌 경우
+
+## Test
+* Exception에 해당하는 조건을 입력 후 assertFalse 시 Throw Exception

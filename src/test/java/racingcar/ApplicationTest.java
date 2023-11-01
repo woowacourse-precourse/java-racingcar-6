@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -26,59 +27,52 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름에_대한_예외_처리_이름_길이() {
-        assertSimpleTest(
-                ()->{
-                    runException("pobi,javaji","1");
-                    assertThat(output().contains(ERROR_MESSAGE));
-                }
-        );
+        Exception exception = assertThrows(Exception.class, () -> {
+            runException("pobi,javaji","1");
+        });
+        assertFalse(output().contains(ERROR_MESSAGE));
     }
+
 
     @Test
     void 이름에_대한_예외_처리_이름_공백(){
-        assertSimpleTest(
-                ()->{
-                    runException("pobi, ","1");
-                    assertThat(output().contains(ERROR_MESSAGE));
-                }
-        );
+        Exception exception = assertThrows(Exception.class, ()->{
+            runException("pobi, ","1");
+        });
+        assertFalse(output().contains(ERROR_MESSAGE));
     }
 
     @Test
     void 이름에_대한_예외_처리_이름_중복(){
-        assertSimpleTest(
-                ()->{
-                    runException("pobi,pobi","1");
-                    assertThat(output().contains(ERROR_MESSAGE));
-                }
-        );
+        Exception exception = assertThrows(Exception.class, ()->{
+            runException("pobi,pobi","1");
+        });
+        assertFalse(output().contains(ERROR_MESSAGE));
     }
 
 //    @Test
 //    void 이름에_대한_예외_처리_이름에_문자열이_아닌_경우(){
-//        assertSimpleTest(()->
-//                assertThatThrownBy(()-> runException("pobi,"+123, "1"))
-//                        .isInstanceOf(IllegalArgumentException.class));
+//        Exception exception = assertThrows(Exception.class, ()->{
+//            runException("pobi,123","1");
+//        });
+//        assertFalse(output().contains(ERROR_MESSAGE));
 //    }
 
     @Test
     void 자동차에_대한_예외_처리(){
-        assertSimpleTest(
-                ()->{
-                    runException(" ","1");
-                    assertThat(output().contains(ERROR_MESSAGE));
-                }
-        );
+
+        Exception exception = assertThrows(Exception.class, ()->{
+            runException(" ","1");
+        });
+        assertFalse(output().contains(ERROR_MESSAGE));
     }
 
     @Test
     void 시도_횟수에_대한_예외_처리(){
-        assertSimpleTest(
-                ()->{
-                    runException("pobi,woni","one");
-                    assertThat(output().contains(ERROR_MESSAGE));
-                }
-        );
+        Exception exception = assertThrows(Exception.class, ()->{
+            runException("pobi,woni","one");
+        });
+        assertFalse(output().contains(ERROR_MESSAGE));
     }
 
     @Override
