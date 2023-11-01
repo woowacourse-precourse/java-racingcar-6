@@ -47,8 +47,10 @@ public class GameController {
     }
 
     private void startRacing(int attempts) {
+        outputView.printRacingStatus();
         while (attempts > 0) {
             moveCars();
+            outputView.printCarPositions(cars);
             attempts--;
         }
     }
