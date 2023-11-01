@@ -8,7 +8,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class ApplicationTest extends NsTest {
+class ApplicationTest  {
     @Test
     void 입력이름_예외_처리(){
         ErrorOccur errorOccur = new ErrorOccur();
@@ -27,8 +27,5 @@ class ApplicationTest extends NsTest {
     }
 
 
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
-    }
+
 }
