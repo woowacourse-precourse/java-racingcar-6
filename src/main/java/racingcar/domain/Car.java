@@ -30,7 +30,7 @@ public class Car {
         validationNamingRule(name);
     }
     private void validationNamingRule(String name) {
-        if (name.length() < NAME_MAX_LENGTH) {
+        if (name.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
