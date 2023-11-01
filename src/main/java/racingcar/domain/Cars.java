@@ -32,4 +32,8 @@ public class Cars {
             throw new IllegalArgumentException("자동차는 최소 2대 이상 생성해야 합니다.");
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
