@@ -1,8 +1,11 @@
 package racingcar.view;
 
+import racingcar.model.Car;
 import racingcar.model.CarList;
 
 public class RacingGameView {
+
+    private final String moving = "-";
 
     public void printInputCarName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -16,4 +19,9 @@ public class RacingGameView {
         System.out.println("실행 결과");
     }
 
+    public void printMoveDist(CarList carList){
+        carList.getCarList()
+                .forEach(car -> System.out.println(car.getCarName() + " : " + moving.repeat(car.getMoveCnt())));
+        System.out.println();
+    }
 }
