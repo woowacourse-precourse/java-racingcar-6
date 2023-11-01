@@ -16,7 +16,7 @@ public class Car {
     }
 
     public Car(String name, IntGenerator intGenerator) {
-        checkNameLength(name);
+        validateNameLength(name);
         this.name = name;
         this.intGenerator = intGenerator;
         this.forwardCount = 0;
@@ -33,7 +33,7 @@ public class Car {
         return pickedNumber >= MINIMUM_FORWARD_CONDITION;
     }
 
-    private void checkNameLength(String name) {
+    private void validateNameLength(String name) {
         if (name.length() > MAXIMUM_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
         }
