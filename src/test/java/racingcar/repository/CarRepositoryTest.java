@@ -9,37 +9,27 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarRepositoryTest {
 
     @Test
-    void test() {
+    void saveTest() {
         CarRepository carRepository = new CarRepository();
         Car car = new Car("car");
 
-        Long result = carRepository.save(car);
+        Car result = carRepository.save(car);
 
-        assertEquals(result, 0l);
+        assertEquals(result, car);
     }
 
+
+
     @Test
-    void test3() {
+    void findByNameTest() {
         CarRepository carRepository = new CarRepository();
-
-        Game game1 = new Game(1);
-        Game game2 = new Game(2);
-        carRepository.save(game1);
-        Long result = carRepository.save(game2);
-
-        assertEquals(result, 1l);
-    }
+        Car car = new Car("car");
+        carRepository.save(car);
 
 
-    @Test
-    void test2() {
-        GameRepository gameRepository = new GameRepository();
-        Game game = new Game(2);
-        Long id = gameRepository.save(game);
+        Car result =carRepository.findByName("car");
 
-        Game result =gameRepository.findById(id);
-
-        assertEquals(result, game);
+        assertEquals(result, car);
     }
 
 }

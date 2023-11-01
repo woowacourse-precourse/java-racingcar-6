@@ -9,7 +9,7 @@ public class CarRepository {
 
     Map<String, Car> carMap = new HashMap<String,Car>();
     public Car save(Car saveCar) {
-        carMap.put(name, saveCar);
+        carMap.put(saveCar.getName(), saveCar);
         return saveCar;
     }
 
