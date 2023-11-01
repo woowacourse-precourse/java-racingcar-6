@@ -79,6 +79,29 @@ class ApplicationTest extends NsTest {
     	
     	assertThat(results).containsExactly(0, 0);
     }
+    
+    @Test
+    void TestgoOrStopByRandomNum() {
+    	List<Integer> results = Arrays.asList(0, 0);
+    	int randomNum = MOVING_FORWARD;
+    	
+		if(randomNum >= 4) {
+			results.set(0, results.get(0) + 1);
+		}
+    	
+    	assertThat(results).containsExactly(1, 0);
+    }
+    
+    @Test
+    void TestprintWinners() {
+    	assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+            );
+    }
 
     @Override
     public void runMain() {
