@@ -2,11 +2,11 @@ package racingcar.utill;
 
 import static racingcar.utill.constant.ExceptionConstant.ATTEMPT_NUMBER_EXCEPTION_MESSAGE;
 import static racingcar.utill.constant.ExceptionConstant.BLANK_INPUT_EXCEPTION_MESSAGE;
-import static racingcar.utill.constant.ExceptionConstant.CAR_NAME_EXCEPTION_MESSAGE;
-import static racingcar.utill.constant.ExceptionConstant.DUPLICATE_NAME_EXCEPTION;
+import static racingcar.utill.constant.ExceptionConstant.CAR_NAME_MAX_SIZE_EXCEPTION_MESSAGE;
+import static racingcar.utill.constant.ExceptionConstant.DUPLICATE_NAME_EXCEPTION_MESSAGE;
 import static racingcar.utill.constant.ExceptionConstant.NULL_INPUT_EXCEPTION_MESSAGE;
 import static racingcar.utill.constant.ValidatorConstant.CAR_NAME_MAX_SIZE;
-import static racingcar.utill.constant.ValidatorConstant.NATURAL_NUMBER_PATTERN;
+import static racingcar.utill.constant.ValidatorConstant.ZERO_AND_NATURAL_NUMBER_PATTERN;
 
 import java.util.Arrays;
 import java.util.regex.Matcher;
@@ -24,7 +24,7 @@ public final class Validator {
         for (String split : splitCarsName) {
             validateCarName(split);
         }
-        Validator.validateDuplicatedCarName(splitCarsName);
+        validateDuplicatedCarName(splitCarsName);
     }
 
     private static void validateCarName(String carName) {
@@ -33,7 +33,7 @@ public final class Validator {
         }
 
         if (carName.length() > CAR_NAME_MAX_SIZE) {
-            throw new IllegalArgumentException(CAR_NAME_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(CAR_NAME_MAX_SIZE_EXCEPTION_MESSAGE);
         }
     }
 
@@ -41,12 +41,12 @@ public final class Validator {
         Object[] noDuplicateCarsName = Arrays.stream(carsName).distinct().toArray();
 
         if (noDuplicateCarsName.length != carsName.length) {
-            throw new IllegalArgumentException(DUPLICATE_NAME_EXCEPTION);
+            throw new IllegalArgumentException(DUPLICATE_NAME_EXCEPTION_MESSAGE);
         }
     }
 
     public static void validateAttemptNumber(String attemptNumber) {
-        Matcher attemptNumberMatcher = NATURAL_NUMBER_PATTERN.matcher(attemptNumber);
+        Matcher attemptNumberMatcher = ZERO_AND_NATURAL_NUMBER_PATTERN.matcher(attemptNumber);
 
         if (attemptNumber.isBlank()) {
             throw new IllegalArgumentException(BLANK_INPUT_EXCEPTION_MESSAGE);

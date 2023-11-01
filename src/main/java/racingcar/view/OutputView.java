@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import static racingcar.view.constant.ViewConstant.CAR_MOVE;
-import static racingcar.view.constant.ViewConstant.RESULT_VIEW;
+import static racingcar.view.constant.ViewConstant.RESULT_NOTICE;
 import static racingcar.view.constant.ViewConstant.WINNER;
 
 import java.util.List;
@@ -12,7 +12,7 @@ public class OutputView {
 
     public static void printRacingResult(List<CarsStatus> totalCarsStatus) {
         System.out.println();
-        System.out.println(RESULT_VIEW);
+        System.out.println(RESULT_NOTICE);
         totalCarsStatus.forEach(OutputView::printCarsStatusResult);
     }
 

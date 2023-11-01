@@ -35,16 +35,12 @@ class ValidatorTest {
     void validateAttemptNumberTest() {
         //given
         String alphabet = "a";
-        String noNatural1 = "01";
         String minus = "-1";
         String floatNumber = "0.1";
 
         //when , then
         assertThrows(IllegalArgumentException.class, () -> validateAttemptNumber(alphabet));
-        assertThrows(IllegalArgumentException.class, () -> validateAttemptNumber(noNatural1));
         assertThrows(IllegalArgumentException.class, () -> validateAttemptNumber(minus));
         assertThrows(IllegalArgumentException.class, () -> validateAttemptNumber(floatNumber));
     }
-
-
 }
