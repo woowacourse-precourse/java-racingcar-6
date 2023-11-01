@@ -23,7 +23,7 @@ public class InputView {
         validateDuplicateNames(carNames);
         return Arrays.stream(carNames)
                 .map(String::trim)
-                .peek(this:: validateCarName)
+                .peek(this::validateCarName)
                 .toArray(String[]::new);
     }
 
@@ -31,6 +31,7 @@ public class InputView {
         validateLength(carName);
         validateIsNotEmpty(carName);
         validateNoSpaces(carName);
+        validateFormat(carName);
 
     }
 
@@ -59,19 +60,26 @@ public class InputView {
         }
     }
 
-    private static int parseToInt(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("정수 값을 입력해주세요.");
-        }
-    }
-
     private void validateFormat(String carName) {
         if (!carName.matches("[a-zA-Z0-9가-힣]+")) {
             throw new IllegalArgumentException("자동차 이름은 알파벳, 숫자, 한글만 사용 가능합니다.");
         }
     }
 
+    private int parseToInt(String input) {
+        try {
+            int progressCount = Integer.parseInt(input);
+            validateIsPositive(progressCount);
+            return progressCount;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("정수 값을 입력해주세요.");
+        }
+    }
+
+    private void validateIsPositive(int progressCount) {
+        if (progressCount <= 0) {
+            throw new IllegalArgumentException("라운드 수는 1 이상의 정수여야 합니다.");
+        }
+    }
 
 }
