@@ -1,52 +1,54 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
-import racingcar.model.RacingData;
-import racingcar.view.RacingGameOutputs;
+import racingcar.model.*;
+import racingcar.view.RacingGameDescription;
 
 public class GamePlaying {
 
+    RacingData racingData= RacingData.getInstance();
     Car car = Car.getInstance();
-    RacingData racingData = RacingData.getInstance();
 
 
-
-    TakeInputs takeInputs = new TakeInputs();
-
-    Loops loops = new Loops();
-
-    VictoryCondition victoryCondition = new VictoryCondition();
 
     DataConverter dataConverter = new DataConverter();
-
+    TakeInputs takeInputs = new TakeInputs();
+    Loops dataCarrier = new Loops();
     ExceptionsCheck exceptionsCheck = new ExceptionsCheck();
+    WinnerController winner = new WinnerController();
 
 
+    public void playing (){
 
-    public void playing () {
+        System.out.println(RacingGameDescription.pleaseInuptCarNames);
 
-        System.out.println(RacingGameOutputs.pleaseInuptCarNames);
 
-        takeInputs.userInputString();
+        takeInputs.userInputCarString();
         exceptionsCheck.testInputString();
 
-        dataConverter.changeInputStringToList(car.getPassedTestString());
-        exceptionsCheck.testPassed(exceptionsCheck.testPassCountAsCar());
 
-        System.out.println(RacingGameOutputs.inputNumberOfAttempt);
+        dataConverter.changeInputStringToList(car.getPassedTestString());
+        exceptionsCheck.passedCheckCarList();
+
+
+        System.out.println(RacingGameDescription.inputNumberOfAttempt);
+
 
         takeInputs.userInputLoopCount();
-        exceptionsCheck.testInputLoopString(exceptionsCheck.testPassCountAsLoop());
+        exceptionsCheck.passedCheckLoopString();
 
-        dataConverter.changeInputStringToInteger(racingData.getUserInputLoopString());
+
+        dataConverter.changeInputStringToInteger(racingData.getPassedTestLoopString());
+
 
         System.out.println();
+        System.out.println(RacingGameDescription.attemptResult);
 
-        System.out.println(RacingGameOutputs.attemptResult);
-        loops.racingLoop();
 
-        victoryCondition.makeWinnerList();;
-        victoryCondition.winnerIs(victoryCondition.winnerNumber());
+        dataCarrier.loops();
+
+        winner.winners();
 
     }
+
 }
+
