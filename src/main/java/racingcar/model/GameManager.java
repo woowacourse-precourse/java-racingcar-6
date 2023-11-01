@@ -34,6 +34,13 @@ public class GameManager {
 
     }
 
+    public static void testRun(List<String> carNames, int tryNum){
+        createCars(carNames);
+        for(int i=0;i<tryNum;i++) {
+            moveAllCars(cars);
+        }
+    }
+
     public static List<Car> getCars(){
         return cars;
     }

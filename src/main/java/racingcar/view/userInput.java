@@ -32,7 +32,7 @@ public class userInput {
     }
 
     public static void validateTryNumber(int tryNum){
-        if(tryNum < 0 ){
+        if(tryNum < 1 ){
             throw new IllegalArgumentException("시도 횟수는 0을 넘어야 합니다.");
         }
 

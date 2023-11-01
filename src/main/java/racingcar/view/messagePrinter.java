@@ -31,7 +31,7 @@ public class messagePrinter {
         }
     }
 
-    public static void printWinners(List<Car> cars){
+    public static List<String> printWinners(List<Car> cars){
         int max = 0;
         for(int i=0;i<cars.size();i++){
             if(cars.get(i).raceStatus > max){
@@ -53,6 +53,6 @@ public class messagePrinter {
                 System.out.print(", ");
             }
         }
+        return winners;
     }
-
 }
