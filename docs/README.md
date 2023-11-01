@@ -12,3 +12,8 @@
 - [] 사용자 입력 오류 처리 InputValidator
   - [] 자동차 이름이 올바른지 확인 validateCarNames
   - [] 시도 횟수가 올바른지 확인 validateNumAttempts
+
+## 차
+- [] 자동자 이름, 위치
+- [] 앞으로 가는 함수
+- [] 멈추는 함수
