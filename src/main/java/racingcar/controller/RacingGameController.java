@@ -24,7 +24,6 @@ public class RacingGameController {
             cars.moveForwardByRandomNumber();
             printGameResult(cars);
         }
-
         printGameWinner(cars);
     }
 
