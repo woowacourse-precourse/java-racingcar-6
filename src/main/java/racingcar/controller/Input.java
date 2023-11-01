@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.UserInputData;
+import racingcar.view.Description;
+import racingcar.view.View;
 
 public class Input {
 
@@ -30,7 +32,7 @@ public class Input {
         final String SEPARATOR_CHARACTER = ",";
         final int LENGTH_LIMIT = 5;
         List<String> answer;
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        View.show(Description.INPUT_CARNAME);
         String str = Console.readLine();
         answer = Arrays.asList(str.split(SEPARATOR_CHARACTER));
 
@@ -54,7 +56,7 @@ public class Input {
         int answer;
         final int MINIMUM_TRY_COUNT = 1;
         final String NUMERIC_PATTERN = "^[\\d]*";
-        System.out.println("시도할 횟수는 몇회인가요?");
+        View.show(Description.INPUT_TRY_COUNT);
         String str = Console.readLine();
 
         if (!str.matches(NUMERIC_PATTERN)) {
