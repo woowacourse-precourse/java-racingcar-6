@@ -33,6 +33,12 @@ class ReaderTest {
         assertThat(Reader.attempts()).isEqualTo(10);
     }
 
+    @Test
+    void 입력받은_자동차_이름들을_문자열_배열로_반환한다() {
+        입력("love,hate,you");
+        assertThat(Reader.carNames()).usingRecursiveComparison().isEqualTo(new String[]{"love", "hate", "you"});
+    }
+
     private void 입력(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
