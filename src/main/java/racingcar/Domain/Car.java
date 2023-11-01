@@ -10,7 +10,7 @@ public class Car {
     public String name;
     public Integer point;
 
-    public Car(String name, Integer point){
+    public Car(String name, Integer point) {
         this.name = name;
         this.point = point;
     }
@@ -23,39 +23,29 @@ public class Car {
         return point;
     }
 
-    private void setPoint(Integer point) {
-        this.point = point;
-    }
-
-    public void move(){
-
+    public void move() {
         Integer randomValue = createRandomValue();
-
         boolean randomValueValidation = checkRandomValueValidation(randomValue);
 
         if(randomValueValidation){
             moveCar(randomValue);
         }
-
     }
 
-    public Integer createRandomValue(){
-
+    public Integer createRandomValue() {
         Integer randomValue = Randoms.pickNumberInRange(0, 9);
 
         return randomValue;
     }
 
-    public boolean checkRandomValueValidation(Integer randomValue){
-
+    public boolean checkRandomValueValidation(Integer randomValue) {
         if (randomValue >= 4){
             return true;
         }
-
         return false;
     }
 
-    public void moveCar(Integer randomValue){
+    public void moveCar(Integer randomValue) {
         this.point += randomValue;
     }
 
