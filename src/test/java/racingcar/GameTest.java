@@ -37,10 +37,9 @@ class GameTest {
         // given
         List<Car> carList = List.of(new Car("Car1"));
         int beforeMoveCount = carList.get(0).moveCount();
-        int RANDOM_NUMBER = 4;
 
         //when
-        gameService.decideMovement(carList, RANDOM_NUMBER);
+        gameService.decideMovement(carList);
         int afterMoveCount = carList.get(0).moveCount();
 
         // then

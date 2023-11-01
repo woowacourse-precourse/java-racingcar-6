@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
+import racingcar.model.Game;
 import racingcar.util.Constant;
 
 public class GameService {
@@ -31,8 +32,9 @@ public class GameService {
         return cars;
     }
 
-    public void decideMovement(List<Car> carList, int randomNumber) {
+    public void decideMovement(List<Car> carList) {
         for (Car car : carList) {
+            int randomNumber = Game.generateRandomNumber();
             if (randomNumber >= Constant.NUMBER_FOR_MOVE) {
                 car.move();
                 car.moveCount();
