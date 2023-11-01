@@ -48,4 +48,5 @@ public class CarNameValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름에 중복이 있습니다.");
     }
+
 }

@@ -89,4 +89,5 @@ public class CarServiceTest {
         // Then
         assertThat(winnerNames).containsExactly("car2","car3");
     }
+
 }

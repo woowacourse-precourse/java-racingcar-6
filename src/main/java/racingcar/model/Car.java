@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class Car {
+
     private final String name;
     private int currentLocation;
 
@@ -20,4 +21,5 @@ public class Car {
     public void moveForward() {
         currentLocation += 1;
     }
+
 }

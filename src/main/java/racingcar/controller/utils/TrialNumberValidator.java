@@ -1,6 +1,7 @@
 package racingcar.controller.utils;
 
 public class TrialNumberValidator {
+
     public void validateTrialNumberInput(String input) throws IllegalArgumentException {
         checkIsEmpty(input);
         checkIsNumber(input);
@@ -19,4 +20,5 @@ public class TrialNumberValidator {
             throw new IllegalArgumentException("숫자를 입력해야 합니다.");
         }
     }
+
 }

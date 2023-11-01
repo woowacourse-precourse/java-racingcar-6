@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CarNameValidator {
+
     private final StringParser stringParser = new StringParser();
     private static final int CAR_NAME_MAX_LENGTH = 5;
     private static final int CAR_NAME_MIN_LENGTH = 1;
@@ -47,4 +48,5 @@ public class CarNameValidator {
             throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");
         }
     }
+
 }

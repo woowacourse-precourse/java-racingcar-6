@@ -31,5 +31,4 @@ public class TrialNumberValidatorTest {
                 .hasMessage("숫자를 입력해야 합니다.");
     }
 
-
 }

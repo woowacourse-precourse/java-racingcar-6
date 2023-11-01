@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarService {
+
     private final CarRepository carRepository;
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 9;
@@ -64,4 +65,5 @@ public class CarService {
         }
         return longestDistance;
     }
+
 }
