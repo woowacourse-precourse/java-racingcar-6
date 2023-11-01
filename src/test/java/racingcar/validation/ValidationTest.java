@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class ValidationTest {
 
     @Test
-    void 다섯_글자를_초과한_입력_테스트() {
+    void 다섯_글자를_초과한_입력() {
         String input = "a,bb,ccc,dddd,eeeee,ffffff";
         List<String> carNames = List.of(input.split(","));
 
