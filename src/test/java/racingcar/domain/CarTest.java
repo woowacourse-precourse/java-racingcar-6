@@ -3,14 +3,30 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CarTest {
+    @Test
+    @DisplayName("Car를 생성할 수 있다.")
+    void carTest() {
+        Name woo = new Name("woo");
+        Car car = new Car(woo);
+
+        assertThat(car.getName()).isEqualTo(woo.name());
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
 
     @Test
-    @DisplayName("이름이 5글자 이상일 경우 예외가 발생한다.")
-    void evaluate() {
-        assertThatThrownBy(() -> new Car("woowacourse"))
-                .isInstanceOf(IllegalArgumentException.class);
+    @DisplayName("Car의 이동 횟수만큼 문자로 변환할 수 있다.")
+    void carToStringTest() {
+        Name woo = new Name("woo");
+        Car car = new Car(woo);
+        car.move();
+        car.move();
+        car.move();
+
+        String movement = car.toString();
+
+        assertThat(movement).isEqualTo("---");
     }
 }
