@@ -13,4 +13,17 @@ public class Output {
         }
         System.out.println();
     }
+    public void printWinner(List<Car> winnerList) {
+        System.out.print(FINAL_WINNER);
+        int numOfWinner = winnerList.size();
+        for (int index = 0; index < numOfWinner; index++) {
+            Car car = winnerList.get(index);
+            System.out.print(" " + car.getName());
+            if (index + 1 != numOfWinner)
+                System.out.print(",");
+        }
+        System.out.println();
+    }
+
+
 }
