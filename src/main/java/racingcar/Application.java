@@ -15,42 +15,15 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         Integer trialNumber = saveTrialNumber(Console.readLine().trim());
         System.out.println("\n실행결과");
-        drive(trialNumber);
+        DriveProcedure.drive(trialNumber);
         showWinner(decideWinner(getMaxScore()));
-    }
-    private static void drive(Integer saveTrialNumber) {
-        for (int i = 0; i<saveTrialNumber; i++) {
-            updateDriveNum();
-            driveResult();
-            System.out.println("");
-        }
-    }
-    private static Integer createDriveCarNum () {
-        Integer driveNumber = isMoreThanFour(createRandomNum());
-        return driveNumber;
-    }
-    private static Integer createRandomNum() {
-        Integer randomNum = Randoms.pickNumberInRange(0,9);
-        return randomNum;
-    }
-    private static Integer isMoreThanFour (Integer randomNum) {
-        if (randomNum >= 4) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-    private static void updateDriveNum() {
-        for (Car car : cars) {
-            Integer newDriveNum = createDriveCarNum();
-            car.setDriveNum(newDriveNum);
-        }
     }
     private static void createCars(String carNames) {
         InputException.isContainComma(carNames);
         createCar(carNames);
         Integer carsLength = cars.size();
     }
+
     private static void createCar(String carNames) {
         for (String carName : carNames.split(",")) {
             InputException.isCorrectNameLength(carName.trim());
