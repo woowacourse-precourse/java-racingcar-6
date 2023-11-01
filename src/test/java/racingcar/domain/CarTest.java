@@ -10,6 +10,19 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
 
+    @DisplayName("자동차는 이름이 같다면 동일한 자동차다")
+    @Test
+    void when_carHasSameName_thatIsSameCar() {
+        // given
+        String name = "aaa";
+
+        // when
+        Car car1 = Car.of(name, 0);
+
+        // then
+        assertThat(car1).isEqualTo(Car.of(name, 1));
+    }
+
     @DisplayName("자동차의 이름이 영문(대소문자)이 아니라면 생성할 수 없다.")
     @ParameterizedTest
     @ValueSource(strings = {"name1", "na me", "dfd12", "123", "[.;z`", "a1ad"})
