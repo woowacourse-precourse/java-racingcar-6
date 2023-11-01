@@ -14,6 +14,7 @@ import racingcar.controller.Controller;
 import racingcar.model.Car;
 import racingcar.view.InputView;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -98,6 +99,15 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("시도횟수에 문자가 입력되었을때 에러")
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "@abcf", "Abc"})
+    void ThrowErrorIfTrialInputIsString(String input) {
+        System.setIn(generateUserInput(input));
+        InputView inputView = new InputView();
+
+        assertThatThrownBy(inputView::inputTrial)
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
