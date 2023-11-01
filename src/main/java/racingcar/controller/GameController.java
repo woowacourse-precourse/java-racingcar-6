@@ -8,8 +8,8 @@ import racingcar.view.OutputView;
 import java.util.stream.IntStream;
 
 public class GameController {
-    CarList carList;
-    RoundNumber roundNumber;
+    private CarList carList;
+    private RoundNumber roundNumber;
 
     public GameController() {
         initializeGame();
