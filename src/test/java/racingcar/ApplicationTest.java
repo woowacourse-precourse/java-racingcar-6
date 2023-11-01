@@ -43,6 +43,18 @@ class ApplicationTest extends NsTest {
         // then
         assertThat(car.getTotalMove()).isEqualTo(1);
     }
+
+    @DisplayName("자동차 정지 테스트")
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3})
+    void StopCarIfRanNumLessThan3(int num) {
+        // given
+        final Car car = new Car();
+        // when
+        car.moveForward(num);
+        // then
+        assertThat(car.getTotalMove()).isEqualTo(0);
+    }
     }
 
     @Test
