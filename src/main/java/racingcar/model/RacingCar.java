@@ -13,6 +13,11 @@ public class RacingCar {
                 .forEach( playerCarName-> carList.add(new Car(playerCarName)));
     }
 
+
+    public void stopOrMoveForward(){
+        carList.forEach(racingCar -> racingCar.stopOrMoveForward());
+    }
     
+
 
 }
