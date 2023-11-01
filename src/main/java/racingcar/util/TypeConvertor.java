@@ -18,16 +18,16 @@ public class TypeConvertor {
     }
 
     public Long convertStringToLong(String input) {
-        long n;
+        input = input.trim();
         try {
-            n = Long.parseLong(input);
+            long n = Long.parseLong(input);
             if(n < 1) {
                 throw new IllegalArgumentException(ErrorMessage.NUMERIC_ERROR);
             }
+            return n;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.NUMERIC_ERROR);
         }
-        return n;
     }
 
 
