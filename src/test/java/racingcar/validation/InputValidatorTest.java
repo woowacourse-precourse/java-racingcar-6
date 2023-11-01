@@ -25,10 +25,12 @@ public class InputValidatorTest {
     }
 
     @Test
-    public void 입력형식이_잘못되었을때() {
+    public void 입력형식이_잘못되었을때_콤마가_맨끝에() {
         assertThatThrownBy(() -> InputValidator.validateInputFormat("abc,def,123,"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력형식이 올바르지 않습니다.");
     }
+
+
 
 }
