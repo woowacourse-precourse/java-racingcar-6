@@ -179,6 +179,10 @@ Randoms.pickNumberInRange(0,9);
   1. 자동차 이름
   2. 횟수를 입력할 n
  
+  ### 출력
+  1. n번동안 진행된 각각의 차량 움직임
+  2. 최종적으로 웃승자
+ 
   ### 진행 흐름
   view 에서 자동차 이름들을 입력을 받아 -> service에서 "," 기준으로 자동차 생성 후 -> repository 의 list에 저장
   view 에서 n개의 횟수를 받아 n번 만큼 루프 -> 루프시 안에서 service에서 자동차 움직임 -> 각 자동차를 repository에서 꺼내오고 움직인 후 repository에 저장 
