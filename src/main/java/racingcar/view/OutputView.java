@@ -13,10 +13,10 @@ public class OutputView {
 
     public void printResults(Cars cars) {
         System.out.println(Converter.formatCarsResult(cars));
+        System.out.println();
     }
 
     public void printWinners(Cars cars) {
-        System.out.println();
         System.out.print(WINNER);
         Cars winner = cars.judgeWinner();
         System.out.println(Converter.formatWinnersResult(winner));
