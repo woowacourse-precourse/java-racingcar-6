@@ -35,6 +35,16 @@ public class Game {
         totalTrialCount = Integer.parseInt(trialCountString);
     }
 
+    public void playGame() {
+        System.out.println();
+        System.out.println("실행 결과");
+
+        while (curTrialCount < totalTrialCount) {
+            attemptTrial();
+            curTrialCount++;
+        }
+    }
+
     public void attemptTrial() {
         for (Car car : cars) {
             car.attemptGo();
