@@ -8,6 +8,7 @@ import racingcar.domain.Client;
 import racingcar.domain.ResultDto;
 import racingcar.domain.SingleRoundResultDto;
 import racingcar.domain.Car;
+import racingcar.util.TestConsts;
 
 import java.math.BigInteger;
 
@@ -16,8 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingServiceTest {
     private static final String TEMP_CLIENT_ROUND = "1";
-    private static final int STOP = 1;
-    private static final int FORWARD = 5;
     RacingService racingService;
 
     @BeforeEach
@@ -58,7 +57,7 @@ class RacingServiceTest {
                     assertThat(woniCar.getDistance()).isEqualTo(1L);
                     Car.CarResultDto junCar = singleRoundResult.getCarResultDto(2);
                     assertThat(junCar.getDistance()).isEqualTo(1L);
-                }, FORWARD, FORWARD, FORWARD
+                }, TestConsts.FORWARD, TestConsts.FORWARD, TestConsts.FORWARD
         );
     }
 
@@ -76,7 +75,7 @@ class RacingServiceTest {
                     assertThat(woniCar.getDistance()).isEqualTo(0L);
                     Car.CarResultDto junCar = singleRoundResult.getCarResultDto(2);
                     assertThat(junCar.getDistance()).isEqualTo(0L);
-                }, STOP, STOP, STOP
+                }, TestConsts.STOP, TestConsts.STOP, TestConsts.STOP
         );
     }
 }

@@ -60,7 +60,7 @@ class OutputViewTest {
                     ResultDto resultDto = racingService.playCarRacing();
                     outputView.printResult(resultDto);
                     assertThat(output()).contains("실행 결과", "pobi : ", "woni : ", "jun : -", "최종 우승자 : jun");
-                }, TestConsts.STOP, TestConsts.STOP, TestConsts.MOVE_FORWARD
+                }, TestConsts.STOP, TestConsts.STOP, TestConsts.FORWARD
         );
     }
 }

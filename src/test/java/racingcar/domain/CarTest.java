@@ -2,18 +2,16 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.TestConsts;
 
 import java.math.BigInteger;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.util.Consts.MOVEMENT_CRITERIA;
 
 class CarTest {
 
     private static final BigInteger TEMP_ID = BigInteger.ZERO;
-    private static final int ANOTHER_MOVING_RESULT = MOVEMENT_CRITERIA + 3;
-    private static final int STOPPED_RESULT = MOVEMENT_CRITERIA - 1;
 
     @Test
     @DisplayName("차를 생성하는 기능 확인")
@@ -53,8 +51,7 @@ class CarTest {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
                     assertThat(carResultDto.getDistance()).isEqualTo(1L);
-                },
-                MOVEMENT_CRITERIA
+                }, TestConsts.FORWARD
         );
 
         assertRandomNumberInRangeTest(
@@ -62,8 +59,7 @@ class CarTest {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
                     assertThat(carResultDto.getDistance()).isEqualTo(2L);
-                },
-                ANOTHER_MOVING_RESULT
+                }, TestConsts.FORWARD
         );
     }
 
@@ -76,8 +72,7 @@ class CarTest {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
                     assertThat(carResultDto.getDistance()).isEqualTo(0L);
-                },
-                STOPPED_RESULT
+                }, TestConsts.STOP
         );
     }
 }

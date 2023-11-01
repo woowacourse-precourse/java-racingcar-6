@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.CarsDto;
 import racingcar.domain.Client;
 import racingcar.domain.ResultDto;
+import racingcar.util.TestConsts;
 
 import java.math.BigInteger;
 
@@ -17,8 +18,6 @@ class CarRepositoryTest {
     private static final String TEMP_CLIENT_ROUND = "3";
     private static final int TOTAL_ROUND = 3;
     private static final int ONE_ROUND = 1;
-    private static final int STOP = 1;
-    private static final int FORWARD = 5;
 
     private CarRepository carRepository;
 
@@ -67,7 +66,7 @@ class CarRepositoryTest {
                     ResultDto result = carRepository.finishFinalRound();
                     assertThat(result.getFinalWinners())
                             .containsExactly("pobi", "jun");
-                }, FORWARD, STOP, FORWARD
+                }, TestConsts.FORWARD, TestConsts.STOP, TestConsts.FORWARD
         );
     }
 }
