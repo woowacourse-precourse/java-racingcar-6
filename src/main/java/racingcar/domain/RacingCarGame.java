@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import static racingcar.view.OutputView.showNameOfWinner;
-import static racingcar.view.OutputView.showStatusOfCar;
+import static racingcar.util.OutputView.showNameOfWinner;
+import static racingcar.util.OutputView.showStatusOfCar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Iterator;

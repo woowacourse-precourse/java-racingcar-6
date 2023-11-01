@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.util;
 
 import java.util.List;
 import racingcar.domain.Car;
@@ -9,6 +9,9 @@ public class OutputView {
     public static final String ASK_NUMBER_OF_RACE = "시도할 회수는 몇회인가요?";
     public static final String SHOW_RESULT_OF_RACE = "\n실행 결과";
     public static final String SHOW_WINNER = "최종 우승자 : ";
+
+    private OutputView() {
+    }
 
     public static void askNamesOfCars() {
         System.out.println(ASK_NAMES_OF_CARS);

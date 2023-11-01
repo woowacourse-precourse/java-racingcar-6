@@ -1,9 +1,9 @@
 package racingcar;
 
-import static racingcar.view.OutputView.askNamesOfCars;
-import static racingcar.view.OutputView.askNumberOfRace;
-import static racingcar.view.OutputView.showResultOfRace;
-import static racingcar.view.OutputView.showWinner;
+import static racingcar.util.OutputView.askNamesOfCars;
+import static racingcar.util.OutputView.askNumberOfRace;
+import static racingcar.util.OutputView.showResultOfRace;
+import static racingcar.util.OutputView.showWinner;
 
 import java.util.ArrayList;
 import java.util.List;
