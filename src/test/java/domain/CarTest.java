@@ -26,6 +26,7 @@ public class CarTest {
 		//given
 		String name = "pobi";
 		Car car = new Car(name);
+
 		// when
 		car.moveByNumber(randomNumber);
 
@@ -39,6 +40,7 @@ public class CarTest {
 		String name = "pobi";
 		Car car = new Car(name);
 		car.moveByNumber(4);
+
 		// when
 		String hyphenByLocation = car.createHyphenByLocation();
 
@@ -52,8 +54,8 @@ public class CarTest {
 		String name = "pobi";
 		Car car = new Car(name);
 		car.moveByNumber(3);
-		// when
 
+		// when
 		String hyphenByLocation = car.createHyphenByLocation();
 
 		//then
