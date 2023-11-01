@@ -1,9 +1,11 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-
+import camp.nextstep.edu.missionutils.Randoms;
 public class Cars {
     private final String[] carNames;
+    private int firstMagicNumber = 0;
+    private int lastMagicNumber = 9;
 
     public Cars() {
         String carNames = Console.readLine();
@@ -27,5 +29,9 @@ public class Cars {
                 throw new IllegalArgumentException(ExceptionError.emptyError);
             }
         }
+    }
+
+    public int randomNumber(){
+        return Randoms.pickNumberInRange(firstMagicNumber,lastMagicNumber);
     }
 }
