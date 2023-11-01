@@ -15,7 +15,7 @@ public class GameResult {
         System.out.println();
     }
 
-    public void findWinner(List<Car> carList) {
+    public String findWinner(List<Car> carList) {
         List<Integer> locations = new ArrayList<>();
         int topScore;
 
@@ -24,10 +24,10 @@ public class GameResult {
         }
         locations.sort(Collections.reverseOrder());
         topScore = locations.get(0);
-        printWinner(carList, topScore);
+        return printWinner(carList, topScore);
     }
 
-    public void printWinner(List<Car> carList, int topScore) {
+    public String printWinner(List<Car> carList, int topScore) {
         String winner = "";
         int carScore = 0;
 
@@ -38,5 +38,6 @@ public class GameResult {
         }
 
         System.out.println("최종 우승자 : " + winner);
+        return "최종 우승자 : " + winner;
     }
 }

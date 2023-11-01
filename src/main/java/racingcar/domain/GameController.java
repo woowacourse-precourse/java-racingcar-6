@@ -8,7 +8,6 @@ public class GameController {
     private List<String> carNames = new ArrayList<>();
     private UserInput userInput = new UserInput();
     private GameResult gameResult = new GameResult();
-    private int attemptCount;
 
     public GameController() {
     }
@@ -25,12 +24,13 @@ public class GameController {
         gameResult.findWinner(carList);
     }
 
-    public void updateName(String names) {
+    public List<Car> updateName(String names) {
         carNames = userInput.carName(names);
         for (int carNumber = 0; carNumber < carNames.size(); carNumber++) {
             Car car = new Car(carNames.get(carNumber));
             carList.add(car);
         }
+        return carList;
     }
 
     public void updatePosition(String strCount) {
