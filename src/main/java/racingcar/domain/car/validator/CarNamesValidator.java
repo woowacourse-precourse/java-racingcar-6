@@ -17,12 +17,12 @@ public class CarNamesValidator {
     }
 
     private static void validateCarNameIsDuplicated(final List<String> names) {
-        if (ensureCarNameIsDuplicated(names)) {
+        if (checkCarNameIsDuplicated(names)) {
             throw new InvalidArgumentException(ErrorMessages.CAR_NAME_IS_DUPLICATED);
         }
     }
 
-    private static boolean ensureCarNameIsDuplicated(final List<String> names) {
+    private static boolean checkCarNameIsDuplicated(final List<String> names) {
         return names.stream()
                 .anyMatch(name -> isDuplicated(names, name));
     }
