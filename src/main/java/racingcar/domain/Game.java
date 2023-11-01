@@ -6,6 +6,7 @@ import racingcar.views.OutputView;
 import java.util.ArrayList;
 
 import static racingcar.util.ErrorInstruction.CAR_NAME_LENGTH_ERROR_MESSAGE;
+import static racingcar.util.ErrorInstruction.TRIAL_COUNT_ERROR_MESSAGE;
 import static racingcar.views.InputView.readUserInput;
 
 public class Game {
@@ -37,6 +38,9 @@ public class Game {
         try {
             OutputView.printTrialCountInstruction();
             String userInput = InputView.readUserInput();
+            if (!userInput.chars().allMatch(Character::isDigit)) {
+                throw new IllegalArgumentException(TRIAL_COUNT_ERROR_MESSAGE.getMessage());
+            }
         } catch (IllegalArgumentException exception) {
             OutputView.printErrorMessage(exception);
             getMoveCount();
