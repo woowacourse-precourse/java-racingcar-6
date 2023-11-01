@@ -26,4 +26,12 @@ public class Game {
         return cars.getCars();
     }
 
+    public boolean isGameOver() {
+        if (currentAttemptCount == givenAttemptCount)
+            return true;
+        return false;
+    }
+
+
+
 }
