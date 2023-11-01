@@ -14,10 +14,12 @@ public class GameInput {
     public List<Car> inputCarNames(String input) {
         List<Car> carList = new ArrayList<>();
 
-        String[] carNames = input.split(COMMA);
+        String[] carNames = input.split(COMMA,-1);
 
         for (int i = 0; i < carNames.length; i++) {
-            carList.add(new Car(carNames[i]));
+            String carName = carNames[i].trim();
+            validateNameBlank(carName);
+            carList.add(new Car(carName));
         }
 
         return carList;
@@ -40,6 +42,12 @@ public class GameInput {
 
     private void validateNumberRange(String number) {
         if (Integer.parseInt(number) < MORE_THAN_ZERO) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateNameBlank(String name) {
+        if (name.isBlank()) {
             throw new IllegalArgumentException();
         }
     }
