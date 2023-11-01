@@ -26,4 +26,6 @@ public class Constants {
 	public static final int STUB=2;
 	
 	public static final int INIT_SCORE=0;
+	
+	public static final int longest_name_length=5;
 }

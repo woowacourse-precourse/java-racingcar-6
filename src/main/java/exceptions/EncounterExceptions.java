@@ -1,8 +1,10 @@
 package exceptions;
 
+import static data.Constants.longest_name_length;
+
 public class EncounterExceptions {
 	
-	private static final int longest_name_length=5;
+	//private static final int longest_name_length=5;private static final int longest_name_length=5;
 
 	public String [] nameInspection(String names) {
 		

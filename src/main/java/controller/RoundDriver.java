@@ -56,7 +56,7 @@ public class RoundDriver {
 		System.out.println();
 	}
 	
-	private String typeConverter(int score) {
+	public String typeConverter(int score) {
 		
 		String hyphens=HYPHEN_NOTHING_YET;
 		

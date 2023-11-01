@@ -26,7 +26,7 @@ public class Winners {
 		raise_a_toast(winners);
 	}
 	
-	private int getHighestScore() {
+	public int getHighestScore() {
 		
 		int highest_score=SMALLINT;
 		
@@ -36,7 +36,7 @@ public class Winners {
 		return highest_score;
 	}
 	
-	private List<String> whoAreTheWinners() {
+	public List<String> whoAreTheWinners() {
 		
 		List<String> winners=new ArrayList<>();
 		int highest_score=getHighestScore();
@@ -48,13 +48,13 @@ public class Winners {
 		return winners;
 	}
 	
-	private void raise_a_toast(List<String> winners) {
+	public void raise_a_toast(List<String> winners) {
 		
 		String print=typeConverter(winners);
 		System.out.println("최종 우승자 : "+print);
 	}
 	
-	private String typeConverter(List<String> winners) {
+	public String typeConverter(List<String> winners) {
 		
 		String toast="";
 		
