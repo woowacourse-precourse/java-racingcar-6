@@ -14,10 +14,12 @@ public class Validator {
     public static final String ZERO_INPUT_ERROR_MESSAGE = "0이 아닌 양의 정수 입력해주세요.";
     public static final int VALID_NUMBER_RANGE_START = '0';
     public static final int VALID_NUMBER_RANGE_END = '9';
+    public static final String NAME_INCLUDE_BLANK_ERROR_MESSAGE = "이름에 공백이 포함되었습니다.";
+    public static final String INCLUDE_BLANK_STRING = " ";
 
     public static void nameBlankCheck(String name) {
-        if (name.contains(" ") || name.equals("")) {
-            throw new IllegalArgumentException("이름에 공백이 포함되었습니다.");
+        if (name.contains(INCLUDE_BLANK_STRING) || name.equals(BLANK_STRING)) {
+            throw new IllegalArgumentException(NAME_INCLUDE_BLANK_ERROR_MESSAGE);
         }
     }
 
