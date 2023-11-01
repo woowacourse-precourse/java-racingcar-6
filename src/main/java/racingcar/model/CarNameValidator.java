@@ -28,4 +28,9 @@ public class CarNameValidator {
             throw new IllegalArgumentException(Constants.CAR_NAME_SIZE_ERROR);
         }
     }
+    public void isNotDuplicated() {
+        if (NAMES.size() != NAMES.stream().distinct().count()) {
+            throw new IllegalArgumentException(Constants.CAR_NAME_DUPLICATED_ERROR);
+        }
+    }
 }
