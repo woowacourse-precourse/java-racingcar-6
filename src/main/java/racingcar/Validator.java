@@ -15,6 +15,11 @@ public class Validator {
     public static final int VALID_NUMBER_RANGE_START = '0';
     public static final int VALID_NUMBER_RANGE_END = '9';
 
+    public static void nameBlankCheck(String name) {
+        if (name.contains(" ") || name.equals("")) {
+            throw new IllegalArgumentException("이름에 공백이 포함되었습니다.");
+        }
+    }
 
     public static void nameLengthCheck(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
@@ -50,5 +55,4 @@ public class Validator {
             }
         }
     }
-
 }
