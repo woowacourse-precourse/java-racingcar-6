@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.*;
@@ -117,6 +120,27 @@ class ApplicationTest extends NsTest {
         String[] result = input.split(",");
 
         assertThat(result).contains("1");
+    }
+
+    public void duplicateName(String[] input) {
+        List<String> list = new ArrayList<>();
+
+        for (String s : input) {
+            if (list.contains(s)) {
+                throw new IllegalArgumentException("이미 이름이 존재합니다.");
+            } else if (!list.contains(s)) {
+                list.add(s);
+            }
+        }
+    }
+
+    @Test
+    void 중복_이름_포함_예외처리(){
+        String input = "pobi,pobi,jun";
+        String[] result = input.split(",");
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> duplicateName(result));
+        assertEquals("이미 이름이 존재합니다.", exception.getMessage());
     }
 
 
