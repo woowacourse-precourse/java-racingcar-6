@@ -20,10 +20,10 @@ class CarTest {
 	@DisplayName("4이하의 숫자라면 자동차는 전진하지 않는다.")
 	void test02() {
 		final var car = new Car("abc");
-		final var number = 4;
+		final var number = 3;
 		car.advance(number);
 		final var status = car.toString();
-		assertThat(status).isEqualTo("");
+		assertThat(status).isEqualTo("abc : ");
 	}
 
 	@Test
