@@ -123,10 +123,10 @@ public class Application {
     }
 
     private static void validateCarNames(List<String> carNames) {
-        for (String carName : carNames) {
+        carNames.forEach(carName -> {
             validateNamePattern(carName);
             validateNameLength(carName);
-        }
+        });
         validateNoDuplicate(carNames);
     }
 
