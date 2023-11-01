@@ -9,6 +9,7 @@ public class Game {
             for (Car car : cars) {
                 car.move();
             }
+            printResult(cars);
             System.out.println();
         }
     }
