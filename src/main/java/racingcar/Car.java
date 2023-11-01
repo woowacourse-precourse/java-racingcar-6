@@ -23,11 +23,8 @@ public class Car{
             if(car.get(i).length()>5){
                 throw new IllegalArgumentException("[ERROR] 이름은 5자 이하만 가능하다.");
             }
-            if(car.get(i)==null){
+            if(car.get(i)==null|| car.get(i).isBlank()) {
                 throw new IllegalArgumentException("[ERROR] 이름을 입력해야한다.");
-            }
-            if(car.get(i).equals(" ")){
-                throw new IllegalArgumentException("[ERROR] 이름은 빈칸일 수 없다.");
             }
             TestSame(car.get(i));
         }
