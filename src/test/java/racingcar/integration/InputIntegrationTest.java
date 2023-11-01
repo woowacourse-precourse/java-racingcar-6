@@ -20,12 +20,12 @@ public class InputIntegrationTest {
     void 입력을_요구하고_입력을_받는다() {
         User user = new User(){
             @Override
-            protected String readCarsFromConsole(){
+            protected String readCarsFromConsole() {
                 return "pobi,woni";
             }
 
             @Override
-            protected int readTryNumFromConsole(){
+            protected int readTryNumFromConsole() {
                 return 5;
             }
         };

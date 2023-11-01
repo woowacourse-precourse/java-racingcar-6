@@ -10,7 +10,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void moveCars(){
+    public void moveCars() {
         for (Car car : cars) {
             car.move();
         }
@@ -29,7 +29,7 @@ public class Cars {
         return winners;
     }
 
-    private Location findMaxLocation(){
+    private Location findMaxLocation() {
         Location maxLocation = new Location();
 
         for (Car car : cars) {

@@ -15,7 +15,7 @@ public class PlayResultView {
         buildContent(playResultDTO.getPlayResults());
     }
 
-    public void view(){
+    public void view() {
         System.out.print(HEADER + content);
     }
 
@@ -39,7 +39,7 @@ public class PlayResultView {
         changeLine();
     }
 
-    private void changeLine(){
+    private void changeLine() {
         content.append("\n");
     }
 }

@@ -32,15 +32,15 @@ public class PlayIntegrationTest {
 
         String carNames = "go,stay";
 
-        Car goAll = new Car(new CarName("go")){
+        Car goAll = new Car(new CarName("go")) {
             @Override
-            protected int getRandomNumber(){
+            protected int getRandomNumber() {
                 return GO_ALWAYS;
             }
         };
-        Car stayAll = new Car(new CarName("stay")){
+        Car stayAll = new Car(new CarName("stay")) {
             @Override
-            protected int getRandomNumber(){
+            protected int getRandomNumber() {
                 return STAY_ALWAYS;
             }
         };
@@ -52,7 +52,7 @@ public class PlayIntegrationTest {
 
         RacingCarGame racingCarGame = new RacingCarGame(carNames, TRY_NUM){
             @Override
-            protected Cars initCars(String carNames){
+            protected Cars initCars(String carNames) {
                 return new Cars(goAllAndStayAll);
             }
         };

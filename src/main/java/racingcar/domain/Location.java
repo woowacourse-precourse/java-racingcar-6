@@ -13,7 +13,7 @@ public class Location {
         this.location = location;
     }
 
-    public boolean isMax(Location maxLocation){
+    public boolean isMax(Location maxLocation) {
         return this.location >= maxLocation.location;
     }
 

@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 class UserTest {
     @Test
     void 자동차이름들과_시도횟수를_입력으로_받을수_있다() {
-        User user = new User(){
+        User user = new User() {
             @Override
-            protected String readCarsFromConsole(){
+            protected String readCarsFromConsole() {
                 return "pobi,woni";
             }
 
             @Override
-            protected int readTryNumFromConsole(){
+            protected int readTryNumFromConsole() {
                 return 5;
             }
         };
@@ -30,14 +30,14 @@ class UserTest {
 
     @Test
     void 시도횟수로_숫자만_받을수_있다() {
-        User user = new User(){
+        User user = new User() {
             @Override
-            protected String readCarsFromConsole(){
+            protected String readCarsFromConsole() {
                 return "pobi,woni";
             }
 
             @Override
-            protected int readTryNumFromConsole(){
+            protected int readTryNumFromConsole() {
                 return verify("char");
             }
         };

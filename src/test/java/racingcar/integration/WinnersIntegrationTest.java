@@ -28,10 +28,10 @@ public class WinnersIntegrationTest {
     void 우승자_여부_판단후_우승자_출력() {
         RacingCarGame racingCarGame = new RacingCarGame("pobi,jun", 5){
             @Override
-            protected Cars initCars(String carNames){
-                return new Cars(Arrays.asList(new Car(new CarName("pobi")), new Car(new CarName("jun")))){
+            protected Cars initCars(String carNames) {
+                return new Cars(Arrays.asList(new Car(new CarName("pobi")), new Car(new CarName("jun")))) {
                     @Override
-                    public List<Car> findWinners(){
+                    public List<Car> findWinners() {
                         List<Car> carList = new ArrayList<>();
                         carList.add(new Car(new CarName("pobi")));
                         carList.add(new Car(new CarName("jun")));

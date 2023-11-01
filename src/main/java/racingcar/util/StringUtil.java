@@ -3,7 +3,7 @@ package racingcar.util;
 import java.util.List;
 
 public class StringUtil {
-    public static boolean isLengthOverFive(String s){
+    public static boolean isLengthOverFive(String s) {
         return s.length() > 5;
     }
 

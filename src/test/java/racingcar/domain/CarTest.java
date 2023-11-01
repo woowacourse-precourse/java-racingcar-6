@@ -9,7 +9,7 @@ class CarTest {
     final int MOVE = 5;
     @Test
     void 멈춤() {
-        Car car = new Car(new CarName("pobi")){
+        Car car = new Car(new CarName("pobi")) {
             @Override
             protected int getRandomNumber(){
                 return STAY;
@@ -23,7 +23,7 @@ class CarTest {
 
     @Test
     void 이동() {
-        Car car = new Car(new CarName("pobi")){
+        Car car = new Car(new CarName("pobi")) {
             @Override
             protected int getRandomNumber(){
                 return MOVE;
@@ -37,9 +37,9 @@ class CarTest {
 
     @Test
     void 우승자인지_확인() {
-        Car car = new Car(new CarName("pobi")){
+        Car car = new Car(new CarName("pobi")) {
             @Override
-            protected int getRandomNumber(){
+            protected int getRandomNumber() {
                 return MOVE;
             }
         };

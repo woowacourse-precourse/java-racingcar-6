@@ -49,13 +49,13 @@ class RacingCarGameTest {
                 )
         );
 
-        Car goAll = new Car(new CarName("go")){
+        Car goAll = new Car(new CarName("go")) {
             @Override
             protected int getRandomNumber(){
                 return GO_ALWAYS;
             }
         };
-        Car stayAll = new Car(new CarName("stay")){
+        Car stayAll = new Car(new CarName("stay")) {
             @Override
             protected int getRandomNumber(){
                 return STAY_ALWAYS;
@@ -69,7 +69,7 @@ class RacingCarGameTest {
 
         RacingCarGame racingCarGame = new RacingCarGame(carNames, TRY_NUM){
             @Override
-            protected Cars initCars(String carNames){
+            protected Cars initCars(String carNames) {
                 return new Cars(goAllAndStayAll);
             }
         };
@@ -83,10 +83,10 @@ class RacingCarGameTest {
     void 우승자_확인() {
         RacingCarGame racingCarGame = new RacingCarGame("pobi,woni", 5){
             @Override
-            protected Cars initCars(String carNames){
-                return new Cars(Arrays.asList(new Car(new CarName("pobi")), new Car(new CarName("woni")))){
+            protected Cars initCars(String carNames) {
+                return new Cars(Arrays.asList(new Car(new CarName("pobi")), new Car(new CarName("woni")))) {
                     @Override
-                    public List<Car> findWinners(){
+                    public List<Car> findWinners() {
                         List<Car> carList = new ArrayList<>();
                         carList.add(new Car(new CarName("pobi")));
                         carList.add(new Car(new CarName("woni")));

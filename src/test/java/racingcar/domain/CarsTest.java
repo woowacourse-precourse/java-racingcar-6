@@ -24,15 +24,15 @@ class CarsTest {
 
         List<Car> carList = new ArrayList<>();
 
-        Car goCar = new Car(new CarName("go")){
+        Car goCar = new Car(new CarName("go")) {
             @Override
             protected int getRandomNumber(){
                 return GO_ALWAYS;
             }
         };
-        Car stayCar = new Car(new CarName("stay")){
+        Car stayCar = new Car(new CarName("stay")) {
             @Override
-            protected int getRandomNumber(){
+            protected int getRandomNumber() {
                 return STAY_ALWAYS;
             }
         };
@@ -52,13 +52,13 @@ class CarsTest {
     @Test
     void 이동거리가_최대인_차가_최종우승자() {
         List<Car> carlist = new ArrayList<>();
-        Car pobiCar = new Car(new CarName("pobi")){
+        Car pobiCar = new Car(new CarName("pobi")) {
             @Override
             protected int getRandomNumber(){
                 return MOVE;
             }
         };
-        Car woniCar = new Car(new CarName("woni")){
+        Car woniCar = new Car(new CarName("woni")) {
             @Override
             protected int getRandomNumber(){
                 return MOVE;
@@ -82,13 +82,13 @@ class CarsTest {
     @Test
     void 공동우승_가능() {
         List<Car> carlist = new ArrayList<>();
-        Car pobiCar = new Car(new CarName("pobi")){
+        Car pobiCar = new Car(new CarName("pobi")) {
             @Override
             protected int getRandomNumber(){
                 return MOVE;
             }
         };
-        Car woniCar = new Car(new CarName("woni")){
+        Car woniCar = new Car(new CarName("woni")) {
             @Override
             protected int getRandomNumber(){
                 return MOVE;

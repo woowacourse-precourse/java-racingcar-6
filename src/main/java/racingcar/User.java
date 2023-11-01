@@ -7,11 +7,11 @@ public class User {
     private String carNames;
     private int tryNum;
 
-    public void readCarInput(){
+    public void readCarInput() {
         carNames = readCarsFromConsole();
     }
 
-    public void readTryNumInput(){
+    public void readTryNumInput() {
         tryNum = readTryNumFromConsole();
     }
 
@@ -23,11 +23,11 @@ public class User {
         return tryNum;
     }
 
-    protected String readCarsFromConsole(){
+    protected String readCarsFromConsole() {
         return Console.readLine();
     }
 
-    protected int readTryNumFromConsole(){
+    protected int readTryNumFromConsole() {
         return verify(Console.readLine());
     }
 

@@ -21,7 +21,7 @@ public class Car {
         }
     }
 
-    public boolean isWinner(Location maxLocation){
+    public boolean isWinner(Location maxLocation) {
         return location.isMax(maxLocation);
     }
 
@@ -38,11 +38,11 @@ public class Car {
         return carName.getName();
     }
 
-    public int getLocationValue(){
+    public int getLocationValue() {
         return location.getLocation();
     }
 
-    protected int getRandomNumber(){
+    protected int getRandomNumber() {
         return Randoms.pickNumberInRange(MIN_BOUND, MAX_BOUND);
     }
 }

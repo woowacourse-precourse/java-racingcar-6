@@ -13,7 +13,7 @@ public class WinnersView {
         this.content = StringUtil.concatNamesByCommas(winnersDTO.getWinnerNames());
     }
 
-    public void view(){
+    public void view() {
         System.out.print(HEADER + content);
     }
 }
