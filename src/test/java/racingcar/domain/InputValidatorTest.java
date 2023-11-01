@@ -4,21 +4,23 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 class InputValidatorTest {
     @Test
     void 올바른_이름목록_문자열() {
-        String testCases[] = {
+        String[] testCases = {
                 "pobi,jun,yoon,cass,charm",
                 "gun,toil,soy",
                 "pig,cat,dog,snake,duck"
         };
 
-        Arrays.stream(testCases).map(x -> assertThatThrownBy(() -> InputValidator.validateNamesInput(x))
-                .isInstanceOf(IllegalArgumentException.class));
+        for (String test : testCases) {
+            assertThatCode(() -> InputValidator.validateNamesInput(test))
+                    .doesNotThrowAnyException();
+        }
     }
 
     @Test
@@ -29,8 +31,11 @@ class InputValidatorTest {
                 "pobistic",
                 "pobi,jun,sandwich"
         };
-        Arrays.stream(testCases).map(x -> assertThatThrownBy(() -> InputValidator.validateNamesInput(x))
-                .isInstanceOf(IllegalArgumentException.class));
+
+        for (String test : testCases) {
+            assertThatThrownBy(() -> InputValidator.validateNamesInput(test))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
     }
 
     @Test
@@ -41,8 +46,10 @@ class InputValidatorTest {
                 "pobi,jun,jigi,,yoon,gun,,cass"
         };
 
-        Arrays.stream(testCases).map(x -> assertThatThrownBy(() -> InputValidator.validateNamesInput(x))
-                .isInstanceOf(IllegalArgumentException.class));
+        for (String test : testCases) {
+            assertThatThrownBy(() -> InputValidator.validateNamesInput(test))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
     }
 
     @Test
@@ -53,8 +60,10 @@ class InputValidatorTest {
                 "pobi,jun,woni,"
         };
 
-        Arrays.stream(testCases).map(x -> assertThatThrownBy(() -> InputValidator.validateNamesInput(x))
-                .isInstanceOf(IllegalArgumentException.class));
+        for (String test : testCases) {
+            assertThatThrownBy(() -> InputValidator.validateNamesInput(test))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
     }
 
     @Test
@@ -66,7 +75,9 @@ class InputValidatorTest {
                 " 123"
         };
 
-        Arrays.stream(testCases).map(x -> assertThatThrownBy(() -> InputValidator.validateNamesInput(x))
-                .isInstanceOf(IllegalArgumentException.class));
+        for (String test : testCases) {
+            assertThatThrownBy(() -> InputValidator.validateCountInput(test))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
     }
 }
