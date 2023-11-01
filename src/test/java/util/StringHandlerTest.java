@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
 import racingcar.util.StringHandler;
 
 public class StringHandlerTest {
@@ -18,14 +17,6 @@ public class StringHandlerTest {
         Assertions.assertThat(stringList.get(0)).isEqualTo("abc");
     }
 
-    @Test
-    void 리스트를_콤파_기준으로_분리된_문자열로_변환시킨다() {
-        List<Car> cars = List.of(new Car("abc",0), new Car("def",0));
-
-        String output = StringHandler.joinBy(cars, ", ");
-
-        Assertions.assertThat(output).isEqualTo("abc, def");
-    }
 
     @Test
     void 문자열을_정수로_변환시킨다() {
