@@ -1,9 +1,11 @@
-package racingcar.Input;
+package racingcar.IO.Input;
 
 import static java.lang.System.*;
+import static racingcar.IO.PunctuationMarks.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
+import racingcar.IO.PunctuationMarks;
 
 public class InputContext {
 
@@ -30,7 +32,7 @@ public class InputContext {
   private static UnValidatedCars getUnValidatedCars() {
     String unValidated = input();
     return UnValidatedCars.of(
-        Arrays.stream(unValidated.split(",")).toList());
+        Arrays.stream(unValidated.split(COMMA.mark())).toList());
   }
 
   private static String input() {
