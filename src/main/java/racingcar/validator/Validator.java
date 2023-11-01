@@ -5,7 +5,7 @@ public class Validator {
     public static final int INPUT_NAME_LENGTH = 5;
 
     public static void validateName(String name) {
-        if (name == null) {
+        if (name.isBlank()) {
             throw new IllegalArgumentException("자동차 이름을 입력해야 합니다,");
         }
         if (name.length() > INPUT_NAME_LENGTH) {
