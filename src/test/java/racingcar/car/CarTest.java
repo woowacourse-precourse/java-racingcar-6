@@ -2,8 +2,10 @@ package racingcar.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.validator.InputValidator;
 
 public class CarTest {
 
@@ -31,5 +33,13 @@ public class CarTest {
 
         // then
         assertThat(car.getPosition()).isEqualTo(0);
+    }
+
+    @Test
+    public void 유효한_숫자_검증() throws Exception{
+        String input = "a";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateNumbers(input);
+        });
     }
 }
