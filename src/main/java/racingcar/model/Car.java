@@ -9,18 +9,25 @@ public class Car {
     private final String name;
     private int distance;
 
-    public Car(String name) {
+    protected Car(String name) {
         validateCarName(name);
         this.name = name;
         distance = 0;
     }
 
     private void validateCarName(String name) {
+        validateEmpty(name);
+        validateExceeded(name);
+    }
+
+    private void validateEmpty(String name) {
         if(name.isEmpty()) {
             throw new IllegalArgumentException(ExceptionMessage.EMPTY_NAME
                     .getErrorMessage());
         }
+    }
 
+    private void validateExceeded(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_MAX_LENGTH_EXCEEDED
                     .getErrorMessage());
