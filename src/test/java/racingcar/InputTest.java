@@ -42,7 +42,7 @@ public class InputTest {
     void 시도_횟수_예외_처리() {
         int input = 0;
 
-        assertThatThrownBy(() -> Validation.validateOneToNine(input))
+        assertThatThrownBy(() -> Validation.validateAttempNumber(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

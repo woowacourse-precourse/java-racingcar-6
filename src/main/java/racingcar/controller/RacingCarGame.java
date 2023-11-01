@@ -82,9 +82,10 @@ public class RacingCarGame {
 
     public static String nameOfWinners(List<Integer> indices) {
         String result = "";
+        List<String> carNames = cars.getNames();
 
         for (int i = 0; i < indices.size(); i++) {
-            String carName = cars.getNames().get(indices.get(i));
+            String carName = carNames.get(indices.get(i));
             result += (carName + ", ");
         }
 
