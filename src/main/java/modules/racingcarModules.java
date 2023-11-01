@@ -16,6 +16,11 @@ public class racingcarModules {
     racingcarModules.checked_car_name_len(carNames);
   }
 
+  public static void checked_move_num(String num) {
+    racingcarException.exception_not_int(num);
+    racingcarException.exception_negative(num);
+  }
+
   public static int checked_random_num_over_4(int random_num) {
     if (random_num >= 4) {
       return 1;
