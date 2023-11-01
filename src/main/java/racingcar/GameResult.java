@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameResult {
+
     GameProgression gameProgression;
     List<String> topScorerList = new ArrayList<>();
     int topScore = Integer.MIN_VALUE;
@@ -17,6 +18,7 @@ public class GameResult {
         List<String> playerList = gameProgression.playerList;
         findTopScore(scoreList, playerList);
     }
+
     private void findTopScore(List<Integer> scoreList, List<String> playerList) {
         for (int i = 0; i < scoreList.size(); i++) {
             int currentScore = scoreList.get(i);
@@ -24,6 +26,7 @@ public class GameResult {
         }
         printResult();
     }
+
     private void updateTopScore(int currentScore, String player) {
         if (currentScore > topScore) {
             topScore = currentScore;
@@ -33,6 +36,7 @@ public class GameResult {
             topScorerList.add(player);
         }
     }
+
     private void printResult() {
         System.out.println("최종 우승자 : " + String.join(", ", topScorerList));
     }

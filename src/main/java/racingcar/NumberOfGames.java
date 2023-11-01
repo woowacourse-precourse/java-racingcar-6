@@ -3,7 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class NumberOfGames {
-    public int  numOfGames() { //게임 진행 횟수 설정
+
+    public int numOfGames() { //게임 진행 횟수 설정
         String input = InputString.inputNumOfGames();
         return validation(input);
     }

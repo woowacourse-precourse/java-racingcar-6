@@ -8,6 +8,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest extends NsTest {
+
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
@@ -18,10 +19,9 @@ class GameTest extends NsTest {
                     run("pobi,woni,jun", "1");
                     assertThat(output()).contains("최종 우승자 : pobi, woni");
                 },
-                MOVING_FORWARD,MOVING_FORWARD, STOP
+                MOVING_FORWARD, MOVING_FORWARD, STOP
         );
     }
-
 
 
     @Override

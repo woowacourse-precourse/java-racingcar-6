@@ -8,8 +8,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameProgressionTest {
+
     @Test
-    void 점수_리스트_초기화(){
+    void 점수_리스트_초기화() {
         // given(준비): playerList = Arrays.asList("pobi", "jun")
         Player player = new Player();
         List<String> playerList = Arrays.asList("pobi", "jun");
