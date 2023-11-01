@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 
@@ -11,10 +12,15 @@ public class RacingGameView {
     }
 
     // 3. 최종 우승자(들)을 출력하는 기능
-    public void printFinalWinners(List<String> winnerList) {
+    public void printFinalWinners(List<Car> winnerList) {
         String winners = "최종 우승자 : ";
-        winners += String.join(", ", winnerList);
-        System.out.print(winners);
+        List<String> winnerNames = new ArrayList<String>();
+
+        for(Car car : winnerList){
+            winnerNames.add(car.getName());
+        }
+        winners+= String.join(", ", winnerNames);
+        System.out.println(winners);
     }
 
     // 5. 시도할 회수를 입력해달라는 문구를 출력하는 기능
