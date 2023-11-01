@@ -38,19 +38,19 @@ public class InputHandler {
         if (target.isEmpty()) { // 입력값 부재
             throw new IllegalArgumentException();
         }
-        else if (target.contains(Constants.BLANK)) {  // 공백 포함
+        if (target.contains(Constants.BLANK)) {  // 공백 포함
             throw new IllegalArgumentException();
         }
-        else if (target.contains(Constants.COMMA+Constants.COMMA)) {   // 쉼표(,) 2개이상 연속
+        if (target.contains(Constants.COMMA+Constants.COMMA)) {   // 쉼표(,) 2개이상 연속
             throw new IllegalArgumentException();
         }
-        else if (startsWithOrEndsWithComma(target)) {    // 쉼표(,) 맨 앞/뒤 위치
+        if (startsWithOrEndsWithComma(target)) {    // 쉼표(,) 맨 앞/뒤 위치
             throw new IllegalArgumentException();
         }
-        else if (hasLengthExcess(target)) {   // 길이 제한 초과
+        if (hasLengthExcess(target)) {   // 길이 제한 초과
            throw new IllegalArgumentException();
         }
-        else if (hasDuplicates(target)) {   // 중복 입력
+        if (hasDuplicates(target)) {   // 중복 입력
             throw new IllegalArgumentException();
         }
     }
@@ -59,16 +59,16 @@ public class InputHandler {
         if (target.isEmpty()) { // 입력값 부재
             throw new IllegalArgumentException();
         }
-        else if (target.contains(Constants.BLANK)) {  // 공백 포함
+        if (target.contains(Constants.BLANK)) {  // 공백 포함
             throw new IllegalArgumentException();
         }
-        else if (target.contains(Constants.NOT_NUMBER_EXPRESSION)) { // 숫자가 아닌 문자 포함
+        if (target.contains(Constants.NOT_NUMBER_EXPRESSION)) { // 숫자가 아닌 문자 포함
             throw new IllegalArgumentException();
         }
-        else if (target.contains(Constants.BAR)) {    // 음수
+        if (target.contains(Constants.BAR)) {    // 음수
             throw new IllegalArgumentException();
         }
-        else if (target.charAt(0) == '0') { // 0으로 시작
+        if (target.charAt(0) == '0') { // 0으로 시작
             throw new IllegalArgumentException();
         }
     }
