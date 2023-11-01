@@ -15,10 +15,6 @@ public class PositionMap {
         positionMap = mapSupplier.get();
     }
 
-    /**
-     * @param car
-     * @throws IllegalArgumentException - 중복된 Car 객체를 저장 시도시
-     */
     public void putCar(Car car) {
         final int INIT_POSITION = 0;
         if (positionMap.containsKey(car)) {
@@ -27,19 +23,11 @@ public class PositionMap {
         positionMap.put(car, INIT_POSITION);
     }
 
-    /**
-     * update car's position in Map
-     *
-     * @param car
-     */
     public void moveCar(Car car) {
         int nextPosition = positionMap.get(car) + 1;
         positionMap.put(car, nextPosition);
     }
 
-    /**
-     * @return List of Winner Car instance
-     */
     public List<Car> getWinners() {
         int winnerPosition = getWinnerPosition();
         return getCarsInPosition(winnerPosition);
