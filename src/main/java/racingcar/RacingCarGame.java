@@ -28,7 +28,7 @@ public class RacingCarGame {
             playGame();
             printResult();
         }
-        computeWinners();
+        computeWinners(racingCars);
         printWinners();
     }
 
@@ -81,7 +81,7 @@ public class RacingCarGame {
         return racingCarScore.toString();
     }
 
-    void computeWinners() {
+    void computeWinners(ArrayList<RacingCar> racingCars) {
         int maxScore = Integer.MIN_VALUE;
         for (RacingCar racingCar : racingCars) {
             int racingCarScore = racingCar.getScore();
