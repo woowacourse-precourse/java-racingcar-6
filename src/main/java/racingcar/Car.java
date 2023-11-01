@@ -22,8 +22,8 @@ public class Car {
         public void move() {
                 int num = Randoms.pickNumberInRange(1, 9);
                 if (num >= 4) {
-                    this.position++;
-                    this.sb.append("-");
+                        this.position++;
+                        this.sb.append("-");
                 }
         }
         public int carPosition() {
@@ -41,7 +41,7 @@ public class Car {
         public static List<Car> createCars(List<String> names) {
                 List<Car> cars = new ArrayList<>();
                 for (String name : names) {
-                    cars.add(new Car(name));
+                        cars.add(new Car(name));
                 }
                 return cars;
         }
