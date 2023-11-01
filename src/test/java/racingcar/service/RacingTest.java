@@ -1,17 +1,21 @@
 package racingcar.service;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.configurations.GameConfigurations.CONTROL_VALUE;
 
-import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Test;
+
 import racingcar.model.Car;
 
 public class RacingTest {
-
     Racing racing;
     List<Car> carList;
-    private void preset(){
+
+    private void beforeEach() {
+        racing = Racing.getInstance();
+
         Car car1 = new Car("pobi");
         Car car2 = new Car("woni");
         Car car3 = new Car("jun");
@@ -21,12 +25,11 @@ public class RacingTest {
         carList.add(car1);
         carList.add(car2);
         carList.add(car3);
-
-        racing = new Racing();
     }
+
     @Test
     public void testPlayARound() {
-        preset();
+        beforeEach();
         racing.playARound(carList);
 
         boolean anyCarMoved = false;
@@ -41,11 +44,17 @@ public class RacingTest {
 
     @Test
     public void testGenerateRandomNumber() {
-        Racing racing = new Racing();
-
-        // Test that the generated random number is within the specified range
+        beforeEach();
         Integer randomNumber = racing.generateRandomNumber();
         assertTrue(randomNumber >= 0);
         assertTrue(randomNumber <= 9);
+    }
+
+    @Test
+    public void testIsMove() {
+        beforeEach();
+
+        assertTrue(racing.isMove(CONTROL_VALUE.get()));
+        assertFalse(racing.isMove(CONTROL_VALUE.get() - 1));
     }
 }
