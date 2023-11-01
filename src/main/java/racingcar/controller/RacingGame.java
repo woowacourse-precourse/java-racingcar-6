@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.CarDto;
 import racingcar.model.GameSettingsDto;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +17,13 @@ public class RacingGame {
         carInformationList = new ArrayList<>();
     }
 
-    public void startRacingGame(GameSettingsDto gameSettingsDto){
+    public void runRaceIterations(GameSettingsDto gameSettingsDto){
         setCarInformation(gameSettingsDto.getCarsName());
 
-        for(int i = 0; i < carInformationList.size(); i++){
-            if(isRandomNumberBiggerOrEqualFour(generateRandomNumber())){
-                setAdvancementCount(i);
-            }
+        OutputView.getInstance().printExecutionResultMessage();
+
+        for(int i = 0; i < gameSettingsDto.getRacingCount(); i++){
+            startRacingGame();
         }
     }
 
@@ -30,6 +31,16 @@ public class RacingGame {
         for(int i = 0; i < carsName.size(); i++){
             carInformationList.add(new CarDto(carsName.get(i),0));
         }
+    }
+
+    private void startRacingGame(){
+        for(int i = 0; i < carInformationList.size(); i++){
+            if(isRandomNumberBiggerOrEqualFour(generateRandomNumber())){
+                setAdvancementCount(i);
+            }
+        }
+
+        OutputView.getInstance().printExecutionResult(carInformationList);
     }
 
     private boolean isRandomNumberBiggerOrEqualFour(int randomNumber){
