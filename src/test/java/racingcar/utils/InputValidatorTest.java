@@ -22,6 +22,14 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
 
     }
+    @Test
+    public void 중복된_이름() {
+
+        String name = "가나,다라,가나";
+        Assertions.assertThatThrownBy(() -> inputValidator.cars(name))
+                .isInstanceOf(IllegalArgumentException.class);
+
+    }
 
     @Test
     public void 시작이_공백인_이름() {
