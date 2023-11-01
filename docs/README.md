@@ -6,7 +6,7 @@
 
 - [x] InputView 구현
     - [x] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-    - [x] n 대의 자동차 입력 하는 기능 추가 ~~**(n대는 쉼표(,)로 구분) - 자동차 게임에서 구현**~~
+    - [x] n 대의 자동차 입력 하는 기능 추가
     - [x] 몇 번을 이동 할 것인지 입력할 수 있어야 함
 
 #### 사용자 입력값 검증 구현
@@ -16,7 +16,6 @@
         - [x] 자동차 이름은 5자 이하만 가능하다.
             - [x] 0자도 가능하도록 검증
             - [x] 기준을 제외한 모든 문자 허용
-            - [ ] ~~이름에 쉼표(,)가 없는지 확인 - **자동차 게임에서 구현**~~
         - [x] 몇 번을 이동할 것인지 입력할 수 있어야 한다.
             - [x] 예외 발생 조건
                 - [x] 0 미만 x
@@ -66,7 +65,6 @@
         - [x] end가 start 보다 작을 수 없음 검증
     - [x] pickNumber 구현
         - [x] start, end 범위 안에서 생성
-        - [ ] ~~start와 end내에 임의의 숫자로 PositiveNumber 객체 생성~~
         - [x] Randoms.pickNumberInRange 이용
 
 ### PositiveNumber 구현
