@@ -16,18 +16,40 @@ public class Application {
         //이용자로부터 시도 회수를 입력받음
         int tryNum = setTryNum();
 
+        System.out.println("실행 결과");
         //입력받은 값만큼 반복문 돌리며 자동차 이동 시키기
         for(int i =0 ; i<tryNum ; i++)
         {
             //조건을 따지고 자동차 이동시키는 함수 (carsMove 값이 올라감)
             carsMove = changeMove(carsMove);
+            //경주 중간현황 출력
+            printStatus(cars,carsMove);
+            System.out.println(); //엔터키처리
         }
+
 
 
 
 
     }
 
+    //경주 중간현황 출력 함수
+    public static void printStatus(String[] cars, int[] carsMove){
+        for(int i=0;i < cars.length ; i++)
+        {
+            System.out.printf("%s : ",cars[i]);
+            //움직임 횟수 출력 함수
+            printCntMove(carsMove[i]);
+        }
+    }
+    //차 움직임 횟수 출력 함수
+    public static void printCntMove(int moveCnt){
+        for(int i = 0 ; i < moveCnt; i++ )
+        {
+            System.out.print("-");
+        }
+        System.out.println();//엔터키 처리
+    }
 
     //조건 따져서 자동차 이동시키는 함수
     public static int [] changeMove(int[] carsMove){
@@ -40,7 +62,6 @@ public class Application {
             //값 변경
             if (randNumb >= 4 )
                 carsMove[i] ++;
-
         }
 
         return carsMove;
@@ -48,6 +69,7 @@ public class Application {
 
     //사용자로부터 이동 시도 회수 받기
     public static int setTryNum() {
+        System.out.println("시도할 회수는 몇회인가요?");
         // 사용자로부터 숫자를 입력받기
         try {
             int number = Integer.parseInt(Console.readLine());
