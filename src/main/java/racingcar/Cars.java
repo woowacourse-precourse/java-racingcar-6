@@ -5,11 +5,16 @@ import static racingcar.CarNameParser.splitAndStrip;
 import java.util.List;
 
 public class Cars {
+	private List<Car> cars;
 
 	public Cars(String input) {
 		List<String> nameOfCars = splitAndStrip(input);
 
 		checkDuplicated(nameOfCars);
+
+		cars = nameOfCars.stream()
+				.map(carName -> new Car(new CarName(carName)))
+				.toList();
 	}
 
 	private void checkDuplicated(List<String> nameOfCars) {
