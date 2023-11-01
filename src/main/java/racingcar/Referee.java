@@ -23,7 +23,7 @@ public class Referee {
         return maxKeys;
     }
 
-    public void show(LinkedHashMap<String, Integer> map) {
+    public void outputView(LinkedHashMap<String, Integer> map) {
         List<String> members = find_maxKeys(map);
         String result = String.join(",", members);
         System.out.print("최종 우승자 : ");

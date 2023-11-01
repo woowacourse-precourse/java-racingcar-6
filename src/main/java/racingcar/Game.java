@@ -8,8 +8,8 @@ public class Game {
         Start start = new Start();
         start.getInput();
         Play play = new Play();
-        LinkedHashMap<String, Integer> map = play.show(start);
+        LinkedHashMap<String, Integer> map = play.outputView(start);
         Referee finalResult = new Referee();
-        finalResult.show(map);
+        finalResult.outputView(map);
     }
 }

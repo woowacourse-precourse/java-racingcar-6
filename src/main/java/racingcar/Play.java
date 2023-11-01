@@ -3,7 +3,7 @@ package racingcar;
 import java.util.LinkedHashMap;
 
 public class Play {
-    public LinkedHashMap<String, Integer> show(Start start) {
+    public LinkedHashMap<String, Integer> outputView(Start start) {
         CarMap carMap = new CarMap();
         LinkedHashMap<String, Integer> map = carMap.makeInitMap(start);
         ExecutionResult executionResult = new ExecutionResult();
@@ -13,7 +13,7 @@ public class Play {
 
         for (int i = 0; i < attempts; i++) {
             map = carMap.updateMap();
-            executionResult.show(map);
+            executionResult.outputView(map);
         }
         return map;
     }
