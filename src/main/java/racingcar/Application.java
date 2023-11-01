@@ -10,6 +10,6 @@ public class Application {
         NumberGenerator numberGenerator = new RacingCarRandomNumberGenerator();
         Circuit circuit = new Circuit(numberGenerator);
         RacingGame racingGame = new RacingGame(circuit);
-        racingGame.start();
+        racingGame.play();
     }
 }

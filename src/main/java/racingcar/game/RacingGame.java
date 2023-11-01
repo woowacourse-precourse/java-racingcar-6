@@ -23,29 +23,29 @@ public class RacingGame {
         this.circuit = circuit;
     }
 
-    public void start() {
+    public void play() {
         Trial trial = prepareRacingGame();
-        playRacingGame(trial);
+        process(trial);
     }
 
-    private void playRacingGame(Trial trial) {
+    private void process(Trial trial) {
         while (!trial.isExhausted()) {
-            circuit.moveRacingCars();
-            RacingGameStatistics statistics = tryRacingGame();
             trial.useTrialCount();
-            selectWinner(trial, statistics);
+            RacingGameStatistics statistics = runRace();
+            selectFinalWinners(trial, statistics);
         }
     }
 
-    private RacingGameStatistics tryRacingGame() {
+    private RacingGameStatistics runRace() {
+        circuit.moveRacingCars();
         RacingGameStatistics statistics = circuit.getRacingGameStatistics();
         RacingStatisticsView.showRacingResult(statistics);
         return statistics;
     }
 
-    private void selectWinner(Trial trial, RacingGameStatistics results) {
+    private void selectFinalWinners(Trial trial, RacingGameStatistics statistics) {
         if (trial.isExhausted()) {
-            Winners winners = results.getWinners();
+            Winners winners = statistics.getWinners();
             RacingWinnerView.showWinners(winners);
         }
     }
@@ -71,6 +71,7 @@ public class RacingGame {
         TrialOutputView.inputTrial();
         String racingTrial = TrialInputView.getRacingTrial();
         BlankTrialValidator.validate(racingTrial);
-        return new Trial(IntegerTrialValidator.validate(racingTrial));
+        Integer trialCount = IntegerTrialValidator.validate(racingTrial);
+        return new Trial(trialCount);
     }
 }
