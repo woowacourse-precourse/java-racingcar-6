@@ -24,4 +24,8 @@ public class Car {
         carStatus.put("position", position);
         return carStatus;
     }
+
+    public String getName() {
+        return name;
+    }
 }
