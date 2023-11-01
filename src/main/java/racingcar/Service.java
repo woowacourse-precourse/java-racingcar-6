@@ -32,6 +32,8 @@ public class Service {
     }
 
     static void raceCars(List<Car> cars, int tryCount) {
+        System.out.println();
+        System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) {
             for (Car car : cars) {
                 car.move();
@@ -46,7 +48,7 @@ public class Service {
             for (int j = 0; j < car.getPosition(); j++) {
                 currentPosition.append("-");
             }
-            System.out.println(car.getName() + ": " + currentPosition);
+            System.out.println(car.getName() + " : " + currentPosition);
         }
         System.out.println();
     }
@@ -67,7 +69,7 @@ public class Service {
     }
 
     static void printWinners(List<String> winners) {
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
             if (i < winners.size() - 1) {
