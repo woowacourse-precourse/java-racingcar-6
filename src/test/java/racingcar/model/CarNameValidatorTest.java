@@ -28,4 +28,14 @@ public class CarNameValidatorTest {
                 () -> CarNameValidator.validateCarNames(carList));
     }
 
+    @Test
+    void 중복된_이름이_있다면_예외발생() {
+        List<Car> carList = new ArrayList<>();
+        carList.add(Car.makeCarByName("Car1"));
+        carList.add(Car.makeCarByName("Car1"));
+
+        assertThrows(IllegalArgumentException.class,
+                () -> CarNameValidator.validateCarNames(carList));
+    }
+
 }
