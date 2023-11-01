@@ -2,9 +2,9 @@ package racingcar.domain.controller;
 
 import racingcar.domain.model.Car;
 import racingcar.domain.service.GameService;
-import racingcar.global.util.Validator;
 import racingcar.domain.view.InputView;
 import racingcar.domain.view.OutputView;
+import racingcar.global.util.Validator;
 
 public class MainController {
     private final InputView inputView;
@@ -22,11 +22,11 @@ public class MainController {
     public void startGame() {
         outputView.printCarsName();
         String carsName = inputView.readInputData();
-        // TODO 자동차 이름 검증
+        validator.validateCarsName(carsName);
         Car car = Car.of(carsName);
         outputView.printNumberOfAttempts();
         String numberOfAttempts = inputView.readInputData();
-        // TODO 시도할 회수 검증
+        validator.validateNumberOfAttempts(numberOfAttempts);
         int count = Integer.parseInt(numberOfAttempts);
         outputView.printExecutionResult();
         while (count > 0) {
