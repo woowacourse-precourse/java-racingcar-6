@@ -12,6 +12,8 @@ public class Refree {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carList = Console.readLine();
+        carNameInputError(carList);
+
         cars = carGenerator.createCar(carList);
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -60,6 +62,18 @@ public class Refree {
         System.out.print("최종 우승자 : ");
         String winnersName = String.join(",",this.winners);
         System.out.println(winnersName);
+    }
+
+    public void carNameInputError(String input) {
+        if(input.length() == 0) {
+            throw new IllegalArgumentException();
+        }
+        String[] carNames = input.split(",");
+        for(String name : carNames) {
+            if(name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
 }

@@ -1,15 +1,16 @@
 # 자동차 경주
 
 ## 기능 목록
-- [X] 대회를 진행할 수 있다. Refree#playRace()
+- [X] 대회를 진행할 수 있다. - Refree#playRace()
+  - [X] 입력에 대한 예외 상황을 처리한다. - Refree#carNameInputError()
   - [X] n개의 자동차를 생성한다. - CarGenerator#createCar()
-  - [X] 모든 자동차가 한 번씩 턴을 진행한다. Refree#playTurn()
-    - [X] 0 ~ 9 사이 무작위 값을 생성한다. NumberGenerator#createRandomNumber()
-    - [X] 자동차가 전진할 수 있는지 알 수 있다. Refree#isForward()
-    - [X] 자동차의 이름과 전진 상황을 출력할 수 있다 - Car#printStatus()
-    - [X] 자동차는 전진할 수 있다. Car#moveForward()
-- [X] 대회의 우승자를 판단할 수 있다. Refree#getWinners()
-- [X] 대회의 우승자를 출력할 수 있다. Refree#printWinners()
+    - [X] 모든 자동차가 한 번씩 턴을 진행한다. - Refree#playTurn()
+      - [X] 0 ~ 9 사이 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
+      - [X] 자동차가 전진할 수 있는지 알 수 있다. - Refree#isForward()
+      - [X] 자동차의 이름과 전진 상황을 출력할 수 있다 - Car#printStatus()
+      - [X] 자동차는 전진할 수 있다. - Car#moveForward()
+- [X] 대회의 우승자를 판단할 수 있다. - Refree#getWinners()
+- [X] 대회의 우승자를 출력할 수 있다. - Refree#printWinners()
 
 
 ## 기능 요구 사항
