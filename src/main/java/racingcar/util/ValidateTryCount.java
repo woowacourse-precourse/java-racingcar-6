@@ -16,4 +16,12 @@ public class ValidateTryCount {
         return tryCount;
     }
 
+    private static void IsPositive(int tryCount) {
+
+        if (tryCount < 1) {
+            throw new IllegalArgumentException("시도 횟수는 1이상만 가능합니다.");
+        }
+
+    }
+
 }
