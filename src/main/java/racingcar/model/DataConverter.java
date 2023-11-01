@@ -8,7 +8,7 @@ public class DataConverter {
     Car car = Car.getInstance();
     RacingData racingData = RacingData.getInstance();
 
-    public List changeInputStringToList (String userInputCarString) {
+    public List<String> changeInputStringToList (String userInputCarString) {
 
         List<String> changeStringToList = new ArrayList<>();
         StringTokenizer carListElements = new StringTokenizer(userInputCarString, ",");
