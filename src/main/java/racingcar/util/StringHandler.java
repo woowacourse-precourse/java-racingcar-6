@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 public class StringHandler {
 
-    public static List<String> separatedStringToList(String input, String splitter) {
+    public static List<String> separatedWith(String input, String splitter) {
         return Arrays.stream(input.split(splitter)).toList();
     }
 
-    public static <T> String listToStringSplitBy(List<T> input, String splitter) {
+    public static <T> String joinBy(List<T> input, String splitter) {
         return input.stream()
                 .map(Object::toString)
                 .collect(Collectors.joining(splitter));
@@ -26,3 +26,5 @@ public class StringHandler {
         }
     }
 }
+
+

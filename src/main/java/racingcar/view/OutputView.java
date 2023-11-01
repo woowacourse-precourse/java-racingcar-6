@@ -19,7 +19,7 @@ public class OutputView {
     }
 
     public void printWinner(List<Car> cars) {
-        String winner = StringHandler.listToStringSplitBy(cars, SPLITTER);
+        String winner = StringHandler.joinBy(cars, SPLITTER);
         String result = String.format("%s%s",WINNER_PHRASE,winner);
 
         System.out.println(result);
