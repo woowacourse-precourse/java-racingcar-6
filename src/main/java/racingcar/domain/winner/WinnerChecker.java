@@ -1,7 +1,6 @@
 package racingcar.domain.winner;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 
 public class WinnerChecker {
@@ -20,6 +19,6 @@ public class WinnerChecker {
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
