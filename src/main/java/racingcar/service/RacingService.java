@@ -8,8 +8,14 @@ import racingcar.model.InputCarNameSplitter;
 import racingcar.validator.ValidatorFactory;
 
 public class RacingService {
+    private final InputCarNameSplitter splitter;
+    private final RaceResultGenerator raceResultGenerator;
+
+    public RacingService(InputCarNameSplitter splitter, RaceResultGenerator raceResultGenerator) {
+        this.splitter = splitter;
+        this.raceResultGenerator = raceResultGenerator;
+    }
     public List<String> carValidate(String carNamesInput) {
-        InputCarNameSplitter splitter = new InputCarNameSplitter();
         String validatedCarNameInput = ValidatorFactory.forInputCarName().validate(carNamesInput);
         List<String> carNames = splitter.splitInputCarNames(validatedCarNameInput);
 
@@ -30,7 +36,6 @@ public class RacingService {
     }
 
     public List<String> generateRaceResult(LinkedHashSet<CarDto> carDtos) {
-        RaceResultGenerator raceResultGenerator = new RaceResultGenerator();
         return raceResultGenerator.checkWinner(carDtos);
     }
 }

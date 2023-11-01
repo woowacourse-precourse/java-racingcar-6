@@ -12,11 +12,16 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController implements Observer {
-    private final RacingService racingService = new RacingService();
-    private final RacingInitService racingInitService = new RacingInitService();
+    private final RacingService racingService;
+    private final RacingInitService racingInitService;
     private List<String> carNames;
     private int attemptCount;
     private LinkedHashSet<Car> cars;
+
+    public RacingController(RacingService racingService, RacingInitService racingInitService) {
+        this.racingService = racingService;
+        this.racingInitService = racingInitService;
+    }
 
     public void run() {
         readyRace();
