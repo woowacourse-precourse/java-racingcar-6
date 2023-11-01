@@ -18,4 +18,12 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름의 길이가 5보다 큽니다.");
     }
+    @Test
+    @DisplayName("이름에 공백이 존재할 경우 예외처리 테스트")
+    void validate_Name_When_Space_Name() {
+        List<String> testNameList = Arrays.asList("pob i","woni");
+        assertThatThrownBy(() -> validator.validateNameSpace(testNameList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름에 공백이 존재합니다.");
+    }
 }
