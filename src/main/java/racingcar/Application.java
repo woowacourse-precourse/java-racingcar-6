@@ -20,10 +20,9 @@ class RacingCar {
     public RacingCar(){
         getCarNames();
         getNumberOfMove();
-        int i=0;
-        while(isRaceFinished()){
+        do{
             startRacingCar();
-        }
+        }while(isRaceFinished());
         printWinner();
     }
 
@@ -65,18 +64,20 @@ class RacingCar {
 
     private void printWinner() {
         String[] Winner;
-        System.out.print("최종 우승 : ");
+        String print = "최종 우승자 : ";
         for(String i: carNames){
             Winner = i.split(" ");
-            if(Winner[2].length()==numberOfFinish){
-                System.out.print(Winner[0]);
+            if(Winner.length>2 && Winner[2].length()==numberOfFinish){
+                print += Winner[0] + ",";
             }
         }
+        print = print.replaceAll(",$","");
+        System.out.print(print);
     }
 
     private boolean isRaceFinished() {
         for(String i: carNames){
-            if(i.chars().filter(c -> c == '-').count()==numberOfFinish){
+            if(i.split(" ").length>2 && i.split(" ")[2].length()==numberOfFinish){
                 return false;
             };
         }
