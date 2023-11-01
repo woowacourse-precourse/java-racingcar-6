@@ -33,5 +33,27 @@ public class CarRacingController {
         }
         raceCars = new RaceCars(racingCarList);
     }
+    
+
+    private void InputGameCount() {
+        gameCount = InputView.inputGameCount();
+    }
+
+    private void moveCars() {
+        OutputView.printGameResultMessage();
+        for (int cnt = 0; cnt < gameCount; cnt++) {
+        	raceCars.movingCars();
+            for (Car car : raceCars.getRacingCars()) {
+                OutputView.printCarName(car.getName());
+                OutputView.printCarPosition(car.getPosition());
+            }
+            OutputView.printNextLine();
+        }
+    }
+
+    private void decideWinner() {
+        int maxDistance = raceCars.getMaxDistance();
+        OutputView.printWinner(raceCars.getWinnerNames(maxDistance));
+    }
 
 }
