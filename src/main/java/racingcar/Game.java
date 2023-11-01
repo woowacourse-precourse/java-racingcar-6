@@ -14,8 +14,16 @@ public class Game {
         RacingCars racingCars = new RacingCars(input.inputCarName());
         int gameOfNum = input.inputMovingNumber();
 
-        start(gameOfNum);
+        start(gameOfNum,racingCars);
 
         output.printFinalWinner(racingCars.findLongestDistanceDriverOfNames());
+    }
+
+    //자동차 경기가 시작을 하는 함수
+    private static void start(int gameOfNum,RacingCars racingCars) {
+        for(int i = 0; i<gameOfNum; i++){
+            racingCars.moveCars();
+            output.printExecutionResult(i,racingCars.toString());
+        }
     }
 }
