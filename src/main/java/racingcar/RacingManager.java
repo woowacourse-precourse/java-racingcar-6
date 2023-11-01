@@ -16,7 +16,7 @@ public class RacingManager {
         initSettingForPlaying();
 
         RacingController racingController = new RacingController(racingData);
-        RacingView racingView = new RacingView();
+        RacingView racingView = new RacingView(racingData);
 
         racingController.initSetting(playerResultMap);
         System.out.println(CMD_PLAY_RESULT);
@@ -41,24 +41,24 @@ public class RacingManager {
         List<String> playerNamesList;
         Integer tryNumber;
 
-        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner(System.in);
 
         System.out.println(CMD_QUESTION_NAME);
-//        playersNameString = Console.readLine();
-        playersNameString = sc.next();
+        playersNameString = Console.readLine();
+//        playersNameString = sc.next();
 
         playerNamesList = new ArrayList<String>(
                 Arrays.asList(playersNameString.split(SEP_COMMA_STRING)));
 
-        for(String pl : playerNamesList){
-            System.out.println(pl);
-        }
+//        for(String pl : playerNamesList){
+//            System.out.println(pl);
+//        }
 
         System.out.println(CMD_QUESTION_NUMBER);
-//        tryNumber = Integer.parseInt(Console.readLine());
+        tryNumber = Integer.parseInt(Console.readLine());
 
-        tryNumber = Integer.parseInt(sc.next());
-        System.out.println(tryNumber);
+//        tryNumber = Integer.parseInt(sc.next());
+//        System.out.println(tryNumber);
 
         racingData.saveRacingData(playerNamesList, tryNumber);
     }

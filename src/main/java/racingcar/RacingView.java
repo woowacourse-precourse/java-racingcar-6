@@ -1,14 +1,22 @@
 package racingcar;
 
+import java.util.List;
 import java.util.Map;
 
 import static constants.Constant.*;
 
 public class RacingView {
 
+    List<String> playerList;
+
+    RacingView(RacingData racingData) {
+        playerList = racingData.getPlayerStringList();
+    }
+
+
     public void render(Map<String, Integer> playerResultMap){
 
-        for(String name : playerResultMap.keySet()){
+        for(String name : playerList){
             Integer position = playerResultMap.get(name);
             String tickString = getStickString(position);
             System.out.println(name+SEP_COLON_STRING+tickString);
