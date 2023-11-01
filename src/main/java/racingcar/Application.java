@@ -47,13 +47,13 @@ public class Application {
         }
     }
     private static void createCars(String carNames) {
-        isContainComma(carNames);
+        InputException.isContainComma(carNames);
         createCar(carNames);
         Integer carsLength = cars.size();
     }
     private static void createCar(String carNames) {
         for (String carName : carNames.split(",")) {
-            isCorrectNameLength(carName.trim());
+            InputException.isCorrectNameLength(carName.trim());
             Car car = new Car(carName.trim(), 0);
             cars.add(car);
         }
@@ -104,22 +104,5 @@ public class Application {
             System.out.println("최종 우승자 : "+winnerNames);
         }
     }
-    private static Integer saveTrialNumber(String trialNumberInput) {
-        try {
-            Integer trialNumber = Integer.valueOf(trialNumberInput);
-            return trialNumber;
-        } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException("숫자를 입력해주세요");
-        }
-    }
-    private static void isCorrectNameLength(String carName) {
-        if ( carName.isEmpty() || carName.length() > 5 ) {
-            throw new IllegalArgumentException("이름의 길이를 5자 이하로 설정해주세요");
-        }
-    }
-    private static void isContainComma(String carNames) {
-        if (!carNames.contains(",") ) {
-            throw new IllegalArgumentException("여러 대의 자동차를 쉼표로 입력해주세요");
-        }
-    }
+
 }
