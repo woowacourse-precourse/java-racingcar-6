@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
     @Test
-    void Car_객체를_생성한다() {
+    void 자동차_객체를_생성한다() {
         // given
         String carsName = "joy,happy";
 
