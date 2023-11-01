@@ -1,13 +1,15 @@
 package racingcar.playcar;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class PlayCars {
 
     private final Scanner scanner;
     private List<String> cars;
+    private Map<String, Integer> carToDistance;
     private int numberOfTry;
 
     public PlayCars(Scanner scanner) {
@@ -28,5 +30,19 @@ public class PlayCars {
         System.out.println("시도할 회수는 몇회인가요?");
         this.numberOfTry = scanner.nextInt();
         System.out.println();
+
+        this.carToDistance = this.cars.stream().collect(Collectors.toMap(car -> car, car -> 0));
+    }
+
+    public void eachTry() {
+        for (String car : cars) {
+            if (runOrStop()) {
+                carToDistance.put(car, carToDistance.get(car) + 1);
+            }
+        }
+    }
+
+    private boolean runOrStop() {
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 }
