@@ -41,7 +41,7 @@ class GameCountInputTest {
     }
 
     @Test
-    void InputView_숫자가_아닐_경우_예외_발생() {
+    void 숫자가_아닐_경우_예외_발생() {
         // given
         setInput("우아한테크코스 6기");
 
@@ -52,9 +52,20 @@ class GameCountInputTest {
     }
 
     @Test
-    void GameCount_음수_또는_0_입력시_예외_발생() {
+    void 음수_또는_0_입력시_예외_발생() {
         // given
         int count = 0;
+
+        // when & then
+        assertThatThrownBy(() -> GameCount.from(count))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(GAME_COUNT_OUT_OF_RANGE);
+    }
+
+    @Test
+    void 횟수가_100_초과인_경우_예외_발생() {
+        // given
+        int count = 101;
 
         // when & then
         assertThatThrownBy(() -> GameCount.from(count))

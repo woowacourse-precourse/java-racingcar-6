@@ -48,7 +48,7 @@ class CarNameInputTest {
     }
 
     @Test
-    void Car_이름이_5글자를_넘는_경우_예외_발생() {
+    void 이름이_5글자를_넘는_경우_예외_발생() {
         // given
         String carName = "메르세데스벤츠";
 
@@ -59,7 +59,7 @@ class CarNameInputTest {
     }
 
     @Test
-    void Car_입력이_없는_경우_예외_발생() {
+    void 입력이_없는_경우_예외_발생() {
         // given
         String carNames = "\n";
         setInput(carNames);
@@ -71,7 +71,7 @@ class CarNameInputTest {
     }
 
     @Test
-    void Cars_중복된_이름을_입력한_경우_예외_발생() {
+    void 중복된_이름을_입력한_경우_예외_발생() {
         // given
         setInput("자동차1,자동차2,자동차3,자동차1,자동차2");
 

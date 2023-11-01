@@ -34,9 +34,6 @@ class WinnersTest extends NsTest {
         Car wonny = Car.from("wonny");
         Cars cars = Cars.from(List.of(zeus, blue, wonny));
 
-        List<CarName> expected = List.of(zeus.getCarName());
-
-        // when
         /* zeus는 3칸, blue는 1칸, wonny는 2칸 이동해 zeus 우승 */
         moveCar(zeus, 3);
         moveCar(blue, 1);
@@ -45,6 +42,9 @@ class WinnersTest extends NsTest {
         RaceResult result = RaceResult.create();
         result.captureCars(cars);
 
+        List<CarName> expected = List.of(zeus.getCarName());
+
+        // when
         List<CarName> actual = Winners.from(result).stream().toList();
 
         // then
@@ -62,9 +62,6 @@ class WinnersTest extends NsTest {
         Car wonny = Car.from("wonny");
         Cars cars = Cars.from(List.of(zeus, blue, wonny));
 
-        String expected = "최종 우승자 : zeus";
-
-        // when
         /* zeus는 3칸, blue는 1칸, wonny는 2칸 이동해 zeus 우승 */
         moveCar(zeus, 3);
         moveCar(blue, 1);
@@ -74,6 +71,9 @@ class WinnersTest extends NsTest {
         result.captureCars(cars);
         Winners winners = Winners.from(result);
 
+        String expected = "최종 우승자 : zeus";
+
+        // when
         ResultView resultView = new ResultView();
         resultView.printWinners(winners);
 

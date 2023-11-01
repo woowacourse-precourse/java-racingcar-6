@@ -28,9 +28,9 @@ public class RacingCarTest {
 
         // when
         IntStream.range(0, expected).forEach(i -> car.goOrStop());
+        int actual = car.getDistance();
 
         // then
-        int actual = car.getDistance();
         assertThat(actual).isEqualTo(expected);
     }
 
@@ -46,9 +46,9 @@ public class RacingCarTest {
 
         // when
         IntStream.range(0, 5).forEach(i -> car.goOrStop());
+        int actual = car.getDistance();
 
         // then
-        int actual = car.getDistance();
         assertThat(actual).isEqualTo(expected);
     }
 }
