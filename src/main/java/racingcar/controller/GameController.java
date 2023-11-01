@@ -17,8 +17,8 @@ public class GameController {
     }
 
     public void newGame(){
-        InputView input = new InputView();
-        List<String> carList=input.carListInput();
-
+        InputView inputView = new InputView();
+        List<String> carList=inputView.carListInput();
+        int numOfRound= inputView.numOfRoundInput();
     }
 }

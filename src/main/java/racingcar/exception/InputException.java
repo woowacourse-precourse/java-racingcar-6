@@ -45,5 +45,15 @@ public class InputException {
         return;
     }
 
+    public int numOfRoundException(String input){
+        input=input.trim();
+        try {
+            int numOfRound = Integer.parseInt(input);
+            return numOfRound;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Num_Of_Round_Exception);
+        }
+    }
+
 
 }
