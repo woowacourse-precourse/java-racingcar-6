@@ -27,7 +27,7 @@ public class EnterRacingCarNameTest {
 
         assertThatThrownBy(() -> RacingCarGameController.parseRacingCarNames(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("길이 조건이 맞지 않습니다!");
+                .hasMessageContaining(Constant.ERR_RACING_CAR_NAME_LENGTH);
     }
 
     @Test
@@ -36,6 +36,6 @@ public class EnterRacingCarNameTest {
 
         assertThatThrownBy(() -> RacingCarGameController.parseRacingCarNames(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("길이 조건이 맞지 않습니다!");
+                .hasMessageContaining(Constant.ERR_RACING_CAR_NAME_LENGTH);
     }
 }
