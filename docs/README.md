@@ -4,7 +4,7 @@
 
 - [x] 이름을 가진 자동차 n대 생성 - CarGenerator
 - [x] 자동차 전진 여부를 결정할 무작위 숫자 생성 - NumberGenerator
-- [ ] 자동차 전진 여부 - CarMovementDecision
+- [x] 자동차 전진 여부 - CarMovementDecision
 - [ ] 자동차 전진 - CarControl
 - [ ] 승자 발표 - WinnerAnnouncement
 
