@@ -9,8 +9,8 @@ import racingcar.view.OutputView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.util.constant.Number.NUMBER_RANGE_END;
-import static racingcar.util.constant.Number.NUMBER_RANGE_START;
+import static racingcar.utils.constant.Number.NUMBER_RANGE_END;
+import static racingcar.utils.constant.Number.NUMBER_RANGE_START;
 
 public class RacingGameService {
     private final InputView inputView = new InputView();

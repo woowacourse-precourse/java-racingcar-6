@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import racingcar.util.constant.message.InputMessage;
-import racingcar.util.constant.message.OutputMessage;
+import racingcar.utils.constant.message.InputMessage;
+import racingcar.utils.constant.message.OutputMessage;
 
 import java.util.List;
 

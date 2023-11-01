@@ -1,14 +1,13 @@
 package racingcar.service;
 
-import racingcar.util.constant.message.ErrorMessage;
+import racingcar.utils.Validation;
 import racingcar.domain.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.util.constant.Number.*;
-
 public class CarService {
+
+    final static Validation validation = new Validation();
 
     public List<Car> createCars(List<String> nameList){
         List<Car> carList = new ArrayList<>();
@@ -19,12 +18,7 @@ public class CarService {
     }
 
     private Car create(String name){
-        checkName(name);
+        validation.checkName(name);
         return new Car(name);
-    }
-    private void checkName(String name){
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessage.TOO_LONG.getMessage());
-        }
     }
 }

@@ -1,4 +1,4 @@
-package racingcar.util.constant.message;
+package racingcar.utils.constant.message;
 
 public class OutputMessage {
     public final static String RESULT = "실행 결과";
