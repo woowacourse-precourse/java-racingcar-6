@@ -28,9 +28,9 @@
 
 ### 플레이어의 입력을 필요한 포멧으로 변경해주는 객체를 구현 -> RacingFormatter
 
-- [x] 자동차 이름들에 대한 문자열을 List 형태로 변환하여 반환한다.
+- [ ] 자동차 이름들에 대한 문자열을 List 형태로 변환하여 반환한다.
     - [x] 문자열에 대해 (,)를 기준으로 파싱한다.
-    - [x] 자동차 이름이 빈 문자열이거나 5글자가 넘는 문자열일 경우 IllegalArgumentException을 발생시킨다.
+    - [ ] 자동차 이름이 빈 문자열이거나 5글자가 넘는 문자열일 경우 IllegalArgumentException을 발생시킨다.
 - [ ] 자동차가 몇 번 이동할 지에 대한 문자열 입력을 int 형태로 변환하여 반환한다.
     - [ ] 음수의 입력에 대해 IllegalArgumentException을 발생시킨다.
     - [ ] Integer.parseInt 메서드를 통해 변환한다
