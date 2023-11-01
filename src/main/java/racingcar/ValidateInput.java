@@ -15,5 +15,9 @@ public class ValidateInput {
             } 
         }
     }
-
+    public static void validateNumberOfRaces(int numberOfRaces) {
+        if( numberOfRaces <= 0) {
+            throw new IllegalArgumentException("Number of races should be a positive integer.");
+        }
+    }
 }
