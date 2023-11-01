@@ -24,14 +24,18 @@ public class GameController {
     public void moveCars() {
         System.out.println("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
-            for (Car car : cars) {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
-                if (randomNumber >= 4) {
-                    car.move();
-                }
-                gameView.printMoveStatus(car);
-            }
+            moveEachCar();
             System.out.println("");
+        }
+    }
+
+    public void moveEachCar() {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            if (randomNumber >= 4) {
+                car.move();
+            }
+            gameView.printMoveStatus(car);
         }
     }
 
