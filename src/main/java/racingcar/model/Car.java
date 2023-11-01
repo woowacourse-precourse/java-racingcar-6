@@ -13,6 +13,8 @@ public class Car {
 
     final static int FORWARD_CRITERIA = 4;
 
+    final static int ONE_STEP = 1;
+
     public Car(String name) {
         Validator.carName(name);
         this.name = name;
@@ -22,7 +24,7 @@ public class Car {
     public void move() {
         int rand_num = Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
 
-        if (rand_num >= FORWARD_CRITERIA) position += 1;
+        if (rand_num >= FORWARD_CRITERIA) position += ONE_STEP;
     }
 
     public String getName() {
