@@ -2,6 +2,7 @@ package racingcar.view;
 
 
 import racingcar.domain.RacingGame;
+import racingcar.service.RacingGameResult;
 import racingcar.util.StringUtil;
 
 public class OutputView {
@@ -13,6 +14,11 @@ public class OutputView {
 
     public void printCurrentResult(RacingGame game) {
         String result = stringUtil.makeResultMessage(game);
+        System.out.println(result);
+    }
+
+    public void printWinner(RacingGameResult gameResult) {
+        String result = stringUtil.makeFinalResult(gameResult);
         System.out.println(result);
     }
 }

@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.RacingGame;
+import racingcar.service.RacingGameResult;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -24,5 +25,7 @@ public class RacingGameController {
             racingGame = service.moveCar(racingGame);
             outputView.printCurrentResult(racingGame);
         }
+        RacingGameResult gameResult = service.findWinner(racingGame);
+        outputView.printWinner(gameResult);
     }
 }

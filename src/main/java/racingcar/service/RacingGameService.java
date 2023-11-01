@@ -25,6 +25,21 @@ public class RacingGameService {
         return game;
     }
 
+    public RacingGameResult findWinner(RacingGame game) {
+        RacingGameResult gameResult = new RacingGameResult();
+        List<Car> cars = game.getCars();
+        long max = -1;
+        for (Car car : cars) {
+            if(car.getDistance() > max) {
+                max = car.getDistance();
+                gameResult.clear();
+                gameResult.addWinner(car.getName());
+            } else if(car.getDistance() == max) {
+                gameResult.addWinner(car.getName());
+            }
+        }
+        return gameResult;
+    }
 
     public boolean canMove() {
         return RandomNumberGenerator.generateNumber() >= 4;

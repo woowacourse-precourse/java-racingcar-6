@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Car {
     String name;
-    int distance;
+    long distance;
 
     private Car() {
 
@@ -26,7 +26,7 @@ public class Car {
         return name;
     }
 
-    public int getDistance() {
+    public long getDistance() {
         return distance;
     }
 
