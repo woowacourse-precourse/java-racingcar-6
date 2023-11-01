@@ -4,6 +4,8 @@ import racingcar.Car;
 
 import java.util.List;
 
+import static racingcar.common.message.GameConstant.ANNOUNCE_WINNER_MESSAGE;
+
 public class OutputUtil {
     public void readResult(List<Car> cars) {
         for (Car car : cars) {
@@ -22,5 +24,15 @@ public class OutputUtil {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public void readWinner(List<Car> cars) {
+        System.out.print(ANNOUNCE_WINNER_MESSAGE);
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.print(cars.get(i).getName());
+            if (i != cars.size() - 1) {
+                System.out.print(", ");
+            }
+        }
     }
 }
