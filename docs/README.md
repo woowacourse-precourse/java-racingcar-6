@@ -22,3 +22,18 @@
 
 [o] 라운드는 정수로만 입력할 수 있다. -noIntRoundException()
 
+
+
+### 테스트 코드 ###
+
+[-] 난수가 1~3일 때 움직이지 않고, 4~9일때 전진하는지 확인 -ActionTest / 전진및정지확인()
+
+[-] 여러 자동차의 거리를 비교해 올바른 우승자를 구하는지 확인 -WhoIsWinner / 우승자비교()
+
+[-] 자동차 이름이 1글자 이상 5글자 이하 인지 확인 -CarNameExceptionTest / 자동차이름길이확인()
+
+[-] 자동차 이름이 각각 다른 이름인지 중복 확인 -CarNameExceptionTest / 자동차이름중복확인()
+
+[-] 자동차 이름에 공백이 들어있는지 확인 -CarNameExceptionTest / 자동차이름공백확인()
+
+[-] 라운드 수가 정수로 입력되었는지 확인 -RoundExceptionTest / 정수로입력된라운드수()
