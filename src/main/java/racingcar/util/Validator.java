@@ -8,25 +8,16 @@ public class Validator {
     private static final int INPUT_NAME_MAX_LENGTH = 5;
     private static final int INPUT_MINIMUM_LOOP = 1;
 
-    public static void validateNotNull(String name) {
+    public static void validateName(String name) {
         if (name == null) {
             throw new IllegalArgumentException("유효하지 않은 이름 입력(NULL)");
         }
-    }
-
-    public static void validateNotBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException("유효하지 않은 이름 입력(공백)");
         }
-    }
-
-    public static void validateMaxLength(String name) {
         if (name.length() > INPUT_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException("유효하지 않은 이름 입력(길이 초과)");
+            throw new IllegalArgumentException("유효하지 않은 이름 입력(길이초과)");
         }
-    }
-
-    public static void validateNoSpacesBetweenNames(String name) {
         if (name.contains(" ")) {
             throw new IllegalArgumentException("유효하지 않은 이름 입력(이름 사이 공백)");
         }

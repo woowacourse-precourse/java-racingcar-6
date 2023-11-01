@@ -23,10 +23,7 @@ public class Car {
     }
 
     private void validateName(String name) {
-        Validator.validateNotNull(name);
-        Validator.validateNotBlank(name);
-        Validator.validateMaxLength(name);
-        Validator.validateNoSpacesBetweenNames(name);
+        Validator.validateName(name);
     }
 
     public void moveIfRandomSuccess() {
