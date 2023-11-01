@@ -44,7 +44,7 @@ class CarTest {
     @Nested
     @DisplayName("Progress 클래스와 Car 클래스의 tryPregress 함수를 테스트합니다.")
     class tryProgressTest {
-        @DisplayName("전진에 성공할 시, progressScore에 1값이 추가됩니다.")
+        @DisplayName("전진에 성공할 시, progressScore에 1 값이 추가됩니다.")
         @Test
         void tryProgressSuccess() {
             //given
@@ -57,7 +57,7 @@ class CarTest {
             Assertions.assertThat(car.getProgressScore()).isEqualTo(1);
         }
 
-        @DisplayName("전진에 실패할 시, progressScore에 0값이 추가됩니다.")
+        @DisplayName("전진에 실패할 시, progressScore에 0 값이 추가됩니다.")
         @Test
         void tryProgressFail() {
             //given
