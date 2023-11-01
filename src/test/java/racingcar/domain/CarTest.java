@@ -42,7 +42,7 @@ public class CarTest {
         CarDistanceMessage message = car.createCarDistanceMessage();
         CarDistanceMessage expect = new CarDistanceMessage("foo", 0);
 
-        assertEquals(message.toString(), expect.toString());
+        assertEquals(message, expect);
 
     }
 
@@ -57,7 +57,7 @@ public class CarTest {
         WinnersMessage message = Car.createWinnersMessage(cars);
         WinnersMessage expect = new WinnersMessage(List.of("bar"));
 
-        assertEquals(message.toString(), expect.toString());
+        assertEquals(message, expect);
 
     }
 
@@ -74,7 +74,7 @@ public class CarTest {
         WinnersMessage message = Car.createWinnersMessage(cars);
         WinnersMessage expect = new WinnersMessage(List.of("foo", "bar"));
 
-        assertEquals(message.toString(), expect.toString());
+        assertEquals(message, expect);
 
     }
 
