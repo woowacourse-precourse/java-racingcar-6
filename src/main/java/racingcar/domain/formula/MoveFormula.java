@@ -4,18 +4,18 @@ import racingcar.domain.generator.NumberGenerator;
 
 public class MoveFormula implements Formula {
 
-  private static final int MINIMUM_MOVING_CONDITIONS = 4;
+    private static final int MINIMUM_MOVING_CONDITIONS = 4;
 
-  private final NumberGenerator numberGenerator;
+    private final NumberGenerator numberGenerator;
 
-  public MoveFormula(final NumberGenerator numberGenerator) {
-    this.numberGenerator = numberGenerator;
-  }
-
-  public MoveState move() {
-    if (numberGenerator.generate() >= MINIMUM_MOVING_CONDITIONS) {
-      return MoveState.MOVING_FORWARD;
+    public MoveFormula(final NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
     }
-    return MoveState.STOP;
-  }
+
+    public MoveState move() {
+        if (numberGenerator.generate() >= MINIMUM_MOVING_CONDITIONS) {
+            return MoveState.MOVING_FORWARD;
+        }
+        return MoveState.STOP;
+    }
 }

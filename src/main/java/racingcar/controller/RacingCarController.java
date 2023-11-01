@@ -13,22 +13,22 @@ import racingcar.view.RaceGameInput;
 
 public class RacingCarController {
 
-  private final InputView inputView;
-  private final OutputView outputView;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-  public RacingCarController() {
-    this.inputView = new InputView();
-    this.outputView = new OutputView();
-  }
+    public RacingCarController() {
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
+    }
 
-  public void run() {
-    RaceGameInput raceGameInput = inputView.readRaceGameInput();
-    List<Car> cars = CarFactory.createCars(raceGameInput.carNames());
-    Formula moveFormula = new MoveFormula(new RandomNumberGenerator());
+    public void run() {
+        RaceGameInput raceGameInput = inputView.readRaceGameInput();
+        List<Car> cars = CarFactory.createCars(raceGameInput.carNames());
+        Formula moveFormula = new MoveFormula(new RandomNumberGenerator());
 
-    RaceGame raceGame = new RaceGame(moveFormula, cars, raceGameInput.round());
-    outputView.printStartRaceGame();
-    raceGame.race(outputView::printRaceGameResults);
-    outputView.printFinalHeadOfRace(raceGame.currentHeadOfRace());
-  }
+        RaceGame raceGame = new RaceGame(moveFormula, cars, raceGameInput.round());
+        outputView.printStartRaceGame();
+        raceGame.race(outputView::printRaceGameResults);
+        outputView.printFinalHeadOfRace(raceGame.currentHeadOfRace());
+    }
 }

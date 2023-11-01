@@ -2,5 +2,5 @@ package racingcar.domain.formula;
 
 public interface Formula {
 
-  MoveState move();
+    MoveState move();
 }

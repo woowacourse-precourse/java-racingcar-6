@@ -1,13 +1,13 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -53,8 +53,8 @@ class ApplicationTest extends NsTest {
     @DisplayName("자동차 이름이 빈 문자열이면 예외를 반환한다.")
     void 자동차_이름이_빈_문자열이면_예외를_반환한다() {
         assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobi,,woni", "1"))
-                .isInstanceOf(IllegalArgumentException.class)
+                assertThatThrownBy(() -> runException("pobi,,woni", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
@@ -88,11 +88,11 @@ class ApplicationTest extends NsTest {
     @DisplayName("자동차의 이름과 위치를 출력한다.")
     void 자동차의_이름과_위치를_출력한다() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -100,11 +100,11 @@ class ApplicationTest extends NsTest {
     @DisplayName("최종 우승자를 출력한다.")
     void 최종_우승자를_출력한다() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -112,11 +112,11 @@ class ApplicationTest extends NsTest {
     @DisplayName("우승자가 여러 명일 경우 쉼표로 구분하여 출력한다.")
     void 우승자가_여러_명일_경우_쉼표로_구분하여_출력한다() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni,jun", "1");
-                assertThat(output()).contains("pobi : -", "woni : -", "jun : ", "최종 우승자 : pobi, woni");
-            },
-            MOVING_FORWARD, MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni,jun", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "jun : ", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, STOP
         );
     }
 
