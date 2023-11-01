@@ -3,12 +3,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         try {
-            List<Car> cars = insertCarName();
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            String input = Console.readLine();
+            List<Car> cars = insertCarName(input);
             int numberOfMoves = insertNumberOfMoves();
             playGame(cars, numberOfMoves);
             List<String> winners = getWinner(cars);
@@ -19,9 +22,7 @@ public class Application {
 
     }
     //경주할 자동차 이름 입력
-    public static List<Car> insertCarName(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
+    public static List<Car> insertCarName(String input){
         String[] carName = input.split(",");
         List<Car> cars = new ArrayList<>();
         for(String name : carName){
