@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.service;
 
 import static java.util.Objects.isNull;
 import static racingcar.common.exception.ErrorMessage.DUPLICATED_NAME;
@@ -10,17 +10,19 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import racingcar.common.exception.RacingGameException;
+import racingcar.model.Car;
+import racingcar.model.Result;
 import racingcar.util.RandomUtil;
 import racingcar.util.StringUtil;
 
-public class RacingGame {
+public class RacingGameService {
 
     private static final String DELIMITER = ",";
     private static final int MIN_RANDOM_VALUE = 0;
     private static final int MAX_RANDOM_VALUE = 9;
     private final List<Car> racingCarList;
 
-    private RacingGame(final String inputNameString) {
+    private RacingGameService(final String inputNameString) {
         validateInputNameString(inputNameString);
         String[] carNames = StringUtil.splitByDelimiter(inputNameString, DELIMITER);
         validateDuplicateName(carNames);
@@ -30,8 +32,8 @@ public class RacingGame {
                 .forEach(name -> racingCarList.add(Car.from(StringUtil.removeLeadingAndTrailingWhitespace(name))));
     }
 
-    public static RacingGame from(final String inputNameString) {
-        return new RacingGame(inputNameString);
+    public static RacingGameService from(final String inputNameString) {
+        return new RacingGameService(inputNameString);
     }
 
     public List<Result> play() {
