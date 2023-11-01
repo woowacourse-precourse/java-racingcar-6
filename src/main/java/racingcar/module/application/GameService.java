@@ -11,7 +11,6 @@ import racingcar.module.dao.CarRepository;
 import racingcar.module.dao.GameRepository;
 import racingcar.module.domain.Car;
 import racingcar.module.domain.Game;
-import racingcar.module.view.Output;
 
 public class GameService {
 
@@ -33,26 +32,17 @@ public class GameService {
         return game.getId();
     }
 
-    public void playGame(Long gameId) {
+    public List<Car> play(Long gameId) {
         Game game = gameRepository.findById(gameId);
+        game.play();
         List<Car> carList = carRepository.findByGame(gameId);
 
-        Output.printResultMessage();
-
-        while (game.play() < game.getTrial()) {
-            play(carList);
-        }
-        Output.printWinners(getWinners(gameId));
-    }
-
-    private void play(List<Car> carList) {
         for (Car car : carList) {
             if (moveForwardByRandomNumber()) {
                 car.moveForward();
             }
-            Output.printResult(car.getName(), car.getMoving());
         }
-        Output.endPlay();
+        return carList;
     }
 
     private boolean moveForwardByRandomNumber() {
@@ -66,7 +56,7 @@ public class GameService {
         return Randoms.pickNumberInRange(START_RANGE, END_RANGE);
     }
 
-    private List<String> getWinners(Long gameId) {
+    public List<String> getWinners(Long gameId) {
         List<Car> carList = carRepository.findByGame(gameId);
 
         int max = getMaxMoving(carList);
@@ -107,5 +97,13 @@ public class GameService {
             Car car = Car.from(gameId, name);
             carRepository.save(car);
         }
+    }
+
+    public boolean isEnd(Long gameId) {
+        Game game = gameRepository.findById(gameId);
+        if (game.isEnd()) {
+            return true;
+        }
+        return false;
     }
 }

@@ -22,16 +22,29 @@ public class GameController {
     }
 
     private Long setGame() {
-        Output.printEnterCarNamesMessage();
-        List<String> carNames = Input.readCarNames();
-        Output.printEnterTrialMessage();
-        int trial = Input.readTrialNumber();
+        List<String> carNames = getCarNames();
+        int trial = getTrialNumber();
 
         return gameService.setGame(carNames, trial);
     }
 
     private void play(Long gameId) {
-        gameService.playGame(gameId);
+        Output.printResultMessage();
+
+        while (!gameService.isEnd(gameId)) {
+            Output.printScore(gameService.play(gameId));
+        }
+        Output.printWinners(gameService.getWinners(gameId));
+    }
+
+    private List<String> getCarNames() {
+        Output.printEnterCarNamesMessage();
+        return Input.readCarNames();
+    }
+
+    private int getTrialNumber() {
+        Output.printEnterTrialMessage();
+        return Input.readTrialNumber();
     }
 
 }

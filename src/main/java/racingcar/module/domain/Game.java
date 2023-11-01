@@ -26,7 +26,10 @@ public class Game {
         return playNum++;
     }
 
-    public int getTrial() {
-        return trial;
+    public boolean isEnd() {
+        if (trial > playNum) {
+            return false;
+        }
+        return true;
     }
 }

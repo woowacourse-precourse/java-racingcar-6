@@ -8,6 +8,7 @@ import static racingcar.global.constant.GameMessage.RESULT_INFO_MESSAGE;
 import static racingcar.global.constant.GameMessage.WINNER_INFO;
 
 import java.util.List;
+import racingcar.module.domain.Car;
 
 public class Output {
 
@@ -25,9 +26,12 @@ public class Output {
         System.out.println(RESULT_INFO_MESSAGE);
     }
 
-    public static void printResult(String name, int moving) {
-        System.out.print(String.format(RESULT_CAR_NAME, name));
-        printMovingNumber(moving);
+    public static void printScore(List<Car> carList) {
+        for (Car car : carList) {
+            System.out.print(String.format(RESULT_CAR_NAME, car.getName()));
+            printMovingNumber(car.getMoving());
+        }
+        System.out.println();
     }
 
     public static void printWinners(List<String> winners) {
@@ -39,10 +43,6 @@ public class Output {
         for (int i = 0; i < moving; i++) {
             System.out.print(MOVE);
         }
-        System.out.println();
-    }
-
-    public static void endPlay() {
         System.out.println();
     }
 }
