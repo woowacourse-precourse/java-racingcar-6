@@ -19,6 +19,12 @@ public class Application {
         else
             return false;
     }
+
+    private static void validateInput(String car) throws IllegalArgumentException {
+        if(car.length() > 5)
+            throw new IllegalArgumentException();
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
