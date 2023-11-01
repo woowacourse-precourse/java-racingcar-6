@@ -1,5 +1,9 @@
 package racingcar.model;
 
+import static racingcar.constant.GameStringConstant.BLANK;
+import static racingcar.constant.GameStringConstant.SCORE_BAR;
+import static racingcar.constant.GameStringConstant.SCORE_DIVDER;
+
 import racingcar.constant.GameStringConstant;
 
 public class RacingCar {
@@ -33,10 +37,10 @@ public class RacingCar {
     }
 
     public String getCarInfo() {
-        return this.name + " : " + this.getScoreBars();
+        return this.name + BLANK.getValue() + SCORE_DIVDER.getValue() + BLANK.getValue() + this.getScoreBars();
     }
 
     private String getScoreBars() {
-        return "-".repeat(this.score);
+        return SCORE_BAR.getValue().repeat(this.score);
     }
 }

@@ -9,11 +9,19 @@ public class Input {
 
     public String getNames() {
         System.out.println(GET_NAMES.getValue());
+        // return getInput();
         return Console.readLine();
     }
 
     public String getRound() {
         System.out.println(GET_ROUND_NUM.getValue());
-        return Console.readLine();
+        return getInput();
+        // Console.readLine();
+    }
+
+    private String getInput() {
+        String input = Console.readLine();
+        Console.close();
+        return input;
     }
 }

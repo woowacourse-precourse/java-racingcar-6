@@ -2,7 +2,9 @@ package racingcar.constant;
 
 public enum GameStringConstant {
 
-    BLANK(" ");
+    BLANK(" "),
+    SCORE_DIVDER(":"),
+    SCORE_BAR("-");
 
     private final String value;
 
