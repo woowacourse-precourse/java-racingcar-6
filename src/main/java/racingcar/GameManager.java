@@ -22,7 +22,7 @@ public class GameManager {
         user.printWinners(winners);
     }
 
-    public List<Car> listOfCars(List<String> carNames) {
+    private List<Car> listOfCars(List<String> carNames) {
         List<Car> carList = new ArrayList<Car>();
 
         for (String carName : carNames) {
@@ -32,13 +32,13 @@ public class GameManager {
         return carList;
     }
 
-    public void move(List<Car> carList, List<Integer> randomNumbers) {
+    private void move(List<Car> carList, List<Integer> randomNumbers) {
         for (int i = 0; i < carList.size(); i++) {
             if(randomNumbers.get(i) >= 4) carList.get(i).addMove();
         }
     }
 
-    public List<String> getWinners(List<Car> carList) {
+    private List<String> getWinners(List<Car> carList) {
         List<String> winners = new ArrayList<>();
         int maxDistance = 0;
 
