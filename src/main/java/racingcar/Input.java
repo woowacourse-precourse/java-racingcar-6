@@ -17,6 +17,9 @@ public class Input {
 
 		String[] carnames = input.split(",");
 
+		InputValid.names(carnames);
+		
+		
 		for (int i = 0; i < carnames.length; i++) {
 			String name = carnames[i];
 			cars.add(new Car(name));
@@ -28,6 +31,8 @@ public class Input {
 
 		count = Integer.parseInt(cntstr);
 
+		InputValid.count(count);
+		
 	}
 
 	public ArrayList<Car> getCars() {
