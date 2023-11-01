@@ -12,13 +12,16 @@ public class Game {
 
 
     public Game(List<String> carNames, int repetition) {
-        Exceptions exception = new Exceptions();
-        exception.hasWrongName(carNames);
+        Exceptions.hasWrongName(carNames);
+        addList(carNames);
+        this.repetition = repetition;
+    }
+
+    private void addList(List<String> carNames) {
         for (String carName : carNames) {
             Car car = new Car(carName);
             carList.add(car);
         }
-        this.repetition = repetition;
     }
 
     public void forward() {
