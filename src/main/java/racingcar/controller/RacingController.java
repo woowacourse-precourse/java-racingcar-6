@@ -12,11 +12,11 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.view.View;
 
-public class RacingGameController implements Controller {
+public class RacingController implements Controller {
     private final InputView inputView;
     private final OutputView outputView;
 
-    RacingGameController(final View inputView, final View outputView) {
+    RacingController(final View inputView, final View outputView) {
         this.inputView = (InputView) inputView;
         this.outputView = (OutputView) outputView;
     }
