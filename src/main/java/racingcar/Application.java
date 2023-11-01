@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.CarInformation;
 import racingcar.domain.GameManagement;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,6 +21,8 @@ public class Application {
             game.playRound();
             printRoundResult(game);
         }
+
+        List<String> winners = getWinners(game);
     }
 
     private static String[] getCarNames() {
@@ -47,5 +50,14 @@ public class Application {
             }
             System.out.println();
         }
+    }
+
+    private static List<String> getWinners(GameManagement game) {
+        List<CarInformation> winnerCars = game.getWinners();
+        List<String> winners = new ArrayList<>();
+        for (CarInformation car : winnerCars) {
+            winners.add(car.getName());
+        }
+        return winners;
     }
 }
