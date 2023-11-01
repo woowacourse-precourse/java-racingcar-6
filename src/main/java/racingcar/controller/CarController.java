@@ -68,14 +68,14 @@ public class CarController {
 
         List<String> carList = splitCarNamesReturnList(inputTemp); // , 를 기준으로 구분하여 List<String> 생성
 
-        return stringListToCarsModel(carList);
+        return convertStringListToCarsModel(carList);
     }
 
     private List<String> splitCarNamesReturnList(String carMembers) {
         return Arrays.asList(carMembers.split(delimiter));
     }
 
-    private Cars stringListToCarsModel(List<String> carList) {
+    private Cars convertStringListToCarsModel(List<String> carList) {
         List<Car> cars = new ArrayList<>();
 
         for (String name : carList) {
