@@ -25,11 +25,13 @@ public class Winner {
 //        String winnerNm = "";
 
         int maxPosition = 0;
+
         for(Car car: cars) {
             if (maxPosition == car.ReturnMove()) {
                 winner.add(car.ReturnCarName());
                 maxPosition += car.ReturnMove();
             } else if (maxPosition < car.ReturnMove()) {
+                winner.clear();
                 winner.add(car.ReturnCarName());
                 maxPosition = car.ReturnMove();
             }
