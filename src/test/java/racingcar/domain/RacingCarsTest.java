@@ -31,6 +31,7 @@ class RacingCarsTest {
         List<String> winners = racingCars.findWinners();
 
         //then
+        assertThat(winners).hasSize(1);
         assertThat(winners).containsExactly(pobiCar.getName());
     }
 }
