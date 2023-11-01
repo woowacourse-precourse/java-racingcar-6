@@ -5,8 +5,8 @@ import org.mockito.MockedStatic;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mockStatic;
 
@@ -22,9 +22,12 @@ class GameTest {
         given(RandomNumber.createRandomNumber()).willReturn(new RandomNumber(4));
 
         List<CarDistanceMessage> carDistanceMessages = game.simulate();
-        List<String> messages = carDistanceMessages.stream().map(CarDistanceMessage::toString).toList();
+        List<CarDistanceMessage> expect = List.of(
+                new CarDistanceMessage("foo", 1),
+                new CarDistanceMessage("bar", 1)
+        );
 
-        assertThat(messages).contains("foo : -", "bar : -");
+        assertIterableEquals(carDistanceMessages, expect);
         randomNumber.close();
 
     }
@@ -39,7 +42,7 @@ class GameTest {
         WinnersMessage winnersMessage = game.getWinnersMessage();
         WinnersMessage expect = new WinnersMessage(List.of("foo"));
 
-        assertEquals(winnersMessage.toString(), expect.toString());
+        assertEquals(winnersMessage, expect);
 
     }
 
