@@ -23,6 +23,22 @@ public class Car {
         this.forwardCount = 0;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getForwardCount() {
+        return this.forwardCount;
+    }
+
+    public boolean hasForwardCountOf(int targetForwardCount) {
+        return this.forwardCount == targetForwardCount;
+    }
+
+    public CarState summarizeState() {
+        return new CarState(this.name, this.forwardCount);
+    }
+
     public void tryForward() {
         if (canForward()) {
             this.forwardCount += ONE_STEP;
@@ -38,9 +54,5 @@ public class Car {
         if (name.length() > MAXIMUM_NAME_LENGTH) {
             throw new IllegalArgumentException(ErrorCode.INVALID_NAME_LENGTH.getMessage());
         }
-    }
-
-    public CarState summarizeState() {
-        return new CarState(this.name, this.forwardCount);
     }
 }
