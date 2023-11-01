@@ -34,5 +34,7 @@ public class RacingGame {
         game.showCarAdvancedResult(tryCount);
     }
 
-
+    public void finalWinner() {
+        game.showFinalWinCar();
+    }
 }
