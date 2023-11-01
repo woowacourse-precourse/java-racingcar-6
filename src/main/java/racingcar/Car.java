@@ -7,8 +7,14 @@ public class Car {
     int moveCnt;
 
     public Car(String name){
-        this.name = name;
+        setName(name)
         this.moveCnt = 0;
+    }
+    public void setName(String name){
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5글자 이하");
+        }
+        this.name = name;
     }
 
     public int pickNumber(){
