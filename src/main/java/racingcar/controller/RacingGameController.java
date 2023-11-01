@@ -8,6 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import racingcar.model.CarNameList;
 import racingcar.model.ResultList;
 import racingcar.view.View;
@@ -23,8 +24,11 @@ public class RacingGameController {
 
     public void init() {
         view = new View();
+        view.initView();
         carNameList = new CarNameList(getCarString());
-        carNameList.NameExceptionCheck();
+        carNameList.NameSizeExceededCheck();
+        carNameList.NameValueCheck();
+        view.tryNumberView();
         tryNumber = getTryNumber();
         resultList = new ResultList(getResultList());
         PlayingGame();
@@ -53,23 +57,22 @@ public class RacingGameController {
     }
 
     public String[] getCarString() {
-        view.initView();
         String carName = Console.readLine();
         return carName.split(",");
     }
 
     public Integer getTryNumber() {
-        view.tryNumberView();
         String inputTryNumber = Console.readLine();
-        if(!checkTryNumber(inputTryNumber)){
-            throw new IllegalArgumentException();
-        }
+        checkTryNumber(inputTryNumber);
         Integer inputNumber = parseInt(inputTryNumber);
         return inputNumber;
     }
 
-    public boolean checkTryNumber(String inputTryNumber){
-        return Pattern.matches(REGEX_DIGIT, inputTryNumber);
+    public ThrowingCallable checkTryNumber(String inputTryNumber){
+        if(!Pattern.matches(REGEX_DIGIT, inputTryNumber)) {
+            throw new IllegalArgumentException();
+        }
+        return null;
     }
 
     public List<String> getResultList() {
