@@ -41,4 +41,17 @@ class RacingFormatterTest {
         assertThatThrownBy(() -> formatter.reformatCarNames("poby,,해광"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("전 횟수를 정상적인 숫자로 변환하는 검증")
+    void reformatNormalAttemptNumberTest() {
+        //given
+        RacingFormatter formatter = new RacingFormatter();
+
+        //when
+        int result = formatter.reformatAttemptNumber("123");
+
+        //then
+        assertThat(result).isEqualTo(123);
+    }
 }
