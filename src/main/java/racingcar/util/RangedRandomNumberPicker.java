@@ -2,7 +2,7 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RangedRandomNumberPicker implements NumberPicker {
+public class RangedRandomNumberPicker {
 
     private final int start;
     private final int end;
@@ -12,7 +12,6 @@ public class RangedRandomNumberPicker implements NumberPicker {
         this.end = end;
     }
 
-    @Override
     public int pickNumber() {
         return Randoms.pickNumberInRange(start, end);
     }

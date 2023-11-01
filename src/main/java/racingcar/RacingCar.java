@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.util.NumberPicker;
+import racingcar.util.RangedRandomNumberPicker;
 
 public class RacingCar {
 
@@ -9,12 +9,12 @@ public class RacingCar {
 
     private final String name;
     private int position;
-    private final NumberPicker numberPicker;
+    private final RangedRandomNumberPicker rangedRandomNumberPicker;
 
-    public RacingCar(String name, NumberPicker numberPicker) {
+    public RacingCar(String name, RangedRandomNumberPicker rangedRandomNumberPicker) {
         this.name = name;
         this.position = STARTING_POSITION;
-        this.numberPicker = numberPicker;
+        this.rangedRandomNumberPicker = rangedRandomNumberPicker;
     }
 
     public void race() {
@@ -32,6 +32,6 @@ public class RacingCar {
     }
 
     private boolean canMoveForward() {
-        return numberPicker.pickNumber() >= MOVING_STANDARD;
+        return rangedRandomNumberPicker.pickNumber() >= MOVING_STANDARD;
     }
 }
