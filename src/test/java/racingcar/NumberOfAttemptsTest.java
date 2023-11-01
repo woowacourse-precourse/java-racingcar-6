@@ -2,9 +2,12 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER;
+import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class NumberOfAttemptsTest {
 
@@ -21,11 +24,12 @@ class NumberOfAttemptsTest {
                 .hasMessageContaining(NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER);
     }
 
-    @Test
-    void 입력_받은_시도_횟수는_1이상_이어야_한다() {
-        assertThatThrownBy(() -> new NumberOfAttempts("0"))
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-1"})
+    void 입력_받은_시도_횟수는_1이상_이어야_한다(String inputNumberOfAttempts) {
+        assertThatThrownBy(() -> new NumberOfAttempts(inputNumberOfAttempts))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER);
+                .hasMessageContaining(NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS);
     }
 
 }
