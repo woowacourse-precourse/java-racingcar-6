@@ -28,6 +28,7 @@ public class GameController {
         GameInputView.printTryInputMessage();
         String tryCount = readLine();
         InputValidator.checkNumeric(tryCount);
+        InputValidator.checkZero(tryCount);
 
         gameService.start(carNames, tryCount);
     }

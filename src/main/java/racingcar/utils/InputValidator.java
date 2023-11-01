@@ -42,4 +42,10 @@ public class InputValidator {
         }
     }
 
+    public static void checkZero(String input) {
+        if (Integer.parseInt(input) == 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
