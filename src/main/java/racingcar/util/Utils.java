@@ -37,11 +37,11 @@ public class Utils {
         }
     }
     private void CAR_NAME_MIN_ThrowException() {
-        throw new IllegalArgumentException("" + CAR_NAME_LENGTH_MIN + "글자 이상으로 입력하십시오.");
+        throw new IllegalArgumentException("자동차 이름은 " + CAR_NAME_LENGTH_MIN + "글자 이상으로 입력하십시오.");
     }
 
     private void CAR_NAME_MAX_ThrowException() {
-        throw new IllegalArgumentException("" + CAR_NAME_LENGTH_MAX + "글자 이하로 입력하십시오.");
+        throw new IllegalArgumentException("자동차 이름은 " + CAR_NAME_LENGTH_MAX + "글자 이하로 입력하십시오.");
     }
 
     private void Check_Car_NAMES_LIST_ThrowException_duplication(List<String> CAR_NAMES_LIST) {
@@ -60,7 +60,7 @@ public class Utils {
 
     private void Check_Car_NAMES_LIST_ThrowException_eachname(List<String> CAR_NAMES_LIST) {
         for (String CAR_NAME : CAR_NAMES_LIST) {
-            checkLengthAndThrowException(CAR_NAME);
+            Check_Length_ThrowException(CAR_NAME);
             Check_BLANK_ThrowException(CAR_NAME);
         }
     }
@@ -75,7 +75,7 @@ public class Utils {
         throw new IllegalArgumentException("띄어쓰기가 포함되지 않은 이름을 입력해주십시오.");
     }
 
-    private void checkLengthAndThrowException(String CAR_NAME) {
+    private void Check_Length_ThrowException(String CAR_NAME) {
         if (CAR_NAME_LENGTH_MAX < CAR_NAME.length()) {
             CAR_NAME_MAX_ThrowException();
         }

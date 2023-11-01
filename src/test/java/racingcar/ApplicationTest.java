@@ -30,7 +30,21 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void 예외_처리_5글자() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("dsfgds,javaji,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
+    @Test
+    void 중복_이름() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("name,name", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
