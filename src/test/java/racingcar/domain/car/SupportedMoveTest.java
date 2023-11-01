@@ -9,23 +9,23 @@ import static racingcar.domain.car.SupportedMove.*;
 class SupportedMoveTest {
 
     @Test
-    @DisplayName("moveCount를 하나 증가시킬 수 있다.")
+    @DisplayName("4이상의 값이면 한번 움직일 수 있다.")
     public void moveCalculateTest() {
         // given
         int moveCount = 3;
         // when
-        int calculateValue = MOVE.calculate(moveCount);
+        int calculateValue = controlMovement(moveCount, 4);
         // then
         assertThat(moveCount + 1).isEqualTo(calculateValue);
     }
 
     @Test
-    @DisplayName("moveCount는 변하지 않는다.")
+    @DisplayName("4미만의 값이면 움직이지 않는다.")
     public void stopCalculateTest() {
         // given
         int moveCount = 3;
         // when
-        int calculateValue = STOP.calculate(moveCount);
+        int calculateValue = controlMovement(moveCount, 3);
         // then
         assertThat(moveCount).isEqualTo(calculateValue);
     }
