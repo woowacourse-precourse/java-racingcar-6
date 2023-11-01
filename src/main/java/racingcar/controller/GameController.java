@@ -22,6 +22,7 @@ public class GameController {
         InputValidator.checkEndsWithComma(carNameInput);
 
         List<String> carNames = getCarNames(carNameInput);
+        InputValidator.checkLengthFive(carNames);
 
         GameInputView.printTryInputMessage();
         String tryCount = readLine();

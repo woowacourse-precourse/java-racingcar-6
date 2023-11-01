@@ -1,5 +1,7 @@
 package racingcar.utils;
 
+import java.util.List;
+
 public class InputValidator {
 
     public static void checkHasComma(String carNameInput) {
@@ -16,5 +18,11 @@ public class InputValidator {
         }
     }
 
-    //TODO: 자동차 이름의 글자가 5이하가 아닐 경우 예외 처리 기능
+    public static void checkLengthFive(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 }
