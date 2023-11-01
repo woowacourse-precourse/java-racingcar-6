@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private String name;
     private int progress;
 
@@ -19,15 +19,16 @@ public class Car {
         return name;
     }
 
-    public int getProgress() {
-        return progress;
-    }
-
-    public boolean isMaxProgress(int maxProgress) {
-        return maxProgress == progress;
+    public boolean isSameProgress(Car other) {
+        return other.progress == this.progress;
     }
 
     public String getNameAndProgress() {
         return name + " : " + "-".repeat(progress);
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.progress - other.progress;
     }
 }

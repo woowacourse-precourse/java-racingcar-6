@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constants.MessageConstants;
 import racingcar.constants.NumberConstants;
 
 public class Race {
@@ -30,17 +31,20 @@ public class Race {
         return cars;
     }
 
-    private int getMaxProgress() {
+    private Car getMaxProgressCar() {
         return cars.stream()
-                .mapToInt(Car::getProgress)
-                .max()
-                .orElse(0);
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(MessageConstants.EMPTY_CAR_LIST));
     }
 
     public List<String> getWinners() {
-        int maxProgress = getMaxProgress();
+        final Car maxProgressCar = getMaxProgressCar();
+        return findSameProgressCars(maxProgressCar);
+    }
+
+    private List<String> findSameProgressCars(Car maxProgressCar) {
         return cars.stream()
-                .filter(car -> car.isMaxProgress(maxProgress))
+                .filter(maxProgressCar::isSameProgress)
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
