@@ -22,7 +22,7 @@ public class RacingGame {
         }
     }
 
-    public void setCarCount() {
+    private void setCarCount() {
         carCount = cars.size();
     }
 
@@ -47,21 +47,21 @@ public class RacingGame {
         return winnerNames;
     }
 
-    public void setWinners() {
+    private void setWinners() {
         int max = findMax();
         for (RacingCar car : cars) {
             addWinner(max, car);
         }
     }
 
-    public void addWinner(int max, RacingCar car) {
+    private void addWinner(int max, RacingCar car) {
         int carMove = car.getMove();
         if (max == carMove) {
             winners.add(car);
         }
     }
 
-    public int findMax() {
+    private int findMax() {
         int max = 0;
         for (RacingCar car : cars) {
             int carMove = car.getMove();

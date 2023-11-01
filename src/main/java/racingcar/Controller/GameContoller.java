@@ -22,12 +22,12 @@ public class GameContoller {
         output.printWinnerNames(game);
     }
 
-    public List<String> makeRacingCars() {
+    private List<String> makeRacingCars() {
         output.printNameMessage();
         return input.inputCarNames();
     }
 
-    public int makeTryCount() {
+    private int makeTryCount() {
         output.printCountMessage();
         return input.inputTryCount();
     }

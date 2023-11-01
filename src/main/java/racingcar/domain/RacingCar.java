@@ -28,11 +28,11 @@ public class RacingCar {
         move++;
     }
 
-    public void makeRandomNumber() {
+    private void makeRandomNumber() {
         randomNumber = Randoms.pickNumberInRange(Rule.minNumber, Rule.maxNumber);
     }
 
-    public boolean isOverFour(int value) {
+    private boolean isOverFour(int value) {
         return value >= Rule.standardValue;
     }
 
