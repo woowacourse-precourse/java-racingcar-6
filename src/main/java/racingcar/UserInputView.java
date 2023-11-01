@@ -1,4 +1,6 @@
-package racingcar;
+package racingCar_backup;
+
+//package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,7 @@ public class UserInputView {
     private static final String TRY_TIMES_MESSAGE = "시도할 횟수는 몇 회입니까?";
 
     private List<String> carNames = new ArrayList<>();
+    private int tryTimes = 0;
 
     public List<String> getCarNames() {
         System.out.println(WELCOME_MESSAGE);
@@ -34,6 +37,17 @@ public class UserInputView {
             carNames.add(name.replaceAll("\\s", "").trim());
         }
         return carNames;
+    }
+
+    public int getTryTimes() {
+        System.out.println(TRY_TIMES_MESSAGE);
+        String userInputNumber = Console.readLine();
+        int userInputTrialNumber = Integer.parseInt(userInputNumber);
+
+        // 예외 처리 여부 확인
+
+
+        return userInputTrialNumber;
     }
 
 }
