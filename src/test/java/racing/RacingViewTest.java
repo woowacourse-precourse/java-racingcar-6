@@ -1,4 +1,4 @@
-package study;
+package racing;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.utils.RacingConfig.MOVED_HISTORY_MARK;

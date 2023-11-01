@@ -1,11 +1,8 @@
-package study;
+package racing;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static racingcar.utils.RacingConfig.MAX_NUMBER;
 import static racingcar.utils.RacingConfig.MOVE_FORWARD_VALUE;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.movement.TestMovementStrategy;
 

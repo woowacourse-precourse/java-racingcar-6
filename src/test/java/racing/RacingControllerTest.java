@@ -1,5 +1,7 @@
-package study;
+package racing;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
@@ -29,7 +31,7 @@ public class RacingControllerTest {
     }
 
     @Test
-    public void testStart() {
+    public void test_start() {
 
         FinalResult finalResult = mock(FinalResult.class);
 
@@ -42,5 +44,23 @@ public class RacingControllerTest {
         verify(mockRacingView, times(1)).displayRacingMessage(RacingMessage.ASK_FOR_ROUNDS);
         verify(mockRacingView, times(1)).displayFinalResult(any(FinalResult.class));
         verify(mockRacingView, times(1)).displayWinner(any(FinalResult.class));
+    }
+
+    @Test
+    public void test_parse_car_names() {
+        String[] result = racingController.parseCarNames("pobi,woni,jun");
+        assertThat(result).containsExactly("pobi", "woni", "jun");
+    }
+
+    @Test
+    public void test_parse_round_number() {
+        int result = racingController.parseRoundNumber("5");
+        assertThat(result).isEqualTo(5);
+    }
+
+    @Test
+    public void test_parse_round_number_with_invalid_input() {
+        assertThatThrownBy(() -> racingController.parseRoundNumber("five"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
