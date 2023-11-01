@@ -21,4 +21,9 @@ public class Game {
         System.out.println(INIT_CARGROUP_TEXT);
         return new CarGroup(InputHandler.getCarListFromInput());
     }
+
+    public int initTrialCount() {
+        System.out.println(INIT_TRIALNUMBER_TEXT);
+        return InputHandler.getTrialNumberFromInput();
+    }
 }
