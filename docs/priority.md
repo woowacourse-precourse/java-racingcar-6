@@ -43,5 +43,3 @@
   2. ",etion,jay,gogi"
   3. "hyo, ,Uto,victus"
   ```
-  
-  
