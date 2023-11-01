@@ -31,7 +31,7 @@ class OutputViewTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "2");
-                    assertThat(output()).contains("pobi : -", "pobi : --", "woni : ", "최종 우승자 : pobi");
+                    assertThat(output()).contains("pobi : -", "pobi : --", "woni : ",  "최종 우승자 : pobi");
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, STOP
         );
@@ -40,6 +40,13 @@ class OutputViewTest extends NsTest {
     @Test
     @DisplayName("공동 우승 출력 테스트")
     void printWinners_2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
     }
 
     @Override
