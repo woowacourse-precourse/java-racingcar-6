@@ -8,7 +8,7 @@ public class RandomNumber {
     private final int STANDARD_NUMBER = 4;
 
     public boolean getMovement() {
-        return getRandomNumber() > STANDARD_NUMBER;
+        return getRandomNumber() >= STANDARD_NUMBER;
     }
 
     private int getRandomNumber() {
