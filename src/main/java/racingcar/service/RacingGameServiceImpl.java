@@ -18,7 +18,6 @@ import racingcar.validation.IntegerValidator;
 
 public class RacingGameServiceImpl implements RacingGameService {
 
-    private final String EMPTY_INPUT_MESSAGE = "자동차 이름을 하나 이상 입력하세요.";
     private final RacingGameRepository racingGameRepository;
 
     public RacingGameServiceImpl(RacingGameRepository racingGameRepository) {
@@ -27,8 +26,7 @@ public class RacingGameServiceImpl implements RacingGameService {
 
     @Override
     public RacingGame generateRacing(String carNames, String strTryCount) {
-        List<Car> carList = processCarNamesInput(carNames); //TODO: 기능분리 리팩터링하기
-        Participations participations = Participations.create(carList);
+        Participations participations = Participations.create(carNames);
         int tryCount = processTryCountInput(strTryCount);
         Winners winners = Winners.createEmpty();
 
@@ -58,26 +56,6 @@ public class RacingGameServiceImpl implements RacingGameService {
         for (int i = 0; i < numCount; i++) {
             int randomNum = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             car.insertPickedNumber(randomNum);
-        }
-    }
-
-    private List<Car> processCarNamesInput(String input) {
-        input = StringUtil.deleteAllSpaces(input);
-        List<Car> carList = seperateByComma(input);
-        validateEmptyInput(input, carList);
-
-        return carList;
-    }
-
-    private List<Car> seperateByComma(String input) {
-        return Arrays.stream(input.split(","))
-                .map(carName -> Car.create(carName))
-                .collect(Collectors.toList());
-    }
-
-    private void validateEmptyInput(String input, List<Car> carList) {
-        if (input.isEmpty() || carList.isEmpty()) {
-            ExceptionUtil.throwInvalidValueException(EMPTY_INPUT_MESSAGE);
         }
     }
 
