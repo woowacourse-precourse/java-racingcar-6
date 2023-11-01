@@ -13,7 +13,7 @@ public final class Count {
     }
 
     public void decrease() {
-        this.count--;
+        count--;
     }
 
     private void validate(final int count) {
