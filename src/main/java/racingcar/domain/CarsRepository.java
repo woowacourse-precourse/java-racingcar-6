@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Optional;
+
 public class CarsRepository {
 
     private CarsRepository() {
@@ -17,7 +19,7 @@ public class CarsRepository {
         storedCars = cars;
     }
 
-    public Cars findCars() {
-        return storedCars;
+    public Optional<Cars> findCars() {
+        return Optional.ofNullable(storedCars);
     }
 }

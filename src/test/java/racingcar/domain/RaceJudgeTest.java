@@ -18,12 +18,10 @@ class RaceJudgeTest {
     void addCars() {
         // given
         List<String> names = List.of("pobi", "jason");
-        List<Car> cars = List.of(Car.of("pobi", 0),
-                Car.of("jason", 0));
 
         // when
         raceJudge.addCars(names);
-        Cars findCars = carsRepository.findCars();
+        Cars findCars = carsRepository.findCars().get();
         List<String> savedNames = findCars.cars().stream()
                 .map(Car::getName)
                 .toList();
@@ -92,5 +90,16 @@ class RaceJudgeTest {
 
         // then
         assertThat(winners).isEqualTo("pobi,jason");
+    }
+
+    @DisplayName("경주에 참가할 자동차는 반드시 존재해야 합니다.")
+    @Test
+    void shouldHaveCars_toRace() {
+        // given & when
+        carsRepository.save(null);
+
+        // then
+        assertThatIllegalArgumentException().isThrownBy(() -> raceJudge.moveCars(() -> 4))
+                .withMessageContaining("자동차 경주에 참가할 자동차가 없습니다.");
     }
 }

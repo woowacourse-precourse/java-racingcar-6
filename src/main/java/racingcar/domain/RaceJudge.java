@@ -14,12 +14,12 @@ public class RaceJudge {
     }
 
     public void moveCars(final Supplier<Integer> randomNumberSupplier) {
-        Cars cars = carsRepository.findCars();
+        Cars cars = findCarsObject();
         cars.moveAllForward(randomNumberSupplier);
     }
 
     public List<MoveResult> createSingleMoveResults() {
-        Cars cars = carsRepository.findCars();
+        Cars cars = findCarsObject();
         return cars.cars()
                 .stream()
                 .map(MoveResult::createResultFrom)
@@ -27,7 +27,12 @@ public class RaceJudge {
     }
 
     public List<String> findAllWinnerNames() {
-        Cars cars = carsRepository.findCars();
+        Cars cars = findCarsObject();
         return cars.findAllWinnerNames();
+    }
+
+    private Cars findCarsObject() {
+        return carsRepository.findCars()
+                .orElseThrow(() -> new IllegalArgumentException("자동차 경주에 참가할 자동차가 없습니다."));
     }
 }
