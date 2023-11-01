@@ -83,6 +83,20 @@ class ApplicationTest extends NsTest {
         Assertions.assertEquals("car3", winnerCarList.get(0));
     }
 
+    @Test
+    void 공동_우승자_List_저장() {
+        Map<String, String> carMapExample = new LinkedHashMap<>();
+        carMapExample.put("car1", "-");
+        carMapExample.put("car2", "---");
+        carMapExample.put("car3", "---");
+
+        List<String> winnerCarList = race.getWinnerCarList(carMapExample);
+
+        Assertions.assertEquals(2, winnerCarList.size());
+        Assertions.assertEquals("car2", winnerCarList.get(0));
+        Assertions.assertEquals("car3", winnerCarList.get(1));
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
