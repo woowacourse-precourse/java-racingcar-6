@@ -22,6 +22,7 @@ public class OutputView {
         List<String> names = car.getNames();
         Map<String, Integer> distance = car.getDistance();
         names.forEach(name -> System.out.println(name + " : " + "-".repeat(distance.get(name))));
+        System.out.println();
     }
 
     public void printResults(Car car) {
