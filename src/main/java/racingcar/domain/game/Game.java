@@ -1,10 +1,5 @@
 package racingcar.domain.game;
 
-import java.util.List;
-import racingcar.domain.car.Car;
-import racingcar.domain.car.Cars;
-import racingcar.enums.GameStatus;
-
 public class Game {
 
     private final int tryNumber;
@@ -16,9 +11,4 @@ public class Game {
     public int getTryNumber() {
         return tryNumber;
     }
-
-
-
-
-
 }
