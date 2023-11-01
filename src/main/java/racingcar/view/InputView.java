@@ -10,13 +10,8 @@ public final class InputView {
 
     public static String readInput() {
         String input = Console.readLine();
-        validate(input);
+        InputValidator.validate(input);
         return input;
-    }
-
-    private static void validate(final String input) {
-        InputValidator.validateEmptyOrContainBlank(input);
-        InputValidator.validateIsNull(input);
     }
 
 }

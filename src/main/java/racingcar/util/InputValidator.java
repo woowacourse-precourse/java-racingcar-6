@@ -10,15 +10,20 @@ public final class InputValidator {
     private InputValidator() {
     }
 
-    public static void validateEmptyOrContainBlank(final String input) {
-        if (input.isBlank()) {
-            throwException(BLANK_ERROR_MESSAGE);
+    public static void validate(final String input) {
+        validateIsNull(input);
+        validateEmptyOrContainBlank(input);
+    }
+
+    private static void validateIsNull(final String input) {
+        if (Objects.isNull(input)) {
+            throwException(NULL_ERROR_MESSAGE);
         }
     }
 
-    public static void validateIsNull(final String input) {
-        if (Objects.isNull(input)) {
-            throwException(NULL_ERROR_MESSAGE);
+    private static void validateEmptyOrContainBlank(final String input) {
+        if (input.isBlank()) {
+            throwException(BLANK_ERROR_MESSAGE);
         }
     }
 
