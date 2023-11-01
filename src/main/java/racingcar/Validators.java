@@ -15,6 +15,4 @@ public class Validators {
             throw new IllegalArgumentException(TRY_COUNT_NUMBER_ERROR);
         }
     }
-
-
 }
