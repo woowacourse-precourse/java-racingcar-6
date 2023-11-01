@@ -12,13 +12,13 @@ import static camp.nextstep.edu.missionutils.Randoms.*;
 
 public class RacingGameService {
 
-    public void determineMoveForward(Car car){
-        if(generateRandomNumber() >= 4){
+    public void determineMoveForward(Car car) {
+        if (generateRandomNumber() >= 4) {
             car.moveCar();
         }
     }
 
-    public CarList makeCarList(String cars){
+    public CarList makeCarList(String cars) {
         List<String> carNames = Arrays.stream(cars.split(",")).toList();
         List<Car> collect = carNames.stream()
                 .map(carName -> new Car(carName))
@@ -26,7 +26,12 @@ public class RacingGameService {
         return new CarList(collect);
     }
 
-    private int generateRandomNumber(){
-        return pickNumberInRange(0,9);
+    public List<String> splitStringToList(String input) {
+        return Arrays.stream(input.split(","))
+                .collect(Collectors.toList());
+    }
+
+    private int generateRandomNumber() {
+        return pickNumberInRange(0, 9);
     }
 }
