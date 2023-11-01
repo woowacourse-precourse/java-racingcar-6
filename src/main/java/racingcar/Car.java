@@ -10,11 +10,11 @@ public class Car {
         this.movingCount = movingCount;
     }
 
-    public String getCarName() {
-        return carName;
-    }
-
     public int getMovingCount() {
         return movingCount;
+    }
+
+    public String getCarName() {
+        return carName;
     }
 }

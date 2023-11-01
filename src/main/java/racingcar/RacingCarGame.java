@@ -7,11 +7,13 @@ public class RacingCarGame {
 
     private List<String> carNameList;
     private List<Car> carList;
+    private List<Integer> carMovingCountList;
     private int movingCount;
 
     public RacingCarGame() {
         carNameList = new ArrayList<>();
         carList = new ArrayList<>();
+        carMovingCountList = new ArrayList<>();
         movingCount = 0;
     }
 
@@ -32,6 +34,14 @@ public class RacingCarGame {
 
     public void saveMovingCount(int movingCount) {
         this.movingCount = movingCount;
+    }
+
+    public void saveCarMovingCount() {
+        for (int i = 0; i < carList.size(); i++) {
+            Car car = carList.get(i);
+            int carMovingCount = car.getMovingCount();
+            carMovingCountList.add(carMovingCount);
+        }
     }
 
     public List<String> getCarNameList() {
