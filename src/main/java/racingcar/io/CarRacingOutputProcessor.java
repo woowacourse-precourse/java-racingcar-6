@@ -7,7 +7,6 @@ import static racingcar.constant.CarRacingMessage.WINNERS_INFO_MESSAGE;
 
 import java.util.List;
 import java.util.StringJoiner;
-import racingcar.domain.Car;
 
 public class CarRacingOutputProcessor {
 
@@ -20,10 +19,10 @@ public class CarRacingOutputProcessor {
         println(String.format(CAR_POSITION_OUTPUT_MESSAGE, carName, positionText));
     }
 
-    public void printWinners(List<Car> winners) {
+    public void printWinners(List<String> winnerNames) {
         StringJoiner winnerNameJoiner = new StringJoiner(WINNER_INFO_DELIMITER);
-        for (Car winner : winners) {
-            winnerNameJoiner.add(winner.getName());
+        for (String winnerName : winnerNames) {
+            winnerNameJoiner.add(winnerName);
         }
 
         println(String.format(WINNERS_INFO_MESSAGE, winnerNameJoiner));

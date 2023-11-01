@@ -27,7 +27,7 @@ public class CarRacing {
     }
 
     private void announceWinners(Winners winners) {
-        outputProcessor.printWinners(winners.getWinners());
+        outputProcessor.printWinners(winners.getWinnerNames());
     }
 
     private Winners judgeWinners(Cars cars) {

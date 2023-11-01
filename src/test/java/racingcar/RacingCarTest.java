@@ -162,7 +162,7 @@ public class RacingCarTest {
         Referee referee = new Referee();
         Winners winners = referee.judgeWinners(cars);
 
-        assertThat(winners.getWinners()).containsOnly(car2, car3);
+        assertThat(winners.getWinnerNames()).containsOnly(car2.getName(), car3.getName());
     }
 
     @Test
@@ -183,7 +183,7 @@ public class RacingCarTest {
             Referee referee = new Referee();
             Winners winners = referee.judgeWinners(cars);
 
-            outputProcessor.printWinners(winners.getWinners());
+            outputProcessor.printWinners(winners.getWinnerNames());
 
             String expectedOutput = "최종 우승자 : car1, car2";
             String actualOutput = outputStream.toString().trim();
