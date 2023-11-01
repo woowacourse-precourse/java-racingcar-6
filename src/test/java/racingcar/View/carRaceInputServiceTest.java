@@ -7,14 +7,12 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayInputStream;
-import org.assertj.core.api.Assertions;
 import java.io.InputStream;
 
 public class carRaceInputServiceTest {
 
     @AfterEach
-    void 콘솔_관리
-
+    void 콘솔_관리()
     {
         Console.close();
     }
@@ -25,7 +23,7 @@ public class carRaceInputServiceTest {
         InputStream readLine = new ByteArrayInputStream(carName.getBytes());
         System.setIn(readLine);
 
-        String[] carResult = View.carRaceInputService.getInstance().askUserCarNames();
+        String[] carResult = carRaceInputService.getInstance().askUserCarNames();
         assertThat(carResult).contains("car");
         assertThat(carResult).containsExactly("car");
 
@@ -37,7 +35,7 @@ public class carRaceInputServiceTest {
         InputStream readLine = new ByteArrayInputStream(carName.getBytes());
         System.setIn(readLine);
 
-        String[] carResult = View.carRaceInputService.getInstance().askUserCarNames();
+        String[] carResult = carRaceInputService.getInstance().askUserCarNames();
         assertThat(carResult).contains("a", "b", "c", "d", "e");
         assertThat(carResult).containsExactly("a", "b", "c", "d", "e");
     }
@@ -48,7 +46,7 @@ public class carRaceInputServiceTest {
         InputStream readLine = new ByteArrayInputStream(gameRound.getBytes());
         System.setIn(readLine);
 
-        int roundResult = View.carRaceInputService.getInstance().askUserGameRound();
+        int roundResult = carRaceInputService.getInstance().askUserGameRound();
         assertThat(roundResult).isEqualTo(5);
     }
 }
