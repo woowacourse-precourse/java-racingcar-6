@@ -19,4 +19,10 @@ public class RandomUtilsTest {
     void isMoveTest_True(int input) {
         assertTrue(RandomUtils.isMove(input));
     }
+
+    @ParameterizedTest
+    @CsvSource({"5","6","7","8","9"})
+    void isMoveTest_False(int input) {
+        assertFalse(RandomUtils.isMove(input));
+    }
 }
