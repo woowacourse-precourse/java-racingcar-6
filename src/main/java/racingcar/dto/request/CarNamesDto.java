@@ -17,7 +17,7 @@ public class CarNamesDto {
         validateNameLength(names);
     }
 
-    List<String> parseNames(String carNames) {
+    private List<String> parseNames(String carNames) {
         String[] names = carNames.split(CAR_NAME_DELIMITER);
         List<String> parsedNames = new ArrayList<>();
         for(String name: names) {
