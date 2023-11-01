@@ -46,12 +46,21 @@ public class RacingGame {
         for (Car car : cars) {
             car.moveForward();
         }
+        printRaceResult(cars); // 회수마다 출력
+    }
+
+    private void printRaceResult(List<Car> cars) {
+        for (Car car : cars) {
+            car.printPosition();
+        }
+        System.out.println(); // 각 레이스 후 빈 줄 출력
     }
 
     public void startGame() {
         List<Car> cars = createCars();
         int attempt = getAttempts();
 
+        System.out.println("\n실행 결과");
         for (int i = 0; i < attempt; i++) {
             race(cars);
         }
