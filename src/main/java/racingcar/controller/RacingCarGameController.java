@@ -7,6 +7,7 @@ import racingcar.view.InputView;
 public class RacingCarGameController {
     private static List<String> racingCarNames;
     private static final Integer RACING_CAR_NAME_LENGTH = 5;
+    private static final String ERR_RACING_CAR_NAME_LENGTH = "길이 조건이 맞지 않습니다!";
 
     private RacingCarGameController() {
     }
@@ -18,7 +19,7 @@ public class RacingCarGameController {
     private static void validateRacingCarNames() {
         for (String str : racingCarNames) {
             if (!isCollectLength(str)) {
-                throw new IllegalArgumentException("길이 조건이 맞지 않습니다!");
+                throw new IllegalArgumentException(ERR_RACING_CAR_NAME_LENGTH);
             }
         }
     }
