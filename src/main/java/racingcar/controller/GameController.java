@@ -46,7 +46,7 @@ public class GameController {
             showLoad(this.carsList, carNum);
         }
         String result = getResult(this.carsList);
-        System.out.println("최종 우승자 : " + result); // Todo: View로 이동
+        racingView.showResult(result);
     }
 
     public void playDices(List<Cars> carsList) {

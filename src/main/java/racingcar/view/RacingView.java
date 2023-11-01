@@ -56,4 +56,8 @@ public class RacingView {
             throw new IllegalArgumentException("플레이 횟수를 기입하지 않았습니다.");
         }
     }
+
+    public void showResult(String winner){
+        System.out.println("최종 우승자 : " + winner); 
+    }
 }
