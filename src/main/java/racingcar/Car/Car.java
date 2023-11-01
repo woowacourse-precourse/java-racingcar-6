@@ -15,14 +15,14 @@ public class Car {
         moveDistance += 1;
     }
 
-    public boolean judgeRandNum(int randNum) {
-        if (randNum >= 4) {
+    public boolean judgeRandomNumber(int randomNumber) {
+        if (randomNumber >= 4) {
             return true;
         } return false;
     }
 
-    public void moveByRandNum(int randNum) {
-        if (judgeRandNum(randNum)) {
+    public void moveByRandomNumber(int randomNumber) {
+        if (judgeRandomNumber(randomNumber)) {
             move();
         }
     }

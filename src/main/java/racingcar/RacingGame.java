@@ -11,11 +11,17 @@ public class RacingGame {
     public static void run() {
         List<Car> cars = createCarsByInput();
 
+        int turnCount = turnCountByInput();
+
     }
 
     private static List<Car> createCarsByInput() {
-        List<String> carNames = Arrays.asList(User.carNameInput().split(","));
+        List<String> carNames = Arrays.asList(User.carNameByUserInput().split(","));
         return CarFactory.createByNames(carNames);
+    }
+
+    private static int turnCountByInput() {
+        int turnCount = User.turnCountByUserInput();
     }
 
 }
