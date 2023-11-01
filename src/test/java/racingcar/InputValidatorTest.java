@@ -12,7 +12,7 @@ class InputValidatorTest {
 
         Assertions.assertThatThrownBy(() -> {
             inputValidator.setRacingCars(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("잘못된 입력 형식입니다.");
     }
 
     @Test
@@ -22,7 +22,7 @@ class InputValidatorTest {
 
         Assertions.assertThatThrownBy(() -> {
             inputValidator.setRacingCars(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("이름이 5자 초과인 자동차가 존재합니다.");
     }
 
     @Test
@@ -32,6 +32,6 @@ class InputValidatorTest {
 
         Assertions.assertThatThrownBy(() -> {
             inputValidator.setMoveNum(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("하나의 자연수를 입력하십시오.");
     }
 }

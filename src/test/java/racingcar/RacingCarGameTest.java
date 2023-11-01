@@ -29,7 +29,7 @@ class RacingCarGameTest {
 
         Assertions.assertThatThrownBy(() -> {
             racingCarGame.setRacingCars(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("잘못된 입력 형식입니다.");
     }
 
     @Test
@@ -39,7 +39,7 @@ class RacingCarGameTest {
 
         Assertions.assertThatThrownBy(() -> {
             racingCarGame.setRacingCars(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("이름이 5자 초과인 자동차가 존재합니다.");
     }
 
     @Test
