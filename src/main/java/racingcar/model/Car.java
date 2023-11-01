@@ -1,27 +1,28 @@
 package racingcar.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
-    List<Car> cars = new ArrayList<>();
     private static final int startBoost = 0;
-    String carName;
-    int carBoost;
+    private String carName;
+    private int carBoost;
 
     public Car(String carName) {
         this.carName = carName;
-        carBoost = startBoost;
+        this.carBoost = startBoost;
     }
 
-    public void setCarRandomNumbers(List<Integer> carBoost) {
-        for (int i = 0; i < cars.size(); i++) {
-            cars.get(i).carBoost += carBoost.get(i);
+    public void moveForward(int carBoost) {
+        if (carBoost >= 4) {
+            this.carBoost++;
         }
     }
 
-    public void add(Car car) {
-        this.cars.add(car);
+    public String getCarName() {
+        return carName;
     }
+
+    public int getCarBoost() {
+        return carBoost;
+    }
+
 
 }

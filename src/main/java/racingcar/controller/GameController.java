@@ -31,7 +31,7 @@ public class GameController {
 
     private void initializeGame() {
         carNames = userInputManager.getCarNames();
-        cars = carNames.stream().map(Car::new).collect(Collectors.toList());
+        cars = carNames.stream().map(Car::new).collect(Collectors.toList());    //받은 자동차 이름으로 객체 각각 생성
         attempt = userInputManager.getAttempts();
     }
 
@@ -42,9 +42,10 @@ public class GameController {
     }
 
     public void conductRaces() {
-        carBoosts = numberGenerator.getRandomNumbers();
-        for (Car car : cars) {    //자동차 수치를 업데이트한다.
-            car.setCarRandomNumbers(carBoosts);
+        for(int i=0; i<attempt; i++) {
+            carBoosts = numberGenerator.getRandomNumbers();
+            race.updateCarsPositions(carBoosts);
+            raceView.displayRaceProcess(cars);
         }
 
 
