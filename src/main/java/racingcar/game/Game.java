@@ -8,27 +8,31 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Winner;
 import racingcar.utils.PrintGuide;
+import racingcar.utils.Validator;
 
 public class Game {
     String[] carsInput;
     List<Car> carsList = new ArrayList<>();
-    int countInput;
+    List<String> carsName = new ArrayList<>();
+    int countInputNumber;
 
     PrintGuide printGuide = new PrintGuide();
 
     public void start() {
         printGuide.printInputCarName();
         carsInput = Console.readLine().split(",");
-        List<String> carsName = new ArrayList<>(Arrays.asList(carsInput));
+        carsName = new ArrayList<>(Arrays.asList(carsInput));
+        Validator.checkCarNameLength(carsName);
+        Validator.checkLength(carsName);
 
         carsName.stream()
                 .map(Car::new)
                 .forEach(carsList::add);
         printGuide.printInputCount();
-        countInput = Integer.parseInt(Console.readLine());
+        countInputNumber = Validator.checkDigit(Console.readLine());
         printGuide.printResult();
 
-        printGuide.printWinner(game(carsList, countInput));
+        printGuide.printWinner(game(carsList, countInputNumber));
     }
 
     private Winner game(List<Car> cars, int count){
