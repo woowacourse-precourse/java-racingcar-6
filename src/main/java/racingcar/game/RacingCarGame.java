@@ -2,7 +2,6 @@ package racingcar.game;
 
 import java.util.List;
 
-import racingcar.car.Car;
 import racingcar.car.CarCollection;
 import racingcar.constant.RacingCarGameText;
 import racingcar.input.InputView;
@@ -25,7 +24,7 @@ public class RacingCarGame {
 
         carNameStringList.stream()
                 .map(String::strip)
-                .forEach(carNameString -> this.racingCarCollection.add(Car.fromString(carNameString)));
+                .forEach(carNameString -> this.racingCarCollection.addFromString(carNameString));
     }
 
     private List<String> getCarNameStringList(String carNames) {
