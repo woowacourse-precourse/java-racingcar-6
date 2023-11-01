@@ -19,7 +19,7 @@ class CarNameValidatorTest {
     }
 
     @Test
-    @DisplayName("이름 글자수 검사")
+    @DisplayName("이름 5자 초과시 실패")
     void testNameLength() {
         //given
         List<String> input = List.of("abcdef", "b", "c");
@@ -31,7 +31,7 @@ class CarNameValidatorTest {
     }
 
     @Test
-    @DisplayName("중복된 이름 검사")
+    @DisplayName("중복된 이름 있을시 실패")
     void testDuplicatedName() {
         //given
         List<String> input = List.of("a", "a", "c");
@@ -40,5 +40,17 @@ class CarNameValidatorTest {
         assertThatThrownBy(() -> CarNameValidator.validateDuplicatedName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 중복된 이름입니다.\n");
+    }
+
+    @Test
+    @DisplayName("이름 공백 포함시 실패")
+    void testIfNameIsEmpty() {
+        //given
+        List<String> input = List.of("a", " ", "c");
+        //when
+        //then
+        assertThatThrownBy(() -> CarNameValidator.validateWhiteSpace(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 이름을 입력해주세요.\n");
     }
 }
