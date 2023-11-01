@@ -1,14 +1,11 @@
 ## 기능 구현 사항
 
-- [ ] 자동차가 전진 또는 멈춘다.
-  - [ ] 무작위 값을 구한다.
-  - [ ] 4 이상일 경우 전진한다.
-- [ ] 각 자동차에 이름을 부여한다.
-- [ ] 몇번 이동할 것인지 입력받는다.
-- [ ] 경주 종료후 우승자를 출력한다.
-- [ ] 잘못된 값을 입력하면 오류를 출력한다.
-  - [ ] 'IllegalArgumentException' 을 발생시킨다.
-  - [ ] 애플리케이션을 종료한다.
+- [ ] 자동차가 전진 또는 멈춘다. - Car#tryToMove()
+  - [ ] 무작위 값을 구한다. - Car#generateRandomNumber()
+  - [ ] 4 이상일 경우 전진한다. Car#compare()
+- [ ] 각 자동차에 이름을 부여한다. Application#askName()
+- [ ] 몇번 이동할 것인지 입력받는다. Application#askCount()
+- [ ] 경주 종료후 우승자를 출력한다. Application#printResult()
 
 
 ## 🚀 기능 요구 사항
