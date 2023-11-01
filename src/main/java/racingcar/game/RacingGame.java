@@ -9,11 +9,15 @@ import racingcar.model.RacingCar;
 public class RacingGame {
     private static final String LAP_RESULT_DELIMITER = "\n";
     private static final String WINNER_NAME_DELIMITER = ", ";
+    private static final int MINIMUM_END_LAP = 1;
 
     private final List<RacingCar> racingCars;
     private final int endLap;
 
     public RacingGame(List<RacingCar> racingCars, int endLap) {
+        validateRacingCars(racingCars);
+        validateEndLap(endLap);
+
         this.racingCars = racingCars;
         this.endLap = endLap;
     }
@@ -28,6 +32,23 @@ public class RacingGame {
         }
 
         printRaceResult();
+    }
+
+    private void validateRacingCars(List<RacingCar> racingCars) {
+        long uniqueNameCount = racingCars.stream()
+                .map(RacingCar::getName)
+                .distinct()
+                .count();
+
+        if (racingCars.size() != uniqueNameCount) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+        }
+    }
+
+    private void validateEndLap(int endLap) {
+        if (endLap < MINIMUM_END_LAP) {
+            throw new IllegalArgumentException("시도 횟수는 %d보다 작을 수 없습니다.".formatted(endLap));
+        }
     }
 
     private void printLapResult() {
