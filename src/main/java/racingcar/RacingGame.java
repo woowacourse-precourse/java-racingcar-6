@@ -8,19 +8,22 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
 
+    LinkedHashMap<String, String> racingProgress;
+    Integer gameTimes;
+
     public void start() {
-        LinkedHashMap<String, String> racingProgress = inputCarNames();
+        racingProgress = inputCarNames();
 
-        Integer gameTimes = inputGameTimes();
+        gameTimes = inputGameTimes();
 
-        racingProgress = racingWhileGameTimes(racingProgress, gameTimes);
+        racingProgress = racingWhileGameTimes();
 
-        racingResult(racingProgress, gameTimes);
+        racingResult();
 
     }
 
     private LinkedHashMap<String, String> inputCarNames() {
-        LinkedHashMap<String, String> racingProgress = new LinkedHashMap<String, String>();
+        racingProgress = new LinkedHashMap<String, String>();
         String[] readlineCarNames;
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -60,7 +63,7 @@ public class RacingGame {
         return gameTimes;
     }
 
-    private LinkedHashMap<String, String> eachRace(LinkedHashMap<String, String> racingProgress) {
+    private LinkedHashMap<String, String> eachRace() {
         racingProgress.forEach((carName, driveLength) -> {
             if (Randoms.pickNumberInRange(1, 9) >= 4) {
                 racingProgress.put(carName, racingProgress.get(carName) + "-");
@@ -73,20 +76,19 @@ public class RacingGame {
         return racingProgress;
     }
 
-    private LinkedHashMap<String, String> racingWhileGameTimes(LinkedHashMap<String, String> racingProgress,
-            Integer gameTimes) {
+    private LinkedHashMap<String, String> racingWhileGameTimes() {
 
         System.out.println("");
         System.out.println("실행 결과");
 
         for (int i = 0; i < gameTimes; i++) {
-            racingProgress = eachRace(racingProgress);
+            racingProgress = eachRace();
         }
 
         return racingProgress;
     }
 
-    private void racingResult(LinkedHashMap<String, String> racingProgress, Integer gameTimes) {
+    private void racingResult() {
         int winnerDriveLength = 0;
         ArrayList<String> winner = new ArrayList<>();
 
