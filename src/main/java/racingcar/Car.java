@@ -7,7 +7,7 @@ public class Car {
     int moveCnt;
 
     public Car(String name){
-        setName(name)
+        setName(name);
         this.moveCnt = 0;
     }
     public void setName(String name){
