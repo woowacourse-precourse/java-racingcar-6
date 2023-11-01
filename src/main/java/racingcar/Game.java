@@ -87,7 +87,10 @@ public class Game {
         try {
             integerPlayTime = Integer.parseInt(inputPlaytime);
         } catch (Error e) {
-            throw new IllegalArgumentException(" playTime 입력값이 숫자가아님 ");
+            throw new IllegalArgumentException("playTime 입력값이 숫자가아님");
+        }
+        if(integerPlayTime < 1){
+            throw new IllegalArgumentException("playTime 입력값이 1보다 작음");
         }
         setPlayTime(integerPlayTime);
     }
