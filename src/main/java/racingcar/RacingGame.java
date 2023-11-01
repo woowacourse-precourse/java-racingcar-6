@@ -40,6 +40,12 @@ public class RacingGame {
         this.participants.add(participant);
     }
 
+    public void addParticipants(String[] participants) {
+        for (String participantName : participants) {
+            this.addParticipant(new Car(participantName));
+        }
+    }
+
     public void proceed() {
         System.out.println("\n실행 결과");
         for (int currentMove = 0; currentMove < this.countOfTotalMoves; ++currentMove) {
@@ -51,4 +57,5 @@ public class RacingGame {
     public String getResult() {
         return "최종 우승자 : " + String.join(", ", this.getWinners());
     }
+
 }
