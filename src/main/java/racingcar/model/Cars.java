@@ -21,7 +21,7 @@ public class Cars {
 
     private void addCarNametoCarList(String[] carNameArray) {
         for (int i = 0; i < carNameArray.length; i++) {
-            carList.add(new Car(carNameArray[i], 0));
+            carList.add(new Car(carNameArray[i], Car.INIT_MOVE));
         }
     }
 
