@@ -1,28 +1,43 @@
 package racingcar.controller;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests class JudgeMovement method function correctly
+ */
 class JudgeMovementTest {
+
+    /**
+     * Tests method goFlag returns true when right condition
+     */
     @Test
     void goFlagTrueTest() {
+        // given
         int randomNumber = 5;
-        int c = 4;
+        int criteria = 4;
 
-        boolean flag = JudgeMovement.goFlag(randomNumber, c);
+        // when
+        boolean flag = JudgeMovement.goFlag(randomNumber, criteria);
 
+        // then
         assertThat(flag).isTrue();
     }
 
+    /**
+     * Tests method goFlag returns false when right condition
+     */
     @Test
     void goFlagFalseTest() {
+        // given
         int randomNumber = 5;
-        int c = 7;
+        int criteria = 7;
 
-        boolean flag = JudgeMovement.goFlag(randomNumber, c);
+        // when
+        boolean flag = JudgeMovement.goFlag(randomNumber, criteria);
 
+        // then
         assertThat(flag).isFalse();
     }
 }

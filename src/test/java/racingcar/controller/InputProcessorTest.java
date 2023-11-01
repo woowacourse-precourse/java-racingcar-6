@@ -7,28 +7,47 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests class InputProcessor method function correctly
+ */
 class InputProcessorTest {
+
+    /**
+     * Tests method userCarInputProcessor if it processes car name correctly
+     */
     @Test
     void userCarInputProcessorTest() {
+        // given
         ArrayList<String> expectedUserCar = new ArrayList<>();
         expectedUserCar.add("안녕");
 
-        List<String> userCar = InputProcessor.userCarInputProcessor("안녕");
+        // when
+        List<String> actualUserCar = InputProcessor.userCarInputProcessor("안녕");
 
-        assertThat(expectedUserCar).isEqualTo(userCar);
+        // then
+        assertThat(actualUserCar).isEqualTo(expectedUserCar);
     }
 
+    /**
+     * Tests method userCarInputProcessor if it processes multiple car names correctly
+     */
     @Test
     void userCarsInputProcessorTest() {
+        // given
         ArrayList<String> expectedUserCars = new ArrayList<>();
         expectedUserCars.add("1234");
         expectedUserCars.add("안녕");
 
-        List<String> userCars = InputProcessor.userCarInputProcessor("1234, 안녕");
+        // when
+        List<String> actualUserCars = InputProcessor.userCarInputProcessor("1234, 안녕");
 
-        assertThat(expectedUserCars).isEqualTo(userCars);
+        // then
+        assertThat(actualUserCars).isEqualTo(expectedUserCars);
     }
 
+    /**
+     * Tests method userCarInputProcessor if it handles invalid inputs correctly
+     */
     @Test
     void userCarInputProcessorErrorTest() {
 
@@ -54,13 +73,21 @@ class InputProcessorTest {
 
     }
 
+    /**
+     * Tests method totalRoundInputProcessor if it processes totalRound correctly
+     */
     @Test
     void totalRoundInputProcessorTest() {
-        assertThat(1).isEqualTo(InputProcessor.totalRoundInputProcessor("1"));
+        // then
+        assertThat(InputProcessor.totalRoundInputProcessor("1")).isEqualTo(1);
     }
 
+    /**
+     * Tests method totalRoundInputProcessor if it handles invalid inputs correctly
+     */
     @Test
     void totalRoundInputProcessorErrorTest() {
+        // then
         assertThrows(IllegalArgumentException.class,
             () -> InputProcessor.totalRoundInputProcessor("안"));
     }

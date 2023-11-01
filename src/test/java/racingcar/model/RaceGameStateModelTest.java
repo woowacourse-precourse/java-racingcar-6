@@ -40,7 +40,7 @@ class RaceGameStateModelTest {
         // then
         for (String userCarName : userCarNames) {
             Integer distance = raceGameStateModel.getUserCarDistance(userCarName);
-            assertThat(0).isEqualTo(distance);
+            assertThat(distance).isEqualTo(0);
         }
     }
 
@@ -50,7 +50,7 @@ class RaceGameStateModelTest {
     @Test
     void getTotalRoundTest() {
         // then
-        assertThat(5).isEqualTo(raceGameStateModel.getTotalRound());
+        assertThat(raceGameStateModel.getTotalRound()).isEqualTo(5);
     }
 
     /**
@@ -59,9 +59,9 @@ class RaceGameStateModelTest {
     @Test
     void getUserCarDistanceWithKeyTest() {
         // then
-        assertThat(0).isEqualTo(raceGameStateModel.getUserCarDistance("poby"));
-        assertThat(0).isEqualTo(raceGameStateModel.getUserCarDistance("wony"));
-        assertThat(0).isEqualTo(raceGameStateModel.getUserCarDistance("jun"));
+        assertThat(raceGameStateModel.getUserCarDistance("poby")).isEqualTo(0);
+        assertThat(raceGameStateModel.getUserCarDistance("wony")).isEqualTo(0);
+        assertThat(raceGameStateModel.getUserCarDistance("jun")).isEqualTo(0);
     }
 
     /**
@@ -75,7 +75,7 @@ class RaceGameStateModelTest {
         userCarDistance.put("jun", 0);
 
         // then
-        assertThat(userCarDistance).isEqualTo(raceGameStateModel.getUserCarDistance());
+        assertThat(raceGameStateModel.getUserCarDistance()).isEqualTo(userCarDistance);
     }
 
     /**
@@ -89,8 +89,8 @@ class RaceGameStateModelTest {
         raceGameStateModel.updateUserDistance("jun", 3);
 
         // then
-        assertThat(1).isEqualTo(raceGameStateModel.getUserCarDistance("poby"));
-        assertThat(2).isEqualTo(raceGameStateModel.getUserCarDistance("wony"));
-        assertThat(3).isEqualTo(raceGameStateModel.getUserCarDistance("jun"));
+        assertThat(raceGameStateModel.getUserCarDistance("poby")).isEqualTo(1);
+        assertThat(raceGameStateModel.getUserCarDistance("wony")).isEqualTo(2);
+        assertThat(raceGameStateModel.getUserCarDistance("jun")).isEqualTo(3);
     }
 }
