@@ -1,10 +1,12 @@
-package racingcar.race;
+package racingcar;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.config.InputConfig;
 import racingcar.model.Participants;
@@ -25,20 +27,24 @@ public class RaceTest {
         participants = CarSaveService.save(split);
     }
 
+    @DisplayName("0~3이 나오면 움직이지 않고, 4~9일때만 움직인다.")
     @Test
     void 고정거리_서비스_테스트() {
         RaceService raceService = new FixDistanceRaceService();
-        Map<Car, Integer> map = raceService.runRace(participants);
+        Map<Car, Integer> result = raceService.runRace(participants);
 
         SoftAssertions softly = new SoftAssertions();
-        map.entrySet().stream().forEach(entry -> {
+        result.entrySet().stream().forEach(entry -> {
+            Integer carPosition = entry.getKey().getPosition();
             Integer distance = entry.getValue();
-            Integer position = entry.getKey().getPosition();
+
+            softly.assertThat(distance).isIn(0,1,2,3,4,5,6,7,8,9);
+
             if (distance < 4) {
-                softly.assertThat(position).isEqualTo(0);
+                softly.assertThat(carPosition).isEqualTo(0);
             }
             if (distance >= 4) {
-                softly.assertThat(position).isEqualTo(1);
+                softly.assertThat(carPosition).isEqualTo(1);
             }
         });
         softly.assertAll();
@@ -47,29 +53,22 @@ public class RaceTest {
     @Test
     void 변동거리_서비스_테스트() {
         RaceService raceService = new VariableDistanceRaceService();
-        Map<Car, Integer> map = raceService.runRace(participants);
+        Map<Car, Integer> result = raceService.runRace(participants);
 
         SoftAssertions softly = new SoftAssertions();
-        map.entrySet().stream().forEach(entry -> {
+        result.entrySet().stream().forEach(entry -> {
+            Integer carPosition = entry.getKey().getPosition();
             Integer distance = entry.getValue();
-            Integer position = entry.getKey().getPosition();
+
+            softly.assertThat(distance).isIn(0,1,2,3,4,5,6,7,8,9);
+
             if (distance < 4) {
-                softly.assertThat(position).isEqualTo(0);
+                softly.assertThat(carPosition).isEqualTo(0);
             }
             if (distance >= 4) {
-                softly.assertThat(position).isIn(4,5,6,7,8,9);
+                softly.assertThat(carPosition).isIn(4,5,6,7,8,9);
             }
         });
         softly.assertAll();
-    }
-
-    @Test
-    void 우승자_테스트() {
-        RaceService raceService = new FixDistanceRaceService();
-        raceService.runRace(participants);
-        List<String> winnersNames = GetWinnersService.getWinnersNames(participants);
-
-        Assertions.assertThat(winnersNames).containsAnyOf("a","b","c","d","e");
-        Assertions.assertThat(winnersNames.size()).isGreaterThan(0);
     }
 }

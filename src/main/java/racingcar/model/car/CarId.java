@@ -13,9 +13,7 @@ public class CarId {
             throw new IllegalArgumentException();
         }
     }
-
-    //Test를 위한 getter
-    public Integer getId(){
+    public int getId() {
         return id;
     }
 }

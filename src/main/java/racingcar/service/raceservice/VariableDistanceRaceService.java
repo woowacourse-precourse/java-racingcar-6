@@ -13,7 +13,7 @@ public class VariableDistanceRaceService implements RaceService {
         Map<Car, Integer> map = new LinkedHashMap<>();
         int size = participants.size();
         for (int i = 0; i < size; i++) {
-            Car car = participants.get(i);
+            Car car = participants.getCar(i);
 
             int distance = getRandomValue();
             boolean canMove = moveOrNot(distance);

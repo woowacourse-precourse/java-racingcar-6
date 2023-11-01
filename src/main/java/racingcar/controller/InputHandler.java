@@ -8,11 +8,19 @@ public class InputHandler {
         return Console.readLine();
     }
 
-    public static String[] StringToArray(String string) {
-        return string.split(InputConfig.NAME_DELIMITER, InputConfig.NAME_QUANTITY_MAX);
+    public static String[] StringToNameArray(String string) {
+        String[] names = string.split(InputConfig.NAME_DELIMITER, InputConfig.NAME_QUANTITY_MAX);
+        validateLength(names);
+        return names;
     }
 
-    public static int StringToInteger(String input) {
+    private static void validateLength(String[] names) {
+        if (names.length < InputConfig.PARTICIPANT_MIN) {
+            throw new IllegalArgumentException("참가자는 2명 이상 입력해주세요.");
+        }
+    }
+
+    public static int StringToRoundNumber(String input) {
         int round = validInteger(input);
         validRange(round);
         return round;

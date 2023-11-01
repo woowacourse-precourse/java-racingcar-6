@@ -1,5 +1,7 @@
 package racingcar.model.car;
 
+import racingcar.config.AppConfig;
+
 public class Car {
     private final CarId carId;
     private final CarName carName;
@@ -24,17 +26,17 @@ public class Car {
 
     private void checkOverFlow(int distance) {
         if (distance > 0 && distance + position < 0) {
-            throw new IllegalArgumentException("자동차 이동거리 오버플로우");
+            throw new IllegalArgumentException("자동차 이동거리는 " + AppConfig.POSITION_MAX + "를 넘을 수 없습니다.");
         }
     }
 
-    public CarId getCarId() {
-        return carId;
+    public int getCarId() {
+        return carId.getId();
     }
-    public CarName getCarName() {
-        return carName;
+    public String getName() {
+        return carName.name();
     }
-    public Integer getPosition() {
+    public int getPosition() {
         return position;
     }
 }

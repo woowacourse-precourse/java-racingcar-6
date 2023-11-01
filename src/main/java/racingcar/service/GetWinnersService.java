@@ -14,13 +14,14 @@ public class GetWinnersService {
     public static List<String> getWinnersNames(Participants participants) {
         Map<Integer, List<Car>> rankMap = getRankMap(participants);
         List<Car> winners = getWinners(rankMap);
-        return convertCarToCarName(winners);
+        List<String> names = convertCarToCarName(winners);
+        return names;
     }
 
     private static Map<Integer, List<Car>> getRankMap(Participants participants) {
         Map<Integer, List<Car>> rankMap = new HashMap<>();
         for (int i = 0; i < participants.size(); i++) {
-            Car car = participants.get(i);
+            Car car = participants.getCar(i);
             Integer position = car.getPosition();
 
             List<Car> samePositionList = rankMap.getOrDefault(position, new ArrayList<Car>());
@@ -40,7 +41,7 @@ public class GetWinnersService {
 
     private static List<String> convertCarToCarName(List<Car> cars) {
         return cars.stream()
-                .map(car -> car.getCarName().name())
+                .map(car -> car.getName())
                 .toList();
     }
 }

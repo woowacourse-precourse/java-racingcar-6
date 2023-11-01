@@ -10,7 +10,7 @@ public class View {
 
     public static void printRaceResult(Map<Car, Integer> map) {
         map.entrySet().stream().forEach(entry -> {
-            String name = entry.getKey().getCarName().name();
+            String name = entry.getKey().getName();
             Integer value = entry.getValue();
 
             System.out.println(name + " : " + DISTANCE_MARK.repeat(value));

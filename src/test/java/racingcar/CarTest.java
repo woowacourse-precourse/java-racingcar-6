@@ -1,4 +1,4 @@
-package racingcar.car;
+package racingcar;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.controller.InputHandler;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
-import racingcar.model.car.CarId;
-import racingcar.model.car.CarName;
 import racingcar.service.CarSaveService;
 
 public class CarTest {
@@ -35,26 +33,26 @@ public class CarTest {
     }
 
     @Test
-    void 저장소_테스트(){
+    void 참가자저장소_테스트(){
         String input = "a,bcd,ef,gh,ijklm";
-        String[] strings = InputHandler.StringToArray(input);
+        String[] strings = InputHandler.StringToNameArray(input);
         Participants carList = CarSaveService.save(strings);
 
         Assertions.assertThat(carList.size()).isEqualTo(5);
 
-        CarName carName = carList.get(2).getCarName();
-        Assertions.assertThat(carName.name()).isEqualTo("ef");
+        String name = carList.getCar(2).getName();
+        Assertions.assertThat(name).isEqualTo("ef");
 
-        CarId carId = carList.get(2).getCarId();
-        Assertions.assertThat(carId.getId()).isEqualTo(2);
+        Integer carId = carList.getCar(2).getCarId();
+        Assertions.assertThat(carId).isEqualTo(2);
     }
 
     @Test
     @DisplayName("참가자는 2명 이상이어야 한다.")
-    void 저장소_테스트2(){
+    void 참가자저장소_테스트2(){
         Assertions.assertThatThrownBy(()->{
             String input = "a";
-            String[] strings = InputHandler.StringToArray(input);
+            String[] strings = InputHandler.StringToNameArray(input);
             Participants carList = CarSaveService.save(strings);
         }).isInstanceOf(IllegalArgumentException.class);
     }

@@ -15,7 +15,7 @@ public class Participants {
     public int size() {
         return list.size();
     }
-    public Car get(int index) {
+    public Car getCar(int index) {
         return list.get(index);
     }
 }
