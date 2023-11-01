@@ -40,6 +40,14 @@ public class CarNameValidatorTest extends NsTest {
         );
     }
 
+    @Test
+    void 입력한_자동차에_중복되는_값이_포함된_경우_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,pobi,jun", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
