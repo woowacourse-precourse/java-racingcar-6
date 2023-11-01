@@ -19,22 +19,12 @@ public class GameController {
     }
 
     public void setCars(){
-        try{
-            String [] nameArray= InputNames.carInput();
-            carArray = new CarList(nameArray);
-        }catch(IllegalArgumentException e){
-            e.getMessage();
-        }
-
+        String [] nameArray= InputNames.carInput();
+        carArray = new CarList(nameArray);
     }
 
     public void setTurnNum(){
-        try{
-            this.turnNum = InputTurn.turnInput();
-
-        }catch(IllegalArgumentException e){
-            e.getMessage();
-        }
+        this.turnNum = InputTurn.turnInput();
     }
 
     public void play(){

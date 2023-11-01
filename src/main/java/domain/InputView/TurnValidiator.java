@@ -17,15 +17,9 @@ public class TurnValidiator {
 
     private int checkNumber(String turnNum)
     {
-        try {
-            matches(turnNum);
-            return Integer.parseInt(turnNum);
+        matches(turnNum);
+        return Integer.parseInt(turnNum);
 
-        }
-        catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-            return -1;
-        }
     }
     private void matches(String turnNum)
     {

@@ -22,7 +22,6 @@ public class InputNames {
         check.checkRightName(InputCarNamesArray);
 
         return InputCarNamesArray;
-
     }
 
 }
