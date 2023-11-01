@@ -18,8 +18,12 @@ public class CarAndDistance {
         carsNames.add(carName);
     }
 
-    public String carAndDistanceResult(int i) {
-        return carsNames.get(i) + " : " + carAndDistance.get(carsNames.get(i));
+    public String[] carAndDistanceResult(int i) {
+        String[] test = new String[i];
+        for(int j = 0; j < i; j++) {
+            test[j] = carsNames.get(j) + " : " + carAndDistance.get(carsNames.get(j));
+        }
+        return test;
     }
 
     public LinkedHashMap<String, String> getCarAndDistance() {
