@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,11 +27,6 @@ public class Cars {
         cars.forEach(car -> car.moveForward(RandomNumber.generateRandomNumber()));
     }
 
-    public void validate(List<String> carNames) {
-        validateCarsSize(carNames);
-        validateDuplicatedCarNames(carNames);
-    }
-
     public int getMaxPosition() {
         return cars.stream()
             .mapToInt(Car::getPosition)
@@ -46,6 +40,11 @@ public class Cars {
             .filter(car -> car.getPosition() == maxPosition)
             .map(Car::getName)
             .collect(Collectors.toList());
+    }
+
+    public void validate(List<String> carNames) {
+        validateCarsSize(carNames);
+        validateDuplicatedCarNames(carNames);
     }
 
     public void validateCarsSize(List<String> carNames) {

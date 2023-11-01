@@ -28,18 +28,18 @@ public class RaceController {
     }
 
     public void initialize() {
-        List<String> carNames = getRaceCars();
-        int tryCount = getRaceTryCount();
-        race = new Race(new Cars(carNames), new Try(tryCount));
+        Cars cars = getRaceCars();
+        Try tryCount = getRaceTryCount();
+        race = new Race(cars, tryCount);
     }
 
-    public List<String> getRaceCars() {
+    public Cars getRaceCars() {
         OutputView.printRaceStart();
-        return InputView.inputCarNames();
+        return new Cars(InputView.inputCarNames());
     }
 
-    public int getRaceTryCount() {
+    public Try getRaceTryCount() {
         OutputView.printRaceTryCount();
-        return InputView.inputTryCount();
+        return new Try(InputView.inputTryCount());
     }
 }
