@@ -23,7 +23,7 @@ public class RacingGame {
         int remainingRace = getRaceCount();
         OutputView.printConsole();
         do {
-            printGameResult(cars);
+            race(cars);
         } while (remainingRace-- > 1);
         printGameWinner(cars);
     }
@@ -40,7 +40,7 @@ public class RacingGame {
         return raceCount.getCount();
     }
 
-    private void printGameResult(List<Car> cars) {
+    private void race(List<Car> cars) {
         gameResultMaker.makeGameResult(cars);
         OutputView.printGameResult(cars);
     }
