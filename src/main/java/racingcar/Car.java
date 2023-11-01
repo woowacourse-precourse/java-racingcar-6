@@ -9,9 +9,10 @@ import java.util.List;
 
 public class Car{
 
-    public ArrayList<Integer> position= new ArrayList<>();
+    public final ArrayList<Integer> position= new ArrayList<>();
     private int Try;
     private final ArrayList<String> car = new ArrayList<>();
+
 
 
     void InputCar(){
