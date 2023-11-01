@@ -7,19 +7,28 @@ import org.junit.jupiter.api.Test;
 import racingcar.error.ErrorMessage;
 import racingcar.error.Roud.InvalidNumberFormatException;
 import racingcar.error.Roud.InputUnderOneException;
+import racingcar.error.Roud.RoundInputNullException;
 
 class RoundTest {
 
     String number = "12345";
     String notNumber = "raeㄷㄷ";
+    String nullInput = "";
     String zero = "0";
 
     @Test
     @DisplayName("라운드 카운드 출력 TEST")
     void getRound() {
         Round round = new Round(number);
-
         assertThat(12345).isEqualTo(round.getRound());
+    }
+
+    @Test
+    @DisplayName("공백이 입력된 오류 Test")
+    void validateRoundNumberCaseInputNull() {
+        assertThatThrownBy(() -> new Round(nullInput))
+            .isInstanceOf(RoundInputNullException.class)
+            .hasMessage(ErrorMessage.ROUND_INPUT_NULL_EXCEPTION.getMessage());
     }
 
     @Test
