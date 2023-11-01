@@ -11,15 +11,17 @@ public class Car {
     private Car car;
 
     public Car(String name) {
-        CarValidateImpl.createVaule(name); // Corrected typo from createVaule to createValue
+        CarValidateImpl.createVaule(name);
         this.name = name;
         this.position = 0;
     }
+
     public void go(int randomValue) {
-        if(randomValue >= 4) {
-            this.position += 1;
+        if (randomValue >= 4) {
+            this.position++;
         }
     }
+
     public String getName() {
         return this.name;
     }
@@ -27,6 +29,11 @@ public class Car {
     public int getPosition() {
         return this.position;
     }
+
+    public boolean isPositionEqualOrGreater(int otherPosition) {
+        return this.position >= otherPosition;
+    }
+
 }
 
 
