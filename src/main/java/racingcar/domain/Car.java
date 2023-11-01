@@ -30,4 +30,12 @@ public class Car {
     public void printCurrentPosition() {
         OutputView.printCurrentPosition(name, moveCnt);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMoveCnt() {
+        return moveCnt;
+    }
 }

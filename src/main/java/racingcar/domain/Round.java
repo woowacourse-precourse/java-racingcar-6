@@ -21,4 +21,16 @@ public class Round {
         cars.forEach(Car::printCurrentPosition);
         System.out.println();
     }
+
+    public List<String> getWinner() {
+        int maxCnt = cars.stream()
+                .mapToInt(Car::getMoveCnt)
+                .max()
+                .orElse(0);
+
+        return cars.stream()
+                .filter(car -> car.getMoveCnt() == maxCnt)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 }
