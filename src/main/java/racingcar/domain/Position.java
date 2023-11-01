@@ -8,7 +8,7 @@ public class Position {
         this.position = START_POSITION;
     }
 
-    public void move(int distance) {
+    public void movePosition(int distance) {
         this.position += distance;
     }
 
