@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.Validator;
 
 public class Car {
     private final String name;
@@ -9,6 +10,7 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+        validateName(name);
         this.currentPosition = 0;
     }
 
@@ -18,6 +20,13 @@ public class Car {
 
     public int getCurrentPosition() {
         return currentPosition;
+    }
+
+    private void validateName(String name) {
+        Validator.validateNotNull(name);
+        Validator.validateNotBlank(name);
+        Validator.validateMaxLength(name);
+        Validator.validateNoSpacesBetweenNames(name);
     }
 
     public void moveIfRandomSuccess() {
