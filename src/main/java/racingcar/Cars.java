@@ -2,6 +2,8 @@ package racingcar;
 
 import java.util.*;
 
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 public class Cars {
     private List<Car> list;
 
@@ -59,5 +61,17 @@ public class Cars {
 
     private boolean isBlank(String name) {
         return name.length() == 0;
+    }
+
+    public void moveCars() {
+        for (Car car : this.list) {
+            if (canMove()) {
+                car.moveCar();
+            }
+        }
+    }
+
+    private boolean canMove() {
+        return pickNumberInRange(1, 9) >= 4;
     }
 }

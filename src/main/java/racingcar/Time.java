@@ -27,4 +27,10 @@ public class Time {
     private boolean isNaturalNumber(int number) {
         return number > 0;
     }
+
+    public void moveCarsByTime(Cars cars) {
+        for (int time = 1; time <= count; time++) {
+            cars.moveCars();
+        }
+    }
 }
