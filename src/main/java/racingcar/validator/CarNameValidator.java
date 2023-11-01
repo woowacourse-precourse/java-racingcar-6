@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class CarNameValidator {
 
-    private final String NAME;
-    public final ArrayList<String> NAMES;
+    private final String name;
+    public final ArrayList<String> names;
     private final static String NAME_ERROR_MESSAGE = "차 이름은 문자로만 구성되어야 합니다.";
     private final static String NAME_NULL_ERROR_MESSAGE = "차 이름을 적어주세요.";
     private final static String NAME_RANGE_ERROR_MESSAGE = "차 이름은 1자 이상 5자 이하로 적어주세요.";
@@ -16,8 +16,8 @@ public class CarNameValidator {
     private final static int MIN_LENGTH = 1;
 
     public CarNameValidator(String input) {
-        NAME = input;
-        NAMES = new ArrayList<>(Arrays.asList(input.split(",")));
+        name = input;
+        names = new ArrayList<>(Arrays.asList(input.split(",")));
         isNull();
         isNameError();
         isRangeOut();
@@ -26,19 +26,19 @@ public class CarNameValidator {
     }
 
     public void isNull() {
-        if (NAME.equals("")) {
+        if (name.equals("")) {
             throw new IllegalArgumentException(NAME_NULL_ERROR_MESSAGE);
         }
     }
 
     public void isNameError() {
-        if (NAME.contains(" ")) {
+        if (name.contains(" ")) {
             throw new IllegalArgumentException(NAME_ERROR_MESSAGE);
         }
     }
 
     public void isRangeOut() {
-        for (String name : NAMES) {
+        for (String name : names) {
             if (name.length() > MAX_LENGTH || name.length() < MIN_LENGTH) {
                 throw new IllegalArgumentException(NAME_RANGE_ERROR_MESSAGE);
             }
@@ -46,13 +46,13 @@ public class CarNameValidator {
     }
 
     public void isOneCar() {
-        if (NAMES.size() < 2) {
+        if (names.size() < 2) {
             throw new IllegalArgumentException(ONE_CAR_ERROR_MESSAGE);
         }
     }
 
     public void isDuplicate() {
-        if (NAMES.stream().distinct().count() != NAMES.size()) {
+        if (names.stream().distinct().count() != names.size()) {
             throw new IllegalArgumentException(NAME_DUPLICATE_ERROR_MESSAGE);
         }
     }

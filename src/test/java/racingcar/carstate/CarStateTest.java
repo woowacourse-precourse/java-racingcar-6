@@ -27,8 +27,8 @@ public class CarStateTest {
     @Test
     void 차_이름_입력_테스트() {
         CarNameValidator validator = new CarNameValidator("1,2");
-        assertThat(validator.NAMES).contains("2", "1");
-        assertThat(validator.NAMES).containsExactly("1", "2");
+        assertThat(validator.names).contains("2", "1");
+        assertThat(validator.names).containsExactly("1", "2");
     }
 
     @Test

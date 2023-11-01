@@ -15,7 +15,7 @@ public class Cars {
 
     public Cars(String input) {
         CarNameValidator validator = new CarNameValidator(input);
-        for (String Name : validator.NAMES) {
+        for (String Name : validator.names) {
             Car car = new Car(Name);
             cars.add(car);
         }
