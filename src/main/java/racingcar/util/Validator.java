@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
-    public void validateCarName(String carName) {
+    public static void validateCarName(String carName) {
         validateNotBlank(carName);
         validateFirstChar(carName);
         validateLastChar(carName);
         validateLength(carName);
     }
 
-    public void validateCarNames(List<String> carNames) {
+    public static void validateCarNames(List<String> carNames) {
         List<String> names = new ArrayList<>();
         for (String name : carNames) {
             if (names.contains(name)) {
@@ -23,27 +23,27 @@ public class Validator {
         }
     }
 
-    private void validateNotBlank(String carName) {
+    private static void validateNotBlank(String carName) {
         if (carName.isBlank()) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void validateFirstChar(String carName) {
+    private static void validateFirstChar(String carName) {
         boolean hasLeadingSpace = carName.startsWith(" ");
         if (hasLeadingSpace) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void validateLastChar(String carName) {
+    private static void validateLastChar(String carName) {
         boolean hasTrailingSpace = carName.endsWith(" ");
         if (hasTrailingSpace) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void validateLength(String carName) {
+    private static void validateLength(String carName) {
         boolean isOverLimit = carName.length() > MAX_NAME_LENGTH;
         if (isOverLimit) {
             throw new IllegalArgumentException();
