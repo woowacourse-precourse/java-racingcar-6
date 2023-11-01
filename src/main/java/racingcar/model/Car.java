@@ -5,6 +5,7 @@ import static racingcar.view.messages.ErrorMessages.ERROR_CAR_NAMES_LENGTH;
 
 public class Car {
     private static final int MIN_MOVE_THRESHOLD = 4;
+    private static final int MAX_NAME_LENGTH = 5;
     private static final int INIT_DISTANCE = 0;
     private static final String HYPHEN = "-";
     private static final String COLON = " : ";
@@ -44,7 +45,7 @@ public class Car {
     }
 
     private static void validateCarNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ERROR_CAR_NAMES_LENGTH.getErrorMessage());
         }
     }
