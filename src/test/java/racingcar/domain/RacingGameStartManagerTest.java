@@ -9,6 +9,8 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class RacingGameStartManagerTest {
     private RacingGameStartManager racingGameStartManager;
@@ -62,5 +64,27 @@ class RacingGameStartManagerTest {
         });
 
         assertThat(actual).hasMessage("자동차 이름은 중복될 수 없습니다.");
+    }
+
+    @Test
+    @DisplayName("입력받은 String 타입의 이동 횟수를 정수로 변환")
+    void 입력받은_String_타입의_이동_횟수를_정수로_변환() {
+        // given
+        String inputRacingCarMoveNum = "3";
+
+        // when
+        int actual = racingGameStartManager.convertInputRacingCarMoveNumToInt(inputRacingCarMoveNum);
+
+        // then
+        assertThat(actual).isEqualTo(3);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"3.3", "-3"})
+    @DisplayName("입력받은 String 타입의 이동 횟수를 정수로 변환 - 예외 처리 테스트")
+    void 입력받은_String_타입의_이동_횟수를_정수로_변환_예외처리_테스트(String inputRacingCarMoveNum) {
+        assertThrows(IllegalArgumentException.class, () ->
+                racingGameStartManager.convertInputRacingCarMoveNumToInt(inputRacingCarMoveNum)
+        );
     }
 }
