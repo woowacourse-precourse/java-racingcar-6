@@ -18,4 +18,14 @@ class ValidatorTest {
         //when, then
         assertThatIllegalArgumentException().isThrownBy(() -> validator.carNames(name));
     }
+
+    @Test
+    @DisplayName("예외 - 자동차 이름을 하나만 입력한다.")
+    void test2() {
+        //given
+        final String name = "고민석";
+
+        //when, then
+        assertThatIllegalArgumentException().isThrownBy(() -> validator.carNames(name));
+    }
 }
