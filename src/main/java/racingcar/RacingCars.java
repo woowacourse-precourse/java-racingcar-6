@@ -26,7 +26,7 @@ public class RacingCars {
 
     public void moveRacingCars() {
         for (RacingCar car : racingCarList) {
-            if(Randoms.pickNumberInRange(0,9) >= 4){
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.incrementDistance();
             }
         }

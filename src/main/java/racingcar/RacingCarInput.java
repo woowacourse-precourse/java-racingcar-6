@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarInput {
-    public List<String> getCarNameInput(){
+    public List<String> getCarNameInput() {
         String inputStr = Console.readLine();
         List<String> inputCarNames = List.of(inputStr.split(","));
         validateCarName(inputCarNames);
@@ -37,7 +37,7 @@ public class RacingCarInput {
         return distinctCarNames;
     }
 
-    public int getUserInput(){
+    public int getUserInput() {
         String inputStr = Console.readLine();
         return validateUserInputAndConvert(inputStr);
     }

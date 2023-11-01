@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
@@ -15,7 +13,7 @@ public class RacingCarGame {
         this.racingCarOutput = new RacingCarOutput();
     }
 
-    public void play(){
+    public void play() {
         racingCarOutput.printCarNameInput();
         List<String> nameList = racingCarInput.getCarNameInput();
 
@@ -23,7 +21,7 @@ public class RacingCarGame {
             racingCars.addRacingCar(carName);
         }
 
-        racingCarOutput.printUserInput();;
+        racingCarOutput.printUserInput();
         int times = racingCarInput.getUserInput();
 
         racingCarOutput.printResult();
@@ -34,7 +32,7 @@ public class RacingCarGame {
         checkWinner();
     }
 
-    public void step(){
+    public void step() {
         racingCars.moveRacingCars();
         racingCarOutput.printStep(racingCars);
     }

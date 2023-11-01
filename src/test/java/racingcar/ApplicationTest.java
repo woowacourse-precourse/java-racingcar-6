@@ -27,16 +27,16 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
+            assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
     void 이름이_null인_경우_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(",,", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
+            assertThatThrownBy(() -> runException(",,", "1"))
+                .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
@@ -54,7 +54,7 @@ class ApplicationTest extends NsTest {
         assertThat(result).containsExactly(car1, car2);
     }
 
-@Override
+    @Override
     public void runMain() {
         Application.main(new String[]{});
     }
