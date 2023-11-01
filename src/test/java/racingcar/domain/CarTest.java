@@ -17,4 +17,24 @@ class CarTest {
         assertThatThrownBy(() -> new Car(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 전진_조건_성공(){
+        Car car = new Car("test");
+        assertThat(car.canMove(5)).isEqualTo(true);
+    }
+
+    @Test
+    void 전진_조건_실패(){
+        Car car = new Car("test");
+        assertThat(car.canMove(3)).isEqualTo(false);
+    }
+
+    @Test
+    void 전진() {
+        Car car = new Car("test");
+        car.move();
+        car.move();
+        assertThat(car.getDistance()).isEqualTo(2);
+    }
 }
