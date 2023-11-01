@@ -1,19 +1,16 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import view.OutputView;
 
-public class RaceExecutor {
+public class AttemptExecutor {
 
     private final AdvanceDecider advanceDecider = new AdvanceDecider();
     private final OutputView outputView = new OutputView();
     private final RaceDto raceDto;
     private final List<String> carNames;
 
-    RaceExecutor(RaceDto raceDto) {
+    AttemptExecutor(RaceDto raceDto) {
         this.raceDto = raceDto;
         this.carNames = raceDto.getCarNameList();
     }
@@ -21,7 +18,6 @@ public class RaceExecutor {
     public void execute() {
         for (int i = 0; i < raceDto.getAttemptTimes(); i++) {
             singleAttempt();
-            printAttemptResult();
         }
     }
 
@@ -38,17 +34,7 @@ public class RaceExecutor {
     }
 
     private void moveCarByName(String name) {
-        String originalValue = getMovementString(name);
+        String originalValue = raceDto.getCarNameToAdvanceMap().get(name);
         raceDto.getCarNameToAdvanceMap().put(name, originalValue + "-");
-    }
-
-    private void printAttemptResult() {
-        for (String carName : carNames) {
-            outputView.printAttemptResult(carName, getMovementString(carName));
-        }
-    }
-
-    private String getMovementString(String name) {
-        return raceDto.getCarNameToAdvanceMap().get(name);
     }
 }
