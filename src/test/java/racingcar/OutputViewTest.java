@@ -30,7 +30,7 @@ public class OutputViewTest {
     void printExecResultTest_줄바꿈_실행결과_줄바꿈_문단을_출력() {
         OutputView.printExecResult();
 
-        assertThat(output.toString()).isEqualTo("\r\n실행 결과\r\n");
+        assertThat(output.toString()).isEqualTo("\n실행 결과\n");
     }
 
     @Test
@@ -42,7 +42,7 @@ public class OutputViewTest {
         OutputView.printWinner(winnerName);
 
         assertThat(output.toString())
-                .isEqualTo("최종 우승자 : pobi, hoon\r\n");
+                .isEqualTo("최종 우승자 : pobi, hoon\n");
     }
 
     @Test
@@ -59,7 +59,7 @@ public class OutputViewTest {
         OutputView.printCarStatus(carName, carStatus);
 
         assertThat(output.toString())
-                .isEqualTo("a : --\r\nb : ---\r\nc : -\r\n\r\n");
+                .isEqualTo("a : --\nb : ---\nc : -\n\n");
     }
 
     @Test
@@ -67,13 +67,13 @@ public class OutputViewTest {
         OutputView.printInputCarName();
 
         assertThat(output.toString())
-                .isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\r\n");
+                .isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     }
 
     @Test
     void printInputTryNumTest_시도회수_입력받기전_구문_출력() {
         OutputView.printInputTryNum();
 
-        assertThat(output.toString()).isEqualTo("시도할 회수는 몇회인가요?\r\n");
+        assertThat(output.toString()).isEqualTo("시도할 회수는 몇회인가요?\n");
     }
 }
