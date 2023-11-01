@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-
 public class OutputFormatter {
-
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String EMPTY_STRING = "";
     private static final String SPACE = " ";
@@ -19,7 +17,6 @@ public class OutputFormatter {
     private static final String DELIMITER_COMMA = ",";
 
     private static final int START_POSITION = 0;
-
 
     public static String makeWinner(List<CarDto> winners) {
         return winners.stream()

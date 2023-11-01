@@ -13,9 +13,7 @@ import racingcar.dto.CarDto;
 import racingcar.fixture.FixtureNumberGenerator;
 
 class CarTest {
-
     private static final int MOVE_THRESHOLD = 4;
-
 
     @DisplayName("moveUsingRandomNumber() 테스트 : 랜덤으로 생성된 값이 기준값보다 크거나 같으면 전진한다.")
     @ParameterizedTest(name = "생성된 랜덤값이 {0}일 때 0에서 1로 전진한다.")

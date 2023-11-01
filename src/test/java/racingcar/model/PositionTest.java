@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
 class PositionTest {
 
     @DisplayName("Position(position) 생성 테스트 : Position 생성 시 위치값을 부여할 수 있다.")

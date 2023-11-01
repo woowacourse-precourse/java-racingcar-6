@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
 class CountTest {
 
     @DisplayName("Count(count) 생성 예외 테스트 : 0보다 작다면 IllegalArgumentException가 발생한다.")

@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-
 class RandomNumberTest {
 
     @DisplayName("isGreaterThan() 테스트 : 값이크면 true 작으면 false를 반환한다.")

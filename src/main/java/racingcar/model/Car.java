@@ -3,7 +3,6 @@ package racingcar.model;
 import racingcar.dto.CarDto;
 
 public class Car {
-
     private static final int INIT_POSITION = 0;
 
     private Name name;

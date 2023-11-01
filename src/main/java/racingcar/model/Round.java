@@ -1,7 +1,6 @@
 package racingcar.model;
 
 public class Round {
-
     private Count count;
 
     public Round(Count count) {

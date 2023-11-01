@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
 class RoundTest {
 
     @DisplayName("hasRemainingRound() 테스트 : 라운드가 남아있다면 true를 반환, 남아있지 않다면 false를 반환한다.")

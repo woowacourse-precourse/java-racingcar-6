@@ -14,7 +14,6 @@ import racingcar.view.OutputView;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 public class RacingGameController {
     private static final int MOVE_THRESHOLD = 4;
 

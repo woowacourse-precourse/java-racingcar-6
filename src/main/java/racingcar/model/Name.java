@@ -5,7 +5,6 @@ import racingcar.dto.NameDto;
 import java.util.Objects;
 
 public class Name {
-
     private static final int MAX_NAME_SIZE = 5;
 
     private final String name;

@@ -5,7 +5,6 @@ import racingcar.dto.PositionDto;
 import java.util.Objects;
 
 public class Position {
-
     private static final int INIT_POSITION = 0;
 
     private final int position;

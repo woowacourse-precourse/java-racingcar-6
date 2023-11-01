@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.NameDto;
 
-
 class NameTest {
 
     @DisplayName("toDto() 테스트 : Car를 CarDto로 변환한다.")

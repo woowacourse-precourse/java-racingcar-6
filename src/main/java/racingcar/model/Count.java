@@ -3,7 +3,6 @@ package racingcar.model;
 import java.util.Objects;
 
 public class Count {
-
     private static final int COUNT_ZERO = 0;
 
     private final int count;
