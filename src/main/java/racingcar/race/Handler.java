@@ -1,5 +1,5 @@
 package racingcar.race;
 
-public interface Handler<T>{
-    void execute(T t);
+public interface Handler<T,R>{
+     R execute(T t);
 }
