@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.regex.Pattern;
+import racingcar.enums.ErrorMessage;
 
 public class InputView {
     public String readCarNames() {
@@ -19,7 +20,7 @@ public class InputView {
 
     private void validateCount(String input) {
         if (!Pattern.matches("^[0-9]*$", input)) {
-            throw new IllegalArgumentException("시도할 횟수는 숫자만 가능합니다.");
+            throw new IllegalArgumentException(ErrorMessage.ONLY_NUMBER.getMessage());
         }
     }
 }

@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.enums.ErrorMessage;
+
 public class RacingCar implements Comparable<RacingCar> {
     private final String name;
     private int distance = 0;
@@ -11,7 +13,7 @@ public class RacingCar implements Comparable<RacingCar> {
 
     private void validateCarName(String carName) {
         if (carName.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(ErrorMessage.UNDER_FIVE.getMessage());
         }
     }
 
@@ -32,7 +34,7 @@ public class RacingCar implements Comparable<RacingCar> {
     public boolean isSameDistance(RacingCar other) {
         return this.distance == other.distance;
     }
-    
+
     @Override
     public int compareTo(RacingCar other) {
         return this.distance - other.distance;
