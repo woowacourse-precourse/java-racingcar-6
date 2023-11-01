@@ -1,4 +1,4 @@
-package model;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -38,7 +38,7 @@ public class GameManager {
         sb.append("최종 우승자 : ").append(carName.get(winner.get(0)));
 
         for(int i=1; i<winner.size(); i++) {
-            sb.append(", ").append(carName.get(winner.get(0)));
+            sb.append(", ").append(carName.get(winner.get(i)));
         }
 
         System.out.println(sb);

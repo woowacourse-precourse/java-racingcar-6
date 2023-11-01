@@ -1,9 +1,10 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import model.GameManager;
 
-import java.util.ArrayList;
+import camp.nextstep.edu.missionutils.Console;
+import racingcar.InputException.Handler;
+import racingcar.model.GameManager;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,16 +16,24 @@ public class Application {
 
         System.out.println(firstMent);
 
+
         //이름 입력
         String nameInput = Console.readLine();
-
         List<String> carNameList = Arrays.asList(nameInput.split(","));
+        Handler.nameException(carNameList);
+
 
         System.out.println(secondMent);
-        int num = Integer.parseInt(Console.readLine());
 
+
+        String num = Console.readLine();
+        //입력값에 대한 예외처리
+        if(!Handler.numberException(num)) throw new IllegalArgumentException();
+
+        //예외 안날 시 Type 변환
+        int afterNum = Integer.parseInt(num);
         //입력값 세팅
-        GameManager gameManager = new GameManager(carNameList, num);
+        GameManager gameManager = new GameManager(carNameList, afterNum);
 
         gameManager.gameStart();
 
