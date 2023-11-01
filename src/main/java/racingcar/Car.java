@@ -8,6 +8,7 @@ public class Car {
     public Car(String carName, int movingCount) {
         this.carName = carName;
         this.movingCount = movingCount;
+        checkCarNameLength();
     }
 
     public void checkCarNameLength() {
