@@ -10,6 +10,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class RacingCarGame {
 	private static final String DELIMITER = ",";
+	private static final int MAX_NUMBER = 9;
 	private int numberOfAttempts;
 	private int numberOfCars;
 	private List<Car> cars;
@@ -57,5 +58,9 @@ public class RacingCarGame {
 		}
 
 		return numberOfAttempts;
+	}
+
+	void attemptMove(Car car) {
+		car.moveForward(NumberGenerator.createRandomNumber(MAX_NUMBER));
 	}
 }
