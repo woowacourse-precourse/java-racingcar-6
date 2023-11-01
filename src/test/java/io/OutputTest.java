@@ -20,6 +20,7 @@ public class OutputTest {
     private ByteArrayOutputStream mockOutPut;
     private ArrayList<Car> carList;
     private Race race;
+    private Output userOutput;
 
     @BeforeEach
     public void setUp() {
@@ -41,7 +42,7 @@ public class OutputTest {
         mockOutPut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(mockOutPut));
 
-        userOutput.printRoundResult(race);
+        userOutput.printRoundResult();
         String printedContent = mockOutPut.toString();
 
         assertThat(printedContent).contains(ROUND_MESSAGE);
