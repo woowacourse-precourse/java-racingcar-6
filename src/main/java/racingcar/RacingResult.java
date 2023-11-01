@@ -32,10 +32,10 @@ public class RacingResult {
     public static void showWinner() {
         boolean isSolo = decideWinner(getMaxScore());
         if (isSolo) {
-            System.out.println("최종 우승자 : "+ winners.get(0));
+            System.out.println(MessageUtil.MSG_FINAL_WINNER+ winners.get(0));
         } else {
             String winnerNames = String.join(", ",winners);
-            System.out.println("최종 우승자 : "+winnerNames);
+            System.out.println(MessageUtil.MSG_FINAL_WINNER+winnerNames);
         }
     }
 }
