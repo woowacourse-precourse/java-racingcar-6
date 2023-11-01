@@ -11,7 +11,7 @@ import racingcar.model.CarSetting;
 
 class CarSettingTest {
     private CarSetting carSetting;
-    private static String inputValue = "songHee, minGu";
+    private static String INPUT_VALUE = "songHee, minGu";
 
     @Test
     public void string배열로_분리성공_확인() throws Exception {
@@ -19,7 +19,7 @@ class CarSettingTest {
         carSetting = new CarSetting();
 
         //when
-        String[] strings = carSetting.getStrings(inputValue);
+        String[] strings = carSetting.getStrings(INPUT_VALUE);
 
         //then
         assertThat(strings).contains("songHee", "minGu");
@@ -29,7 +29,7 @@ class CarSettingTest {
     public void string배열에서_Map값으로_입력성공_확인() throws Exception {
         //given
         carSetting = new CarSetting();
-        String[] strings = carSetting.getStrings(inputValue);
+        String[] strings = carSetting.getStrings(INPUT_VALUE);
 
         //when
         carSetting.setCarStringArrayToMap(strings);
@@ -46,7 +46,7 @@ class CarSettingTest {
     @Test
     public void 경주_자동차_입력성공_확인() {
         //given
-        carSetting = new CarSetting(inputValue);
+        carSetting = new CarSetting(INPUT_VALUE);
 
         //when
         Map<String, Integer> carsSituation = carSetting.getCarsSituation();

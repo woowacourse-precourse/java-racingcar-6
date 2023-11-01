@@ -53,8 +53,8 @@ public class Car {
         return maxScore;
     }
 
-    public List<String> getResultWinner() {
-        return carSetting.findFinalWinner();
+    public static List<String> getResultWinner() {
+        return CarSetting.findFinalWinner();
     }
 
 }

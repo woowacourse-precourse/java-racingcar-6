@@ -17,11 +17,15 @@ public class RacingCarController {
         car.setCars();
         PrintComment.printTrialComment();
         int trialNumber = car.setTrial();
+        startGame(trialNumber);
+        OutputUserCar.printFinalResultComment();
+    }
+
+    private void startGame(int trialNumber) {
         while (trialNumber-- > 0) {
             Map<String, Integer> situation = car.goFront();
             OutputUserCar.printResultComment();
             OutputUserCar.racingCurrent(situation);
         }
-        OutputUserCar.printFinalResultComment();
     }
 }

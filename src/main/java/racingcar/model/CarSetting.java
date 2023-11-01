@@ -27,7 +27,7 @@ public class CarSetting {
     }
 
     public String[] getStrings(String inputCarName) {
-        String[] splitCars = inputCarName.split(", ");
+        String[] splitCars = inputCarName.split(",");
         return splitCars;
     }
 
@@ -55,13 +55,18 @@ public class CarSetting {
     public static List<String> findFinalWinner() {
         List<String> maxScoreUser = new ArrayList<>();
         Iterator<String> iterator = carGameSituation.keySet().iterator();
+        findMaxScoreUser(iterator, maxScoreUser);
+
+        return maxScoreUser;
+    }
+
+    private static void findMaxScoreUser(Iterator<String> iterator, List<String> maxScoreUser) {
         while (iterator.hasNext()) {
             String key = iterator.next();
             if (carGameSituation.get(key) == maxScore) {
                 maxScoreUser.add(key);
             }
         }
-        return maxScoreUser;
     }
 
 }
