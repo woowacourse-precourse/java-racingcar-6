@@ -1,6 +1,5 @@
 package racingcar.io.output;
 
-import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
 import racingcar.domain.judge.WinnerCars;
@@ -34,18 +33,10 @@ public class ConsoleWriter {
     }
 
     private String toWinnerResultFormat(WinnerCars winnerCars) {
-        List<Car> cars = winnerCars.getCars();
-
-        if (cars.size() == 1) {
-            Car uniqueWinner = cars.get(0);
-            return WINNER_RESULT_FORMAT.formatted(uniqueWinner.getName());
+        if (winnerCars.hasUniqueWinner()) {
+            return WINNER_RESULT_FORMAT.formatted(winnerCars.getUniqueWinnerName());
         }
-
-        List<String> carNames = cars.stream()
-                .map(Car::getName)
-                .toList();
-
-        return WINNER_RESULT_FORMAT.formatted(String.join(", ", carNames));
+        return WINNER_RESULT_FORMAT.formatted(String.join(", ", winnerCars.getWinnerNames()));
     }
 
     private String toMoveResultFormat(Car car) {
