@@ -24,10 +24,14 @@ public class InputManager {
     }
 
     public int getTryTimes() {
-        //TODO 시도 횟수 입력받기
-        return 0;
+        String tryTimesLine = readLine();
+        int tryTimes = 0;
+        try{
+            tryTimes = Integer.parseInt(tryTimesLine);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+        return tryTimes;
 
     }
-
-
 }
