@@ -17,33 +17,6 @@ public class CarNames {
         createCarNames(input);
     }
 
-    private void createCarNames(String input) {
-        carNames = new ArrayList<>();
-        StringTokenizer stringTokenizer = new StringTokenizer(input, COMMA);
-
-        verifyInputToken(stringTokenizer);
-    }
-
-    private void verifyInputToken(StringTokenizer stringTokenizer) {
-        while(stringTokenizer.hasMoreTokens()) {
-            String carName = stringTokenizer.nextToken();
-
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-
-            if (carNames.contains(carName)) {
-                throw new IllegalArgumentException();
-            }
-
-            carNames.add(carName);
-        }
-
-        if (carNames.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-    }
-
     private void verifyInput(String input) {
         StringBuilder stringBuilder = new StringBuilder(input);
 
@@ -85,6 +58,34 @@ public class CarNames {
             throw new IllegalArgumentException();
         }
     }
+
+    private void createCarNames(String input) {
+        carNames = new ArrayList<>();
+        StringTokenizer stringTokenizer = new StringTokenizer(input, COMMA);
+
+        verifyInputToken(stringTokenizer);
+    }
+
+    private void verifyInputToken(StringTokenizer stringTokenizer) {
+        while(stringTokenizer.hasMoreTokens()) {
+            String carName = stringTokenizer.nextToken();
+
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+
+            if (carNames.contains(carName)) {
+                throw new IllegalArgumentException();
+            }
+
+            carNames.add(carName);
+        }
+
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 
     public List<String> getCarNames() {
         return Collections.unmodifiableList(carNames);

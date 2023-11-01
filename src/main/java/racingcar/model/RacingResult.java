@@ -23,7 +23,7 @@ public class RacingResult {
     }
 
     public Set<String> getNames() {
-        return result.keySet();
+        return Collections.unmodifiableSet(result.keySet());
     }
 
     public List<String> getWinners() {
