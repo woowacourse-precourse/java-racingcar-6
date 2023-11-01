@@ -14,7 +14,7 @@ public class Car {
 
     public void carMoveOrStay() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
-            move++;
+            move ++;
         }
     }
 
