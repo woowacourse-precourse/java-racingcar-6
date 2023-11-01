@@ -48,17 +48,18 @@ public class RacingGameTest {
 
     @Test
     void canMoveCars() throws NoSuchFieldException {
-        RacingGame racingGame = new RacingGame();
+        RacingGameUtils racingGameUtils = new RacingGameUtils();
         Car car = new Car("car1");
-        racingGame.moveCar(car, 8);
-        racingGame.moveCar(car, 2);
-        racingGame.moveCar(car, 7);
+        racingGameUtils.moveCar(car, 8);
+        racingGameUtils.moveCar(car, 2);
+        racingGameUtils.moveCar(car, 7);
         assertEquals(2,car.getLocation());
     }
 
     @Test
     void canGetCurrentStatus() throws NoSuchFieldException, IllegalAccessException {
         RacingGame racingGame = new RacingGame();
+        RacingGameUtils racingGameUtils = new RacingGameUtils();
         LinkedHashMap<String, Integer> answer = new LinkedHashMap<String, Integer>();
         String[] carNames = {"car1", "car2", "car3"};
         racingGame.createCars(carNames);
@@ -69,13 +70,13 @@ public class RacingGameTest {
         answer.put("car3", 2);
         ArrayList<Car> carSet = (ArrayList<Car>) cars.get(racingGame);
         for(int moveTimes = 0; moveTimes < 3; moveTimes++) {
-            racingGame.moveCar(carSet.get(0), 9);
+            racingGameUtils.moveCar(carSet.get(0), 9);
         }
         for(int moveTimes = 0; moveTimes < 5; moveTimes++) {
-            racingGame.moveCar((Car) carSet.get(1), 9);
+            racingGameUtils.moveCar((Car) carSet.get(1), 9);
         }
         for(int moveTimes = 0; moveTimes < 2; moveTimes++) {
-            racingGame.moveCar((Car) carSet.get(2), 9);
+            racingGameUtils.moveCar((Car) carSet.get(2), 9);
         }
         assertEquals(answer, racingGame.getCurrentStatus());
     }
@@ -83,6 +84,7 @@ public class RacingGameTest {
     @Test
     void canGetWinners() throws NoSuchFieldException, IllegalAccessException {
         RacingGame racingGame = new RacingGame();
+        RacingGameUtils racingGameUtils = new RacingGameUtils();
         ArrayList<String> answer = new ArrayList<>(List.of("car2"));
         String[] carNames = {"car1", "car2", "car3"};
         racingGame.createCars(carNames);
@@ -90,13 +92,13 @@ public class RacingGameTest {
         cars.setAccessible(true);
         ArrayList<Car> carSet = (ArrayList<Car>) cars.get(racingGame);
         for(int moveTimes = 0; moveTimes < 3; moveTimes++) {
-            racingGame.moveCar(carSet.get(0), 9);
+            racingGameUtils.moveCar(carSet.get(0), 9);
         }
         for(int moveTimes = 0; moveTimes < 5; moveTimes++) {
-            racingGame.moveCar((Car) carSet.get(1), 9);
+            racingGameUtils.moveCar((Car) carSet.get(1), 9);
         }
         for(int moveTimes = 0; moveTimes < 2; moveTimes++) {
-            racingGame.moveCar((Car) carSet.get(2), 9);
+            racingGameUtils.moveCar((Car) carSet.get(2), 9);
         }
         assertEquals(answer,racingGame.getWinner());
     }
