@@ -26,8 +26,10 @@ public class CarListController {
 
     private void validateInput(String input) {
         if (input.trim().isEmpty()
+            || input.isBlank()
             || input.startsWith(Separator)
-            || input.endsWith(Separator)) {
+            || input.endsWith(Separator)
+        ) {
 
             throw new IllegalArgumentException();
         }
