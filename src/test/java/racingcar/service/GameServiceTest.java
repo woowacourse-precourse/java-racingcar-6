@@ -42,7 +42,6 @@ class GameServiceTest {
 
 
 
-
     @Test
     void initGame() {
         when(gameRepository.save(any())).thenReturn(1l);
@@ -52,39 +51,6 @@ class GameServiceTest {
         verify(carService, times("a,b,c".split(",").length)).carCreate(any());
     }
 
-    //Car를 모킹해야할까?
-//    @Test
-//    void processGame() {
-//        Game game = new Game(1);
-//        when(gameRepository.findById(any())).thenReturn(game);
-//
-//
-//
-//
-//    }
-//    @Test
-//    void printResult() {
-//        Game game = new Game(1);
-//        when(gameRepository.findById(any())).thenReturn(game);
-//        doNothing().when(carService).getCartInfo(any());
-//
-//        verify()
-//    }
 
-//    @Test
-//    void goOrStop() {
-//        Game game = new Game(1);
-//        when(gameRepository.findById(any())).thenReturn(game);
-//        when(gameRepository.save(any())).thenReturn(1l);
-//        when(carService.carCreate(any())).thenReturn(new Car("car"));
-//    }
-//
-//    @Test
-//    void resultPrint() {
-//        Game game = new Game(1);
-//        when(gameRepository.findById(any())).thenReturn(game);
-//        when(gameRepository.save(any())).thenReturn(1l);
-//        when(carService.carCreate(any())).thenReturn(new Car("car"));
-//    }
 
 }

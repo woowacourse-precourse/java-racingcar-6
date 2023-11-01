@@ -28,13 +28,6 @@ public class Game {
                 .collect(Collectors.toList());
     }
 
-    public Integer getPlayCount() {
-        return playCount;
-    }
-
-    public void setPlayCount(Integer playCount) {
-        this.playCount = playCount;
-    }
 
     public boolean carGoOrStop() {
         int pivot=4;
@@ -43,9 +36,6 @@ public class Game {
         return false;
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -61,13 +51,16 @@ public class Game {
         int maxScore = 0;
         List<String> winnerList = new ArrayList<>();
         for (Car car : carList) {
+            if (car.getScore() < maxScore) {
+                continue;
+            }
             if (car.getScore() > maxScore) {
                 maxScore = car.getScore();
                 winnerList.clear();
                 winnerList.add(car.getName());
-            } else if (car.getScore() == maxScore) {
-                winnerList.add(car.getName());
+                continue;
             }
+            winnerList.add(car.getName());
         }
         return winnerList;
     }

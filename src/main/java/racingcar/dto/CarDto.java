@@ -9,11 +9,4 @@ public class CarDto {
         this.score = score;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
 }
