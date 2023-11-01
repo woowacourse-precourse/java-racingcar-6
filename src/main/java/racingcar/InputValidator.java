@@ -27,15 +27,4 @@ public class InputValidator {
         }
         return true;
     }
-
-    public int validateMatchCount(String s) {
-        if (!(isCorrectMatchCountLength(s) && Character.isDigit(s.charAt(0)))) {
-            throw new IllegalArgumentException();
-        }
-        return Integer.parseInt(s);
-    }
-
-    private boolean isCorrectMatchCountLength(String s) {
-        return s.length() == 1;
-    }
 }
