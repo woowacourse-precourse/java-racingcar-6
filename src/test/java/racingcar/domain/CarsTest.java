@@ -2,15 +2,15 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static racingcar.constants.DomainConstant.*;
+import static racingcar.constants.ValidatorConstant.*;
 
-import racingcar.constants.DomainConstant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.constants.ValidatorConstant;
 
 public class CarsTest {
     @Test
@@ -32,7 +32,7 @@ public class CarsTest {
     void testCarNamesContainsNameLengthOverThanMaxLength() {
         IllegalArgumentException carsNameError =
                 assertThrows(IllegalArgumentException.class, () -> new Cars("tiger,eagle,leopard"));
-        assertThat(carsNameError.getMessage()).isEqualTo(ValidatorConstant.CAR_NAME_ERROR_MESSAGE);
+        assertThat(carsNameError.getMessage()).isEqualTo(CAR_NAME_ERROR_MESSAGE);
     }
 
     @Test
@@ -40,12 +40,12 @@ public class CarsTest {
     void testMostMovedCarIsSoloWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
-        int drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
+        int drivingSkill = SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
 
-        drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 2;
+        drivingSkill = SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 2;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
@@ -58,12 +58,12 @@ public class CarsTest {
     void testMostMovedCarIsCoWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
-        int drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
+        int drivingSkill = SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
 
-        drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE + 1;
+        drivingSkill = SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE + 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
