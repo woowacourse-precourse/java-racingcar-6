@@ -11,6 +11,10 @@ public class RacingCars {
         this.racingCarList = new ArrayList<>();
     }
 
+    public RacingCars(List<RacingCar> carList) {
+        this.racingCarList = carList;
+    }
+
     public void addRacingCar(String name) {
         RacingCar car = new RacingCar(name);
         racingCarList.add(car);

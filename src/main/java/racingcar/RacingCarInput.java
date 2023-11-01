@@ -14,7 +14,13 @@ public class RacingCarInput {
     }
 
     private void validateCarName(List<String> inputCarNames) {
+        if (inputCarNames.isEmpty()) {
+            throw new IllegalArgumentException("자동차 개수가 0일 수 없습니다.");
+        }
         for (String carName : inputCarNames) {
+            if (carName == null || carName.isEmpty()) {
+                throw new IllegalArgumentException("자동차 이름은 빈 값 또는 null일 수 없습니다.");
+            }
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
