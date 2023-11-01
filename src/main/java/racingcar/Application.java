@@ -1,11 +1,13 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.CarCreate;
+import racingcar.domain.TryNumber;
 
 public class Application {
     public static void main(String[] args) {
         CarCreate carCreate = new CarCreate();
-        carCreate.inputCarNames();
+        TryNumber tryNumber = new TryNumber();
+
 
     }
 }
