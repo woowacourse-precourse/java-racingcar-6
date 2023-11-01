@@ -8,7 +8,7 @@ import racingcar.model.CarStorage;
 
 public class InputException {
     private InputException() {}
-    public static void checkAll(String newCarName) {
+    public static void checkAllCarName(String newCarName) {
         checkNameLength(newCarName);
         checkOnlyInt(newCarName);
         checkExistCar(newCarName);

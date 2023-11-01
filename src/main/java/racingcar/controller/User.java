@@ -15,7 +15,7 @@ public class User {
 
         for (String car: splitCars) {
             car = car.replace(" ", "");
-            InputException.checkAll(car);
+            InputException.checkAllCarName(car);
             CarStorage.addCar(new Car(car));
         }
     }
