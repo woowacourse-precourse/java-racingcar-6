@@ -8,11 +8,14 @@ import java.util.List;
 
 
 public class Application {
+    private static final int MAX_CAR_NAME_LENGTH = 5;
     public static void main(String[] args) {
         try{
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             //Console.readLine() 메서드를 이용해서 자동차 이름 받기
             String inputCarName = Console.readLine();
+            //5글자 이상인지 확인
+            validateCarNames(inputCarName);
             //이름만 가지고 있는 배열
             String[] carName = inputCarName.split(",");
             //이름과 움직인 거리를 가질 배열
@@ -76,6 +79,14 @@ public class Application {
             return goCar;
         } else {
             return stopCar;
+        }
+    }
+    static void validateCarNames(String inputCarName) {
+        String[] carNames = inputCarName.split(",");
+        for (String name : carNames) {
+            if (name.length() > MAX_CAR_NAME_LENGTH) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
         }
     }
 }
