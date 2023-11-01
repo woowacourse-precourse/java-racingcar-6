@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 import java.util.List;
@@ -14,6 +15,14 @@ class ConverterTest {
         String carNames = "pobi,woni,jun";
         Cars cars = Converter.parseCarNames(carNames);
         assertThat(cars.getCars().size()).isEqualTo(3);
+    }
+
+    @Test
+    void 자동차의_이름이_다섯_글자_초과인_경우_예외를_발생한다() {
+        String carNames = "pobiwoni";
+        assertThatThrownBy(() -> Converter.parseCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차의 이름은 5자 이하만 가능합니다");
     }
 
     @Test
