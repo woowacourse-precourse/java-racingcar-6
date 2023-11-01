@@ -55,7 +55,8 @@ public class RacingGame implements Game {
     private void inputCars() {
         String namesString = inputView.input();
         List<String> names = Convertor.split(namesString, MessengerConstants.CAR_NAMES_DELIMITER);
-        cars = carsGenerator.generateCarsFromNames(names);
+        List<String> trimmedNames = Convertor.trimStrings(names);
+        cars = carsGenerator.generateCarsFromNames(trimmedNames);
     }
 
     private void printRequestRoundCountMessage() {

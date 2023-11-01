@@ -11,6 +11,12 @@ public final class Convertor {
                 .toList();
     }
 
+    public static List<String> trimStrings(List<String> strings) {
+        return strings.stream()
+                .map(String::trim)
+                .toList();
+    }
+
     public static int parseInt(String string) {
         try {
             return Integer.parseInt(string);

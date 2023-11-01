@@ -168,3 +168,4 @@
 
 - `String` -> `int`
 - `String` -> `List<String>` : 구분자 사용
+- `List<String>` -> `trim` 수행
