@@ -2,7 +2,6 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.ValidatorConstant;
-
 import java.util.List;
 
 public class GameDto {
@@ -17,7 +16,7 @@ public class GameDto {
         );
     }
 
-    public List<CarDto> getCars() {
+    public List<CarDto> getCarsDto() {
         return cars;
     }
 }

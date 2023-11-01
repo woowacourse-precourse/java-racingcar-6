@@ -1,16 +1,14 @@
 package racingcar;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.utils.CarNameValidator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
-public class ValidationTest {
+public class ValidatorTest {
     @Test
-    @DisplayName("자동자 이름이 null인 경우")
-    void shouldThrowExceptionWhenCarNameIsNull() {
-        assertThatThrownBy(() -> CarNameValidator.validateCarName(null))
+    @DisplayName("자동차 이름의 길이가 5보다 클 때 예외처리 발생")
+    void shouldThrowExceptionWhenCarNameIsLongerThanFive() {
+        assertThatThrownBy(() -> CarNameValidator.validateCarName("aaaaaaa"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
