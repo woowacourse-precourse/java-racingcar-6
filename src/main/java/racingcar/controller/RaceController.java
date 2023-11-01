@@ -19,5 +19,11 @@ public class RaceController {
     public void run() {
         outputView.printMessage(Message.SET_CAR_NAME);
         raceService.CarList(inputView.input());
+        getCount();
+    }
+
+    private void getCount() {
+        outputView.printMessage(Message.SET_TRY_COUNT);
+        raceService.getTryCount(inputView.input());
     }
 }
