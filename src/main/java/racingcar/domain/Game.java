@@ -14,5 +14,12 @@ public class Game {
         }
         return scores;
     }
-    
+
+    public String getCurrentResult(List<String> carNames, List<Integer> scores) {
+        String result = "";
+        for (int carIdx = 0; carIdx < scores.size(); carIdx++) {
+            result += carNames.get(carIdx) + " : " + "-".repeat(scores.get(carIdx)) + "\n";
+        }
+        return result;
+    }
 }
