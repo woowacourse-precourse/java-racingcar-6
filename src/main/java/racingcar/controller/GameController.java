@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.GameManager;
+import racingcar.service.GameService;
 import racingcar.domain.TryCount;
 import racingcar.domain.Winner;
 import racingcar.view.InputView;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GameController {
 
-    private GameManager gameManager;
+    private GameService gameService;
     private int tryCount;
 
     public void gameStart() {
@@ -26,13 +26,13 @@ public class GameController {
 
     private void playRacing() {
         for (int i=0; i<tryCount; i++) {
-            gameManager.moveCar();
-            OutputView.showCarNameAndPosition(gameManager.getCars());
+            gameService.moveCar();
+            OutputView.showCarNameAndPosition(gameService.getCars());
         }
     }
 
     private void showWinnerCars() {
-        Winner winner = gameManager.findWinners();
+        Winner winner = gameService.findWinners();
         OutputView.finalWinnerMessage(winner);
     }
 }
