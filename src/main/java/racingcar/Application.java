@@ -18,14 +18,12 @@ public class Application {
 
         String[] carNameArray  = input.split(",");
 
-
         for (String name : carNameArray) {
             if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
             carNames.add(name);
         }
-
 
         for (int i=0; i<carNames.size(); i++){
             carProgress.add(0);
