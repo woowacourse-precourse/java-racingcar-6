@@ -42,11 +42,15 @@ public class Cars {
 
     public WinnersDto toWinnersDto() {
         int maxPosition = getMaxPosition();
-        List<WinnerDto> winnerList = carList.stream()
+        List<WinnerDto> winnerList = getWinnerListWith(maxPosition);
+        return new WinnersDto(winnerList);
+    }
+
+    private List<WinnerDto> getWinnerListWith(int maxPosition) {
+        return carList.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::toWinnerDto)
                 .toList();
-        return new WinnersDto(winnerList);
     }
 
     public int getMaxPosition() {
