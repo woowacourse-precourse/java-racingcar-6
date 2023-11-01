@@ -14,23 +14,23 @@ public class TrialCount {
         this.count = Integer.parseInt(count);
     }
 
-    private void validateNumeric(String input){
+    private void validateNumeric(String input) {
         if (!NUMERIC_PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException(ExceptionResponse.NUMERIC.getMessage());
         }
     }
 
-    private void validatePositiveNumber(String input){
-        if(Integer.parseInt(input) < 1){
+    private void validatePositiveNumber(String input) {
+        if (Integer.parseInt(input) < 1) {
             throw new IllegalArgumentException(ExceptionResponse.POSITIVE_NUMBER.getMessage());
         }
     }
 
-    public boolean isNotZero(){
+    public boolean isNotZero() {
         return count != 0;
     }
 
-    public void consumed(){
+    public void consumed() {
         count--;
     }
 }

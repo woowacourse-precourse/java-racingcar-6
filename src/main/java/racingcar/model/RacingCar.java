@@ -16,18 +16,18 @@ public class RacingCar {
         this.name = name;
     }
 
-    private String removeSpace(String name){
+    private String removeSpace(String name) {
         return name.trim();
     }
 
-    private void validateName(String name){
-        if(name.isEmpty() || name.length() > MAX_NAME_LENGTH ){
+    private void validateName(String name) {
+        if (name.isEmpty() || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ExceptionResponse.RACING_CAR_NAME.getMessage());
         }
     }
 
-    public CarStatus decideMove(int condition){
-        if(condition >= FORWARD_CONDITION){
+    public CarStatus decideMove(int condition) {
+        if (condition >= FORWARD_CONDITION) {
             return CarStatus.FORWARD;
         }
         return CarStatus.STOP;

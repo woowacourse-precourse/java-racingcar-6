@@ -8,7 +8,7 @@ public enum ExceptionResponse {
     RACING_CAR_NAME("이름은 5자 이하의 구분 가능한 문자로 이루어져야 합니다."),
     DUPLICATE_RACING_CAR("중복된 이름을 가진 자동차는 없어야 합니다.");
 
-    private String message;
+    private final String message;
 
     ExceptionResponse(String message) {
         this.message = message;

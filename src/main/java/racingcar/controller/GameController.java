@@ -16,26 +16,9 @@ public class GameController {
     private final List<RacingCar> racingCars;
     private final Game game;
 
-
     public GameController() {
         racingCars = convertToRacingCars(INPUT_VIEW.inputCarNames());
         game = Game.createByRacingCars(racingCars);
-    }
-
-    public void start() {
-        TrialCount trialCount = new TrialCount(INPUT_VIEW.inputTrialCount());
-        while (trialCount.isNotZero()) {
-            OUTPUT_VIEW.printGameStatus(playGame());
-            trialCount.consumed();
-        }
-        OUTPUT_VIEW.printWinner(convertToString(game.findWinners()));
-    }
-
-    private Game playGame() {
-        for (RacingCar racingCar : racingCars) {
-            game.updateStatus(racingCar, () -> Randoms.pickNumberInRange(0, 9));
-        }
-        return game;
     }
 
     private List<RacingCar> convertToRacingCars(List<String> names) {
@@ -48,5 +31,21 @@ public class GameController {
         return String.join(DELIMITER_WINNERS, racingCars.stream()
                 .map(racingCar -> racingCar.toString())
                 .toList());
+    }
+
+    private Game playGame() {
+        for (RacingCar racingCar : racingCars) {
+            game.updateStatus(racingCar, () -> Randoms.pickNumberInRange(0, 9));
+        }
+        return game;
+    }
+
+    public void start() {
+        TrialCount trialCount = new TrialCount(INPUT_VIEW.inputTrialCount());
+        while (trialCount.isNotZero()) {
+            OUTPUT_VIEW.printGameStatus(playGame());
+            trialCount.consumed();
+        }
+        OUTPUT_VIEW.printWinner(convertToString(game.findWinners()));
     }
 }

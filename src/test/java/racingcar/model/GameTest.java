@@ -10,7 +10,8 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,8 +23,8 @@ class GameTest {
     private List<RacingCar> racingCars;
 
     private void createSingleWinner(RacingCar winner, String score) {
-        for(int i = 0; i < score.length(); i++){
-            game.updateStatus(winner, () -> Randoms.pickNumberInRange(4, 9) );
+        for (int i = 0; i < score.length(); i++) {
+            game.updateStatus(winner, () -> Randoms.pickNumberInRange(4, 9));
         }
     }
 
@@ -44,14 +45,14 @@ class GameTest {
 
     @DisplayName("자동차 별 점수를 초기화 할 수 있다")
     @Test
-    void create(){
+    void create() {
         String expected = "pobi : \n" + "woni : \n" + "jun : \n";
         assertThat(game.toString()).isEqualTo(expected);
     }
 
     @DisplayName("중복된 이름을 가진 자동차가 있을 시 예외가 발생한다")
     @Test
-    void validateDuplicate(){
+    void validateDuplicate() {
         List<RacingCar> duplicateCars = Arrays.asList(new RacingCar("pobi"), new RacingCar("pobi"));
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> Game.createByRacingCars(duplicateCars));
@@ -69,7 +70,7 @@ class GameTest {
     @DisplayName("우승자가 한명인 경우 누가 우승했는지 알 수 있다.")
     @ParameterizedTest
     @CsvSource(value = {"---:pobi", "--:woni", "-:jun"}, delimiter = ':')
-    void getWinner(String score, String expectedWinner) {
+    void findWinner(String score, String expectedWinner) {
         createSingleWinner(new RacingCar(expectedWinner), score);
         List<RacingCar> result = game.findWinners();
         Assertions.assertAll(
@@ -81,7 +82,7 @@ class GameTest {
     @DisplayName("우승자가 여러명인 경우 누가 우승했는지 알 수 있다.")
     @ParameterizedTest
     @MethodSource("winnerData")
-    void getMultipleWinner(String score, List<RacingCar> expectedWinners) {
+    void findMultipleWinner(String score, List<RacingCar> expectedWinners) {
         createMultipleWinner(expectedWinners, score);
         List<RacingCar> result = game.findWinners();
         Assertions.assertAll(

@@ -10,14 +10,14 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public class Game {
-    private final static String DELIMITER =  " : ";
+    private final static String DELIMITER = " : ";
     private final Map<RacingCar, String> participants;
 
     private Game(Map<RacingCar, String> participants) {
         this.participants = participants;
     }
 
-    private static void validateDuplicate(List<RacingCar> racingCars){
+    private static void validateDuplicate(List<RacingCar> racingCars) {
         long nonDuplicateSize = racingCars.stream()
                 .distinct()
                 .count();
@@ -26,7 +26,7 @@ public class Game {
         }
     }
 
-    public static Game createByRacingCars(List<RacingCar> racingCars){
+    public static Game createByRacingCars(List<RacingCar> racingCars) {
         validateDuplicate(racingCars);
         Map<RacingCar, String> gameStatus = new LinkedHashMap<>();
         for (RacingCar racingCar : racingCars) {
@@ -54,13 +54,11 @@ public class Game {
 
     @Override
     public String toString() {
-        String gameStatus = new String();
-        for(Map.Entry<RacingCar, String> entry :participants.entrySet()){
+        String gameStatus = "";
+        for (Map.Entry<RacingCar, String> entry : participants.entrySet()) {
             gameStatus += entry.getKey() + DELIMITER + entry.getValue();
             gameStatus += System.lineSeparator();
         }
         return gameStatus;
     }
-
-
 }

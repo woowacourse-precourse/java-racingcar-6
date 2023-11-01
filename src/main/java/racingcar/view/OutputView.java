@@ -5,11 +5,11 @@ import racingcar.model.Game;
 
 public class OutputView {
 
-    public void printGameStatus(Game game){
+    public void printGameStatus(Game game) {
         System.out.println(game);
     }
 
-    public void printWinner(String winner){
+    public void printWinner(String winner) {
         System.out.println(InformationResponse.WINNER.getMessage() + winner);
     }
 }
