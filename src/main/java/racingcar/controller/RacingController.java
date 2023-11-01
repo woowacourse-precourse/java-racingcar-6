@@ -21,6 +21,7 @@ public class RacingController {
 
     public void run() {
         setting();
+        startRacing();
     }
 
     private void setting() {
@@ -28,5 +29,14 @@ public class RacingController {
         int tryCount = inputView.askTryCount();
         this.cars = Cars.fromNames(carNames);
         this.racingManager = new RacingManager(tryCount);
+    }
+
+    private void startRacing() {
+        outputView.printResultAnnouncement();
+        while (racingManager.canMove()) {
+            cars.move();
+            racingManager.countMove();
+            outputView.printAllCarPositionByState(cars.collectAllState());
+        }
     }
 }
