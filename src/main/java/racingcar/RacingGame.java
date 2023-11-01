@@ -12,7 +12,15 @@ public class RacingGame {
         this.cars = cars;
         this.rounds = rounds;
     }
-
+    public void start() {
+        System.out.println("실행 결과");
+        for (int i = 0; i < rounds; i++) {
+            playRound();
+            OutputView.printCars(cars);
+        }
+        List<Car> winners = findWinners();
+        OutputView.printWinners(winners);
+    }
 
     private void playRound() {
         for (Car car : cars) {
