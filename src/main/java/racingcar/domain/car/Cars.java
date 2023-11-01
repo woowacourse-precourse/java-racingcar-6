@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.constants.ErrorConsts;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +30,7 @@ public class Cars {
 
     private void validateDuplication(final List<Name> carNameList) {
         if (carNameList.size() != carNameList.stream().distinct().count()) {
-            throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다.");
+            throw new IllegalArgumentException(ErrorConsts.DUPLICATED_CAR_NAME.getMessage());
         }
     }
 }
