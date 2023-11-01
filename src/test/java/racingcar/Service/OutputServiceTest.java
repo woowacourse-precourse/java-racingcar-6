@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.Domain.Car;
 
 public class OutputServiceTest {
 
@@ -13,7 +14,14 @@ public class OutputServiceTest {
 
     @BeforeEach
     public void init() {
-        outputService=new OutputService();
+        InputService inputService = new InputService();
+        Car car = new Car();
+        outputService=new OutputService(car,inputService);
+        inputService = outputService.getInputService();
+
+        String inputCarname = "pobi,woni,jun";
+        inputService.inputCarname(inputCarname);
+        inputService.SplitCarname(inputCarname);
     }
     @Test
     @DisplayName("자동차 이름 질문 문구 출력기능 ")
@@ -27,5 +35,16 @@ public class OutputServiceTest {
     public void output2() {
         assertThat(outputService.printTryNumQuestion()).
                 isEqualTo("시도할 회수는 몇회인가요?");
+    }
+
+    @Test
+    @DisplayName("자동차 이름별로 출력 기능")
+    public void output3() {
+
+
+        assertThat(outputService.printCar()).
+                isEqualTo("pobi :\n"
+                        + "woni :\n"
+                        + "jun :\n");
     }
 }
