@@ -47,4 +47,16 @@ public class RacingGameService {
 
     }
 
+    public void proceedRace() {
+        int round = roundRepository.getRound();
+        List<Car> cars = carRepository.getCars();
+        while (round >= MIN_PLAY_ROUND.getValue()) {
+            cars.stream().forEach(car -> {
+                car.runRace();
+                car.showDisplacement();
+            });
+            System.out.println();
+            round--;
+        }
+    }
 }
