@@ -8,7 +8,7 @@ public class RandomNumberGeneratorTest {
 	// @ParameterizedTest
 	// @ValueSource
 	@Test
-	public void 랜덤_숫자는_0_9사이의_숫자() {
+	public void generateNumber_메서드로_랜덤_숫자는_0_9사이의_숫자_생성() {
 		//given
 		RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 		// when
