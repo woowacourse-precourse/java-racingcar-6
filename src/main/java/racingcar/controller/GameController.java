@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.util.InputUtil;
 import racingcar.service.RaceService;
+import racingcar.view.RaceResultView;
 import racingcar.view.RaceStartView;
 
 public class GameController {
@@ -26,5 +27,7 @@ public class GameController {
 
         RaceService raceService = new RaceService();
         String result = raceService.startRace(carObjects, lap);
+
+        RaceResultView.printRaceResult(result);
     }
 }
