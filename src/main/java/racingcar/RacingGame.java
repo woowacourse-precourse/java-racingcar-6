@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -37,21 +38,27 @@ public class RacingGame {
          return currStatus;
      }
 
+     int renewMaxLocation(int currentLocation, int maxLocation) {
+        return Math.max(currentLocation, maxLocation);
+     }
+
+     ArrayList<String> makeCarsName (String carName) {
+        ArrayList<String> carsName = new ArrayList<>();
+        carsName.add(carName);
+        return carsName;
+     }
+
      ArrayList<String> getWinner() {
         int maxLocation = -1;
         HashMap<Integer, ArrayList<String>> carsClassifiedByLocation = new HashMap<>();
         for (Car car : cars) {
             int currentLocation = car.getLocation();
-            if (currentLocation > maxLocation) {
-                maxLocation = currentLocation;
-            }
+            maxLocation = renewMaxLocation(currentLocation, maxLocation);
             if (carsClassifiedByLocation.containsKey(currentLocation)) {
                 carsClassifiedByLocation.get(currentLocation).add(car.getName());
                 continue;
             }
-            ArrayList<String> carsName = new ArrayList<>();
-            carsName.add(car.getName());
-            carsClassifiedByLocation.put(currentLocation, carsName);
+            carsClassifiedByLocation.put(currentLocation, makeCarsName(car.getName()));
         }
         return carsClassifiedByLocation.get(maxLocation);
      }
