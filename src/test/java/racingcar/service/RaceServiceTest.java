@@ -13,6 +13,8 @@ public class RaceServiceTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
     private static final int THREE_TIMES = 3;
+    public static final int START_INCLUSIVE = 0;
+    public static final int END_INCLUSIVE = 9;
     private RaceService raceService = new RaceService();
 
     @Nested
@@ -63,10 +65,10 @@ public class RaceServiceTest {
     void 랜덤_번호_가져오기() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    int movingNumber = Randoms.pickNumberInRange(0, 9);
-                    int stopNumber = Randoms.pickNumberInRange(0, 9);
-                    assertThat(movingNumber).isEqualTo(4);
-                    assertThat(stopNumber).isEqualTo(3);
+                    int movingNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+                    int stopNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+                    assertThat(movingNumber).isEqualTo(MOVING_FORWARD);
+                    assertThat(stopNumber).isEqualTo(STOP);
                 },
                 MOVING_FORWARD, STOP
         );

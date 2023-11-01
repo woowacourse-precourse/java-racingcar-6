@@ -12,6 +12,12 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 public class InputViewTest {
+    public static final String EMPTY_VALUE = "";
+    public static final String MINUS_VALUE = "-3";
+    public static final String OVER_INT_VALUE = "2147483648";
+    public static final String STRING_AND_NUMBER_VALUE = "errorValue123";
+    public static final String STRING_VALUE = "errorValue";
+    public static final String REGEX = ",";
     private InputView inputView = new InputView();
     private final InputStream standardIn = System.in;
 
@@ -24,7 +30,7 @@ public class InputViewTest {
     @Test
     public void 차이름_입력값_String_이름_분리() {
         String input = "tobi,fobi,bobi";
-        String[] result = input.split(",");
+        String[] result = input.split(REGEX);
 
         Assertions.assertThat(result).contains("tobi", "fobi", "bobi");
     }
@@ -45,7 +51,7 @@ public class InputViewTest {
     class 실행횟수_입력값 {
         @Test
         public void 실행횟수_입력값_숫자형식예외_글자() {
-            String input = "errorValue";
+            String input = STRING_VALUE;
             InputStream in = new ByteArrayInputStream(input.getBytes());
             System.setIn(in);
 
@@ -55,7 +61,7 @@ public class InputViewTest {
 
         @Test
         public void 실행횟수_입력값_숫자형식예외_숫자글자혼합() {
-            String input = "errorValue123";
+            String input = STRING_AND_NUMBER_VALUE;
             InputStream in = new ByteArrayInputStream(input.getBytes());
             System.setIn(in);
 
@@ -65,7 +71,7 @@ public class InputViewTest {
 
         @Test
         public void 실행횟수_입력값_숫자형식예외_int범위외() {
-            String input = "2147483648";
+            String input = OVER_INT_VALUE;
             InputStream in = new ByteArrayInputStream(input.getBytes());
             System.setIn(in);
 
@@ -75,7 +81,7 @@ public class InputViewTest {
 
         @Test
         public void 실행횟수_입력값_숫자형식예외_음수() {
-            String input = "-3";
+            String input = MINUS_VALUE;
             InputStream in = new ByteArrayInputStream(input.getBytes());
             System.setIn(in);
 
@@ -85,7 +91,7 @@ public class InputViewTest {
 
         @Test
         public void 실행횟수_입력값_빈값예외() {
-            String input = "";
+            String input = EMPTY_VALUE;
             InputStream in = new ByteArrayInputStream(input.getBytes());
             System.setIn(in);
 
