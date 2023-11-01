@@ -36,11 +36,10 @@ public class Validation {
         return input;
     }
 
-    public int isNumberValidation(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
+    public int assertNonPositive(int input) {
+        if (input <= 0) {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
+        return input;
     }
 }

@@ -19,7 +19,7 @@ public class User {
         return validation.nullStringInput(str);
     }
 
-    private void operate(Referee referee,List<Car> cars){
+    private void operate(Referee referee, List<Car> cars) {
         referee.runRace(cars, attemptCount);
         System.out.println("최종 우승자 : " + referee.determineWinner());
     }
@@ -32,8 +32,13 @@ public class User {
     }
 
     public void attemptCountInput() {
-        System.out.println("시도할 횟수는 몇회인가요?");
-        attemptCount = validation.isNumberValidation(input());
+        try {
+            System.out.println("시도할 횟수는 몇회인가요?");
+            int num = Integer.parseInt(input());
+            attemptCount = validation.assertNonPositive(num);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
     }
 
     public void startRace() {
@@ -49,6 +54,6 @@ public class User {
             Car car = new Car(carName, referee);
             cars.add(car);
         }
-        operate(referee,cars);
+        operate(referee, cars);
     }
 }

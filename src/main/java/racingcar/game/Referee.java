@@ -21,6 +21,11 @@ public class Referee {
         return randomNumber >= MOVE_CONDITION_NUMBER;
     }
 
+    // for test
+    public Boolean isMovingCondition(int randomNumber) {
+        return randomNumber >= MOVE_CONDITION_NUMBER;
+    }
+
     // 시도 횟수만큼 실행
     public void runRace(List<Car> cars, int tryCount) {
         for (int i = 0; i < tryCount; i++) {
@@ -53,12 +58,12 @@ public class Referee {
         List<String> winner = new ArrayList<>();
 
         for (String key : raceScore.keySet()) {
-           findWinners(key, topScore, winner);
+            findWinners(key, topScore, winner);
         }
         return String.join(",", winner);
     }
 
-    public void findWinners(String key, String topScore, List<String> winner){
+    public void findWinners(String key, String topScore, List<String> winner) {
         if (raceScore.get(key).equals(topScore)) {
             winner.add(key);
         }

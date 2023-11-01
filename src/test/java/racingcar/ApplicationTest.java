@@ -35,4 +35,53 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @Test
+    void 예외_carName_중복값_발생() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,sun,sun,sunny", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_car_Name_공백이_있는_중복값_발생() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,sun, sun   ,sunny", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_car_Name_빈값_입력() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_시도_횟수_0() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("서니,sun,지니", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_시도_횟수_음수() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("서니,sun,지니", "-8"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_시도_횟수_문자() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("서니,sun,지니", "야"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 }

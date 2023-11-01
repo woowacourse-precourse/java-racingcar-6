@@ -56,15 +56,14 @@ class ValidationTest {
 
     // 시도 횟수(attemptCount) validation
     @Test
-    void 예외_attemptCount_입력값_숫자아닐때1() {
+    void 예외_attemptCount_0입력() {
         Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> validation.isNumberValidation("안녕"));
+                .isThrownBy(() -> validation.assertNonPositive(0));
     }
 
     @Test
-    void 예외_attemptCount_숫자아닐때2() {
+    void 예외_attemptCount_NonPositive() {
         Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> validation.isNumberValidation("??"));
+                .isThrownBy(() -> validation.assertNonPositive(-2));
     }
-
 }
