@@ -42,10 +42,10 @@ public class OutputView {
     }
 
     private static List<String> getWinnersName(List<Car> cars) {
-        int maxPosition = getWinnersPosition(cars);
+        int winnersPosition = getWinnersPosition(cars);
 
         return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
+                .filter(car -> car.getPosition() == winnersPosition)
                 .map(Car::getName)
                 .toList();
     }
