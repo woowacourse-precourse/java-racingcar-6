@@ -24,6 +24,7 @@ public class Application {
 
         ArrayList<String> winner = new ArrayList<>();
         getWinner(winner);
+        printWinner(winner);
     }
 
     public static void initializeRace(String inputCarNames){
@@ -82,4 +83,9 @@ public class Application {
         }
     }
 
+    public static void printWinner(ArrayList<String> winner){
+        System.out.print("최종 우승자 : ");
+        String result = String.join(",", winner);
+        System.out.println(result);
+    }
 }
