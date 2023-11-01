@@ -7,7 +7,7 @@ import org.junit.jupiter.api.RepeatedTest;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RandomNumberGenerator;
-import racingcar.domain.ThresholdScoreMoveRule;
+import racingcar.domain.ThresholdMoveRule;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ class CarServiceTest {
     @BeforeEach
     public void initService() {
         cars = new Cars(List.of(new Car("가"), new Car("나"), new Car("다")));
-        service = new CarService(cars, new ThresholdScoreMoveRule(new RandomNumberGenerator()));
+        service = new CarService(cars, new ThresholdMoveRule(new RandomNumberGenerator()));
     }
 
     @RepeatedTest(10)

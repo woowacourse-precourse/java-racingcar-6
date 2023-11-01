@@ -1,9 +1,9 @@
 package racingcar.domain;
 
-public final class ThresholdScoreMoveRule implements MoveRule {
+public final class ThresholdMoveRule implements MoveRule {
     private final NumberGenerator numberGenerator;
 
-    public ThresholdScoreMoveRule(NumberGenerator numberGenerator) {
+    public ThresholdMoveRule(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
     }
 
@@ -12,7 +12,7 @@ public final class ThresholdScoreMoveRule implements MoveRule {
     private static final int STOP = 0;
 
     @Override
-    public int tryMove(NumberGenerator generator) {
+    public int tryMove() {
         int number = numberGenerator.generate();
         if (number >= MIN_MOVE_NUMBER) {
             return FORWARD;
