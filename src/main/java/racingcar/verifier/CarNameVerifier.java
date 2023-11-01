@@ -11,6 +11,7 @@ public class CarNameVerifier {
     public CarNameVerifier(String input){
         this.carNames = List.of(input.trim().split(","));   //배열을 만든 후 리스트 생성
         verifyNull();
+        verifyRangeOut();
     }
 
     private void verifyNull(){
@@ -25,6 +26,11 @@ public class CarNameVerifier {
                 throw new IllegalArgumentException(ExceptionMsg.OVER_FIVE_CAR_NAME.getMessage());
             }
         });
+    }
+    private void verifyMinimumTwoCars() {
+        if (this.carNames.size() < 2) {
+            throw new IllegalArgumentException(ExceptionMsg.MINIMUM_TWO_CARS_REQUIRED.getMessage());
+        }
     }
 
 }
