@@ -58,4 +58,36 @@ class CarsTest {
         assertThat(cars.getCars().get(1).getPosition()).isEqualTo(0);
         assertThat(cars.getCars().get(2).getPosition()).isEqualTo(3);
     }
+
+    @DisplayName("승자 테스트_승자가 한명일 경우")
+    @Test
+    void getWinnerTest_1Winner() {
+        InputView inputView = new InputView();
+        String input = "pobi,woni,jun";
+        List<String> names = inputView.parseNames(input);
+        Cars cars = new Cars(names);
+
+        TestNumberGenerator testNumberGenerator = new TestNumberGenerator(new ArrayList<>(List.of(5, 1, 4, 2, 3, 6, 7, 2, 9)));
+        cars.move(testNumberGenerator);
+        cars.move(testNumberGenerator);
+        cars.move(testNumberGenerator);
+
+        assertThat(cars.getWinner()).isEqualTo("jun");
+    }
+
+    @DisplayName("승자 테스트_승자가 두명 이상일 경우")
+    @Test
+    void getWinnerTest_MoreThan1Winner() {
+        InputView inputView = new InputView();
+        String input = "pobi,woni,jun";
+        List<String> names = inputView.parseNames(input);
+        Cars cars = new Cars(names);
+
+        TestNumberGenerator testNumberGenerator = new TestNumberGenerator(new ArrayList<>(List.of(5, 6, 4, 8, 3, 6, 7, 2, 9)));
+        cars.move(testNumberGenerator);
+        cars.move(testNumberGenerator);
+        cars.move(testNumberGenerator);
+
+        assertThat(cars.getWinner()).isEqualTo("pobi, jun");
+    }
 }
