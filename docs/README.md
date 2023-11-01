@@ -2,12 +2,12 @@
 ## 🔨 구현 기능 목록
 - [x] 사용자의 입력으로 자동차의 이름을 획득한다. - Input#CommaSeparatedString
   - [x] ,(쉼표)를 기준으로 이름을 분리할 수 있다. - Input#splitByComma
-- [ ] 이름으로 자동차를 생성한다. - Car#Car
-  - [ ] 이름이 5자 이하인지 확인할 수 있다. - Car#validateNameLength
+- [x] 이름으로 자동차를 생성한다. - Car#Car
+  - [x] 이름이 5자 이하인지 확인할 수 있다. - Car#validateNameLength
+  - [x] 자동차를 전진한다. - Car#forward
 - [ ] 자동차의 전진 여부를 결정할 수 있다. - CarActionGenerator#getDriveOrHalt
   - [ ] 0 ~ 9 범위 내에서 무작위 값을 생성할 수 있다. - CarActionGenerator#getRandomNumber
   - [ ] 값이 4 이상인지 확인할 수 있다. - CarActionGenerator#validateGreaterThan
-- [ ] 자동차를 전진한다. - Car#forward
 - [ ] 사용자의 입력만큼 레이스를 수행한다. - Race#repeatRound
   - [ ] 레이스 횟수를 입력받는다 - Input#receiveInteger
   - [ ] 레이스를 수행한다. - Race#startRound
