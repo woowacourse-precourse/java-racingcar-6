@@ -15,11 +15,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -30,6 +30,28 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 이름이_콤마로_구분돼있지_않으면_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi javaj"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+    @Test
+    void 이름이_5자_초과면_예외_처리(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException("javaji"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+
+    @Test
+    void 이름이_영어가_아니면_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("abc12"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
 
     @Override
     public void runMain() {
