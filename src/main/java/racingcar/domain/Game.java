@@ -64,4 +64,26 @@ public class Game {
             car.moveCar();
         }
     }
+
+    private List<String> selectWinners() {
+        int maxPosition = findMaxPosition();
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winnerNames.add(car.getName());
+            }
+        }
+        return winnerNames;
+    }
+
+    private int findMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            int carPosition = car.getPosition();
+            if (carPosition > maxPosition) {
+                maxPosition = carPosition;
+            }
+        }
+        return maxPosition;
+    }
 }

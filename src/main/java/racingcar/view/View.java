@@ -9,6 +9,7 @@ public class View {
     private static final String ASK_ATTEMPTS_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_MESSAGE = "실행 결과";
 
+
     public void printStartMessage() {
         System.out.println(START_MESSAGE);
     }
