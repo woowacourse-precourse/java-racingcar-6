@@ -25,4 +25,6 @@
 - [x]  입력받은 횟수가 valid한지 확인합니다 - isValidRoundTryCount()
   - [x]  예외) Null인지 확인합니다. - isNull()
   - [x]  예외) 마이너스인지 확인합니다 - isNegativeNumber()
+- [ ]  라운드가 남아있는 지 확인합니다 - isRemainRound()
+- [ ]  라운드 하나를 소모합니다. - consumeRound()
 
