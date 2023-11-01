@@ -5,6 +5,7 @@ import java.util.List;
 public class InputValidator {
 
     private static final String NUMBER_REGEX = "^[1-9]\\d*$";
+    private static final int MAX_NAME_LENGTH = 5;
 
     public static List<String> validateCarNames(String names) {
         List<String> carNames = List.of(names.trim().split(","));
@@ -31,6 +32,6 @@ public class InputValidator {
     }
 
     private static boolean validateNameLength(String name) {
-        return !name.isEmpty() && name.length() <= 5;
+        return !name.isEmpty() && name.length() <= MAX_NAME_LENGTH;
     }
 }
