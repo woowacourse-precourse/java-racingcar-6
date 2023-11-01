@@ -1,8 +1,7 @@
 package racingcar.view;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class Printer {
@@ -11,9 +10,10 @@ public class Printer {
         System.out.println();
     }
 
-    public static void printWinner(List<String> winners) {
+    public static void printWinner(Car winner, List<Car> cars) {
         System.out.print("최종 우승자 : ");
-        System.out.print(String.join(", ", winners));
+
+        winner.printName(cars.stream().filter(car -> car.equals(winner)).toList());
     }
 
 }

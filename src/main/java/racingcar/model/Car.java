@@ -1,9 +1,9 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 import java.util.stream.IntStream;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int distance;
 
@@ -12,29 +12,33 @@ public class Car {
         this.distance = 0;
     }
 
-    public static Car of(String name){
+    public static Car of(String name) {
         return new Car(name);
     }
 
-    public void drive() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
-        if (randomNum >= 4) {
-            this.distance++;
-        }
+    public void forward() {
+        this.distance++;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getDistance() {
-        return distance;
-    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder().append(this.name).append(" : ");
-        IntStream.range(0,this.distance).forEach(i -> sb.append("-"));
+        IntStream.range(0, this.distance).forEach(i -> sb.append("-"));
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return this.distance - o.distance;
+    }
+
+    public boolean equals(Car o) {
+        return o.distance == this.distance;
+    }
+
+    public void printName(List<Car> winners) {
+        List<String> names = winners.stream().map(winner -> winner.name).toList();
+        System.out.println(String.join(", ", names));
     }
 }
