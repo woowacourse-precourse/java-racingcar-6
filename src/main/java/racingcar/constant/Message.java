@@ -1,4 +1,4 @@
-package racingcar.consatant;
+package racingcar.constant;
 
 public class Message {
 
