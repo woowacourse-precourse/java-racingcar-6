@@ -1,7 +1,8 @@
 package racingcar;
 
+import static racingcar.enums.ApplicationMessage.EXCEPTION_APPLICATION;
+
 import racingcar.collaborator.race.Race;
-import racingcar.enums.ApplicationMessage;
 import racingcar.game.RacingGame;
 import racingcar.io.Output;
 import racingcar.io.views.RaceTotalProgressView;
@@ -19,7 +20,7 @@ public class Application {
             RacingGame racingGame = getRacingGame();
             racingGame.play();
         } catch (IllegalArgumentException e) {
-            Output.consoleLine(ApplicationMessage.EXCEPTION_APPLICATION.get());
+            Output.consoleLine(EXCEPTION_APPLICATION.get());
             throw e;
         }
     }

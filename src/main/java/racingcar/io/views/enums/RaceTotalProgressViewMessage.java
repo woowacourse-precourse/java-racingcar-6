@@ -1,11 +1,10 @@
 package racingcar.io.views.enums;
 
+import racingcar.enums.GlobalMessage;
 import racingcar.generic.RacerProgress;
 
 public enum RaceTotalProgressViewMessage {
 
-    NEW_LINE(System.lineSeparator()),
-    BLANK_AND_NEW_LINE(System.lineSeparator().repeat(2)),
     MESSAGE_RACE_RESULT("실행 결과"),
     FORMAT_NAME_AND_MILEAGE("%s : %s"),
     PROGRESS_MILEAGE("-"),
@@ -34,7 +33,7 @@ public enum RaceTotalProgressViewMessage {
     }
 
     public static String makeWinnersMessage(String totalWinners) {
-        return NEW_LINE.get() + MESSAGE_WINNERS.get() + totalWinners;
+        return GlobalMessage.NEW_LINE.get() + MESSAGE_WINNERS.get() + totalWinners;
     }
 
 }

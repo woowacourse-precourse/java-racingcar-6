@@ -1,8 +1,9 @@
 package racingcar.collaborator.race;
 
+import static racingcar.collaborator.race.enums.RaceMessage.EXCEPTION_MIN_PARTICIPANTS;
+
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.collaborator.race.enums.RaceMessage;
 import racingcar.generic.LapProgress;
 import racingcar.generic.RaceTotalProgress;
 
@@ -24,7 +25,7 @@ public class Race {
 
     private void validateRegisterRacerRule(List<Racer> racers) {
         if (racers.size() < MIN_PARTICIPANTS) {
-            throw new IllegalArgumentException(RaceMessage.EXCEPTION_MIN_PARTICIPANTS.get());
+            throw new IllegalArgumentException(EXCEPTION_MIN_PARTICIPANTS.get());
         }
     }
 

@@ -1,16 +1,21 @@
 package racingcar.io.views;
 
+import static racingcar.io.views.enums.RaceViewMessage.ASK_RACERS_NAMES;
+import static racingcar.io.views.enums.RaceViewMessage.ASK_ROUND_NUMBER;
+import static racingcar.io.views.enums.RaceViewMessage.EXCEPTION_DUPLICATE_NAME;
+import static racingcar.io.views.enums.RaceViewMessage.EXCEPTION_WRONG_NAME_LENGTH;
+import static racingcar.io.views.enums.RaceViewMessage.EXCEPTION_WRONG_ROUND_NUMBER;
+
 import java.util.List;
 import racingcar.collaborator.race.Racer;
 import racingcar.io.Input;
 import racingcar.io.Output;
 import racingcar.io.racing.RaceRandoms;
-import racingcar.io.views.enums.RaceViewMessage;
 
 public class RaceView {
 
     public List<Racer> askRacersNames() {
-        Output.consoleLine(RaceViewMessage.ASK_RACERS_NAMES.get());
+        Output.consoleLine(ASK_RACERS_NAMES.get());
 
         List<String> inputNames = Input.consoleStrings(",").stream()
                 .map(String::strip)
@@ -28,7 +33,7 @@ public class RaceView {
                 .distinct()
                 .count();
         if (inputNames.size() != distinctCount) {
-            throw new IllegalArgumentException(RaceViewMessage.EXCEPTION_DUPLICATE_NAME.get());
+            throw new IllegalArgumentException(EXCEPTION_DUPLICATE_NAME.get());
         }
     }
 
@@ -43,12 +48,12 @@ public class RaceView {
         int nameLength = name.length();
 
         if (nameLength < minLength || maxLength < nameLength) {
-            throw new IllegalArgumentException(RaceViewMessage.EXCEPTION_WRONG_NAME_LENGTH.get());
+            throw new IllegalArgumentException(EXCEPTION_WRONG_NAME_LENGTH.get());
         }
     }
 
     public Integer askRoundNumber() {
-        Output.consoleLine(RaceViewMessage.ASK_ROUND_NUMBER.get());
+        Output.consoleLine(ASK_ROUND_NUMBER.get());
         Integer numberOfRound = getInputNumberOfRound();
         Output.consoleLine(); // 입력 후 공백 한 줄이 들어가게 되어있음
         return numberOfRound;
@@ -60,7 +65,7 @@ public class RaceView {
         Integer numberOfRound = Input.consoleNumber();
 
         if (numberOfRound < minRound || maxRound < numberOfRound) {
-            throw new IllegalArgumentException(RaceViewMessage.EXCEPTION_WRONG_ROUND_NUMBER.get());
+            throw new IllegalArgumentException(EXCEPTION_WRONG_ROUND_NUMBER.get());
         }
         return numberOfRound;
     }
