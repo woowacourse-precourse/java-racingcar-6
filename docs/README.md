@@ -68,7 +68,7 @@
 - [x] `System.exit()` 호출 금지
 - [x] `ApplicationTest`의 모든 테스트 성공 여부
 - [x] `build.gradle` 변경 금지 및 외부 라이브러리 사용 금지
-- [ ] `Junit 5`와 `AsserJ`를 이용하여 기능 목록의 정상 동작 여부 확인
+- [x] `Junit 5`와 `AsserJ`를 이용하여 기능 목록의 정상 동작 여부 확인
 
 <br/>
 
