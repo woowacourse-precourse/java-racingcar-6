@@ -19,7 +19,7 @@ public class Race {
         catch (IllegalArgumentException e){
             throw e;
         }
-    }
+    } 
 
     public static void start(){
         notifyToWriteName();

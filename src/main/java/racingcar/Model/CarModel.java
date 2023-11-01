@@ -29,4 +29,5 @@ public class CarModel {
     public Integer getRaceCnt(){
         return carRaceCnt;
     }
+
 }

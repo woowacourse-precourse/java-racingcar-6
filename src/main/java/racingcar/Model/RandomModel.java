@@ -14,8 +14,7 @@ public class RandomModel {
        return false;
     }
     public static Integer makeRandomNumber(){
-        Integer rands = Randoms.pickNumberInRange(NUMBER_RANGE_ZERO,NUMBER_RANGE_LAST);
-        return rands;
+        return Randoms.pickNumberInRange(NUMBER_RANGE_ZERO,NUMBER_RANGE_LAST);
     }
 
 }

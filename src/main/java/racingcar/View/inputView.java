@@ -8,7 +8,6 @@ import java.util.List;
 import racingcar.Model.CarModel;
 
 public class InputView {
-
     public static List<CarModel> getCarNameFromUser(){
         String input = Console.readLine();
         List<CarModel> carList = stringToCarModelList(input);

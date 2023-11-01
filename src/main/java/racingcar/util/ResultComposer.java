@@ -5,7 +5,6 @@ import java.util.List;
 import racingcar.Model.CarModel;
 
 public class ResultComposer {
-
     public static String resultComposer(List<CarModel> carModelList){
         int max = 0;
         List<String> names = new ArrayList<>();
