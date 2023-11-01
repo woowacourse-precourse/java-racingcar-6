@@ -6,16 +6,20 @@ import java.util.List;
 
 public class Car implements Comparable<Car> {
     private static final int MAX_NAME_LENGTH = 5;
+    private static final String COLON = " : ";
+    private static final String PATH_UNIT = "-";
+    private static final String EMPTY_STRING = "";
+    private static final String COMMA = ", ";
 
     String name;
-    int moveCount;
     int index;
+    int moveCount;
 
     public Car(String name, int index) {
         validateName(name);
         this.name = name;
-        this.moveCount = 0;
         this.index = index;
+        this.moveCount = 0;
     }
 
     private void validateName(String name) {
@@ -35,17 +39,11 @@ public class Car implements Comparable<Car> {
     }
 
     public String path() {
-        return (name + " : " + "-".repeat(moveCount));
-    }
-
-    public static String firstWinner(List<Car> carList) {
-        Car first = carList.get(0);
-
-        return first.name;
+        return (name + COLON + PATH_UNIT.repeat(moveCount));
     }
 
     public static String winnerString(List<Car> carList) {
-        String winners = "";
+        String winners = EMPTY_STRING;
         Car firstCar = carList.get(0);
 
         for (Car car : carList) {
@@ -63,7 +61,7 @@ public class Car implements Comparable<Car> {
 
     private static String addWinner(Car car, Car firstCar, String winners) {
         if (car != firstCar) {
-            winners += ", ";
+            winners += COMMA;
         }
         winners += car.name;
         return winners;
