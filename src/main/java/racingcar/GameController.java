@@ -35,6 +35,8 @@ public class GameController {
         }
         System.out.print(winner.get(winner.size()-1));
     }
+//    ------------------------------------------------------
+
     //  부가적으로 필요한 함수들
     public void printProcessGame(){
         for (Car car : cars){

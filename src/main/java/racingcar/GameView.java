@@ -3,7 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static racingcar.Validation.carNameValid;
 
 public class GameView {
 //    입력 : 한 줄로 자동차들 입력, 자동차 리스트에 추가 하기.
@@ -22,12 +25,11 @@ public class GameView {
 
     public List<Car> makeCarList(String inputCars){
         List<Car> carList = new ArrayList<>();
-        String[] splitCars = inputCars.split(",");
+        List<String> strList = carNameValid(Arrays.asList(inputCars.split(",",-1)));
 
-        // List를 분리하는 다른 방법 : List<Object> carNames = Arrays.asList(inputCars.split(","));
-        for (String splitCar : splitCars) {
-            if(Validation.carValid(splitCar)){     // Car 이름 검증
-                carList.add(new Car(splitCar));
+        for (String car : strList) {
+            if(Validation.carValid(car)){     // Car 이름 검증
+                carList.add(new Car(car));
             }
         }
         return carList;
