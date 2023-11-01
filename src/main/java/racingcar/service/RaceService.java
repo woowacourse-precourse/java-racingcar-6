@@ -4,6 +4,7 @@ import racingcar.model.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class RaceService {
@@ -78,5 +79,28 @@ public class RaceService {
             return true;
         }
         return false;
+    }
+
+    public int getMaxPosition(List<Car> carList) {
+        List<Integer> carPositions = new ArrayList<>();
+        for (Car car : carList) {
+            carPositions.add(car.getPosition());
+        }
+        return Collections.max(carPositions);
+    }
+
+    public List<String> getWinner(List<Car> carList) {
+        List<String> winners = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getPosition() == getMaxPosition(carList)) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    public void printWinner(List<Car> carList) {
+        List<String> winners = getWinner(carList);
+        System.out.println(String.join(", ", winners));
     }
 }

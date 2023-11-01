@@ -28,6 +28,7 @@ public class RaceController {
                 car.printResult();
             }
         }
+        raceService.printWinner(carList);
     }
 
     private void getCount() {

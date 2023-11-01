@@ -28,4 +28,12 @@ public class Car {
     public void printResult() {
         System.out.println(this.name + " : " + "-".repeat(position));
     }
+
+    public int getPosition(){
+        return this.position;
+    }
+
+    public String getName(){
+        return this.name;
+    }
 }
