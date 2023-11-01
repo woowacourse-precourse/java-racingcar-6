@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.notIn;
+import static org.assertj.core.api.AssertionsForClassTypes.in;
 import static org.assertj.core.api.InstanceOfAssertFactories.array2D;
 
 class GameHostTest {
@@ -273,5 +275,29 @@ class GameHostTest {
         // then
         assertThat(winners).extracting(RaceCar::toString)
                 .containsOnly(raceCar_1.toString(), raceCar_2.toString(), raceCar_3.toString());
+    }
+
+    @DisplayName("게임승자을 알수있다.")
+    @Test
+    public void 게임승자를_알수있는_테스트_3() throws Exception {
+        // given
+        List<RaceCar> list = List.of(raceCar_1, raceCar_2, raceCar_3);
+        List<RaceCar> winners = new ArrayList<>();
+
+        // when
+        for (int i = 0; i < 2; i++) {
+            list.forEach(raceCar -> raceCar.moveForward());
+        }
+        list.get(0).moveForward();
+        list.get(2).moveForward();
+
+        winners = gameHost.giveWinnerList(list);
+
+        // then
+        assertThat(winners).filteredOn("name", notIn("third"))
+                .containsOnly(raceCar_1);
+
+        assertThat(winners).filteredOn("name", in("fir"))
+                .containsOnly(raceCar_1);
     }
 }
