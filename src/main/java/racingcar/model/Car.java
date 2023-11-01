@@ -15,6 +15,7 @@ public class Car {
 
     public Car(String name) {
         InputValidator.validateNameLength(name);
+        InputValidator.validateName(name);
         this.name = name;
         position = new ArrayList<>();
     }

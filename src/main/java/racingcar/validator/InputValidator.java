@@ -14,11 +14,9 @@ public class InputValidator {
 
     private InputValidator() { }
 
-    public static void validateName(String[] carNames) {
-        for(String name : carNames){
-            if (!NAME_PATTERN.matcher(name).matches()) {
-                throw ErrorMessage.INVALID_NAME.getNameException();
-            }
+    public static void validateName(String name) {
+        if (!NAME_PATTERN.matcher(name).matches()) {
+            throw ErrorMessage.INVALID_NAME.getNameException();
         }
     }
 

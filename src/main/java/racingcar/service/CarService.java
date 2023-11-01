@@ -15,7 +15,6 @@ public class CarService {
     public void setCars(String alignedCarNames) {
         InputValidator.validateConsecutiveCommas(alignedCarNames);
         String[] carNames = alignedCarNames.split(",");
-        InputValidator.validateName(carNames);
         InputValidator.validateDuplicateName(carNames);
 
         for (String name : carNames) {
