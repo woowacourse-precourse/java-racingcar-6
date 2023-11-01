@@ -32,12 +32,20 @@ public class RacingView {
     public void showLoad(List<String> name, List<String> location) {
 //        자동차 별 진척 상황 시각화
         int theNumOf = name.size();
+        StringBuilder stringBuilder = new StringBuilder();
+
         for (int i = 0; i < theNumOf; i++) {
-            System.out.println(name.get(i) + " : " + location.get(i));
+            stringBuilder.append(name.get(i)).append(" : ").append(location.get(i));
+            System.out.println(stringBuilder);
         }
     }
 
     public void showResult(String winner) {
-        System.out.println("최종 우승자 : " + winner);
+        if(!winner.equals("")){
+            System.out.println("최종 우승자 : " + winner);
+        }
+        if(winner.equals("")){
+            System.out.println("아무도 전진하지 않았습니다. 우승자는 없습니다.");
+        }
     }
 }

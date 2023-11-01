@@ -29,7 +29,9 @@ public class PlayRule {
             thisRecord = car.getLength();
 //            기존 기록과 공동일 경우
             if (thisRecord == bestRecord) {
-                winner = winner.concat(", " + car.getName());
+                if(bestRecord!=0){
+                    winner = winner.concat(", " + car.getName());
+                }
             }
 //            기존 기록을 능가하는 경우
             if (thisRecord > bestRecord) {
