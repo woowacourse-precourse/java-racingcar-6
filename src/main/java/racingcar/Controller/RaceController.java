@@ -10,7 +10,6 @@ import racingcar.View.OutputView;
 public class RaceController {
 
     private static final String SEPARATOR = ",";
-    private static final int MINIMUM_TRY_COUNT = 1;
     private static final int MINIMUM_ENTRY_COUNT = 2;
     private static final int MINIMUM_NAME_LENGTH = 1;
     private static final int MAXIMUM_NAME_LENGTH = 5;
