@@ -1,32 +1,26 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
-import racingcar.model.Computer;
+import racingcar.model.Game;
 import racingcar.model.User;
+import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
 
     private final User user;
-    private final Computer computer;
+    private final Game game;
 
-    public RacingGame(User user, Computer computer) {
-        this.user = user;
-        this.computer = computer;
+    public RacingGame() {
+        this.user = new User();
+        this.game = new Game();
     }
 
-    public List<Car> StringListChangeCarList() {
-        List<String> carNames = user.inputCarNames();
+    public void gameStart() {
+        user.inputCarNames();
 
-        List<Car> carList = new ArrayList<>();
-
-        for(String carName : carNames) {
-            Car car = new Car(carName);
-            carList.add(car);
-        }
-
-        return carList;
+        user.inputTryCount();
     }
+
+
 }
