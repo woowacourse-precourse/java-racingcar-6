@@ -12,7 +12,7 @@ public class UserInput {
         String carNamesInput = Console.readLine();
         //Array보다는  Collections 사용! - 1주차 피드백
 
-        List<String> carNamesInputList = Arrays.asList(carNamesInput.split(","));
+        List<String> carNamesInputList = convertInputToArrayList(carNamesInput);
 
         checkNameLengthException(carNamesInputList);
 
@@ -24,6 +24,14 @@ public class UserInput {
 
         return trialNumber;
     }
+
+
+    private static List<String> convertInputToArrayList(String carNamesInput){
+        List<String> carNamesInputList = Arrays.asList(carNamesInput.split(","));
+
+        return carNamesInputList;
+    }
+
 
     public static void checkNameLengthException(List<String> carNamesInputList) {
         for (String carName : carNamesInputList) {
