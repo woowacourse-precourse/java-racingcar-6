@@ -24,7 +24,7 @@ public class GameResultTest {
                 winner
         );
 
-        RacingGame game = new RacingGame(GameStatus.READY);
+        RacingGame game = new RacingGame(GameStatus.PLAYING);
         game.setParticipants(racingCars);
         GameResult gameResult = game.chooseWinners();
 
@@ -44,7 +44,7 @@ public class GameResultTest {
                 winnerD
         );
 
-        RacingGame game = new RacingGame(GameStatus.READY);
+        RacingGame game = new RacingGame(GameStatus.PLAYING);
         game.setParticipants(racingCars);
         GameResult gameResult = game.chooseWinners();
 
@@ -56,16 +56,14 @@ public class GameResultTest {
     @Test
     @DisplayName("누구도 전진하지 못한 경우 전부 우승 성공")
     void game_result_all_winners_success() {
-        RacingCar winnerC = new RacingCar("c", 0);
-        RacingCar winnerD = new RacingCar("d", 0);
         List<RacingCar> racingCars = List.of(
                 new RacingCar("a", 0),
                 new RacingCar("b", 0),
-                winnerC,
-                winnerD
+                new RacingCar("c", 0),
+                new RacingCar("d", 0)
         );
 
-        RacingGame game = new RacingGame(GameStatus.READY);
+        RacingGame game = new RacingGame(GameStatus.PLAYING);
         game.setParticipants(racingCars);
         GameResult gameResult = game.chooseWinners();
 

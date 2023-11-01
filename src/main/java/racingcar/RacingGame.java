@@ -38,8 +38,6 @@ public class RacingGame {
      * @param moveCount 입력받은 이동 횟수
      */
     public GameResult start(int moveCount) {
-        status = GameStatus.PLAYING;
-
         System.out.println("실행 결과");
 
         for (int i = 0; i < moveCount; i++) {

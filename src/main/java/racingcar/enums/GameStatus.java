@@ -5,7 +5,6 @@ package racingcar.enums;
  */
 public enum GameStatus {
 
-    READY,
     PLAYING,
     END,
     INVALID_USER_INPUT
