@@ -23,6 +23,7 @@ public class RacingcarGameController {
     private static void playRacingcarGame(String carChoiceInputMessage, int roundToRace) {
         RacingcarGameService racingcarGameService = new RacingcarGameServiceImpl();
         racingcarGameService.generateCarsToRace(carChoiceInputMessage);
+        Printer.printResultHeadMessage();
     }
 
 }

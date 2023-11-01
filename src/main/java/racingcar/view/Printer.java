@@ -12,4 +12,8 @@ public class Printer {
         System.out.println(ROUND_CHOICE);
     }
 
+    public static void printResultHeadMessage() {
+        System.out.println(RESULT_HEAD);
+    }
+
 }
