@@ -18,6 +18,16 @@ public class Controller {
     private final Parser parser = new Parser();
     private Game game;
 
+    public void run() {
+        game = new Game(getCars(), getAttemptCount());
+
+        while (!game.isGameOver()) {
+            game.carRaceOnce();
+            OutputView.printRaceStatus(game.getCars());
+        }
+
+        OutputView.printWinnerName(game.getWinners());
+    }
 
     private List<Car> getCars() {
         OutputView.printCarNameRequest();
