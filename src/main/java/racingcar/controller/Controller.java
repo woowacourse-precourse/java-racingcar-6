@@ -4,7 +4,8 @@ import racingcar.domain.Announcer;
 import racingcar.domain.Car;
 import racingcar.domain.Random;
 import racingcar.domain.Referee;
-import racingcar.validator.Validator;
+import racingcar.validator.CarNameValidator;
+import racingcar.validator.TryCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -18,7 +19,8 @@ public class Controller {
     private final static Announcer announcer = new Announcer();
     private final static InputView inputView = new InputView();
     private final static OutputView outputView = new OutputView();
-    private final static Validator validator = new Validator();
+    private final static CarNameValidator carNameValidator = new CarNameValidator();
+    private final static TryCountValidator tryCountValidator = new TryCountValidator();
 
     public void start() {
         outputView.displayCarNameInputMessage();
@@ -35,17 +37,17 @@ public class Controller {
     private List<Car> prepareCarList() {
         List<Car> list = new LinkedList<>();
         for (String name : inputView.inputCarNames()) {
-            validator.checkCarName(name);
+            carNameValidator.checkCarName(name);
             list.add(new Car(name));
         }
-        validator.checkDuplicateName(list);
+        carNameValidator.checkDuplicate(list);
         return list;
     }
 
     private int getTryCount() {
         outputView.displayTryCountInputMessage();
         String tryCount = inputView.inputTryCount();
-        return validator.checkTryCountInput(tryCount);
+        return tryCountValidator.checkInput(tryCount);
     }
 
     private void executeRaces(List<Car> list, int tryNumber) {

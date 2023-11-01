@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Validator {
+public class CarNameValidator {
 
     private final static int LENGTH_STANDARD = 5;
 
@@ -27,25 +27,13 @@ public class Validator {
         }
     }
 
-    public void checkDuplicateName(List<Car> carList) {
+    public void checkDuplicate(List<Car> carList) {
         Set<String> nameSet = carList.stream()
                 .map(Car::getName)
                 .collect(Collectors.toSet());
 
         if (carList.size() != nameSet.size()) {
             throw new IllegalArgumentException("Name must not be duplicated");
-        }
-    }
-
-    public int checkTryCountInput(String tryCount) {
-        if (!tryCount.matches("\\d+")) {
-            throw new IllegalArgumentException("Try count input is invalid");
-        }
-
-        try {
-            return Integer.parseInt(tryCount);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Try count input is invalid");
         }
     }
 }
