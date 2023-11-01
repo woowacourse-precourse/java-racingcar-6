@@ -19,5 +19,4 @@ public class Car {
     public void setGameResult(){
         this.gameResult++;
     }
-
 }

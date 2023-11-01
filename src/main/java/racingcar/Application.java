@@ -1,21 +1,28 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        RacingGame racingGame = new RacingGame();
+        List<Car> carList = new ArrayList<>();
 
-        racingGame.getCarNameInput();
-        int tryNumber = racingGame.getTryNumberInput();
+        RacingGameInput racingGameInput = new RacingGameInput();
+        RacingGameCalculator racingGameCalculator = new RacingGameCalculator();
+        RacingGamePrinter racingGamePrinter = new RacingGamePrinter();
+
+        carList = racingGameInput.getCarNameInput(carList);
+        int tryNumber = racingGameInput.getTryNumberInput();
 
         System.out.println();
         System.out.println("실행 결과");
 
         for(int i=0; i<tryNumber; i++) {
-            racingGame.eachResult();
-            racingGame.printEachResult();
+            carList = racingGameCalculator.calculateEachResult(carList);
+            racingGamePrinter.printEachResult(carList);
         }
 
-        racingGame.printFinalResult();
+        racingGamePrinter.printFinalResult(carList);
     }
 }

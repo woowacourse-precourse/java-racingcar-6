@@ -45,8 +45,7 @@ class ApplicationTest extends NsTest {
             0,1,2,3,4,5,6,7,8,9
         );
     }
-
-
+    
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
