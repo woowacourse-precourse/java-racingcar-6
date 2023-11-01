@@ -8,7 +8,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class NameListValidator {
-    public void validate(String nameListInput){
+    public List<String> getValidatedValue(String nameListInput){
+        validate(nameListInput);
+        return splitAndTrim(nameListInput, Constants.NAME_DELIMITER);
+    }
+
+    private void validate(String nameListInput){
         validateNotEmpty(nameListInput);
         validateNotEndsWithComma(nameListInput);
         validateContainsRepeatingCommas(nameListInput);
