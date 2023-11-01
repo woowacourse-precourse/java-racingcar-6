@@ -1,6 +1,7 @@
 package racingcar.validation;
 
 import java.util.List;
+import racingcar.utils.ErrorMessage;
 
 public class ParticipatingCarsValidation {
     public void validateParticipatingCars(List<String> ParticipatingCars) {
@@ -9,7 +10,7 @@ public class ParticipatingCarsValidation {
 
     private void validateNotEmpty(List<String> ParticipatingCars) {
         if (ParticipatingCars.isEmpty()) {
-            throw new IllegalArgumentException("경주에 참가하는 차량이 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.NO_PARTICIPATING_CARS_ERROR_MESSAGE);
         }
     }
 }

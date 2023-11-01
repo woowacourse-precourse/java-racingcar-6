@@ -13,4 +13,5 @@ public class ErrorMessage {
     public static final String CAR_NAME_BLANK_ERROR_MESSAGE = "이름은 비어있을 수 없습니다.";
     public static final String MOVE_COUNTS_NOT_INT_ERROR_MESSAGE = "정수만 입력이 가능합니다.";
     public static final String MOVE_COUNTS_RANGE_ERROR_MESSAGE = "1 이상의 정수를 입력해야 합니다.";
+    public static final String NO_PARTICIPATING_CARS_ERROR_MESSAGE = "경주에 참가하는 차량이 없습니다.";
 }
