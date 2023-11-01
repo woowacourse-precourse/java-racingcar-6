@@ -54,4 +54,28 @@ public class CarTest {
                 Arguments.of(new Car[]{new Car("test1"), new Car("test2")}, new String[]{"test1","test2"})
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("getPositionTestArguments")
+    public void getPositionTest(Car[] carArray, int[] answerArray) {
+        int[] numberArray = new int[]{4,4,4,3,3,3,4,4,3,3,3,4,4,3,3,3,3,4,4,3};
+        int[] resultArray = new int[carArray.length];
+
+        for (int i = 0; i < numberArray.length; i++) {
+            carArray[i % carArray.length].tryMoving(numberArray[i]);
+        }
+
+        for (int i = 0; i < resultArray.length; i++) {
+            resultArray[i] = carArray[i].getPosition();
+        }
+
+        assertThat(resultArray).isEqualTo(answerArray);
+    }
+
+    public static Stream<Arguments> getPositionTestArguments() {
+        return Stream.of(
+                Arguments.of(new Car[]{new Car("test1")}, new int[]{9}),
+                Arguments.of(new Car[]{new Car("test1"), new Car("test2")}, new int[]{5,4})
+        );
+    }
 }
