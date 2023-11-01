@@ -36,4 +36,7 @@
 - [x] 하드코딩된 매직 넘벌르 상수로 분리한다
 - [x] 메소드를 하나의 기능만 할 수 있게 분리한다
 - [x] 클래스의 책임을 분리한다
+- [x] CarDto record 적용
+- [x] CarValidate 인터페이스 Sealed Class 적용
+- [x] CarsValidate 인터페이스 Sealed Class 적용
 
