@@ -2,8 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+//import org.junit.jupiter.params.ParameterizedTest;
+//import org.junit.jupiter.params.provider.ValueSource;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -31,12 +31,13 @@ class ApplicationTest extends NsTest {
 //            "pobi,hyo,mk,jay,hyo",                                    // 2. 이름 중복 시 예외 처리
 //            "pobi,javaji"                                             // 3. 이름 길이 예외처리
 //    })
-//    void 이름에_대한_예외_처리(String input) {
-//        assertSimpleTest(() ->
-//                assertThatThrownBy(() -> runException(input))
-//                        .isInstanceOf(IllegalArgumentException.class)
-//        );
-//    }
+    @Test
+    void 이름에_대한_예외_처리(String input) {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Test
     void 횟수_입력_시_정수_이외의_값_예외_처리() {
