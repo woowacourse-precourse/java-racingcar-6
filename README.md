@@ -9,10 +9,11 @@
 ## 📮 미션 제출 방법
 
 - 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-  - GitHub을 활용한 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고해 제출한다.
+    - GitHub을 활용한 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고해
+      제출한다.
 - GitHub에 미션을 제출한 후 [우아한테크코스 지원](https://apply.techcourse.co.kr) 사이트에 접속하여 프리코스 과제를 제출한다.
-  - 자세한 방법은 [제출 가이드](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 참고
-  - **Pull Request만 보내고 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
+    - 자세한 방법은 [제출 가이드](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 참고
+    - **Pull Request만 보내고 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
 
 ## 🚨 과제 제출 전 체크 리스트 - 0점 방지
 
@@ -131,12 +132,12 @@ jun : -----
 ### 추가된 요구 사항
 
 - indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-  - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
-  - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
+    - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
+    - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
 - 3항 연산자를 쓰지 않는다.
 - 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
 - JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
-  - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다.
+    - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다.
 
 ### 라이브러리
 
@@ -159,5 +160,24 @@ Randoms.pickNumberInRange(0,9);
 - 미션은 [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
 - **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
 - **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
-  - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
+    - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+
+## 🔨 기능 목록
+
+- [x] 각 자동차에 이름을 부여할 수 있다. - inputCarsName()
+    - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - splitNameByComma()
+    - [x] 이름은 5자 이하만 가능하다. - isValidNameLength()
+- [x] 사용자는 몇 번의 이동을 할 것인지를 입력한다. - inputRaceTime()
+- [x] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다. - oneTimeRace
+    - [x] 0에서 9 사이에서 무작위 값을 구한다. - makeRandomNumber()
+    - [x] 전진하는 조건은 값이 4 이상일 경우이다. - goOrStop()
+- [x] 진행 상태를 출력할 때 자동차 이름을 같이 출력한다. - printRaceProgress()
+- [x] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. - printWinners()
+    - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. -splitCarsName()
+- [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
+    - [x] 자동차의 이름이 6글자 이상인 경우
+    - [x] 자동차의 이름에 공백이 있는 경우
+    - [x] 이동 횟수 입력시 숫자가 아닌 경우
+    - [x] 빈 문자열이 입력되는 경우
+    - [x] 차 이름이 중복된 경우
