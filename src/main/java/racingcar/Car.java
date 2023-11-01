@@ -51,4 +51,8 @@ public class Car {
     public void addTotalForward() {
         totalForward += forwardValue;
     }
+
+    public int getTotalForward() {
+        return totalForward;
+    }
 }
