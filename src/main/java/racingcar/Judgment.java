@@ -14,9 +14,10 @@ public class Judgment {
         this.cars = cars;
         List<Integer> movementNumbers = new ArrayList<Integer>();
 
-        for (Car car: cars) {
+        for (Car car : cars) {
             movementNumbers.add(car.forwardMovementNumber);
-        } return movementNumbers;
+        }
+        return movementNumbers;
     }
 
 
@@ -24,7 +25,7 @@ public class Judgment {
         List<Integer> getMovement = getMovement(cars);
         List<Integer> getWinnerCarMovement = getMovement(winnerCars);
 
-        for (Integer movement: getMovement) {
+        for (Integer movement : getMovement) {
             if (movement.equals(maxMovement)) {
                 getWinnerCarMovement.add(getMovement.indexOf(movement));
             }
@@ -41,7 +42,7 @@ public class Judgment {
         List<Integer> getWinnerIndex = extractWinnerCarIndex();
         List<String> getWinnerCarName = new ArrayList<String>();
 
-        for (Integer index: getWinnerIndex) {
+        for (Integer index : getWinnerIndex) {
             getWinnerCarName.add(cars.get(index).carName);
         }
         return getWinnerCarName;

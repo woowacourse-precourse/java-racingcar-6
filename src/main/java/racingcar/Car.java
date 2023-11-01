@@ -7,13 +7,12 @@ import java.util.List;
 
 public class Car {
     String carName;
+    List<String> movement = new ArrayList<String>();
+    int forwardMovementNumber = movement.size();
+    private final int movementRandomNumber = Randoms.pickNumberInRange(0, 9);
     Car(String carName) {
         this.carName = carName;
     }
-
-    List<String> movement = new ArrayList<String>();
-    int forwardMovementNumber = movement.size();
-    private int movementRandomNumber = Randoms.pickNumberInRange(0, 9);
 
     public String getCarName() {
         return carName;

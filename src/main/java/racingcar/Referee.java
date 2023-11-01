@@ -8,7 +8,7 @@ import java.util.List;
 public class Referee {
 
     public int inputCycle() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println("시도할 횟수는 몇 회인가요?");
         int cycle = Integer.parseInt(Console.readLine());
         if (cycle <= 0) {
             throw new IllegalArgumentException("횟수는 0보다 커야 합니다.");
@@ -22,7 +22,7 @@ public class Referee {
     }
 
     public List<String> splitStringCarName() {
-        System.out.println("시도할 횟수는 몇 회인가요?");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNameString = Console.readLine();
         String[] carNameStringSplit = carNameString.split(",");
         List<String> carNames = new ArrayList<String>(Arrays.asList(carNameStringSplit));
