@@ -9,12 +9,14 @@ public class Game {
     private ArrayList<Car> carList;
     private int maxDistance;
     private ArrayList<String> winnerList;
+    private Util myUtil;
     public Game(){
         myOutput = new Output();
         myInput = new Input();
         carList = new ArrayList<>();
         maxDistance = 0;
         winnerList = new ArrayList<>();
+        myUtil = new Util();
     }
 
     public void run(){
@@ -43,7 +45,7 @@ public class Game {
 
     public void movingALLCar(){
         for(int i=0; i<carList.size(); i++){
-            carList.get(i).moving();
+            carList.get(i).moving(myUtil.generateRandomNumber());
         }
     }
 

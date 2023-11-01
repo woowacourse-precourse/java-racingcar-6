@@ -15,8 +15,8 @@ public class Car {
         distance = 0;
     }
 
-    public void moving(){
-        if(Randoms.pickNumberInRange(0, 9) >= 4){
+    public void moving(int randomNumber){
+        if(randomNumber >= 4){
             distance += 1;
         }
     }
