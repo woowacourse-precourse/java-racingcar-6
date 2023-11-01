@@ -1,17 +1,17 @@
 package racingcar.service;
 
-import static racingcar.constant.constantMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
-import static racingcar.constant.constantMessage.NEGATIVE_VALUE_ERROR_MESSAGE;
-import static racingcar.constant.constantMessage.Not_Integer_VALUE_ERROR_MESSAGE;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constant.ExceptionMessage;
 import racingcar.domain.Car;
 import racingcar.domain.Standard;
 
 public class UserInputValidate {
     public List<Car> validate(String[] names) {
+        validationMethod(names == null, ExceptionMessage.NULL_INPUT_ERROR_MESSAGE);
+        validationMethod(names.length == 0, ExceptionMessage.EMPTY_INPUT_ERROR_MESSAGE);
+
         return Arrays.stream(names)
                 .peek(this::carNameValidate)
                 .map(name -> Car.createCar(name))
@@ -19,22 +19,25 @@ public class UserInputValidate {
     }
 
     private void carNameValidate(String name) {
-        if (name.length() > Standard.Five.getValue()) {
-            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
-        }
+        validationMethod(name.length() > Standard.Five.getValue(), ExceptionMessage.CAR_NAME_LENGTH_ERROR_MESSAGE);
     }
 
     public long tryCountValidate(String moveCount) {
-        long mvCount;
+        validationMethod(moveCount == null, ExceptionMessage.NULL_INPUT_ERROR_MESSAGE);
+
+        long mvCount = 0;
         try {
             mvCount = Long.parseLong(moveCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Not_Integer_VALUE_ERROR_MESSAGE);
+            ExceptionMessage.NOT_INTEGER_VALUE_ERROR_MESSAGE.throwException();
         }
-
-        if (mvCount < 0) {
-            throw new IllegalArgumentException(NEGATIVE_VALUE_ERROR_MESSAGE);
-        }
+        validationMethod(mvCount < 1, ExceptionMessage.DISABLE_INPUT_ERROR_MESSAGE);
         return mvCount;
+    }
+
+    private void validationMethod(boolean moveCount, ExceptionMessage exceptionMessage) {
+        if (moveCount) {
+            exceptionMessage.throwException();
+        }
     }
 }
