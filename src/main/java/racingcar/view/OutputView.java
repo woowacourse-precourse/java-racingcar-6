@@ -6,7 +6,7 @@ import racingcar.model.Car;
 public class OutputView {
 
     private final String GAME_RESULT = "실행 결과";
-    private final String POSITION = "-";
+    private final String POSITION_SYMBOL = "-";
     private final String WINNERS_NAME = "최종 우승자 :";
 
     public void printGameResultMsg() {
@@ -16,10 +16,8 @@ public class OutputView {
 
     public void printCarsPosition(List<Car> cars) {
         cars.stream()
-                .forEach(car -> {
-                    String positions = POSITION.repeat(car.getPosition());
-                    System.out.println(car.getName() + " : " + positions);
-                });
+                .forEach(car -> System.out.println(car.getName() + " : "
+                        + POSITION_SYMBOL.repeat(car.getPosition())));
         System.out.println();
     }
 
