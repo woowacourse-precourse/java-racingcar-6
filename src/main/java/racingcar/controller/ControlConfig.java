@@ -1,9 +1,5 @@
 package racingcar.controller;
 
-import racingcar.domain.Cars;
-import racingcar.domain.RandomNumberGenerator;
-import racingcar.domain.ThresholdScoreMoveRule;
-import racingcar.service.CarService;
 import racingcar.view.inputview.SettingInputView;
 import racingcar.view.outputview.PlayOutputView;
 import racingcar.view.outputview.ResultOutputView;
@@ -17,12 +13,8 @@ final class ControlConfig {
         return new SettingController(new SettingInputView(), new SettingOutputView());
     }
 
-    static Controller createPlayController(Object param) {
-        if (param instanceof Cars cars) {
-            return new PlayController(new PlayOutputView(),
-                    new CarService(cars, new ThresholdScoreMoveRule(new RandomNumberGenerator())));
-        }
-        return null;
+    static Controller createPlayController() {
+        return new PlayController(new PlayOutputView());
     }
 
     static Controller createResultController() {

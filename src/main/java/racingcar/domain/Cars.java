@@ -29,6 +29,10 @@ public record Cars(List<Car> cars) {
         return new Cars(winningCars);
     }
 
+    public void tryMoveAllCar() {
+        cars.forEach(Car::move);
+    }
+
     private int findMaxDistance() {
         Optional<Car> findCar = sortByDescendingFromDistance();
         return findCar.map(Car::getDistance).orElse(0);
