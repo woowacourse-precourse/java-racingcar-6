@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import org.junit.jupiter.api.RepeatedTest;
+import racingcar.domain.race.car.Engine;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
