@@ -4,8 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class User {
 
-
-
     private static List<String> inputCarNames() {
         System.out.print("숫자를 입력해주세요 : ");
         String userInput = Console.readLine();
@@ -15,5 +13,7 @@ public class User {
         return carList;
     }
 
-
+    private static List<String> splitCarNames(String carNames) {
+        return Arrays.asList(carNames.split(","));
+    }
 }
