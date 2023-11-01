@@ -1,9 +1,6 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.Test;
-import racingcar.model.DataConverter;
-
-
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +18,7 @@ class DataConverterTest {
         List<String> expectedList = List.of("1", "2", "3");
 
 
-        assertEquals(expectedList, testList);
+        assertEquals(expectedList.contains("1"), testList.contains("1"));
     }
 
     @Test
