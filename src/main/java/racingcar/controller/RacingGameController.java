@@ -4,35 +4,35 @@ import static racingcar.model.GameCountValidator.gameCountValidation;
 import static racingcar.utils.Utils.convertStringToList;
 import static racingcar.view.InputView.inputCarsName;
 import static racingcar.view.InputView.inputGameTryNumber;
-import static racingcar.view.OutputView.gameStartMessage;
+import static racingcar.view.OutputView.printGameStartMessage;
+import static racingcar.view.OutputView.printOneGameResult;
+import static racingcar.view.OutputView.printWinners;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.view.OutputView;
 
 public class RacingGameController {
     private int gameCount;
     private Cars cars;
 
     public void startGame() {
-        setting();
+        initializeGame();
         playGame();
-        showWinner();
+        showWinners();
     }
 
-    private void setting() {
+    private void initializeGame() {
         cars = new Cars(makeCarList());
         gameCount = makeGameCount();
     }
 
     private List<Car> makeCarList() {
         List<String> carNameList = convertStringToList(inputCarsName());
-        List<Car> carList = carNameList.stream()
+        return carNameList.stream()
                 .map(Car::makeCarByName)
                 .collect(Collectors.toList());
-        return carList;
     }
 
     private int makeGameCount() {
@@ -42,14 +42,14 @@ public class RacingGameController {
     }
 
     private void playGame() {
-        gameStartMessage();
+        printGameStartMessage();
         for (int i = 0; i < gameCount; i++) {
             cars.playOneGame();
-            OutputView.printOneGameResult(cars);
+            printOneGameResult(cars);
         }
     }
 
-    private void showWinner() {
-        OutputView.printWinners(cars.winner());
+    private void showWinners() {
+        printWinners(cars.winner());
     }
 }
