@@ -10,20 +10,21 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import racingcar.common.exception.RacingGameException;
+import racingcar.util.StringUtil;
 
 public class RacingGame {
 
-    private static final String REGEX_FOR_SEPARATE = ",";
+    private static final String DELIMITER = ",";
     private final List<Car> racingCarList;
 
     private RacingGame(final String inputNameString) {
         validateInputNameString(inputNameString);
-        String[] carNames = splitInputNameString(inputNameString);
+        String[] carNames = StringUtil.splitByDelimiter(inputNameString, DELIMITER);
+        validateDuplicateName(carNames);
 
         racingCarList = new ArrayList<>();
         Arrays.stream(carNames)
                 .forEach(name -> racingCarList.add(Car.from(name)));
-        validateDuplicateName();
     }
 
     public static RacingGame from(final String inputNameString) {
@@ -64,17 +65,12 @@ public class RacingGame {
         if(inputNameString.isBlank()) throw new RacingGameException(EMPTY_INPUT_STRING);
     }
 
-    private String[] splitInputNameString(String inputNameString) {
-        return inputNameString.split(REGEX_FOR_SEPARATE);
-    }
-
-    private void validateDuplicateName() {
-        long uniqueCarNameCount = racingCarList.stream()
-                .map(Car::getName)
+    private void validateDuplicateName(String[] carNames) {
+        long uniqueCarNameCount = Arrays.stream(carNames)
                 .distinct()
                 .count();
 
-        if (uniqueCarNameCount != racingCarList.size()) {
+        if (uniqueCarNameCount != carNames.length) {
             throw new RacingGameException(DUPLICATED_NAME);
         }
     }
