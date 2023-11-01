@@ -31,7 +31,11 @@ public class Car {
     public boolean isSamePosition(Car other) {
         return this.position == other.position;
     }
-    
+
+    public int compareToPosition(Car other) {
+        return this.position - other.position;
+    }
+
     public String getName() {
         return name;
     }
