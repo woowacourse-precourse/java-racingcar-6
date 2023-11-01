@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -35,5 +36,15 @@ public class Cars {
 
     public static Cars withNames(final String names) {
         return new Cars(names);
+    }
+
+    public RacingResult race(final CarSpeedGenerator speedGenerator) {
+        final List<RaceScore> scores = new ArrayList<>();
+
+        for (final Car car : cars) {
+            car.moveForward(speedGenerator.generate());
+            scores.add(RaceScore.from(car));
+        }
+        return RacingResult.from(scores);
     }
 }

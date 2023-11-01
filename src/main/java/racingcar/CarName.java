@@ -26,4 +26,8 @@ public class CarName {
     public static CarName valueOf(final String name) {
         return new CarName(name);
     }
+
+    public String getName() {
+        return name;
+    }
 }
