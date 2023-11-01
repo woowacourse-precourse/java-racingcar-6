@@ -49,13 +49,13 @@ public class TextProcessor {
         return builder.toString();
     }
 
-    public String displayDistance(int distance) {
-        return String.valueOf(CAR_DISTANCE)
-                .repeat(Math.max(0, distance));
-    }
-
     public String joinText(List<String> winnerNames) {
         return String.join(DELIMITER, winnerNames);
+    }
+
+    protected String displayDistance(int distance) {
+        return String.valueOf(CAR_DISTANCE)
+                .repeat(Math.max(0, distance));
     }
 
     private void validateInputTryCount(String str) {
