@@ -58,7 +58,7 @@ public class Application {
                 winners.add(cars[i]);
             }
         }
-        System.out.println("최종 우승자: " + String.join(", ", winners));
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
     public static void moveCars(String[] cars, int[] counts){
