@@ -13,7 +13,7 @@ import racingcar.domain.Car;
 class ValidateServiceTest {
 
     @Test
-    void isEmpty() {
+    void isEmpty() { //자동차 이름이 null 이거나 공백일 경우 예외 테스트
         assertThatThrownBy(() -> ValidateService.isEmpty(null))
                 .isInstanceOf(IllegalArgumentException.class);
 
@@ -22,19 +22,19 @@ class ValidateServiceTest {
     }
 
     @Test
-    void hasBlank() {
+    void hasBlank() { //자동차 이름 중에 공백이 들어갈 경우 예외 테스트
         assertThatThrownBy(() -> ValidateService.hasBlank("kang yu seok"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void isValidLength() {
+    void isValidLength() { //자동차 이름이 5자 넘어갈 때 예외 테스트
         assertThatThrownBy(() -> ValidateService.isValidLength("abcdef"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void isNumber() {
+    void isNumber() { //실행횟수를 입력받을 때 예외 테스트
         assertThatThrownBy(() -> ValidateService.isNumber("abc"))
                 .isInstanceOf(IllegalArgumentException.class);
 
