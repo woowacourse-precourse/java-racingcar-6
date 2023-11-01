@@ -31,4 +31,9 @@ public class RaceController {
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
+
+    public boolean validateNumberOfAttempts(int numOfAttempts) {
+        // 이 메서드는 주어진 시도 횟수가 1 이상인지를 확인하는 역할을 합니다.
+        return numOfAttempts > 0;
+    }
 }
