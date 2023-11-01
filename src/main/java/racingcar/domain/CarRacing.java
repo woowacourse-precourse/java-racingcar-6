@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.OutputView;
@@ -9,13 +8,15 @@ public class CarRacing {
 
     List<String> cars;
     List<Integer> carPos;
+    RandomUtil randomUtil;
 
-    public CarRacing(List<String> cars) {
+    public CarRacing(List<String> cars, RandomUtil randomUtil) {
         this.cars = cars;
         this.carPos = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             carPos.add(0);
         }
+        this.randomUtil = randomUtil;
     }
 
     public void race(int turn) {
@@ -32,8 +33,7 @@ public class CarRacing {
 
     private void oneTurnRace() {
         for (int i = 0; i < cars.size(); i++) {
-            int r = Randoms.pickNumberInRange(0, 9);
-            if (r >= 4) {
+            if (randomUtil.generate(0, 9) >= 4) {
                 carPos.set(i, carPos.get(i) + 1);
             }
         }
