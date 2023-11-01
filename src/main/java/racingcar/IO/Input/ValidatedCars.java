@@ -1,6 +1,10 @@
 package racingcar.IO.Input;
 
+import static racingcar.IO.PunctuationMarks.*;
+
+import java.util.Arrays;
 import java.util.List;
+import racingcar.IO.PunctuationMarks;
 
 public class ValidatedCars {
 
@@ -11,10 +15,16 @@ public class ValidatedCars {
   }
 
   public static ValidatedCars of(UnValidatedCars unValidatedCars) {
-    if (unValidatedCars.getNames().stream().anyMatch(name -> name.length() > 5 || name.isEmpty())) {
+    List<String> unValidatedCarNames = getList(unValidatedCars);
+    if (unValidatedCarNames.stream()
+        .anyMatch(name -> name.length() > 5 || name.isEmpty() || name.isBlank())) {
       throw new IllegalArgumentException("자동차 이름에 공백 또는 5자 이상의 문자가 포함되어 있습니다.");
     }
-    return new ValidatedCars(unValidatedCars.getNames());
+    return new ValidatedCars(unValidatedCarNames);
+  }
+
+  private static List<String> getList(UnValidatedCars unValidatedCars) {
+    return Arrays.stream(unValidatedCars.getNames().split(COMMA.mark())).toList();
   }
 
   public List<String> getNames() {

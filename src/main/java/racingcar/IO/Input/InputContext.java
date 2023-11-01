@@ -1,10 +1,8 @@
 package racingcar.IO.Input;
 
 import static java.lang.System.out;
-import static racingcar.IO.PunctuationMarks.COMMA;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
 
 public class InputContext {
 
@@ -29,9 +27,7 @@ public class InputContext {
   }
 
   private static UnValidatedCars getUnValidatedCars() {
-    String unValidated = input();
-    return UnValidatedCars.of(
-        Arrays.stream(unValidated.split(COMMA.mark())).toList());
+    return UnValidatedCars.of(input());
   }
 
   private static String input() {

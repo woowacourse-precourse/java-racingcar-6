@@ -17,7 +17,7 @@ class RaceContextTest {
   void race() {
     // given
     RaceStartCommand raceStartCommand = RaceStartCommand.of(
-        ValidatedCars.of(UnValidatedCars.of(List.of("poo", "zoo", "zaa"))), ValidatedRoundCount.of("4"));
+        ValidatedCars.of(UnValidatedCars.of("poo,zoo,zaa")), ValidatedRoundCount.of("4"));
 
     // when
     RaceEndedEvent raceEndedEvent = RaceContext.start(raceStartCommand);

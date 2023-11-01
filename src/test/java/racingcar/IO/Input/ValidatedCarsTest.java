@@ -14,7 +14,7 @@ class ValidatedCarsTest {
   @Test
   void if_name_length_more_than_five_throw_exception() {
     // given
-    UnValidatedCars unValidatedCars = UnValidatedCars.of(List.of("poo0000", "zoo", "zaa"));
+    UnValidatedCars unValidatedCars = UnValidatedCars.of("pooooo,zaa,zaaa");
 
     // when && then
     assertThrows(IllegalArgumentException.class, () -> ValidatedCars.of(unValidatedCars));
@@ -24,7 +24,17 @@ class ValidatedCarsTest {
   @Test
   void if_name_is_empty_throw_exception() {
     // given
-    UnValidatedCars unValidatedCars = UnValidatedCars.of(List.of("poo", "", "zaa"));
+    UnValidatedCars unValidatedCars = UnValidatedCars.of("poo,,zaa,");
+
+    // when && then
+    assertThrows(IllegalArgumentException.class, () -> ValidatedCars.of(unValidatedCars));
+  }
+
+  @DisplayName("자동차 이름이 화이트 스페이스일 때 예외처리")
+  @Test
+  void if_name_is_blank_throw_exception() {
+    // given
+    UnValidatedCars unValidatedCars = UnValidatedCars.of("poo, ,zaa,");
 
     // when && then
     assertThrows(IllegalArgumentException.class, () -> ValidatedCars.of(unValidatedCars));
