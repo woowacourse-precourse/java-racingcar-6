@@ -8,9 +8,8 @@ import racingcar.utils.InputValidator;
 public class GameController {
     static final ControllerOutputManager outputManager = new ControllerOutputManager();
 
-    InputValidator inputValidator = new InputValidator();
-
     static final GameService gameService = new GameService();
+    InputValidator inputValidator = new InputValidator();
 
     public void gameStart() {
         outputManager.startPrint();

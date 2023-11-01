@@ -12,10 +12,9 @@ import static racingcar.utils.RandomCalculator.calRandom;
 
 public class CarManager {
 
-    private static  List<String> carList;
     private static final  HashMap<String, Car> carMap = new HashMap<>();
-
     private static final List<String> winnerList = new ArrayList<>();
+    private static  List<String> carList;
 
 
     private Integer max = 0;
