@@ -4,7 +4,7 @@ public enum Move {
     STOP(0),
     FORWARD(1);
 
-    private int move;
+    private final int move;
     private static final String WRONG_MOVES = "Moves should be ";
     
     Move(int move) {
