@@ -1,6 +1,5 @@
 package racingcar;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,12 +28,22 @@ class CarTest {
     }
 
     @Test
-    void 차가_움직이면_distance_추가() {
+    void 랜덤숫자가_4미만이면_false() {
         //given
         Car car = new Car("testCar");
         //when
-        car.move();
+        boolean result = car.canMove(1);
         //then
-        assertThat(car.getDistance()).isEqualTo(1);
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void 랜덤숫자가_4이상이면_true() {
+        //given
+        Car car = new Car("testCar");
+        //when
+        boolean result = car.canMove(4);
+        //then
+        assertThat(result).isTrue();
     }
 }
