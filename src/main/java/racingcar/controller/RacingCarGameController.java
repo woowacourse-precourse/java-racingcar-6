@@ -16,10 +16,9 @@ public class RacingCarGameController {
 
     public void getNumberOfGameRepeat () {
         int NumberOfGameRepeat = InputView.checkAttemptsNumber();
-        System.out.println(NumberOfGameRepeat);
+        System.out.println();
+        OutputView.printResultOfTheGame();
         for(int i = 0; i < NumberOfGameRepeat; i ++) {
-            System.out.println("게임 "+ i + 1);
-            System.out.println("---------------");
             Referee.compare(Constant.BASE_NUMBER);
         }
     }
@@ -27,6 +26,7 @@ public class RacingCarGameController {
     public void CarRacingGameProcess() {
         InputView.checkInputRacingCarName();
         getNumberOfGameRepeat();
-        OutputView.printResultOfTheGame();
+        OutputView.gameResult();
+        OutputView.winnerOfGame();
     }
 }
