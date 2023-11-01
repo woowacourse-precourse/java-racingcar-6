@@ -37,6 +37,8 @@
       **[예외]** 자동차의 이름이 중복될 경우 `IllegalArgumentException`을 발생시킨다.
     - 자동차의 수는 2대 이상 100대 이하만 가능하다.
       **[예외]** 자동차의 수가 2대 미만 100대 초과일 경우 `IllegalArgumentException`을 발생시킨다.
+    - 자동차 이름은 알파벳으로만 이루어져 있어야한다.
+      **[예외]** 이름이 알파벳으로 이루어져 있지 않을 경우 `IllegalArgumentException`을 발생시킨다.
 
 -[ ] 시도 횟수 입력 안내 문구 출력 이후 시도 횟수를 입력받는다.
  **[예외]** 숫자가 아닌 입력을 했을 경우 `IllegalArgumentException`을 발생시킨다.
