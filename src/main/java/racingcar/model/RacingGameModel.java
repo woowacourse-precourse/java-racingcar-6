@@ -35,16 +35,24 @@ public class RacingGameModel {
         int maxCount = 0;
 
         for(Car car: cars){
-            if(car.getForwardCount() > maxCount){
+            if(isCarMoreAdvanced(maxCount, car)){
                 maxCount = car.getForwardCount();
             }
         }
         for(Car car: cars){
-            if(car.getForwardCount() == maxCount){
+            if(isCarWinner(maxCount, car)){
                 winners.add(car);
             }
         }
         return winners;
+    }
+
+    private static boolean isCarWinner(int maxCount, Car car) {
+        return car.getForwardCount() == maxCount;
+    }
+
+    private static boolean isCarMoreAdvanced(int maxCount, Car car) {
+        return car.getForwardCount() > maxCount;
     }
 
 
