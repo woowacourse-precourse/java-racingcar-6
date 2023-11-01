@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Distance {
+public class Distance implements Comparable<Distance>{
     private int distance;
 
     /**
@@ -32,5 +32,10 @@ public class Distance {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(Distance o) {
+        return this.distance - o.distance;
     }
 }
