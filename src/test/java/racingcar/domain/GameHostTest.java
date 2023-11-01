@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -239,5 +240,38 @@ class GameHostTest {
 
         // than
         assertThat(result).isEqualTo(3);
+    }
+
+    @DisplayName("게임승자을 알수있다.")
+    @Test
+    public void 게임승자를_알수있는_테스() throws Exception {
+        // given
+        List<RaceCar> list = List.of(raceCar_1, raceCar_2, raceCar_3);
+        List<RaceCar> winners = new ArrayList<>();
+
+        // when
+        for (int i = 0; i < 3; i++) {
+            list.forEach(raceCar -> raceCar.moveForward());
+        }
+        winners = gameHost.giveWinnerList(list);
+
+        // then
+        assertThat(winners).extracting(RaceCar::toString)
+                .containsOnly(raceCar_1.toString(), raceCar_2.toString(), raceCar_3.toString());
+    }
+
+    @DisplayName("게임승자을 알수있다.")
+    @Test
+    public void 게임승자를_알수있는_테스트_2() throws Exception {
+        // given
+        List<RaceCar> list = List.of(raceCar_1, raceCar_2, raceCar_3);
+        List<RaceCar> winners = new ArrayList<>();
+
+        // when
+        winners = gameHost.giveWinnerList(list);
+
+        // then
+        assertThat(winners).extracting(RaceCar::toString)
+                .containsOnly(raceCar_1.toString(), raceCar_2.toString(), raceCar_3.toString());
     }
 }
