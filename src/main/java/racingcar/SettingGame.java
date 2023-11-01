@@ -31,6 +31,8 @@ public class SettingGame implements Setting { //게임 진행 전 필요한 정�
             RunnerMap.add(token);
         }
 
+        checkForm.isSingleCar(RunnerMap);
+
         for (String key : RunnerMap) {
             GameInfoMap.put(key, "");
         }

@@ -33,17 +33,18 @@ public class RunningGame implements Running { //게임을 진행합니다.
         return count;
     }
 
-    private void run() { //게임 진행
-
+    private void run() { // 게임 진행
         for (String key : RunnerMap) {
-            String value = GameInfoMap.get(key);
-
-            int random = Randoms.pickNumberInRange(0, 9);
-            if (random >= 4) {
-                GameInfoMap.put(key, value + "-");
-            }
+            updateGameInfo(key);
         }
+    }
 
+    private void updateGameInfo(String key) {
+        String value = GameInfoMap.get(key);
+        int random = Randoms.pickNumberInRange(0, 9);
+        if (random >= 4) {
+            GameInfoMap.put(key, value + "-");
+        }
     }
 
     @Override
