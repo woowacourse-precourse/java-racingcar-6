@@ -15,23 +15,19 @@ public class CarTest {
     void createCar() {
         //given
         String carName = "YW";
-
         //when
         Car car = new Car(carName);
-
         //then
         Assertions.assertThat(car.getName()).isEqualTo(carName);
     }
 
     @DisplayName("차량 위치")
     @Test
-    void chechPosition() {
+    void checkPosition() {
         //given
         String carName = "YW";
-
         //when
         Car car = new Car(carName);
-
         //then
         Assertions.assertThat(car.getPosition()).isEqualTo(0);
     }
@@ -40,29 +36,29 @@ public class CarTest {
     @Test
     void moveForward() {
         //given
-        String carName = "test";
+        String carName = "YW";
         Car car = new Car(carName);
-        int preDistance = car.getPosition();
+        int position = car.getPosition();
 
         //when
         car.move(MOVING_FORWARD);
 
         //then
-        Assertions.assertThat(car.getPosition()).isEqualTo(preDistance + 1);
+        Assertions.assertThat(car.getPosition()).isEqualTo(position + 1);
     }
 
     @DisplayName("차량 정지")
     @Test
     void stop() {
         //given
-        String carName = "test";
+        String carName = "YW";
         Car car = new Car(carName);
-        int preDistance = car.getPosition();
+        int position = car.getPosition();
 
         //when
         car.move(STOP);
 
         //then
-        Assertions.assertThat(car.getPosition()).isEqualTo(preDistance);
+        Assertions.assertThat(car.getPosition()).isEqualTo(position);
     }
 }
