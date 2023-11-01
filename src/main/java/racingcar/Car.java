@@ -27,6 +27,9 @@ public class Car {
             position++;
         }
     }
+    public String getPositionString() {
+        return "-".repeat(position);
+    }
     public int getRandomNumber(){
         int number = Randoms.pickNumberInRange(0, 9);
         return number;
