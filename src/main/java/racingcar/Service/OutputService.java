@@ -18,6 +18,14 @@ public class OutputService {
         this.judge=judge;
     }
 
+    public static void setJudge(Judge judge) {
+        OutputService.judge = judge;
+    }
+
+    public OutputService() {
+
+    }
+
     public static CarService getCarService() {
         return carService;
     }
@@ -59,8 +67,10 @@ public class OutputService {
         List<Car> cars = inputService.getCars();
         StringBuilder result = new StringBuilder();
         for (Car car : cars) {
+            carService.generateRandomNum();
             appendCarStatus(result, car);
         }
+        System.out.println(result.toString());
         return result.toString();
     }
 
