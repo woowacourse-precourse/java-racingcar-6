@@ -2,6 +2,8 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.TestConstants.MOVING_FORWARD;
+import static racingcar.TestConstants.STOP;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -9,9 +11,6 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 
 class WriterTest {
-
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
 
     @Test
     void 게임_진행_결과_출력() {

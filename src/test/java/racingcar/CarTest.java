@@ -3,22 +3,20 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
+import static racingcar.TestConstants.MOVING_FORWARD;
+import static racingcar.TestConstants.NAME_EXCEEDS_LENGTH_LIMIT;
+import static racingcar.TestConstants.NAME_UNDER_LENGTH_LIMIT;
+import static racingcar.TestConstants.STOP;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
-    private static final String NAME_UNDER_LENGTH_LIMIT = "car";
-    private static final String NAME_EXCEEDS_LENGTH_LIMIT = "longCar";
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-    private static final String CAR_FORMAT = "%s : %s";
-
 
     @Test
     void 지정한_길이를_초과한_이름의_자동차_생성_시_예외_발생() {
-        Assertions.assertThatThrownBy(() -> 자동차_생성(NAME_EXCEEDS_LENGTH_LIMIT))
+        assertThatThrownBy(() -> 자동차_생성(NAME_EXCEEDS_LENGTH_LIMIT))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(INVALID_CAR_NAME_LENGTH);
     }
@@ -59,8 +57,8 @@ class CarTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     car.attempt();
-                    Assertions.assertThat(car.toString())
-                            .isEqualTo(String.format(CAR_FORMAT, NAME_UNDER_LENGTH_LIMIT, "-"));
+                    assertThat(car.toString())
+                            .isEqualTo(String.format("car : -"));
                 },
                 MOVING_FORWARD
         );

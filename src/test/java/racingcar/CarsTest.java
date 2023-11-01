@@ -1,28 +1,29 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
+import static racingcar.TestConstants.MOVING_FORWARD;
+import static racingcar.TestConstants.NAME_EXCEEDS_LENGTH_LIMIT;
+import static racingcar.TestConstants.NAME_UNDER_LENGTH_LIMIT;
+import static racingcar.TestConstants.STOP;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CarsTest {
 
-    private static final String NAME_EXCEEDS_LENGTH_LIMIT = "longCar";
-    private static final String NAME_UNDER_LENGTH_LIMIT = "car";
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-
     @Test
     void 지정한_길이를_초과한_이름의_자동차_생성_시_예외_발생() {
-        Assertions.assertThatThrownBy(() -> 자동차들_생성(NAME_EXCEEDS_LENGTH_LIMIT))
+        assertThatThrownBy(() -> 자동차들_생성(NAME_EXCEEDS_LENGTH_LIMIT))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(INVALID_CAR_NAME_LENGTH);
     }
 
     @Test
     void 지정한_길이_이하_길이의_자동차_생성_시_예외가_발생하지_않음() {
-        Assertions.assertThatCode(() -> 자동차들_생성(NAME_UNDER_LENGTH_LIMIT))
+        assertThatCode(() -> 자동차들_생성(NAME_UNDER_LENGTH_LIMIT))
                 .doesNotThrowAnyException();
     }
 
@@ -34,7 +35,7 @@ class CarsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     cars.attempt();
-                    Assertions.assertThat(cars.toString()).isEqualTo(expected);
+                    assertThat(cars.toString()).isEqualTo(expected);
                 }
                 , MOVING_FORWARD, MOVING_FORWARD, STOP
         );
@@ -48,7 +49,7 @@ class CarsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     cars.attempt();
-                    Assertions.assertThat(cars.winners()).isEqualTo(expected);
+                    assertThat(cars.winners()).isEqualTo(expected);
                 }
                 , MOVING_FORWARD, MOVING_FORWARD, STOP
         );
