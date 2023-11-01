@@ -35,9 +35,9 @@ public final class Validator {
     }
 
     public static void validIsNumber(String inputNumber) {
-        if (Objects.isNull(inputNumber) || inputNumber.chars().allMatch(Character::isDigit)){
-            return;
-        } throw new IllegalArgumentException("숫자를 입력해주세요.");
+        if (Objects.isNull(inputNumber) || inputNumber.trim().isEmpty() || !inputNumber.chars().allMatch(Character::isDigit)){
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
     }
 
     public static void validNotZero(String inputNumber) {
