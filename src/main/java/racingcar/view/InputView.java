@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
 
 public class InputView {
 
@@ -11,9 +13,19 @@ public class InputView {
     private InputView() {
     }
 
-    public String readCarName() {
+    public List<String> readCarName() {
         System.out.println(PRINT_READ_CAR_NAME_MESSAGE);
-        return getInput();
+        return convertCarName(getInput());
+    }
+
+    private List<String> convertCarName(final String input) {
+        return Arrays.stream(splitWithComma(input))
+                .map(String::trim)
+                .toList();
+    }
+
+    private static String[] splitWithComma(final String input) {
+        return input.split(CAR_NAME_DELIMITER);
     }
 
     private static String getInput() {
