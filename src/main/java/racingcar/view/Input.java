@@ -27,8 +27,7 @@ public class Input {
         System.out.println(INIT_NUMBER);
         String input = Console.readLine();
 
-        if(!Pattern.matches("^[1-9]+$",input))
-            throw new IllegalArgumentException("숫자외 다른 문자는 쓸 수 없습니다.");
+        inputException.inputMovingNumberException(input);
 
         return Integer.parseInt(input);
     }

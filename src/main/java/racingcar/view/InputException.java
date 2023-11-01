@@ -22,4 +22,9 @@ public class InputException {
             }
         }
     }
+
+    public void inputMovingNumberException(String str){
+        if(!Pattern.matches("^[1-9]+$",str))
+            throw new IllegalArgumentException("숫자외 다른 문자는 쓸 수 없습니다.");
+    }
 }
