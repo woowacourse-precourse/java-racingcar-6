@@ -26,7 +26,7 @@ class RacingcarControllerTest {
     void 자동차_리스트_저장() {
         String[] carsName = {"kim", "yeon", "su"};
         racingcarController.addCars(carsName);
-        List<Car> carsList = racingcarController.cars.cars;
+        List<Car> carsList = racingcarController.cars.carsList;
         assertThat(carsList.size()).isEqualTo(carsName.length);
     }
 
@@ -35,7 +35,7 @@ class RacingcarControllerTest {
         Car car = new Car("test", 0);
 
         racingcarController.cars.addCarList(car);
-        racingcarController.getRandom();
+        racingcarController.printResult();
 
         assertThat(car.getNumber()).isBetween(0, 1);
     }
