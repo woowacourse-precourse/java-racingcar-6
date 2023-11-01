@@ -15,7 +15,7 @@
 - [x] ValidationUtil 클래스 구현
   -  사용자 입력값을 검증하는 메서드 구현 (이름의 길이, 시도 회수의 유효성 등)
   - feat(Utils): Add ValidationUtil for input validation
-- [ ] InputUtil 클래스 구현
+- [x] InputUtil 클래스 구현
   - 사용자로부터 자동차들의 이름을 입력받는 메서드 구현  
     사용자가 시도할 횟수를 입력받는 메서드 구현
   - feat(Utils): Add InputUtil for handling user input
