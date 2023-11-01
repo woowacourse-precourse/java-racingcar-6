@@ -18,19 +18,19 @@ public class UserInputTest {
     String input;
 
     @BeforeEach
-    void 콘솔_입력_받기() {
+    void Console_open() {
         sysInBackup = System.in;
     }
 
     @AfterEach
-    void 콘솔_초기화() {
+    void Console_close() {
         System.setIn(sysInBackup);
         Console.close();
     }
 
     @DisplayName("자동차_이름을_리스트로_반환")
     @Test
-    void 자동차_이름을_리스트로_반환() {
+    void carName_Normal() {
         input = "jun,woo";
 
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
@@ -45,8 +45,21 @@ public class UserInputTest {
 
     @DisplayName("자동차_이름이_5글자를_넘어감")
     @Test
-    void 자동차_이름이_5글자를_넘어감() {
+    void carName_ExceedLength() {
         input = "junwoo,woo";
+
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        assertThatThrownBy(() -> userInput.carName())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 5글자 이하여야 합니다.");
+    }
+
+    @DisplayName("구분자_없이_이름을_입력함")
+    @Test
+    void carName_NoDelimiter() {
+        input = "jun";
 
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -58,19 +71,19 @@ public class UserInputTest {
 
     @DisplayName("게임횟수를_정수로_반환")
     @Test
-    void 게임횟수를_정수로_반환() {
+    void round_normal() {
         input = "5";
 
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         int result = userInput.Round();
-        assertThat(result).isEqualTo("5");
+        assertThat(result).isEqualTo(5);
     }
 
     @DisplayName("게임횟수_입력값이_숫자가_아님")
     @Test
-    void 게임횟수_입력값이_숫자가_아님() {
+    void round_NotInputNumber() {
         input = "삼";
 
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
