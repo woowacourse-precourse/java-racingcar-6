@@ -8,7 +8,7 @@ public class Car {
   private static final int MIN_NUM = 0;
   private static final int MAX_NUM = 9;
   private static final int MOVE_THRESHOLD = 4;
-  private String name;
+  final private String name;
   private int movement = 0;
 
   public Car(String name) {
