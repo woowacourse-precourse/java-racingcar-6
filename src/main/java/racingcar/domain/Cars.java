@@ -1,8 +1,11 @@
 package racingcar.domain;
 
+import static racingcar.message.RacingCarErrorMessage.CAR_LIST_EMPTY;
+import static racingcar.message.RacingCarErrorMessage.DUPLICATED_CAR_NAME;
+import static racingcar.message.RacingCarErrorMessage.NOT_MIN_CAR_COUNT;
+
 import java.util.HashSet;
 import java.util.List;
-import java.util.random.RandomGeneratorFactory;
 import java.util.stream.Collectors;
 import racingcar.util.RacingCarRandomMoveUtils;
 
@@ -33,7 +36,7 @@ public class Cars {
     private Car findMaxDistanceCar() {
         return cars.stream()
                 .max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException("차량 리스트가 비었습니다."));
+                .orElseThrow(() -> new IllegalArgumentException(CAR_LIST_EMPTY.getMessage()));
     }
 
     private List<String> findSameDistanceList(Car maxDistanceCar) {
@@ -51,13 +54,13 @@ public class Cars {
         HashSet<String> carNameDuplicateSet = new HashSet<>(carName);
 
         if (carNameDuplicateSet.size() != carName.size()) {
-            throw new IllegalArgumentException("자동차 이름은 중복으로 사용될 수 없습니다.");
+            throw new IllegalArgumentException(DUPLICATED_CAR_NAME.getMessage());
         }
     }
 
     private void minimumCountOfCars(int size) {
         if (size < CAR_COUNT_MINIMUM) {
-            throw new IllegalArgumentException("자동차는 최소 2대 이상 생성해야 합니다.");
+            throw new IllegalArgumentException(NOT_MIN_CAR_COUNT.getMessage());
         }
     }
 

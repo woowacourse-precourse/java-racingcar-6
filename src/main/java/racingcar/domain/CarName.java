@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.message.RacingCarErrorMessage.NOT_CAR_NAME_LENGTH_CORRECT;
+
 public record CarName(String name) {
 
     private static final int CAR_NAME_LENGTH_MAX = 5;
@@ -10,7 +12,7 @@ public record CarName(String name) {
 
     private void isCarNameLengthValidate(final String carName) {
         if (carName.isEmpty() || carName.length() > CAR_NAME_LENGTH_MAX) {
-            throw new IllegalArgumentException("자동차이름은 1자리이상 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(NOT_CAR_NAME_LENGTH_CORRECT.getMessage());
         }
     }
 

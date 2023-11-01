@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import java.util.Objects;
+import static racingcar.message.RacingCarErrorMessage.NOT_NATURAL_NUMBER_VALIDATE;
 
 public class TryCount {
 
@@ -13,7 +13,7 @@ public class TryCount {
 
     private void isNaturalNumberValidate(String tryCount) {
         if (!tryCount.matches("^[1-9]\\d*$")){
-            throw new IllegalArgumentException("이동할 횟수는 자연수여야 한다.");
+            throw new IllegalArgumentException(NOT_NATURAL_NUMBER_VALIDATE.getMessage());
         }
     }
 
