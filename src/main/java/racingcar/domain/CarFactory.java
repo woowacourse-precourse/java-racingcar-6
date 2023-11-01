@@ -11,11 +11,16 @@ import java.util.stream.Collectors;
 public class CarFactory {
     
     public List<Car> createCar(){
+        IoManager.printEnterCarName();
         String nameString = IoManager.readLine();
         List<String> nameList = stringtoListByComma(nameString);
         checkDuplicatedName(nameList);
-        List<Car> cars = new ArrayList<Car>();
-        for(String name:nameList){
+        return createCarList(nameList);
+    }
+
+    private List<Car> createCarList(List<String> names) {
+        List<Car> cars = new ArrayList<>();
+        for (String name : names) {
             cars.add(new Car(name));
         }
         return cars;
