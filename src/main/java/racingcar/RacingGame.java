@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.message.ErrorMessage;
 import racingcar.message.GameMessage;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RacingGame {
@@ -12,10 +13,11 @@ public class RacingGame {
     private Integer turnCount;
 
     private RacingGame(Builder builder) {
-        this.cars = builder.carInput.getCarNames().stream()
+        List<Car> cars = builder.carInput.getCarNames().stream()
                 .map(Car::new)
                 .toList();
 
+        this.cars = Collections.unmodifiableList(cars);
         this.tryCount = builder.tryCount;
         this.turnCount = 0;
     }
