@@ -36,7 +36,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return name.toString() + " : " + position.toString();
+        return name.toString() + " : " + position.createLine();
     }
 
 }
