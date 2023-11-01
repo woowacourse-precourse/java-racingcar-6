@@ -11,4 +11,12 @@ public class RacingGame {
             racingCars[i] = new RacingCar(carNames[i]);
         }
     }
+
+    public void play() {
+        for (int i = 0; i < tryCount; i++) {
+            for (RacingCar racingCar : racingCars) {
+                racingCar.move();
+            }
+        }
+    }
 }
