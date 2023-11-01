@@ -22,7 +22,9 @@ public class CarNameValidator {
     }
 
     public void validateBlank() {
-        this.CAR_NAMES.forEach(StringValidator::stringIsBlank);
+        if (this.CAR_NAMES.stream().anyMatch(String::isBlank)) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_NAME_NULL_BLANK_MESSAGE.getValue());
+        }
     }
 
     public void validateLength() {
