@@ -2,6 +2,7 @@ package controller;
 
 import model.Cars;
 import model.TryCount;
+import model.Winners;
 import view.InputView;
 import view.OutputView;
 
@@ -19,7 +20,7 @@ public class RacingGameController {
             outputView.printCarsPosition(cars);
         }
 
-        outputView.printWinner(cars);
+        outputView.printWinner(new Winners(cars.getCars()));
 
     }
 }

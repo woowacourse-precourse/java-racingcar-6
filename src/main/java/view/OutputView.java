@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import model.Car;
 import model.Cars;
+import model.Winners;
 
 public class OutputView {
     static final String EXECUTION_RESULT = "실행 결과";
@@ -21,22 +22,14 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinner(Cars cars) {
-        List<Car> winners = cars.getWinner();
-        String winnersAndDelimiter = "";
-        if (getMultipleWinners(winners)) {
-            winnersAndDelimiter = winners.stream().map(Car::getName)
-                    .collect(Collectors.joining(DELIMITER));
-            System.out.print(FINAL_WINNER + winnersAndDelimiter);
+    public void printWinner(Winners winners) {
+        if (winners.getMultipleWinners()) {
+            System.out.print(FINAL_WINNER +
+                    winners.getWinners()
+                            .stream().map(Car::getName)
+                            .collect(Collectors.joining(DELIMITER)));
+            return;
         }
-
-    }
-
-    public boolean getMultipleWinners(List<Car> winners) {
-        if (winners.size() == 1) {
-            System.out.print(FINAL_WINNER + winners.get(0).getName());
-            return false;
-        }
-        return true;
+        System.out.println(FINAL_WINNER + winners.getWinners().get(0).getName());
     }
 }

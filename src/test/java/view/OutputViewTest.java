@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import model.Cars;
+import model.Winners;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,17 +32,6 @@ public class OutputViewTest {
     }
 
     @Test
-    public void 최종_우승자가_여러명인지_확인() {
-        Cars cars = new Cars("pobi,jun,woni");
-
-        cars.getCars().get(0).tryMove(1);
-        cars.getCars().get(1).tryMove(7);
-        cars.getCars().get(2).tryMove(5);
-
-        assertThat(outputView.getMultipleWinners(cars.getWinner())).isTrue();
-    }
-
-    @Test
     public void 최종우승자들_출력하는_테스트() {
         Cars cars = new Cars("pobi,jun,woni");
         OutputStream out = new ByteArrayOutputStream();
@@ -51,8 +41,8 @@ public class OutputViewTest {
         cars.getCars().get(1).tryMove(3);
         cars.getCars().get(2).tryMove(5);
 
-        outputView.printWinner(cars);
-
+        Winners winners= new Winners(cars.getCars());
+        outputView.printWinner(winners);
         assertThat(out.toString()).isEqualTo(
                 "최종 우승자 : pobi, woni");
     }

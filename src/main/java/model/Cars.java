@@ -17,7 +17,7 @@ public class Cars {
     }
 
     public List<Car> convertStringArrayToCars(String input) {
-        return Arrays.stream(Utils.splitByDelimiter(input,DELIMITER))
+        return Arrays.stream(Utils.splitByDelimiter(input, DELIMITER))
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
@@ -32,16 +32,9 @@ public class Cars {
         });
     }
 
-    public int getMaxPosition() {
-        return cars.stream().map(car -> car.getNowPlace().length())
-                .max(Integer::compareTo)
-                .orElse(0);
-    }
-
-    public List<Car> getWinner() {
-        return cars.stream().filter(car ->
-                        car.getNowPlace().length() == getMaxPosition())
-                .collect(Collectors.toList());
+    public Winners getWinners() {
+        Winners winners = new Winners(cars);
+        return winners;
     }
 
     public void duplicateCarName(String input) {
