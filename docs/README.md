@@ -6,4 +6,14 @@
    깔끔하고 간단하게 코드를 정리하고자 하는 욕구가 있으나, 지금은 내가 제일 잘 이해할 수 있게 만들고 있다
 
 Racecar
-1. 
+1. Game Constants 들을 모아서 클래스로 정리
+2. Game input, output logic 구현
+3. Game input validation, input error handling 구현
+4. Builder pattern 으로 input을 구해와서 class object 구현 생각
+   Car class는 만들면 좋겠고, CarBuilder도 있으면 나쁘지 않을지도
+5. Car object들을 가지고 있으며, racecar game logic을 진행할 RacingGame 클래스가 있어야할듯
+   NumOfCar x NumOfTrial 만큼 게임을 진행해야 될 것으로 예상
+   Winning logic은 게임 진행 완료 후 단 한번만 확인 하면 되기 때문에 각 car object에
+   위치를 저장하고, 우승자 계산 때 한번만 계산하게 설계
+6. RNG 계산기가 따로 있어야할 것
+7. Application은 게임 시작만 알리고 나머지는 다른 클래스에서 관리하기 위한 refactoring
