@@ -65,10 +65,10 @@ view
 2. 쉼표가 두개 연달아 입력된 경우
 3. 처음 혹은 마지막에 쉼표가 입력된 경우
 - splitCarNamesInput() : 초기상태 자동차 이름을 List<String>으로 변환
-- validCarNamesList() : List<String>상태의 자동차 이름에서 아래 ?가지 경우를 검증
+- validCarNamesList() : List<String>상태의 자동차 이름에서 아래 3가지 경우를 검증
 1. 자동차 이름 중 null값이 포함된 경우
 2. 자동차 이름 중 5자리를 초과하는 이름이 있는 경우
-3. 자동차 이름 중 중복도니 이름이 있는 경우
+3. 자동차 이름 중 중복된 이름이 있는 경우
 - validRoundInput() : 라운드 수 입력값이 정수인지 검증
 
 ### View클래스
