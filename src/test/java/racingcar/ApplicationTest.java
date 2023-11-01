@@ -31,6 +31,21 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 지정된_구분자가_아닌_다른_구분자_사용에_대한_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi/woni", "2"))
+                        .isInstanceOf(IllegalArgumentException.class));
+
+    }
+
+    @Test
+    void 자동차가_10대_이상_입력된_경우에_대한_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
