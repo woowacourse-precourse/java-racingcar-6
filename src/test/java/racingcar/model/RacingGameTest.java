@@ -12,15 +12,15 @@ import racingcar.model.car.CarDTO;
 class RacingGameTest {
     @Test
     void 전진_테스트() {
-        // Arrange
+        // given
         List<String> names = Arrays.asList("Car1", "Car2");
         RacingGame racingGame = new RacingGame(names, new JudgeWinnerImpl(), new TestNumberGenerator(5));
 
-        // Act
+        // when
         racingGame.move();
         List<CarDTO> carDTOList = racingGame.status();
 
-        // Assert
+        // then
         carDTOList.forEach(car -> {
             assertThat(car.step()).isEqualTo(1);
         });
@@ -28,14 +28,14 @@ class RacingGameTest {
 
     @Test
     void 차수별_결과_테스트() {
-        // Arrange
+        // given
         List<String> names = Arrays.asList("Car1", "Car2");
         RacingGame racingGame = new RacingGame(names, new JudgeWinnerImpl(), new TestNumberGenerator(5));
 
-        // Act
+        // when
         List<CarDTO> carDTOList = racingGame.status();
 
-        // Assert
+        // then
         carDTOList.forEach(car -> {
             assertThat(car.step()).isEqualTo(0);
         });
@@ -43,14 +43,14 @@ class RacingGameTest {
 
     @Test
     void 우승자_판별_테스트() {
-        // Arrange
+        // given
         List<String> names = Arrays.asList("Car1", "Car2");
         RacingGame racingGame = new RacingGame(names, new JudgeWinnerImpl(), new TestNumberGenerator(5));
 
-        // Act
+        // when
         List<String> winners = racingGame.judgeWinner();
 
-        // Assert
+        // then
         assertThat(winners.size()).isEqualTo(2);
         assertThat(winners.get(0)).isEqualTo("Car1");
         assertThat(winners.get(1)).isEqualTo("Car2");
