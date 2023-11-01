@@ -33,7 +33,7 @@ public class MoveTest {
             car.move();
         }
         //then
-        assertThat(car.getLength()).isEqualTo(1);
+        assertThat(car.getDistance()).isEqualTo(1);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class MoveTest {
         }
 
         //then
-        assertThat(car.getLength()).isEqualTo(0);
+        assertThat(car.getDistance()).isEqualTo(0);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class MoveTest {
 
         //then
         for (Car car : cars) {
-            assertThat(car.getLength()).isEqualTo(1);
+            assertThat(car.getDistance()).isEqualTo(1);
         }
     }
 
