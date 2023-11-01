@@ -2,32 +2,30 @@ package racingcar.domain;
 
 public class Car {
 
-    private static final int NAME_MAX_LENGTH = 5;
+    private static final String MOVEMENT = "-";
 
-    private final String name;
-    private int moving;
+    private final Name name;
+    private final Position position;
 
-    public Car(String name) {
-        validateName(name);
+    public Car(Name name) {
         this.name = name;
-        this.moving = 0;
+        this.position = Position.initial();
+    }
+
+    public void move() {
+        this.position.move();
     }
 
     public String getName() {
-        return name;
+        return name.name();
     }
 
-    public int getMoving() {
-        return moving;
+    public int getPosition() {
+        return this.position.getPosition();
     }
 
-    public void updateMovingCount() {
-        this.moving++;
-    }
-
-    private void validateName(String name) {
-        if (name.isEmpty() || name.isBlank() || name.length() > NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException("잘못된 이름을 입력하셨습니다.");
-        }
+    @Override
+    public String toString() {
+        return MOVEMENT.repeat(this.getPosition());
     }
 }
