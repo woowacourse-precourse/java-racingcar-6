@@ -28,4 +28,14 @@ class ValidatorTest {
         //when, then
         assertThatIllegalArgumentException().isThrownBy(() -> validator.carNames(name));
     }
+
+    @Test
+    @DisplayName("예외 - 시도 횟수 입력을 하지 않는다.")
+    void test3() {
+        //given
+        final String playTimes = "";
+
+        //when, then
+        assertThatIllegalArgumentException().isThrownBy(() -> validator.playTimes(playTimes));
+    }
 }
