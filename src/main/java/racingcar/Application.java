@@ -45,7 +45,7 @@ public class Application {
         for (Car car : winnerCars) {
             joiner.add(car.getName());
         }
-        System.out.println("최종 우승자는 " + joiner.toString() + " 입니다.");
+        System.out.println("최종 우승자 : " + joiner);
     }
 
     private static int getTryNumber() {
