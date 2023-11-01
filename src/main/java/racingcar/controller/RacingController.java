@@ -28,8 +28,8 @@ public class RacingController {
         // 사용자로부터 시도할 횟수 받기
         RacingAttemptInput attemptInput = new RacingAttemptInput();
         attemptInput.requestAttemptCount();
-        int attemptCount = attemptInput.getAttemptCount();
-        AttemptCountValidator.validateIsPositive(attemptCount);
+        String input = attemptInput.readUserInput();
+        int attemptCount = AttemptCountValidator.validateAttemptCount(input);
 
         // 게임 초기화
         racingGame = new RacingGame(carNames, new RealRandomGenerator());

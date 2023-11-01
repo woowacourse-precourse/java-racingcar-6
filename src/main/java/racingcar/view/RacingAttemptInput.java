@@ -16,9 +16,5 @@ public class RacingAttemptInput {
         return Integer.parseInt(input);
     }
 
-    public int getAttemptCount() {
-        String input = readUserInput();
-        return convertToInteger(input);
-    }
 
 }
