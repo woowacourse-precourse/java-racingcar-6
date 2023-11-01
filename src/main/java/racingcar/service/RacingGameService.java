@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import static racingcar.constant.RacingGameConstants.INITIAL_PLAY_NUMBER;
 import static racingcar.domain.CarManager.getFinalWinner;
 import static racingcar.domain.CarManager.makeCarList;
 import static racingcar.view.ConsoleInput.inputCarNames;
@@ -18,7 +19,7 @@ import racingcar.dto.FinalResult;
 import racingcar.dto.ProgressState;
 
 public class RacingGameService {
-    private static int playNumber = 0;
+    private static int playNumber = INITIAL_PLAY_NUMBER;
 
     public static void proceedCarNameInputStage() {
         informInputCarNames();

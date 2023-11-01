@@ -1,5 +1,7 @@
 package racingcar.dto;
 
+import static racingcar.constant.RacingGameConstants.DELIMITER;
+
 import java.util.List;
 import racingcar.domain.Car;
 
@@ -15,7 +17,7 @@ public class FinalResult {
     }
 
     public String getNameString() {
-        return String.join(", ",
+        return String.join(DELIMITER,
                 carList.stream()
                         .map(Car::getName)
                         .toList());

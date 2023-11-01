@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.constant.RacingGameConstants.DASH;
+import static racingcar.constant.RacingGameConstants.INITIAL_PROGRESS;
+import static racingcar.constant.RacingGameConstants.MINIMUM_TO_MOVE;
+
 import racingcar.validator.CarMovingValidator;
 
 public class Car {
@@ -8,7 +12,7 @@ public class Car {
 
     private Car(String name) {
         this.name = name;
-        this.progress = 0;
+        this.progress = INITIAL_PROGRESS;
     }
 
     public static Car create(String name) {
@@ -24,13 +28,13 @@ public class Car {
     }
 
     public String getDash() {
-        return "-".repeat(progress);
+        return DASH.repeat(progress);
     }
 
     public void go(int progress) {
         CarMovingValidator.validateMovingNumber(progress);
 
-        if (progress >= 4) {
+        if (progress >= MINIMUM_TO_MOVE) {
             this.progress++;
         }
     }

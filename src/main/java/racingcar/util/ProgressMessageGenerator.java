@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import static racingcar.constant.ConsoleOutputConstants.FINAL_WINNER;
+import static racingcar.constant.RacingGameConstants.PROGRESS_MESSAGE_FORMAT;
 
 import racingcar.domain.Car;
 import racingcar.dto.FinalResult;
@@ -8,8 +9,7 @@ import racingcar.dto.FinalResult;
 public class ProgressMessageGenerator {
 
     public static String generateProgressStateMessage(Car car) {
-        String messageFormat = "%s : %s";
-        return messageFormat.formatted(car.getName(), car.getDash());
+        return PROGRESS_MESSAGE_FORMAT.formatted(car.getName(), car.getDash());
     }
 
     public static String generateFinalResultMessage(FinalResult finalResult) {
