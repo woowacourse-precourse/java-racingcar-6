@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class Race {
 
     private Round roundLeft;
@@ -39,5 +41,26 @@ public class Race {
 
         entry.driveAll();
         roundLeft.decreaseByOne();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder ret = new StringBuilder(entry.toString());
+        ret.append("\n");
+
+        if (roundLeft.equals(new Round(0))) {
+            ret.append("최종 우승자 : ");
+
+            List<String> names = entry
+                    .getWinners()
+                    .stream()
+                    .map(car -> new String(car.getMyName()))
+                    .toList();
+            ret.append(String.join(", ", names));
+
+
+        }
+
+        return ret.toString();
     }
 }
