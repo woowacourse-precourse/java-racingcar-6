@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import racingcar.constant.RacingConstant;
 import racingcar.util.RandomNumbersGenerator;
+import racingcar.validation.InputValidation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,11 +11,18 @@ import java.util.stream.Collectors;
 
 public class Cars {
     private List<Car> cars;
+    private InputValidation inputValidation;
 
     public Cars(String[] names) {
+        inputValidation = new InputValidation();
         this.cars = Arrays.stream(names)
-                .map(name -> new Car(name))
+                .map(this::createCar)
                 .collect(Collectors.toList());
+    }
+
+    private Car createCar(String name) {
+        inputValidation.isNameValid(name);
+        return new Car(name);
     }
 
     public List<String> findWinners() {
@@ -41,11 +50,11 @@ public class Cars {
         return tiedWinners;
     }
 
-    public void moveCars(){
+    public void moveCars() {
         RandomNumbersGenerator.randomNumberGenerator(cars);
     }
 
-    public List<Car> getCars(){
+    public List<Car> getCars() {
         return cars;
     }
 }
