@@ -32,7 +32,7 @@ public class InputTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"car1,car2,car3"})
-    void getCarNameGeneralTest(String userInput) {
+    void canGetGeneralCarName(String userInput) {
         String[] answer = {"car1", "car2", "car3"};
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
@@ -41,7 +41,7 @@ public class InputTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"car1,car2,overFiveCharacters"})
-    void getCarNameLengthExceptionTest(String userInput) {
+    void canGenerateCarNameLengthException(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
         try {
@@ -80,7 +80,7 @@ public class InputTest {
 
     @ParameterizedTest
     @ValueSource(strings = {""})
-    void getCarNameEmptyExceptionTest(String userInput) {
+    void canGenerateCarNumberException(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
         try {
@@ -92,7 +92,7 @@ public class InputTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"42"})
-    void getTryNumberGeneralTest(String userInput) {
+    void canGetGeneralTryNumber(String userInput) {
         int answer = 42;
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
@@ -101,7 +101,7 @@ public class InputTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"1!23"})
-    void getTryNumberNumericExceptionTest(String userInput) {
+    void canGenerateInvalidTryNumberException(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);
         try {
