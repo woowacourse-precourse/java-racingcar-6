@@ -13,20 +13,20 @@ class EunchaeApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    void 최종_우승자_hamster() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                    run("ham,ster,cute", "2");
+                    assertThat(output()).contains("ham : --", "ster : ", "cute : ", "최종 우승자 : ham");
                 },
-                MOVING_FORWARD, STOP
+                MOVING_FORWARD, STOP, STOP, MOVING_FORWARD, STOP, STOP
         );
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 시도횟수에_대한_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> runException("ham,ster,cute", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
