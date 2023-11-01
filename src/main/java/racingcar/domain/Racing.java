@@ -2,9 +2,9 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class Racing {
     public void countMoveRacing(List<String> carNames){
@@ -13,6 +13,7 @@ public class Racing {
         System.out.println("시도할 회수는 몇회인가요?");
         int coutMove = Integer.parseInt(Console.readLine());
 
+        System.out.println();
         System.out.println("실행 결과");
         String[] carStates = new String[carNames.size()];
         Arrays.fill(carStates, "");
@@ -22,10 +23,12 @@ public class Racing {
                 String carName = carNames.get(j).trim();
                 String moveCar = randomNumber.createRandomNumber(carName);
                 carStates[j] = addRacingOutput(carStates[j], moveCar);
-                racingOutput(carName, carStates[j], i);
+                racingOutput(carName, carStates[j]);
             }
             System.out.println();
         }
+
+       winNameOutput(carNames, carStates);
     }
 
     public String addRacingOutput(String carStates, String moveCar){
@@ -34,11 +37,39 @@ public class Racing {
         }
         return carStates;
     }
-    public void racingOutput(String carName, String moveCar, int index){
+    public void racingOutput(String carName, String moveCar){
         System.out.println(carName + " : " + moveCar);
     }
 
-    public String windNameOutput(String carName){
-        return null;
+    private void winNameOutput(List<String> carNames, String[] carStates){
+        int max = -1;
+        List<String> winningCarNames = new ArrayList<>();
+
+        for (int j = 0; j < carNames.size(); j++){
+            int hyphenCount = countHyphens(carStates[j]);
+            if (hyphenCount > max) {
+                max = hyphenCount;
+                winningCarNames.clear();
+                winningCarNames.add(carNames.get(j).trim());
+            }else if(hyphenCount == max){
+                winningCarNames.add(carNames.get(j).trim());
+            }
+        }
+
+        if (winningCarNames.size() == 1) {
+            System.out.println("최종 우승자 : " + winningCarNames);
+        } else if(winningCarNames.size() > 1){
+            System.out.println("최종 우승자 : " + String.join(", ", winningCarNames));
+        }
+    }
+
+    private int countHyphens(String str) {
+        int count = 0;
+        for (char c : str.toCharArray()) {
+            if (c == '-') {
+                count++;
+            }
+        }
+        return count;
     }
 }
