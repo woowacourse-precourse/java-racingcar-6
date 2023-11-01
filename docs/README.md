@@ -3,7 +3,9 @@
 ### USER
 1. [X] USER가 입력하는 함수 : `input()`
 2. [X] USER가 입력한 CarName을 split해주는 함수 : `splitInput(String)`
-3. [X] 시도 횟수 parseInt해주는 함수 : `stringToInteger()`
+3. [X] 시도 횟수 parseInt해주는 함수 : `stringToInteger(String)`
+4. [x] 시작메세지를 출력하고 carNames를 입력받는 함수 : `inputCarNames()`
+5. [x] 시도회수 입력 메세지를 출력하고 moveCount를 입력받는 함수 : `inputMoveCount()`
 
 ### GAME
 1. [X] 0부터 9까지 랜덤으로 뽑아주는 함수 : `randomNumber()`
@@ -22,6 +24,8 @@
 ### EXCEPTION
 1. [ ] ~~자동차 이름이 중복되면 안된다.~~
 2. [X] 자동차의 이름은 5글자 이하여야 한다 : `Car.checkLength`
-3. [X] 몇 번 이동할 지에 0번을 입력하면 안된다 : `User.stringToInteger`
+3. [X] 몇 번 이동할 지에 0을 입력하면 안된다 : `User.isZero`
 4. [ ] ~~자동차 경주는 2개 이상의 자동차를 입력해야한다.(1개 이하는 허용하지 않는다.)~~
 5. [ ] ~~만일 자동차가 모두 0의 값을 유지한다면, 모두 위너인가 ?~~
+6. [X] 입력값이 Null이면 안된다 : `User.isNull`
+7. [X] moveCount에는 String이 입력되면 안된다 : `User.stringToInteger`
