@@ -29,6 +29,7 @@ public class RacingController implements Game {
         racingService.registerCars(carNames);
         int attemptNumber = getValidatedAttemptNumber();
         raceWhile(attemptNumber);
+        racingOutputView.printWinners(racingService.makeWinnerList());
     }
 
     private void raceWhile(int attemptNumber) {
