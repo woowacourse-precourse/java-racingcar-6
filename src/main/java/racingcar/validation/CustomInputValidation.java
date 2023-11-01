@@ -28,7 +28,7 @@ public class CustomInputValidation {
             int number = Integer.parseInt(input);
             return number;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("유효한 정수가 아닙니다: " + input);
+            throw new IllegalArgumentException("유효한 정수가 아닙니다.");
         }
     }
 }
