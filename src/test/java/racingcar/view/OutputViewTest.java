@@ -2,6 +2,8 @@ package racingcar.view;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,6 +31,18 @@ class OutputViewTest {
         outputView.printExecutionResult();
 
         assertEquals("\n실행 결과\r\n", outputStream.toString());
+    }
+
+    @Test
+    public void printRacingCarStatus_출력테스트() {
+        List<String> carStatus = new ArrayList<>();
+        carStatus.add("test : ---");
+        carStatus.add("car : -");
+
+        OutputView outputView = new OutputView();
+        outputView.printRacingCarStatus(carStatus);
+
+        assertEquals("test : ---\r\ncar : -\r\n\r\n", outputStream.toString());
     }
 
 }
