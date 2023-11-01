@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.console.Input;
+import racingcar.console.Output;
 import racingcar.entity.Car;
 
 import java.util.ArrayList;
@@ -31,7 +32,9 @@ public class Race {
     private void startRace(int rounds) {
         for (int i = 0; i < rounds; i++) {
             moveCars();
+            printCurrentState();
         }
+        printWinner();
     }
 
     private void moveCars() {
@@ -41,4 +44,29 @@ public class Race {
         }
     }
 
+    private void printCurrentState() {
+        for (Car car : cars) {
+            Output.printCarState(car.getName(), car.getPosition());
+        }
+        Output.printNewLine();
+    }
+
+    private void printWinner() {
+        int maxPosition = getMaxPosition();
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        Output.printWinner(String.join(", ", winners));
+    }
+
+    private int getMaxPosition() {
+        int max = -1;
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
+        return max;
+    }
 }
