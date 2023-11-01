@@ -7,6 +7,7 @@ public class AppConstants {
     // 게임 출력 메시지
     public static final String MSG_INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String MSG_INPUT_GAME_ROUND = "시도할 회수는 몇회인가요?";
+    public static final String MSG_GAME_START = "\n실행 결과";
     // 에러 출력 메시지
     public static final String ERR_PLEASE_ENTER_NAME_VALUE = "값을 입력해 주세요.";
     public static final String ERR_NAME_CANNOT_BE_BLANK = "이름을 공백으로 설정할 수 없습니다.";

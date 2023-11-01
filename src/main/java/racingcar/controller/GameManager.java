@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.view.GameOutput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class GameManager {
             List<String> nameList = userInputHandler.getCarNameList();
             int round = userInputHandler.getGameRound();
             List<Car> carList = createCarList(nameList);
+            startGameProcess(round, carList);
         }
         catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -27,4 +29,9 @@ public class GameManager {
         }
         return carList;
     }
+
+    private void startGameProcess(int round, List<Car> carList) {
+        GameOutput.printGameStart();
+    }
+
 }

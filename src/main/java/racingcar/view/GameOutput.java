@@ -10,4 +10,7 @@ public class GameOutput {
     public static void printInputGameRound() {
         System.out.println(AppConstants.MSG_INPUT_GAME_ROUND);
     }
+    public static void printGameStart() {
+        System.out.println(AppConstants.MSG_GAME_START);
+    }
 }
