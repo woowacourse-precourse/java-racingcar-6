@@ -17,32 +17,17 @@ public class CarGame {
         Validation.name(cars);
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public void setPlayCount(String playCount) {
         Validation.isPositiveInt(playCount);
         this.playCount = Integer.parseInt(playCount);
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public int getPlayCount() {
         return playCount;
-    }
-
-    private void saveDivideName(String name) {
-        StringTokenizer tokenizer = new StringTokenizer(name.trim(), ",");
-
-        while (tokenizer.hasMoreTokens()) {
-            String result = tokenizer.nextToken().trim();
-            cars.add(new Car(result, 0));
-        }
-    }
-
-    public void moveOrStop() {
-        for (Car car : cars) {
-            car.move(RandomNum.generate());
-        }
     }
 
     public List<String> getWinner() {
@@ -62,5 +47,20 @@ public class CarGame {
                 .orElse(0);
 
         return maxDistance;
+    }
+
+    private void saveDivideName(String name) {
+        StringTokenizer tokenizer = new StringTokenizer(name.trim(), ",");
+
+        while (tokenizer.hasMoreTokens()) {
+            String result = tokenizer.nextToken().trim();
+            cars.add(new Car(result, 0));
+        }
+    }
+
+    public void moveOrStop() {
+        for (Car car : cars) {
+            car.move(RandomNum.generate());
+        }
     }
 }
