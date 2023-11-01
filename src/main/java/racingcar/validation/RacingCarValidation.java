@@ -8,6 +8,7 @@ public class RacingCarValidation {
     public static final String CAR_LIST_IS_NOT_AVAIL = "최소 두 개 이상의 차 이름을 입력해주세요.";
     public static final String CAR_NAME_LENGTH_IS_NOT_AVAIL = "차 이름은 다섯글자로 입력해주세요";
     public static final int CAR_NAME_LIMIT_LENGTH = 5;
+    public static final String IS_NOT_AVAIL_NUMBER = "숫자만 입력해주세요.";
 
     public static void isNotAvailCarList(List<Car> carList) {
         int size = carList.size();
@@ -28,7 +29,7 @@ public class RacingCarValidation {
         try {
             number = new InputView().gameRunningNumber();
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자만 입력해주세요.");
+            throw new IllegalArgumentException(IS_NOT_AVAIL_NUMBER);
         }
         return number;
     }
