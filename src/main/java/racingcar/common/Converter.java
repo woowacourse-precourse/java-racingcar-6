@@ -10,7 +10,7 @@ public class Converter {
     private final static String NOT_INTEGER_MESSAGE = "숫자를 입력해주세요.";
 
     public static Map<String, Integer> stringToMap(String input){
-        LinkedHashMap<String, Integer> map = Arrays.stream(input.split(","))
+        LinkedHashMap<String, Integer> map = Arrays.stream(input.split(SPLIT_POINT))
                 .collect(Collectors.toMap(key -> key, value -> 0, (v1, v2) -> {
                     throw new IllegalArgumentException(InputValidator.DUPLICATED_NAME);
                 }, LinkedHashMap::new));
