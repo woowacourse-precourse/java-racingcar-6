@@ -39,6 +39,7 @@ public class CountInput extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 이름중복_예외처리() {
         assertSimpleTest(() ->
