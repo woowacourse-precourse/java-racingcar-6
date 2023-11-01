@@ -24,6 +24,14 @@ public class RacingCars {
         return carList;
     }
 
+    public List<Car> getRacingCars() {
+        return racingCars;
+    }
+
+    public void updateRacingCars(List<Car> racingCars) {
+        this.racingCars = racingCars;
+    }
+
     private void validateDuplicateCarName(List<Car> racingCars) {
         Set<Car> cars = new HashSet<>();
 
