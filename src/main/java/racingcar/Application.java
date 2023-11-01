@@ -1,7 +1,12 @@
 package racingcar;
 
+import racingcar.domain.Game;
+import racingcar.domain.GameMaker;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        GameMaker maker = new GameMaker();
+        Game manager = new Game(maker.cars, maker.totalRounds);
+        manager.play();
     }
 }
