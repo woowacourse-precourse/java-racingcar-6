@@ -3,6 +3,8 @@ package racingcar;
 public class RacingGame {
     public RacingGame() {
         Player.inputCarName();
+        Player.makeCarList(Player.getCarNames());
+        Player.validateInput(Player.getCarList());
         Player.inputAttemptsCount();
         Leaderboard.makeCarInstanceList();
     }
