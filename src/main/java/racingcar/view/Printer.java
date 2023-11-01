@@ -8,4 +8,8 @@ public class Printer {
         System.out.println(CAR_CHOICE);
     }
 
+    public static void printRoundChoiceMessage() {
+        System.out.println(ROUND_CHOICE);
+    }
+
 }

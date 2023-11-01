@@ -9,14 +9,17 @@ public class RacingcarController {
 
     public static void startRacingcarGame() {
         Printer.printCarChoiceMessage();
-        String inputMessage = InputHandler.getInputMessage();
+        String carChoiceInputMessage = InputHandler.getInputMessage();
 
-        playRacingcarGame(inputMessage);
+        Printer.printRoundChoiceMessage();
+        String roundChoiceInputMessage = InputHandler.getInputMessage();
+
+        playRacingcarGame(carChoiceInputMessage, roundChoiceInputMessage);
     }
 
-    private static void playRacingcarGame(String inputMessage) {
+    private static void playRacingcarGame(String carChoiceInputMessage, String roundChoiceInputMessage) {
         RacingcarGameService racingcarGameService = new RacingcarGameServiceImpl();
-        racingcarGameService.generateCarsToRace(inputMessage);
+        racingcarGameService.generateCarsToRace(carChoiceInputMessage);
     }
 
 }
