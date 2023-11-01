@@ -13,40 +13,25 @@ public class Play {
     private int gameTryNumber;
 
 
-
-    public void playGame(){
+    public void playGame() {
         System.out.println(START_MESSAGE);
-        //게임정보저장기능
         inputGameInformation();
-        //게임결과메세지생성기능
         playResultMessage();
-        //최종승자메세지생성기능
         championMessage();
     }
 
-    public void inputGameInformation(){
-        //자동차 이름 저장(inputCarNmaeInformation)
+    public void inputGameInformation() {
         String carName = Console.readLine();
-        //자동차 이름 공백 예외 던지기
         varifyCarNameBlank(carName);
-        // 자동차 이름 맵에 저장
         String[] carNameStringArray = carName.split(",");
-        // 자동차 이름 5자 이상 예외처리
         varifyCarNameLength(carNameStringArray);
-        //맵에 저장
         for (String carNameInformation : carNameStringArray) {
             racerInformation.put(carNameInformation, 0);
         }
-
         System.out.println(COUNT_MESSAGE);
-
-        // 게임시도횟수 입력(inputTryNumberInformation)
         String checkGameTryNumber = Console.readLine();
-        //공백 예외 던지기
         varifyCarNameBlank(checkGameTryNumber);
-        //숫자가 아니면 예외 던지기
         varifyTryNumberIsNumeric(checkGameTryNumber);
-        // 게임시도횟수 저장
         gameTryNumber = Integer.parseInt(checkGameTryNumber);
     }
 
@@ -59,11 +44,10 @@ public class Play {
         }
     }
 
-    public void playOnce(String carName){
+    public void playOnce(String carName) {
         StringBuilder tempMessage = new StringBuilder();
         int diceNumber = Randoms.pickNumberInRange(0, 9);
-
-        if(diceNumber >= 4){
+        if (diceNumber >= 4) {
             racerInformation.put(carName, racerInformation.get(carName) + 1);
         }
         System.out.println(creatResultMessage(tempMessage, carName));
@@ -78,59 +62,55 @@ public class Play {
         return resultMessage;
     }
 
-    public void championMessage(){
+    public void championMessage() {
         StringBuilder tempChampoinMessage = new StringBuilder();
         tempChampoinMessage.append(CHAMPION_MESSAGE);
-        // 최대 숫자 찾는 기능
         int champoinNumber = forwrdMax();
-        //우승자 찾는 기능(findChampoin)
         findChampoin(tempChampoinMessage, champoinNumber);
-        //끝트머리 글자자르는 기능
         deleteEndSuplus(tempChampoinMessage);
-
         String champoinMessage = tempChampoinMessage.toString();
         System.out.println(champoinMessage);
     }
 
-    public int forwrdMax(){
+    public int forwrdMax() {
         int forwrdMax = Integer.MIN_VALUE;
-        for(String carName: racerInformation.keySet()){
+        for (String carName : racerInformation.keySet()) {
             forwrdMax = Math.max(forwrdMax, racerInformation.get(carName));
         }
         return forwrdMax;
     }
 
-    public void findChampoin(StringBuilder tempChampoinMessage, int champoinNumber){
+    public void findChampoin(StringBuilder tempChampoinMessage, int champoinNumber) {
         for (String carName : racerInformation.keySet()) {
-            if(racerInformation.get(carName) == champoinNumber){
+            if (racerInformation.get(carName) == champoinNumber) {
                 tempChampoinMessage.append(carName);
                 tempChampoinMessage.append(", ");
             }
         }
     }
 
-    public void deleteEndSuplus(StringBuilder tempChampoinMessage){
+    public void deleteEndSuplus(StringBuilder tempChampoinMessage) {
         tempChampoinMessage.delete(tempChampoinMessage.length() - 2, tempChampoinMessage.length());
     }
 
 
     //예외처리
-    public void varifyCarNameLength(String[] carNameStringArray){
+    public void varifyCarNameLength(String[] carNameStringArray) {
         for (String charName : carNameStringArray) {
-            if(charName.length() > 5){
+            if (charName.length() > 5) {
                 throw new IllegalArgumentException(wrongInputLength);
             }
         }
     }
 
-    public void varifyCarNameBlank(String gameInformation){
-        if(gameInformation.isBlank()){
+    public void varifyCarNameBlank(String gameInformation) {
+        if (gameInformation.isBlank()) {
             throw new IllegalArgumentException(wrongInputBlank);
         }
     }
 
-    public void varifyTryNumberIsNumeric(String gameInformation){
-        if(!gameInformation.matches("\\d+")){
+    public void varifyTryNumberIsNumeric(String gameInformation) {
+        if (!gameInformation.matches("\\d+")) {
             throw new IllegalArgumentException(wrongInputType);
         }
     }
