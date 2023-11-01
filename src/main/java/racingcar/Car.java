@@ -9,11 +9,13 @@ public class Car {
         this.score = 0;
     }
 
-    public void move(){
-        score += 1;
+    public void move(Judge judge) {
+        if (judge.isMoveAvailable()) {
+            score += 1;
+        }
     }
 
-    public int getScore(){
+    public int getScore() {
         return score;
     }
 }
