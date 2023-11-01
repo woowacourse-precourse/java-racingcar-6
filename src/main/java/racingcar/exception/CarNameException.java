@@ -14,14 +14,9 @@ public class CarNameException {
 
     public static void carNameSameException(String[] name){
 
-        Arrays.sort(name);
-
-        String before="";
+        String[] resultArr = Arrays.stream(name).distinct().toArray(String[]::new);
         for (int i = 0; i < name.length; i++) {
-            if (before.equals(name[i])){
-                throw new IllegalArgumentException("자동차는 각각 다른 이름을 가져야 합니다.");
-            }
-            before = name[i];
+            name[i] = resultArr[i];
         }
 
     }
