@@ -39,6 +39,7 @@ public class CarNameValidator {
         if (carName == null) {
             return false;
         }
+
         Pattern pattern = Pattern.compile(CAR_NAME_PATTERN);
         Matcher matcher = pattern.matcher(carName);
         return matcher.matches();

@@ -25,6 +25,7 @@ public class Race {
             }
             this.raceResult.add(raceResult);
         }
+
         return raceResult;
     }
 

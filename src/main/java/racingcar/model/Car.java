@@ -21,9 +21,11 @@ public class Car {
 
     public void move() {
         int randomNumber = getRandomNumber();
+
         if (isMovable(randomNumber)) {
             this.position++;
         }
+
     }
 
     private int getRandomNumber() {

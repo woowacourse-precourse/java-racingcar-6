@@ -20,11 +20,15 @@ public class ConsoleResultView implements ResultView {
 
     public void displayRaceResults() {
         displayMessage(RESULT_MESSAGE);
+
         for (HashMap<String, Integer> result : raceResult) {
+
             for (String carName : result.keySet()) {
                 displayMessage(carName + " : " + "-".repeat(result.get(carName)));
             }
+
             displayMessage("");
+
         }
     }
 

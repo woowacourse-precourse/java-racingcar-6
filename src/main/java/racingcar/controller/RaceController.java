@@ -62,9 +62,11 @@ public class RaceController {
      */
     private List<Car> initCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
+
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+        
         return cars;
     }
 
