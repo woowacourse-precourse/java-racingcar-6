@@ -1,14 +1,11 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
-import java.util.Objects;
 
 public class InputView {
 
-    public RacingCars inputNameOfRacingCars() {
-        String input = Console.readLine();
-        String[] split = input.split(",");
+    public RacingCars inputNameOfRacingCars(String namesOfCars) {
+        String[] split = namesOfCars.split(",");
         return new RacingCars(Arrays.asList(split));
     }
 }

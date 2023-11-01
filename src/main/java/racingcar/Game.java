@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Game {
     private final OutView outView = new OutView();
     private final InputView inputView = new InputView();
@@ -9,7 +11,8 @@ public class Game {
         outView.printInputRacingCar();
 
         // 출전할 레이싱카를 입력받는다.
-        RacingCars racingCars = inputView.inputNameOfRacingCars();
+        String nameOfCars = Console.readLine();
+        RacingCars racingCars = inputView.inputNameOfRacingCars(nameOfCars);
 
         // 시도할 횟수를 입력받는다.
 
