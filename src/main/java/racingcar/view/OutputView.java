@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.dto.CarPositionResponse;
+import racingcar.dto.WinnersNameResponse;
 
 public class OutputView {
 
@@ -38,8 +39,8 @@ public class OutputView {
         System.out.println(carPositionResponse.getName() + COLON + DASH.repeat(carPositionResponse.getPosition()));
     }
 
-    public void printFinalResult(List<String> winnerNames) {
-        System.out.println(FINAL_WINNER_MESSAGE + joinCarNames(winnerNames));
+    public void printFinalResult(WinnersNameResponse winnersNameResponse) {
+        System.out.println(FINAL_WINNER_MESSAGE + joinCarNames(winnersNameResponse.getWinnersName()));
     }
 
     private static String joinCarNames(List<String> carNames) {

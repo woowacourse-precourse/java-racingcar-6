@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import racingcar.util.ExceptionMessage;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int MIN_MOVE_SIZE = 0;
     private static final int MAX_MOVE_SIZE = 9;
     private static final int POSSIBLE_MOVE_STANDARD_SIZE = 4;
@@ -46,6 +46,10 @@ public class Car {
         return position.getPosition();
     }
 
+    public boolean isEqualPosition(Car other) {
+        return this.position.equals(other.position);
+    }
+
     @Override
     public boolean equals(Object other) {
         if (this == other) {
@@ -54,12 +58,17 @@ public class Car {
         if (other == null || getClass() != other.getClass()) {
             return false;
         }
-        Car otherCar = (Car) other;
-        return Objects.equals(this.name, otherCar.name);
+        Car that = (Car) other;
+        return this.name.getName().equals(that.name.getName());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return position.compareTo(other.position);
     }
 }
