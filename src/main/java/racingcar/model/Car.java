@@ -19,6 +19,23 @@ public class Car {
         return true;
     }
 
+    public void stopOrMoveForward(){
+        if(isMoveForward()){
+            this.moveForward();
+        }
+    }
+
+    private Boolean isMoveForward(){
+        if(Randoms.pickNumberInRange(0,9)<4){
+            return false;
+        }
+        return true;
+    }
+
+    private void moveForward(){
+        this.distance++;
+    }
+
     
 
     public Integer measureDistance(){
