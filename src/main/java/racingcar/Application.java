@@ -80,6 +80,17 @@ public class Application {
         });
         System.out.println();
     }
+    private static void showWinner(){
+        Integer maxValue = Collections.max(carsMap.values());
+        List<String> winners = new ArrayList<>();
+
+        carsMap.forEach((key, value) -> {
+            if(maxValue.equals(value)){
+                winners.add(key);
+            }
+        });
+        System.out.print("최종 우승자 : " + String.join(", ", winners));
+    }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
