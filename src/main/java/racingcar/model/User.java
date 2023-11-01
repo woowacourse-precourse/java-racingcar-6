@@ -20,10 +20,10 @@ public class User {
         return carNamesList;
     }
 
-    public String inputTryCount() {
+    public int inputTryCount() {
         InputView.inputTryCount();
         String tryCount = Console.readLine();
-        return tryCount;
+        return Integer.parseInt(tryCount);
     }
 
     public void checkExceed5Digits(List<String> userInputCarNames) {
@@ -31,6 +31,14 @@ public class User {
             if(carName.length() > 5) {
                 throw new IllegalArgumentException("차 이름이 5자를 초과하였습니다.");
             }
+        }
+    }
+
+    public void checkTryCountIsNum(String tryCount) {
+        try {
+            Integer.parseInt(tryCount);
+        }catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자가 아닌 값을 입력하였습니다.");
         }
     }
 }
