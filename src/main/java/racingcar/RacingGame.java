@@ -13,6 +13,7 @@ public class RacingGame {
 		List<Car> racingCars = getRacingCars();
 		int tryCount = getInputTryCount();
 
+		System.out.println("실행 결과");
 		for (int i = 0; i < tryCount; i++) {
 			for (Car racingCar : racingCars) {
 				racingCar.move();
@@ -46,6 +47,7 @@ public class RacingGame {
 	private int getInputTryCount() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		int tryCount = Integer.parseInt(Console.readLine());
+		System.out.println();
 
 		return tryCount;
 	}
@@ -53,7 +55,6 @@ public class RacingGame {
 	private void printRacing(List<Car> cars) {
 		StringBuffer stringBuffer = new StringBuffer();
 
-		System.out.println("실행 결과");
 		for (Car car : cars) {
 			System.out.println(car.getName() + " : " + carProgress(stringBuffer, car.getPosition()));
 		}
@@ -83,7 +84,18 @@ public class RacingGame {
 				winners.add(car);
 			}
 		}
-
 		return winners;
 	}
+
+	private void printWinners(List<Car> winners) {
+		System.out.print("최종 우승자 : ");
+		for (int i = 0; i < winners.size(); i++) {
+			if (i==winners.size()-1) {
+				System.out.println(winners.get(i).getName());
+			} else {
+				System.out.print(winners.get(i).getName()+", ");
+			}
+		}
+	}
+
 }
