@@ -16,11 +16,11 @@ public final class GameIOController implements IOController {
 
     @Override
     public void showIntroMessage() {
-        ioView.showSingleMessage(GameMessage.INTRO_MESSAGE.toString());
+        ioView.showSingleMessage(GameIOMessage.INTRO_MESSAGE.getMessage());
     }
 
     public void showRequestRoundNumberMessage() {
-        ioView.showSingleMessage(GameMessage.ASK_ROUND_MESSAGE.toString());
+        ioView.showSingleMessage(GameIOMessage.ASK_ROUND_MESSAGE.getMessage());
     }
 
     public Integer getRoundNumber() {
@@ -39,8 +39,8 @@ public final class GameIOController implements IOController {
     }
 
     private List<String> parseIntoCarNames(final String givenInput) {
-        inputValidator.validateNamesByDelimiter(givenInput, GameMessage.DELIMITER.toString());
-        return Arrays.asList(givenInput.split(GameMessage.DELIMITER.toString()));
+        inputValidator.validateNamesByDelimiter(givenInput, GameIOMessage.INPUT_DELIMITER.toString());
+        return Arrays.asList(givenInput.split(GameIOMessage.INPUT_DELIMITER.toString()));
     }
 
     public void showRoundResult(final List<String> message) {
@@ -48,8 +48,8 @@ public final class GameIOController implements IOController {
     }
 
     public void showWinner(final List<String> message) {
-        ioView.showHeadMessage(GameMessage.WINNER_HEAD_MESSAGE.toString());
-        String winnerNames = String.join(", ",message);
+        ioView.showHeadMessage(GameIOMessage.WINNER_HEAD_MESSAGE.toString());
+        String winnerNames = String.join(GameIOMessage.OUTPUT_DELIMITER.toString(), message);
         ioView.showSingleMessage(winnerNames);
     }
 }
