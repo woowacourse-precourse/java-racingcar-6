@@ -2,8 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.StringJoiner;
 
 public class PlayResult {
     // 실행 결과 출력 메소드
@@ -17,12 +16,12 @@ public class PlayResult {
         System.out.println();
     }
 
-    public void getWinner(String[] results){
+    public void getWinner(String[] results) {
         String max = results[0];
-        List<String> winner = new ArrayList<>();
+        StringJoiner winner = new StringJoiner(", ");
 
         for (int i = 1; i < results.length; i++) {
-            if (max.split(":")[1].length() < results[i].split(":")[1].length()){
+            if (max.split(":")[1].length() < results[i].split(":")[1].length()) {
                 max = results[i];
             }
         }
@@ -31,18 +30,11 @@ public class PlayResult {
 
         for (int i = 0; i < results.length; i++) {
             String name = results[i].split(" ")[0];
-            if (max.split(":")[1].length() == results[i].split(":")[1].length() && !maxname.equals(name)){
+            if (max.split(":")[1].length() == results[i].split(":")[1].length() && !maxname.equals(name)) {
                 winner.add(name);
             }
         }
 
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winner.size(); i++) {
-            if (i == winner.size() - 1){
-                System.out.print(winner.get(i));
-                break;
-            }
-            System.out.print(winner.get(i) + ", ");
-        }
+        System.out.println(String.format("최종 우승자 : %s", winner));
     }
 }
