@@ -53,3 +53,7 @@
   - 최종 우승자 (1명 이상일 수 있음)
 
 ### controller
+- Model과 view를 연결
+
+### Application
+- 프로그램 실행
