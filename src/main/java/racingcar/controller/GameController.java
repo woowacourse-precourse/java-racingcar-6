@@ -23,8 +23,8 @@ public class GameController {
         outputView.printResultGuide();
         for (int i = 0; i < count; i++) {
             cars.forward(numberGenerator);
-            outputView.printResult(cars);
+            outputView.printResults(cars);
         }
-        outputView.printWinner(cars);
+        outputView.printWinners(cars);
     }
 }

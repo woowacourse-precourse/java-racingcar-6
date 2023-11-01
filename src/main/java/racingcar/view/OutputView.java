@@ -11,11 +11,11 @@ public class OutputView {
         System.out.println(GAME_RESULT);
     }
 
-    public void printResult(Cars cars) {
+    public void printResults(Cars cars) {
         System.out.println(Converter.formatCarsResult(cars));
     }
 
-    public void printWinner(Cars cars) {
+    public void printWinners(Cars cars) {
         System.out.println();
         System.out.print(WINNER);
         Cars winner = cars.judgeWinner();
