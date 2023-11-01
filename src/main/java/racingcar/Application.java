@@ -1,86 +1,107 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        Console console = new Console();
-        String[] carNames = getInputCarNames(console);
-        int tryCount = getInputTryCount(console);
-
-        List<Car> cars = createCars(carNames);
-
-        System.out.println("실행 결과");
-
-        for (int i = 0; i < tryCount; i++) {
-            playRound(cars);
-            printRoundResult(cars);
-        }
-
-        List<String> winners = getWinners(cars);
-        printWinners(winners);
-    }
-
-    private static String[] getInputCarNames(Console console) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return console.readLine().split(",");
-    }
+        String input = Console.readLine();
+        String[] carNames = input.split(",");
 
-    private static int getInputTryCount(Console console) {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(console.readLine());
+        int tryCount = Integer.parseInt(Console.readLine());
+
+        // 자동차 생성 및 게임 진행
+        RacingGame racingGame = new RacingGame(carNames);
+        racingGame.playGame(tryCount);
+
+        // 결과 출력
+        System.out.println("실행 결과");
+        racingGame.printGameResult();
+        System.out.println("최종 우승자 : " + racingGame.getWinners());
+    }
+}
+
+class Car {
+    private final String name;
+    private int position;
+
+    public Car(String name) {
+        this.name = name;
+        this.position = 0;
     }
 
-    private static List<Car> createCars(String[] carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String name : carNames) {
-            cars.add(new Car(name));
+    public void move() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            position++;
         }
-        return cars;
     }
 
-    private static void playRound(List<Car> cars) {
-        for (Car car : cars) {
-            car.move();
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+}
+
+class RacingGame {
+    private final Car[] cars;
+    private final StringBuilder gameResult;
+
+    public RacingGame(String[] carNames) {
+        cars = new Car[carNames.length];
+        gameResult = new StringBuilder();
+
+        for (int i = 0; i < carNames.length; i++) {
+            cars[i] = new Car(carNames[i]);
         }
     }
 
-    private static void printRoundResult(List<Car> cars) {
-        for (Car car : cars) {
-            StringBuilder result = new StringBuilder(car.getName() + " : ");
-            for (int i = 0; i < car.getPosition(); i++) {
-                result.append("-");
+    public void playGame(int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            for (Car car : cars) {
+                car.move();
             }
-            System.out.println(result.toString());
+            printRoundResult();
         }
-        System.out.println();
     }
 
-    private static List<String> getWinners(List<Car> cars) {
-        int maxPosition = cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(0);
+    public void printRoundResult() {
+        for (Car car : cars) {
+            gameResult.append(car.getName()).append(" : ").append("-".repeat(car.getPosition())).append("\n");
+        }
+        gameResult.append("\n");
+    }
 
-        List<String> winners = new ArrayList<>();
+    public void printGameResult() {
+        System.out.println(gameResult.toString());
+    }
+
+    public String getWinners() {
+        int maxPosition = getMaxPosition();
+        StringBuilder winners = new StringBuilder();
+
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
+                if (winners.length() > 0) {
+                    winners.append(", ");
+                }
+                winners.append(car.getName());
             }
         }
-        return winners;
+
+        return winners.toString();
     }
 
-    private static void printWinners(List<String> winners) {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i < winners.size() - 1) {
-                System.out.print(", ");
-            }
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
         }
+        return maxPosition;
     }
 }
