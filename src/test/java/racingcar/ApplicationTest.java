@@ -9,8 +9,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
+    public static final int MOVING_FORWARD = 4;
+    public static final int STOP = 3;
 
     @Test
     void 전진_정지() {
@@ -29,6 +29,14 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 차_이름_구분_테스트() {
+        assertRandomNumberInRangeTest(() -> {
+            run("pobi,woni,jun", "1");
+            assertThat(output()).contains("pobi : -", "woni : -", "jun : -", "최종 우승자 : pobi,woni");
+        }, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD);
     }
 
     @Override
