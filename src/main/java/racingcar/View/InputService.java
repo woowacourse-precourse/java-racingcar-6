@@ -37,4 +37,11 @@ public class InputService {
        return this.inputTryNum=tryNum;
 
     }
+
+    public void throwException(String input) {
+        if (!valideFivename(input)) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이내로 입력해 주세요");
+        }
+
+    }
 }

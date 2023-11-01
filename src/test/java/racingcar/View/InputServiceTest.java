@@ -43,4 +43,13 @@ public class InputServiceTest {
         String tryNum = "5";
         assertThat(inputService.inputTryNum(tryNum)).isEqualTo("5");
     }
+
+    @Test
+    @DisplayName("사용자가 잘못된 값을 입력할 경우 IllegalArugmentException 발생기능")
+    public void Input4() {
+        name = "pobi,woni,JUUUUN";
+        name = "pobi,woni,JUUUUN";
+        assertThatThrownBy(() -> inputService.throwException(name)).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
