@@ -20,9 +20,17 @@ public class Winner {
     }
 
     private int getMaxMovingCount(List<Car> cars) {
-        return cars.stream()
+        int maxMovingCount = cars.stream()
                 .mapToInt(Car::getMovingCount)
                 .max()
                 .orElse(0);
+        hasWinner(maxMovingCount);
+        return maxMovingCount;
+    }
+
+    private void hasWinner(int maxMovingCount) {
+        if (maxMovingCount == 0) {
+            throw new IllegalArgumentException("우승자가 없습니다. 게임을 종료합니다.");
+        }
     }
 }
