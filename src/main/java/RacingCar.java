@@ -14,4 +14,7 @@ public class RacingCar {
     private void move(int diceNumber) {
         if (4 <= diceNumber) moveCount++;
     }
+    public int showMoveCount() {
+        return moveCount;
+    }
 }
