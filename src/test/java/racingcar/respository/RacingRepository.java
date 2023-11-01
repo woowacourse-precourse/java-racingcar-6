@@ -14,7 +14,7 @@ public class RacingRepository {
         return car;
     }
 
-    public void saveAttempts(int num) {
+    public void saveAttempts(Integer num) {
         attempts = num;
     }
 
