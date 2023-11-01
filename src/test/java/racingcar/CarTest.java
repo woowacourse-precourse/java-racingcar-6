@@ -6,7 +6,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
-
     @Test
     void 자동차_이름_길이초과_예외() {
         //given
