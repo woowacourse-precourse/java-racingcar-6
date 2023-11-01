@@ -19,12 +19,12 @@ public class Loops {
         int userSetLoopCount = racingData.getUserSetLoopTime();
 
 
-        carMovingProcess.makingForwardCountList();
+        carMovingProcess.makingForwardCountList(car.getPassedTestList());
 
 
         for (int i = 0; i < userSetLoopCount; i++) {
 
-            carMovingProcess.upDateForwardCountList();
+            carMovingProcess.upDateForwardCountList(racingData.getForwardPointList());
             racingOutput.carRacing(racingData.getForwardPointList(),car.getPassedTestList());
         }
 
