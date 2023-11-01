@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,6 +19,14 @@ public class Application {
         int tryNumber = getTryNumber();
         if (tryNumber < 0) {
             throw new IllegalArgumentException("시도 횟수는 0 이상만 가능합니다.");
+        }
+        System.out.println();
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < tryNumber; i++) {
+            for (Car car : cars) {
+                car.move(Randoms.pickNumberInRange(0, 9));
+            }
         }
     }
 
