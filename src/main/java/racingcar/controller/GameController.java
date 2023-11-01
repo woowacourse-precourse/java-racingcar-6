@@ -17,7 +17,7 @@ public class GameController {
         race(carList, tryCount);
     }
 
-    public void race(List<Car> carList, int tryCount) {
+    private void race(List<Car> carList, int tryCount) {
         int countCheck = 1;
 
         while (countCheck < tryCount) {
