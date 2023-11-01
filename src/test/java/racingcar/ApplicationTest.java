@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.views.OutputView;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -24,10 +26,24 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
+    void 우승자가_다수일_경우() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("abc,defg,hij", "2");
+                    assertThat(output()).contains("abc : --", "defg : --", "hij : ", "최종 우승자 : abc, defg");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 단독_우승일_경우() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("abc,defg,hij", "2");
+                    assertThat(output()).contains("abc : --", "defg : -", "hij : ", "최종 우승자 : abc");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP
         );
     }
 
