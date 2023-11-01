@@ -100,6 +100,15 @@ public class Play {
         return forwrdMax;
     }
 
+    public void findChampoin(StringBuilder tempChampoinMessage, int champoinNumber){
+        for (String carName : racerInformation.keySet()) {
+            if(racerInformation.get(carName) == champoinNumber){
+                tempChampoinMessage.append(carName);
+                tempChampoinMessage.append(", ");
+            }
+        }
+    }
+
 
     //예외처리
     public void varifyCarNameLength(String[] carNameStringArray){
