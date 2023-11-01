@@ -28,4 +28,24 @@ public class RacingCars {
         }
     }
 
+    public List<RacingCar> findCarsWithMaxDistance() {
+        if (racingCarList.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        RacingCar maxDistanceCar = racingCarList.get(0);
+        List<RacingCar> carsWithMaxDistance = new ArrayList<>();
+
+        for (RacingCar car : racingCarList) {
+            if (car.getDistance() > maxDistanceCar.getDistance()) {
+                maxDistanceCar = car;
+                carsWithMaxDistance.clear();
+                carsWithMaxDistance.add(car);
+            } else if (car.getDistance() == maxDistanceCar.getDistance()) {
+                carsWithMaxDistance.add(car);
+            }
+        }
+
+        return carsWithMaxDistance;
+    }
 }

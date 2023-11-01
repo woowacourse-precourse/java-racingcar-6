@@ -27,7 +27,14 @@ public class RacingCarOutput {
         System.out.println();
     }
 
-    public void printWinner() {
-
+    public void printWinner(List<RacingCar> carsWithMaxDistance) {
+        StringBuilder winners = new StringBuilder("최종 우승자 : ");
+        for (int i = 0; i < carsWithMaxDistance.size(); i++) {
+            if (i > 0) {
+                winners.append(", ");
+            }
+            winners.append(carsWithMaxDistance.get(i).getName());
+        }
+        System.out.println(winners);
     }
 }
