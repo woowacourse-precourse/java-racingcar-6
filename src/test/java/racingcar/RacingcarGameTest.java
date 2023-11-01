@@ -11,6 +11,20 @@ public class RacingcarGameTest {
 
     RacingcarGame racingcarGame = new RacingcarGame();
 
+    @Test
+    void 아무것도_입력되지_않을_때() {
+        final String carNamesWithComma = "";
+        assertThatThrownBy(() -> racingcarGame.getCarNames(carNamesWithComma))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 공백만_입력했을_때() {
+        final String carNamesWithComma = " ";
+        assertThatThrownBy(() -> racingcarGame.getCarNames(carNamesWithComma))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @DisplayName("차 처음 이름이 공백일 때 예외 발생")
     @Test
     void 차_이름이_공백일_때_예외_발생2() {

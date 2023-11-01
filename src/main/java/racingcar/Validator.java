@@ -6,6 +6,9 @@ import java.util.List;
 public class Validator {
 
     static void carNamesString(String carNamesWithComma) throws IllegalArgumentException {
+        if (carNamesWithComma.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
         int numOfCars = carNamesWithComma.length();
         if (carNamesWithComma.charAt(0) == ',' || carNamesWithComma.charAt(numOfCars - 1) == ',') {
             throw new IllegalArgumentException();
