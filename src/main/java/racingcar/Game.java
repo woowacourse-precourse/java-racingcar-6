@@ -6,13 +6,28 @@ import java.util.List;
 
 public class Game {
 
-    private final List<String> cars;
+    private final String carNames;
+    private List<String> cars;
     private final int num;
     private Car[] car;
 
-    public Game(List<String> cars, int num) {
-        this.cars = cars;
+    public Game(String carNames, int num) {
+        this.carNames = carNames;
         this.num = num;
+        cars = new ArrayList<>();
+    }
+
+    void splitCar() {
+        String tmp = "";
+        for (int i = 0; i < carNames.length(); i++) {
+            if (carNames.charAt(i) == ',') {
+                cars.add(tmp);
+                tmp = "";
+            } else {
+                tmp += (carNames.charAt(i));
+            }
+        }
+        cars.add(tmp);
     }
 
     // 자동차 이름 길이 검사
@@ -77,6 +92,7 @@ public class Game {
     }
 
     void startGame() {
+        splitCar();
         initCar();
         System.out.println("실행 결과");
         for (int i = 0; i < this.num; i++) {
