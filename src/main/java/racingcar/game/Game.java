@@ -21,10 +21,8 @@ public class Game {
     private List<Car> getCars() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분");
         String nameInput = Console.readLine();
-
         List<String> carNames = stream(nameInput.split(","))
                 .toList();
-
         List<Car> cars = carNames.stream()
                 .map(name -> new Car(name))
                 .collect(Collectors.toList());
