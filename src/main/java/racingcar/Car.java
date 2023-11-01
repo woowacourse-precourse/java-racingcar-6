@@ -18,7 +18,7 @@ public class Car {
         return position;
     }
 
-    private void forward() {
+    public void forward() {
         this.position++;
     }
 }
