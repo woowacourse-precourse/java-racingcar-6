@@ -32,7 +32,7 @@ public class CarRace {
 
     private void nameCheck() {
         for (String name : carNames) {
-            if (name.length() > 5) {
+            if (name == null || name.length() > 5) {
                 throw new IllegalArgumentException("CarRace : name invalid");
             }
         }
