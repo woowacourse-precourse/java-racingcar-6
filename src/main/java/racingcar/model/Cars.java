@@ -36,6 +36,14 @@ public class Cars {
         Output.printWinnerResult(this.winnerList);
     }
 
+    public List<Car> getCarList() {
+        return this.carList;
+    }
+
+    public List<String> getWinnerList() {
+        return this.winnerList;
+    }
+
     private void validateDuplicateName(String[] carNameArr) {
         long distinctCount = Arrays.stream(carNameArr)
                                    .distinct()
