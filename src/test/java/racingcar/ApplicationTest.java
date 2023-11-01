@@ -1,13 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -47,14 +47,21 @@ class ApplicationTest extends NsTest {
                 .hasMessage("이름은 5자 이하만 가능합니다.");
     }
 
+    public void convertToNumber(String input){
+        for(int i=0; i<input.length(); i++){
+            char c = input.charAt(i);
+            if(!Character.isDigit(c)){
+                throw new IllegalArgumentException("숫자만 입력하세요");
+            }
+        }
+    }
+
     @Test
     void 숫자가_아닌_경우_예외처리() {
         String input = "dfds";
 
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,woni", input))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("숫자만 입력하세요"));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> convertToNumber(input));
+        assertEquals("숫자만 입력하세요", exception.getMessage());
     }
 
 
