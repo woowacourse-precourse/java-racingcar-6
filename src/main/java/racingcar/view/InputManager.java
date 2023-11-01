@@ -58,8 +58,10 @@ public class InputManager {
     }
 
     public Boolean isValidateTryCount(String tryCount) {
-        if (!isNumber(tryCount) || !isValidNumber(Integer.valueOf(tryCount))) {
-            return false;
+        if (!isNumber(tryCount)) {
+            throw new IllegalArgumentException("INVALID tryCount : non-numeric characters");
+        } else if (isLessThanOne(Integer.valueOf(tryCount))) {
+            throw new IllegalArgumentException("INVALID tryCount : number less than 1");
         }
         return true;
     }
@@ -68,10 +70,10 @@ public class InputManager {
         return tryCount.matches("[0-9]+");
     }
 
-    private Boolean isValidNumber(int tryCount) {
+    private Boolean isLessThanOne(int tryCount) {
         if (tryCount < 1) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }
