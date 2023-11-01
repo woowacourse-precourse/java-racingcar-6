@@ -40,6 +40,8 @@ public class RacingCarGameView implements RepeatingGameView {
                     .append(((String) messageProperties.get("progress-bar")).repeat(car.getPosition()))
                     .append("\n");
         }
+
+        System.out.println(progress);
     }
 
     @Override
