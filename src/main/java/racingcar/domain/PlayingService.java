@@ -9,7 +9,7 @@ public class PlayingService {
     private Car carsName;
 
     public void generateGame() {
-
+        enterName();
     }
 
     private void enterName() {
