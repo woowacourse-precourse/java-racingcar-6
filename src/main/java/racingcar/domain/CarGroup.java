@@ -17,4 +17,11 @@ public class CarGroup {
     public List<Car> getCars() {
         return this.cars;
     }
+
+    public int getMaximumPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
 }

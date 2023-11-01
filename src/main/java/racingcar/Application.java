@@ -3,18 +3,40 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.StringJoiner;
 import racingcar.domain.Car;
 import racingcar.domain.CarGroup;
 import racingcar.validator.InputValidator;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
         CarGroup carGroup = new CarGroup();
         inputCars(carGroup);
+
         int tryCount = inputCount();
         printRoundStatus(tryCount, carGroup);
+
+        int winnerPosition = carGroup.getMaximumPosition();
+        StringJoiner winnerList = getWinners(carGroup, winnerPosition);
+        printWinners(winnerList);
     }
+
+    private static void printWinners(StringJoiner winnerList) {
+        System.out.println("최종 우승자 : " + winnerList);
+    }
+
+    private static StringJoiner getWinners(CarGroup carGroup, int winnerPosition) {
+        StringJoiner winnerList = new StringJoiner(",");
+
+        for (Car car : carGroup.getCars()) {
+            if (car.getPosition() == winnerPosition) {
+                String carNickname = car.getNickname();
+                winnerList.add(carNickname);
+            }
+        }
+        return winnerList;
+    }
+
 
     private static void printRoundStatus(int tryCount, CarGroup carGroup) {
         System.out.println("실행 결과");
