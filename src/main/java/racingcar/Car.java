@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car implements Comparable<Car> {
     private static final int MOVING_THRESHOLD = 4;
     private static final int MINIMUM_RANDOM_VALUE = 0;
-    private static final int MAXIMUM_RANDOM_VALUE = 0;
+    private static final int MAXIMUM_RANDOM_VALUE = 9;
 
     private String name;
     private int currentLocation;
@@ -37,7 +37,7 @@ public class Car implements Comparable<Car> {
 
 
     public String getCurrentStatus() {
-        return this.name + ": " + "-".repeat(this.currentLocation);
+        return this.name + " : " + "-".repeat(this.currentLocation);
     }
 
     public boolean canMoveForward(int randomValue) {
