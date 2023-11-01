@@ -18,6 +18,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.dto.UserAttemptCountsDto;
 import racingcar.dto.UserCarNameDto;
 
 public class RacingCarInputViewTest {
@@ -67,8 +68,8 @@ public class RacingCarInputViewTest {
     void inputAttemptCountsTest(String attempt) {
         System.setIn(generateUserInput(attempt));
         RacingCarInputView racingCarInputView = new RacingCarInputView();
-        String stringAttemptCounts = racingCarInputView.inputAttemptCounts();
+        UserAttemptCountsDto userAttemptCountsDto = racingCarInputView.inputAttemptCounts();
         assertThat(OUTPUT.toString()).isEqualTo("시도할 횟수는 몇회인가요?\n");
-        assertThat(stringAttemptCounts).isEqualTo(attempt);
+        assertThat(userAttemptCountsDto.attemptCounts()).isEqualTo(attempt);
     }
 }

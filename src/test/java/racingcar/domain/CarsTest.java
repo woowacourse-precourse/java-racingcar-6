@@ -10,14 +10,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.dto.UserCarNameDto;
 
 public class CarsTest {
 
     static Stream<Arguments> provideCarsTestArguments() {
         return Stream.of(
-                arguments(new UserCarNameDto(List.of(
-                        "pobi", "woni")), new FixedCarEngine(true)
+                arguments(List.of(
+                        "pobi", "woni"), new FixedCarEngine(true)
                 )
         );
     }
@@ -25,16 +24,16 @@ public class CarsTest {
     @DisplayName("Cars를 생성한다.")
     @ParameterizedTest
     @MethodSource("provideCarsTestArguments")
-    void createTest(UserCarNameDto userCarNameDto) {
-        assertThatCode(() -> Cars.from(userCarNameDto, new FixedCarEngine(true)))
+    void createTest(List<String> cars) {
+        assertThatCode(() -> Cars.from(cars, new FixedCarEngine(true)))
                 .doesNotThrowAnyException();
     }
 
     @DisplayName("자동차들의 엔진에 시동을 걸어서 움직일 수 있으면 1칸 전진한다.")
     @ParameterizedTest
     @MethodSource("provideCarsTestArguments")
-    void moveSuccessTest(UserCarNameDto userCarNameDto) {
-        Cars cars = Cars.from(userCarNameDto, new FixedCarEngine(true));
+    void moveSuccessTest(List<String> inputCarNames) {
+        Cars cars = Cars.from(inputCarNames, new FixedCarEngine(true));
         List<Car> beforeMoveCars = cars.getCars();
         assertThat(beforeMoveCars.get(0).getPosition()).isEqualTo(0);
         assertThat(beforeMoveCars.get(1).getPosition()).isEqualTo(0);
@@ -47,8 +46,8 @@ public class CarsTest {
     @DisplayName("자동차들의 엔진에 시동을 걸어서 움직일 수 없으면 전진하지 않는다.")
     @ParameterizedTest
     @MethodSource("provideCarsTestArguments")
-    void moveFailTest(UserCarNameDto userCarNameDto) {
-        Cars cars = Cars.from(userCarNameDto, new FixedCarEngine(false));
+    void moveFailTest(List<String> inputCarNames) {
+        Cars cars = Cars.from(inputCarNames, new FixedCarEngine(false));
         List<Car> beforeMoveCars = cars.getCars();
         assertThat(beforeMoveCars.get(0).getPosition()).isEqualTo(0);
         assertThat(beforeMoveCars.get(1).getPosition()).isEqualTo(0);
@@ -61,8 +60,8 @@ public class CarsTest {
     @DisplayName("사용자가 입력한 자동차 이름으로 자동차객체를 생성한다.")
     @ParameterizedTest
     @MethodSource("provideAssembleTestArguments")
-    void assembleTest(UserCarNameDto userCarNameDto, Cars expectedCars) {
-        Cars assembledCars = Cars.from(userCarNameDto, new FixedCarEngine(true));
+    void assembleTest(List<String> inputNames, Cars expectedCars) {
+        Cars assembledCars = Cars.from(inputNames, new FixedCarEngine(true));
         List<Car> assembledCarList = assembledCars.getCars();
         List<Car> expectedCarList = expectedCars.getCars();
         for (int i = 0; i < assembledCarList.size(); i++) {
@@ -76,12 +75,12 @@ public class CarsTest {
     static Stream<Arguments> provideAssembleTestArguments() {
         return Stream.of(
                 arguments(
-                        new UserCarNameDto(List.of("pobi", "woni", "jun")),
-                        Cars.from(new UserCarNameDto(List.of("pobi", "woni", "jun")), new FixedCarEngine(true)),
+                        List.of("pobi", "woni", "jun"),
+                        Cars.from(List.of("pobi", "woni", "jun"), new FixedCarEngine(true)),
                         List.of("pobi", "woni"),
-                        Cars.from(new UserCarNameDto(List.of("pobi", "woni")), new FixedCarEngine(true)),
+                        Cars.from(List.of("pobi", "woni"), new FixedCarEngine(true)),
                         List.of("pobi"),
-                        Cars.from(new UserCarNameDto(List.of("pobi")), new FixedCarEngine(true))
+                        Cars.from(List.of("pobi"), new FixedCarEngine(true))
                 )
         );
     }
