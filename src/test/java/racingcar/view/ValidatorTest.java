@@ -51,4 +51,10 @@ public class ValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> Validator.validateTryCountInput("-1"));
         assertThrows(IllegalArgumentException.class, () -> Validator.validateTryCountInput("a"));
     }
+
+    @Test
+    void 중복된_이름을_검사한다() {
+        assertThrows(IllegalArgumentException.class, () -> Validator.validateTryCountInput("a,a"));
+        assertThrows(IllegalArgumentException.class, () -> Validator.validateTryCountInput("b,a,a"));
+    }
 }

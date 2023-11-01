@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 사용자 입력을 검증하는 클래스
@@ -33,6 +34,7 @@ public class Validator {
         checkInputCharacter(input);
         checkInputBlankName(input);
         checkEachNameLength(input);
+        checkDuplicateNames(input);
     }
 
     private static void checkInputCharacter(String input) {
@@ -67,6 +69,15 @@ public class Validator {
         }
         if (input.length() > 5) {
             throw new IllegalArgumentException("이름은 5자 이하로 입력해주세요.");
+        }
+    }
+
+    private static void checkDuplicateNames(String input) {
+        List<String> nameList = Arrays.asList(input.split(","));
+        long uniqueCount = nameList.stream().distinct().count();
+
+        if (uniqueCount < nameList.size()) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }
 }
