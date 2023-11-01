@@ -26,4 +26,8 @@ public class Race {
     public String toString() {
         return cars.toString() + RACE_RESULT_DELIMITER;
     }
+
+    public String toWinnerResultString() {
+        return cars.getWinnerNames().toString();
+    }
 }
