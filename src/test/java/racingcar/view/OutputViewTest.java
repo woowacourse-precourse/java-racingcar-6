@@ -20,6 +20,17 @@ public class OutputViewTest extends NsTest {
         });
     }
 
+    @Test
+    void 경주_시도_횟수_입력_문구를_출력하는_기능_테스트() {
+        assertSimpleTest(() -> {
+            //when
+            OutputView.printGetTryCount();
+
+            //then
+            Assertions.assertThat(output()).contains("시도할 회수는 몇회인가요?");
+        });
+    }
+
 
 
     @Override
