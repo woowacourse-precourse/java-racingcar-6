@@ -30,7 +30,7 @@
 
 ## 3. 유틸 함수
 ### 1) 문자열 파싱 StringParser
-- [ ] 문자열을 자동차 이름 배열로 파싱하는 기능 - parseCarName(String str)
+- [x] 문자열을 자동차 이름 배열로 파싱하는 기능 - parseCarName(String str)
 - [ ] 문자열을 횟수 값으로 파싱하는 기능 - parseRound(String str)
 
 ### 2) 값 검증 Validator
