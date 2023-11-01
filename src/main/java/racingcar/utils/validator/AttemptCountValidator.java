@@ -1,11 +1,14 @@
 package racingcar.utils.validator;
 
+import static racingcar.utils.constants.RacingCarGameConstants.*;
 public class AttemptCountValidator implements Validator{
+
+    public static final String DiGIT_REGEX = "[0-9]+";
 
     @Override
     public void validate(String context) {
-        if (!context.matches("[0-9]+")) {
-            throw new IllegalArgumentException("잘못된 입력을 했습니다.");
+        if (!context.matches(DiGIT_REGEX)) {
+            throw new IllegalArgumentException(INPUT_ERROR_MESSAGE);
         }
     }
 }
