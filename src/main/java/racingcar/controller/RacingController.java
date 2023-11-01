@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
+import racingcar.util.Validation;
 import racingcar.view.OutputView;
 import racingcar.view.InputView;
 
@@ -29,6 +30,7 @@ public class RacingController {
     private List<Car> inputCar() {
         OutputView.printInputCarName();
         String cars = InputView.inputCarName();
+        Validation.checkAll(cars);
 
         return getCars(cars);
     }
