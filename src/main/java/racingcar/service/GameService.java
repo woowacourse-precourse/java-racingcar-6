@@ -12,17 +12,14 @@ import racingcar.domain.Game;
 
 
 public class GameService {
-    private final InputResolver inputResolver;
     private final CarService carService;
 
-    public GameService(InputResolver inputResolver, CarService carService) {
-        this.inputResolver = inputResolver;
+    public GameService(CarService carService) {
         this.carService = carService;
     }
 
-    public Game settingGame() {
-        List<Car> carList = carService.createCarList();
-        int count = inputResolver.preprocessCount();
+    public Game settingGame(List<String> carNameList, int count) {
+        List<Car> carList = carService.createCarList(carNameList);
         return createGame(carList, count);
     }
 

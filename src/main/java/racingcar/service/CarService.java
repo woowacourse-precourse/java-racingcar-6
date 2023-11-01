@@ -8,14 +8,7 @@ import racingcar.resolver.InputResolver;
 import racingcar.domain.Car;
 
 public class CarService {
-    private final InputResolver inputResolver;
-
-    public CarService(InputResolver inputResolver) {
-        this.inputResolver = inputResolver;
-    }
-
-    public List<Car> createCarList() {
-        List<String> carNameList = inputResolver.preprocessCarName();
+    public List<Car> createCarList(List<String> carNameList) {
         return registerCarList(carNameList);
     }
 

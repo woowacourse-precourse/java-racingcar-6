@@ -33,4 +33,8 @@ public class Game {
     public List<Car> getCarList() {
         return carList;
     }
+
+    public int getCount() {
+        return count;
+    }
 }
