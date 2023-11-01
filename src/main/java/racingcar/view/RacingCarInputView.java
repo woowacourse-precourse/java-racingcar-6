@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.dto.UserAttemptCountsDto;
 import racingcar.dto.UserCarNameDto;
 
 public class RacingCarInputView {
@@ -18,8 +19,9 @@ public class RacingCarInputView {
         return new UserCarNameDto(carNames);
     }
 
-    public String inputAttemptCounts() {
+    public UserAttemptCountsDto inputAttemptCounts() {
         System.out.println(INPUT_ATTEMPT_COUNTS_MESSAGE);
-        return Console.readLine();
+        String attemptCounts = Console.readLine();
+        return new UserAttemptCountsDto(attemptCounts);
     }
 }
