@@ -1,9 +1,7 @@
 package racingcar.service;
 
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 class InputTest {
 
@@ -18,9 +16,5 @@ class InputTest {
         //then
         assertThat(result).contains("a", "c", "b");
         assertThat(result).containsExactly("a", "b", "c");
-    }
-
-    @Test
-    void assignChallengeNumber() {
     }
 }
