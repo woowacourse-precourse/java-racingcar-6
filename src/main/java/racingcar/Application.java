@@ -13,6 +13,10 @@ public class Application {
     private static final String MOVE_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_MESSAGE = "실행 결과";
 
+    private static final int MOVABLE_LIMIT = 3;
+    private static final int MIN_RANDOM_RANGE_NUMBER = 0;
+    private static final int MAX_RANDOM_RANGE_NUMBER = 9;
+
     public static void main(String[] args) throws IllegalArgumentException {
         try {
             System.out.println(START_MESSAGE);
@@ -23,7 +27,8 @@ public class Application {
             String line = Console.readLine();
             RoundCount roundCount = new RoundCount(line);
 
-            Race race = new Race(carRegistration, roundCount, new RandomRaceRule());
+            Race race = new Race(carRegistration, roundCount,
+                    new RandomRaceRule(MOVABLE_LIMIT, MIN_RANDOM_RANGE_NUMBER, MAX_RANDOM_RANGE_NUMBER));
             System.out.println(RESULT_MESSAGE);
             race.start();
 

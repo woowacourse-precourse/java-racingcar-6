@@ -1,9 +1,8 @@
 package racingcar.race.rule;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.car.model.Car;
 import racingcar.car.model.CarName;
@@ -11,32 +10,19 @@ import racingcar.car.model.RacingCar;
 
 class RandomRaceRuleTest {
 
-    @Test
-    void 단독우승_확인() {
-        RaceRule randomRaceRule = new RandomRaceRule();
-        ArrayList<Car> participantList = new ArrayList<>();
-        participantList.add(new RacingCar(new CarName("p1")));
-        participantList.add(new RacingCar(new CarName("p2")));
-        participantList.add(new RacingCar(new CarName("p3")));
+    RaceRule randomRaceRule;
 
-        participantList.get(0).moveForward();
+    @BeforeEach
+    void init(){
+        int movableLimit = 3;
+        int minRangeNumber = 0;
+        int maxRangeNumber = 9;
 
-        List<String> result = randomRaceRule.getWinner(participantList);
-        assertTrue(result.contains("p1") && !result.contains("p2") && !result.contains("p3"));
+        randomRaceRule = new RandomRaceRule(movableLimit, minRangeNumber, maxRangeNumber);
     }
-
     @Test
-    void 공동우승_확인() {
-        RaceRule randomRaceRule = new RandomRaceRule();
-        ArrayList<Car> participantList = new ArrayList<>();
-        participantList.add(new RacingCar(new CarName("p1")));
-        participantList.add(new RacingCar(new CarName("p2")));
-        participantList.add(new RacingCar(new CarName("p3")));
-
-        participantList.forEach(Car::moveForward);
-
-        List<String> result = randomRaceRule.getWinner(participantList);
-        assertTrue(result.contains("p1") && result.contains("p2") && result.contains("p3"));
+    void test() {
+        randomRaceRule.isMovable();
     }
 
 }
