@@ -1,11 +1,14 @@
 package racingcar.model;
 
 import racingcar.dto.output.ResultOfGameDto;
+import racingcar.dto.output.ResultOfTurnDto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static racingcar.dto.output.ResultOfGameDto.createWinnersOfGame;
+import static racingcar.dto.output.ResultOfTurnDto.createAdvancecProgress;
 
 public class RacingCars {
     private final List<RacingCar> racingCars;
@@ -16,14 +19,22 @@ public class RacingCars {
     public static RacingCars from(List<RacingCar> racingCars) {
         return new RacingCars(racingCars);
     }
-    public List<RacingCar> getRacingCars() {
-        return racingCars;
-    }
     public ResultOfGameDto getWinners() {
         List<RacingCar> cars = getMostAdvancedRacingCar();
         List<String> winners = converListRacingCarToListString(cars);
         ResultOfGameDto resultOfGameDto = createWinnersOfGame(winners);
         return resultOfGameDto;
+    }
+    public List<ResultOfTurnDto> getTotalResultOfTurn() {
+        List<ResultOfTurnDto> resultOfTurnDtos = new ArrayList<ResultOfTurnDto>();
+        for (RacingCar racingCar : racingCars) {  // getter 안쓸수 있는 방향으로 리팩토
+            if (racingCar.canAdvance()) {
+                racingCar.advance();
+            }
+            ResultOfTurnDto resultOfTurnDto = createAdvancecProgress(racingCar);
+            resultOfTurnDtos.add(resultOfTurnDto);
+       }
+        return resultOfTurnDtos;
     }
     public List<RacingCar> getMostAdvancedRacingCar() {
         List<RacingCar> cars = racingCars;

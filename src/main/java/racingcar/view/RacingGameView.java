@@ -8,6 +8,8 @@ import racingcar.dto.output.ResultOfTurnDto;
 import racingcar.io.CommandLineReader;
 import racingcar.io.CommandLineWriter;
 
+import java.util.List;
+
 public class RacingGameView {
     private final CommandLineReader commandLineReader;
     private final CommandLineWriter commandLineWriter;
@@ -49,15 +51,15 @@ public class RacingGameView {
             commandLineWriter.write(resultOfGameDto.winnerName().get(i));
         }
     }
-    public void showAdvancecProgress(ResultOfTurnDto resultOfTurnDto) {
-        printRacingCarName(resultOfTurnDto);
-        printColon();
-        printAdvanceMark(resultOfTurnDto);
+    public void showAdvancecProgressOfTurn(List<ResultOfTurnDto> resultOfTurnDtos) {
+        for (ResultOfTurnDto resultOfTurnDto : resultOfTurnDtos) {
+            printRacingCarName(resultOfTurnDto);
+            printColon();
+            printAdvanceMark(resultOfTurnDto);
+        }
+        printSpaceLine();
     }
 
-//    private void showWinners(ResultOfGameDto resultOfGameDto) {
-//        printWinners(resultOfGameDto);        // 최종 우승자 출력
-//    }
     public void printSpaceLine() {
         commandLineWriter.writeSpaceLine();
     }
