@@ -20,7 +20,9 @@ public class Car {
 		return position;
 	}
 
-	public boolean move() {
-		return Randoms.pickNumberInRange(0, 9)>=4;
+	public void move() {
+		if (Randoms.pickNumberInRange(0, 9)>=4)
+			position++;
 	}
+	
 }
