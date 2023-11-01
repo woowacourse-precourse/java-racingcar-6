@@ -13,6 +13,7 @@ public class RaceRound {
     }
 
     public static RaceRound create(String numberOfRoundString) {
+        numberOfRoundString = numberOfRoundString.trim();
         if (!NUMBER_PATTERN.matcher(numberOfRoundString).matches()) {
             throw new BadRaceRoundException("숫자만 입력 가능합니다.");
         }
