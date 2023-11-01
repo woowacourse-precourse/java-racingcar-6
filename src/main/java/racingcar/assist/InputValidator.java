@@ -17,15 +17,9 @@ public class InputValidator {
         validateIsCompetitorExist(carNameList);
     }
 
-    public void validateRepeatTimesInput(String repeatTimesInput) {
-        int repeatTimes = Integer.parseInt(repeatTimesInput);
-        validateIsInputInteger(repeatTimesInput);
-        validateIsNumberPositive(repeatTimes);
-    }
-
-    private void validateIsCompetitorExist(List<String> carNameList) {
-        if (carNameList.size() == 1) {
-            throw new IllegalArgumentException(COMPETITOR_NOT_EXIST.getMessage());
+    private void validateCarNameOutOfRange(String carName) {
+        if (carName.length() > SystemConstant.CAR_NAME_MAX_RANGE) {
+            throw new IllegalArgumentException(INPUT_OUT_OF_RANGE.getMessage());
         }
     }
 
@@ -36,16 +30,16 @@ public class InputValidator {
         }
     }
 
-    private void validateCarNameOutOfRange(String carName) {
-        if (carName.length() > SystemConstant.CAR_NAME_MAX_RANGE) {
-            throw new IllegalArgumentException(INPUT_OUT_OF_RANGE.getMessage());
+    private void validateIsCompetitorExist(List<String> carNameList) {
+        if (carNameList.size() == 1) {
+            throw new IllegalArgumentException(COMPETITOR_NOT_EXIST.getMessage());
         }
     }
 
-    private void validateIsNumberPositive(int repeatTimes) {
-        if (repeatTimes < 0) {
-            throw new IllegalArgumentException(INPUT_POSITIVE_INTEGER_ONLY.getMessage());
-        }
+    public void validateRepeatTimesInput(String repeatTimesInput) {
+        int repeatTimes = Integer.parseInt(repeatTimesInput);
+        validateIsInputInteger(repeatTimesInput);
+        validateIsNumberPositive(repeatTimes);
     }
 
     private void validateIsInputInteger(String repeatTimesInput) {
@@ -56,4 +50,9 @@ public class InputValidator {
         }
     }
 
+    private void validateIsNumberPositive(int repeatTimes) {
+        if (repeatTimes < 0) {
+            throw new IllegalArgumentException(INPUT_POSITIVE_INTEGER_ONLY.getMessage());
+        }
+    }
 }
