@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CarNameValidator {
+public class UserValidator {
 
     public void CheckCarNameLength(String carName) {
         if(carName.length() > 5 || carName.length() < 1) {
