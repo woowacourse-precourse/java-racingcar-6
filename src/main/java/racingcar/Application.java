@@ -15,7 +15,7 @@ public class Application {
 
     public static void main(String[] args) {
         User user = new User();
-        user.InitialSetting();
+        user.initialSetting();
         carsList = user.getCars();
         gameNumber = user.gameNumber;
         createCars();
