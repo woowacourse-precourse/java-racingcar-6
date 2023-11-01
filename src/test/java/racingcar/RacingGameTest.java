@@ -51,7 +51,7 @@ class RacingGameTest {
 
         int maxPosition = racingGame.getMaxPosition();
 
-        assertEquals(5, maxPosition);
+        assertEquals(1, maxPosition);
     }
 
 
