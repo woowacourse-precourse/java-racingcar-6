@@ -4,7 +4,6 @@ import racingcar.constants.AppConstants;
 import racingcar.utils.InputValidationUtil;
 import racingcar.view.GameOutput;
 import racingcar.view.UserInput;
-
 import java.util.List;
 
 public class UserInputHandler {
