@@ -2,6 +2,7 @@ package racingcar;
 
 import static racingcar.ErrorMessage.CAR_NAME_DUPLICATED;
 import static racingcar.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER;
+import static racingcar.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS;
 import static racingcar.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;
 import static racingcar.PrintMessage.INPUT_NUMBER_OF_ATTEMPTS;
 import static racingcar.PrintMessage.INPUT_RACING_CAR_NAME;
@@ -18,6 +19,7 @@ public class CarRacingGame {
     private static final String RACING_CAR_NAME_SEPARATOR = ",";
     private static final String WINNER_RACING_CAR_NAME_DELIMITER= ", ";
     private static final Integer MINIMUM_NUMBER_OF_CAR_NAMES = 2;
+    private static final Integer MINIMUM_NUMBER_OF_ATTEMPTS = 1;
 
     public void run(){
         System.out.println(INPUT_RACING_CAR_NAME);
@@ -27,9 +29,9 @@ public class CarRacingGame {
         RacingCars racingCars = RacingCars.from(carNames);
         System.out.println(INPUT_NUMBER_OF_ATTEMPTS);
         Integer numberOfAttempts = convertInputToInteger(Console.readLine());
+        validateNumberOfAttemptsIsOneOrLess(numberOfAttempts);
         play(racingCars, numberOfAttempts);
     }
-
 
     private void play(RacingCars racingCars, Integer numberOfAttempts) {
         System.out.println(PRINT_GAME_RESULT);
@@ -63,6 +65,12 @@ public class CarRacingGame {
     private void validateNumberOfCarNames(String[] carNames) {
         if (carNames.length < MINIMUM_NUMBER_OF_CAR_NAMES) {
             throw new IllegalArgumentException(NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS);
+        }
+    }
+
+    private void validateNumberOfAttemptsIsOneOrLess(Integer numberOfAttempts) {
+        if (numberOfAttempts < MINIMUM_NUMBER_OF_ATTEMPTS) {
+            throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS);
         }
     }
 
