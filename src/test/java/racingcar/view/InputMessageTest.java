@@ -40,9 +40,6 @@ class InputMessageTest extends NsTest {
         );
     }
 
-
-
-
     @Override
     protected void runMain() {
         Application.main(new String[]{});

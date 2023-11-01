@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class ResultRepositoryTest {
     private ResultRepository resultRepository;
