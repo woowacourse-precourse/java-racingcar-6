@@ -29,6 +29,12 @@ public class Cars {
         return stringBuilder;
     }
 
+    public List<String> getFinalWinner() {
+        return getWinningCars().stream()
+                .map(c -> c.getCarName())
+                .collect(Collectors.toList());
+    }
+
     private String eachCarResult(Car car) {
         car.forwardPosition(RandomUtils.generateRandomNumber());
         return car.getCurrentResultPosition();
