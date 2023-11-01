@@ -23,4 +23,10 @@ public class GameInterface {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
+
+    private static int getNumberOfRepetition() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String inputNumber = readLine();
+        return Integer.parseInt(inputNumber);
+    }
 }
