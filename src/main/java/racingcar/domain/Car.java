@@ -23,13 +23,6 @@ public class Car {
         }
     }
 
-    public String resultPosition() {
-
-        return IntStream.range(0,getPosition())
-                .mapToObj(i -> Constants.DASH)
-                .collect(Collectors.joining());
-    }
-
     public int getPosition() {
         return position;
     }
