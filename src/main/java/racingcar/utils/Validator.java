@@ -3,8 +3,8 @@ package racingcar.utils;
 import java.util.List;
 
 public class Validator {
-    public static void checkCarNameLength(List<String> carsNameList) {
-        carsNameList.stream()
+    public static void checkCarNameLength(List<String> carNameList) {
+        carNameList.stream()
                 .filter(car -> car.length() >= 6)
                 .findFirst()
                 .ifPresent(car -> {
@@ -12,8 +12,8 @@ public class Validator {
                 });
     }
 
-    public static void checkCarNameCount(List<String> carsNameList) {
-        if (carsNameList.isEmpty()) {
+    public static void checkCarNameCount(List<String> carNameList) {
+        if (carNameList.isEmpty()) {
             throw new IllegalArgumentException("1대 이상의 자동차 이름을 입력해주세요.");
         }
     }

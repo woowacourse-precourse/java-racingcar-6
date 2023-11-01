@@ -11,28 +11,28 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class ValidatorTest {
-    private List<String> carsNameList;
+    private List<String> carNameList;
 
     @Test
     void 자동차_이름_길이_5이하() {
-        carsNameList = Arrays.asList("pobi", "woni", "jun");
-        assertDoesNotThrow(() -> Validator.checkCarNameLength(carsNameList));
+        carNameList = Arrays.asList("pobi", "woni", "jun");
+        assertDoesNotThrow(() -> Validator.checkCarNameLength(carNameList));
     }
 
     @Test
     void 자동차_이름_길이_5초과() {
-        carsNameList = Arrays.asList("pobiii", "woni", "jun");
+        carNameList = Arrays.asList("pobiii", "woni", "jun");
         Exception exception = assertThrows(IllegalArgumentException.class,
-                () -> Validator.checkCarNameLength(carsNameList));
+                () -> Validator.checkCarNameLength(carNameList));
         assertEquals("입력 가능한 자동차의 이름은 5자 이하입니다.", exception.getMessage());
     }
 
     @Test
     void 자동차_입력_개수_1이상() {
-        carsNameList = Arrays.asList("pobi");
-        assertDoesNotThrow(() -> Validator.checkCarNameCount(carsNameList));
-        carsNameList = Arrays.asList("pobii", "woni", "jun");
-        assertDoesNotThrow(() -> Validator.checkCarNameCount(carsNameList));
+        carNameList = Arrays.asList("pobi");
+        assertDoesNotThrow(() -> Validator.checkCarNameCount(carNameList));
+        carNameList = Arrays.asList("pobii", "woni", "jun");
+        assertDoesNotThrow(() -> Validator.checkCarNameCount(carNameList));
     }
 
     @Test
