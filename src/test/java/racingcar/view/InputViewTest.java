@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import racingcar.view.InputView;
 
 class InputViewTest {
 
