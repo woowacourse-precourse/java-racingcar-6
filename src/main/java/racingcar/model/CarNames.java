@@ -9,24 +9,30 @@ public class CarNames {
 
     private final List<CarName> carNames;
 
-    private CarNames(String input) {
-        List<String> seperatedInput = Arrays.asList(input.split(DELIMITER));
-        validate(seperatedInput);
-        carNames = seperatedInput.stream().map(CarName::create).toList();
+    public CarNames(String carNamesString) {
+        carNames = validate(splitInput(carNamesString)).stream()
+                .map(CarName::create)
+                .toList();
     }
 
     public static CarNames create(String input) {
         return new CarNames(input);
     }
 
-    private static void validate(List<String> seperatedInput) {
+    private List<String> splitInput(String input) {
+        return Arrays.asList(input.split(DELIMITER));
+    }
+
+    private List<String> validate(List<String> seperatedInput) {
         long distinctCount = seperatedInput.stream().distinct().count();
         if (seperatedInput.size() != distinctCount) {
             throw new IllegalArgumentException();
         }
+        return seperatedInput;
     }
 
-    protected List<CarName> getCarNames() {
-        return carNames;
+    protected List<String> getCarNames() {
+        return carNames.stream().map(CarName::getCarName)
+                .toList();
     }
 }

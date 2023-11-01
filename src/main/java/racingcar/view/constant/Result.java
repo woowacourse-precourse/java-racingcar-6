@@ -2,7 +2,7 @@ package racingcar.view.constant;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.dto.MoveResultDto;
+import racingcar.dto.RaceResultDTO;
 
 public class Result implements Message {
 
@@ -12,19 +12,19 @@ public class Result implements Message {
 
     private final String result;
 
-    private Result(List<MoveResultDto> moveResultDtos) {
-        result = moveResultDtos.stream()
+    private Result(List<RaceResultDTO> raceResultDTOS) {
+        result = raceResultDTOS.stream()
                 .map(this::createResult)
                 .collect(Collectors.joining());
     }
 
-    public static Result announcement(List<MoveResultDto> moveResultDtos) {
-        return new Result(moveResultDtos);
+    public static Result announcement(List<RaceResultDTO> raceResultDTOS) {
+        return new Result(raceResultDTOS);
     }
 
-    private String createResult(MoveResultDto moveResultDto) {
-        String location = MOVE_SYMBOL.repeat(moveResultDto.getLocation());
-        return moveResultDto.getName() + COLON + location + NEW_LINE;
+    private String createResult(RaceResultDTO raceResultDTO) {
+        String location = MOVE_SYMBOL.repeat(raceResultDTO.getLocation());
+        return raceResultDTO.getName() + COLON + location + NEW_LINE;
     }
 
     @Override

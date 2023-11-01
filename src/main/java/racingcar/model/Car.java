@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.dto.MoveResultDto;
+import racingcar.dto.RaceResultDTO;
 
 public class Car {
 
@@ -10,42 +10,38 @@ public class Car {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
 
-    private final CarName name;
-    private Integer location;
+    private final String carName;
+    private Integer carLocation;
 
-    private Car(CarName name) {
-        this.name = name;
-        this.location = START_LOCATION;
+    private Car(String carName) {
+        this.carName = carName;
+        this.carLocation = START_LOCATION;
     }
 
-    protected static Car createWithName(CarName name) {
+    protected static Car createWithName(String name) {
         return new Car(name);
     }
 
-    protected MoveResultDto getResultDto() {
+    protected RaceResultDTO move() {
         moveOrStop(generateRandomNumber());
-        return MoveResultDto.create(name.getCarName(), location);
+        return RaceResultDTO.create(carName, carLocation);
     }
 
     protected void moveOrStop(int randomNumber) {
         if (randomNumber >= MOVE_FORWARD_NUMBER) {
-            moveForward();
+            carLocation++;
         }
     }
 
-    protected int generateRandomNumber() {
+    private int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
-    private void moveForward() {
-        location++;
-    }
-
     protected String getName() {
-        return name.getCarName();
+        return carName;
     }
 
     protected Integer getLocation() {
-        return location;
+        return carLocation;
     }
 }

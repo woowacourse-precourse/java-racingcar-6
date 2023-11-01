@@ -1,13 +1,13 @@
 package racingcar.model;
 
 import java.util.List;
-import racingcar.dto.MoveResultDto;
+import racingcar.dto.RaceResultDTO;
 
 public class Cars {
 
     private final List<Car> cars;
 
-    private Cars(CarNames carNames) {
+    public Cars(CarNames carNames) {
         cars = carNames.getCarNames().stream()
                 .map(Car::createWithName)
                 .toList();
@@ -17,18 +17,19 @@ public class Cars {
         return new Cars(carNames);
     }
 
-    public List<MoveResultDto> getMoveResultDTOs() {
-        return cars.stream().map(Car::getResultDto).toList();
+    public List<RaceResultDTO> move() {
+        return cars.stream().map(Car::move)
+                .toList();
     }
 
     public List<String> getWinner() {
         return cars.stream()
-                .filter((car) -> isWinner(car, measureFarthestLocation(cars)))
+                .filter((car) -> isWinner(car, getFarthestLocation()))
                 .map(Car::getName)
                 .toList();
     }
 
-    private static int measureFarthestLocation(List<Car> cars) {
+    private int getFarthestLocation() {
         return cars.stream()
                 .mapToInt(Car::getLocation)
                 .max()
@@ -42,7 +43,8 @@ public class Cars {
         return false;
     }
 
-    public List<Car> getCars() {
-        return cars;
+    //test만을 위한 코드
+    protected Car getCarForTest(int i) {
+        return cars.get(i);
     }
 }

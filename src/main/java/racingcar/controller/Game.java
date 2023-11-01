@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.dto.MoveResultDto;
+import racingcar.dto.RaceResultDTO;
 import racingcar.model.CarNames;
 import racingcar.model.Cars;
 import racingcar.model.NumberOfMove;
@@ -14,7 +14,7 @@ public class Game {
 
     public static void start() {
         Cars cars = createCars();
-        startRace(cars, setNumberOfMove());
+        startRace(setNumberOfMove(), cars);
         announceWinner(cars);
     }
 
@@ -31,11 +31,11 @@ public class Game {
         return NumberOfMove.create(numberOfMoveInput);
     }
 
-    private static void startRace(Cars cars, NumberOfMove numberOfMove) {
+    private static void startRace(NumberOfMove numberOfMove, Cars cars) {
         View.printMessage(Prompt.RACE_RESULT);
         while (numberOfMove.isLeft()) {
-            List<MoveResultDto> moveResultDtos = cars.getMoveResultDTOs();
-            View.printMessage(Result.announcement(moveResultDtos));
+            List<RaceResultDTO> raceResultDTOs = cars.move();
+            View.printMessage(Result.announcement(raceResultDTOs));
         }
     }
 

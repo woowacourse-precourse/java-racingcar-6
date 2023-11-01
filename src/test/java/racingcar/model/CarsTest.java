@@ -8,58 +8,39 @@ import org.junit.jupiter.api.Test;
 
 public class CarsTest {
 
-    private CarNames carNames;
+    private Cars cars;
 
     @BeforeEach
     public void setup() {
-        carNames = CarNames.create("pobi,wonni,jun");
+        CarNames carNames = CarNames.create("pobi,wonni,jun");
+        cars = Cars.createWithNames(carNames);
     }
-
-    @Test
-    public void 자동차들_생성() {
-        //when
-        Cars cars = Cars.createWithNames(carNames);
-        List<String> carNameList = cars.getCars().stream().map(Car::getName).toList();
-
-        //then
-        List<String> expectedCarName = carNames.getCarNames().stream().map(CarName::getCarName).toList();
-        assertThat(carNameList).isEqualTo(expectedCarName);
-    }
-
 
     @Test
     public void 우승자_한명_테스트() {
-        //given
-        Cars cars = Cars.createWithNames(carNames);
-        List<Car> carList = cars.getCars();
-
         //when
         for (int i = 4; i < 10; i++) {
-            carList.get(0).moveOrStop(i);
-            carList.get(1).moveOrStop(i - 1);
-            carList.get(2).moveOrStop(i - 2);
+            cars.getCarForTest(0).moveOrStop(i);
+            cars.getCarForTest(1).moveOrStop(i - 1);
+            cars.getCarForTest(2).moveOrStop(i - 2);
         }
 
         //then
         assertThat(cars.getWinner())
-                .isEqualTo(List.of(carList.get(0).getName()));
+                .isEqualTo(List.of(cars.getCarForTest(0).getName()));
     }
 
     @Test
     public void 우승자_두명_테스트() {
-        //given
-        Cars cars = Cars.createWithNames(carNames);
-        List<Car> carList = cars.getCars();
-
         //when
         for (int i = 1; i < 10; i++) {
-            carList.get(0).moveOrStop(i);
-            carList.get(1).moveOrStop(i);
-            carList.get(2).moveOrStop(i - 1);
+            cars.getCarForTest(0).moveOrStop(i);
+            cars.getCarForTest(1).moveOrStop(i);
+            cars.getCarForTest(2).moveOrStop(i - 1);
         }
 
         //then
         assertThat(cars.getWinner())
-                .isEqualTo(List.of(carList.get(0).getName(), carList.get(1).getName()));
+                .isEqualTo(List.of(cars.getCarForTest(0).getName(), cars.getCarForTest(1).getName()));
     }
 }

@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,9 +13,16 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarNamesTest {
 
+    private CarNames carNames;
+
+    @BeforeEach
+    public void setup() {
+
+    }
+
     @ParameterizedTest
     @MethodSource("validCarNamesProvider")
-    public void 유효한_차_이름_목록(String validCarNamesString, List<String> validCarNamesList) {
+    public void 유효한_차_생성(String validCarNamesString, List<String> validCarNamesList) {
         //when
         CarNames carNames = CarNames.create(validCarNamesString);
 
