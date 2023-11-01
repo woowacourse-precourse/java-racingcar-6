@@ -16,7 +16,7 @@ public class Validation {
     }
 
     public static void inputRacingTimeValidate(String racingTime){
-        if(!racingTime.matches("^[1-9]$")) {
+        if(!racingTime.matches("^[1-9][0-9]$")) {
             throw new IllegalArgumentException();
         }
     }
