@@ -1,11 +1,29 @@
 package study;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
 public class StringTest {
+
+    @Test
+    void join_배열값을_합침() {
+        String[] input = {"pobi", "ehgns"};
+        String result = String.join(", ", input);
+
+        assertThat(result).isEqualTo("pobi, ehgns");
+    }
+
+    @Test
+    void split_공백_삭제() {
+        String input = "1, 2";
+        String[] result = input.replace(" ", "").split(",");
+
+        assertThat(result).contains("1", "2");
+        assertThat(result).containsExactly("1", "2");
+    }
 
     @Test
     void split_메서드로_주어진_값을_구분() {
