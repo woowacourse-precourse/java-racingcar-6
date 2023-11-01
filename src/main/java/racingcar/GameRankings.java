@@ -33,14 +33,4 @@ public class GameRankings {
     public Map<GameRound, RacingCars> getGameRankings() {
         return gameRankings;
     }
-
-    @Override
-    public String toString() {
-        StringJoiner stringJoiner = new StringJoiner("\n");
-        stringJoiner.add("\n실행 결과\n");
-        gameRankings.forEach((gameRound, racingCars) -> {
-            stringJoiner.add(racingCars.toString());
-        });
-        return stringJoiner.toString();
-    }
 }

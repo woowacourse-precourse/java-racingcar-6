@@ -2,5 +2,5 @@ package racingcar;
 
 public interface OutputView {
 
-    void print(String message);
+    void printResult(GameResult gameResult);
 }

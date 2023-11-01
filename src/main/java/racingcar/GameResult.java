@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.StringJoiner;
-
 public class GameResult {
 
     private final GameRankings gameRanking;
@@ -16,16 +14,7 @@ public class GameResult {
         return gameRanking;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        StringJoiner stringJoiner = new StringJoiner(", ");
-
-        stringBuilder.append("최종 우승자 : ");
-        for (Name winnerNames : winners.winners()) {
-            stringJoiner.add(winnerNames.name());
-        }
-        stringBuilder.append(stringJoiner);
-        return stringBuilder.toString();
+    public RacingCarWinners getWinners() {
+        return winners;
     }
 }
