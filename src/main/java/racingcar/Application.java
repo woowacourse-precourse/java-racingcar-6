@@ -8,5 +8,6 @@ public class Application {
                 new InputArgumentsHandler()
         );
         racingCarGame.play();
+        racingCarGame.showAwards();
     }
 }

@@ -12,6 +12,8 @@ public class RacingCarGame {
     private int numberOfAttempts;
     private MoveForwardConditioner moveForwardConditioner;
 
+
+
     public void setup(
             MoveForwardConditioner moveForwardConditioner,
             InputArgumentsHandler inputArgumentsHandler
@@ -30,4 +32,7 @@ public class RacingCarGame {
         }
     }
 
+    public void showAwards() {
+        showln("최종 우승자 : " + carList.winningCars());
+    }
 }

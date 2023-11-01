@@ -3,6 +3,7 @@ package racingcar;
 import static racingcar.CommandLine.show;
 
 public class Car {
+
     private String name;
     private int moveForwardCount;
 
