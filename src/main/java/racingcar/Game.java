@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Game {
-
     private CarGroup carGroup;
     private int trialNumber;
     public Game() {

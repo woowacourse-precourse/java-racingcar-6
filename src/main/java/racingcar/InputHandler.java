@@ -5,9 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class InputHandler {
 
@@ -43,14 +41,14 @@ public class InputHandler {
         else if (target.contains(Constants.BLANK)) {  // 공백 포함
             throw new IllegalArgumentException();
         }
-        else if (target.contains(Constants.COMMA.repeat(2))) {   // 쉼표(,) 2개이상 연속
+        else if (target.contains(Constants.COMMA+Constants.COMMA)) {   // 쉼표(,) 2개이상 연속
             throw new IllegalArgumentException();
         }
         else if (isEndPattern(target)) {    // 쉼표(,) 맨 앞/뒤 위치
             throw new IllegalArgumentException();
         }
         else if (hasLengthExcess(target)) {   // 길이 제한 초과
-            throw new IllegalArgumentException();
+           throw new IllegalArgumentException();
         }
         else if (hasDuplicates(target)) {   // 중복 입력
             throw new IllegalArgumentException();
@@ -67,7 +65,7 @@ public class InputHandler {
         else if (target.contains(Constants.NOT_NUMBER_EXPRESSION)) { // 숫자가 아닌 문자 포함
             throw new IllegalArgumentException();
         }
-        else if (target.contains(Constants.BAR)) {    // 음수인 경우
+        else if (target.contains(Constants.BAR)) {    // 음수
             throw new IllegalArgumentException();
         }
         else if (target.charAt(0) == '0') { // 0으로 시작
@@ -76,8 +74,8 @@ public class InputHandler {
     }
 
     private static boolean isEndPattern(String target) {
-        return (Pattern.matches("/^,/", target)
-                || Pattern.matches("/,$/", target));
+        return (Pattern.matches(Constants.START_WITH_COMMA_EXPRESSION, target)
+                || Pattern.matches(Constants.END_WITH_COMMA_EXPRESSION, target));
     }
 
     private static boolean hasLengthExcess(String target) {
