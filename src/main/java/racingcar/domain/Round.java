@@ -16,4 +16,9 @@ public class Round {
     public void racing() {
         cars.forEach(car -> car.moveForward(car.generateNumber()));
     }
+
+    public void printRoundResult() {
+        cars.forEach(Car::printCurrentPosition);
+        System.out.println();
+    }
 }
