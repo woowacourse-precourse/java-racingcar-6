@@ -15,7 +15,7 @@ public class Car {
 
     public void printStepState() {
         System.out.print(this.name + " : ");
-        for (int i = 0; i< this.step; i++)
+        for (int i = 0; i < this.step; i++)
             System.out.print("-");
         System.out.println();
     }

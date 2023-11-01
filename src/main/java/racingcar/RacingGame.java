@@ -9,19 +9,22 @@ import java.util.List;
 
 public class RacingGame {
     public void run() {
+        // input
         final List<Car> carList = InputProcess.inputCarNames();
         final int count = InputProcess.inputCountNum();
 
-        for(int i =0; i< count; i++) {
+        // running game
+        for (int i = 0; i < count; i++) {
             tryOneStep(carList);
             printRaceState(carList);
         }
 
+        // result
         printWinners(findWinners(carList));
     }
 
     private void tryOneStep(List<Car> carList) {
-        for(Car car : carList) {
+        for (Car car : carList) {
             if (Randoms.pickNumberInRange(0, 9) >= 4)
                 car.stepForward();
         }
@@ -32,7 +35,7 @@ public class RacingGame {
 
         System.out.print("최종 우승자 : ");
         winnerItr.next().printName();
-        while(winnerItr.hasNext()) {
+        while (winnerItr.hasNext()) {
             System.out.print(", ");
             winnerItr.next().printName();
         }
@@ -44,7 +47,7 @@ public class RacingGame {
         for (Car car : carList) {
             if (car.getStep() == maxStep)
                 winners.add(car);
-            if(car.getStep() > maxStep) {
+            if (car.getStep() > maxStep) {
                 winners.clear();
                 winners.add(car);
                 maxStep = car.getStep();
