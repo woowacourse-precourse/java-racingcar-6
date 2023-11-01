@@ -23,4 +23,28 @@ public class CarTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> new Car(""));
     }
+
+    @Test
+    void updateScore_점수얻기성공_오류없음() {
+        Car test = new Car("TEST");
+        assertRandomNumberInRangeTest(
+                () -> {
+                    test.updateScore();
+                    assertThat(1).isEqualTo(test.getScore());
+                },
+            4
+        );
+    }
+
+    @Test
+    void updateScore_점수얻기실패_오류없음() {
+        Car test = new Car("TEST");
+        assertRandomNumberInRangeTest(
+                () -> {
+                    test.updateScore();
+                    assertThat(0).isEqualTo(test.getScore());
+                },
+                3
+        );
+    }
 }
