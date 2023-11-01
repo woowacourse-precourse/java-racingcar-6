@@ -14,6 +14,7 @@ public class PlayResult {
                 results[i] += "-";
             System.out.println(results[i]);
         }
+        System.out.println();
     }
 
     public void getWinner(String[] results){

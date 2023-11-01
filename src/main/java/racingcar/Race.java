@@ -12,6 +12,7 @@ public class Race {
         // 실행 결과 출력을 위한 "차량이름 : "이 담긴 배열 생성
         String[] results = getNameListofResults(names);
 
+        System.out.println("실행 결과");
         // 실행 횟수 만큼 실행 결과 출력
         for (int i = 0; i < num; i++) {
             playResult.getResult(RacingInfo.getNames(), results);
