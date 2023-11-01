@@ -7,6 +7,7 @@ import racingcar.model.Cars;
 import racingcar.view.RacingcarView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
@@ -39,5 +40,21 @@ class RacingcarControllerTest {
         }
 
         assertThat(car1.getDistance()).isNotEqualTo(car2.getDistance());
+    }
+
+    @Test
+    void findChampionTest() {
+        Map<String, Car> carMap = new HashMap<>();
+        Car pobiCar = new Car("pobi", 3);
+        Car woniCar = new Car("woni", 5);
+        Car junCar = new Car("jun", 10);
+
+        carMap.put("pobi", pobiCar);
+        carMap.put("woni", woniCar);
+        carMap.put("jun", junCar);
+
+        List<String> championName = cars.findChampionGroup(carMap);
+
+        assertThat(championName.get(0)).isEqualTo("jun");
     }
 }
