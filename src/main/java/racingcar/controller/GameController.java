@@ -1,6 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.view.InputView.*;
+import static racingcar.view.InputView.askCarNames;
+import static racingcar.view.InputView.askHowManyRounds;
 import static racingcar.view.OutputView.printGameNotice;
 import static racingcar.view.OutputView.printRoundResult;
 import static racingcar.view.OutputView.printWinners;

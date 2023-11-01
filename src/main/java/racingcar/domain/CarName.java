@@ -1,6 +1,7 @@
 package racingcar.domain;
 
-import static racingcar.util.Validator.*;
+import static racingcar.util.Validator.validateEmpty;
+import static racingcar.util.Validator.validateLength;
 
 public class CarName {
     private final String name;

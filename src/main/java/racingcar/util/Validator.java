@@ -2,7 +2,11 @@ package racingcar.util;
 
 import static racingcar.util.GameConstants.MAX_CAR_NAME_LENGTH;
 import static racingcar.util.GameConstants.MIN_ROUND;
-import static racingcar.util.exception.ErrorMessage.*;
+import static racingcar.util.exception.ErrorMessage.EMPTY_INPUT;
+import static racingcar.util.exception.ErrorMessage.MORE_THAN_FIVE_CHARACTER;
+import static racingcar.util.exception.ErrorMessage.DUPLICATED_NAME;
+import static racingcar.util.exception.ErrorMessage.LESS_THAN_ONE;
+import static racingcar.util.exception.ErrorMessage.NOT_INTEGER;
 
 import java.util.HashSet;
 import java.util.List;
