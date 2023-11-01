@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -8,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class RacingCars {
     private static final String DUPLICATE_NAME = "중복된 이름이 있습니다.";
-    private static final String HASH = ", ";
     private final List<RacingCar> racingCars;
 
     private void checkDuplicateNames(List<String> racingCarNames) {
@@ -35,8 +33,19 @@ public class RacingCars {
                 .map(RacingCar::getRacingCarName).collect(Collectors.toList());
     }
 
-    public String getResult(List<RacingCar> racingCars) {
-        List<String> winners = getWinners();
-        return String.join(HASH, winners);
+    public List<String> getRacingCarsStatus() {
+        return racingCars.stream()
+                .map(RacingCar::getPresentStatus)
+                .collect(Collectors.toList());
+    }
+
+    public void play(List<Integer> randomNumbers) {
+        for (int i = 0; i < racingCars.size(); i++) {
+            racingCars.get(i).move(randomNumbers.get(i));
+        }
+    }
+
+    public int size() {
+        return racingCars.size();
     }
 }
