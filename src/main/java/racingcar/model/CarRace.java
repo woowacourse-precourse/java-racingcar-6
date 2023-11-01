@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.view.ExceptionMessage.NOT_LESS_THAN_ZERO;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.model.Car;
@@ -11,6 +13,7 @@ public class CarRace {
     private int iteration;
     private List<Car> cars;
     public CarRace(List<Car> cars, int iteration) {
+        validatePositiveNumber(iteration);
         this.iteration = iteration;
         this.cars = cars;
     }
@@ -30,6 +33,12 @@ public class CarRace {
     public void runRaceWithIteration(List<Car> cars, int iteration) {
         for (int i = 0; i < iteration; i++) {
             runRace(cars);
+        }
+    }
+
+    private static void validatePositiveNumber(int intValue) {
+        if (intValue <= 0) {
+            throw new IllegalArgumentException(NOT_LESS_THAN_ZERO.getMessage());
         }
     }
 }

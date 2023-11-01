@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.view.ExceptionMessage.NOT_LESS_THAN_ZERO;
 import static racingcar.view.ExceptionMessage.NOT_NUMBER_FORMAT;
 
 import java.util.List;
@@ -22,17 +21,10 @@ public class InputView {
     }
 
     public Integer readNumberInput() {
-        String input = getInput();
+        String input = getNumberInput();
         int intValue = getIntValue(input);
-        validatePositiveNumber(intValue);
 
         return intValue;
-    }
-
-    private static void validatePositiveNumber(int intValue) {
-        if (intValue <= 0) {
-            throw new IllegalArgumentException(NOT_LESS_THAN_ZERO.getMessage());
-        }
     }
 
     private static int getIntValue(String input) {
@@ -45,7 +37,7 @@ public class InputView {
         return intValue;
     }
 
-    private static String getInput() {
+    private static String getNumberInput() {
         String input;
         System.out.println(REQUEST_ITERATION);
 
