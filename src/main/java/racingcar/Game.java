@@ -13,16 +13,6 @@ public class Game {
         this.rounds = rounds;
     }
 
-    private List<Car> getCars(List<String> carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (int i = 0; i < carNames.size(); i++) {
-            Car car = new Car(carNames.get(i));
-            cars.add(car);
-        }
-
-        return cars;
-    }
-
     public void play() {
         System.out.println("실행결과");
         for (int i = 0; i < rounds; i++) {
@@ -39,7 +29,17 @@ public class Game {
         System.out.print("최종 우승자 : " + result);
     }
 
-    public List<String> getWinners() {
+    private List<Car> getCars(List<String> carNames) {
+        List<Car> cars = new ArrayList<>();
+        for (int i = 0; i < carNames.size(); i++) {
+            Car car = new Car(carNames.get(i));
+            cars.add(car);
+        }
+
+        return cars;
+    }
+
+    private List<String> getWinners() {
         int maxPosition = -1;
         for (Car car : cars) {
             maxPosition = Math.max(car.getPosition(), maxPosition);
