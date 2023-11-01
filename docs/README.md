@@ -13,10 +13,10 @@
 
 ## ❌ 예외 처리
 ### 사용자 입력에서 예외가 발생한 경우 `IllegalArgumentException` 로 처리한다.
-  - [x] 자동차 이름 글자수가 1~5자가 아닌 경우 - **Validator / validateCarName()**
-  - [x] 자동차 이름 중복 예외 처리 - **Validator / validateDuplicatedCarName()**
-  - [x] 레이스의 참여한 자동차가 1대 이하인 경우 - **Validator / validateNumberOfCar()**
-  - [x] 시도 횟수를 숫자가 아닌 값 또는 0을 넣은 경우 - **Validator / validateTryCountIsInteger()**
+  - [x] 자동차 이름 글자수가 1~5자가 아닌 경우 - **CarValidator / validateCarName()**
+  - [x] 자동차 이름 중복 예외 처리 - **CarValidator / validateDuplicatedCarName()**
+  - [x] 레이스의 참여한 자동차가 1대 이하인 경우 - **CarValidator / validateNumberOfCar()**
+  - [x] 시도 횟수를 숫자가 아닌 값 또는 0을 넣은 경우 - **TryCountValidator / validateTryCountIsInteger()**
 
 ## 📜 테스트 작성 계획
 - [x] 자동차 생성 테스트
