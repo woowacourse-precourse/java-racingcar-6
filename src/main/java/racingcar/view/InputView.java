@@ -25,6 +25,7 @@ public class InputView {
         String input = Console.readLine();
         String[] carNames = input.split(",");
         Arrays.stream(carNames).forEach(nameInputValidation::isUnderFiveLetters);
+        nameInputValidation.isExistName(carNames);
         return carNames;
     }
 
