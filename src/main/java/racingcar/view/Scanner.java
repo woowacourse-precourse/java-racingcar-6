@@ -41,7 +41,9 @@ public class Scanner {
     public Integer inputNumberOfRounds() {
         String numberOfRounds = Console.readLine();
         validateInputNumber(numberOfRounds);
-        return Integer.parseInt(numberOfRounds);
+        Integer numberOfRoundsInteger =  Integer.parseInt(numberOfRounds);
+        validateNumberOfRound(numberOfRoundsInteger);
+        return numberOfRoundsInteger;
     }
 
     private void validateNoInput(String inputString) {
@@ -60,6 +62,11 @@ public class Scanner {
     private void validateInputNumber(String number) {
         validateNoInput(number);
         if (number.charAt(0) < '0' || number.charAt(0) > '9') {
+            throw new IllegalArgumentException(INVALID_NUMBER_OF_ROUNDS_INPUT_MESSAGE.get());
+        }
+    }
+    private void validateNumberOfRound(Integer numberOfRounds){
+        if(numberOfRounds <= 0){
             throw new IllegalArgumentException(INVALID_NUMBER_OF_ROUNDS_MESSAGE.get());
         }
     }

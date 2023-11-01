@@ -1,17 +1,17 @@
 package racingcar.model;
 
 public class Round {
-    Integer numberOfRound;
+    Integer numberOfRounds;
 
-    public Round(Integer numberOfRound) {
-        this.numberOfRound = numberOfRound;
+    public Round(Integer numberOfRounds) {
+        this.numberOfRounds = numberOfRounds;
     }
 
     public Boolean IsNotEnd() {
-        return (numberOfRound >= 0);
+        return (numberOfRounds >= 0);
     }
 
     public void finishARound() {
-        numberOfRound--;
+        numberOfRounds--;
     }
 }

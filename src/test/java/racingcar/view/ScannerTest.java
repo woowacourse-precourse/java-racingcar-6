@@ -20,7 +20,8 @@ public class ScannerTest {
     String car3 = "jun";
     String numberOfRounds = "5";
     String invalidCarName = "verylong";
-    String invalidNumberOfRounds = "a";
+    String invalidNumberOfRounds1 = "a";
+    String invalidNumberOfRounds2 = "0";
     private Scanner scanner;
     private InputStream originalSystemIn;
 
@@ -78,9 +79,20 @@ public class ScannerTest {
     }
 
     @Test
-    public void testValidateInputNumber_InvalidNumberOfRound() {
+    public void testValidateInputNumber_InvalidNumberOfRound_noInteger() {
         beforEach();
-        setInputStream(invalidNumberOfRounds);
+        setInputStream(invalidNumberOfRounds1);
+
+        Exception exception = assertThrows(IllegalArgumentException.class,
+                () -> scanner.inputNumberOfRounds());
+        assertThat(exception.getMessage()).isEqualTo(INVALID_NUMBER_OF_ROUNDS_INPUT_MESSAGE.get());
+
+        afterEach();
+    }
+    @Test
+    public void testValidateInputNumber_InvalidNumberOfRound_noNaturalNumber() {
+        beforEach();
+        setInputStream(invalidNumberOfRounds2);
 
         Exception exception = assertThrows(IllegalArgumentException.class,
                 () -> scanner.inputNumberOfRounds());
