@@ -27,9 +27,9 @@ public class ExceptionProcess {
         String[] carNameArray = carName.split(",");
         List<String> carNameList = new ArrayList<>();
 
-        for(int i = 0; i < carNameArray.length; i++) {
-            if(!carNameList.contains(carNameArray[i])) {
-                carNameList.add(carNameArray[i]);
+        for(String car : carNameArray) {
+            if(!carNameList.contains(car)) {
+                carNameList.add(car);
             }else {
                 throw new IllegalArgumentException("입력된 자동차 이름에 중복이 존재합니다.");
             }
@@ -39,8 +39,8 @@ public class ExceptionProcess {
     public void excessiveLength(String carName) {
         String[] carNameArray = carName.split(",");
 
-        for(int i = 0; i < carNameArray.length; i++) {
-            if(carNameArray[i].length() > 5) {
+        for(String car : carNameArray) {
+            if(car.length() > 5) {
                 throw new IllegalArgumentException("입력된 자동차 이름 길이가 초과되었습니다.");
             }
         }
