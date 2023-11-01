@@ -31,6 +31,6 @@ public class CarRankingCalculatorTest {
         carAndDistance.put("uncle","-----");
         carAndDistance.put("king","-----");
 
-        assertThat(carRankingCalculator.rankingCheck(carAndDistance)).isEqualTo("cat,uncle,king");
+        assertThat(carRankingCalculator.rankingCheck(carAndDistance)).isEqualTo("cat, uncle, king");
     }
 }
