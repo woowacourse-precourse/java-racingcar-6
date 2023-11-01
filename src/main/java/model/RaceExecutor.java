@@ -15,7 +15,7 @@ public class RaceExecutor {
 
     RaceExecutor(RaceDto raceDto) {
         this.raceDto = raceDto;
-        this.carNames = raceDto.getCarNameToAdvanceMap().keySet().stream().toList();
+        this.carNames = raceDto.getCarNameList();
     }
 
     public void execute() {
