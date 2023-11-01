@@ -161,3 +161,21 @@ Randoms.pickNumberInRange(0,9);
 - **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
   - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+
+
+## 과제 구현을 위한 기능
+
+1. Car class
+   - getCount() 몇 번 전진했는지에 대한 값을 보유, 입력된 이름값 보유
+   - getter 역할을 하는 메소드
+2. Round class
+   - 입력받은 횟수 만큼 전진 여부를 정해주는 기능 
+3. MainGame class
+   - 모든 회차가 끝나면 누가 이겼는지 판별하는 기능
+   - 우승자가 몇명인지 판단해서 리턴하는 기능
+4. CustomView class
+    - Input -> 자동차들의 이름, 시도할 횟수를 입력받음
+      - 예외상황(이름이 5글자가 넘는다는 등)이 발생했을때 알맞은 에러 문구를 출력
+    - Output -> 입력 부탁 문구, 매 회차 마다 게임의 진행 과정, 최종 게임의 결과, 우승자 목록
+5. CustomException class
+   - 예외 상황 판단 및 처리 기능
