@@ -92,7 +92,7 @@ public class RacingCar {
     }
 
     // 한칸 전진을 "-"로 표현
-    private String getResultString(int result) {
+    protected String getResultString(int result) {
         String resultString = "";
         for (int i = 0; i < result; i++) {
             resultString += FORWARD_MARK_STRING;
@@ -118,7 +118,7 @@ public class RacingCar {
     }
 
     // 공동 우승자 출력 시, 쉼표(,)로 구분
-    private String getWinnerString(List<String> winners) {
+    protected String getWinnerString(List<String> winners) {
         return String.join(", ", winners);
     }
 }
