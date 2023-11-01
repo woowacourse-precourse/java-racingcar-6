@@ -1,6 +1,6 @@
 package racingcar.car;
 
-import static racingcar.constant.Constant.COLON;
+import racingcar.constant.OutputMessage;
 
 public abstract class Car {
     private String name;
@@ -23,6 +23,6 @@ public abstract class Car {
 
     @Override
     public String toString() {
-        return name + COLON +distanceDriver;
+        return name + OutputMessage.COLON.getMessage() +distanceDriver;
     }
 }

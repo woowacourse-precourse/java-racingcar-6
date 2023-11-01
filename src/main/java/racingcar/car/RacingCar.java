@@ -1,6 +1,6 @@
 package racingcar.car;
 
-import static racingcar.constant.Constant.DISTANCE_DRIVER;
+import racingcar.constant.OutputMessage;
 
 public class RacingCar extends Car {
 
@@ -11,6 +11,6 @@ public class RacingCar extends Car {
     @Override
     public void moveCar(int number) {
         if(number >= 4)
-            distanceDriver += DISTANCE_DRIVER;
+            distanceDriver += OutputMessage.DISTANCE_DRIVER.getMessage();
     }
 }

@@ -1,18 +1,16 @@
 package racingcar.view;
 
-import static racingcar.constant.Constant.EXECUTION_RESULT;
-import static racingcar.constant.Constant.FINAL_WINNER;
-import static racingcar.constant.Constant.COLON;
+import racingcar.constant.OutputMessage;
 
 public class Output {
 
     public void printExecutionResult(int index,String executionResult){
         if(index == 0)
-            System.out.println("\n"+EXECUTION_RESULT);
+            System.out.println("\n"+ OutputMessage.EXECUTION_RESULT.getMessage());
         System.out.println(executionResult);
     }
 
     public void printFinalWinner(String winners){
-        System.out.println(FINAL_WINNER + COLON + winners);
+        System.out.println(OutputMessage.FINAL_WINNER.getMessage() + OutputMessage.COLON.getMessage() + winners);
     }
 }
