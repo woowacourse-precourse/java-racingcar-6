@@ -2,7 +2,9 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,6 +19,32 @@ public class RacingCarMethodTest {
         var result = Application.isCarnameTooLong(inputList, inputMaxLength);
 
         assertThat(result).isEqualTo(true);
+    }
+
+    @Test
+    void determineGoOrStop_메서드에_4_이상의_값이_입력될_경우_key값의_value를_1만큼_증가(){
+
+        Map<String, Integer> carMap = new HashMap<>();
+        String testCar = "testCar";
+        carMap.put(testCar, 1);
+
+        Application.determineGoOrStop(carMap, testCar, 5);
+        var result = carMap.get(testCar);
+
+        assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    void determineGoOrStop_메서드에_3_이하의_값이_입력될_경우_key값의_value를_유지(){
+
+        Map<String, Integer> carMap = new HashMap<>();
+        String testCar = "testCar";
+        carMap.put(testCar, 1);
+
+        Application.determineGoOrStop(carMap, testCar, 2);
+        var result = carMap.get(testCar);
+
+        assertThat(result).isEqualTo(1);
     }
 
 }
