@@ -2,6 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.view.OutputView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,6 +22,23 @@ public class GameManagerTest extends NsTest {
                 },
                 MOVING_FORWARD, MOVING_FORWARD
         );
+    }
+
+    @Test
+    public void 모두_이동거리가_0일_경우_우승자는_없음() {
+        // given
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("car1"));
+        cars.add(new Car("car2"));
+        cars.add(new Car("car3"));
+        cars.add(new Car("car4"));
+
+        // when
+        GameManager gameManager = new GameManager();
+        List<Car> winners = gameManager.getMaxDistanceCars(cars);
+
+        // then
+        assertThat(winners).hasSize(0);
     }
 
     @Override
