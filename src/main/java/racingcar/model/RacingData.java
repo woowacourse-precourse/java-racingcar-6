@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.controller.TakeInputs;
-
 import java.util.List;
 
 public class RacingData {
@@ -16,12 +14,13 @@ public class RacingData {
     }
 
 
-
     private static String userInputLoopString;
     private static String passedTestLoopString;
     private static int userSetLoopTime;
+
+
     private static List<Integer> forwardPointList;
-    private static List<String> winnerList;
+    private static int mostFar;
 
 
 
@@ -46,6 +45,7 @@ public class RacingData {
     public static int getUserSetLoopTime() {
         return userSetLoopTime;
     }
+
     public static void setUserSetLoopTime(int userSetLoopTime) {
         RacingData.userSetLoopTime = userSetLoopTime;
     }
@@ -60,12 +60,12 @@ public class RacingData {
     }
 
 
-    public static List<String> getWinnerList() {
-        return winnerList;
+    public static int getMostFar() {
+        return mostFar;
     }
 
-    public static void setWinnerList(List<String> winnerList) {
-        RacingData.winnerList = winnerList;
+    public static void setMostFar(int mostFar) {
+        RacingData.mostFar = mostFar;
     }
 
 }
