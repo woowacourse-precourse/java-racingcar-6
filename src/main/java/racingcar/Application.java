@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -41,6 +42,10 @@ public class Application {
             distanceArr.add(car.distance);
         }
         return distanceArr;
+    }
+
+    static int findMaxValue(List<Integer> distanceArr){
+        return Collections.max(distanceArr);
     }
 
     public static void main(String[] args) {
