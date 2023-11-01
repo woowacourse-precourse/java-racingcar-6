@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -51,7 +52,7 @@ class ApplicationTest extends NsTest {
     public void tryMove_메서드_이동횟수_증가_유지() {
         Car car = new Car("test");
         int initialMoveCount = car.getMoveCount();
-        car.tryMove();
+        car.tryMove(Randoms.pickNumberInRange(0, 9));
         assertTrue(car.getMoveCount() >= initialMoveCount);
     }
 

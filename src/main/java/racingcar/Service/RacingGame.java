@@ -23,7 +23,7 @@ public class RacingGame {
     public void start() {
         for (int i = 0; i < raceCount; i++) {
             for (Car car : cars) {
-                car.tryMove();
+                car.tryMove(Randoms.pickNumberInRange(0, 9));
             }
             outputHandler.printRaceResult(cars);
         }

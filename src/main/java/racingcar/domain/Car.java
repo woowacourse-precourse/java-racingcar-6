@@ -22,8 +22,7 @@ public class Car {
         return "-".repeat(move);
     }
 
-    public void tryMove() {
-        int randomValue = Randoms.pickNumberInRange(0, 9);
+    public void tryMove(int randomValue) {
         if (randomValue >= 4) {
             move++;
         }
