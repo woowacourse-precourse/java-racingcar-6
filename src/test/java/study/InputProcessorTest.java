@@ -12,6 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.Car;
 import racingcar.domain.InputProcessor;
 
 @DisplayName("입력 프로세서 테스트")
@@ -67,5 +68,20 @@ public class InputProcessorTest {
         InputProcessor inputProcessor = new InputProcessor();
         assertThatThrownBy(inputProcessor::getRound)
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("성공: 전체 입력 프로세스 테스트")
+    @Test
+    void test6() {
+        assertThatCode(() ->
+        {
+            InputProcessor inputProcessor = new InputProcessor();
+            System.setIn(new ByteArrayInputStream("pobi,wooni".getBytes()));
+            List<String> carNames = inputProcessor.getCarNames();
+            Console.close();
+            List<Car> cars = inputProcessor.getCars(carNames);
+            System.setIn(new ByteArrayInputStream("1".getBytes()));
+            Integer round = inputProcessor.getRound();
+        }).doesNotThrowAnyException();
     }
 }
