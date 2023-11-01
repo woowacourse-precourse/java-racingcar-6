@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.StringUtil;
 
 public class User {
     private String carNames;
@@ -27,6 +28,14 @@ public class User {
     }
 
     protected String readTryNumFromConsole(){
-        return Console.readLine();
+        String tryNum = Console.readLine();
+        if (isIllegalArgTryNum(tryNum)) {
+            throw new IllegalArgumentException("시도횟수는 숫자여야 합니다.");
+        }
+        return tryNum;
+    }
+
+    private boolean isIllegalArgTryNum(String tryNum){
+        return StringUtil.isDigit(tryNum);
     }
 }

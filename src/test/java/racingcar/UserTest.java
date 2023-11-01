@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -25,5 +26,23 @@ class UserTest {
 
         assertEquals("pobi,woni", user.getCarNames());
         assertEquals(5, user.getTryNum());
+    }
+
+    @Test
+    void 시도횟수로_숫자만_받을수_있다() {
+        User user = new User(){
+            @Override
+            protected String readCarsFromConsole(){
+                return "pobi,woni";
+            }
+
+            @Override
+            protected String readTryNumFromConsole(){
+                return "char";
+            }
+        };
+
+        assertThatThrownBy(user::readTryNumInput)
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
