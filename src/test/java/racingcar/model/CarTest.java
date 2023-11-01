@@ -32,4 +32,16 @@ class CarTest {
         assertEquals(c2.getMyName(), "스포츠 카");
         assertEquals(c3.getMyName(), "자전거");
     }
+
+    @Test
+    void isNamesake_테스트() {
+        Car c1 = new Car(new Name("a"));
+        Car c2 = new Car(new Name("a"));
+        Car c3 = new Car(new Name("b"));
+
+        assertTrue(c1.isNamesake(c1));
+        assertTrue(c1.isNamesake(c2));
+        assertFalse(c2.isNamesake(c3));
+        assertFalse(c3.isNamesake(c2));
+    }
 }
