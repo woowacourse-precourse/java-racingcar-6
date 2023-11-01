@@ -1,16 +1,14 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class Game {
 
     private static final int DEFAULT_TOTAL_ATTEMPTS = 0;
 
     private final int totalAttempts;
-    private final List<RacingCar> racingCarList;
+    private final RacingCarList racingCarList;
     private int attempts;
 
-    public Game(List<RacingCar> racingCarList, int totalAttempts) {
+    public Game(RacingCarList racingCarList, int totalAttempts) {
         this.racingCarList = racingCarList;
         this.totalAttempts = totalAttempts;
         this.attempts = DEFAULT_TOTAL_ATTEMPTS;
@@ -28,7 +26,7 @@ public class Game {
         return attempts;
     }
 
-    public List<RacingCar> getRacingCarList() {
+    public RacingCarList getRacingCarList() {
         return racingCarList;
     }
 
