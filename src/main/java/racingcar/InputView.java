@@ -5,8 +5,12 @@ import java.util.List;
 
 public class InputView {
     public static List<Car> inputCarsInfo() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        printAskCarNames();
         return getCarNames();
+    }
+
+    private static void printAskCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     public static List<Car> getCarNames() {
@@ -22,8 +26,12 @@ public class InputView {
     }
 
     public static int inputRound() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        printAskRound();
         return getRound();
+    }
+
+    private static void printAskRound() {
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 
     public static int getRound() {
