@@ -2,6 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Round;
 
 import java.io.ByteArrayInputStream;
 
@@ -26,10 +27,10 @@ public class RoundTest {
         setInputStream("1");
 
         // when
-        Integer attemptNumber = askRound();
+        Round round = new Round(askRound());
 
         // then
-        assertThat(attemptNumber).isEqualTo(1);
+        assertThat(round.getRound()).isEqualTo(1);
     }
 
     @Test
@@ -38,7 +39,7 @@ public class RoundTest {
         setInputStream("0");
 
         // when, then
-        assertThatThrownBy(Application::askRound)
+        assertThatThrownBy(() -> new Round(askRound()))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -48,7 +49,7 @@ public class RoundTest {
         setInputStream("-10");
 
         // when, then
-        assertThatThrownBy(Application::askRound)
+        assertThatThrownBy(() -> new Round(askRound()))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -58,7 +59,17 @@ public class RoundTest {
         setInputStream("1000");
 
         // when, then
-        assertThatThrownBy(Application::askRound)
+        assertThatThrownBy(() -> new Round(askRound()))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 예외_테스트_문자_입력() {
+        // given
+        setInputStream("hi");
+
+        // when, then
+        assertThatThrownBy(() -> new Round(askRound()))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

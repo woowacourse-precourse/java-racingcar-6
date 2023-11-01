@@ -6,9 +6,9 @@ public class Race {
     private static final String DELIMITER = ", ";
 
     private final Participants participants;
-    private final Integer round;
+    private final Round round;
 
-    public Race(Participants participants, Integer round) {
+    public Race(Participants participants, Round round) {
         this.participants = participants;
         this.round = round;
     }
@@ -20,7 +20,7 @@ public class Race {
 
     private void begin() {
         System.out.println(RESULT_MESSAGE);
-        for (int i = 0; i < round; i++) {
+        for (int i = 0; i < round.getRound(); i++) {
             round();
         }
     }

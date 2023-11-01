@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import static racingcar.util.Validate.isValidCarName;
-
 public class Car {
     private final String name;
     private Integer position = 0;
@@ -9,6 +7,12 @@ public class Car {
     public Car(String name) {
         isValidCarName(name);
         this.name = name;
+    }
+
+    private static void isValidCarName(String carName) {
+        if (carName.length() < 1 || carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void forward() {
