@@ -37,4 +37,14 @@ public class ActionCars {
         }
         return maxlength;
     }
+
+    public String winnerCar(int maxlength){
+        List<String> winnerlist = new ArrayList<String>();
+        for(int i = 0; i < racinggame.getCarNumbers() ; i++){
+            if(racinggame.getCountResult().get(i).length() == maxlength){
+                winnerlist.add((String) racinggame.getCarNames().get(i));
+            }
+        }
+        return String.join(", ", winnerlist);
+    }
 }
