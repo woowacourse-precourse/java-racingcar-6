@@ -15,7 +15,8 @@ public class GameManager {
         List<String> carNameList = input.getCarNameList();
         List<Car> carList = new ArrayList<>();
 
-        IntStream.range(0, carNameList.size()).forEach(i -> carList.add(new Car(carNameList.get(i), 0)));
+        IntStream.range(0, carNameList.size())
+                .forEach(i -> carList.add(new Car(carNameList.get(i), 0)));
 
         return carList;
     }
@@ -30,27 +31,16 @@ public class GameManager {
     }
 
     public List<String> checkWinner(List<Car> carList) {
-        List<String> winnerList = new ArrayList<>();
-        int maxPosition = findMaxPosition(carList);
-
-        for (Car car : carList) {
-            if (maxPosition == car.getPosition()) {
-                winnerList.add(car.getCarName());
-            }
-        }
-
-        return winnerList;
+        return carList.stream()
+                .filter(car -> car.getPosition() == findMaxPosition(carList))
+                .map(Car::getCarName)
+                .toList();
     }
 
     private int findMaxPosition(List<Car> carList) {
-        int max = -1;
-
-        for (Car car : carList) {
-            if (max <= car.getPosition()) {
-                max = car.getPosition();
-            }
-        }
-
-        return max;
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(-1);
     }
 }
