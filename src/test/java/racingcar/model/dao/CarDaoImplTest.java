@@ -2,6 +2,7 @@ package racingcar.model.dao;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,17 +27,16 @@ class CarDaoImplTest {
         for (Car car : carDao.selectAllCars()) {
             if (car.getName().equals("woni")) {
                 assertThat(car.getMoveCount()).isEqualTo(1);
-            }
-            else {
+            } else {
                 assertThat(car.getMoveCount()).isEqualTo(0);
             }
         }
     }
-    
+
     @DisplayName("가장 큰 전진 횟수(moveCount)를 반환한다.")
     @Test
     void selectTopMoveCount() {
-        for (int i=0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
             carDao.increaseMoveCount("pobi");
             if (i < 8) {
                 carDao.increaseMoveCount("woni");
@@ -46,8 +46,21 @@ class CarDaoImplTest {
             }
         }
 
-        assertThat(carDao.selectTopMoveCount())
+        assertThat(carDao.getTopMoveCount())
                 .isEqualTo(10);
 
+    }
+
+    @DisplayName("전진 횟수와 일치하는 Car 리스트를 반환한다.")
+    @Test
+    void selectCarsByMoveCount() {
+        int moveCount = 5;
+        for (int i = 0; i < moveCount; i++) {
+            carDao.increaseMoveCount("woni");
+            carDao.increaseMoveCount("jun");
+        }
+
+        assertThat(carDao.selectCarsByMoveCount(moveCount).size())
+                .isEqualTo(2);
     }
 }
