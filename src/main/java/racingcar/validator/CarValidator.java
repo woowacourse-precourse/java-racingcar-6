@@ -4,6 +4,8 @@ import java.util.List;
 
 public class CarValidator {
 
+    private static final int CAR_NAME_MAX_LENGTH = 5;
+
     public static void validateCarName(String carName) {
 
         if (!isValidCarName(carName)) {
@@ -27,7 +29,7 @@ public class CarValidator {
     }
 
     private static boolean isValidCarName(String carName) {
-        return (carName.length() <= 5) && (carName.length() > 0);
+        return (carName.length() <= CAR_NAME_MAX_LENGTH) && (carName.length() > 0);
     }
 
     private static long getUniqueCount(List<String> carNames) {
