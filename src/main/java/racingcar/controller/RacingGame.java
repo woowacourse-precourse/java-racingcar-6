@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.model.Exception;
+import racingcar.model.BadInputException;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -30,13 +30,13 @@ public class RacingGame {
     private String[] checkValid(String carNames) {
         String[] names = carNames.split(",");
 
-        Exception.checkMinimumParticipants(names);
+        BadInputException.checkMinimumParticipants(names);
         trimSpaces(names); // 양끝 공백 제거
-        Exception.isNameDuplicate(names);
+        BadInputException.isNameDuplicate(names);
 
         for (String name : names) {
-            Exception.isSpace(name); // 이름에 공백이 포함되어 있는지 확인
-            Exception.checkNameLength(name);
+            BadInputException.isSpace(name); // 이름에 공백이 포함되어 있는지 확인
+            BadInputException.checkNameLength(name);
         }
 
         return names;
@@ -55,7 +55,7 @@ public class RacingGame {
 
     private void inputAttemptCount() {
         String count = InputView.attemptCount();
-        Exception.checkNumber(count);
+        BadInputException.checkNumber(count);
         setAttemptCount(Integer.parseInt(count));
     }
 
