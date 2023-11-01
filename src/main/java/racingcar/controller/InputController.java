@@ -15,7 +15,6 @@ public class InputController {
             return setRacingCars();
         }
     }
-
     public static int setRoundNum() {
         try {
             RoundNumValidator validator = new RoundNumValidator(InputView.inputNumOfRounds());
