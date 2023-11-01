@@ -36,7 +36,7 @@
 
 ***
 
-## 파일(클래스) 구조 설계
+## 클래스 구조 설계
 
 ```
   java   
@@ -44,41 +44,60 @@
             └── Application : RacingcarGame 실행
             |
             └── RacingcarGame : 게임 진행
-            |       속성 : (변수) List<Car> cars : 생성한 Car 인스턴스들을 담는 리스트
-            |             (변수) int tryCount : 시도 회수
-            |             (함수) void run() : 게임 시작하기
-            |             (함수) void makeCar() : 입력받은 자동차 이름 개수만큼의 Car 인스턴스들을 생성하기
+            |       속성 : List<Car> cars : 생성한 Car 인스턴스들을 담는 리스트
+            |             int tryCount : 시도 회수
+            |             void start() : 게임 시작
+            |                 void set()
+            |                     String carNamesWithComma : 차 이름 input 받은 것
+            |                     List<String> getCarNames(String carNamesWithComma) : 차 이름 input 받은 것을 리스트로 변환 
+            |                     String tryCountString : 시도 회수 input 받은 것
+            |                     int getTryCount(String tryCountString) : 시도 회수 input 받은 것을 정수로 변환
+            |                     void makeCars(List<String> carNames) : 입력받은 자동차 이름 리스트 길이만큼의 Car 인스턴스 생성
+            |                 void run()
+            |                     void runRounds(int tryCount) : 시도 회수 중 1회 진행
+            |                     void setWinners(List<Car> cars) : winners 계산
+            |                         void initializeWinners()
+            |                         void setWinner(Car car)
+            |                             void initializeWinners()
+            |                     void printWinners() : winners 출력
             |  
             └── Car
-            |       속성 : (변수) String name : 이름
-            |             (변수) int moveCount : 앞으로 움직인 회수
-            |             (함수) void moveForward() : Car 인스턴스의 moveCount에 +1 (전진)
+            |       속성 : String name : 이름
+            |             int moveCount : 앞으로 움직인 회수
+            |             void moveForward() : Car 인스턴스의 moveCount에 +1 (전진)
+            |             String getName()
+            |             int getMoveCount()
             |
             └── Validator : Exception 처리
-                    속성 : (함수) void rightCarNames : input 받은 자동차 이름이 올바른 포맷이 아니면 IllegalArgumentException 발생
-                                예외: 5자 이하
-                                     이름 앞뒤 공백 가능? : Yes ('pobi  ,  jun'과 같이 공백을 함께 입력하는 경우는 허용한다.)
-                                     이름이 공백 가능? : No ("")
-                                     이름 사이 공백 가능? : No (일반적으로 이름 사이에 공백은 허용하지 않는다)
-                                     이름 중복 가능? : No (중복된 이름이 우승했을때 어떤 차가 우승했는지 알 수 없다)
-                                     
-                          (함수) void rightTryCount : input 받은 시도회수가 올바른 포맷이 아니면 IllegalArgumentException 발생
+            |       속성 : void carNamesString(String carNamesWithComma) : carNamesWithComma이 null이거나 앞 또는 뒤에 ,가 있으면 IllegalArgumentException 발생
+            |             List<String> carNamesArray : 자동차 이름 Array의 이름들이 올바른 포맷이 아니면 IllegalArgumentException 발생시키고, 올바른 포맷이면 리스트로 반환
+            |                 예외: (필수) 5자 이하
+            |                      특수문자 허용
+            |                      이름 앞뒤 공백 가능? : Yes ('pobi  ,  jun'과 같이 공백을 함께 입력하는 경우는 허용한다.)
+            |                      이름이 공백, null 가능? : No (ex. " ", "")
+            |                      이름 사이 공백 가능? : No (일반적으로 이름 사이에 공백은 허용하지 않는다)
+            |                      이름 중복 가능? : No (중복된 이름이 우승했을때 어떤 차가 우승했는지 알 수 없다)
+            |             void tryCountInput : input 받은 시도회수가 올바른 포맷이 아니면 IllegalArgumentException 발생
             |
-            └── InputOutput
-            |       속성 : (함수) String getCarNames() : 자동차 이름들 달라고 출력하고 받기
-            |             (함수) Integer getTryCount() : 시도 횟수 달라고 출력하고 받기
-            |             (함수) void printResult() : 실행 결과(Car 인스턴스들이 전진한 회수를 그래픽화) 출력하기
-            |             (함수) void printWinner() : 최종 우승자 출력하기
+            └── View : input과 output 처리 (데이터 가공은 하지 않음)
+            |       속성 : String getCarNamesWithComma() : 자동차 이름들 달라고 출력하고 받기
+            |             String getTryCount() : 시도 횟수 달라고 출력하고 받기
+            |             void printEmptyLine() : 포맷을 위한 빈 줄 출력
+            |             void void printResultMessage() : 실행 결과(Car 인스턴스들이 전진한 회수를 그래픽화) 출력하기
+            |             void printRoundResult
+            |             void printWinners() : 최종 우승자(들) 출력하기
             |          
             └── Random
-            |       속성 : (함수) boolean isNumOverFour() : 0부터 9 사이의 수를 랜덤으로 뽑아 4 이상이면 true 리턴/ 3 이하면 false 리턴
+            |       속성 : boolean isOverThresholdNum() : 0부터 9 사이의 수를 랜덤으로 뽑아 임계값(4) 이상이면 true 리턴/ 이하면 false 리턴
             |   
             └── Constant : 상수 관리
-                    속성 : (변수) static final String ASK_TRYCOUNT_MESSAGE : 시도 회수 입력해달라는 출력 메시지 ("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
-                          (변수) static final String ASK_CARS_NAME_MESSAGE : 자동차 이름을 입력해달라는 출력 메시지 ("시도할 회수는 몇회인가요?")
-                          (변수) static final String MOVECOUNT_RESULT_MESSAGE : "실행 결과"
-                          (변수) static final String PRINT_WINNER_MESSAGE : "최종 우승자 : "
-                          (변수) static final String UNIT_MOVE_BLOCK : 실행 결과에 출력되는 한 칸("-")
+                    속성 : static final String ASK_TRYCOUNT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" (시도 회수 입력해달라는 출력 메시지)
+                          static final String ASK_CARS_NAME_MESSAGE = "시도할 회수는 몇회인가요?" (자동차 이름을 입력해달라는 출력 메시지)
+                          static final String MOVECOUNT_RESULT_MESSAGE = "실행 결과"
+                          static final String PRINT_WINNER_MESSAGE = "최종 우승자 : "
+                          static final String UNIT_MOVE_BLOCK = "-" (실행 결과에 출력되는 한 칸)
+                          static final int CARNAME_MAX_LENGTH = 5;
+                          static final int THRESHOLD_NUMBER = 4;
 ```
 
 ***
