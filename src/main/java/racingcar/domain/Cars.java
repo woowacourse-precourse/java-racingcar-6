@@ -8,7 +8,7 @@ import java.util.Set;
 import racingcar.util.ParserUtils;
 
 public class Cars {
-    private ArrayList<Car> cars;
+    private final ArrayList<Car> cars;
 
     public Cars() {
         this.cars = new ArrayList<>();
