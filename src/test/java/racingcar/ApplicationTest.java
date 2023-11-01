@@ -32,13 +32,13 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     car.move();
-                    assertThat(car.path()).isEqualTo("torch : -");
+                    assertThat(car.path()).isEqualTo(name + " : -");
                     car.move();
-                    assertThat(car.path()).isEqualTo("torch : -");
+                    assertThat(car.path()).isEqualTo(name + " : -");
                     car.move();
-                    assertThat(car.path()).isEqualTo("torch : --");
+                    assertThat(car.path()).isEqualTo(name + " : --");
                     car.move();
-                    assertThat(car.path()).isEqualTo("torch : ---");
+                    assertThat(car.path()).isEqualTo(name + " : ---");
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
