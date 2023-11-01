@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Car {
 
-    private List<String> carName = new ArrayList<String>();
-    private int[] carDistance;
+    public List<String> carName = new ArrayList<String>();
+    public int[] carDistance;
 
     Car(String[] carName) {
         this.carName = Arrays.asList(carName);
