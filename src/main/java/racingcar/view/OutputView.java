@@ -6,14 +6,14 @@ import racingcar.view.formatter.OutputFormatter;
 import java.util.List;
 
 public class OutputView {
-    private static final String RESULT_MESSAGE = "실행 결과";
 
     public static void printBlankLine() {
         System.out.println();
     }
 
     public static void printResultMessage() {
-        System.out.println(RESULT_MESSAGE);
+        String result = OutputFormatter.makeResultMessage();
+        System.out.println(result);
     }
 
     public static void printWinner(List<CarDto> winners) {

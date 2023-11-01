@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class OutputFormatter {
+    private static final String RESULT_MESSAGE = "실행 결과";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String EMPTY_STRING = "";
     private static final String SPACE = " ";
@@ -43,4 +44,7 @@ public class OutputFormatter {
                 .collect(Collectors.joining(EMPTY_STRING));
     }
 
+    public static String makeResultMessage() {
+        return RESULT_MESSAGE;
+    }
 }
