@@ -22,16 +22,16 @@ public class InputHandler {
         return convertToNumber(userInput());
     }
 
-    private static String userInput() {
+    public static String userInput() {
         return Console.readLine();
     }
 
-    private static String[] splitToArray(String input) {
+    public static String[] splitToArray(String input) {
         validateCarNames(input);
         return input.split(Constants.COMMA);
     }
 
-    private static int convertToNumber(String input) {
+    public static int convertToNumber(String input) {
         validateTrialCount(input);
         return Integer.parseInt(input);
     }
@@ -43,13 +43,13 @@ public class InputHandler {
         else if (target.contains(Constants.BLANK)) {  // 공백 포함
             throw new IllegalArgumentException();
         }
-        else if (target.contains(Constants.COMMA.repeat(2))) {   // 쉼표(,)가 2개이상 연속
+        else if (target.contains(Constants.COMMA.repeat(2))) {   // 쉼표(,) 2개이상 연속
             throw new IllegalArgumentException();
         }
-        else if (isBothEndPattern(target)) {    // 쉼표(,)가 맨 앞/뒤에 위치
+        else if (isBothEndPattern(target)) {    // 쉼표(,) 맨 앞/뒤 위치
             throw new IllegalArgumentException();
         }
-        else if (hasLengthExcess(target)) {   // 길이가 5 초과
+        else if (hasLengthExcess(target)) {   // 길이 제한 초과
             throw new IllegalArgumentException();
         }
         else if (hasDuplicates(target)) {   // 중복 입력
@@ -80,8 +80,8 @@ public class InputHandler {
     }
 
     private static boolean hasDuplicates(String target) {
-        List<String> list = Arrays.stream(target.split(Constants.COMMA)).collect(Collectors.toList());
-        Set<String> set = Arrays.stream(target.split(Constants.COMMA)).collect(Collectors.toSet());
-        return (list.size() != set.size());
+        List<String> originalList = List.of(target.split(Constants.COMMA));
+        List<String> distinctList = originalList.stream().distinct().toList();
+        return (originalList.size() != distinctList.size());
     }
 }
