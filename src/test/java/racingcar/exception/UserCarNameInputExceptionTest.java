@@ -1,6 +1,5 @@
 package racingcar.exception;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class UserCarNameInputExceptionTest  {
     private UserCarNameInputException userCarNameInputException;
@@ -31,13 +29,15 @@ class UserCarNameInputExceptionTest  {
     @Test
     void 이름_길이가_유효하지_않을_때() {
         String input = "adddaddad";
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserCarNameInputException.isLength(input));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> UserCarNameInputException.isLength(input));
         assertEquals(LENGTH_ERROR_MESSAGE, exception.getMessage());
     }
     @Test
     void 빈칸이_포함_됐을_때(){
         String input = "po bi,jundo";
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserCarNameInputException.isBlank(input));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> UserCarNameInputException.isBlank(input));
         assertEquals(BLANK_STRING_MESSAGE, exception.getMessage());
     }
     @Test
@@ -50,7 +50,8 @@ class UserCarNameInputExceptionTest  {
     void 중복된_값이_존재_할_때(){
         String input = "jun,jun,woni";
         List<String> carName = Arrays.asList(input.split(","));
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserCarNameInputException.isDuplicate(carName));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> UserCarNameInputException.isDuplicate(carName));
         assertEquals(DUPLICATE_MESSAGE, exception.getMessage());
     }
 
@@ -64,7 +65,8 @@ class UserCarNameInputExceptionTest  {
     @Test
     void 컴마_숫자_문자_이외의_것_일_때() {
         String input = "pobi@woni,jun";
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserCarNameInputException.isComma(input));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> UserCarNameInputException.isComma(input));
         assertEquals(ONLY_COMMA, exception.getMessage());
     }
     @Test
@@ -77,7 +79,8 @@ class UserCarNameInputExceptionTest  {
     void 차_두_대_이상_입력_하지_않았을_때(){
         String input = "pobi";
         List<String> carName = Arrays.asList(input.split(","));
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserCarNameInputException.isMoreThan(carName));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> UserCarNameInputException.isMoreThan(carName));
         assertEquals(INPUT_MORE_THAN_TWO, exception.getMessage());
     }
 
