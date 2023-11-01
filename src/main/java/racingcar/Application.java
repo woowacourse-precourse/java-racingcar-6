@@ -3,6 +3,8 @@ package racingcar;
 import static console.Input.carNamesInput;
 import static console.Input.tryInput;
 import static console.Printer.*;
+import static racingcar.Car.createCar;
+import static racingcar.Car.decideWinners;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ public class Application {
     public static void main(String[] args) {
         printCarInputMessage();
         String[] carNames = carNamesInput();
-        for (String name : carNames) addCarToList(createCar(name));
+        for (String name : carNames) cars.add((createCar(name)));
 
         printTryInputMessage();
         int tryCount = tryInput();
@@ -26,14 +28,6 @@ public class Application {
         List<Car> winners = decideWinners(cars);
         printWinners(winners);
     }
-
-    private static void addCarToList(Car car) {
-        cars.add(car);
-    }
-
-    private static Car createCar(String name) {
-        return new Car(name);
-    }
     private static void makeCarsMove(int tryCount) {
         for(int i = 0; i < tryCount ; i++) {
             for (Car car : cars) {
@@ -42,17 +36,5 @@ public class Application {
             }
             printNewLine();
         }
-    }
-
-    private static List<Car> decideWinners(List<Car> cars) {
-        return cars.stream().filter(car -> car.getDistance() == getMaxDistance(cars)).collect(Collectors.toList());
-    }
-
-    private static int getMaxDistance(List<Car> cars) {
-        int max = 0;
-        for (Car car : cars) {
-            max = Math.max(max, car.getDistance());
-        }
-        return max;
     }
 }
