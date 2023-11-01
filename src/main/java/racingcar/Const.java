@@ -2,6 +2,10 @@ package racingcar;
 
 public class Const {
 
+    public static final int BOUNDARY_VALUE = 4;
+    public static final int RANDOM_RANGE_MIN_NUM = 0;
+    public static final int RANDOM_RANGE_MAX_NUM = 9;
+
     public static final String SEPARATOR_NAME = "쉼표";
     public static final String SEPARATOR = ",";
 
@@ -11,8 +15,6 @@ public class Const {
     public static final String CAR_NAME_SEPARATE = " : ";
     public static final String CAR_MOVING_SIGN = "-";
     public static final String EXTRACT_CAR_STATUS_DELIMITER = "\n";
-    public static final int RANDOM_RANGE_MIN_NUM = 0;
-    public static final int RANDOM_RANGE_MAX_NUM = 9;
 
     public static final String WINNERS_STRING = "최종 우승자 : ";
     public static final String WINNERS_SEPARATOR = ", ";

@@ -25,7 +25,7 @@ public class Car {
     }
 
     public void move() {
-        if (pickRandomNumber() >= 4) {
+        if (pickRandomNumber() >= Const.BOUNDARY_VALUE) {
             position++;
         }
     }
