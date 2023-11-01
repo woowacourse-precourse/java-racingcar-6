@@ -8,7 +8,6 @@ import racingcar.model.RacingGame;
 import java.util.List;
 
 public class RacingSimulator {
-    //레이싱 게임 반복 실행 기능 추가 예정
 
     private final InputView inputView;
     private final OutputView outputView;
@@ -17,7 +16,19 @@ public class RacingSimulator {
         this.inputView = inputView;
         this.outputView = outputView;
     }
-    // 반복기능 넣기
+
+    public void simulate(NumberGenerator numberGenerator) {
+        //레이싱 게임 반복 실행 기능 추가 예정
+        RacingGame racingGame = createRacingGame(numberGenerator);
+
+        outputView.printExecuteResultMessage();
+        while (!racingGame.isFinished()) {
+            racingGame.moveCars();
+            outputView.printPositions(racingGame.getPositions());
+        }
+        outputView.printWinners(racingGame.getWinners());
+    }
+
     private RacingGame createRacingGame(NumberGenerator numberGenerator) {
         List<String> carNames = inputView.inputCarNames();
         int maxTryCount = inputView.inputMaxTryCount();

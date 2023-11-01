@@ -8,8 +8,8 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        if(hasOverLengthName(name)){
-            throw new IllegalArgumentException("자동차 이름은" + MAX_NAME_LENGTH + " 이하여야 합니다.");
+        if (hasOverLengthName(name)) {
+            throw new IllegalArgumentException("자동차 이름은" + MAX_NAME_LENGTH + " 이하만 가능합니다.");
         }
 
         this.name = name;
@@ -33,6 +33,7 @@ public class Car {
     public String getName() {
         return name;
     }
+
     public int getPosition() {
         return position;
     }
