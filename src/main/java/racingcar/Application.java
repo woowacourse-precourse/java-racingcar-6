@@ -1,7 +1,13 @@
 package racingcar;
 
+import game.GameExecutor;
+import racingcar.configuration.Configuration;
+
+
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        GameExecutor gameExecutor = Configuration.getGameExecutor();
+        gameExecutor.run();
     }
 }
