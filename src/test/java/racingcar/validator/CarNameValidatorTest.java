@@ -19,20 +19,20 @@ class CarNameValidatorTest {
 
     @Test
     void 유요한_자동차_이름_길이() {
-        //given
+        //arrange
         String name = "valid";
 
-        //when, then
+        //act, assert
         assertThatCode(() -> carNameValidator.checkCarNameLength(name))
                 .doesNotThrowAnyException();
     }
 
     @Test
     void 유요하지_않은_자동차_이름_길이() {
-        //given
+        //arrange
         String name = "failed";
 
-        //when, then
+        //act, assert
         assertThatThrownBy(() -> carNameValidator.checkCarNameLength(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름의 길이는 5 이하로 설정 해주세요.");
@@ -40,19 +40,19 @@ class CarNameValidatorTest {
 
     @Test
     void 중복되지_않는_자동차_이름들() {
-        //given
+        //arrange
         List<String> carNames = Arrays.asList("Car1", "Car2", "Car3");
 
-        //when, then
+        //act, assert
         assertThatCode(() -> carNameValidator.checkDuplicatedCarName(carNames))
                 .doesNotThrowAnyException();
     }
     @Test
     void 중복되는_값이_존재하는_자동차_이름들() {
-        //given
+        //arrange
         List<String> carNames = Arrays.asList("Car1", "Car2", "Car1");
 
-        //when, then
+        //act, assert
         assertThatThrownBy(() -> carNameValidator.checkDuplicatedCarName(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다");
