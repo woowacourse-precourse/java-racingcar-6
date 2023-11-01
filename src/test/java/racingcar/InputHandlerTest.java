@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.io;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,12 +19,12 @@ class InputHandlerTest {
     @Test
     void validRaceCount() {
         String input = "5";
-        assertDoesNotThrow(() -> InputHandler.getRaceCount(input));
+        assertDoesNotThrow(() -> InputHandler.getTryCount(input));
     }
 
     @Test
     void invalidRaceCount() {
         String input = "invalid";
-        assertThrows(IllegalArgumentException.class, () -> InputHandler.getRaceCount(input));
+        assertThrows(IllegalArgumentException.class, () -> InputHandler.getTryCount(input));
     }
 }
