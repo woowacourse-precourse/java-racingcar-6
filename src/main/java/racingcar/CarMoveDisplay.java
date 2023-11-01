@@ -21,8 +21,8 @@ public class CarMoveDisplay {
     }
 
     public static boolean decideCarMovement() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
-        return randomNum >= 4;
+        int randomNum = Randoms.pickNumberInRange(Constants.RANDOM_NUMBER_MIN, Constants.RANDOM_NUMBER_MAX);
+        return randomNum >= Constants.RANDOM_NUMBER_LIMIT;
     }
 
     public static void racePrint(Car car) {
