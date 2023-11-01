@@ -23,12 +23,4 @@ public class Car {
     public int getPosition() {
         return position;
     }
-
-    public void printStatus() {
-        System.out.print(name + " : ");
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
-    }
 }

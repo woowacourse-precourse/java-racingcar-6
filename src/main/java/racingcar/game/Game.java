@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.List;
 import racingcar.car.Car;
 import racingcar.race.Race;
+import racingcar.utils.OutputUtil;
 
 public class Game {
     private final Race race;
@@ -22,7 +23,7 @@ public class Game {
 
     private void printCarStatus() {
         for (Car car: race.getCars()) {
-            car.printStatus();
+            OutputUtil.printStatus(car);
         }
     }
 }
