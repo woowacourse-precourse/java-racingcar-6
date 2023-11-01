@@ -3,7 +3,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.View.RacingGameView;
-
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.List;

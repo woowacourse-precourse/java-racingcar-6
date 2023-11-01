@@ -17,7 +17,7 @@ public class CarTest {
         });
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new Car("lucky");
+            new Car("lucky5");
         });
     }
 
