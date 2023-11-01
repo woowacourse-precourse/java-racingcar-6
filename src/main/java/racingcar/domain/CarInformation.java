@@ -20,4 +20,12 @@ public class CarInformation {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
 }

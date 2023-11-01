@@ -3,15 +3,15 @@
 
 ## 기능목록
 
-- [x] 한 라운드에서 각 자동차는 전진할 기회를 한번씩 갖는다. - GameManagement#playRound
-- [x] 우승자를 판별한다. - GameManagement#getWinners
+- [x] 한 라운드에서 각 자동차는 전진할 기회를 한번씩 갖는다. - GameManagement#playRound()
+- [x] 우승자를 판별한다. - GameManagement#getWinners()
     - [x] Max위치값과 각 자동차의 위치값을 비교하여 가장 많이 전진한 자동차를 찾는다.
     - [x] Max위치값과 같은 자동차가 여러대일 수 있다. (리스트에 추가한다.)
-- [x] 0부터 9까지의 임의의 수를 구한다. - CarInformantion#move
+- [x] 0부터 9까지의 임의의 수를 구한다. - CarInformantion#move()
     - [x] 값이 4이상일 경우 전진한다. (위치값 증가시킨다.)
 
 
-- [ ] 5자 이하의 자동차 이름을 입력받는다.
+- [x] 5자 이하의 자동차 이름을 입력받는다. - Application#getCarNames()
     - [ ] ','를 기준으로 구분한다.
 - [ ] 시도할 횟수를 입력받는다.
 - [ ] 결과를 출력한다.
