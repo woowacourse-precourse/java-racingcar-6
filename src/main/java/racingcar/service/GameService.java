@@ -26,7 +26,7 @@ public class GameService {
 
     public void start() {
         output.printMessage(AnnouncerScript.START_MENTION);
-        carList = new Car(setCarName());
+        setCarName();
         output.printMessage(AnnouncerScript.CREATE_CAR_NAME);
 
         output.printMessage(AnnouncerScript.ASK_NUMBER_OF_ATTEMPTS);
@@ -37,11 +37,12 @@ public class GameService {
         racing.play(carList, attemp);
     }
 
-    private List<String> setCarName() {
+    private void setCarName() {
         String name = input.inputFromUser();
-        List<String> nameList = new ArrayList<>();
+        List<String> carNames = new ArrayList<>();
 
         exceptionHandler.isBlank(name);
+        exceptionHandler.isContainSpaces(name);
 
         StringTokenizer st = new StringTokenizer(name, ",");
 
@@ -49,12 +50,12 @@ public class GameService {
             String carName = st.nextToken();
             exceptionHandler.isExceedLength(carName);
 
-            nameList.add(carName);
+            carNames.add(carName);
         }
 
-        exceptionHandler.isDuplicationName(nameList);
+        exceptionHandler.isDuplicationName(carNames);
 
-        return nameList;
+        carList = new Car(carNames);
     }
 
     private void setTryNumber() {

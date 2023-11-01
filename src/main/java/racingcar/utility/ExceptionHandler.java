@@ -53,4 +53,10 @@ public class ExceptionHandler {
         }
     }
 
+    public void isContainSpaces(String carNames) {
+        if(carNames.contains(" ")){
+            throw new IllegalArgumentException(Error.NOT_ALLOW_SPACES);
+        }
+    }
+
 }

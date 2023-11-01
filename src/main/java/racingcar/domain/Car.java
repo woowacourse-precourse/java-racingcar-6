@@ -1,10 +1,14 @@
 package racingcar.domain;
 
+import racingcar.utility.ExceptionHandler;
+
 import java.util.*;
 
 public class Car {
 
     private Map<String, Integer> car = new LinkedHashMap<>();
+
+    private ExceptionHandler exceptionHandler = ExceptionHandler.getExceptionHandler();
 
     public Car(List<String> carNames) {
         for (String carname : carNames) {
