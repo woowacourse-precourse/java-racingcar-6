@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.GameRule;
+import racingcar.view.OutputView;
 
 public class Car {
     private String name;
@@ -24,5 +25,9 @@ public class Car {
 
     public boolean isMove(int randomNumber) {
         return randomNumber >= GameRule.MOVING_FORWARD;
+    }
+
+    public void printCurrentPosition() {
+        OutputView.printCurrentPosition(name, moveCnt);
     }
 }

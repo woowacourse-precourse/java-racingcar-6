@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import racingcar.constant.GameMessage;
 
 public class OutputView {
@@ -14,5 +16,12 @@ public class OutputView {
     public static void printResultMessage() {
         System.out.println();
         System.out.println(GameMessage.RESULT_MESSAGE.getMessage());
+    }
+
+    public static void printCurrentPosition(String name, int moveCnt) {
+        String currentPosition = IntStream.range(0, moveCnt)
+                .mapToObj(i -> "-")
+                .collect(Collectors.joining());
+        System.out.println(name + " : " + currentPosition);
     }
 }
