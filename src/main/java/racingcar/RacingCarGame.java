@@ -67,18 +67,18 @@ public class RacingCarGame {
 
     void printResult() {
         for (RacingCar player : racingCars) {
-            printPlayerScore(player);
+            System.out.println(printPlayerScore(player));;
         }
     }
 
-    private void printPlayerScore(RacingCar player) {
+    String printPlayerScore(RacingCar player) {
         StringBuffer playerScore = new StringBuffer();
         playerScore.append(player.getName());
         playerScore.append(" : ");
         for (int i = 0; i < player.getScore(); i++) {
             playerScore.append("-");
         }
-        System.out.println(playerScore);
+        return playerScore.toString();
     }
 
     void computeWinners() {
