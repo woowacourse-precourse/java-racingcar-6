@@ -1,5 +1,10 @@
 package racingcar.view;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import static racingcar.constant.ConsoleInputConstants.COMMA_REGEX;
+import static racingcar.constant.ConsoleInputConstants.MAXIMUM_RANDOM_NUMBER;
+import static racingcar.constant.ConsoleInputConstants.MINIMUM_RANDOM_NUMBER;
 import static racingcar.validator.ConsoleInputValidator.validateCarNames;
 import static racingcar.validator.ConsoleInputValidator.validateInputIsNumber;
 import static racingcar.validator.ConsoleInputValidator.validateInputString;
@@ -13,7 +18,7 @@ public class ConsoleInput {
 
     private static String readValidLine() {
         try {
-            return camp.nextstep.edu.missionutils.Console.readLine();
+            return readLine();
         } catch (NoSuchElementException exception) {
             throw new IllegalArgumentException();
         }
@@ -45,11 +50,11 @@ public class ConsoleInput {
     }
 
     public static int inputProgress() {
-        return camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
+        return pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
     }
 
     private static List<String> convertStringToCarNameList(String inputString) {
-        String[] split = inputString.split(",");
+        String[] split = inputString.split(COMMA_REGEX);
 
         return Arrays.stream(split).toList();
     }
