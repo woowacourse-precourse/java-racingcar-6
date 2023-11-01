@@ -12,4 +12,17 @@ public class Car {
     public void goForward(){
         forwardCnt++;
     }
+
+    public String toString() {
+        return name + " : " + createProgressString(forwardCnt);
+    }
+
+    private String createProgressString(int forwardCount) {
+        StringBuilder progress = new StringBuilder();
+        for (int i = 0; i < forwardCount; i++) {
+            progress.append("-");
+        }
+        return progress.toString();
+    }
+
 }
