@@ -22,18 +22,18 @@
 
 ## 🎮 Game_Method
 
-|            메서드명            |             역할             |                리턴                |
-|:--------------------------:|:--------------------------:|:--------------------------------:|
-|           Game()           | 생성자, 게임을 시작, 사용자에게 입력값을 받음 |               void               |
-|         runGame()          |        게임 단계별 진행 관리        |               void               |
-|       stepProgress()       |   단계별 작업. 랜덤값 가져오기, 움직이기   |               void               |
-|       printResult()        |           우승자 출력           |               void               |
-|      printPosition()       |                            |                                  |
-|    parsingInput(Input)     |        사용자의 입력값을 파싱        |          List\<String\>          |
-| validateInput(parsedInput) |      파싱된 데이터들의 유효성검사       |               void               |
-|                            |                            | 🚨 IllegalArgumentException 발생가능 |
-| setPlayingCar(parsedInput) |       게임 시작시 차량을 세팅        |               void               |
-|   setPlayTime(playTime)    |                            |               void               |
-|   generateRandomValue()    |        차량마다 랜덤값 생성         |               int                |
+|            메서드명            |               역할                |                리턴                |
+|:--------------------------:|:-------------------------------:|:--------------------------------:|
+|           Game()           |   생성자, 게임을 시작, 사용자에게 입력값을 받음    |               void               |
+|         runGame()          |          게임 단계별 진행 관리           |               void               |
+|       stepProgress()       |     단계별 작업. 랜덤값 가져오기, 움직이기      |               void               |
+|       printResult()        |             우승자 출력              |               void               |
+|      printPosition()       | 게임에 참여한 자동차들의 현재 위치를 형식에 맞추어 출력 |               void               |
+|    parsingInput(Input)     |          사용자의 입력값을 파싱           |          List\<String\>          |
+| validateInput(parsedInput) |         파싱된 데이터들의 유효성검사         |               void               |
+|                            |                                 | 🚨 IllegalArgumentException 발생가능 |
+| setPlayingCar(parsedInput) |          게임 시작시 차량을 세팅          |               void               |
+|   setPlayTime(playTime)    |                                 |               void               |
+|   generateRandomValue()    |           차량마다 랜덤값 생성           |               int                |
 
 
