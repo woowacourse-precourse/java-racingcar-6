@@ -32,7 +32,7 @@ public class InputView {
                 .toList();
     }
 
-    public static Integer inputNumberOfAttempt(){
+    public static Integer inputNumberOfTrial(){
         System.out.println(Constant.INPUT_NUMBER_OF_ATTEMPT_MESSAGE);
         return parseInt(Console.readLine());
     }

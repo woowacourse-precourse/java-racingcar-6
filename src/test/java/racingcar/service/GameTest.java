@@ -14,12 +14,12 @@ class GameTest {
     }
 
     @Test
-    void moveForwardAttempt_전진성공() {
-        assertThat(game.moveForwardAttempt(4)).isTrue();
+    void tryMoveForward_전진성공() {
+        assertThat(game.tryMoveForward(4)).isTrue();
     }
 
     @Test
-    void moveForwardAttempt_전진실패(){
-        assertThat(game.moveForwardAttempt(0)).isFalse();
+    void tryMoveForward_전진실패(){
+        assertThat(game.tryMoveForward(0)).isFalse();
     }
 }
