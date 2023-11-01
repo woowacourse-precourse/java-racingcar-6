@@ -25,5 +25,23 @@ public class RacingCars {
         return roundResult;
     }
 
+    public String[] getWinners(){
+        int maxPosition = findMax(getPositions());
+        return (String[])CARS.stream()
+                .map(car -> car.getPosition() == maxPosition)
+                .toArray();
+    }
+
+    public ArrayList<Integer> getPositions(){
+        ArrayList<Integer> positons = new ArrayList<>();
+        for(Car car: CARS){
+            positons.add(car.getPosition());
+        }
+        return positons;
+    }
+
+    public static int findMax(ArrayList<Integer> positions){
+        return Collections.max(positions);
+    }
 
 }
