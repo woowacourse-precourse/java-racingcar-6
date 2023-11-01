@@ -11,7 +11,6 @@ public class OutputView {
         for (String result : results) {
             System.out.println(result);
         }
-        System.out.println();
     }
 
     public void printWinners(List<String> winners) {

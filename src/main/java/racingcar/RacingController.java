@@ -7,11 +7,13 @@ public class RacingController {
     InputView inputView;
     OutputView outputView;
     List<Car> cars;
+    List<String> results;
 
     RacingController() {
         inputView = new InputView();
         outputView = new OutputView();
         cars = new ArrayList<>();
+        results = new ArrayList<>();
     }
 
     public void play() {
@@ -19,6 +21,7 @@ public class RacingController {
         int tryCount = inputView.inputTryCount();
         setupCars(carNames);
         race(tryCount);
+        outputView.printCurrentResult(results);
         List<String> winners = findWinners();
         outputView.printWinners(winners);
     }
@@ -26,7 +29,7 @@ public class RacingController {
     private void race(int count) {
         for (int i = 0; i < count; i++) {
             moveCars();
-            outputView.printCurrentResult(collectResults());
+            collectResults();
         }
     }
 
@@ -43,12 +46,11 @@ public class RacingController {
         }
     }
 
-    private List<String> collectResults() {
-        List<String> results = new ArrayList<>();
+    private void collectResults() {
         for (Car car : cars) {
             results.add(car.getCurrentResult());
         }
-        return results;
+        results.add("");
     }
 
     private List<String> findWinners() {
