@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class DistanceTest {
     @Test
-    void 매개변수_없는_생성자를_통한_객체생성() {
+    void 매개변수_없는_생성자를_통한_객체_생성() {
         try {
             Distance d = new Distance();
         } catch (Exception e) {
@@ -38,4 +38,7 @@ class DistanceTest {
 //            Distance d = new Distance(tooBig);
 //        });
 //    }
+
+    @Test
+    void increaseByOne_메소드_경계값
 }
