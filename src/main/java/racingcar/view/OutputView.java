@@ -10,8 +10,6 @@ public class OutputView {
     public static final String LOCATION = "-";
     public static final String NAME_DELIMITER = ", ";
     public static final String FINAL_WINNER = "최종 우승자";
-    // TODO Service 분리
-    private RaceService raceService = new RaceService();
 
     public void displayPerResults(List<Car> cars) {
         for (Car car : cars) {
@@ -25,7 +23,7 @@ public class OutputView {
     }
 
     public void displayResults(List<Car> cars) {
-        List<String> winnersNames = raceService.getWinner(cars).stream().map(Car::getName).collect(Collectors.toList());
+        List<String> winnersNames = cars.stream().map(Car::getName).collect(Collectors.toList());
         String winnerNamesMessage = String.join(NAME_DELIMITER, winnersNames);
         System.out.print(FINAL_WINNER + LOCATION_AND_NAME_DELIMITER + winnerNamesMessage);
     }
