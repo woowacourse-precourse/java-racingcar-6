@@ -1,6 +1,7 @@
 package racingcar.io.views;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.BufferedInputStream;
@@ -11,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.collaborator.race.Racer;
@@ -56,7 +56,7 @@ class RaceViewTest {
         String input = enterInput(testInput);
         customSetIn(input);
 
-        Assertions.assertThatThrownBy(() -> new RaceView().askRacersNames())
+        assertThatThrownBy(() -> new RaceView().askRacersNames())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(RaceViewMessage.EXCEPTION_DUPLICATE_NAME.get());
     }
@@ -64,7 +64,7 @@ class RaceViewTest {
     @Test
     void askRoundNumber로_회수를입력할수있음() {
         String testInput = "5";
-        int expected = 5;
+        int expected = Integer.parseInt(testInput);
 
         String input = enterInput(testInput);
         customSetIn(input);
