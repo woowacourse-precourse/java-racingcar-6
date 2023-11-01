@@ -21,12 +21,13 @@ public class RacingGame extends Game{
     }
 
     @Override
-    public void playGame(){
-
+    protected void playGame() {
+        for (int i = 0; i < raceCount; i++) {
+            playRound();
+            System.out.println(); // 줄바꿈으로 각 라운드 구분
+        }
+        String winners = determineWinners();
+        OutputHandler.printWinners(winners);
     }
 
-    public void printCarPosition(RacingCar car) {
-        OutputHandler(RacingCar.getName() + " : ");
-        for(int i = 0; i < car.get)
-    }
 }
