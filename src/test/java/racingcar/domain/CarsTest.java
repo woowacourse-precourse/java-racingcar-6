@@ -38,6 +38,24 @@ class CarsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차는 최소 2대 이상 생성해야 합니다.");
     }
+    
+    @DisplayName("자동차 경주 게임의 우승자를 확인할 수 있다.")
+    @Test
+    void findWinners() throws Exception{
+        //given
+        Car myCar = createCar("pobi", 3);
+        Car competeCar1 = createCar("woni", 2);
+        Car competeCar2 = createCar("jun", 3);
+        Cars cars = new Cars(List.of(myCar, competeCar1, competeCar2));
+
+        //when
+        List<String> winners = cars.findWinners();
+
+        //then
+        Assertions.assertThat(winners).hasSize(2)
+                .containsExactly("pobi","jun");
+    }
+
     private static Car createCar(String carName, int location) {
         return new Car(carName, location);
     }
