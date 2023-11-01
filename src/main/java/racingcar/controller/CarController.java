@@ -2,20 +2,16 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import racingcar.model.Cars;
-import racingcar.model.Car;
 import racingcar.util.Validate;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
 public class CarController {
-    private static final String delimiter = ",";
-    private Input input;
-    private Output output;
+    private final Input input;
+    private final Output output;
     private Cars cars;
 
     public CarController() {
@@ -30,7 +26,7 @@ public class CarController {
             Validate.inputIsNull(inputCars);
 
             // 입력받은 자동차 이름들을 Cars 변환
-            cars = inputCarsStringToCarsClass(inputCars);
+            cars = cars.createCarsFromInputString(inputCars);
 
             String tempForwardAttempt = inputForForwardAndReturnStringType();
             int forwardAttempt = forwardStringToInteger(tempForwardAttempt);
@@ -40,48 +36,12 @@ public class CarController {
             // 입력 받은 시도횟수만큼 전진 반복하며 결과 출력
             attemptForwardAndOutputResult(forwardAttempt, cars);
 
-            String winner = getWinner(cars);
+            String winner = cars.getWinner(cars);
 
             output.winners(winner);
         } finally {
             Console.close();
         }
-    }
-
-    public String getWinner(Cars cars) {
-        int max = cars.getMaxPosition();
-
-        List<String> winner = cars.getWinner(max);
-
-        return String.join(", ", winner);
-    }
-
-    /**
-     * 입력받은 자동차들 String -> Cars 변환
-     *
-     * @param inputTemp : 입력받은 자동차들
-     * @return : Cars Class
-     */
-    private Cars inputCarsStringToCarsClass(String inputTemp) {
-        Validate.inputStringNotContainsComma(inputTemp); // 구분자가 컴마가 아닌 경우 유효성 검사
-        Validate.lastCharIsComma(inputTemp); // 구분자 뒤 자동치 이름이 없는 경우 유효성 검사
-
-        List<String> carList = splitCarNamesReturnList(inputTemp); // , 를 기준으로 구분하여 List<String> 생성
-
-        return convertStringListToCarsModel(carList);
-    }
-
-    private List<String> splitCarNamesReturnList(String carMembers) {
-        return Arrays.asList(carMembers.split(delimiter));
-    }
-
-    private Cars convertStringListToCarsModel(List<String> carList) {
-        List<Car> cars = new ArrayList<>();
-
-        carList.stream()
-                .forEach(car -> cars.add(new Car(car)));
-
-        return new Cars(cars);
     }
 
     // 시도횟수 console 입력 및 유효성 검사
@@ -119,8 +79,8 @@ public class CarController {
     }
 
     private void forwardResultOutput(Cars cars) {
-        cars.getCars()
-                .stream()
-                .forEach(car -> output.position(car.getForwardPosition()));
+        List<String> forwardResult = cars.getForwardPositions();
+
+        forwardResult.forEach(currentPosition -> output.position(currentPosition));
     }
 }

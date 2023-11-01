@@ -27,7 +27,7 @@ public class CarControllerTest {
 
         testCarA.forward();
 
-        String winner = carController.getWinner(cars);
+        String winner = cars.getWinner(cars);
 
         assertThat(winner).isEqualTo(testCarA.getMember());
     }
