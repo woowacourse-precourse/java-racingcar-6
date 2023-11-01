@@ -31,6 +31,31 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름을_쉼표로_구분() {
+        String input = "pobi,woni";
+        String[] result = input.split(",");
+
+        assertThat(result).contains("woni", "pobi");
+        assertThat(result).containsExactly("pobi", "woni");
+    }
+
+    @Test
+    void 이름_입력시_쉼표가_포함되지_않은_경우() {
+        String input = "pobi";
+        String[] result = input.split(",");
+
+        assertThat(result).contains("pobi");
+    }
+
+    @Test
+    void 이동횟수에_대한_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "1번"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
