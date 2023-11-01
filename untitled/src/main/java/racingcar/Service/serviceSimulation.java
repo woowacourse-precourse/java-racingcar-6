@@ -5,7 +5,7 @@ import racingcar.controller.*;
 import java.util.ArrayList;
 
 public class serviceSimulation  {
-    public void run(){
+    public void run() throws IllegalArgumentException{
         viewInputCar inputCar = new viewInputCar();
         String[] carNameArray = inputCar.viewInputCar();
 
