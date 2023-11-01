@@ -34,6 +34,15 @@ public class Game {
         totalTrialCount = Integer.parseInt(trialCountString);
     }
 
+    public void attemptTrial() {
+        for (Car car : cars) {
+            car.attemptGo();
+            car.printPosition();
+        }
+        this.curTrialCount++;
+        System.out.println();
+    }
+
     public void judgeWinner() {
 
     }
