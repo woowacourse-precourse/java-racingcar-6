@@ -14,7 +14,6 @@ class RacingMovementTest {
 
     @RepeatedTest(5)
     @DisplayName("전진하는 조건은 무작위 값이 4 이상 테스트")
-    @Test
     void isMovingForward() {
 
         // Arrange
@@ -27,11 +26,10 @@ class RacingMovementTest {
 
     @RepeatedTest(5)
     @DisplayName("멈추는 조건은 무작위 값이 4 미만 테스트")
-    @Test
     void isStop() {
 
         // Arrange
-        Integer randomNumber = RandomNumberGenerator.pinkInRange(RANDOM_NUMBER_START, STOP );
+        Integer randomNumber = RandomNumberGenerator.pinkInRange(RANDOM_NUMBER_START, STOP);
         RacingMovement racingMovement = new RacingMovement(randomNumber);
 
         // Act & Assert
