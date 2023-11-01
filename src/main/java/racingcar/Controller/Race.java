@@ -19,7 +19,7 @@ public class Race {
         catch (IllegalArgumentException e){
             throw e;
         }
-    } 
+    }
 
     public static void start(){
         notifyToWriteName();
@@ -28,6 +28,7 @@ public class Race {
         notifyToWriteCnt();
         Integer carCnt = getCarCntFromUser();
 
+        notifyResult();
         while (carCnt--!=CONDITION_ZERO) {
             play(carModelList);
         }
@@ -57,7 +58,7 @@ public class Race {
     }
 
     public static void notifyResult(){
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
     }
 
     public static void notifyFinalWinner(){
