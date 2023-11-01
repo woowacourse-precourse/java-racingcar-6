@@ -1,7 +1,10 @@
 package racingcar.model;
 
+import org.junit.platform.commons.util.StringUtils;
+
 public class Car {
-    private static final int FORWARD_NUM = 4;
+    public static final int FORWARD_NUM = 4;
+    public static final int MAX_LENGTH = 5;
 
     private final String name;
     private int poisiton = 0;
