@@ -10,12 +10,7 @@ public class OutputView {
 
     public static void printWinner(List<String> winner) {
         StringBuilder output = new StringBuilder("최종 우승자 : ");
-        for (int i = 0; i < winner.size(); i++) {
-            if (i > 0) {
-                output.append(", ");
-            }
-            output.append(winner.get(i));
-        }
+        output.append(String.join(", ", winner));
         System.out.println(output);
     }
 
