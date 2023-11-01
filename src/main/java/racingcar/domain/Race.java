@@ -21,7 +21,10 @@ public class Race {
     }
 
     public void start() {
-        roundsStart();
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < numberOfRound.getNumberOfRound(); ++i) {
+            roundStart();
+        }
         Stack<Car> winners = pickWinners(cars.getCars());
         printWinners(winners);
     }
@@ -36,13 +39,10 @@ public class Race {
         return readLine();
     }
 
-    private void roundsStart() {
-        System.out.println("\n실행 결과");
-        for (int i = 0; i < numberOfRound.getNumberOfRound(); ++i) {
-            for (Car car: cars.getCars()) {
-                car.tryMove();
-                System.out.println(car.getCarInfo());
-            }
+    private void roundStart() {
+        for (Car car: cars.getCars()) {
+            car.tryMove();
+            System.out.println(car.getCarInfo());
         }
     }
 
