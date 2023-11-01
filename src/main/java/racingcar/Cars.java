@@ -12,14 +12,7 @@ public class Cars {
         makeCars(carNames);
     }
 
-    private void validateCarNames(String carNames) {
-        if (carNames == null || carNames.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름이 없습니다.");
-        }
-    }
-
     private void makeCars(String carNames) {
-        validateCarNames(carNames);
         for (String carName : carNames.split(Constant.CAR_NAMES_DELIMITER)) {
             cars.add(new Car(carName));
         }
