@@ -24,17 +24,18 @@ public class RaceGameController {
 
         outputView.printResultMessage();
         while (roundTime-- > 0) {
-            carList.forEach(car -> {
-                int randomNumber = RandomNumber.generateRandomNumber();
-                if (randomNumber >= Car.MOVE_FORWARD_THRESHOLD) {
-                    car.moveForward();
-                }
-            });
-
+            carList.forEach(this::playMoveCar);
             outputView.printRoundResult(carList);
         }
 
         List<Car> winnerList = referee.getWinner(carList);
         outputView.printWinner(winnerList);
+    }
+
+    private void playMoveCar(Car car) {
+        int randomNumber = RandomNumber.generateRandomNumber();
+        if (randomNumber >= Car.MOVE_FORWARD_THRESHOLD) {
+            car.moveForward();
+        }
     }
 }
