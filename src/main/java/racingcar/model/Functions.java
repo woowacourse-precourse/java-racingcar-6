@@ -39,9 +39,6 @@ public class Functions {
     }
 
     public static List<String> getWinner(List<Car> cars){
-        if(cars.size() < 1) {
-            throw new IndexOutOfBoundsException();
-        }
         List<String> winners = new ArrayList<String>();
         Integer winnerMileageSize = cars.get(0).getMileage().length();
         winners.add(cars.get(0).getName());
@@ -59,4 +56,6 @@ public class Functions {
         }
         return winners;
     }
+
+
 }
