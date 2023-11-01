@@ -37,4 +37,8 @@ public class RacingGame {
     private boolean isOverThreshold(int generatedInt) {
         return generatedInt >= THRESHOLD;
     }
+
+    protected List<Car> getGameProgress() {
+        return cars;
+    }
 }
