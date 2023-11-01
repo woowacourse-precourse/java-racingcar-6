@@ -20,7 +20,6 @@ public class RacingGame {
     public Integer totalCars;
     private List<String> carsNameList;
 
-
     public void playGame() {
         user.setCarsName();
         user.setAttempts();

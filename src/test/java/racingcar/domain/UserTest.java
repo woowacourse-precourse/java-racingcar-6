@@ -6,6 +6,7 @@ import static racingcar.domain.User.ATTEMPTS_INT_ERROR_MESSAGE;
 import static racingcar.domain.User.ATTEMPTS_NEGATIVE_ERROR_MESSAGE;
 import static racingcar.domain.User.CAR_NAME_ERROR_MESSAGE;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Scanner;
@@ -22,21 +23,26 @@ class UserTest {
     @BeforeEach
     void setUp() {
         user = new User();
-        originalSystemIn = System.in;
     }
 
     @AfterEach
     void restoreSystemIn() {
-        System.setIn(originalSystemIn);
+        Console.close();
     }
-// mock으로 대체하는 방법?
+
+    void setInInputStream(String input) {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+    }
+
     @Test
     void 자동차_이름_입력() {
         final String input = "pobi,woni,jun";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        setInInputStream(input);
 
-        assertThat(user.inputCarsName()).isEqualTo(input);
+        String actual = user.inputCarsName();
+
+        assertThat(actual).isEqualTo(input);
     }
 
     @Test
@@ -60,11 +66,9 @@ class UserTest {
     }
 
     @Test
-    @Disabled("자동차_이름_입력과 함께 존재하면 java.util.NoSuchElementException: No line found 에러가 생김.")
     void 시행_횟수_입력() {
         final String input = "4";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        setInInputStream(input);
 
         assertThat(user.inputAttempts()).isEqualTo(input);
     }
