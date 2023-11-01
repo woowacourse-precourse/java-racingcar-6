@@ -48,11 +48,14 @@ public class RacingManager {
 
         playerNamesList = new ArrayList<String>(
                 Arrays.asList(playersNameString.split(SEP_COMMA_STRING)));
-        validatePlayerName(playerNamesList);
 
+        validatePlayerName(playerNamesList);
 
         System.out.println(CMD_QUESTION_NUMBER);
         tryNumber = Integer.parseInt(Console.readLine());
+
+        validateTryNumber(tryNumber);
+
 
         racingData.saveRacingData(playerNamesList, tryNumber);
     }
@@ -70,6 +73,15 @@ public class RacingManager {
                 throw new IllegalArgumentException(wrongLengthError +
                         "\nExpect : maximum nameLength is 5" +
                         "\nInput : " + name + " Length : " + nameLength);
+        }
+
+    }
+
+    private void validateTryNumber(Integer tryNumber) {
+        if(tryNumber<0){
+            throw new IllegalArgumentException(wrongLengthError +
+                    "\nExpect : tryNumber is upper than -1" +
+                    "\nInput : " + tryNumber);
         }
 
     }
