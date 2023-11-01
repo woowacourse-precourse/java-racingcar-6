@@ -58,68 +58,9 @@ public class Application {
                 winners.add(cars[i]);
             }
         }
-
         System.out.println("최종 우승자: " + String.join(", ", winners));
-        /*
-        for (int j = 0; j < tryNum; j ++){
-            for (int i = 0; i < cars.length; i++) {
-                if (i == 0) {
-                    int randomNumber = Randoms.pickNumberInRange(0, 9);
-                    if (randomNumber < 4) {
-                        System.out.println(cars[0] + " : " + "-".repeat(count1));
-                    } else {
-                        count1 += 1;
-                        System.out.println(cars[0] + " : " + "-".repeat(count1));
-                    }
-                } else if (i == 1) {
-                    int randomNumber = Randoms.pickNumberInRange(0, 9);
-                    if (randomNumber < 4) {
-                        System.out.println(cars[1] + " : " + "-".repeat(count2));
-                    } else {
-                        count2 += 1;
-                        System.out.println(cars[1] + " : " + "-".repeat(count2));
-                    }
-                } else if (i == 2) {
-                    int randomNumber = Randoms.pickNumberInRange(0, 9);
-                    if (randomNumber < 4) {
-                        System.out.println(cars[2] + " : " + "-".repeat(count3) + "\n");
-                    } else {
-                        count3 += 1;
-                        System.out.println(cars[2] + " : " + "-".repeat(count3) + "\n");
-                    }
-                }
-            }
-        }
-         */
-        /*
-        if (count1 > count2){
-            if (count1 > count3){
-                System.out.println("최종 우승자 : " + cars[0]);
-            } else if (count1 == count3) {
-                System.out.println("최종 우승자 : " + cars[0] + ", " + cars[2]);
-            } else if (count1 < count3){
-                System.out.println("최종 우승자 : " + cars[2]);
-            }
-        } else if (count1 == count2) {
-            if (count1 > count3){
-                System.out.println("최종 우승자 : " + cars[0] + ", " + cars[1]);
-            } else if (count1 == count3) {
-                System.out.println("최종 우승자 : " + cars[0] + ", " + cars[1] + ", " + cars[2]);
-            } else if (count1 < count3) {
-                System.out.println("최종 우승자 : " + cars[2]);
-            }
-        } else if (count1 < count2) {
-            if (count2 > count3){
-                System.out.println("최종 우승자 : " + cars[1]);
-            } else if (count2 == count3) {
-                System.out.println("최종 우승자 : " + cars[1] + ", " + cars[2]);
-            } else if (count2 < count3) {
-                System.out.println("최종 우승자 : " + cars[2]);
-            }
-        }
-
-         */
     }
+
     public static void moveCars(String[] cars, int[] counts){
         for (int i = 0; i < cars.length; i++){
             int randomNumber = Randoms.pickNumberInRange(0,9);
