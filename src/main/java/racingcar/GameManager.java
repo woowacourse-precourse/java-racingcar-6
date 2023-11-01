@@ -22,6 +22,8 @@ public class GameManager {
         racingCarGame.splitCarName(carName);
         racingCarGame.saveMovingCount(movingCount);
 
+        racingCarGame.createCar();
+
         outputView.printResultMessage();
 
         while (true) {
