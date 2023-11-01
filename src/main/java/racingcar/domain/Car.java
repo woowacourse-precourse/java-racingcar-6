@@ -15,4 +15,14 @@ public class Car {
             position++;
         }
     }
+
+    public void showDistance() {
+        StringBuilder runResult = new StringBuilder();
+        runResult.append(name);
+        runResult.append(" : ");
+        for (int i = 0; i < position; i++) {
+            runResult.append("-");
+        }
+        System.out.println(runResult.toString());
+    }
 }
