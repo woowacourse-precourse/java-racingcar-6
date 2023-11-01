@@ -18,5 +18,14 @@ public class Application {
                 throw ee;
             }
         }
+
+        int n;
+        System.out.println("시도 할 횟수는 몇 회 인가요?");
+        try {
+            n = Integer.parseInt(camp.nextstep.edu.missionutils.Console.readLine());
+        } catch (Exception e) {
+            throw ee;
+        }
     }
+
 }
