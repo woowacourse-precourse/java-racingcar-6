@@ -43,4 +43,17 @@ class OutputViewTest {
         assertThat(output.toString()).isEqualTo(expectedOutput);
     }
 
+    @Test
+    @DisplayName("우승자를 잘 출력하는지 확인")
+    void testDisplayWinners() {
+        List<ScoreDto> winners = new ArrayList<>();
+        winners.add(new ScoreDto("pobi", 4));
+        winners.add(new ScoreDto("dobi", 4));
+
+        OutputView.displayWinners(winners);
+        String expectedOutput = "최종 우승자 : pobi, dobi";
+
+        assertThat(output.toString()).isEqualTo(expectedOutput);
+    }
+    
 }

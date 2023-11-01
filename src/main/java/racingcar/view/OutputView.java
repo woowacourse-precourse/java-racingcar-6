@@ -29,7 +29,7 @@ public class OutputView {
     public static void displayWinners(List<ScoreDto> winners) {
         StringJoiner winnerNamesJoiner = new StringJoiner(", ");
         winners.forEach(scoreDto -> winnerNamesJoiner.add(scoreDto.getName()));
-        System.out.println(
+        System.out.print(
                 "최종 우승자 : " + winnerNamesJoiner);
     }
 
