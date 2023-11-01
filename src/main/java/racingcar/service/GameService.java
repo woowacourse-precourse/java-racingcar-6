@@ -18,6 +18,9 @@ public class GameService {
             GameOutputView.printRacingProcess(cars);
             System.out.println();
         }
+
+        List<Car> winners = getWinners();
+
     }
 
     private void moveEachCar() {
@@ -28,6 +31,28 @@ public class GameService {
         carNames.forEach(carName ->
                 cars.add(new Car(carName))
         );
+    }
+
+    private List<Car> getWinners() {
+        List<Car> winners = new ArrayList<>();
+        int maxNum = getMaxNum(cars);
+
+        for (Car car : cars) {
+            if (car.getNowNum() == maxNum) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
+    }
+
+    private int getMaxNum(List<Car> cars) {
+        int maxNum = 0;
+        for (Car car : cars) {
+            maxNum = Math.max(car.getNowNum(), maxNum);
+        }
+
+        return maxNum;
     }
 
 }
