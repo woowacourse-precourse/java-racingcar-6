@@ -25,4 +25,5 @@ public class RacingGame {
     public boolean isEnd() {
         return (attemptNumber == currentAttempt);
     }
+
 }

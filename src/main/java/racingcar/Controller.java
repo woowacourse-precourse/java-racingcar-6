@@ -7,7 +7,7 @@ public class Controller {
     public void play() {
         userInput();
         gamePlay();
-
+        returnWinner();
     }
 
     public void userInput() {
@@ -18,5 +18,8 @@ public class Controller {
         service.gamePlay();
     }
 
+    private void returnWinner() {
+        service.returnWinner();
+    }
 }
 
