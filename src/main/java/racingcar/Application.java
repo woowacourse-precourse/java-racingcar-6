@@ -35,5 +35,23 @@ public class Application {
             }
             System.out.println();
         }
+
+        int maxCount = 0;
+        ArrayList<RacingCar> winner = new ArrayList<>();
+        for (RacingCar car : racingCars) {
+            maxCount = Math.max(maxCount, car.showMoveCount());
+        }
+        for (RacingCar car : racingCars) {
+            if (maxCount == car.showMoveCount()) {
+                winner.add(car);
+            }
+        }
+        System.out.print("최종 우승자 :");
+        StringBuilder winners = new StringBuilder();
+        for (RacingCar car : winner) {
+            winners.append(" ").append(car.name).append(",");
+        }
+        winners.deleteCharAt(winners.length()-1);
+        System.out.println(winners);
     }
 }
