@@ -8,6 +8,9 @@ public class RacingCarGame {
     RacingCar racingCar = new RacingCar();
 
     public RacingCarGame() {
+        racingCar.carName();
+        racingCar.setMovement();
+        racingCar.numberOfTries();
         this.carName = racingCar.carName;
         this.movementSoFar = racingCar.movementSoFar;
     }
@@ -16,10 +19,10 @@ public class RacingCarGame {
         racingCar.printResultText();
         for (int i = 0; i < racingCar.numberOfTries; i++) {
             for (int j = 0; j < racingCar.carName.size(); j++) {
-                racingCar.printMovement(j);
+                System.out.println(racingCar.printMovement(j, carName));
             }
             racingCar.changeLine();
         }
-        racingCar.printFinalWinner(movementSoFar);
+        System.out.println(racingCar.printFinalWinner(movementSoFar, carName));
     }
 }

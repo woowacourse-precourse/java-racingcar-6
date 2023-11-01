@@ -7,29 +7,26 @@ import java.util.List;
 
 public class InputView {
     static ExceptionChecker exceptionChecker = new ExceptionChecker();
-    static List<String> carNameList = new ArrayList<>();
 
     public static String inputString(String inputText) {
         System.out.println(inputText);
         return Console.readLine();
     }
 
-    public static void stringToList(String strCarName) {
-        // List<String> carNameList = new ArrayList<String>();
+    public static List<String> stringToList(String strCarName) {
+        List<String> carNameList = new ArrayList<String>();
         if (strCarName.contains(",")) {
             carNameList = Arrays.asList(strCarName.split(","));
         } else if (!strCarName.contains(",")) {
             carNameList = List.of(strCarName);
         }
-        // return carNameList;
+        return carNameList;
     }
 
     public static List<String> getCarName(String inputText) {
-        // 자동차 이름 입력받기
         String strCarName = inputString(inputText);
         exceptionChecker.wrongInputCarName(strCarName);
-        stringToList(strCarName);
-        return carNameList;
+        return stringToList(strCarName);
     }
 
     public static int getNumberOfTries(String inputText) {

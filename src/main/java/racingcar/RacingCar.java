@@ -10,12 +10,6 @@ public class RacingCar {
     public List<Integer> movementSoFar = new ArrayList<>();
     Integer numberOfTries;
 
-    public RacingCar() {
-        carName();
-        setMovement();
-        numberOfTries();
-    }
-
     public void changeLine() {
         System.out.println();
     }
@@ -56,9 +50,9 @@ public class RacingCar {
         return "-".repeat(Math.max(0, movementSoFar.get(indexOfCarName)));
     }
 
-    public void printMovement(Integer indexOfCarName) {
+    public String printMovement(Integer indexOfCarName, List<String> carNameList) {
         updateMovement(indexOfCarName);
-        System.out.printf("%s : %s%n", carName.get(indexOfCarName), getDash(indexOfCarName));
+        return carNameList.get(indexOfCarName) + " : " + getDash(indexOfCarName);
     }
 
     public int longestMovement(List<Integer> movementSoFar) {
@@ -75,17 +69,18 @@ public class RacingCar {
         return winnerIndexList;
     }
 
-    public void printWinner(List<Integer> winnerIndexList) {
-        System.out.print("최종 우승자 : ");
+    public String printWinner(List<Integer> winnerIndexList, List<String> carNameList) {
+        String result = "최종 우승자 : ";
         for (int i = 0; i < winnerIndexList.size() - 1; i++) {
-            System.out.printf("%s, ", carName.get(winnerIndexList.get(i)));
+            result += carNameList.get(winnerIndexList.get(i)) + ", ";
         }
-        System.out.println(carName.get(winnerIndexList.get(winnerIndexList.size() - 1)));
+        result += carNameList.get(winnerIndexList.get(winnerIndexList.size() - 1));
+        return result;
     }
 
-    public void printFinalWinner(List<Integer> movementSoFar) {
+    public String printFinalWinner(List<Integer> movementSoFar, List<String> carNameList) {
         int longestMovement = longestMovement(movementSoFar);
         List<Integer> winnerIndexList = howManyWinners(longestMovement);
-        printWinner(winnerIndexList);
+        return printWinner(winnerIndexList, carNameList);
     }
 }
