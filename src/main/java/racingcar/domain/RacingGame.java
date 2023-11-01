@@ -33,6 +33,9 @@ public class RacingGame {
     }
 
     public List<Car> getRacingWinner(){
+        if(totalTryCnt != curTryCnt){
+            throw new IllegalArgumentException();
+        }
         List<Car> winners = new ArrayList<>();
         for (Car car : cars){
             if(car.isWinner(maxWinCnt)){
