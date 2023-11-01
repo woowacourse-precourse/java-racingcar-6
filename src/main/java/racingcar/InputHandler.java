@@ -32,7 +32,7 @@ public class InputHandler {
     }
 
     public static int convertToNumber(String input) {
-        validateTrialCount(input);
+        validateTrialNumber(input);
         return Integer.parseInt(input);
     }
 
@@ -46,7 +46,7 @@ public class InputHandler {
         else if (target.contains(Constants.COMMA.repeat(2))) {   // 쉼표(,) 2개이상 연속
             throw new IllegalArgumentException();
         }
-        else if (isBothEndPattern(target)) {    // 쉼표(,) 맨 앞/뒤 위치
+        else if (isEndPattern(target)) {    // 쉼표(,) 맨 앞/뒤 위치
             throw new IllegalArgumentException();
         }
         else if (hasLengthExcess(target)) {   // 길이 제한 초과
@@ -57,11 +57,17 @@ public class InputHandler {
         }
     }
 
-    private static void validateTrialCount(String target) {
+    private static void validateTrialNumber(String target) {
         if (target.isEmpty()) { // 입력값 부재
             throw new IllegalArgumentException();
         }
-        else if (target.contains("^"+Constants.NUMBER_EXPRESSION)) { // 숫자가 아닌 문자 포함
+        else if (target.contains(Constants.BLANK)) {  // 공백 포함
+            throw new IllegalArgumentException();
+        }
+        else if (target.contains("[^"+Constants.NUMBER_EXPRESSION+"]")) { // 숫자가 아닌 문자 포함
+            throw new IllegalArgumentException();
+        }
+        else if (target.contains("-")) {    // 음수인 경우
             throw new IllegalArgumentException();
         }
         else if (target.charAt(0) == '0') { // 0으로 시작
@@ -69,9 +75,9 @@ public class InputHandler {
         }
     }
 
-    private static boolean isBothEndPattern(String target) {
-        return (Pattern.matches(Constants.COMMA+"[^Constants.COMMA]+", target)
-                || Pattern.matches("[^Constants.COMMA]+"+Constants.COMMA, target));
+    private static boolean isEndPattern(String target) {
+        return (Pattern.matches("/^,/", target)
+                || Pattern.matches("/,$/", target));
     }
 
     private static boolean hasLengthExcess(String target) {
