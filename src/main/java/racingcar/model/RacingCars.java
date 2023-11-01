@@ -12,4 +12,9 @@ public class RacingCars {
     private void go() {
         CARS.forEach(Car::moveForward);
     }
+    private ArrayList<Integer> getPosition() {
+        ArrayList<Integer> positions = new ArrayList<>();
+        CARS.forEach(car -> positions.add(car.getPosition()));
+        return positions;
+    }
 }
