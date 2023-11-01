@@ -51,4 +51,20 @@ class CarsTest {
                 () -> assertThat(winner.getCars().get(0).getPosition()).isEqualTo(1)
         );
     }
+
+    @Test
+    void 공동_우승자를_판단한다() {
+        assertRandomNumberInRangeTest(
+                () -> cars.forward(numberGenerator),
+                5, 4, 3
+        );
+        Cars winners = cars.judgeWinner();
+        assertAll(
+                () -> assertThat(winners.getCars().size()).isEqualTo(2),
+                () -> assertThat(winners.getCars().get(0).getName()).isEqualTo("pobi"),
+                () -> assertThat(winners.getCars().get(0).getPosition()).isEqualTo(1),
+                () -> assertThat(winners.getCars().get(1).getName()).isEqualTo("woni"),
+                () -> assertThat(winners.getCars().get(1).getPosition()).isEqualTo(1)
+        );
+    }
 }
