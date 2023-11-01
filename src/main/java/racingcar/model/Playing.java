@@ -12,7 +12,7 @@ public class Playing {
     private final RandomNumberGenerator randomNumberGenerator;
     private int tryCount;
 
-    public Playing(List<String> racingCarNames, int tryCount) {
+    public Playing(String racingCarNames, int tryCount) {
         validateTryCount(tryCount);
         this.racingCars = new RacingCars(racingCarNames);
         this.randomNumberGenerator = new RandomNumberGenerator();
@@ -47,6 +47,14 @@ public class Playing {
     public String getResult() {
         List<String> winners = racingCars.getWinners();
         return String.join(HASH, winners);
+    }
+
+    public RacingCars racingCars() {
+        return racingCars;
+    }
+
+    public int tryCount() {
+        return tryCount;
     }
     
 }
