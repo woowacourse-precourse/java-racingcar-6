@@ -1,4 +1,4 @@
-package racingcar.validation.tryingcounts;
+package racingcar.validation.trycounts;
 
 public class TryingCountsNumberValidationChecker {
 
