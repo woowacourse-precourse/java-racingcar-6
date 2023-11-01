@@ -10,6 +10,7 @@ public class GameController {
     private final CarService carService = new CarService();
     private final GameService gameService = new GameService();
     List<Car> cars;
+    int attempts;
 
     public void run(){
         initGame();
@@ -17,7 +18,7 @@ public class GameController {
 
     private void initGame(){
         cars = carService.enterCars();
-        gameService.init();
+        attempts = gameService.enterAttempts();
     }
 
     private void startGame(){

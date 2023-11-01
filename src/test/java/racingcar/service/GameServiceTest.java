@@ -68,11 +68,10 @@ class GameServiceTest {
         final String input = "5";
 
         //when
-        gameService.setAttempts(input);
-        Game getGame = gameService.getGame();
+        int attempts = gameService.setAttempts(input);
 
 
         //then
-        assertThat(getGame.getAttempts()).isEqualTo(5);
+        assertThat(attempts).isEqualTo(5);
     }
 }
