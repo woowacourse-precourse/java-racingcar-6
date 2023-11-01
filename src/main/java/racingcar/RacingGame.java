@@ -16,13 +16,13 @@ public class RacingGame {
     private List<Car> winners;
     private List<String> winnerNames;
 
-    RacingGame(){
+    RacingGame() {
         cars = new ArrayList<>();
         winners = new ArrayList<>();
         winnerNames = new ArrayList<>();
     }
 
-    public void startGame(){
+    public void startGame() {
         addCarsFromUserInput();
         getNumberOfAttempts();
         playGame();
@@ -33,6 +33,7 @@ public class RacingGame {
     private String getUserInput() {
         return readLine();
     }
+
     private void addCarsFromUserInput() {
         System.out.println(GET_NAME_MESSAGE);
         String input = getUserInput();
@@ -43,12 +44,14 @@ public class RacingGame {
             cars.add(new Car(name));
         }
     }
-    private void checkInputLength(String[] arr){
-        for(String value : arr) {
+
+    private void checkInputLength(String[] arr) {
+        for (String value : arr) {
             if (value.length() > 5)
                 throw new IllegalArgumentException();
         }
     }
+
     private void getNumberOfAttempts() {
         System.out.println(GET_NUMBER_MESSAGE);
         String number = getUserInput();
@@ -56,6 +59,7 @@ public class RacingGame {
         checkInputValue(number);
         attemptsNumber = Integer.parseInt(number);
     }
+
     private void isInteger(String str) {
         try {
             Integer.parseInt(str);
@@ -63,53 +67,58 @@ public class RacingGame {
             throw new IllegalArgumentException();
         }
     }
-    private void checkInputValue(String str){
-        if(Integer.parseInt(str) < 1)
+
+    private void checkInputValue(String str) {
+        if (Integer.parseInt(str) < 1)
             throw new IllegalArgumentException();
     }
 
     private int getRandomNumber() {
-        return pickNumberInRange(0,9);
+        return pickNumberInRange(0, 9);
     }
+
     private boolean checkRandomNumber(int randomNumber) {
         return randomNumber >= 4;
     }
-    private void moveCarByRandomNumber(Car car){
+
+    private void moveCarByRandomNumber(Car car) {
         int RandomNumber = getRandomNumber();
         if (checkRandomNumber(RandomNumber)) car.move();
     }
 
-    private void playOneRound(){
-        for(Car car : cars)
+    private void playOneRound() {
+        for (Car car : cars)
             moveCarByRandomNumber(car);
     }
-    private void printResult(){
-        for(Car car : cars)
+
+    private void printResult() {
+        for (Car car : cars)
             car.printCarPosition();
     }
 
-    private void playGame(){
+    private void playGame() {
         System.out.println(RACE_RESULT_MESSAGE);
-        for(int i = 0; i < attemptsNumber; i++){
+        for (int i = 0; i < attemptsNumber; i++) {
             playOneRound();
             printResult();
             System.out.println();
         }
     }
 
-    private void findWinner(){
+    private void findWinner() {
         winners.add(cars.get(0));
 
-        for (Car car : cars){
+        for (Car car : cars) {
             int comparison = car.compareCarPosition(winners.get(0));
-            if(comparison > 0){
+            if (comparison > 0) {
                 winners.clear();
                 winners.add(car);
             }
-            if(comparison == 0 && !winners.contains(car))
+            if (comparison == 0 && !winners.contains(car))
                 winners.add(car);
         }
     }
+
     private String makeWinnerNameString(List<Car> winners) {
         List<String> winnerNames = new ArrayList<>();
         for (Car car : winners) {
@@ -117,7 +126,8 @@ public class RacingGame {
         }
         return String.join(", ", winnerNames);
     }
-    private void printWinner(){
+
+    private void printWinner() {
         System.out.print(WINNER_MESSAGE);
         System.out.println(makeWinnerNameString(winners));
     }
