@@ -44,7 +44,11 @@ public class RacingCars implements Iterable<RacingCar> {
         int maxPosition = findMaxPosition();
 
         removeLosers(maxPosition);
-        return new RacingCarWinners(racingCars);
+        List<Name> winnerNames = new ArrayList<>();
+        for (RacingCar racingCar : racingCars) {
+            winnerNames.add(racingCar.name());
+        }
+        return new RacingCarWinners(winnerNames);
     }
 
     private void removeLosers(int maxPosition) {

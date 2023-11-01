@@ -2,9 +2,9 @@ package racingcar;
 
 import java.util.List;
 
-public record RacingCarWinners(List<RacingCar> winners) {
+public record RacingCarWinners(List<Name> winners) {
 
-    public RacingCar get(int index) {
-        return winners.get(index);
+    public boolean contains(Name name) {
+        return winners().contains(name);
     }
 }

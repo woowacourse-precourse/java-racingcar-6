@@ -105,8 +105,8 @@ class RacingCarsTest {
         RacingCarWinners winners = relocatedRacingCars.findWinners();
 
         // then
-        assertEquals(winners.get(0).name(), new Name("one"));
-        assertEquals(winners.get(1).name(), new Name("three"));
+        assertTrue(winners.contains(new Name("one")));
+        assertTrue(winners.contains(new Name("three")));
     }
 
     private List<RacingCar> moveOddRacingCars() {
