@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public enum StringConstant {
+
     TRIAL_NUMBER_RANGE("^[0-9]*$"),
     NONE_TRY("0"),
     MULTI_WINNER_DELIMITER(", "),
