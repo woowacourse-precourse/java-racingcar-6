@@ -42,7 +42,7 @@ public class RaceController {
     public void play() {
         outputView.printPlayMessage();
         int currentCount = 0;
-        while (playCount.isPlay(currentCount++)) {
+        while (playCount.canPlay(currentCount++)) {
             cars.play();
             printResult();
         }

@@ -28,7 +28,7 @@ public class PlayCount {
         }
     }
 
-    public boolean isPlay(int currentCount) {
+    public boolean canPlay(int currentCount) {
         return playCount > currentCount;
     }
 }

@@ -12,12 +12,12 @@ public class Car implements Comparable<Car> {
     }
 
     public void goOrStop(int randomNumber) {
-        if (isMovable(randomNumber)) {
+        if (canMove(randomNumber)) {
             position.move();
         }
     }
 
-    private boolean isMovable(int randomNumber) {
+    private boolean canMove(int randomNumber) {
         return randomNumber >= MIN_MOVABLE_VALUE;
     }
 
