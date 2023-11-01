@@ -41,6 +41,15 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void 숫자입력을_받을_때_숫자가_아닌_것에_대한_예외_처리() {
+        InputUser inputUser = new InputUser();
+        String testString = "asb";
+
+        assertThatThrownBy(() -> inputUser.getNumber(Integer.parseInt(testString)))
+                        .isInstanceOf(IllegalArgumentException.class);
+
+    }
 
 
     @Override
