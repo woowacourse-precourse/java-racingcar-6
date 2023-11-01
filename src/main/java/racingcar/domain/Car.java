@@ -20,7 +20,7 @@ public class Car {
         updatePosition(number);
     }
 
-    public void updatePosition(int number) {
+    private void updatePosition(int number) {
         if (number >= FORWARD_BOUND_NUMBER) {
             position++;
         }
