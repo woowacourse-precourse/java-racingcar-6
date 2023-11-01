@@ -4,33 +4,25 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.constant.ErrorMessage;
 import racingcar.constant.ServiceMessage;
 import racingcar.input.count.CountValidator;
-import racingcar.input.name.NameValidator;
+import racingcar.input.name.NameReader;
+import racingcar.output.ServicePrinter;
 
 public class RacingGame {
-    private String getErrorMessage(String errorType) {
-        if(errorType.equals("name")) {
-            return ErrorMessage.NAME_ERROR.errorMessage;
-        }
-        return ErrorMessage.COUNT_ERROR.errorMessage;
-    }
     public void startGame() {
-        System.out.print(ServiceMessage.START.serviceMessage);
+        ServicePrinter servicePrinter = new ServicePrinter();
+        servicePrinter.printStartMessage();
 
         // 이름 입력 받기
         String inputNames = Console.readLine();
 
         // 예외 처리
-        String[] names = inputNames.split(",");
+        String[] names = NameReader.read();
         int[] countsByName = new int[names.length];
-        for(String name : names) {
-           NameValidator.isValid(name);
-        }
 
         // 횟수 입력 문구 출력
-        System.out.print(ServiceMessage.INPUT.serviceMessage);
+        servicePrinter.printInputMessage();
 
         // 횟수 입력 받기
         String inputCount = Console.readLine();
@@ -64,6 +56,6 @@ public class RacingGame {
             }
         }
 
-        System.out.println(ServiceMessage.WINNER.serviceMessage+ winners.toString().replaceAll("[\\]\\[]",""));
+        servicePrinter.printWinnerMessage(winners);
     }
 }
