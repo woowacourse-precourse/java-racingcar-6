@@ -19,12 +19,16 @@ public class GameManager {
     }
 
     public void proceedRound(){
+        IoManager.printResultMessage();
         while(roundTryCount.isRemainRound()){
             roundTryCount.consumeRound();
             for(Car car:cars){
                 car.proceedOwnRound();
+                IoManager.println(car.getFormattedPostion());
             }
+            IoManager.printEmptyLine();
         }
+
     }
 
     public void printWinner(){
