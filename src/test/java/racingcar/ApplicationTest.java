@@ -3,10 +3,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.objenesis.instantiator.basic.NewInstanceInstantiator;
 import racingcar.domain.NumberGenerator;
 import racingcar.domain.Race;
 
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -16,8 +17,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 class ApplicationTest extends NsTest {
+    private static final String inputCarNameString = "car1,car2,car3";
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    Race race = new Race();
 
     @Test
     void 전진_정지() {
@@ -58,15 +62,25 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 입력한_자동차_이름_저장() {
-        String inputCarNameString = "car1,car2,car3";
-
-        Race race = new Race();
         Map<String, String> carMap = race.saveCarMap(inputCarNameString);
 
         Assertions.assertEquals(3, carMap.size());
         Assertions.assertEquals("", carMap.get("car1"));
         Assertions.assertEquals("", carMap.get("car2"));
         Assertions.assertEquals("", carMap.get("car3"));
+    }
+
+    @Test
+    void 단독_우승자_List_저장() {
+        Map<String, String> carMapExample = new LinkedHashMap<>();
+        carMapExample.put("car1", "-");
+        carMapExample.put("car2", "");
+        carMapExample.put("car3", "--");
+
+        List<String> winnerCarList = race.getWinnerCarList(carMapExample);
+
+        Assertions.assertEquals(1, winnerCarList.size());
+        Assertions.assertEquals("car3", winnerCarList.get(0));
     }
 
     @Override

@@ -37,7 +37,7 @@ public class Race {
     }
 
     // 각 car 별로 레이스를 1회씩 진행
-    private static void runOnceRace(Map<String, String> carMap) {
+    public void runOnceRace(Map<String, String> carMap) {
 
         for (String carName : carMap.keySet()) {
             int randomNum = NumberGenerator.getRandomNumberInRange(0, 9);
@@ -48,7 +48,7 @@ public class Race {
     }
 
     // 모든 레이스 완료 후 우승자 list에 저장
-    private static List<String> getWinnerCarList(Map<String, String> carMap) {
+    public List<String> getWinnerCarList(Map<String, String> carMap) {
 
         int maxMoveForwardCount = 0;
         List<String> winnerCarNameList = new ArrayList<>();
