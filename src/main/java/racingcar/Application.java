@@ -3,6 +3,7 @@ package racingcar;
 import racingcar.domain.Car;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -17,6 +18,9 @@ public class Application {
         }
 
         int n = askCount();
+        System.out.println();
+        System.out.println("실행 결과");
+
         for (int i = 0; i < n; i++) {
             play(cars);
         }
@@ -26,6 +30,15 @@ public class Application {
     public static void play(List<Car> cars){
         for (int i = 0; i < 3; i++) {
             cars.get(i).tryToMove();
+        }
+
+        // 결과출력
+        for (int i = 0; i < 3; i++) {
+            System.out.print(cars.get(i).getName()+" : ");
+            for (int j = 0; j < cars.get(i).getMoveCount(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
         }
     }
 
@@ -41,11 +54,24 @@ public class Application {
     }
     public static int askCount(){
         System.out.println("시도할 회수는 몇회인가요?\n");
-        int n = Integer.parseInt(readLine());
-        return n;
+        return Integer.parseInt(readLine());
     }
     public static void printResult(List<Car> cars){
+        int maxValue = Integer.MIN_VALUE;
+        List<String> winers = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            int moveCount = cars.get(i).getMoveCount();
+            if (moveCount > maxValue){
+                maxValue = moveCount;
+                winers.clear();
+                winers.add(cars.get(i).getName());
+            }
+            else if (moveCount == maxValue){
+                winers.add(cars.get(i).getName());
+            }
+        }
 
+        System.out.print("최종 우승자 : "+String.join(", ",winers));
     }
 
 }
