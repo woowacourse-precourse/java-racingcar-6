@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import static racingcar.model.GameCountValidator.gameCountValidation;
+import static racingcar.model.GameCountValidator.validateGameCount;
 import static racingcar.utils.Utils.convertStringToList;
 import static racingcar.view.InputView.inputCarsName;
 import static racingcar.view.InputView.inputGameTryNumber;
@@ -37,7 +37,7 @@ public class RacingGameController {
 
     private int makeGameCount() {
         String gameTryNumber = inputGameTryNumber();
-        gameCountValidation(gameTryNumber);
+        validateGameCount(gameTryNumber);
         return Integer.parseInt(gameTryNumber);
     }
 
