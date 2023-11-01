@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Generate {
-    //
+    // 쉼표기준 자동차이름 분리하는 메소드
     public static HashMap<String, Integer> carGenerate(HashMap<String, Integer> map, String carString) {
         String[] car = carString.split(",");
         for(int i = 0; i < car.length; i++) {
@@ -20,6 +20,7 @@ public class Generate {
         return map;
     }
 
+    // 각 차수 결과 생성하는 메소드
     public static void raceResultGenerate(HashMap<String, Integer> map) {
         for(Map.Entry<String, Integer> entry : map.entrySet()) {
             String key = entry.getKey();
@@ -31,6 +32,7 @@ public class Generate {
         System.out.println();
     }
 
+    // 자동차 결과 바(bar) 생드 메소드
     public static String barGenerate(Integer count) {
         String bar = "";
 
@@ -41,6 +43,7 @@ public class Generate {
         return bar;
     }
 
+    // 최종 우승자 판별 메소드
     public static void gameResultGenerate(HashMap<String, Integer> map) {
         int winnerCount = 0;
         String winner = "";

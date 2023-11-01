@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Race {
+    // 조건에 따라 각 자동차 전진, 정지 시키는 메소드
     public static HashMap<String, Integer> race(HashMap<String, Integer> map){
         for(Map.Entry<String, Integer> entry : map.entrySet()){
             String key = entry.getKey();
@@ -19,6 +20,7 @@ public class Race {
         return map;
     }
 
+    // 전진, 정지 조건 메소드
     public static boolean forward() {
         int number = Randoms.pickNumberInRange(0,9);
 
