@@ -14,9 +14,6 @@ public class Application {
         List<String> car = askName();
         int num = tryNum();
 
-        System.out.println(car);
-        System.out.println(num);
-
         NumberGenerator generator = new NumberGenerator();
         Judgement judgement = new Judgement();
         Output output = new Output();
@@ -30,21 +27,14 @@ public class Application {
 
         for(int i = 0; i < num; i++){
             List<Integer> computer = generator.createRandomNumber();
-            System.out.println(computer);
-
             List<Boolean> morethan4 = judgement.correctCount(computer);
-            System.out.println(morethan4);
-
             List<Integer> number = output.gameStart(computer, morethan4, fowardCount);
-            System.out.println(number);
-
             output.log(car, fowardCount);
         }
 
         List<String> winnerName = output.winner(car, fowardCount);
 
         System.out.print("최종 우승자 : ");
-
         for (int i = 0; i < winnerName.size(); i++){
             System.out.print(winnerName.get(i));
             if(i == winnerName.size() - 1) break;

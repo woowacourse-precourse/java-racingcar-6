@@ -11,7 +11,6 @@ public class Output {
                 fowardCount.set(i, fowardCount.get(i) + 1);
             }
         }
-
         return fowardCount;
     }
 
@@ -22,7 +21,6 @@ public class Output {
         System.out.println();
     }
 
-
     public List<String> winner(List<String> car, List<Integer> fowardCount){
         List<String> winnerName = new ArrayList<>();
         int max = Collections.max(fowardCount);
@@ -32,7 +30,6 @@ public class Output {
                 winnerName.add(car.get(i));
             }
         }
-
         return winnerName;
     }
 }
