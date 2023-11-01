@@ -36,20 +36,10 @@ public class GameController {
 
     private Cars getCars() {
         List<String> names = inputView.getNames();
-        try {
-            return new Cars(names);
-        } catch (IllegalArgumentException e) {
-            outputView.printExceptionMsg(e.getMessage());
-            return getCars();
-        }
+        return new Cars(names);
     }
 
     private MoveCount getMoveCount() {
-        try {
-            return inputView.getTryCount();
-        } catch (IllegalArgumentException e) {
-            outputView.printExceptionMsg(e.getMessage());
-            return getMoveCount();
-        }
+        return inputView.getTryCount();
     }
 }
