@@ -8,6 +8,12 @@ import racingcar.Domain.Race;
 
 public class RacingCarService {
 
+    private static final int minimizeRandomNumber = 4;
+    private static final int moveForward = 1;
+    private static final int minNumber = 0;
+    private static final int maxNumber = 9;
+    private static final int maxPositionNumber = -1;
+
     public void playRace(Race race) {
         moveOrStopByRandomNumber(race);
         race.increaseTrialCount();
@@ -15,14 +21,14 @@ public class RacingCarService {
 
     private void moveOrStopByRandomNumber(Race race) {
         for (Car car : race.getCars()) {
-            if (4 <= generateRandomNumber()) {
-                car.carMove(1);
+            if (minimizeRandomNumber <= generateRandomNumber()) {
+                car.carMove(moveForward);
             }
         }
     }
 
     private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(minNumber, maxNumber);
     }
 
     public List<String> selectWinners(Race race) {
@@ -42,7 +48,7 @@ public class RacingCarService {
     }
 
     private int decideMaxPosition(List<Car> cars) {
-        int max = -1;
+        int max = maxPositionNumber;
         for (Car car : cars) {
             if (max < car.getCarPosition()) {
                 max = car.getCarPosition();
