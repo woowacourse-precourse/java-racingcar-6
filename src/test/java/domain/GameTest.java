@@ -25,6 +25,21 @@ public class GameTest {
     }
 
     @Test
+    void 자동차들은_여러번_움직일_수_있다() {
+        List<Car> cars = List.of(
+                new Car("kim",0),
+                new Car("ray",0)
+        );
+        Car compareCar = new Car("park",3);
+        Game game = new Game(cars);
+        for (int i = 0; i < 3; i++) {
+            game.playOnce(() -> 4);
+        }
+        Assertions.assertThat(compareCar.isSamePosition(cars.get(0))).isTrue();
+        Assertions.assertThat(compareCar.isSamePosition(cars.get(1))).isTrue();
+    }
+
+    @Test
     void 우승자를_가려낸다() {
         List<Car> cars = List.of(
                 new Car("park",0),
