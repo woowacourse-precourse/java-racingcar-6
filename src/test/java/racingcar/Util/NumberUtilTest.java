@@ -11,7 +11,7 @@ class NumberUtilTest {
     @DisplayName("숫자 생성 테스트")
     void 숫자_생성_테스트() {
         int n = NumberUtil.create();
-        assertThat(n).isInstanceOf(Integer.class);
+        assertThat(n).isBetween(0, 9);
     }
 
     @Test
