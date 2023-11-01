@@ -25,9 +25,12 @@ class ApplicationTest extends NsTest {
         for (String carName: carNames) {
             cars.add(new Car(carName));
         }
-        assertThat(cars.get(0).getName()).contains("car1");
-        assertThat(cars.get(1).getName()).contains("car2");
-        assertThat(cars.get(2).getName()).contains("car3");
+        assertThat(cars.get(0).getName()).isEqualTo("car1");
+        assertThat(cars.get(0).getStep()).isEqualTo(0);
+        assertThat(cars.get(1).getName()).isEqualTo("car2");
+        assertThat(cars.get(1).getStep()).isEqualTo(0);
+        assertThat(cars.get(2).getName()).isEqualTo("car3");
+        assertThat(cars.get(2).getStep()).isEqualTo(0);
     }
 
     @Test
