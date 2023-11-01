@@ -29,16 +29,16 @@ public class RacingCars {
         return totalExecuteResult.toString();
     }
 
-    private void validateCarsSize(String[] carsName) {
-        if (carsName.length < GameConfig.MIN_CAR_COUNT.getValue() || carsName.length > GameConfig.MAX_CAR_COUNT.getValue()) {
-            throw new IllegalArgumentException("입력한 자동차 수가 초과되었습니다.");
-        }
-    }
-
     public List<String> getWinner() {
         Collections.sort(racingCars);
 
         return calculateWinner();
+    }
+
+    private void validateCarsSize(String[] carsName) {
+        if (carsName.length < GameConfig.MIN_CAR_COUNT.getValue() || carsName.length > GameConfig.MAX_CAR_COUNT.getValue()) {
+            throw new IllegalArgumentException("입력한 자동차 수가 초과되었습니다.");
+        }
     }
 
     private List<String> calculateWinner() {
