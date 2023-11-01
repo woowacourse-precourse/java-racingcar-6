@@ -34,4 +34,15 @@ public class GameView {
         }
         return dashes.toString();
     }
+    public void printWinner(Car[] cars){
+        int max = Arrays.stream(cars).mapToInt(Car::getScore).max().orElse(0);
+        System.out.print("최종 우승자 : ");
+        StringBuilder winners = new StringBuilder();
+        for(Car car : cars){
+            if(car.getScore() == max){
+                winners.append(car.getName()).append(", ");
+            }
+        }
+        System.out.println(winners.substring(0, winners.length() - 2));
+    }
 }
