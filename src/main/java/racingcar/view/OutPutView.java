@@ -3,12 +3,12 @@ package racingcar.view;
 import racingcar.model.Cars;
 
 public class OutPutView {
-    public final String START_METION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    public final String ASK_TRY_COUNT = "시도할 회수는 몇회인가요?";
-    public final String EXECUTE_RESULT = "실행 결과";
-    public final String COLON = " : ";
-    public final String ONE_STEP = "-";
-    public final String WINNER_TEMPLATE = "최종 우승자";
+    public static final String START_METION = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    public static final String ASK_TRY_COUNT = "시도할 회수는 몇회인가요?";
+    public static final String EXECUTE_RESULT = "실행 결과";
+    public static final String COLON = " : ";
+    public static final String ONE_STEP = "-";
+    public static final String WINNER_TEMPLATE = "최종 우승자";
 
     public void startMention() {
         System.out.println(START_METION);

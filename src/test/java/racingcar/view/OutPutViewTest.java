@@ -10,6 +10,7 @@ import java.io.PrintStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.view.OutPutView.*;
 
 class OutPutViewTest {
     private ByteArrayOutputStream outputStreamCaptor;
@@ -37,13 +38,13 @@ class OutPutViewTest {
     @Test
     void startMention() {
         outPutView.startMention();
-        assertThat(getOutput()).contains(outPutView.START_METION);
+        assertThat(getOutput()).contains(START_METION);
     }
 
     @Test
     void tryCount() {
         outPutView.tryCount();
-        assertThat(getOutput()).contains(outPutView.ASK_TRY_COUNT);
+        assertThat(getOutput()).contains(ASK_TRY_COUNT);
     }
 
     @Test
@@ -52,12 +53,12 @@ class OutPutViewTest {
         cars.setCarsData(List.of("a", "b"));
 
         outPutView.executeResult(cars);
-        assertThat(getOutput()).contains(outPutView.EXECUTE_RESULT + "\na : \nb : ");
+        assertThat(getOutput()).contains(EXECUTE_RESULT + "\na : \nb : ");
     }
 
     @Test
     void winner() {
         outPutView.winner("winner");
-        assertThat(getOutput()).contains(outPutView.WINNER_TEMPLATE + outPutView.COLON + "winner");
+        assertThat(getOutput()).contains(WINNER_TEMPLATE + COLON + "winner");
     }
 }
