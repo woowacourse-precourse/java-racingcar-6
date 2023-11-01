@@ -1,18 +1,17 @@
 package racingcar;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import org.junit.jupiter.api.BeforeAll;
-import racingcar.domain.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Player;
 import racingcar.domain.RandomGenerator;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.mock;
 
 public class PlayerTest {
 
@@ -22,7 +21,6 @@ public class PlayerTest {
 
     @BeforeEach
     public void setUp() {
-        player = new Player("TestPlayer");
         output = new ByteArrayOutputStream();
     }
 
@@ -33,7 +31,7 @@ public class PlayerTest {
         when(randoms.randomNumberInRange(0, 9)).thenReturn(4);
 
         // When: Player 객체 run 매서드 실행
-        player.setRandomGenerator(randoms);
+        player = new Player("test", randoms);
         player.run();
 
         // Then: runCount 값이 증가하는지 확인
@@ -47,7 +45,7 @@ public class PlayerTest {
         when(randoms.randomNumberInRange(0, 9)).thenReturn(3);
 
         // When: Player 객체 run 매서드 실행
-        player.setRandomGenerator(randoms);
+        player = new Player("test", randoms);
         player.run();
 
         // Then: runCount 값이 증가하지 않는지 확인
@@ -58,11 +56,12 @@ public class PlayerTest {
     public void print_메서드_테스트_3회_전진() {
         // Given
         // runCount = 3 설정
+        player = new Player("test", new RandomGenerator());
         player.setRunCount(3);
 
         // runCount가 3일 때, 예상 결과값
         StringBuilder expected = new StringBuilder();
-        expected.append("TestPlayer : ---");
+        expected.append("test : ---");
 
         System.setOut(new PrintStream(output));
 

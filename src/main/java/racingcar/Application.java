@@ -2,12 +2,13 @@ package racingcar;
 
 import racingcar.domain.Input;
 import racingcar.domain.RacingCar;
+import racingcar.domain.Validate;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         // 입력값을 받을 Input 객체
-        Input input = new Input();
+        Input input = new Input(new Validate());
 
         // 경기할 자동차 이름을 입력받고, 경기를 진행할 RacingCar 객체 생성
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");

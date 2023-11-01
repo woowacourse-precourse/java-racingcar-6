@@ -1,6 +1,5 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
@@ -16,8 +15,8 @@ public class InputTest {
 
     @BeforeEach
     public void setUp() {
-        input = new Input();
         validate = new Validate();
+        input = new Input(validate);
     }
 
     @Test
@@ -59,31 +58,29 @@ public class InputTest {
 
         // when & then
         for (String test : testList) {
-            assertThrows(IllegalArgumentException.class, () -> Input.getInteger(test));
+            assertThrows(IllegalArgumentException.class, () -> Validate.validateInteger(test));
         }
     }
 
     @Test
-    public void 시도횟수가_1이상_자연수가_아닐_때_예외() {
+    public void 시도횟수가_정수가_아닐_경우_예외() {
         // given
-        List<String> testList = Arrays.asList("3.154", "0", "-1");
+        List<String> testList = Arrays.asList("3.154", "0.23", "6.66");
 
         // when & then
         for (String test : testList) {
-            assertThrows(IllegalArgumentException.class, () -> Input.getInteger(test));
+            assertThrows(IllegalArgumentException.class, () -> validate.validateInteger(test));
         }
     }
 
     @Test
-    public void 시도횟수_입력이_올바른_경우() {
+    public void 시도횟수가_0보다_큰_값이_아닐_경우_예외() {
         // given
-        String input = "3";
-        int expected = 3;
+        List<Integer> testList = Arrays.asList(-5, 0);
 
-        // when
-        int result = Input.getInteger(input);
-
-        // then
-        assertEquals(expected, result);
+        // when & then
+        for (int test : testList) {
+            assertThrows(IllegalArgumentException.class, () -> validate.validatePositiveNumber(test));
+        }
     }
 }

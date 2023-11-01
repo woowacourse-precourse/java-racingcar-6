@@ -10,10 +10,6 @@ public class Player {
         return randomGenerator;
     }
 
-    public void setRandomGenerator(RandomGenerator randomGenerator) {
-        this.randomGenerator = randomGenerator;
-    }
-
     public String getName() {
         return name;
     }
@@ -30,10 +26,11 @@ public class Player {
         this.runCount = runCount;
     }
 
-    public Player(String name){
+    // 생성자 의존성 주입
+    public Player(String name, RandomGenerator randomGenerator){
         this.name = name;
         this.runCount = 0;
-        this.randomGenerator = new RandomGenerator();
+        this.randomGenerator = randomGenerator;
     }
 
     public void run(){

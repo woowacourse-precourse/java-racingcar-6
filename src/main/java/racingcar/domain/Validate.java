@@ -1,6 +1,15 @@
 package racingcar.domain;
 
 public class Validate {
+    public static boolean validateInteger(String str) {
+        try {
+            Integer.parseInt(str);
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException("유효하지 않은 입력입니다, 자연수를 입력해 주세요");
+        }
+
+        return true;
+    }
     public static void validatePositiveNumber(int num) {
         if (num <= 0) {
             throw new IllegalArgumentException("유효하지 않은 입력입니다, 자연수를 입력해 주세요");

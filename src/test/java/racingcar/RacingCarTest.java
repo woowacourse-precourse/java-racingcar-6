@@ -34,11 +34,10 @@ public class RacingCarTest {
         when(randoms.randomNumberInRange(0, 9)).thenReturn(4);
 
         // test1 플레이어는 항상 전진하도록 설정
-        Player player1 = new Player("test1");
-        player1.setRandomGenerator(randoms);
-        
+        Player player1 = new Player("test1", randoms);
+
         // test2 플레이어는 전진하거나 멈출 수 있음
-        Player player2 = new Player("test2");
+        Player player2 = new Player("test2", new RandomGenerator());
 
         // RacingCar 객체 초기 설정
         List<Player> playerList = new ArrayList<>();
@@ -62,16 +61,14 @@ public class RacingCarTest {
         // test1 플레이어는 항상 전진하도록 설정
         RandomGenerator randomsRun = mock(RandomGenerator.class);
         when(randomsRun.randomNumberInRange(0, 9)).thenReturn(4);
-        
-        Player player1 = new Player("test1");
-        player1.setRandomGenerator(randomsRun);
+
+        Player player1 = new Player("test1", randomsRun);
 
         // test2 플레이어는 항상 멈추도록 설정
         RandomGenerator randomsStop = mock(RandomGenerator.class);
         when(randomsStop.randomNumberInRange(0, 9)).thenReturn(3);
 
-        Player player2 = new Player("test2");
-        player2.setRandomGenerator(randomsStop);
+        Player player2 = new Player("test2", randomsStop);
 
         // RacingCar 객체 초기 설정
         List<Player> playerList = new ArrayList<>();
@@ -104,15 +101,10 @@ public class RacingCarTest {
         RandomGenerator randomsRun = mock(RandomGenerator.class);
         when(randomsRun.randomNumberInRange(0, 9)).thenReturn(4);
 
-        Player player1 = new Player("test1");
-        player1.setRandomGenerator(randomsRun);
+        Player player1 = new Player("test1", randomsRun);
 
         // test2 플레이어는 항상 전진하도록 설정
-        RandomGenerator randomsStop = mock(RandomGenerator.class);
-        when(randomsStop.randomNumberInRange(0, 9)).thenReturn(4);
-
-        Player player2 = new Player("test2");
-        player2.setRandomGenerator(randomsStop);
+        Player player2 = new Player("test2", randomsRun);
 
         // RacingCar 객체 초기 설정
         List<Player> playerList = new ArrayList<>();

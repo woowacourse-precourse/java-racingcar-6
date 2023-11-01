@@ -4,26 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Input {
-    public static Validate validate = new Validate();
+    private static Validate validate;
 
-    public static int inputNumber() {
-        return getInteger(camp.nextstep.edu.missionutils.Console.readLine());
+    public Input(Validate validate) {
+        this.validate = validate;
     }
 
-    public static int getInteger(String str) {
-        int num = 0;
-        try {
-            num = Integer.parseInt(str);
-        } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException("유효하지 않은 입력입니다, 자연수를 입력해 주세요");
-        }
+    public static int inputNumber() {
+        String input = camp.nextstep.edu.missionutils.Console.readLine();
 
-        // 자연수인지 검증
+        // int 자료형 검증
+        validate.validateInteger(input);
+        int num = Integer.parseInt(input);
+
+        // 자연수 검증
         validate.validatePositiveNumber(num);
 
         return num;
     }
-
 
     public static List<Player> inputPlayers() {
         List<Player> players = new ArrayList<>();
@@ -33,7 +31,7 @@ public class Input {
         for (String name : camp.nextstep.edu.missionutils.Console.readLine().split(",", -1)) {
             // 이름이 조건에 맞으면, player List에 추가
             if (validate.validateName(name)) {
-                players.add(new Player(name));
+                players.add(new Player(name, new RandomGenerator()));
             }
         }
 
