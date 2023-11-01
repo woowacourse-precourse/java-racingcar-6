@@ -46,14 +46,14 @@ public class InputView {
         }
         return trimmedCarNames;
     }
-    public int inputCounts(){
+    public static int inputCounts(){
         System.out.println("시도할 회수는 몇회인가요?");
         String input = readLine().trim();
         int intCounts = stringToInteger(input);
         validateEqualMoreOne(intCounts);
         return intCounts;
     }
-    public int stringToInteger(String str){
+    public static int stringToInteger(String str){
         int intNum = Integer.parseInt(str);
         return intNum;
     }
