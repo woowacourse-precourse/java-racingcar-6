@@ -1,5 +1,6 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -9,6 +10,7 @@ import racingcar.controller.GameController;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Winner;
+import racingcar.util.Validator;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -72,6 +74,36 @@ public class FunctionUnitTest {
         List<String> jointWinner = winner.determineWinner(testCarList);
 
         OutputView.printWinner(jointWinner);
+    }
+
+    @Test
+    void 사용자_자동차_이름_입력_검증() {
+        String name = "pobi, jun";
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> Validator.checkName(name))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 사용자_숫자_아닌수_입력_검증() {
+        String rawTryCount = "bb";
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> Validator.checkTryCount(rawTryCount))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 사용자_1미만_숫자_입력_검증() {
+        String rawTryCount = "0";
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> Validator.checkTryCount(rawTryCount))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
 }
