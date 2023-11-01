@@ -30,14 +30,18 @@ public class RacingCars {
 
     public List<ResultOfTurnDto> getTotalResultOfTurn() {
         List<ResultOfTurnDto> resultOfTurnDtos = new ArrayList<>();
-        for (RacingCar racingCar : racingCars) {  // getter 안쓸수 있는 방향으로 리팩토
+        advanceRacingCars(resultOfTurnDtos);
+        return resultOfTurnDtos;
+    }
+
+    private void advanceRacingCars(List<ResultOfTurnDto> resultOfTurnDtos) {
+        for (RacingCar racingCar : racingCars) {
             if (racingCar.canAdvance()) {
                 racingCar.advance();
             }
             ResultOfTurnDto resultOfTurnDto = createAdvancecProgress(racingCar);
             resultOfTurnDtos.add(resultOfTurnDto);
-       }
-        return resultOfTurnDtos;
+        }
     }
 
     public List<RacingCar> getMostAdvancedRacingCar() {
