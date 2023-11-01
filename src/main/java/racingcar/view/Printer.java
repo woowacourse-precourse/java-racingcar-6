@@ -4,6 +4,10 @@ import static racingcar.constant.InfoMessage.*;
 
 public class Printer {
 
+    public static void printLineBreak() {
+        System.out.println();
+    }
+
     public static void printCarChoiceMessage() {
         System.out.println(CAR_CHOICE);
     }

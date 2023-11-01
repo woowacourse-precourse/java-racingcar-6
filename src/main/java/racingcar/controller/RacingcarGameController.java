@@ -23,6 +23,7 @@ public class RacingcarGameController {
         String roundChoiceInputMessage = InputHandler.getInputMessage();
 
         int roundToRace = TypeConverter.convertStringToInt(roundChoiceInputMessage);
+        Printer.printLineBreak();
 
         playRacingcarGame(carChoiceInputMessage, roundToRace);
     }
