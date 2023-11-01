@@ -40,15 +40,20 @@ public class ResultView {
     }
 
     private static String getWinnerMessage(List<Car> cars) {
-        Comparator<Car> comparatorByMoveCount = Comparator.comparingInt(Car::getMoveCount);
-        int maxMoveCount = cars.stream()
-                .max(comparatorByMoveCount)
-                .orElseThrow(NoSuchElementException::new)
-                .getMoveCount();
+        int maxMoveCount = getMaxMoveCount(cars);
 
         return cars.stream()
                 .filter(car -> car.getMoveCount() == maxMoveCount)
                 .map(Car::getName)
                 .collect(Collectors.joining(NAME_SEPARATOR));
+    }
+
+    private static int getMaxMoveCount(List<Car> cars) {
+        Comparator<Car> comparatorByMoveCount = Comparator.comparingInt(Car::getMoveCount);
+
+        return cars.stream()
+                .max(comparatorByMoveCount)
+                .orElseThrow(NoSuchElementException::new)
+                .getMoveCount();
     }
 }
