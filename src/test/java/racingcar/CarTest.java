@@ -12,7 +12,7 @@ public class CarTest {
 
     @DisplayName("자동차 이름 생성 성공 테스트")
     @ParameterizedTest
-    @ValueSource(strings = {"a", "pobi", "a2", "abcd", "1234"})
+    @ValueSource(strings = {"a", "pobi", "a2", "abcd", "12345"})
     void CarNameSuccessTest(String name) {
         Car car = new Car(new CarName(name));
 
@@ -21,7 +21,7 @@ public class CarTest {
 
     @DisplayName("자동차 이름 생성 실패 테스트")
     @ParameterizedTest
-    @ValueSource(strings = {"", "         ", "12345", "thisIsMoreThenFour"})
+    @ValueSource(strings = {"", "         ", "123456", "thisIsMoreThenFour"})
     void CarNameFailTest(String name) {
         Assertions.assertThatThrownBy(() -> {
                     new Car(new CarName(name));

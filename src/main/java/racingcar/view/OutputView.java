@@ -16,6 +16,7 @@ public class OutputView {
 
     public static void printMovingResult(Cars cars) {
         System.out.println(cars);
+        System.out.println();
     }
 
     public static void printWinner(List<Car> winner) {

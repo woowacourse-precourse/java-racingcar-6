@@ -3,7 +3,7 @@ package racingcar.domain;
 import racingcar.message.ErrorMessage;
 
 public class CarName {
-    private static final int MAX_NAME_LENGTH = 4;
+    private static final int MAX_NAME_LENGTH = 5;
     private final String name;
 
     public CarName(String name) {
