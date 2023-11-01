@@ -15,6 +15,14 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void 자동차이름_공백() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException(" ", "1"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 랜덤값으로_전진() {
         Car car = new Car("test", 0);
         car.carDrive(4);
