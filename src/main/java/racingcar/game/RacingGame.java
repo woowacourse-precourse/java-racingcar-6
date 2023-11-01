@@ -22,10 +22,6 @@ public class RacingGame {
         this.remainingRounds = rounds;
     }
 
-    protected boolean isFinished() {
-        return remainingRounds == 0;
-    }
-
     protected void tryToProceedCars() {
         cars.stream()
                 .filter(c -> isOverThreshold(generateRandomIntInRange()))
@@ -40,5 +36,9 @@ public class RacingGame {
 
     protected List<Car> getGameProgress() {
         return cars;
+    }
+
+    protected boolean isFinished() {
+        return remainingRounds == 0;
     }
 }
