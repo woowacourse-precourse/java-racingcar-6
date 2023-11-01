@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class Referee {
     private static final String RACE_RESULT_MESSAGE = "최종 우승자 : ";
+    private static final String RACE_RESULT_DELIMITER = ", ";
 
     public static void announceRoundResult(Cars cars) {
         for (Car car : cars.getCars()) {
@@ -29,7 +30,7 @@ public class Referee {
         System.out.print(RACE_RESULT_MESSAGE);
         System.out.print(winners.get(0).getName());
         for (int i = 1; i < winners.size(); ++i) {
-            System.out.print(", " + winners.get(i).getName());
+            System.out.print(RACE_RESULT_DELIMITER + winners.get(i).getName());
         }
     }
 }
