@@ -14,8 +14,7 @@ public class DistanceCountingTest {
         DistanceCounting distanceCounting = new DistanceCounting();
 
         for(int i = 0; i < TRY; i++) {
-            if(distanceCounting.passCheck(PASS)) {
-            }
+            distanceCounting.passCheck(PASS);
         }
         assertThat(distanceCounting.totalDistance()).isEqualTo("_____");
     }
