@@ -35,11 +35,8 @@ public class Application {
     private static List<String> inputCarNames() {
         String input = getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         validateBlank(input);
-
         List<String> carNames = toList(input);
-
         validateCarNames(carNames);
-
         return carNames;
     }
 
@@ -47,13 +44,11 @@ public class Application {
         String input = getInput("시도할 회수는 몇회인가요?");
         validateBlank(input);
         validateInputIsNumber(input);
-
         return Integer.parseInt(input);
     }
 
     private static void getResult(List<String> carNames, int tryCount, List<Integer> position) {
         System.out.println("실행결과");
-
         for (int i = 0; i < tryCount; i++) {
             for (int j = 0; j < carNames.size(); j++) {
                 updatePosition(position, j);
@@ -75,15 +70,7 @@ public class Application {
 
     private static List<String> getWinners(List<String> carNames, List<Integer> position) {
         int maxPosition = getMaxPosition(position);
-        List<String> winners = new ArrayList<>();
-
-        for (int i = 0; i < carNames.size(); i++) {
-            if (position.get(i) == maxPosition) {
-                winners.add(carNames.get(i));
-            }
-        }
-
-        return winners;
+        return getWinnerNames(carNames, position, maxPosition);
     }
 
     private static void printWinners(List<String> winners) {
@@ -117,9 +104,16 @@ public class Application {
                 .orElseThrow();
     }
 
-    /**
-     * 검증 메서드
-     */
+    private static List<String> getWinnerNames(List<String> carNames, List<Integer> position, int maxPosition) {
+        List<String> winners = new ArrayList<>();
+        for (int i = 0; i < carNames.size(); i++) {
+            if (position.get(i) == maxPosition) {
+                winners.add(carNames.get(i));
+            }
+        }
+        return winners;
+    }
+
     private static void validateBlank(String input) {
         if (input.isBlank() || input.contains(" ")) {
             throw new IllegalArgumentException("공백 또는 여백이 포함되어 있습니다.");
