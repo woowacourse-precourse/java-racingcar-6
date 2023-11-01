@@ -25,9 +25,7 @@ public class InputView {
 
     public static List<Car> responseCarNames(String[] carNames) {
         List<String> trimmedCarNames = doTrim(carNames);
-
         List<Car> cars = putCars(trimmedCarNames);
-
         return cars;
     }
 
