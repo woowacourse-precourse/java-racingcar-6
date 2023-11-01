@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class GameServiceTest {
     @Test
-    void 자동차들모델로만들기(){
+    void 자동차들모델로만들기() {
         GameService gameService = new GameService();
         List<String> carNames = new ArrayList<>();
         carNames.add("car1");
@@ -20,9 +20,9 @@ class GameServiceTest {
         List<Car> cars = gameService.makeCars(carNames);
 
         List<String> names = new ArrayList<>();
-        for (Car car:cars){
+        for (Car car : cars) {
             names.add(car.getName());
         }
-        assertThat(names).contains("car1","car2","car3");
+        assertThat(names).contains("car1", "car2", "car3");
     }
 }

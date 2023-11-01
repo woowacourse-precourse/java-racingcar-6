@@ -7,18 +7,20 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class GameService {
-    public List<Car> makeCars(List<String> carNames){
+    public List<Car> makeCars(List<String> carNames) {
         return carNames.stream()
                 .map(Car::new)
                 .toList();
     }
-    private Integer findMaxPlace(List<Car> cars){
+
+    private Integer findMaxPlace(List<Car> cars) {
         return cars.stream()
                 .map(Car::getPlace)
                 .max(Integer::compare)
                 .orElse(0);
     }
-    public List<String> findEqualsMaxPlace(List<Car> cars){
+
+    public List<String> findEqualsMaxPlace(List<Car> cars) {
         return cars.stream()
                 .filter(car -> Objects.equals(car.getPlace(), findMaxPlace(cars)))
                 .map(Car::getName)
