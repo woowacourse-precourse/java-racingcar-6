@@ -102,10 +102,23 @@ public class RacingCar {
             }
         }
     }
+
+    public void printWinner() {
+        StringBuilder sb = new StringBuilder(Notification.winners);
+        int i;
+        for (i = 0; i < winnerList.size() - 1; i++) {
+            sb.append(winnerList.get(i)).append(", ");
+        }
+
+        sb.append(winnerList.get(i));
+
+        System.out.println(sb);
+    }
+
     public void endGame(){
         int valueOfWinner = getMaxValue();
         getWinner(valueOfWinner);
-
+        printWinner();
     }
 
 
