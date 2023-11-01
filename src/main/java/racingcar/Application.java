@@ -12,6 +12,4 @@ public class Application {
         Game.start();
         Game.result();
     }
-
-
 }

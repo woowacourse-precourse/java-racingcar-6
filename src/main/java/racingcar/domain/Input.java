@@ -21,13 +21,7 @@ public class Input {
             int intCount = Integer.parseInt(inputCount);
             return intCount;
         } catch (IllegalArgumentException e) {
-            System.err.println("숫자를 입력하세요");
+            throw new IllegalArgumentException("숫자를 입력하시오.");
         }
-        return 0;
-
     }
-
-
-
-
 }
