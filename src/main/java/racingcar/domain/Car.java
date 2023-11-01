@@ -21,9 +21,4 @@ public class Car {
     public int getPosition() {
         return position.getValue();
     }
-
-    @Override
-    public String toString() {
-        return name.toString();
-    }
 }
