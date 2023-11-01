@@ -25,6 +25,6 @@ public class RacingGameController {
 
     private void endGame(Cars cars) {
         OutputView.printCarsPosition(cars.getCars());
-        OutputView.printWinners(cars.get트Winners());
+        OutputView.printWinners(cars.getWinners());
     }
 }
