@@ -64,6 +64,13 @@ public class RacingCarServiceImpl implements RacingCarService {
     @Override
     public void printMovementCounts(List<Car> carList) {
 
+        for (Car car : carList) {
+            String carName = car.getCarName();
+            int currentMovementCounts = car.getCurrentMovementCounts();
+            System.out.print(carName + " : ");
+            printBarForCounts(currentMovementCounts);
+        }
+        System.out.println();
     }
 
     @Override
@@ -101,5 +108,13 @@ public class RacingCarServiceImpl implements RacingCarService {
 
     private boolean isMoveForward(int randomValue) {
         return randomValue >= RacingCarVO.getMoveThreshold();
+    }
+
+    private void printBarForCounts(int currentMovementCounts) {
+
+        for (int i = 0; i < currentMovementCounts; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
