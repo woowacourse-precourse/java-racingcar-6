@@ -1,6 +1,9 @@
 package racingcar.domain.controller;
 
-import static racingcar.global.utils.constant.OutputType.*;
+import static racingcar.global.utils.constant.OutputType.EMPTY;
+import static racingcar.global.utils.constant.OutputType.OUTPUT_CARS_NAME;
+import static racingcar.global.utils.constant.OutputType.OUTPUT_NUMBER_OF_ATTEMPTS;
+import static racingcar.global.utils.constant.OutputType.OUTPUT_RESULT;
 
 import java.util.List;
 import racingcar.domain.RacingCar;

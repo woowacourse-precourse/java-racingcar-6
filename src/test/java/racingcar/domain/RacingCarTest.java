@@ -24,7 +24,7 @@ public class RacingCarTest {
 	void should_returnForm_when_invokeToString() {
 		RacingCar racingCar = new RacingCar("name");
 		int count = 2;
-		for(int i = 0; i < count; i++) {
+		for (int i = 0; i < count; i++) {
 			racingCar.increaseCount();
 		}
 

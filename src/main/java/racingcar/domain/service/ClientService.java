@@ -7,6 +7,7 @@ import java.util.List;
 import racingcar.global.utils.console.ConsoleUtil;
 
 public class ClientService {
+
 	private static final String SPLITTER = ",";
 
 	public List<String> getCarsName() {
