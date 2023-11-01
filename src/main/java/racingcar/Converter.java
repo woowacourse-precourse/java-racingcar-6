@@ -21,7 +21,7 @@ public class Converter {
     }
 
     public static String convertDistance(int distance) {
-        return ONE_STEP.repeat(Math.max(0, distance));
+        return ONE_STEP.repeat(distance);
     }
 
     public static List<String> convertWinners(List<Car> winners) {
