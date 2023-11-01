@@ -2,6 +2,10 @@ package racingcar.domain;
 
 import java.util.List;
 import racingcar.dto.CarStateDto;
+import racingcar.view.ConsoleInput;
+import racingcar.view.ConsoleOutput;
+import racingcar.view.Input;
+import racingcar.view.Output;
 
 public class RacingCarGame {
     private Input input;

@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.view;
 
 import java.util.List;
 import racingcar.dto.CarStateDto;
