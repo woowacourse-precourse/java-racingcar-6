@@ -19,7 +19,7 @@ class Race {
 		raceReady();
 	}
 
-	private void raceReady() {
+	public void raceReady() {
 		String carName = inputCarNames();
 		String[] carNamesArray = convertToCarNameArray(carName);
 
@@ -32,12 +32,12 @@ class Race {
 		race.race(carNamesArray, movementLimit, forwardStatusMap);
 	}
 
-	private String inputCarNames() {
+	public String inputCarNames() {
 		String inputCarNames = Console.readLine();
 		return inputCarNames;
 	}
 
-	private String[] convertToCarNameArray(String carName) {
+	public String[] convertToCarNameArray(String carName) {
 		String[] carNamesArray = carName.split(",");
 
 		validateinputCarNames(carNamesArray);
@@ -47,7 +47,7 @@ class Race {
 		return carNamesArray;
 	}
 
-	private void validateinputCarNames(String[] carNamesArray) {
+	public void validateinputCarNames(String[] carNamesArray) {
 
 		for (int i = 0; i < carNamesArray.length; i++) {
 
@@ -57,7 +57,7 @@ class Race {
 		}
 	}
 
-	private void containsNonStringElement(String[] carNamesArray) {
+	public void containsNonStringElement(String[] carNamesArray) {
 
 		for (String carName : carNamesArray) {
 
@@ -67,11 +67,11 @@ class Race {
 		}
 	}
 
-	private void askMoveCount() {
-		System.out.println("시도할 회수는 몇회인가요?");
+	public void askMoveCount() {
+		System.out.println("시도할 횟수는 몇회인가요?");
 	}
 
-	private String inputMoveCount() {
+	public String inputMoveCount() {
 
 		String inputMoveCount = Console.readLine();
 
@@ -87,15 +87,15 @@ class Race {
 	public static void validateNumeric(String inputMoveCount) throws NumberFormatException {
 
 		if (!inputMoveCount.matches("-?\\d+(\\.\\d+)?")) {
-			throw new NumberFormatException("입력값이 숫자가 아닙니다: ");
+			throw new NumberFormatException("입력값이 숫자가 아닙니다\n");
 		}
 	}
 
-	private int stringToIntMoveCount(String moveCount) {
+	public int stringToIntMoveCount(String moveCount) {
 		return Integer.parseInt(moveCount);
 	}
 
-	private Map<String, String> makeForwardStatus(String[] carNamesArray) {
+	public Map<String, String> makeForwardStatus(String[] carNamesArray) {
 
 		Map<String, String> forwardStatusMap = new HashMap<>();
 
@@ -124,7 +124,7 @@ class Racing {
 		raceEnd.end(forwardStatusMap, carNamesArray);
 	}
 
-	private void forward(String[] carNamesArray, Map<String, String> forwardStatusMap) {
+	public void forward(String[] carNamesArray, Map<String, String> forwardStatusMap) {
 
 		for (String carName : carNamesArray) {
 
@@ -137,14 +137,13 @@ class Racing {
 		}
 	}
 
-	private void printResult(Map<String, String> forwardStatusMap) {
+	public void printResult(Map<String, String> forwardStatusMap) {
 
 		for (Map.Entry<String, String> entry : forwardStatusMap.entrySet()) {
 			String key = entry.getKey();
 			String value = entry.getValue();
 			System.out.println(key + " : " + value);
 		}
-
 		System.out.println();
 	}
 }
@@ -157,7 +156,7 @@ class RaceEnd {
 		winner.findWinners(forwardCountArrayList, carNamesArray);
 	}
 
-	private ArrayList<Integer> makeForwardCountArrayList(Map<String, String> forwardStatusMap) {
+	public ArrayList<Integer> makeForwardCountArrayList(Map<String, String> forwardStatusMap) {
 		return forwardStatusMap.values().stream().map(String::length).collect(Collectors.toCollection(ArrayList::new));
 	}
 }
@@ -173,7 +172,7 @@ class Winner {
 		decisionWinner(winnerNameArrayList);
 	}
 
-	private ArrayList<String> composeWinnerNameArrayList(ArrayList<Integer> forwardCountArrayList, int winnerScore,
+	public ArrayList<String> composeWinnerNameArrayList(ArrayList<Integer> forwardCountArrayList, int winnerScore,
 		String[] carNamesArray) {
 
 		ArrayList<String> winnerNameArrayList = new ArrayList<>();
@@ -188,7 +187,7 @@ class Winner {
 		return winnerNameArrayList;
 	}
 
-	private void decisionWinner(ArrayList<String> winnerNameArrayList) {
+	public void decisionWinner(ArrayList<String> winnerNameArrayList) {
 
 		StringBuilder gameResult = new StringBuilder("최종 우승자 : ");
 
@@ -201,7 +200,7 @@ class Winner {
 		displayGameResult(gameResult.toString());
 	}
 
-	private void pluralWinnerDecision(ArrayList<String> winnerNameArrayList, StringBuilder gameResult) {
+	public void pluralWinnerDecision(ArrayList<String> winnerNameArrayList, StringBuilder gameResult) {
 
 		for (int i = 0; i < winnerNameArrayList.size(); i++) {
 			gameResult.append(winnerNameArrayList.get(i));
@@ -212,11 +211,11 @@ class Winner {
 		}
 	}
 
-	private void singleWinnerDecision(String winnerName, StringBuilder gameResult) {
+	public void singleWinnerDecision(String winnerName, StringBuilder gameResult) {
 		gameResult.append(winnerName);
 	}
 
-	private void displayGameResult(String gameResult) {
+	public void displayGameResult(String gameResult) {
 		System.out.println(gameResult);
 	}
 }
