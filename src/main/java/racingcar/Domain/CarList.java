@@ -12,11 +12,11 @@ public class CarList {
     private List<Car> cars;
 
     public void namesInput() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
         String input = Console.readLine().trim();
 
         List<String> carNames = Arrays.asList(input.split(","));
-        validateCarNames(carNames);
+        validate(carNames);
 
         namingCars(carNames);
     }
@@ -27,12 +27,12 @@ public class CarList {
                 .collect(Collectors.toList());
     }
 
-    private void validateCarNames(List<String> carNames) {
-        validateCarNameFormat(carNames);
-        validateNameDuplicate(carNames);
+    private void validate(List<String> carNames) {
+        validateFormat(carNames);
+        validateDuplicate(carNames);
     }
 
-    private void validateCarNameFormat(List<String> carNames) {
+    private void validateFormat(List<String> carNames) {
         for (String carName : carNames) {
             if (!carName.matches("^[a-zA-Z0-9가-힣]{1,5}$")) {
                 throw new IllegalArgumentException();
@@ -40,7 +40,7 @@ public class CarList {
         }
     }
 
-    private void validateNameDuplicate(List<String> carNames) {
+    private void validateDuplicate(List<String> carNames) {
         Set<String> noDuplicateNames = new HashSet<>(carNames);
 
         if (noDuplicateNames.size() != carNames.size()) {
