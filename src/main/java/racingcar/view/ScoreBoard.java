@@ -13,8 +13,8 @@ public class ScoreBoard {
         System.out.println(GAME_PROGRESS_MESSAGE);
     }
 
-    public static void displayRacingProgress(String racingProgress) {
-        System.out.println(racingProgress);
+    public static void displayCurrentRacingCarsPosition(String currentRacingPosition) {
+        System.out.println(currentRacingPosition);
         System.out.println();
     }
 

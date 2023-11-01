@@ -1,12 +1,9 @@
 package racingcar.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.view.ScoreBoard;
 
 public class RacingCars {
 
-    private static final String POSITION_BLOCK = "-";
     private final List<RacingCar> racingCars;
 
     public RacingCars(List<RacingCar> racingCars) {
@@ -18,22 +15,10 @@ public class RacingCars {
     }
 
     public void printCarsPosition() {
-        String carsPosition = getCarsPosition();
-        ScoreBoard.displayRacingProgress(carsPosition);
+        RacingCarsCurrentPositionDisplay.displayCurrentRacingCarsPosition(racingCars);
     }
 
     public void printWinnersName() {
         RacingReferee.printWinnersName(List.copyOf(racingCars));
-    }
-
-    private String getCarsPosition() {
-        return racingCars.stream()
-            .map(racingCar -> racingCar.getName() + " : " + getPositionBar(racingCar))
-            .collect(Collectors.joining("\n"));
-    }
-
-    private String getPositionBar(RacingCar racingCar) {
-        int positionBarLength = racingCar.getPosition();
-        return POSITION_BLOCK.repeat(positionBarLength);
     }
 }
