@@ -4,6 +4,7 @@
    3) 자동차 이름 6자 이상 일 시 IllegalArgumentException
    4) 자동차 이름 중복 일시 IllegalArgumentException
    5) 빈칸 으로 시작 하는 자동차 이름 IllegalArgumentException
+   6) 자동차 1대 등록 시 IllegalArgumentException
 2. 이동 횟수 입력
    1) 시도할 회수는 몇회인가요? 출력
    2) 1보다 작은 수 입력 시 IllegalArgumentException
