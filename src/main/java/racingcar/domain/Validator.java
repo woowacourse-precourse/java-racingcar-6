@@ -6,6 +6,7 @@ public class Validator {
     private Validator() {
     }
 
+    /* for carNames */
     public static void checkCarNames(String carNames) {
         if (isEmpty(carNames)) {
             RacingGame.exception(ErrorMessage.NO_NAME);
@@ -16,7 +17,6 @@ public class Validator {
         }
     }
 
-    /* for carNames */
     private static boolean isEmpty(String canNames) {
         return canNames == null || canNames.trim().isEmpty();
     }
@@ -36,12 +36,12 @@ public class Validator {
 
     /* for Car.name */
     public static void checkNameRestriction(String name) {
-        if (isShorterFive(name)) {
+        if (isLongerFive(name)) {
             RacingGame.exception(ErrorMessage.NAME_RESTRICTION);
         }
     }
 
-    private static boolean isShorterFive(String name) {
+    private static boolean isLongerFive(String name) {
         return name.length() > 5;
     }
 
