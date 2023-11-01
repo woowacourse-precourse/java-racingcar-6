@@ -3,9 +3,16 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumberGenerator {
-    public int generateRandomNumber(){
-        int randomNumber  = Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUM, Constants.MAX_RANDOM_NUM);
-        return randomNumber;
+    private final int minRandomNum;
+    private final int maxRandomNum;
+
+    public RandomNumberGenerator(int minRandomNum, int maxRandomNum) {
+        this.minRandomNum = minRandomNum;
+        this.maxRandomNum = maxRandomNum;
+    }
+
+    public int generateRandomNumber() {
+        return Randoms.pickNumberInRange(minRandomNum, maxRandomNum);
     }
 }
 

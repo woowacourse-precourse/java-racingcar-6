@@ -1,12 +1,11 @@
 package racingcar.domain;
 
-
 import java.util.List;
 import java.util.Map;
 
 public class SystemOutput {
-    public void printMoveResult(Map<String, Integer> numMoveMap) {
-        for (Map.Entry<String, Integer> entrySet : numMoveMap.entrySet()) {
+    public void printMoveResult(MoveContainer moveContainer) {
+        for (Map.Entry<String, Integer> entrySet : moveContainer.getNumMoveMap().entrySet()) {
             System.out.print(entrySet.getKey() + " : ");
             for (int i = 0; i < entrySet.getValue(); i++){
                 System.out.print("-");
@@ -16,10 +15,10 @@ public class SystemOutput {
         System.out.println();
     }
 
-    public void printOverallResult(List<String> winnerList){
-        String prizeWinner = String.join(",", winnerList);
+    public void printOverallResult(WinnerList winnerList){
+        List<String> winList = winnerList.getWinnerNames();
+        String prizeWinner = String.join(",", winList);
         System.out.println(Constants.FINAL_WINNER_MESSAGE + prizeWinner);
     }
-
-
 }
+
