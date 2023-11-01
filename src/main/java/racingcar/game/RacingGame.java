@@ -1,5 +1,6 @@
 package racingcar.game;
 
+import java.util.List;
 import racingcar.car.Cars;
 import racingcar.utils.view.Input;
 import racingcar.utils.view.Messages;
@@ -13,6 +14,7 @@ public class RacingGame {
         Cars cars = setupCarsName();
         TryCount tryCount = setupTryCount();
         race(cars, tryCount);
+        showWinner(cars);
     }
 
     private Cars setupCarsName() {
@@ -33,5 +35,10 @@ public class RacingGame {
             output.printEmptyLine();
             tryCount.tried();
         }
+    }
+
+    private void showWinner(Cars cars) {
+        List<String> winnerNames = cars.getWinnerNames();
+        output.printMessageLine(Messages.WINNER.getMessage() + String.join(", ", winnerNames));
     }
 }

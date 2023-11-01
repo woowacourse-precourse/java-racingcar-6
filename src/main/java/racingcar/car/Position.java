@@ -21,6 +21,10 @@ public class Position {
                 .collect(Collectors.joining());
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

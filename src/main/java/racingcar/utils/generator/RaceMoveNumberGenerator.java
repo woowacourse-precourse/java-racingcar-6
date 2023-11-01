@@ -2,14 +2,14 @@ package racingcar.utils.generator;
 
 import racingcar.car.MoveNumber;
 
-public class RaceMoveNumberGenerator extends RandomNumberGenerator {
+public class RaceMoveNumberGenerator /*extends RandomNumberGenerator*/ {
 
-    @Override
-    public int generate() {
-        return super.generate();
-    }
+//    @Override
+//    public int generate() {
+//        return super.generate();
+//    }
 
-    public MoveNumber generateMoveNumber() {
-        return new MoveNumber(generate());
+    public static MoveNumber generate() {
+        return new MoveNumber(new RandomNumberGenerator().generate());
     }
 }
