@@ -15,6 +15,7 @@ public class RacingGameResponder {
         sb.append("\n");
         if (!isInformingGameProcess) {
             sb.append(START_GAME_PROCESS_INFORMING_LABEL);
+            isInformingGameProcess = true;
         }
         cars.forEach(car -> appendCarPosition(sb, car));
         System.out.println(sb);
