@@ -9,7 +9,6 @@ public class Car {
         this.score = 0;
     }
 
-    // for test
     public Car(String name, Integer score) {
         this.name = name;
         this.score = score;

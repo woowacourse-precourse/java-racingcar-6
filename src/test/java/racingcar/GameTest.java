@@ -15,7 +15,6 @@ public class GameTest {
         for (Integer number = 1; number <= 3; number++) {
             cars.add(new Car("car" + number));
         }
-
         Game.forwardOrStop(cars);
 
         for (Car car : cars) {

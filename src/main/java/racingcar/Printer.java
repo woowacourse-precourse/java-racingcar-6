@@ -15,7 +15,6 @@ public class Printer {
             movement(car.getScore());
             System.out.println();
         }
-
         System.out.println();
     }
 

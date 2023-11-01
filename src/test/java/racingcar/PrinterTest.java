@@ -16,12 +16,12 @@ public class PrinterTest {
 
     @Test
     void winners_메소드_출력_테스트() {
+        // 다수 우승자
         List<String> winners = Arrays.asList("jaewon", "choi", "minwoo");
-
         Printer.winners(winners);
 
+        // 단일 우승자
         winners = Arrays.asList("jaewon");
-
         Printer.winners(winners);
     }
 }

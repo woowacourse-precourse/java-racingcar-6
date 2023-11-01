@@ -11,7 +11,6 @@ public class Checker {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -19,7 +18,6 @@ public class Checker {
         Integer highestScore = cars.stream()
                 .mapToInt(car -> car.getScore())
                 .max().orElseThrow(() -> new NoSuchElementException());
-
         List<String> winners = new ArrayList<>();
 
         for (Car car : cars) {
@@ -27,7 +25,6 @@ public class Checker {
                 winners.add(car.getName());
             }
         }
-
         return winners;
     }
 }

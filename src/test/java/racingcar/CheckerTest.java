@@ -20,7 +20,6 @@ public class CheckerTest {
     @Test
     void score가_가장_높은_car의_이름_리턴() {
         List<Car> cars = Arrays.asList(new Car("car1", 3), new Car("car2", 3), new Car("car3", 1));
-
         List<String> winners = Checker.judgeWinners(cars);
 
         assertThat(winners.size()).isEqualTo(2);
