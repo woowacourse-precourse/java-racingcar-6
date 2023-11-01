@@ -3,8 +3,12 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    public void tryToMove(){
+    private int moveCount = 0;
 
+    public void tryToMove(){
+        if (generateRandomNumber()>=4){
+            moveCount++;
+        }
     }
 
     public int generateRandomNumber(){
@@ -13,5 +17,13 @@ public class Car {
     }
     public void compare(){
 
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
     }
 }
