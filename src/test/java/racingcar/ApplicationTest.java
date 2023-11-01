@@ -15,11 +15,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -34,7 +34,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차_이름_공백_입력시_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(" "))
+                assertThatThrownBy(() -> runException("", "1가"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage("공백 또는 여백이 포함되어 있습니다."));
     }
@@ -59,7 +59,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 시도할_회수_공백_입력_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,hi"," "))
+                assertThatThrownBy(() -> runException("pobi,hi", " "))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage("공백 또는 여백이 포함되어 있습니다."));
     }
@@ -67,7 +67,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 시도할_회수_문자_입력_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,hi","숫자"))
+                assertThatThrownBy(() -> runException("pobi,hi", "숫자"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage("시도할 회수는 숫자만 가능"));
     }
@@ -75,9 +75,20 @@ class ApplicationTest extends NsTest {
     @Test
     void 시도할_회수_음수_입력_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,hi","-1"))
+                assertThatThrownBy(() -> runException("pobi,hi", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage("1 이상의 양수만 입력 가능."));
+    }
+
+    @Test
+    void 공동_우승자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "5");
+                    assertThat(output()).contains("최종 우승자 : pobi, woni");
+                },
+                4, 4
+        );
     }
 
     @Override
