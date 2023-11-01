@@ -5,7 +5,7 @@
     - [x] 이름이 5자 초과일 경우 IllegalArgumentException을 발생시키는 기능
 
 
-- [x] 사용자에게 이동 횟수 입력을 받는 기능
+- [x] 이동 횟수 입력을 받는 기능
     - [x] 하나의 자연수가 아닐 경우 IllegalArgumentException을 발생시키는 기능
 
 
