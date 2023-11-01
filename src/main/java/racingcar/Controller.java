@@ -6,11 +6,16 @@ public class Controller {
 
     public void play() {
         userInput();
+        gamePlay();
 
     }
 
     public void userInput() {
         service.userInput();
+    }
+
+    public void gamePlay() {
+        service.gamePlay();
     }
 
 }

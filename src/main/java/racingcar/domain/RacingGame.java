@@ -14,5 +14,15 @@ public class RacingGame {
         this.currentAttempt = 0;
     }
 
+    public List<Car> getAllCars() {
+        return cars;
+    }
 
+    public void increaseAttempt() {
+        currentAttempt++;
+    }
+
+    public boolean isEnd() {
+        return (attemptNumber == currentAttempt);
+    }
 }
