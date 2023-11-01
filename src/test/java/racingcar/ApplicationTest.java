@@ -31,42 +31,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 시도_횟수에_음수_입력할_때_예외_처리() {
-        assertThatThrownBy(() -> runException("pobi,jun", "-3"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 시도_횟수에_숫자_아닌_값_입력할_때_예외_처리() {
-        assertThatThrownBy(() -> runException("pobi,jun", "abc"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 시도_횟수에_0을_입력할_때_예외_처리() {
-        assertThatThrownBy(() -> runException("pobi,jun", "0"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 이름_예외_처리() {
-        assertThatThrownBy(() -> runException(",,", "0"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 이름_예외_처리_2() {
-        assertThatThrownBy(() -> runException("a,b,", "0"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 이름_예외_처리_3() {
-        assertThatThrownBy(() -> runException("a,k b,", "0"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});

@@ -20,7 +20,7 @@ public class InputView {
         return Integer.parseInt(tryCount);
     }
 
-    private void validateCarNames(String carNames) {
+    protected void validateCarNames(String carNames) {
         List<String> nameList = List.of(carNames.split(Constant.CAR_NAMES_DELIMITER));
         validateNotBlank(carNames);
         validateNotEndWithDelimiter(carNames);
@@ -29,7 +29,7 @@ public class InputView {
         validateNotDuplicated(nameList);
     }
 
-    private void validateTryCount(String tryCount) {
+    protected void validateTryCount(String tryCount) {
         validateNotBlank(tryCount);
         validateInputIsNumeric(tryCount);
         validateInputInRange(tryCount);
