@@ -24,4 +24,10 @@ public class Converter {
     public static Long convertStringToLong(String gameCount) {
         return Long.parseLong(gameCount);
     }
+
+    public static String convertCarListToString(List<Car> carList){
+        return carList.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(DELIMITER));
+    }
 }

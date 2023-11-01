@@ -46,8 +46,6 @@ public class Output {
     }
 
     private static String makeWinnerList(List<Car> winners) {
-        return winners.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(WINNER_DELIMITER));
+        return Converter.convertCarListToString(winners);
     }
 }
