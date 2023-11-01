@@ -27,7 +27,7 @@ public class Configuration {
     public static GameExecutor getGameExecutor() {
         RacingCarGameRenderer renderer = new SimpleRacingCarGameRenderer();
         InputInterface in = new InputInterface(Console::readLine, System.out::println);
-        OutputInterface out = new OutputInterface(System.out::println, renderer);
+        OutputInterface out = new OutputInterface(System.out::println);
         RacingCarGame game = new RacingCarGame(in, out, getRandom(), renderer);
         return new GameExecutor(game);
     }

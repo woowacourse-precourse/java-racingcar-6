@@ -105,11 +105,6 @@ public class RacingCarGame implements Game {
 
     @Override
     public String render() {
-        if (currentTrial == 1) {
-            return renderer.renderFirstStage(
-                    renderer.renderCars(List.copyOf(cars))
-            );
-        }
         return renderer.renderCars(List.copyOf(cars));
     }
 }
