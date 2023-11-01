@@ -4,6 +4,7 @@ import java.util.Scanner;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -30,7 +31,7 @@ public class Application {
 
         System.out.println("실행 결과");
 
-        for (int c=0; c<raceCount; c++){
+        for (int c = 0; c < raceCount; c++) {
             int[] moveCounts = new int[carNames.length];
 
             for (int i = 0; i < carNames.length; i++) {
@@ -42,7 +43,7 @@ public class Application {
                     }
                 }
 
-                String result = carNames[i] + ": " + "-".repeat(moveCnt);
+                String result = carNames[i] + " : " + "-".repeat(moveCnt);
                 System.out.println(result);
 
                 moveCounts[i] = moveCnt;
@@ -76,12 +77,11 @@ public class Application {
 
         boolean flag = false;
 
-        for (int i=0; i<carNames.length; i++) {
+        for (int i = 0; i < carNames.length; i++) {
             if (winnerCounts[i] == maxWinnerCnt) {
                 if (!flag) {
                     flag = true;
-                }
-                else{
+                } else {
                     System.out.print(", ");
                 }
                 System.out.print(carNames[i]);
