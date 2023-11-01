@@ -17,7 +17,7 @@ public class Circuit {
     public void makeCarList(String input) {
 
         String[] splitInput = input.split(",");
-        // 마지막이 쉼표 하나로 끝나는 경우 split에서 사라지므로 || 이후에 별도로 예외처리
+        // 마지막이 쉼표 하나로 끝나는 경우 splitinput에서 사라지므로 '||' 이후에 별도로 예외처리
         if (checkInputError(splitInput) || input.charAt(input.length() - 1) == ',') {
             throw new IllegalArgumentException();
         }
