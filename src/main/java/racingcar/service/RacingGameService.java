@@ -18,7 +18,8 @@ public class RacingGameService {
             throw new IllegalArgumentException("잘못된 자동차 이름을 입력하셨습니다.");
         }
 
-        parseCarName(carNameString, racingGame);
+        String[] carNames = parseCarName(carNameString);
+        setCarsInRacingGame(carNames, racingGame);
 
         System.out.println("시도할 회수는 몇회인가요?");
         int count = Integer.parseInt(user.inputTryCount());
@@ -26,6 +27,7 @@ public class RacingGameService {
             throw new IllegalArgumentException("총 시도 횟수는 양수여야 합니다.");
         }
         user.updateTotalGameCount(count);
+
         doGame(user.getTotalGameCount(), racingGame);
     }
 
@@ -34,8 +36,8 @@ public class RacingGameService {
     }
 
     private boolean validateCarName(String carNameString) {
-        String[] carName = carNameString.split(",");
-        return Arrays.stream(carName)
+        String[] carNames = parseCarName(carNameString);
+        return Arrays.stream(carNames)
                 .allMatch(name -> name.length() <= 5 && !name.isEmpty() && name.matches("^[a-zA-Z0-9가-힣]*$"));
     }
 
@@ -43,18 +45,21 @@ public class RacingGameService {
         System.out.println("실행 결과");
         for (int i=0; i<totalCount; i++){
             List<Car> cars = racingGame.getCars();
-            for (Car car : cars) {
-                int num = Randoms.pickNumberInRange(0, 9);
-                if(num >= 4){
-                    car.move();
-                }
-            }
-
+            moveCars(cars);
             printCurrentResult(cars);
         }
 
         List<Car> winners = findWinners(racingGame);
         messageWithWinners(winners);
+    }
+
+    private void moveCars(List<Car> cars) {
+        for (Car car : cars) {
+            int num = Randoms.pickNumberInRange(0, 9);
+            if(num >= 4){
+                car.move();
+            }
+        }
     }
 
     private void printCurrentResult(List<Car> cars) {
@@ -73,16 +78,20 @@ public class RacingGameService {
         StringBuilder outputMessage = new StringBuilder();
         if (!winners.isEmpty()) {
             Iterator<Car> iterator = winners.iterator();
-            while (iterator.hasNext()) {
-                Car winner = iterator.next();
-                outputMessage.append(winner.getName());
-                if (iterator.hasNext()) {
-                    outputMessage.append(", ");
-                }
-            }
+            printResultMessage(iterator, outputMessage);
         }
 
         System.out.println("최종 우승자 : " + outputMessage);
+    }
+
+    private void printResultMessage(Iterator<Car> iterator, StringBuilder outputMessage) {
+        while (iterator.hasNext()) {
+            Car winner = iterator.next();
+            outputMessage.append(winner.getName());
+            if (iterator.hasNext()) {
+                outputMessage.append(", ");
+            }
+        }
     }
 
     private List<Car> findWinners(RacingGame racingGame) {
@@ -92,17 +101,17 @@ public class RacingGameService {
                 .max()
                 .orElseThrow();
 
-        List<Car> carsWithMaxDistance = cars.stream()
+        return cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .toList();
-
-        return carsWithMaxDistance;
-
     }
 
-    private void parseCarName(String carNameString, RacingGame racingGame) {
-        String[] splitCarNames = carNameString.split(",");
-        for (String carName : splitCarNames) {
+    private String[] parseCarName(String carNameString) {
+        return carNameString.split(",");
+    }
+
+    private void setCarsInRacingGame(String[] carNames, RacingGame racingGame){
+        for (String carName : carNames) {
             Car car = new Car(carName, 0);
             racingGame.addCar(car);
         }
