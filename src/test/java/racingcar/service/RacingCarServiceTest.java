@@ -8,6 +8,7 @@ import racingcar.util.GlobalExceptionHandler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -83,14 +84,27 @@ class RacingCarServiceTest {
     }
 
     @Test
-    void startRacingRound() {
-    }
+    void 경주_완료_후_자동차별_전진_횟수_받기() {
+        Car one = new Car("one");
+        for (int i=0; i<2; i++) {
+            one.updateAheadCount();
+        }
 
-    @Test
-    void getAheadCountList() {
+        Racing racingGame = new Racing(Arrays.asList(one), 4);
+        final HashMap<String, Integer> aheadCountList = new HashMap<>();
+
+        for (Car car:racingGame.getRacingCarList()){
+            aheadCountList.put(car.getName(), car.getAheadCount());
+        }
+
+        aheadCountList.forEach((key, value) -> {
+            assertThat(key).isEqualTo("one");
+            assertThat(value).isEqualTo(2);
+        });
     }
 
     @Test
     void updateWinnerList() {
+
     }
 }
