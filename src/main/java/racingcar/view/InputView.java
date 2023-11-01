@@ -21,10 +21,22 @@ public class InputView {
 
     public static void checkInputRacingCarName () {
         String input = getInput();
+        inputValidateCheck(input);
         printAttemptsNumber();
         diviedInputRacingCarName(input);
     }
 
+    public static void inputValidateCheck(String input) {
+        if(input == null) {
+            throw new IllegalArgumentException();
+        }
+        if(input.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+        if(input.length() == 0) {
+            throw new IllegalArgumentException();
+        }
+    }
 
     public static int checkAttemptsNumber () {
         String attemtsNumberStr = getInput();
