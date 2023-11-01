@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 
@@ -10,7 +11,19 @@ public class Race {
     public void play() {
         cars = getCars();
         int attempt = getAttemptNumber();
+        for(int i = 0; i < attempt; i++) {
+            setForwardValues();
+        }
+    }
 
+    private void setForwardValues() {
+        for(Car car : cars) {
+            car.setForwardValue(getRandomNumber());
+        }
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
 
@@ -29,7 +42,6 @@ public class Race {
             }
         }
     }
-
 
     private List<Car> getCars() {
         return Car.getNames();

@@ -34,4 +34,8 @@ public class Car {
         }
         return true;
     }
+
+    public void setForwardValue(int forwardValue) {
+        this.forwardValue = forwardValue;
+    }
 }
