@@ -178,5 +178,10 @@ public class UnitTest {
                     MOVE_FORWARD, MOVE_FORWARD, STOP, STOP
             );
         }
+
+        @Test
+        void 경주를_시작하지_않고_우승자를_찾으면_예외발생() {
+            assertThatIllegalArgumentException().isThrownBy(computer::findWinner);
+        }
     }
 }
