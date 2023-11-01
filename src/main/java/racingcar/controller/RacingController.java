@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.RaceParticipants;
 import racingcar.domain.Round;
 import racingcar.service.RacingService;
@@ -22,6 +21,7 @@ public class RacingController {
         RaceParticipants raceParticipants = settingParticipants();
         Round round = settingRound();
         racingService.startRound(raceParticipants, round);
+        finishAndGetWinner(raceParticipants);
     }
 
     private Round settingRound() {
@@ -32,8 +32,12 @@ public class RacingController {
     private RaceParticipants settingParticipants() {
         PrintUtils.printInputCarName();
         List<String> inputCarNames = Arrays.stream(inputReader.readLine().split(","))
-                .map(String::trim).collect(Collectors.toList());
+                .map(String::trim).toList();
         return new RaceParticipants(inputCarNames);
     }
 
+    private void finishAndGetWinner(RaceParticipants raceParticipants){
+        List<String> winnerList = racingService.getWinner(raceParticipants);
+        PrintUtils.printOutputWinner(winnerList);
+    }
 }
