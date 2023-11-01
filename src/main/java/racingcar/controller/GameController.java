@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -62,6 +63,9 @@ public class GameController {
     }
 
     public void findWinner() {
+        Winner winner = Winner.createWinner(cars);
+        List<String> winners = winner.findWinners();
+        outputView.printRacingResult(winners);
     }
 
 }
