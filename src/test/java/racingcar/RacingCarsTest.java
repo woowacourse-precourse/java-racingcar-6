@@ -4,9 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static racingcar.constant.ErrorMessage.CAR_NAME_DUPLICATED;
+import static racingcar.constant.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.RacingCars;
 
 class RacingCarsTest {
@@ -32,6 +35,13 @@ class RacingCarsTest {
         assertThatThrownBy(() -> new RacingCars("car1,car2,car1"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(CAR_NAME_DUPLICATED);
+    }
+
+    @Test
+    void 자동차의_이름은_2개_이상이어야_한다() {
+        assertThatThrownBy(() -> new RacingCars("car1"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS);
     }
 
 }
