@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -95,6 +96,20 @@ class ApplicationTest extends NsTest {
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> checkLength(input));
         assertEquals("이름은 5자 이하만 가능합니다.", exception.getMessage());
+    }
+
+    public void checkExpress(String input){
+        if(!input.contains(",")){
+            throw new IllegalArgumentException("쉼표(,)를 넣어주세요.");
+        }
+    }
+
+    @Test
+    void 쉼표_없을경우_예외처리(){
+        String input = "name.jjde.ldd";
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> checkExpress(input));
+        assertEquals("쉼표(,)를 넣어주세요.", exception.getMessage());
     }
 
 
