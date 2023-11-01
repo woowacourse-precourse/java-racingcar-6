@@ -11,7 +11,7 @@ public class Validator {
      */
     public boolean validate(String string, int type) {
         // 경주자동차 이름을 지정하는 입력값일 경우
-        if (type == 1) {
+        if (type == 0) {
             if (!isSplitByComma(string))
                 return false;
 
