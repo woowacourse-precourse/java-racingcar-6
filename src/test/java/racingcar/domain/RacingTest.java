@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class RacingTest {
 
 
     @Test
+    @DisplayName("String으로 받은 carName으로 Car의 객체를 만들어 리스트에 추가확인 테스트")
     void 자동차_객체_리스트_추가_테스트() {
         List<String> carNameList = new ArrayList<>(List.of("robin", "hood", "kyle"));
         List<Car> carList = racing.toCarList(carNameList);
@@ -56,6 +58,7 @@ public class RacingTest {
     }
 
     @Test
+    @DisplayName("우승자가 여러명 일때 확인 테스트")
     void 우승자_찾기_복수_테스트() {
 
         assertRandomNumberInRangeTest(
@@ -74,6 +77,7 @@ public class RacingTest {
     }
 
     @Test
+    @DisplayName("우승자가 한 명일 때 확인하는 테스트")
     void 단독_우승자_찾기_테스트() {
 
         assertRandomNumberInRangeTest(

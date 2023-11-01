@@ -35,6 +35,7 @@ public class InputViewTest {
 
     @Test
     @Order(2)
+    @DisplayName("자동차 이름 입력 구분을 ,로 했는지 확인하는 테스트")
     void 사용자_자동차_이름_입력_예외_테스트1() {
         assertThatThrownBy(() -> inputView.InputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
@@ -44,6 +45,7 @@ public class InputViewTest {
 
     @Test
     @Order(3)
+    @DisplayName("자동차 이름이 길이 제한을 만족하는지 확인하는 테스트")
     void 사용자_자동차_이름_입력_예외_테스트2() {
         assertThatThrownBy(() -> inputView.InputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
@@ -52,6 +54,7 @@ public class InputViewTest {
 
     @Test
     @Order(4)
+    @DisplayName("자동차 이름이 중복됐는지 확인하는 테스트")
     void 사용자_자동차_이름_입력_예외_테스트3() {
         assertThatThrownBy(() -> inputView.InputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
@@ -60,6 +63,7 @@ public class InputViewTest {
 
     @Test
     @Order(5)
+    @DisplayName("자동차 개수가 경주할 만큼 있는지 확인하는 테스트")
     void 사용자_자동차_이름_입력_예외_테스트4() {
         assertThatThrownBy(() -> inputView.InputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
@@ -84,6 +88,7 @@ public class InputViewTest {
 
     @Test
     @Order(8)
+    @DisplayName("시도 횟수 양수인지 확인하는 테스트")
     void 시도_횟수_사용자_입력_예외_테스트1() {
         assertThatThrownBy(() -> inputView.InputTryNum())
                 .isInstanceOf(IllegalArgumentException.class)
@@ -92,6 +97,7 @@ public class InputViewTest {
 
     @Test
     @Order(9)
+    @DisplayName("시도 횟수 타입이 정수인지 확인하는 테스트")
     void 시도_횟수_사용자_입력_예외_테스트2() {
         assertThatThrownBy(() -> inputView.InputTryNum())
                 .isInstanceOf(IllegalArgumentException.class)
