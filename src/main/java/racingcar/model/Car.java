@@ -3,7 +3,6 @@ package racingcar.model;
 import static racingcar.view.ExceptionMessage.NOT_NULL;
 import static racingcar.view.ExceptionMessage.NOT_OVER_FIVE;
 import static racingcar.view.ExceptionMessage.NOT_KOREAN_OR_ENGLISH;
-import static racingcar.view.OutputView.LOCATION;
 import static racingcar.view.OutputView.LOCATION_AND_NAME_DELIMITER;
 
 import racingcar.view.ExceptionMessage;
@@ -13,6 +12,7 @@ public class Car {
     public static final int NAME_MIN_LENGTH = 1;
     private String name;
     private int location = 0;
+    public static final String LOCATION = "-";
 
     public Car(String name) {
         validateName(name);

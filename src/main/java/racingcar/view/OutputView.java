@@ -7,7 +7,6 @@ import racingcar.service.RaceService;
 
 public class OutputView {
     public static final String LOCATION_AND_NAME_DELIMITER = " : ";
-    public static final String LOCATION = "-";
     public static final String NAME_DELIMITER = ", ";
     public static final String FINAL_WINNER = "최종 우승자";
 
