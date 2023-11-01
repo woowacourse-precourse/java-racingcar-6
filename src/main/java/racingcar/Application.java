@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.StringTokenizer;
 
 public class Application {
     private final static int MAX_LENGTH_NAME = 5;
+    private final static int RANDOM = 4;
 
     private static Map<String, Integer> cars = new HashMap<>();
 
@@ -17,6 +19,11 @@ public class Application {
         try{
             getCarName();
             getIter();
+
+            System.out.println("실행 결과");
+            for(int i=0; i<iter; i++){
+                run();
+            }
         }finally {
             Console.close();
         }
@@ -33,7 +40,7 @@ public class Application {
             if(carName.length() > MAX_LENGTH_NAME) {
                 throw new IllegalArgumentException("Too long name");
             }
-            cars.put(stringTokenizer.nextToken(), 0);
+            cars.put(carName, 0);
         }
     }
 
@@ -44,5 +51,19 @@ public class Application {
         }catch (NumberFormatException e) {
             throw new IllegalArgumentException("Not number");
         }
+    }
+
+    private static void run(){
+        cars.forEach((name, go) -> {
+            if(Randoms.pickNumberInRange(0, 9) >= RANDOM){
+                cars.replace(name, go + 1);
+            }
+            System.out.print(name + " : ");
+            for(int i=0; i<go; i++){
+                System.out.print('-');
+            }
+            System.out.println();
+        });
+        System.out.println();
     }
 }
