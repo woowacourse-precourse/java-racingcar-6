@@ -2,26 +2,26 @@
 
 ## 진행 순서
 
-1. 경주할 자동차 이름을 입력 받는다.(이름은 COMMA(COMMA.getSymbol()) 기준으로 구분한다.)
+1. 경주할 자동차 이름을 입력 받는다.(이름은 COMMA(쉼표)(COMMA.getSymbol()(,)) 기준으로 구분한다.)
    - 잘못된 값을 입력 시 예외 처리(`IllegalArgumentException`)
-2. 시도할 횟수를 입력 받는다.(MIN_COUNT 이상의 숫자만 입력 받는다.)
+2. 시도할 횟수를 입력 받는다.(MIN_COUNT(2) 이상의 숫자만 입력 받는다.)
    - 잘못된 값을 입력 시 예외 처리(`IllegalArgumentException`)
 3. 입력 받은 횟수만큼 게임을 진행한다.
    1. 자동차의 이름만큼 자동차 객체를 생성한다.
       - 각 자동차는 이름과 위치 정보를 가지고 있다.
    2. 모든 자동차는 각자 무작위 값 생성기를 이용하여 무작위 값을 생성한다.
-   3. 무작위 값이 FORWARD_CONDITION 이상일 경우 전진한다(position++).
-      - FORWARD_CONDITION 미만일 경우 정지한다.
-4. 각 자동차의 위치(position)를 비교하여 최종 우승자를 가린다.
+   3. 무작위 값이 FORWARD_CONDITION(4) 이상일 경우 전진한다(position++).
+      - FORWARD_CONDITION(4) 미만일 경우 정지한다.
+4. 각 자동차의 위치(position)를 비교하여 최종 우승자를 가린다. (시작 위치(START_POSITION) : 0)
    - 우승자는 한 명 이상일 수 있다.
 5. 우승자를 출력한다.
-   - 한 명 이상일 경우 COMMA(COMMA.getSymbol())로 구분한다.
+   - 한 명 이상일 경우 COMMA(쉼표)(COMMA.getSymbol()(,))로 구분한다.
 
 ## 기능 및 역할
 
 - 자동차(Car)
   + `구성` : 이름(name), 위치(position)
-  + `책임` : 값이 4 이상일 경우 전진, 아닐 경우 정지
+  + `책임` : 값이 FORWARD_CONDITION(4) 이상일 경우 전진, 아닐 경우 정지
 
 - 경주에 참가하는 자동차들(RacingCars)
   + `구성` : 자동차 타입의 배열(List<Car> cars)
@@ -29,18 +29,19 @@
   + 자동차의 최소 개수보다 적은 회수가 입력 되었으면 예외 처리(`IllegalArgumentException`)
   + 자동차의 이름 양식(영문 알파벳만으로 구성)에 맞지 않으면 예외 처리(`IllegalArgumentException`)
   + 자동차의 이름 최대 길이보다 길면 예외 처리(`IllegalArgumentException`)
+  + 자동차의 이름이 중복되면 예외 처리(`IllegalArgumentException`)
 
 - 무작위 값 생성기(RandomValueGenerator)
-  + `책임` : 0에서 9 사이 무작위 값 생성
+  + `책임` : RANDOM_NUMBER_START_INCLUSIVE(0)에서 RANDOM_NUMBER_END_INCLUSIVE(9) 사이 무작위 값 생성
 
 - 입력뷰(InputView)
   + `책임` : 입력 화면 담당 및 간단한 유효성 검사
   + 경주 할 자동차 이름 입력
-  + null 입력 시 예외 처리
+    + null 입력 시 예외 처리(`IllegalArgumentException`)
   + 시도할 횟수 입력
-  + null 입력 시 예외 처리(`IllegalArgumentException`)
-  + 숫자가 아닌 값을 입력할 경우 예외 처리(`IllegalArgumentException`)
-  + 0을 입력할 경우 예외 처리(`IllegalArgumentException`)
+    + null 입력 시 예외 처리(`IllegalArgumentException`)
+    + 숫자가 아닌 값을 입력할 경우 예외 처리(`IllegalArgumentException`)
+    + 0을 입력할 경우 예외 처리(`IllegalArgumentException`)
 
 - 출력뷰(OutputView)
   + `책임` : 실행 결과 출력
