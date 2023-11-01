@@ -2,6 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+import racingcar.validator.Util;
+
+import java.util.ArrayList;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -22,6 +26,30 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
+    @Test
+    void 게임_끝까지_실행() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : --", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP,
+                MOVING_FORWARD, STOP
+        );
+    }
+    @Test
+    void 자동차_이름_저장() {
+        String carNames = "pobi,woni,dada";
+        ArrayList<String> list =  Util.toArrayList(carNames);
+        ArrayList<Car> CARS = new ArrayList<>();
+        list.forEach(car->CARS.add(new Car(car)));
+
+        assertThat(CARS).hasSize(3);
+        assertThat(CARS.get(0).getName()).isEqualTo("pobi");
+        assertThat(CARS.get(1).getName()).isEqualTo("woni");
+        assertThat(CARS.get(2).getName()).isEqualTo("dada");
+
+    }
 
     @Test
     void 이름에_대한_예외_처리() {
@@ -30,7 +58,111 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
+    @Test
+    void 이름에_대한_예외_처리2(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh,,hh","1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("-", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리4() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",pobi,java", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리5() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,,java", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리6() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("\n", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리7() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리8() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh=", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리9() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리10() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리11() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("123,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리12() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("123,5678", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 숫자에_대한_예외_처리1() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 숫자에_대한_예외_처리2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 숫자에_대한_예외_처리3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh", "01"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 숫자에_대한_예외_처리4() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh", "abcd"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
