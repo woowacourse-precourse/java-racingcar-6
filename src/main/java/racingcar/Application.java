@@ -3,19 +3,40 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+import static java.util.List.of;
+
 public class Application {
 
     public static List<String> askRacingCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String userInput = camp.nextstep.edu.missionutils.Console.readLine();
-        List<String> racingCars = List.of(userInput.split(","));
+        String userInput = readLine();
 
-        //TODO : 쉼표가 아닌 다른 값으로 구분짓는다면 예외처리
-        //TODO : 이름이 5자 초과일 시 예외처리
-        return racingCars;
+        List<String> userList = of(userInput.split(","));
+
+        for (String user : userList) {
+            if (user.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+        return userList;
+    }
+
+    public static int askTrial() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Integer.parseInt(readLine());
     }
     public static void main(String[] args) {
-        System.out.println(askRacingCars());
+        final List<String> racingCarList = askRacingCars();
+        final int trial = askTrial();
+
+        Game race = new Game(racingCarList, trial);
+
+        System.out.println("\n실행 결과");
+        race.start();
+
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", race.findWinners(race.result())));
 
 
     }
