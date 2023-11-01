@@ -18,6 +18,14 @@ public class Car {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

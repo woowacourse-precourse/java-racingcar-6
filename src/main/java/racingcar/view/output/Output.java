@@ -17,7 +17,11 @@ public class Output {
         System.out.println();
     }
 
-    public void printRoundResult(String result) {
+    public void printResult(String result) {
         System.out.println(result);
+    }
+
+    public void printWinnerResult(String winner) {
+        System.out.println("최종 우승자 : " + winner);
     }
 }

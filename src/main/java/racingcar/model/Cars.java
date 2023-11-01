@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,5 +33,21 @@ public class Cars {
                     .append("\n");
         }
         return sb.toString();
+    }
+
+    public String findWinner() {
+        Integer winnerPosition = -1;
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == winnerPosition) {
+                winnerNames.add(car.getName());
+            }
+            if (car.getPosition() > winnerPosition) {
+                winnerPosition = car.getPosition();
+                winnerNames.clear();
+                winnerNames.add(car.getName());
+            }
+        }
+        return String.join(", ", winnerNames);
     }
 }
