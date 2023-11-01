@@ -12,6 +12,19 @@ import org.junit.jupiter.api.Test;
 public class CarsTest {
 
     @Test
+    @DisplayName("불변컬렉션 여부를 확인한다.")
+    void should_ThrowUnsupportedOperationException_When_Modified() {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            Cars cars = new Cars(List.of(
+                    new Car(new CarName("신지드"), new CarPosition(0)),
+                    new Car(new CarName("케넨"), new CarPosition(0)),
+                    new Car(new CarName("제라스"), new CarPosition(0))
+            ));
+            cars.getCars().add(new Car(new CarName("럭스"), new CarPosition(0)));
+        });
+    }
+
+    @Test
     @DisplayName("공백을 입력할 경우 예외를 발생시킨다.")
     void should_ThrowIllegalArgumentException_When_InputIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
