@@ -1,16 +1,16 @@
 package racingcar.service;
 
-import java.util.List;
-
 public class Input {
 
-    private String[] splitCarName(String notSplitCar) {
+    public static String[] splitCarName(String notSplitCar) {
 
         String[] carName = notSplitCar.split(",");
 
         return carName;
     }
-    private int assignChallengeNumber(int number) {
-        return number;
+    public static int assignChallengeNumber(String number) {
+        int intNumber = Integer.parseInt(number);
+
+        return intNumber;
     }
 }

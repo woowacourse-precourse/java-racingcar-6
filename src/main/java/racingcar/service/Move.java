@@ -7,7 +7,7 @@ public class Move {
 
     Random random = new Random();
 
-    private int moveOrNot() {
+    public int moveOrNot() {
         int isOverFour = random.randomNumber();
         int result;
 

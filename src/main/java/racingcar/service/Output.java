@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 
 public class Output {
 
-    private void printCarStatus(Car car, int index) {
+    public void printCarStatus(Car car, int index) {
         String carName = car.carName.get(index);
         int carDistance = car.carDistance[index];
 
         System.out.println(String.format("%s : %d", carName, carDistance));
     }
 
-    private void printWinner(Car car) {
+    public void printWinner(Car car) {
         int maxCarDistance = Arrays.stream(car.carDistance).max().getAsInt();
         List<String> winner = new ArrayList<>();
 
