@@ -14,16 +14,16 @@ public class OutputManager {
     }
 
     public void printMessage() {
-
+        System.out.println("실행 결과");
     }
 
-    public void printWinners(List<String> winners) {
+    public void printWinners(List<Car> winners) {
         System.out.print("최종 우승자 : ");
         IntStream.range(0, winners.size()).forEach(idx -> {
             if (idx == 0) {
-                System.out.print(winners.get(idx));
+                System.out.print(winners.get(idx).getCarName());
             } else {
-                System.out.print(", " + winners.get(idx));
+                System.out.print(", " + winners.get(idx).getCarName());
             }
         });
     }

@@ -27,9 +27,9 @@ public class OutputManagerTest {
     void printCarStatus_success() {
         // Given
         List<Car> cars = new ArrayList<>();
-        cars.add(new Car("pobi",2));
-        cars.add(new Car("woni",4));
-        cars.add(new Car("jun",3));
+        cars.add(new Car("pobi", 2));
+        cars.add(new Car("woni", 4));
+        cars.add(new Car("jun", 3));
 
         // When
         outputManager.printCarStatus(cars);
@@ -47,9 +47,9 @@ public class OutputManagerTest {
     @Test
     void printWinners_success() {
         // Given
-        List<String> winners = new ArrayList<>();
-        winners.add("pobi");
-        winners.add("woni");
+        List<Car> winners = new ArrayList<>();
+        winners.add(new Car("pobi", 3));
+        winners.add(new Car("woni", 3));
 
         // When
         outputManager.printWinners(winners);
