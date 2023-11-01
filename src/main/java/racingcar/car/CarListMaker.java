@@ -3,7 +3,7 @@ package racingcar.car;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.input.InputController;
-import racingcar.validation.CarNamesValidationChecker;
+import racingcar.validation.carname.CarNamesValidationChecker;
 
 public class CarListMaker {
 
