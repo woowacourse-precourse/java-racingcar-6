@@ -40,9 +40,13 @@ public class Cars {
 
     private List<WinnerDto> getWinnerListWith(int maxPosition) {
         return carList.stream()
-                .filter(car -> car.getPosition() == maxPosition)
+                .filter(car -> isSameBetween(maxPosition, car))
                 .map(Car::toWinnerDto)
                 .toList();
+    }
+
+    private boolean isSameBetween(int maxPosition, Car car) {
+        return car.getPosition() == maxPosition;
     }
 
     public int getMaxPosition() {
