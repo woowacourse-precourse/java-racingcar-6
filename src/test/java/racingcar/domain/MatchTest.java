@@ -20,7 +20,10 @@ class MatchTest {
         List<Car> actual = match.getCars();
 
         // then
-        List<Car> expected = List.of(new Car("test1", 0), new Car("test2", 0));
+        List<Car> expected = List.of(
+                new Car("test1", 0),
+                new Car("test2", 0));
+
         assertThat(actual)
                 .usingRecursiveComparison()
                 .isEqualTo(expected);
