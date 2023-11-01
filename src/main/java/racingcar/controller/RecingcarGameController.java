@@ -8,12 +8,15 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class RecingcarGameController {
+    private static final String INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String PLAY_GAME_COUNT = "시도할 회수는 몇회인가요?";
     private static int gameplayNum;
     private static String[] palyCarName;
     private static ArrayList<Recingcar> recingcars = new ArrayList<>();
 
     //게임 시작, 자동차 이름 & 게임 진행 횟수 입력받기
     public void gameStart(){
+        System.out.println(INPUT_MESSAGE);
         palyCarName = enterRecingCarName();
 
         // todo 2. 입력 받은 자동차의 유효성 검사하기
@@ -21,6 +24,13 @@ public class RecingcarGameController {
         if(changeEnterRecingCarNameCheck(recingcars)){
             throw new IllegalArgumentException();
         }
+
+        System.out.println(PLAY_GAME_COUNT);
+        gameplayNum = enterPlayGameCount();
+    }
+
+    public int enterPlayGameCount(){
+        return Integer.parseInt(Console.readLine());
     }
 
     //이름 입력 함수
