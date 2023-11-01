@@ -11,6 +11,17 @@ public class Validation {
             checkNameDuplication(carNameList, name);
         });
     }
+
+    public static void validateTrytime(String tryTime) {
+        try {
+            int intTryTime = Integer.parseInt(tryTime);
+            if (intTryTime <= 0) {
+                throw new IllegalArgumentException("try time should be larger than 0");
+            }
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException("try time should be number");
+        }
+    }
     private static void checkNameLength(String carName){
         if (carName.isEmpty() ||carName.length()>Constants.NAME_LENGTH_MAX_LIMIT){
             throw new IllegalArgumentException("name should be between 1 and 5 characters.");
@@ -29,4 +40,6 @@ public class Validation {
 
         }
     }
+
+
 }
