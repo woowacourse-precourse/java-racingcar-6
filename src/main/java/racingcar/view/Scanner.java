@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static racingcar.configurations.ErrorMessages.*;
 import static racingcar.configurations.InputConfigurations.*;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -11,7 +12,13 @@ public class Scanner {
     private String delimiter;
     private int maximumNameLength;
 
-    public Scanner() {
+    private static class SingletonScanner{
+        private static final Scanner SCANNER = new Scanner();
+    }
+    public static Scanner getInstance(){
+        return SingletonScanner.SCANNER;
+    }
+    private Scanner() {
         delimiter = getDelimiter();
         maximumNameLength = getMaximumNameLength();
     }
@@ -29,7 +36,7 @@ public class Scanner {
         return carNames;
     }
 
-    public Integer inputNumberOfRound() {
+    public Integer inputNumberOfRounds() {
         String numberOfRounds = Console.readLine();
         validateInputNumber(numberOfRounds);
         return Integer.parseInt(numberOfRounds);
@@ -37,21 +44,21 @@ public class Scanner {
 
     private void validateNoInput(String inputString) {
         if (inputString.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NO_INPUT_MESSAGE.get());
         }
     }
 
     private void validateCarName(String carName) {
         validateNoInput(carName);
         if (carName.length() > maximumNameLength) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH_MESSAGE.get());
         }
     }
 
     private void validateInputNumber(String number) {
         validateNoInput(number);
         if (number.charAt(0) < '0' || number.charAt(0) > '9') {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_NUMBER_OF_ROUNDS_MESSAGE.get());
         }
     }
 }
