@@ -8,10 +8,6 @@ public class Car {
         this.name = name;
     }
 
-    public void accelerate() {
-        state += "-";
-    }
-
     public boolean canAccelerate(int power) {
         if (power >= 4) {
             return true;
@@ -25,5 +21,9 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public void accelerate() {
+        state += "-";
     }
 }
