@@ -13,7 +13,7 @@ public class ValidationServiceTest {
     private ValidationService validationService = new ValidationService();
 
     @Test
-    void input_정상입력() {
+    void driver_input_정상입력() {
         String input = "pobi,woni,jun";
 
         List<Driver> driverList = validationService.inputToDriverList(input);
@@ -28,7 +28,7 @@ public class ValidationServiceTest {
     }
 
     @Test
-    void input_5글자가_넘는_이름() {
+    void driver_input_5글자가_넘는_이름() {
         String input = "pobi,woniaaa,jun";
 
         assertThatThrownBy(() -> validationService.inputToDriverList(input))
@@ -36,7 +36,7 @@ public class ValidationServiceTest {
     }
 
     @Test
-    void input_공백_포함() {
+    void driver_input_공백_포함() {
         String input = "pobi,,jun";
 
         assertThatThrownBy(() -> validationService.inputToDriverList(input))
@@ -44,10 +44,35 @@ public class ValidationServiceTest {
     }
 
     @Test
-    void input_빈문자열() {
+    void driver_input_빈문자열() {
         String input = "";
 
         assertThatThrownBy(() -> validationService.inputToDriverList(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void tryCount_input_정상입력() {
+        String input = "3";
+
+        int tryCount = validationService.inputToTryCount(input);
+
+        assertThat(tryCount).isEqualTo(3);
+    }
+
+    @Test
+    void tryCount_input_문자입력() {
+        String input = "a";
+
+        assertThatThrownBy(() -> validationService.inputToTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void tryCount_input_실수입력() {
+        String input = "3.3";
+
+        assertThatThrownBy(() -> validationService.inputToTryCount(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

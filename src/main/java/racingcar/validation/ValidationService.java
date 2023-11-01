@@ -15,6 +15,14 @@ public class ValidationService {
         return createDriverList(driversName);
     }
 
+    public int inputToTryCount(String tryCountInputString) {
+        try {
+            return Integer.parseInt(tryCountInputString);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     private List<Driver> createDriverList(String[] driversName) {
         List<Driver> driverList = new ArrayList<>();
         for (String driverName : driversName) {
@@ -41,4 +49,5 @@ public class ValidationService {
             throw new IllegalArgumentException();
         }
     }
+
 }

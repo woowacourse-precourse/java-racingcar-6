@@ -18,5 +18,8 @@ public class Game {
         String driverInputString = Console.readLine();
         List<Driver> driverList = validationService.inputToDriverList(driverInputString);
 
+        String tryCountInputString = Console.readLine();
+        int tryCount = validationService.inputToTryCount(tryCountInputString);
+
     }
 }
