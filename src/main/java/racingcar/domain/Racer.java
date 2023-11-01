@@ -17,7 +17,7 @@ public class Racer {
         return currentMove;
     }
 
-    public void setCurrentMove(int moving) {
-        this.currentMove = this.currentMove + moving;
+    public void setCurrentMove() {
+        this.currentMove++;
     }
 }
