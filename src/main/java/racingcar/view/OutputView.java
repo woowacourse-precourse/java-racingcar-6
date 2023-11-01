@@ -10,7 +10,6 @@ public class OutputView {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String DELIMITER = ", ";
 
-
     public void printRacingResult(Cars cars, RaceRound raceRound, NumberGenerator numberGenerator) {
         System.out.println(RACE_RESULT_MESSAGE);
         for (int i = 0; i < raceRound.getRounds(); i++) {
