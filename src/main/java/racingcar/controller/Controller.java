@@ -9,7 +9,8 @@ public class Controller {
         String carNames= gameView.inputCarNames();
         RacingCars racingCars = new RacingCars(carNames);
 
-        int trialNum = gameView.inputTrialGame();
+        String trialNumStr = gameView.inputTrialGame();
+        int trialNum = validTrialUserInput(trialNumStr);
 
         gameView.printResultHead();
 
@@ -20,5 +21,15 @@ public class Controller {
         gameView.printWinner(racingCars.getCars());
 
     }
+    private int validTrialUserInput(String trialNumStr) {
 
+        try {
+            int trialNum = Integer.parseInt(trialNumStr);
+            return trialNum;
+
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+    }
 }
+
