@@ -31,6 +31,46 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 입력한_자동차_이름_배열로_변환() {
+        String input = "pobi,woni";
+        String[] result = InputView.makeInputArray(input);
+
+        assertThat(result).containsExactly("pobi", "woni");
+    }
+
+    @Test
+    void 입력한_자동차_이름_올바른_구분자가_없을_경우_예외_발생() {
+        String input = "pobi-woni";
+
+        assertThatThrownBy(() -> InputView.validDelimiter(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이름_길이가_5보다_클_경우_예외_발생() {
+        String[] input = {"javagi"};
+
+        assertThatThrownBy(() -> InputView.validInputLength(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 숫자_문자열이_0이하일_경우_예외_발생() {
+        String input = "0";
+
+        assertThatThrownBy(() -> InputView.validNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 숫자_문자열이_올바르지_않을_경우_예외_발생() {
+        String input = "notNumber";
+
+        assertThatThrownBy(() -> InputView.validNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
