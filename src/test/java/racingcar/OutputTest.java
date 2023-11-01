@@ -13,8 +13,8 @@ public class OutputTest extends NsTest {
     @Test
     @DisplayName("게임 진행 결과 출력 테스트")
     void printGameProgress_test(){
-        Car car1 = new Car("pobi", 1);
-        Car car2 = new Car("woni", 2);
+        Car car1 = Car.from("pobi", 1);
+        Car car2 = Car.from("woni", 2);
         List<Car> carListForTest = List.of(car1, car2);
 
         Output.printGameProgress(carListForTest);
@@ -24,5 +24,6 @@ public class OutputTest extends NsTest {
 
     @Override
     protected void runMain() {
+
     }
 }

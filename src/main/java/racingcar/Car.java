@@ -8,9 +8,13 @@ public class Car {
     private final String carName;
     private int position;
 
-    public Car(String carName, int position) {
+    private Car(String carName, int position) {
         this.carName = carName;
         this.position = position;
+    }
+
+    public static Car from(String carName, int position){
+        return new Car(carName, position);
     }
 
     public String getCarName() {

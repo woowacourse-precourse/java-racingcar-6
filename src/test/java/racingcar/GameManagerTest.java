@@ -33,9 +33,11 @@ public class GameManagerTest {
     @Test
     @DisplayName("가장 많이 전진한 자동차를 판별 테스트")
     void checkWinner_test() {
-        Car car1 = new Car("pobi", 4);
-        Car car2 = new Car("jun", 3);
-        Car car3 = new Car("woni", 4);
+        Car car1 = Car.from("pobi", 4);
+        Car car2 = Car.from("jun", 3);
+        Car car3 = Car.from("woni", 4);
+        car1.move();
+        car3.move();
         List<Car> carListForTest = List.of(car1, car2, car3);
 
         List<String> winnerListForTest = gameManager.checkWinner(carListForTest);

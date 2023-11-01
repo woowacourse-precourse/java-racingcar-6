@@ -13,7 +13,7 @@ public class CarTest {
     @Test
     @DisplayName("랜덤한 숫자가 4 이상일때 전진 테스트")
     void move_test(){
-        Car car = new Car("jun", 0);
+        Car car = Car.from("jun", 0);
         GameManager gameManager = Mockito.mock(GameManager.class);
         car.gameManager = gameManager;
 
@@ -26,7 +26,8 @@ public class CarTest {
     @Test
     @DisplayName("랜덤한 숫자가 4 미만일때 정지 테스트")
     void stop_test(){
-        Car car = new Car("jun", 1);
+        Car car = Car.from("jun", 1);
+        car.move();
         GameManager gameManager = Mockito.mock(GameManager.class);
         car.gameManager = gameManager;
 
