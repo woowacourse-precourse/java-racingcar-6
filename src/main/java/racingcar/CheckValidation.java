@@ -15,4 +15,10 @@ public class CheckValidation {
             throw new IllegalArgumentException("숫자를 입력하세요.");
         }
     }
+
+    public static void validateZero(String roundNum){
+        if(Integer.parseInt(roundNum) == 0){
+            throw new IllegalArgumentException("1 이상의 숫자를 입력하세요.");
+        }
+    }
 }
