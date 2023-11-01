@@ -31,6 +31,6 @@ public class GameController {
 
     public void playRacing() {
         OutputView.printResultMessage();
-        game.startRacing();
+        game.start();
     }
 }

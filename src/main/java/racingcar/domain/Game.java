@@ -19,12 +19,12 @@ public class Game {
         umpire = new Umpire(cars);
     }
 
-    public void startRacing() {
-        playRacing();
+    public void start() {
+        play();
         umpire.showWinner();
     }
 
-    public void playRacing() {
+    public void play() {
         while (attemptNumber != STOP_ATTEMPT_NUMBER) {
             moveCar();
             OutputView.printRoundResult(getRoundResult());
