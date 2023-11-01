@@ -13,7 +13,6 @@ import java.util.Set;
 
 public class Validator {
 
-    //Cars의 검증 로직
     public static void hasDuplicates(ArrayList<String> name) {
         Set<String> nameSet = new HashSet<>(name);
         if(nameSet.size() != name.size()) {
@@ -26,16 +25,6 @@ public class Validator {
             throw new IllegalArgumentException(NO_COMMA_EXCEPTION);
         }
     }
-
-//    public static ArrayList<String> validNamesList(String names) {
-//        ArrayList<String> list = new ArrayList<>();
-//        for (String name : names.split(",")) {
-//            String cleanedName = name.replaceAll(" ", "");
-//            validateNameLength(cleanedName);
-//            list.add(cleanedName);
-//        }
-//        return list;
-//    }
 
     public static void validateNameLength(String name) {
         if (name.isEmpty() || name.length() > MAX_LENGTH_OF_NAME) {
