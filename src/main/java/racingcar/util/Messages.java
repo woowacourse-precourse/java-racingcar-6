@@ -6,6 +6,7 @@ public class Messages {
     public static final String RACING_RESULT = "실행 결과";
     public static final String FINAL_WINNER = "최종 우승자";
     public static final String INVALID_CAR_NAME = "유효하지 않은 자동차 이름입니다.";
+    public static final String INVALID_CAR_COUNT = "자동차는 2대 이상이어야 합니다.";
     public static final String COLON = " : ";
     public static final String HYPHEN = "-";
     public static final String COMMA = ",";
