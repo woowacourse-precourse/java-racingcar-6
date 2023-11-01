@@ -47,4 +47,36 @@ class DistanceTest {
         assertTrue(d1.increaseByOne());
         assertFalse(d2.increaseByOne());
     }
+
+    @Test
+    void Distance_compareTo_테스트() {
+        Distance d1 = new Distance(0);
+        Distance d2 = new Distance(1);
+        Distance d3 = new Distance(1);
+        Distance d4 = new Distance(2);
+
+        // 자기 자신과 비교
+        assertEquals(0, d1.compareTo(d1));
+
+        // 다른 객체와 동일성 비교
+        assertEquals(0, d2.compareTo(d3));
+
+        // 대칭성
+        assertEquals(d1.compareTo(d2), d2.compareTo(d1) * (-1));
+
+        // 추이성
+        if (
+                (d4.compareTo((d3)) > 0)
+                && (d3.compareTo(d2) == 0)
+                && d2.compareTo(d1) > 0
+        ) {
+            assertTrue(d4.compareTo(d2) > 0);
+            assertTrue(d4.compareTo(d1) > 0);
+        }
+
+        // 반사성
+        if (d2.compareTo(d3) == 0) {
+            assertTrue((d2.compareTo(d1) * d3.compareTo(d1)) > 0);
+        }
+    }
 }
