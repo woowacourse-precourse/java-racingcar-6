@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GameMain {
-    private CarListView carListView;
-    private TurnRunner turnRunner;
-    private TurnCounter turnCounter;
+    private final CarListView carListView;
+    private final TurnRunner turnRunner;
+    private final TurnCounter turnCounter;
     public GameMain(){
         Prompt.GET_CAR_NAMES.print();
         List<String> commaSplittedWords = IOService.getCommaSplittedWords();
