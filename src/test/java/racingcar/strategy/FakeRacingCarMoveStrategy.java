@@ -1,21 +1,23 @@
 package racingcar.strategy;
 
 import java.util.Arrays;
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Objects;
+import java.util.Queue;
 
 public class FakeRacingCarMoveStrategy implements RacingCarMoveStrategy {
 
-    private final Stack<Boolean> stack;
+    private final Queue<Boolean> queue;
 
     public FakeRacingCarMoveStrategy(Boolean... moves) {
-        stack = new Stack<>() {{
-            this.addAll(Arrays.stream(moves).toList());
-        }};
+        queue = new LinkedList<>(Arrays.stream(moves).toList());
     }
 
     @Override
     public boolean isMovable() {
-        return stack.pop();
+        final var result = queue.poll();
+        Objects.requireNonNull(result);
+        return result;
     }
 
 }

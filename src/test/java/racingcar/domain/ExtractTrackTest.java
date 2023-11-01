@@ -54,8 +54,8 @@ class ExtractTrackTest {
                     () -> assertThat(extractTrack.consumerCount().value()).isEqualTo(4),
                     () -> assertThat(extractTrack.consumerCount()
                             .consumerCount()
-                            .value()
-                    ).isEqualTo(3)
+                            .value())
+                            .isEqualTo(3)
             );
         }
 
