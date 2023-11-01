@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.dto.Car;
 import racingcar.global.Announcement;
 
 public class RaceIO {
@@ -25,5 +26,17 @@ public class RaceIO {
 
     public static void announceGetCount() {
         System.out.println(Announcement.GET_COUNT);
+    }
+
+    public static void announceStartPrintResult() {
+        System.out.println(Announcement.START_PRINT_RESULT);
+    }
+
+    public static void printInterimResult(List<Car> cars) {
+        cars.forEach(car -> {
+            String individualResult = Announcement.currentState(car);
+            System.out.println(individualResult);
+        });
+        System.out.println("");
     }
 }

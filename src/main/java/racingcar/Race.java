@@ -26,8 +26,10 @@ public class Race {
     }
 
     public void start() {
+        RaceIO.announceStartPrintResult();
         for (int i = 0; i < count; ++i) {
             this.randomMove();
+            RaceIO.printInterimResult(cars);
         }
     }
 
