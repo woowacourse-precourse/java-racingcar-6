@@ -1,9 +1,11 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -24,6 +26,16 @@ class PlayerTest {
         assertThat(strings.size()).isEqualTo(length);
         assertThat(strings.contains(",")).isFalse();
 
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"tomJenny,rosa"})
+    void inputCarNames_5자초과이름_실패(String inputNames){
+        System.setIn(new ByteArrayInputStream(inputNames.getBytes()));
+        Player player = new Player();
+
+        assertThatThrownBy(player::inputCarNames)
+            .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
