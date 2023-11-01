@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.dto.RacingResultDto;
 import racingcar.dto.RacingRoundResultDto;
+import racingcar.dto.UserAttemptCountsDto;
 import racingcar.dto.UserCarNameDto;
 import racingcar.service.RacingCarService;
 import racingcar.view.RacingCarInputView;
@@ -27,8 +28,8 @@ public class RacingController {
 
     private void initializeGameByUserInput() {
         UserCarNameDto userCarNameDto = racingCarInputView.inputCarNames();
-        String attemptCounts = racingCarInputView.inputAttemptCounts();
-        racingCarService.initializeRacingGame(userCarNameDto, attemptCounts);
+        UserAttemptCountsDto userAttemptCountsDto = racingCarInputView.inputAttemptCounts();
+        racingCarService.initializeRacingGame(userCarNameDto, userAttemptCountsDto);
     }
 
     private void raceAndPrintEachResult() {
