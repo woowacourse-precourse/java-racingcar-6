@@ -25,4 +25,12 @@ public class CarTest {
                         + MINIMUM_NAME_LENGTH + "자에서 최대 "
                         + MAXIMUM_NAME_LENGTH + "자 사이로 입력하셔야 합니다.");
     }
+
+    @Test
+    @DisplayName("자동차 전진 테스트")
+    void checkMoveAvailable() {
+        Car car = new Car("mason");
+        car.moveForward(5);
+        assertThat(car.isSamePosition(1)).isTrue();
+    }
 }
