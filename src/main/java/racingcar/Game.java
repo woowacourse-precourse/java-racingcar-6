@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map.Entry;
+import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -19,7 +20,7 @@ public class Game {
         outputView.printMessage(Message.INPUT_CAR_NAME.getMessage() + "\n");
         carList = inputView.getCarNameInput();
 
-        outputView.printMessage(Message.INPUT_REPEAT_NUMBER.getMessage() + "\n");
+        outputView.printMessage(Message.INPUT_REPEAT_NUMBER.getMessage() + "\n\n");
         totalCount = inputView.getGameCountInput();
 
         outputView.printMessage(Message.GAME_RESULT.getMessage() + "\n");
@@ -35,8 +36,9 @@ public class Game {
         for (Entry<String, String> carResult : carList.entrySet()) {
             String carName = carResult.getKey();
             Car car = new Car();
+            RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-            if (car.checkForward()) {
+            if (car.checkForward(randomNumberGenerator.generate())) {
                 carList.put(carName, carList.get(carName) + "-");
             }
 
