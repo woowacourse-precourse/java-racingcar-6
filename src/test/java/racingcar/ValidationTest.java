@@ -19,4 +19,16 @@ public class ValidationTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> Validation.validateNameLengthNotOver("test", 3));
     }
+
+
+    @Test
+    void validateNotEmptyName_빈문자열체크_오류발생() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Validation.validateNotEmptyName(""));
+    }
+
+    @Test
+    void validateNotEmptyName_비지않은문자열체크_오류없음() {
+        Assertions.assertDoesNotThrow(() -> Validation.validateNotEmptyName(" "));
+    }
 }
