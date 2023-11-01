@@ -1,5 +1,10 @@
 package racingcar.service;
 
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mockStatic;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterAll;
@@ -11,12 +16,6 @@ import racingcar.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mockStatic;
-
 
 public class GameServiceTest {
     static GameService gameService;

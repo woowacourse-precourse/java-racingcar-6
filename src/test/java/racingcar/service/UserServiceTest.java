@@ -1,5 +1,8 @@
 package racingcar.service;
 
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mockStatic;
+
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -9,10 +12,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import racingcar.utils.ErrorMessage;
-
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mockStatic;
-
 
 public class UserServiceTest {
     static UserService userService;
@@ -77,7 +76,6 @@ public class UserServiceTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             userService.getTries();
         }, ErrorMessage.TRIES_IS_NEGATIVE.getErrorMessage());
-
     }
 
     @ParameterizedTest
@@ -115,7 +113,6 @@ public class UserServiceTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             userService.getTries();
         }, ErrorMessage.TRIES_INPUT_IS_TOO_LONG.getErrorMessage());
-
     }
 
     private void readLineMocking(String namesInput) {
