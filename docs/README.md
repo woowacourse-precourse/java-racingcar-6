@@ -142,6 +142,14 @@
 
 ## Dto
 
+### UserCarNameDto
+
+- 사용자가 입력한 자동차 이름을 담아서 넘겨주는 DTO.
+
+### UserAttemptCountsDto
+
+- 사용자가 입력한 시도 횟수를 담아서 넘겨주는 DTO.
+
 ### CarDto
 
 - 출력에 필요한 `Car` 도메인의 정보들을 담아서 넘겨주는 DTO.
