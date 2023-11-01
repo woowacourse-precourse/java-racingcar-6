@@ -18,6 +18,7 @@ public class Validator {
         return Arrays.stream(carNames.split(","))
                 .filter(name -> name.length() <= CAR_NAME_LENGTH_LIMIT)
                 .filter(name -> !name.contains(" "))
+                .filter(name -> !name.isEmpty())
                 .collect(Collectors.toList());
     }
 
