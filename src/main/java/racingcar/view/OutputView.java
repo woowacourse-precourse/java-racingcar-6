@@ -9,9 +9,7 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winner) {
-        StringBuilder output = new StringBuilder("최종 우승자 : ");
-        output.append(String.join(", ", winner));
-        System.out.println(output);
+        System.out.println("최종 우승자 : " + String.join(", ", winner));
     }
 
     public static void printPerMatchResult(Map<String, Integer> perMatchResult) {
