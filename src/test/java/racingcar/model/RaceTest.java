@@ -48,5 +48,19 @@ public class RaceTest {
 
     }
 
+    @Test
+    public void makeCarDriveCountList() {
+        // given
+        List<String> carNameList = new ArrayList<>(List.of("a", "b", "c"));
+        Race race = new Race(1, carNameList);
+        List<Integer> carDriveCountList = new ArrayList<>(List.of(0, 0, 0));
+
+        // when
+        List<Integer> getDriveCountList = race.makeCarDriveCountList();
+
+        // then
+        Assertions.assertThat(getDriveCountList).isEqualTo(carDriveCountList);
+    }
+
 
 }
