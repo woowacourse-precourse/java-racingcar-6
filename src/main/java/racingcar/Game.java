@@ -28,7 +28,7 @@ public class Game {
 
         var winner = makeResult();
         String winnerString = String.join(", ", winner);
-        View.show(Description.WINNER + winnerString);
+        View.show(Description.WINNER.str + winnerString);
 
     }
 
