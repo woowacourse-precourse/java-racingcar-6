@@ -17,7 +17,7 @@ public class Car {
         return name;
     }
 
-    public void move() {
+    public void addMove() {
         distance++;
     }
 
