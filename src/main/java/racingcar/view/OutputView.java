@@ -1,12 +1,13 @@
-package racingcar.Console;
+package racingcar.view;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Output {
+public class OutputView {
 
     private static final String DASH = "-";
+    private static final String DELIMITER = ", ";
     private static final String INPUT_CAR_NAMES_MESSAGE ="경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_GAME_TRY_COUNTS_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
@@ -14,11 +15,11 @@ public class Output {
 
     private static StringBuilder stringBuilder;
 
-    static void printInputCarNames() {
+    static void printInputCarNamesMessage() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
     }
 
-    static void printInputGameTryCounts() {
+    static void printInputTryCountMessage() {
         System.out.println(INPUT_GAME_TRY_COUNTS_MESSAGE);
     }
 
@@ -43,7 +44,11 @@ public class Output {
         System.out.println(stringBuilder);
     }
 
-    public static void printFinalResult(List<String> winners) {
-        System.out.println(FINAL_WINNER_MESSAGE + String.join(", ", winners));
+    public static void printFinalResult(List<String> winnerNames) {
+        System.out.println(FINAL_WINNER_MESSAGE + joinCarNames(winnerNames));
+    }
+
+    private static String joinCarNames(List<String> carNames) {
+        return String.join(DELIMITER, carNames);
     }
 }
