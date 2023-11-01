@@ -2,5 +2,5 @@ package view;
 
 public interface Output {
 
-    public void print(String value);
+    void print(String value);
 }
