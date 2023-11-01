@@ -3,10 +3,10 @@ package racingcar.data.attempt;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MoveAttempts {
+public class GameAttempts {
     private final List<Attempt> attempts;
 
-    public MoveAttempts() {
+    public GameAttempts() {
         this.attempts = new ArrayList<>();
     }
 
