@@ -10,6 +10,7 @@
 3. 시도할 횟수 입력 안내 문구 출력
 4. 다음 줄에 시도할 횟수 입력
    1. camp.nextstep.edu.missionutils.Console의 readLine()을 사용하여 사용자 입력
+   2. 잘못된 입력(자연수가 아닌 입력)을 한 경우, IllegalArgumentException을 발생시킨 후 프로그램 종료
 
 5. 자동차 전진 과정
    1. 0~9의 무작위 값을 구함
