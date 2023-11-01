@@ -1,14 +1,13 @@
 # 자동차 레이싱 게임
 ## 기능 목록
 [readyRace]
-1-(1). 사용자(User)에게 경주에 참가할 자동차 이름을 받는다. - 
-   1. 각 자동차의 이름은 쉼표 기준으로 구분한다.  - `RaceService.splitCarNames`
-   2. 각 자동차의 이름은 5자를 넘어서는 안 된다. - `RaceService.isLimitFiveChar`
-   3. 안내문구(**"경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"**) 다음 줄에 자동차 이름을 입력받는다. - `UserInputMessage.askParticipants`
+1. 사용자(User)에게 경주에 참가할 자동차 이름을 받는다. - `Racepreparations#askCarNames`
+   1. 각 자동차의 이름은 쉼표 기준으로 구분한다.  - `InputValidation#splitNamesByComma`
+   2. 각 자동차의 이름은 5자를 넘어서는 안 된다. - `InputValidation#isLimitFiveString`
 
-1-(2). 경주차가 이동할 횟수를 입력받는다. - `RaceService.askTryCount`
-   1. 입력받을 때 안내문구는 **"시도할 회수는 몇회인가요?"** 이다. - `UserInputMessage.askExecuteNumber()`
-   2. 입력받은 시도 횟수는 숫자형이어야 한다. - `RaceService.isInt`
+2. 경주차가 이동을 시도할 횟수를 입력받는다. -`Racepreparations#askExecuteCount`
+   1. 입력받을 때 안내 문구는 **"시도할 회수는 몇회인가요?"** 이다.
+   2. 입력받은 시도 횟수는 숫자형이어야 한다. - `InputValidation#isInt`
 
 [startRace]
 2. 각 참가 자동차마다 0 ~ 9사이의 무작위 값을 구한다. -`rollRandomNumbers`
