@@ -10,15 +10,6 @@
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
-## [구현할 함수 목록]
-
-- 각 자동차에 이름 부여 - NameGenerator#carNameGenerate()
-- 전진하는 자동차 정보 갱신 - Judgement#carForward()
-- 전진하지 않은 자동차 정보 갱신 - Judgement#carStop()
-- 자동차가 전진하기 위한 조건 - Judgement#carForwardCondition()
-- 횟수마다 진행결과 출력 - Print#currentCarPrint()
-- 어떤 자동차가 최종 우승을 했는지 출력 - Print#winnerCarPrint()
-
 ## [실행 결과 예시]
 ```
 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
