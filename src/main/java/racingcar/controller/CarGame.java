@@ -85,7 +85,7 @@ public class CarGame {
 
     private void showCarScoreResult(String inputTryNumber, List<Car> carList) {
         for (int i = 0; i < Integer.parseInt(inputTryNumber); i++) {
-            for (Car car: carList) {
+            for (Car car : carList) {
                 pickNumberAndMove(car);
                 OutputView.printCarName(car.getName());
                 showCarMove(car.getMoveCount());
@@ -96,7 +96,7 @@ public class CarGame {
     }
 
     private void pickNumberAndMove(Car car) {
-        if (Randoms.pickNumberInRange(0,9) >= 4) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
             int moveCount = car.getMoveCount();
             moveCount += 1;
             car.setMoveCount(moveCount);
