@@ -1,7 +1,10 @@
 package racingcar;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 public class RacingCarTest {
@@ -27,5 +30,17 @@ public class RacingCarTest {
     void 회차_입력_유효성_검사_문자열인_경우() {
         String invalidCount = "notNumber";
         assertThrows(IllegalArgumentException.class, () -> CountInput.checkCountInput(invalidCount));
+    }
+
+    @Test
+    void 우승자_선정_방식_검사() {
+        Car[] carArr = {
+                new Car("jenny", 1),
+                new Car("rose", 2),
+                new Car("lisa", 3),
+                new Car("jisoo", 3)
+        };
+        SelectWinner.selectWinner(carArr);
+        assertEquals(new ArrayList<String>(Arrays.asList("lisa", "jisoo")), SelectWinner.getWinners());
     }
 }
