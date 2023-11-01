@@ -38,8 +38,9 @@ public class OutputView {
         return CAR_INFO_FORMAT.formatted(car.name(), location);
     }
 
-    public void displayFinalWinner(String winner) {
+    public void displayFinalWinner(List<String> winnerNames) {
         System.out.print(PROMPT_FINAL_WINNER_TITLE);
-        System.out.println(winner);
+        String winnerText = String.join(DELIMITER_OF_WINNER, winnerNames);
+        System.out.println(winnerText);
     }
 }
