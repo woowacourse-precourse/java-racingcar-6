@@ -26,6 +26,10 @@ public class Position implements Comparable<Position> {
         return result.toString();
     }
 
+    public static Position clone(Position position) {
+        return new Position(position.value);
+    }
+
     @Override
     public int compareTo(Position o) {
         return Integer.compare(this.value, o.value);
