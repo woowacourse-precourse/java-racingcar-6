@@ -21,13 +21,7 @@ public class Race {
         int totalRaceCount = Integer.parseInt(raceCount);
         for (int raceLoop = 0; raceLoop < totalRaceCount; raceLoop++) {
 
-            // 각 car 별로 레이스를 진행
-            for (String carName : carMap.keySet()) {
-                int randomNum = NumberGenerator.getRandomNumberInRange(0, 9);
-                if (randomNum > 3) {
-                    carMap.put(carName, carMap.get(carName) + "-"); // 전진인 경우 "-" 추가해준다
-                }
-            }
+            runOnceRace(carMap); // 레이스 1회 진행
 
             // 1회당 레이스 결과 출력
             for (String carName : carMap.keySet()) {
@@ -56,6 +50,16 @@ public class Race {
         // 최종 우승자 출력
         String commaWinnerCarName = String.join(",", winnerCarNameList);
         System.out.println("최종 우승자 : " + commaWinnerCarName);
+    }
+
+    // 각 car 별로 레이스를 진행
+    private static void runOnceRace(Map<String, String> carMap) {
+        for (String carName : carMap.keySet()) {
+            int randomNum = NumberGenerator.getRandomNumberInRange(0, 9);
+            if (randomNum > 3) {
+                carMap.put(carName, carMap.get(carName) + "-"); // 전진인 경우 "-" 추가해준다
+            }
+        }
     }
 
 }
