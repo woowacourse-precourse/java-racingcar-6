@@ -3,7 +3,7 @@ package racingcar.util;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.function.Supplier;
 
-public class Generator {
+public class RandomMoveGenerator {
     private static final int SMALLEST_NUMBER_FOR_RANDOM = 0;
     private static final int LARGEST_NUMBER_FOR_RANDOM = 9;
     private static final int MINIMUM_NUMBER_TO_MOVE = 4;

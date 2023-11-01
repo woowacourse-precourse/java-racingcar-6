@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.carmove.CarMoveReader;
-import racingcar.util.Generator;
+import racingcar.util.RandomMoveGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -30,7 +30,7 @@ public class GameController {
 
     private void moveCarsAndPrintResult(CarController carController) {
         while (carController.isMovable()) {
-            String moveResult = carController.moveCarsAndGetResult(Generator.randomCarMoveGenerator());
+            String moveResult = carController.moveCarsAndGetResult(RandomMoveGenerator.randomCarMoveGenerator());
             outputView.printMoveResult(moveResult);
         }
     }
