@@ -20,6 +20,13 @@ class CarTest {
 
     }
 
+    @Test
+    void 현재_Car_Position_결과값_테스트() {
+        Car car = new Car("car");
+        car.addPosition();
+        assertThat(car.getCurrentResultPosition()).isEqualTo("car : -");
+    }
+
 
 
 
