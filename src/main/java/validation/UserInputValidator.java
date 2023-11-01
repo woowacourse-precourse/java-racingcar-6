@@ -4,12 +4,13 @@ import static constant.Constant.BLANK;
 import static constant.Constant.NAME_LENGTH_LIMIT;
 import static constant.ErrorMessage.EMPTY_NAME_CASE_MESSAGE;
 import static constant.ErrorMessage.EXCEED_NAME_CASE_MESSAGE;
+import static constant.ErrorMessage.NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE;
 import static constant.ErrorMessage.UNCOMPETITIVE_CASE_MESSAGE;
 
 public class UserInputValidator {
     public void validatePositiveNumber(Integer number) {
         if (isNullOrLessThanOne(number)) {
-            throw new NumberFormatException();
+            throw new IllegalArgumentException(NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE);
         }
     }
 
