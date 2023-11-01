@@ -17,7 +17,7 @@ public class CarGenerator {
         return carString.split(",");
     }
 
-    public List<Car> makeCars() {
+    public List<Car> loadCars() {
         List<Car> carList = new LinkedList<>();
 
         for (String car : carNameArray) {
