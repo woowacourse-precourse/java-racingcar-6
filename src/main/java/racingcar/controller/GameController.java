@@ -27,9 +27,9 @@ public class GameController {
     }
 
     public void runGame() {
-        List<Car> initCars =InitializeCars(inputView.inputCarNames());
+        List<String> carNames =inputView.inputCarNames();
         int trialNumber = inputView.inputTrialNumber();
-        Game game = new Game(initCars);
+        Game game = new Game(carNames);
 
         outputView.printResultPhrase();
         playMultipleTimes(game,trialNumber);
