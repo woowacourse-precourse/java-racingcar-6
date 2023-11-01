@@ -3,18 +3,17 @@ package racingcar.car;
 import racingcar.game.Referee;
 
 public class Car {
-    private String carName;
-    private Referee referee;
-    private boolean isMoving;
+    private final String carName;
+    private final Referee referee;
+
     public Car(String carName, Referee referee) {
         this.carName = carName;
         this.referee = referee;
-        this.isMoving = referee.isMovingCondition();
     }
 
-    public String isMoveForward() {
+    public String goStep() {
         String step = "";
-        if (isMoving) {
+        if (referee.isMovingCondition()) {
             step = "-";
         }
         return step;
@@ -23,6 +22,5 @@ public class Car {
     public String getCarName() {
         return carName;
     }
-
 
 }
