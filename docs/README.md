@@ -17,8 +17,9 @@
     - 잘못된 사용자 입력을 확인해서 예외처리를 한다.
       - carName 입력시
           - car이름이 중복될 경우
-          - 입력 형식이 맞지 않을 경우
           - 이름이 5자 초과일 경우
+          - car개수가 1이하일 경우
+          - car이름이 공백일 경우
       - roundLength 입력시
           - 숫자가 아닐 경우
           - 0이하일 경우
@@ -46,18 +47,18 @@
         - 예외처리
 #### [model]
   - Car
-    - carNameArray
-    - winner
-    - raceLength
-    - oneStep
+    - 필드 : carNameArray,winner,raceLength,oneStep
+    - Car가 게임플레이 중 step을 갔을 때 raceLength 1 증가
+    - Car의 현재까지 진행한 총 거리의 문자열을 반환
   - GameViewMessage (enum)
-    - writeCarNameMessage
-    - writeRaceLengthMessage
-    - outputFirstLineMessage
-    - outputWinnerMessage
-    - colonString
+    - WRITE_CAR_NAME_MESSAGE
+    - WRITE_RACE_LENGTH_MESSAGE
+    - OUTPUT_FIRST_LINE_MESSAGE
+    - OUTPUT_WINNER_MESSAGE
+    - COLON_STRING
+    - SPACE_BAR
   - ExceptionString (enum)
-    - inputIntegerRoundErrorMessage 
-    - inputStringRoundErrorMessage 
-    - carNameTooLongErrorMessage 
-    - duplicateCarNameErrorMessage
+    - INPUT_INTEGER_ROUND_ERROR_MESSAGE
+    - INPUT_STRING_ROUND_ERROR_MESSAGE
+    - CAR_NAME_OVER_LENGTH_ERROR_MESSAGE
+    - DUPLICATE_CAT_NAME_ERROR_MESSAGE
