@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import camp.nextstep.edu.missionutils.test.NsTest;
 
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CarTest {
-
+    @DisplayName("4보다 작은 값을 생성했을 때, 전진하지 않는지 확인")
     @Test
     public void testIsMovingForwardWithRandomNumberLessThanMOVING_FORWARD() {
         Car car = new Car("Car1");
@@ -17,6 +18,7 @@ public class CarTest {
         assertFalse(result);
     }
 
+    @DisplayName("4보다 큰 값을 생성했을 때, 전진하는지 확인")
     @Test
     public void testIsMovingForwardWithRandomNumberMoreThanMOVING_FORWARD() {
         Car car = new Car("Car2");

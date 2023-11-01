@@ -28,7 +28,7 @@ public class RacingGame {
         String carNameInputs = Console.readLine();
         carName = carNameInputs.split(",");
         carCount = carName.length;
-        isCarNameValid();
+        isCarNameValid(carName);
     }
 
     public void inputTryNum() {
@@ -38,8 +38,8 @@ public class RacingGame {
         tryNumber = Integer.parseInt(tryNumInput);
     }
 
-    public void isCarNameValid() {
-        for (int i = 0; i < carCount; i++) {
+    public void isCarNameValid(String[] carName) {
+        for (int i = 0; i < carName.length; i++) {
             if (carName[i].length() > 5) {
                 throw new IllegalArgumentException();
             }
