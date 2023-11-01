@@ -8,4 +8,10 @@ public class TryCountInputValidator {
             }
         }
     }
+
+    public void vaildInputEmpty(String number) {
+        if (number == null || number.isEmpty()) {
+            throw new IllegalArgumentException("공백은 입력할 수 없어요. 숫자를 입력해주세요.");
+        }
+    }
 }
