@@ -18,28 +18,31 @@ public class OutputView {
     }
 
     public static void printRacingGameStatus(List<Car> cars) {
-        for (Car car : cars) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(car.getName() + DISTINCTION);
-
-            int position = car.getPosition();
-            while (position-- > 0) {
-                sb.append(ONE_BLOCK);
-            }
-
-            System.out.println(sb);
-        }
+        cars.forEach(OutputView::printRacingCarStatus);
         System.out.println();
     }
 
-    public static void printWinner(List<Car> winners) {
+    private static void printRacingCarStatus(Car car) {
         StringBuilder sb = new StringBuilder();
 
-        String winnerNames = winners.stream()
+        sb.append(car.getName() + DISTINCTION);
+
+        int position = car.getPosition();
+        while (position-- > 0) {
+            sb.append(ONE_BLOCK);
+        }
+
+        System.out.println(sb);
+    }
+
+    public static void printWinner(List<Car> winners) {
+        String winnerNames = getWinnerNames(winners);
+        System.out.print(WINNER + DISTINCTION + winnerNames);
+    }
+
+    private static String getWinnerNames(List<Car> winners) {
+        return winners.stream()
                 .map(Car::getName)
                         .collect(Collectors.joining(WINNER_DELIMITER));
-
-        sb.append(WINNER + DISTINCTION).append(winnerNames);
-        System.out.print(sb);
     }
 }
