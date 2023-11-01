@@ -13,10 +13,6 @@ public class CarName {
         this.value = value;
     }
 
-    private String getValue() {
-        return value;
-    }
-
     public static CarName clone(CarName carName) {
         return new CarName(carName.value);
     }
