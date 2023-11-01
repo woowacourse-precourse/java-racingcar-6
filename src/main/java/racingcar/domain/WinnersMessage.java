@@ -18,7 +18,7 @@ public class WinnersMessage {
 
     @Override
     public boolean equals(Object o) {
-        if(o instanceof WinnersMessage winnersMessage) {
+        if (o instanceof WinnersMessage winnersMessage) {
             return message.equals(winnersMessage.message);
         }
         return false;
