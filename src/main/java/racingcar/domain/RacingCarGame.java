@@ -5,31 +5,23 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.util.ExceptionMessage;
-import racingcar.Console.Input;
-import racingcar.Console.Output;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 import racingcar.util.CarFactory;
 
 public class RacingCarGame {
 
-    private static final int MAX_GAME_TRY_COUNTS = 15;
+    private List<Car> cars = new ArrayList<>();
 
-    private List<Car> cars;
+    public void play() {
+        this.cars = CarFactory.generate(InputView.inputCarNames());
+        TryCount tryCount = InputView.inputTryCount();
 
-    {
-        this.cars = new ArrayList<>();
-    }
+        OutputView.printExecutionResultMessage();
 
-    public void playRacingCarGame() {
-        this.cars = CarFactory.createCars(Input.receiveCarNames());
-        int tryCounts = validateTryCounts(Input.receiveGameTryCounts());
-        Output.printExecutionResultMessage();
-
-        int idx = 0;
-        while (idx < tryCounts) {
+        for (int i = 0; i < tryCount.getTryCount(); i++) {
             moveRacingCar();
             printExecutionResult();
-            idx++;
         }
 
         printFinalResult();
@@ -41,25 +33,11 @@ public class RacingCarGame {
         }
     }
 
-    private static int validateTryCounts(String counts) {
-        int tryCounts = 0;
-        try {
-            tryCounts = Integer.parseInt(counts);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ExceptionMessage.GAME_TRY_COUNTS_FORMAT);
-        }
-
-        if (tryCounts > MAX_GAME_TRY_COUNTS) {
-            throw new IllegalArgumentException(ExceptionMessage.GAME_TRY_COUNTS_SIZE);
-        }
-        return tryCounts;
-    }
-
     private void printExecutionResult() {
         Map<String, Integer> executionResultMap = cars.stream()
-                .collect(Collectors.toMap(Car::getName, Car::getMoveCounts));
+                .collect(Collectors.toMap(Car::getName, Car::getPosition));
 
-        Output.printExecutionResult(executionResultMap);
+        OutputView.printExecutionResult(executionResultMap);
     }
 
     private void printFinalResult() {
@@ -67,18 +45,18 @@ public class RacingCarGame {
         List<String> winnerNames = new ArrayList<>();
 
         this.cars = this.cars.stream()
-                .sorted(Comparator.comparing(Car::getMoveCounts).reversed())
+                .sorted(Comparator.comparing(Car::getPosition).reversed())
                 .collect(Collectors.toList());
 
-        int maxMoveCounts = this.cars.get(0).getMoveCounts();
+        int maxMoveCounts = this.cars.get(0).getPosition();
 
         for(Car car : this.cars) {
-            if (car.getMoveCounts() == maxMoveCounts) {
+            if (car.getPosition() == maxMoveCounts) {
                 winnerNames.add(car.getName());
                 continue;
             }
             break;
         }
-        Output.printFinalResult(winnerNames);
+        OutputView.printFinalResult(winnerNames);
     }
 }
