@@ -1,22 +1,20 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.message.ExceptionMessage;
 import racingcar.message.ProcessMessage;
 
 public class Car {
-    private static final int START_INCLUSIVE = 0;
-    private static final int END_INCLUSIVE = 9;
     private static final int MAX_NAME_LENGTH = 5;
-    private static final int MINIMAL_NUMBER = 4;
 
+    private final NumberGenerator numberGenerator;
     private final String name;
     private int position;
 
-    public Car(String name) {
+    public Car(String name, NumberGenerator numberGenerator) {
         validateNameLength(name);
         this.name = name;
         this.position = 0;
+        this.numberGenerator = numberGenerator;
     }
 
     private void validateNameLength(String name) {
@@ -26,7 +24,7 @@ public class Car {
     }
 
     public void moveForward() {
-        if (Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= MINIMAL_NUMBER) {
+        if (numberGenerator.generate()) {
             position++;
         }
     }
