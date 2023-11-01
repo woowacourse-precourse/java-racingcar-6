@@ -5,12 +5,12 @@
 - [x] 자동차의 현재 이동 거리를 반환한다. - getMoveCount()
 - [x] 자동차의 이동 거리를 문자열로 표현하여 반환한다. - getMoveDistance()
 - [x] 사용자로부터 자동차 이름을 입력받는다. - getCarNamesFromUser()
-    - [x] 각 자동차의 이름이 5자를 초과하지 않는지 검증하고, 쉼표 기준으로 분리한다. - validateAndSplitNames(String input)
+  - [x] 각 자동차의 이름이 5자를 초과하지 않는지 검증하고, 쉼표 기준으로 분리한다. - validateAndSplitNames(String input)
 - [x] 사용자로부터 시도할 횟수를 입력받는다. - getRaceCountFromUser()
-    - [x] 입력 값이 0 이상인지 검증한다. 숫자가 아닌 값을 입력하면 예외를 발생시킨다. - validateRaceCount(String input)
+  - [x] 입력 값이 0 이상인지 검증한다. 숫자가 아닌 값을 입력하면 예외를 발생시킨다. - validateRaceCount(String input)
 - 각 자동차의 경주 결과를 이름과 이동 거리와 함께 출력한다. 이동 거리는 - 문자의 반복으로 표현된다. - printRaceResult(List<Car> cars)
 - [x] 모든 경주가 끝난 후, 가장 많이 전진한 자동차를 찾아 우승자로 선정하고, 우승자의 이름을 출력한다. - printWinners()
-    - [x] 경주에 참가한 모든 자동차 중에서 가장 많이 전진한 횟수를 반환한다. - getMaxMove()
+  - [x] 경주에 참가한 모든 자동차 중에서 가장 많이 전진한 횟수를 반환한다. - getMaxMove()
 
 ## 기능 요구 사항
 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
