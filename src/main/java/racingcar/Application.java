@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -70,7 +71,13 @@ public class Application {
     }
 
     private static int getMaxPosition(List<Car> cars) {
-        return 1;
+        int max = 0;
+        for (Car car : cars) {
+            if (car.getPosition() >= max) {
+                max = car.getPosition();
+            }
+        }
+        return max;
     }
 }
 
