@@ -6,6 +6,7 @@ import java.util.List;
 import racingcar.dto.NameLocationPair;
 import racingcar.dto.PlayResultDTO;
 import racingcar.dto.ResultEachTry;
+import racingcar.dto.WinnersDTO;
 
 public class RacingCarGame {
     private Cars cars;
@@ -25,6 +26,15 @@ public class RacingCarGame {
             resultEachTry.add(new ResultEachTry(tryOrder, nameLocationPairs));
         }
         return new PlayResultDTO(resultEachTry);
+    }
+
+    public WinnersDTO finish() {
+        return new WinnersDTO(
+                cars.findWinners()
+                        .stream()
+                        .map((Car::getCarNameValue))
+                        .toList()
+        );
     }
 
     private static List<NameLocationPair> toNameLocationPairs(List<Car> carList) {

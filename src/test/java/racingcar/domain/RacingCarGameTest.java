@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.dto.NameLocationPair;
 import racingcar.dto.PlayResultDTO;
 import racingcar.dto.ResultEachTry;
+import racingcar.dto.WinnersDTO;
 
 class RacingCarGameTest {
     @Test
@@ -66,4 +67,27 @@ class RacingCarGameTest {
 
         assertEquals(expected, playResultDTO);
     };
+
+    @Test
+    void 우승자_확인() {
+        RacingCarGame racingCarGame = new RacingCarGame("pobi,woni", 5){
+            @Override
+            protected Cars initCars(String carNames){
+                return new Cars(Arrays.asList(new Car(new CarName("pobi")), new Car(new CarName("woni")))){
+                    @Override
+                    public List<Car> findWinners(){
+                        List<Car> carList = new ArrayList<>();
+                        carList.add(new Car(new CarName("pobi")));
+                        carList.add(new Car(new CarName("woni")));
+                        return carList;
+                    }
+                };
+            }
+        };
+        WinnersDTO expected = new WinnersDTO(Arrays.asList("pobi", "woni"));
+
+        WinnersDTO winnersDTO = racingCarGame.finish();
+
+        assertEquals(expected, winnersDTO);
+    }
 }

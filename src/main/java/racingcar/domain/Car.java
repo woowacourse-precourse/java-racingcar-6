@@ -21,6 +21,10 @@ public class Car {
         }
     }
 
+    public boolean isWinner(Location maxLocation){
+        return location.isMax(maxLocation);
+    }
+
     public CarName getCarName() {
         return carName;
     }

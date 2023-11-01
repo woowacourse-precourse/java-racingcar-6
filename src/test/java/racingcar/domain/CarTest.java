@@ -34,4 +34,19 @@ class CarTest {
 
         assertEquals(new Location(1), car.getLocation());
     }
+
+    @Test
+    void 우승자인지_확인() {
+        Car car = new Car(new CarName("pobi")){
+            @Override
+            protected int getRandomNumber(){
+                return MOVE;
+            }
+        };
+
+        car.move();
+        car.move();
+
+        assertTrue(car.isWinner(new Location(1)));
+    }
 }

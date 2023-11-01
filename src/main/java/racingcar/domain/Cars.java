@@ -16,6 +16,32 @@ public class Cars {
         }
     }
 
+    public List<Car> findWinners() {
+        List<Car> winners = new ArrayList<>();
+        Location maxLocation = findMaxLocation();
+
+        for (Car car : cars) {
+            if (car.isWinner(maxLocation)) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
+    }
+
+    private Location findMaxLocation(){
+        Location maxLocation = new Location();
+
+        for (Car car : cars) {
+            Location location = car.getLocation();
+            if (location.isMax(maxLocation)) {
+                maxLocation = location;
+            }
+        }
+
+        return maxLocation;
+    }
+
     public List<Car> getCars() {
         return cars;
     }
