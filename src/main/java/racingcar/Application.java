@@ -31,16 +31,20 @@ public class Application {
         }
         System.out.println("실행 결과");
         for (String carName : carList) {
-            carMovement(carMap, carName);
+            carMovement(carMap, carName, tryNum);
         }
     }
-    public static void carMovement(Map<String, Integer> carMap, String carName) {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
-            carMap.put(carName, carMap.get(carName) + 1);
+
+    public static void carMovement(Map<String, Integer> carMap, String carName, int count) {
+        for (int i = 0; i < count; i++) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                carMap.put(carName, carMap.get(carName) + 1);
+            }
         }
         System.out.print(carName + " : ");
-        for (int i = 0; i<carMap.get(carName); i++) {
+        for (int i = 0; i < carMap.get(carName); i++) {
             System.out.print("-");
         }
+        System.out.println("");
     }
 }
