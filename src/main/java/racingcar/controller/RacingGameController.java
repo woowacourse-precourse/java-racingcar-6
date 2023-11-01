@@ -3,8 +3,8 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.dto.request.RacingCarNamesDto;
 import racingcar.dto.request.TryCountDto;
-import racingcar.dto.response.CarWinnersDto;
 import racingcar.dto.response.RaceHistoryDto;
+import racingcar.dto.response.WinnersDto;
 import racingcar.model.CarGroup;
 import racingcar.model.MovementCondition;
 import racingcar.model.RaceHistory;
@@ -65,7 +65,7 @@ public class RacingGameController {
     }
 
     private void printWinners(Winners winners) {
-        CarWinnersDto carWinnersDto = CarWinnersDto.from(winners);
-        outputView.printWinners(carWinnersDto);
+        WinnersDto winnersDto = WinnersDto.from(winners);
+        outputView.printWinners(winnersDto);
     }
 }

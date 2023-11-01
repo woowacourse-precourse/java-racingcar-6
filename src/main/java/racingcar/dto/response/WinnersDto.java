@@ -6,16 +6,16 @@ import racingcar.model.Car;
 import racingcar.model.CarName;
 import racingcar.model.Winners;
 
-public class CarWinnersDto {
+public class WinnersDto {
     private final List<String> winnerNames;
 
-    private CarWinnersDto(List<String> winnerNames) {
+    private WinnersDto(List<String> winnerNames) {
         this.winnerNames = winnerNames;
     }
 
-    public static CarWinnersDto from(Winners winners) {
+    public static WinnersDto from(Winners winners) {
         List<String> winnerNames = getWinnerNames(winners);
-        return new CarWinnersDto(winnerNames);
+        return new WinnersDto(winnerNames);
     }
 
     private static List<String> getWinnerNames(Winners winners) {

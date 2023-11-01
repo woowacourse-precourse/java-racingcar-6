@@ -2,9 +2,9 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.dto.response.CarProgressDto;
-import racingcar.dto.response.CarWinnersDto;
 import racingcar.dto.response.RaceHistoryDto;
 import racingcar.dto.response.RaceStageDto;
+import racingcar.dto.response.WinnersDto;
 
 public class OutputView {
     private static final String GAME_RESULT_MESSAGE = "실행 결과";
@@ -59,7 +59,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinners(CarWinnersDto winnersDto) {
+    public void printWinners(WinnersDto winnersDto) {
         List<String> winnerNames = winnersDto.getWinnerNames();
         String formattedWinnerNames = formatWinnersName(winnerNames);
         System.out.printf(WINNER_MESSAGE, formattedWinnerNames);
