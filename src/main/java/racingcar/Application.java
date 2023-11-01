@@ -2,6 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
     static Racer[] createRacerFromInput() {
 
@@ -41,6 +45,26 @@ public class Application {
         for(Racer racer : racers) {
             racer.printRacer();
         }
+    }
+
+    static List<Racer> findWinner(Racer[] racers){
+        List<Racer> winners = new ArrayList<>();
+        int maxProgress = 0;
+
+        for (Racer racer : racers) {
+            int progress = racer.getProgress();
+            if (progress > maxProgress) {
+                maxProgress = progress;
+            }
+        }
+
+        for (Racer racer : racers) {
+            if (racer.getProgress() == maxProgress) {
+                winners.add(racer);
+            }
+        }
+
+        return winners;
     }
 
     public static void main(String[] args) {
