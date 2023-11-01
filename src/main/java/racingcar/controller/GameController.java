@@ -60,7 +60,9 @@ public class GameController {
                 winners.add(car);
             }
             if (car.getLength() == maxCarLength) {
-                winners.add(car);
+                if (!winners.contains(car)) {
+                    winners.add(car);
+                }
             }
         }
         return winners;
