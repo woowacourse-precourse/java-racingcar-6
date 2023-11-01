@@ -1,6 +1,7 @@
 package racingcar.exception;
 
 import racingcar.exception.constant.ErrorMessageConstant;
+import racingcar.exception.constant.ErrorRuleConstant;
 import racingcar.util.TransferUtil;
 
 import java.util.HashSet;
@@ -8,9 +9,6 @@ import java.util.List;
 import java.util.Set;
 
 public class CarNameInputErrorException implements InputErrorException{
-    private final static int CAR_NAME_LENGTH_MIN_RANGE = 1;
-    private final static int CAR_NAME_LENGTH_MAX_RANGE = 5;
-
     @Override
     public void checkUserInputValidate(String checkString) {
         List<String> checkStringList = new TransferUtil().transferStringToListString(checkString);
@@ -39,10 +37,10 @@ public class CarNameInputErrorException implements InputErrorException{
     }
 
     private static boolean isCarNameShorterThanMinLength(String checkString) {
-        return checkString.length() < CAR_NAME_LENGTH_MIN_RANGE;
+        return checkString.length() < ErrorRuleConstant.CAR_NAME_LENGTH_MIN_RANGE.getNumber();
     }
 
     private static boolean isCarNameLongerThanMaxLength(String checkString) {
-        return checkString.length() > CAR_NAME_LENGTH_MAX_RANGE;
+        return checkString.length() > ErrorRuleConstant.CAR_NAME_LENGTH_MAX_RANGE.getNumber();
     }
 }

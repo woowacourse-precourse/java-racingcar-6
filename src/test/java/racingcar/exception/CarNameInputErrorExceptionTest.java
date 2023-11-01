@@ -2,21 +2,18 @@ package racingcar.exception;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.constant.ErrorMessageConstant;
 
 class CarNameInputErrorExceptionTest {
     private final static InputErrorException inputErrorException = new CarNameInputErrorException();
-    private final static String CAR_NAME_LENGTH_SHORT_MESSAGE = "각 자동차 이름은 1글자 이상 입력해야합니다. 게임을 종료합니다.";
-    private final static String CAR_NAME_LENGTH_LONG_MESSAGE = "각 자동차 이름은 5글자 이하로 입력해야합니다. 게임을 종료합니다.";
-    private final static String CAR_NAME_LIST_EMPTY_MESSAGE = "자동차 이름은 필수로 입력해야합니다. 게임을 종료합니다.";
-    private final static String CAR_NAME_DUPLICATE_MESSAGE = "중복된 자동차 이름이 존재합니다. 게임을 종료합니다.";
     @Test
     void 자동차_이름이_한_글자_미만일_경우_예외_발생(){
         //given
-        final String checkInput = ",jjonghyuni";
+        final String checkInput = ",jyuni";
 
         //when, then
         Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(checkInput))
-                .isInstanceOf(IllegalArgumentException.class).hasMessage(CAR_NAME_LENGTH_SHORT_MESSAGE);
+                .isInstanceOf(IllegalArgumentException.class).hasMessage(ErrorMessageConstant.CAR_NAME_LENGTH_SHORT_MESSAGE.getMessage());
     }
 
     @Test
@@ -26,7 +23,7 @@ class CarNameInputErrorExceptionTest {
 
         //when, then
         Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(checkInput))
-                .isInstanceOf(IllegalArgumentException.class).hasMessage(CAR_NAME_LENGTH_LONG_MESSAGE);
+                .isInstanceOf(IllegalArgumentException.class).hasMessage(ErrorMessageConstant.CAR_NAME_LENGTH_LONG_MESSAGE.getMessage());
     }
 
     @Test
@@ -36,7 +33,7 @@ class CarNameInputErrorExceptionTest {
 
         //when, then
         Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(checkInput))
-                .isInstanceOf(IllegalArgumentException.class).hasMessage(CAR_NAME_LIST_EMPTY_MESSAGE);
+                .isInstanceOf(IllegalArgumentException.class).hasMessage(ErrorMessageConstant.INPUT_EMPTY_ERROR_MESSAGE.getMessage());
     }
 
     @Test
@@ -46,6 +43,6 @@ class CarNameInputErrorExceptionTest {
 
         //when, then
         Assertions.assertThatThrownBy(() -> inputErrorException.checkUserInputValidate(checkInput))
-                .isInstanceOf(IllegalArgumentException.class).hasMessage(CAR_NAME_DUPLICATE_MESSAGE);
+                .isInstanceOf(IllegalArgumentException.class).hasMessage(ErrorMessageConstant.CAR_NAME_DUPLICATE_MESSAGE.getMessage());
     }
 }
