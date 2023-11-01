@@ -1,7 +1,5 @@
 package racingcar.utils;
 
-import org.junit.platform.commons.util.StringUtils;
-
 import java.util.Arrays;
 
 import static racingcar.message.IllegalArgumentExceptionMessage.*;
