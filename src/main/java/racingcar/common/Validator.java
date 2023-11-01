@@ -2,6 +2,7 @@ package racingcar.common;
 
 import static racingcar.common.Constants.MAX_LENGTH_OF_NAME;
 import static racingcar.common.ExceptionMessages.DUPLICATE_CAR_EXCEPTION;
+import static racingcar.common.ExceptionMessages.INVALID_FORMAT_INPUT_EXCEPTION;
 import static racingcar.common.ExceptionMessages.INVALID_NAME_LENGTH_EXCEPTION;
 import static racingcar.common.ExceptionMessages.NOT_NUMERIC_INPUT_EXCEPTION;
 import static racingcar.common.ExceptionMessages.NO_COMMA_EXCEPTION;
@@ -49,7 +50,7 @@ public class Validator {
 
     public static void validateNamesInput(String names) {
         if(names.startsWith(",") || names.endsWith(",")) {
-            throw new IllegalArgumentException("입력 형식은 다음과 같습니다. 예시) name1,name2,name3");
+            throw new IllegalArgumentException(INVALID_FORMAT_INPUT_EXCEPTION);
         }
     }
 
