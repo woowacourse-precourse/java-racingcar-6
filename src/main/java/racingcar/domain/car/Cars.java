@@ -30,15 +30,20 @@ public class Cars {
     }
 
     public List<String> findWinners() {
-        int maxDistance = cars.stream()
-                .mapToInt(Car::getDistance)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException(CARS_ARE_EMPTY));
+        int maxDistance = findMaxDistance();
 
         return cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .map(Car::getCarName)
                 .collect(Collectors.toList());
+    }
+
+    private int findMaxDistance() {
+
+        return cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException(CARS_ARE_EMPTY));
     }
 
     public void randomCarMove() {
