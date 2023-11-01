@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.function.IntPredicate;
-
 class TryCount {
     private PositiveNumber count;
 
