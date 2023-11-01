@@ -15,4 +15,12 @@ public class CarValidatorTest {
         List<String> carNameList2 = Arrays.asList("pobi","woni");
         CarValidator.isOnlyLowerCase(carNameList2);
     }
+
+    @Test
+    public void 이름이_다섯자리_초과인_경우() {
+        List<String> carNameList1 = Arrays.asList("suhyun","woni");
+        assertThrows(IllegalArgumentException.class, () -> CarValidator.checkCarNameLength(carNameList1));
+        List<String> carNameList2 = Arrays.asList("pobi","woni");
+        CarValidator.checkCarNameLength(carNameList2);
+    }
 }
