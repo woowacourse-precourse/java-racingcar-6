@@ -2,7 +2,7 @@ package racingcar.model;
 
 import java.math.BigInteger;
 
-public class Car {
+public class Car implements Comparable<Car> {
     public String name;
     public BigInteger score;
 
@@ -11,4 +11,9 @@ public class Car {
         this.score = score;
     }
 
+    @Override
+    public int compareTo(Car otherCar) {
+        // score 를 기준으로 정렬
+        return this.score.compareTo(otherCar.score);
+    }
 }
