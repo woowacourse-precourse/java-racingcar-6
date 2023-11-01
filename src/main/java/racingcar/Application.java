@@ -13,5 +13,9 @@ public class Application {
 		System.out.println("\n실행 결과");
 		Race race = new Race();
 		race.start(cars, tryCount);
+
+		WinnerCalculator winnerCalculator = new WinnerCalculator();
+		System.out.print("최종 우승자 : ");
+		System.out.println(winnerCalculator.getWinners(cars));
 	}
 }
