@@ -6,8 +6,9 @@ import static racingcar.constant.Constant.COLON;
 
 public class Output {
 
-    public void printExecutionResult(String executionResult){
-        System.out.println(EXECUTION_RESULT);
+    public void printExecutionResult(int index,String executionResult){
+        if(index == 0)
+            System.out.println(EXECUTION_RESULT);
         System.out.println(executionResult);
     }
 

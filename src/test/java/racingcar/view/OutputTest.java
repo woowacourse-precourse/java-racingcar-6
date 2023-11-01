@@ -19,7 +19,7 @@ class OutputTest {
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        output.printExecutionResult("pobi : ---");
+        output.printExecutionResult(0,"pobi : ---");
 
         assertThat(out.toString()).contains("실행 결과");
     }
