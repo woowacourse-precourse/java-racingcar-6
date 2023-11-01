@@ -10,7 +10,7 @@ public class StartCondition {
         return carName.split(",");
     }
 
-    private void checkInputCarName(String carName) {
+    public void checkInputCarName(String carName) {
         String[] racerNames = carName.split(",");
         for (String racerName : racerNames) {
             if (racerName.length() > 5) {
@@ -26,7 +26,7 @@ public class StartCondition {
         return Integer.parseInt(input);
     }
 
-    private void checkAttemptNumber(String input) {
+    public void checkAttemptNumber(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
