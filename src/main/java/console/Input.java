@@ -13,13 +13,10 @@ public class Input {
     }
 
     public static int tryInput() {
-        try {
-            int tryCount = Integer.parseInt(Console.readLine());
-            validateTryInput(tryCount);
-            return tryCount;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("잘못된 자료형입니다.");
-        }
+        String tryInput = Console.readLine();
+        int tryCount = parseToInt(tryInput);
+        validateTry(tryCount);
+        return tryCount;
     }
 
     private static void validateCarNames(String[] carNames) {
@@ -28,8 +25,16 @@ public class Input {
         }
     }
 
-    private static void validateTryInput(int tryCount) {
+    private static void validateTry(int tryCount) {
         if (tryCount <= 0 || tryCount >= 9) throw new IllegalArgumentException("입력값은 0에서 9 사이여야 합니다.");
+    }
+
+    private static int parseToInt(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 자료형입니다.");
+        }
     }
 
 }
