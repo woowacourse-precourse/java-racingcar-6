@@ -17,5 +17,13 @@ public class Application {
                 throw new IllegalArgumentException("길이가 5 이상인 값이 감지되었습니다: " + value);
             }
         }
+
+        System.out.print("시도할 회수는 몇회인가요?");
+        int raceCount = scanner.nextInt();
+
+        if (raceCount <= 0) {
+            throw new IllegalArgumentException("횟수는 양수여야 합니다.");
+        }
+
     }
 }
