@@ -19,7 +19,6 @@ public class Application {
         List<String> car = inputCarNames();
 
         int tryCount = inputTryCount();
-
         validatePositiveTryCount(tryCount);
 
         for (int i = 0; i < car.size(); i++) {
@@ -74,17 +73,6 @@ public class Application {
         System.out.println();
     }
 
-    private static boolean canMoveForward() {
-        int forwardRandomValue = Randoms.pickNumberInRange(0, 9);
-        return forwardRandomValue >= 4;
-    }
-
-    private static void updatePosition(List<Integer> position, int index) {
-        if (canMoveForward()) {
-            position.set(index, position.get(index) + 1);
-        }
-    }
-
     private static List<String> getWinners(List<String> carNames, List<Integer> position) {
         int maxPosition = position.stream()
                 .mapToInt(value -> value)
@@ -112,6 +100,17 @@ public class Application {
 
     private static List<String> toList(String input) {
         return Arrays.asList(input.split(","));
+    }
+
+    private static boolean canMoveForward() {
+        int forwardRandomValue = Randoms.pickNumberInRange(0, 9);
+        return forwardRandomValue >= 4;
+    }
+
+    private static void updatePosition(List<Integer> position, int index) {
+        if (canMoveForward()) {
+            position.set(index, position.get(index) + 1);
+        }
     }
 
     /**
