@@ -10,8 +10,8 @@ public class RacingFactory {
     public RacingController createRacingController() {
         InputCarNameSplitter splitter = new InputCarNameSplitter();
         RaceResultGenerator generator = new RaceResultGenerator();
-        RacingService racingService = new RacingService(splitter, generator);
-        RacingInitService racingInitService = new RacingInitService();
+        RacingService racingService = new RacingService(generator);
+        RacingInitService racingInitService = new RacingInitService(splitter);
 
         return new RacingController(racingService, racingInitService);
     }
