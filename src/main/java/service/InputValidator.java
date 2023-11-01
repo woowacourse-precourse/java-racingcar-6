@@ -6,14 +6,16 @@ public class InputValidator {
         if (userInput.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름을 입력하셔야 합니다.");
         }
+        blankInputValidate(carArray);
         carLengthValidate(carArray);
         validateInputHasSpace(userInput);
-        carListStartWithComma(userInput);
     }
 
-    public static void carListStartWithComma(String userInput) {
-        if(userInput.startsWith(",")) {
-            throw new IllegalArgumentException("자동차 이름은 쉼표로 시작할 수 없습니다.");
+    public static void blankInputValidate(String[] carArray) {
+        for (String carName : carArray) {
+            if (carName.isEmpty()) {
+                throw new IllegalArgumentException("자동차 이름은 공백이 될 수 없습니다.");
+            }
         }
     }
 
