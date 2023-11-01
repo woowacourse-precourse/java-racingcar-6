@@ -55,7 +55,7 @@ public class InputOutput {
         winners.add(car.getKey());
       }
     }
-    System.out.println(String.join(",",winners));
+    System.out.println(String.join(", ",winners));
   }
 
 }
