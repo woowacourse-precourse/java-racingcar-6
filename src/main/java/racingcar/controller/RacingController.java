@@ -1,49 +1,38 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.model.Cars;
-import racingcar.model.RacingManager;
-import racingcar.model.RacingResult;
-import racingcar.model.winnerstrategy.MaximumForwardStrategy;
+import racingcar.model.CarState;
+import racingcar.model.Racing;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
     private final InputView inputView;
     private final OutputView outputView;
-    private Cars cars;
-    private RacingManager racingManager;
-    private RacingResult racingResult;
+    private Racing racing;
 
     public RacingController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }
 
-    public void run() {
-        setting();
-        startRacing();
-        summarizeRace();
-    }
-
-    private void setting() {
+    public void createRacing() {
         List<String> carNames = inputView.askCarNames();
         int tryCount = inputView.askTryCount();
-        this.cars = Cars.fromNames(carNames);
-        this.racingManager = new RacingManager(tryCount);
+        this.racing = new Racing(carNames, tryCount);
     }
 
-    private void startRacing() {
+    public void playRacing() {
         outputView.printResultAnnouncement();
-        while (racingManager.canMove()) {
-            cars.move();
-            racingManager.countMove();
-            outputView.printAllCarPositionByState(cars.collectAllState());
+        while (racing.canMove()) {
+            racing.move();
+            List<CarState> states = racing.captureCurrentState();
+            outputView.printAllCarPositionByState(states);
         }
     }
 
-    private void summarizeRace() {
-        racingResult = new RacingResult(cars, new MaximumForwardStrategy());
-        outputView.printWinnerCar(racingResult.determineWinnerNames());
+    public void finishRacing() {
+        List<String> winnerCarNames = racing.determineWinnerNames();
+        outputView.printWinnerCar(winnerCarNames);
     }
 }
