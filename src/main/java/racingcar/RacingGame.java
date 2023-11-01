@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.InputReader.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -17,12 +19,13 @@ public class RacingGame {
 
 
     public void play() {
-        String carNames = inputCarNames();
-        carNameList = parseCarNamesToList(carNames);
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        carNameList = inputCarNames();
         cars = new ArrayList<>();
         for (String car : carNameList) {
             cars.add(new Car(car));
         }
+        System.out.println("시도할 회수는 몇회인가요?");
         trialTimes = inputTrialTimes();
 
         System.out.println("실행 결과");
@@ -33,21 +36,6 @@ public class RacingGame {
 
         String winner = findWinner();
         System.out.println("최종 우승자 : " + winner);
-    }
-
-    private String inputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Console.readLine();
-    }
-
-    private List<String> parseCarNamesToList(String carNames) {
-        List<String> carNameList = Arrays.stream(carNames.split(","))
-                .filter(name -> name.length() <= 5)
-                .collect(Collectors.toList());
-
-        carNamesValidation(carNames, carNameList);
-
-        return carNameList;
     }
 
     private void carNamesValidation(String carNames, List<String> carNameList) {
@@ -71,13 +59,6 @@ public class RacingGame {
         return str.chars()
                 .filter(c -> c == ch)
                 .count();
-    }
-
-
-    private int inputTrialTimes() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String inputTrialTimes = Console.readLine();
-        return checkIsPositiveInteger(inputTrialTimes);
     }
 
     private int checkIsPositiveInteger(String inputTrialTimes) {
