@@ -10,9 +10,16 @@ import java.util.List;
 
 public class GameReferee {
 
+
+    private static final int MID_NUMBER = 4;
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 9;
-    private static final int MID_NUMBER = 4;
+
+    private RandomGenerator randomGenerator;
+
+    public GameReferee(RandomGenerator randomGenerator) {
+        this.randomGenerator = randomGenerator;
+    }
 
     public void allMove(List<Car> carList) {
 
@@ -25,7 +32,7 @@ public class GameReferee {
     }
 
     private boolean isMove() {
-        int random = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+        int random = randomGenerator.pickNumberInRange(MIN_NUMBER,MAX_NUMBER);
 
         if (random < MID_NUMBER) {
             return false;
