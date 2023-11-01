@@ -9,11 +9,14 @@ import java.util.StringJoiner;
 
 public class RacingCars {
 
+    private static final String RACING_CAR_NAME_SEPARATOR = ",";
+
     private static final Integer MINIMUM_NUMBER_OF_CAR_NAMES = 2;
 
     private List<RacingCar> racingCars;
 
-    public RacingCars(String[] carNames) {
+    public RacingCars(String carNamesBeforeSeparation) {
+        String[] carNames = carNamesBeforeSeparation.split(RACING_CAR_NAME_SEPARATOR);
         validateCarNameDuplicate(carNames);
         validateNumberOfCarNames(carNames);
         this.racingCars = Arrays.stream(carNames).map(RacingCar::new).toList();

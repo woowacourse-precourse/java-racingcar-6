@@ -8,11 +8,9 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-    private static final String RACING_CAR_NAME_SEPARATOR = ",";
-
-    public String[] readCarNames() {
+    public String readCarNames() {
         System.out.println(INPUT_RACING_CAR_NAME);
-        return Console.readLine().split(RACING_CAR_NAME_SEPARATOR);
+        return Console.readLine();
     }
 
     public Integer readNumberOfAttempts() {

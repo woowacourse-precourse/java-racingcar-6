@@ -20,7 +20,7 @@ public class CarRacingGame {
     }
 
     public void run(){
-        String[] carNames = inputView.readCarNames();
+        String carNames = inputView.readCarNames();
         RacingCars racingCars = new RacingCars(carNames);
         Integer numberOfAttempts = inputView.readNumberOfAttempts();
         validateNumberOfAttemptsIsOneOrLess(numberOfAttempts);
