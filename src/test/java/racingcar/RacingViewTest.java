@@ -32,6 +32,18 @@ public class RacingViewTest {
                 assertThatThrownBy(() -> view.inputCarNames())
                         .isInstanceOf(IllegalArgumentException.class)
         );
-
     }
+
+
+    @Test
+    @DisplayName("inputPlayCount 숫자 변환 실패 테스트")
+    void inputPlayCount_not_convert_number_fail() {
+        systemIn("1푸파오\n");
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> view.inputPlayCount())
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 }
