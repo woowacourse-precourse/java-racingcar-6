@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import org.mockito.internal.util.StringUtil;
 import racingcar.model.Car;
 
 import java.util.ArrayList;
@@ -12,8 +13,10 @@ public class Output {
     public void printCarStatus(Car car, int index) {
         String carName = car.carName.get(index);
         int carDistance = car.carDistance[index];
+        String carDistanceCharacter = "-";
+        carDistanceCharacter = carDistanceCharacter.repeat(carDistance);
 
-        System.out.println(String.format("%s : %d", carName, carDistance));
+        System.out.println(String.format("%s : %s", carName, carDistanceCharacter));
     }
 
     public void printWinner(Car car) {
@@ -25,12 +28,13 @@ public class Output {
         for (String carName : car.carName) {
             int carNameIndex = car.carName.indexOf(carName);
 
-            if (maxCarDistance == carNameIndex) {
+            if (maxCarDistance == car.carDistance[carNameIndex]) {
                 winner.add(carName);
             }
         }
 
-        String result = winner.stream().collect(Collectors.joining(", "));
+        String result = winner.stream()
+                .collect(Collectors.joining(", "));
         System.out.print(result);
     }
 }
