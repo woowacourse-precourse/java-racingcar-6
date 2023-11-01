@@ -3,17 +3,15 @@ package racingcar.controller;
 import racingcar.model.Car;
 import racingcar.model.GameNumber;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static racingcar.model.Cars.generateCar;
+import static racingcar.util.CarNameValidator.validateCarNameInput;
 import static racingcar.view.InputView.promptCarNames;
 import static racingcar.view.InputView.promptTryCount;
-
 import static racingcar.view.OutputView.printExecutionResultMessage;
 import static racingcar.view.OutputView.printFinalWinnerMessage;
-
 
 public class GameController {
     private static int tryCount;
@@ -21,9 +19,15 @@ public class GameController {
     private static List<Car> winnerList;
 
     public static void startGame() {
-        carsList = generateCar(promptCarNames());
+        carsList = generateCar(validateCarNameInput(promptCarNames()));
         tryCount = promptTryCount();
         printExecutionResultMessage();
+        executionResult();
+        printFinalWinnerMessage();
+        getWinner();
+    }
+
+    private static void executionResult() {
         while (tryCount-- > 0) {
             for (Car car : carsList) {
                 GameNumber gameNumber = new GameNumber();
@@ -32,13 +36,6 @@ public class GameController {
                 System.out.println(car.getName() + " : " + process);
             }
             System.out.println();
-
-        }
-        printFinalWinnerMessage();
-        winnerList = findWinners(carsList);
-
-        for (Car car : winnerList) {
-            System.out.println(car.getName());
         }
     }
 
@@ -48,6 +45,16 @@ public class GameController {
             sb.append("-");
         }
         return sb.toString();
+    }
+
+    private static void getWinner() {
+        winnerList = findWinners(carsList);
+        StringBuilder answer = new StringBuilder();
+        for (Car car : winnerList) {
+            answer.append(car.getName()).append(",");
+        }
+        answer.deleteCharAt(answer.length() - 1);
+        System.out.println(answer);
     }
 
     private static List<Car> findWinners(List<Car> carsList) {
