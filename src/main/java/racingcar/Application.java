@@ -1,9 +1,6 @@
 package racingcar;
 
-//            // TODO: 실행 결과
 
-//        }
-//
 //        // TODO: 전진 "-" 개수 비교
 //        int maxCount = 0;
 //        List<String> maxCountCars = new ArrayList<>();

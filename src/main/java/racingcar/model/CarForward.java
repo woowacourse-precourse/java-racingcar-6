@@ -4,7 +4,7 @@ import static racingcar.model.Car.carsNum;
 import static racingcar.model.Car.randomNumArray;
 
 public class CarForward {
-    static StringBuilder[] forwardCount = new StringBuilder[carsNum];
+    public static StringBuilder[] forwardCount = new StringBuilder[carsNum];
     static int[] forwardCountInt = new int[carsNum];
 
     public static void forwardCountInit() {

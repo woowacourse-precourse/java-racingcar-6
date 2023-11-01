@@ -8,7 +8,7 @@ import racingcar.view.OutputView;
 public class GameController {
     public void run() {
         OutputView.printCarName();
-        String[] cars = InputView.inputCarNames();
+        InputView.inputCarNames();
 
         OutputView.printGameCount();
         int gameCount = InputView.inputGameCount();
@@ -20,8 +20,10 @@ public class GameController {
             CarForward.forwardCountInit();
             CarForward.carMoreThanFour();
 
-
+            OutputView.printForwardResult();
         }
+
+
 
         OutputView.printWinners();
     }

@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import static racingcar.model.Car.carsNum;
+import static racingcar.model.CarForward.forwardCount;
+import static racingcar.view.InputView.cars;
+
 import java.util.List;
 
 public class OutputView {
@@ -16,7 +20,15 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printWinners(List<String> winners) {
+    public static void printForwardResult() {
+        for (int i = 0; i < carsNum; i++) {
+            System.out.print(cars[i] + " : ");
+            System.out.println(forwardCount[i]);
+        }
+        System.out.println();
+    }
+
+    public static void printWinners() {
         System.out.print("최종 우승자 : ");
     }
 }
