@@ -1,5 +1,6 @@
 ## 기능 목록
 
+###  UserInput Class 
 1. 자동차 이름 입력 기능 `Map<String, Integer> inputCarNames()`
    - 입력값 검증
      1. 길이는 1 ~ 5자리 만 가능
@@ -11,7 +12,7 @@
       1. 숫자만 입력 가능
       2. 1 ~ 2147483647(MAX_INTEGER 값) 값만 가능
 
-
+###  RacingCarGame Class
 3. 자동차 전진 기능 `Map<String, Integer> executeAllRounds(Map<String, Integer> carNameAndMovementCountMap, int numberOfRounds)`
    - 라운드 별 전진 결과 출력
 
