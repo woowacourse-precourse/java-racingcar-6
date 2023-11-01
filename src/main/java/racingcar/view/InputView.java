@@ -35,38 +35,38 @@ public class InputView {
 
     }
 
-    private void validateDuplicateNames(String[] carNames) {
+    private static void validateDuplicateNames(String[] carNames) {
         Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
         if (uniqueNames.size() != carNames.length) {
             throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
         }
     }
 
-    private void validateLength(String carName) {
+    private static void validateLength(String carName) {
         if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
 
-    private void validateIsNotEmpty(String carName) {
+    private static void validateIsNotEmpty(String carName) {
         if (carName.length() == 0) {
             throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
         }
     }
 
-    private void validateNoSpaces(String carName) {
+    private static void validateNoSpaces(String carName) {
         if (carName.contains(" ")) {
             throw new IllegalArgumentException("자동차 이름 사이에 공백이 있습니다.");
         }
     }
 
-    private void validateFormat(String carName) {
+    private static void validateFormat(String carName) {
         if (!carName.matches("[a-zA-Z0-9가-힣]+")) {
             throw new IllegalArgumentException("자동차 이름은 알파벳, 숫자, 한글만 사용 가능합니다.");
         }
     }
 
-    private int parseToInt(String input) {
+    private static int parseToInt(String input) {
         try {
             int progressCount = Integer.parseInt(input);
             validateIsPositive(progressCount);
@@ -76,7 +76,7 @@ public class InputView {
         }
     }
 
-    private void validateIsPositive(int progressCount) {
+    private static void validateIsPositive(int progressCount) {
         if (progressCount <= 0) {
             throw new IllegalArgumentException("라운드 수는 1 이상의 정수여야 합니다.");
         }
