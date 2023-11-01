@@ -5,6 +5,9 @@ public class GameManager {
     Racing racing;
     PrintResult printResult;
     GameManager(){
+        init();
+    }
+    private void init(){
         userInput = new UserInput();
         racing = new Racing();
         printResult = new PrintResult();
