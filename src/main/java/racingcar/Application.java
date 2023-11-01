@@ -12,6 +12,10 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         PlayCars playCars = new PlayCars(scanner);
 
+        playCars.input();
 
+        playCars.getResult();
+
+        playCars.getWinner();
     }
 }

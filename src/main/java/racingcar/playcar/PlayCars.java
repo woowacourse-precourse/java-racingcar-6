@@ -8,21 +8,13 @@ import java.util.stream.Collectors;
 public class PlayCars {
 
     private final Scanner scanner;
+    private final List<String> winners = new ArrayList<>();
     private List<String> cars;
     private Map<String, Integer> carToDistance;
     private int numberOfTry;
-    private List<String> winners;
 
     public PlayCars(Scanner scanner) {
         this.scanner = scanner;
-    }
-
-    public List<String> getCars() {
-        return cars;
-    }
-
-    public int getNumberOfTry() {
-        return numberOfTry;
     }
 
     public void input() {
@@ -49,10 +41,14 @@ public class PlayCars {
 
     public void getResult() {
         System.out.println("실행 결과");
-        eachCurrent();
+        for (int i = 0; i < numberOfTry; i++) {
+            eachCurrent();
+        }
     }
 
     private void eachCurrent() {
+        eachTry();
+
         for (String car : cars) {
             System.out.printf("%s : %s%n", car, "-".repeat(carToDistance.get(car)));
         }
@@ -68,6 +64,5 @@ public class PlayCars {
             }
         }
         System.out.printf("최종 우승자 : %s", String.join(", ", winners));
-
     }
 }
