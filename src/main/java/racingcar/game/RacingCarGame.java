@@ -32,11 +32,9 @@ public class RacingCarGame {
                 = new RacingCarRegistry(actionNumberGenerator, racingCars, moveOpportunity);
 
         view.printResultTitle();
-
-        do {
+        while (!racingCarRegistry.isRacingOver()) {
             view.printResult(toDtoList(racingCarRegistry.move()));
-        } while (!racingCarRegistry.isRacingOver());
-
+        }
         view.printWinners(toDtoList(racingCarRegistry.calculateWinner()));
     }
 }
