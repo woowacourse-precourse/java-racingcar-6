@@ -48,7 +48,6 @@ public class RacingCarView {
             sb.append('\n');
         }
 
-        sb.append('\n');
         System.out.println(sb);
     }
 
