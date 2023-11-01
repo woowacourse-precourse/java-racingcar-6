@@ -20,4 +20,18 @@ class CarsTest {
             assertEquals(carNames[i], carList.get(i).getName());
         }
     }
+
+    @Test
+    @DisplayName("자동차들에게 이동하기위한 랜덤값이 잘 들어가는지 확인하는 테스트")
+    public void testMoveAllCars() {
+        String[] carNames = { "Car1", "Car2", "Car3" };
+        Cars cars = new Cars(carNames);
+        cars.moveAllCars();
+
+        List<Car> carList = cars.getCars();
+
+        for (Car car : carList) {
+            assertTrue(car.getDistance() >= 0);
+        }
+    }
 }
