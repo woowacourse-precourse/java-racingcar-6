@@ -1,14 +1,14 @@
 package racingcar.domain;
 
 public class Car {
+
     private final static int NAME_LENGTH_CRITERION = 5;
-    private final static int INIT_POSITION_CRITERION = 0;
     private final String name;
-    private Position position;  // final 제거
+    private final Position position;
 
     private Car(final String name) {
         this.name = name;
-        this.position = new Position(INIT_POSITION_CRITERION);
+        this.position = new Position();
     }
 
     public static Car fromName(String name) {
@@ -26,7 +26,7 @@ public class Car {
 
     public void moveForward(int number) {
         if (position.isMovable(number)) {
-            this.position = this.position.move();
+            position.move();
         }
     }
 

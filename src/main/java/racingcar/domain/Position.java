@@ -1,15 +1,18 @@
 package racingcar.domain;
 
 public class Position {
-    private final static int MOVING_FORWARD_CRITERION = 4;
-    private final int position;
 
-    public Position(int position) {
-        this.position = position;
+    private final static int MOVING_FORWARD_CRITERION = 4;
+    private final static int INIT_POSITION_CRITERION = 0;
+
+    private int position;
+
+    public Position() {
+        this.position = INIT_POSITION_CRITERION;
     }
 
-    public Position move() {
-        return new Position(this.position + 1);
+    public void move() {
+        this.position++;
     }
 
     public boolean isMovable(int number) {
