@@ -11,13 +11,14 @@ import racingcar.domain.Referee;
 @DisplayName("레이싱 게임 테스트")
 public class RacingGameTest {
 
+    @DisplayName("성공: 자동차이름을_입력하면_쉼표를_기준으로_분리할_수_있다")
     @Test
-    void 자동차이름을_입력하면_쉼표를_기준으로_분리할_수_있다() {
+    void test() {
         String input = "pobi,woni";
 
         InputProcessor inputProcessor = new InputProcessor();
         List<Car> cars = inputProcessor.getCars(List.of(input.split(",")));
-        Integer round = 5;
+        int round = 5;
         Referee referee = new Referee();
 
         RacingGame racingGame = new RacingGame(cars, referee, round);
