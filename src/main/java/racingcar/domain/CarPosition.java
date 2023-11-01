@@ -24,4 +24,12 @@ public class CarPosition {
             throw new IllegalArgumentException("자동차 위치는 0보다 크거나 같아야 합니다.");
         }
     }
+
+    public void move() {
+        this.position++;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }

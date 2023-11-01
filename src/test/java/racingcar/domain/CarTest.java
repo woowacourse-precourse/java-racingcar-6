@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
@@ -35,5 +36,19 @@ class CarTest {
     void validCarTest(final String name) {
         // expected
         assertDoesNotThrow(() -> Car.zeroPositionFrom(name));
+    }
+
+    @Test
+    @DisplayName("이동 변수가 참인 경우 이동한다")
+    void canMoveTest() {
+        // given
+        Car car = Car.zeroPositionFrom("T");
+        MovingStrategy strategy = () -> true;
+
+        // when
+        car.move(strategy);
+
+        // then
+        assertEquals(1, car.getPosition());
     }
 }

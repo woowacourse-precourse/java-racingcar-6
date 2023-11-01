@@ -12,4 +12,14 @@ public class Car {
     public static Car zeroPositionFrom(final String name) {
         return new Car(CarName.from(name), CarPosition.zeroPosition());
     }
+
+    public void move(final MovingStrategy strategy) {
+        if (strategy.canMove()) {
+            carPosition.move();
+        }
+    }
+
+    public int getPosition() {
+        return carPosition.getPosition();
+    }
 }
