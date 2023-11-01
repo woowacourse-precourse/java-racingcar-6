@@ -13,13 +13,13 @@ public class Car {
     }
 
     private void validateCarName(String name) {
-        if(name.length() > 5) {
+        if (name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
         }
     }
 
     public void moveOrStop(int determinationNumber) {
-        if(determinationNumber >= MOVE_CONDITION) {
+        if (determinationNumber >= MOVE_CONDITION) {
             position++;
         }
     }

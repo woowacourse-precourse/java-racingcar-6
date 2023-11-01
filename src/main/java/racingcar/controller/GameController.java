@@ -32,7 +32,7 @@ public class GameController {
         Game game = new Game(carNames);
 
         outputView.printResultPhrase();
-        playMultipleTimes(game,trialNumber);
+        playMultipleTimes(game, trialNumber);
         outputView.printWinner(game.pickWinner());
     }
 
