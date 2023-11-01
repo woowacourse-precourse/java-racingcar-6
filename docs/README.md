@@ -1,6 +1,6 @@
-1. []경주 할 자동차 이름 입력받기 StartCondition#ipuntCarName()
-    - []쉼표기준 구분
-    - []5자이하 이름
+1. [V]경주 할 자동차 이름 입력받기 StartCondition#ipuntCarName()
+    - []쉼표기준 구분 StartCondition#checkIpuntCarName()
+    - []5자이하 이름 StartCondition#ckeckICarName()
 2. []시도 횟수 입력받기 StartCondition#inputAttemptNumber()
     - []숫자만 입력 가능하게 하기
 3. []각 자동차의 움직임 판단하기 JudgeMovement
