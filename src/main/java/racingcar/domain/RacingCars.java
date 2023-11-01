@@ -11,11 +11,11 @@ public class RacingCars {
     }
 
     public void initRacingCars(String carNames){
-        String[] carNameIndex = carNames.split(",");
-        this.racingCars = new ArrayList<>();
+        String[] carNameIndexs = carNames.split(",");
+        racingCars = new ArrayList<>();
 
-        for(String car : carNameIndex){
-            this.racingCars.add(new Car(car));
+        for(String car : carNameIndexs){
+            racingCars.add(new Car(car));
         }
     }
 
