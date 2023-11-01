@@ -56,7 +56,7 @@ public class RacingGame {
         // find winner with max distance
         return carGroup.stream()
                 .filter(car -> max == car.getCarLocationLength())
-                .map(car -> car.getName())
+                .map(car -> car.getCarName())
                 .map(carName -> carName.toString())
                 .collect(Collectors.toList());
     }
