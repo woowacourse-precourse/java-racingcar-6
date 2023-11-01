@@ -8,9 +8,6 @@ import java.util.List;
 
 public class User {
 
-    private List<String> userInputCarNames;
-    private int userInputTryCount;
-
     public User() {
     }
 
@@ -18,12 +15,12 @@ public class User {
         InputView.inputCarName();
         String carNames = Console.readLine();
         String[] carNamesSplit = carNames.split(",");
-        userInputCarNames = Arrays.asList(carNamesSplit);
-        exceed5Digits();
-        return userInputCarNames;
+        List<String> carNamesList = Arrays.asList(carNamesSplit);
+        exceed5Digits(carNamesList);
+        return carNamesList;
     }
 
-    public void exceed5Digits() {
+    public void exceed5Digits(List<String> userInputCarNames) {
         for(String carName : userInputCarNames) {
             if(carName.length() > 5) {
                 throw new IllegalArgumentException();
