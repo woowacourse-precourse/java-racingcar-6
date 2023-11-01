@@ -3,7 +3,6 @@ package model;
 public class MoveCount implements Comparable<MoveCount> {
 
     private static final int INITIAL_MOVE_COUNT = 0;
-    private static final int EQUAL_VALUE_COMPARE_RESULT = 0;
 
     private Integer moveCount;
 
@@ -17,10 +16,6 @@ public class MoveCount implements Comparable<MoveCount> {
 
     public void moveForward() {
         moveCount++;
-    }
-
-    public boolean hasSameValue(final MoveCount countValue) {
-        return compareTo(countValue) == EQUAL_VALUE_COMPARE_RESULT;
     }
 
     public int getMoveCount() {

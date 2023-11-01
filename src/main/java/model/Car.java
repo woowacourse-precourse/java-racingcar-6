@@ -21,7 +21,7 @@ public class Car {
     }
 
     public boolean hasSameMoveCount(final MoveCount count) {
-        return moveCount.hasSameValue(count);
+        return moveCount.equals(count);
     }
 
     public String getNameValue() {
