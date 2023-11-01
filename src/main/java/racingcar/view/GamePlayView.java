@@ -24,9 +24,15 @@ public class GamePlayView {
         return attemptsCount;
     }
 
-    public void showTurnResult(HashMap<String, String> carList) {
-        for(String key : carList.keySet()) {
-            System.out.println(key + " : " +  carList.get(key));
+    public void showGameResult(List<Car> carList, int attempts) {
+        System.out.println(SHOW_GAME_RESULT);
+
+        for(int i=0; i<attempts; i++) {
+            for(Car car : carList) {
+                car.controlCarMovement();
+                System.out.println(car.getName() + " : " + car.showCarMovement());
+            }
+            System.out.println();
         }
     }
 
