@@ -5,7 +5,7 @@ public class Car {
     private int position = 0;
     private final int MAXIMUM_NICKNAME_LENGTH = 5;
 
-    Car(String nickname) {
+    public Car(String nickname) {
         validate(nickname);
         this.nickname = nickname;
     }
@@ -25,5 +25,9 @@ public class Car {
         if (nickname.length() > MAXIMUM_NICKNAME_LENGTH) {
             throw new IllegalArgumentException("이름은 5자 이하로 입력해야 합니다.");
         }
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
