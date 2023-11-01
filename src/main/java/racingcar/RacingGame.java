@@ -12,4 +12,11 @@ public class RacingGame {
         this.cars = cars;
         this.rounds = rounds;
     }
+    private void playRound() {
+        for (Car car : cars) {
+            int randomNumber = car.getRandomNumber();
+            car.move(randomNumber);
+        }
+    }
+
 }
