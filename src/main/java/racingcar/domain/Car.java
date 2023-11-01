@@ -13,4 +13,17 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public StringBuilder getDistnace() {
+        return distnace;
+    }
+
+    public void moveOrStop() {
+        final int MIN_RANGE = 4;
+        NumberGenerator numberGenerator = new NumberGenerator();
+        int randomNumber = numberGenerator.createRandomNumber();
+        if (randomNumber >= MIN_RANGE) {
+            distnace.append("-");
+        }
+    }
 }
