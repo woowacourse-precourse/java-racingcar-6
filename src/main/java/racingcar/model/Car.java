@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private String name;
 
@@ -19,6 +21,17 @@ public class Car {
     }
 
     public void moveForward() {
-        this.location++;
+        if (isMoving()) {
+            this.location++;
+        }
+    }
+
+    private boolean isMoving() {
+        return Randoms.pickNumberInRange(0, 9) >= 4;
+    }
+
+    public void printLocation() {
+        String locationBar = "-".repeat(getLocation());
+        System.out.println(getName() + " : " + locationBar);
     }
 }

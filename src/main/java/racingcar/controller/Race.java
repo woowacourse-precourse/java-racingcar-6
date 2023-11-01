@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Car;
 import racingcar.model.RacingGroup;
 import racingcar.service.Register;
 
@@ -19,6 +20,17 @@ public class Race {
     public void start() {
         makeRacingGroup();
         setChance();
+        while (chance-- > 0) {
+            race();
+        }
+    }
+
+    private void race() {
+        for (Car car : racingGroup.getCars()) {
+            car.moveForward();
+            car.printLocation();
+        }
+
     }
 
     private void makeRacingGroup() {
