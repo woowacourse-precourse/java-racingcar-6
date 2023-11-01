@@ -6,7 +6,7 @@ public class InputValidator {
 
     public static void checkCarNameLength(List<String> inputStrList) {
         for (String str : inputStrList) {
-            if (str.length() > 5) {
+            if (str.length() > 5 || str.length()==0) {
                 throw new IllegalArgumentException("자동차의 이름은 5글자 이하여야 합니다.");
             }
         }
