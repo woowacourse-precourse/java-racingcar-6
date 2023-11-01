@@ -22,7 +22,7 @@ public class DisplayRoundOutputView implements OutputView {
         Round round = (Round) model.get(RegisterRoundController.ROUND_KEY);
         RacingCars racingCars = (RacingCars) model.get(RegisterCarNamesController.RACING_CARS_KEY);
 
-        IntStream.range(0, round.getRound())
+        IntStream.range(START_WITH_ZERO, round.getRound())
                 .forEach((num) -> displayRoundResult(racingCars));
     }
 

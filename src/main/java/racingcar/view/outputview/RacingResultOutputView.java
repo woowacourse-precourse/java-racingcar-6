@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.controller.RegisterCarNamesController;
+import racingcar.model.Car;
 import racingcar.model.RacingCars;
 
 public class RacingResultOutputView implements OutputView {
@@ -20,7 +21,7 @@ public class RacingResultOutputView implements OutputView {
     private void showWinners(RacingCars racingCars) {
         List<String> winnerNames = racingCars.findWinner()
                 .stream()
-                .map(winner -> winner.getCarName())
+                .map(Car::getCarName)
                 .collect(Collectors.toList());
 
         String winnerNamesWithComma = String.join(JOIN_COMMA, winnerNames);

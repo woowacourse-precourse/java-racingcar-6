@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import racingcar.exception.ErrorException;
 
 public class RacingCars {
+    private static final int START_INCLUSIVE = 0;
+    private static final int END_INCLUSIVE = 9;
     private final List<Car> racingCars;
 
     public RacingCars(List<Car> racingCars) {
@@ -16,7 +18,7 @@ public class RacingCars {
 
     public void checkEachCar() {
         racingCars.stream()
-                .forEach(car -> car.move(Randoms.pickNumberInRange(0,9)));
+                .forEach(car -> car.move(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE)));
     }
 
     public void checkEachCarWithNumber(int number) {
@@ -38,7 +40,7 @@ public class RacingCars {
 
     private void validateRacingCars(List<Car> racingCars) {
         List<String> racingCarNames = racingCars.stream()
-                .map(racingCar -> racingCar.getCarName())
+                .map(Car::getCarName)
                 .collect(Collectors.toList());
 
         hasDuplicatedNames(racingCarNames);
