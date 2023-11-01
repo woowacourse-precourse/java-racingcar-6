@@ -2,107 +2,88 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        String[] carNames = namingCars();
-        int tryCount = racingTimes();
+        List<Car> cars = inputCarNames();
+        int tryCount = inputTryCount();
 
-        userInput(carNames, tryCount);
-
-        Car[] cars = racingCarCandidates(carNames);
-        racingStart(tryCount, cars);
-        printWinners(cars);
-    }
-
-    private static void userInput(String[] carNames, int tryCount) {
-        if (carNames.length < 2) {
-            throw new IllegalArgumentException("최소 두 대의 자동차를 입력해주세요");
+        System.out.println("실행 결과");
+        for (int i = 0; i < tryCount; i++) {
+            race(cars);
+            printRaceResult(cars);
+            System.out.println();
         }
-        if (tryCount < 1) {
-            throw new IllegalArgumentException("한 번 이상의 이동 횟수를 입력해주세요!");
-        }
+
+        List<String> winners = getWinners(cars);
+        String winnerMessage = "최종 우승자 : " + String.join(", ", winners);
+        System.out.println(winnerMessage);
     }
 
-    private static String[] namingCars() {
-        System.out.print("경주할 자동차 이름 입력(쉼표 기준): ");
-        String[] carNames = Console.readLine().split(",");
-        validateCarNames(carNames);
-        return carNames;
-    }
-
-    private static void validateCarNames(String[] carNames) {
+    private static List<Car> inputCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분)");
+        String input = Console.readLine();
+        String[] carNames = input.split(",");
+        List<Car> cars = new ArrayList<>();
         for (String name : carNames) {
-            if (name.trim().length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다.");
-            }
-        }
-    }
-
-    private static int racingTimes() {
-        System.out.print("시도할 회수는 몇회인가요?");
-        int tryCount = Integer.parseInt(Console.readLine());
-        validateRacingTimes(tryCount);
-        return tryCount;
-    }
-
-    private static void validateRacingTimes(int tryCount) {
-        if (tryCount < 1) {
-            throw new IllegalArgumentException("한 번 이상의 이동 횟수를 입력해주세요!");
-        }
-    }
-
-    private static Car[] racingCarCandidates(String[] carNames) {
-        Car[] cars = new Car[carNames.length];
-        for (int i = 0; i < carNames.length; i++) {
-            cars[i] = new Car(carNames[i]);
+            validateName(name.trim());
+            cars.add(new Car(name.trim()));
         }
         return cars;
     }
 
-    private static void racingStart(int tryCount, Car[] cars) {
-        for (int i = 0; i < tryCount; i++) {
-            for (Car car : cars) {
-                car.moveOrStop(Randoms.pickNumberInRange(0, 9));
-                System.out.println(car.getName() + ":" + getPositionString(car.getPosition()));
-            }
-            System.out.println();
+    private static void validateName(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
 
-    private static void printWinners(Car[] cars) {
-        int maxPosition = getMaxPosition(cars);
-        String winners = printWinners(cars, maxPosition);
-        System.out.println("최종 우승자:" + winners);
+    private static int inputTryCount() {
+        System.out.println("시도할 회수는 몇 회인가요?");
+        String input = Console.readLine();
+        return Integer.parseInt(input);
     }
 
-    private static int getMaxPosition(Car[] cars) {
-        int maxPosition = 0;
+    private static void race(List<Car> cars) {
         for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
+            car.move(Randoms.pickNumberInRange(0, 9));
         }
-        return maxPosition;
     }
 
-    private static String printWinners(Car[] cars, int maxPosition) {
-        StringBuilder winners = new StringBuilder();
+    private static void printRaceResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.printf("%s : %s%n", car.getName(), car.getPositionString());
+        }
+    }
+
+    private static List<String> getWinners(List<Car> cars) {
+        int maxPosition = getMaxPosition(cars);
+        List<String> winners = new ArrayList<>();
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
-                if (winners.length() > 0) {
-                    winners.append(", ");
-                }
-                winners.append(car.getName()).append(" : ").append(getPositionString(car.getPosition()));
+                winners.add(car.getName());
             }
         }
-        return winners.toString();
+        return winners;
     }
 
-    private static String getPositionString(int position) {
-        return "-".repeat(Math.max(0, position));
+    private static int getMaxPosition(List<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            int position = car.getPosition();
+            if (position > maxPosition) {
+                maxPosition = position;
+            }
+        }
+        return maxPosition;
     }
 }
 
 class Car {
+    private static final int MOVE_THRESHOLD = 4;
+
     private final String name;
     private int position;
 
@@ -119,8 +100,16 @@ class Car {
         return position;
     }
 
-    public void moveOrStop(int randomNumber) {
-        if (randomNumber >= 4) {
+    public String getPositionString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            sb.append("-");
+        }
+        return sb.toString();
+    }
+
+    public void move(int randomNumber) {
+        if (randomNumber >= MOVE_THRESHOLD) {
             position++;
         }
     }
