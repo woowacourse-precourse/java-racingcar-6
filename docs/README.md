@@ -3,6 +3,7 @@
 ## 기능 목록
 
 - [O] 사용자로부터 자동차 이름을 입력받는다 - Referee#readPlayer()
+    - [O] 입력받은 값을 "," 구분자를 기준으로 나눈다 - splitMember()
     - [O] 입력받은 이름의 길이가 5를 넘는지 확인한다 - Judgment#isOverFiveLength()
 - [O] 레이스를 진행할 그룹에 사용자를 추가한다 - Referee#addGroup()
  
@@ -23,7 +24,8 @@
   - [O] 참가자의 전진값과 현재 최대 전진값을 비교한다  - Referee#compareMax()
 - [O] 우승자를 출력한다 - Referee#printWinner()
   - [O] 최대값과 비교하여 해당 선수를 우승자에 추가한다 - Referee#addMaxPlayer()
-
+  - [O] 우승자를 "," 구분자로 구분한 뒤 출력한다 - printConcatStringWithComma()
+  - 
 ## 기능 요구 사항
 
     주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.

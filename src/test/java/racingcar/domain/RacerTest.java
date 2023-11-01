@@ -18,20 +18,20 @@ class RacerTest{
     }
 
     @Test
-    void Player가_제대로된_값을_출력하는지_확인() {
+    void printDistance_출력_값_확인() {
 
         assertThat(racer.printDistance()).isEqualTo("pobi : ---");
     }
 
     @Test
-    void 값에_따라_distance가_제대로_증가하는지_확인(){
+    void getDistance_Random_값이_4보다_클_때(){
         racer.moveForward(5);
 
         assertThat(racer.getDistance()).isEqualTo(4);
     }
 
     @Test
-    void 값이_작을경우_distance가_증가하는지_확인(){
+    void getDistance_Random_값이_4보다_작을_때(){
         racer.moveForward(2);
 
         assertThat(racer.getDistance()).isEqualTo(3);
