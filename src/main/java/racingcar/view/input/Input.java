@@ -45,7 +45,8 @@ public final class Input {
                 .count();
 
         if (countNames != names.size()) {
-            throw new InputIllegalArgumentException(InputError.EXCEEDED_MAXIMUM_ERROR);
+            throw new InputIllegalArgumentException(InputError.EXCEEDED_MAXIMUM_ERROR, MAXIMUM_NAME_LENGTH,
+                    MINIMUM_NAME_LENGTH);
         }
     }
 }
