@@ -23,7 +23,9 @@ public class GameOutputController {
 
     public void printWinner() {
         Cars cars = game.getCars();
-        ArrayList<String> winners = cars.findWinners();
+        int score = cars.findMaxScore();
+
+        ArrayList<String> winners = cars.findWinners(score);
         outputView.showWinners(winners);
     }
 
