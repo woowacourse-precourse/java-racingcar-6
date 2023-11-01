@@ -1,14 +1,14 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static racingcar.util.RandomGenerator.pickNumber;
+
 import java.util.List;
 
 public class CarRace {
 
-    public static final int START_INCLUSIVE = 0;
-    public static final int END_INCLUSIVE = 9;
     private final Iteration iteration;
     private List<Car> cars;
+
     public CarRace(List<Car> cars, int iteration) {
         this.iteration = new Iteration(iteration);
         this.cars = cars;
@@ -21,8 +21,7 @@ public class CarRace {
 
     public void runRace() {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-            car.goOrStop(randomNumber);
+            car.goOrStop(pickNumber());
         }
     }
 
