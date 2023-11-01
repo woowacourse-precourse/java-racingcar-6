@@ -13,10 +13,14 @@ public class ConsoleView {
     }
 
     public int readValidNumberOfAttempts() {
-        printMessage("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
+        String input = readInput();
         validateNumberOfAttempts(input);
         return Integer.parseInt(input);
+    }
+
+    private String readInput() {
+        printMessage("시도할 회수는 몇회인가요?");
+        return Console.readLine();
     }
 
     public void printMessage(String message) {
