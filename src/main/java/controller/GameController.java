@@ -32,6 +32,7 @@ public class GameController {
     }
 
     public void proceedingGame() {
+        System.out.println("실행 결과");
         for (int i = 0; i < this.gameTimes; i++) {
             for (Car car : this.carList) {
                 car.moveCar();
@@ -40,4 +41,25 @@ public class GameController {
         }
     }
 
+    public void gameEnding() {
+        List<Car> winnerList = new ArrayList<>();
+        Car firstCar = this.carList.get(0);
+        winnerList.add(firstCar);
+        for (int i = 1; i < this.carList.size(); i++) {
+            Car winnerCar = winnerList.get(0);
+            Car otherCar = this.carList.get(i);
+
+            int winnerLocation = winnerCar.getLocation();
+            int otherCarLocation = otherCar.getLocation();
+
+            if (winnerLocation < otherCarLocation) {
+                winnerList.clear();
+                winnerList.add(otherCar);
+            } else if (winnerLocation == otherCarLocation) {
+                winnerList.add(otherCar);
+            }
+        }
+
+        OutputView.printResult(winnerList);
+    }
 }

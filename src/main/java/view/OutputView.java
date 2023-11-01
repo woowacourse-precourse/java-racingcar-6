@@ -1,11 +1,11 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.List;
 import model.Car;
 
 public class OutputView {
     public static void printProceeding(List<Car> carList) {
-        System.out.println("실행 결과");
         for (Car car : carList) {
             printCarLocation(car);
         }
@@ -20,10 +20,15 @@ public class OutputView {
         for (int i = 0; i < location; i++) {
             System.out.print("-");
         }
+        System.out.println();
     }
 
-    public static void printResult(List<String> winnerList) {
-        String winners = String.join(", ", winnerList);
-        System.out.printf("최종 우승자 : %s", winners);
+    public static void printResult(List<Car> winnerList) {
+        List<String> winners = new ArrayList<>();
+        for (Car car : winnerList) {
+            winners.add(car.getName());
+        }
+
+        System.out.printf("최종 우승자 : %s", String.join(",", winners));
     }
 }
