@@ -14,6 +14,7 @@ public class RacingCar {
 
     private final RacingCarView racingCarView;
     private Cars cars;
+    private int tryCount;
 
     public RacingCar() {
         racingCarView = RacingCarView.getInstance();
@@ -23,7 +24,7 @@ public class RacingCar {
         List<String> nameList = inputCarName();
         createCarList(nameList);
 
-        inputTryCount();
+        tryCount = inputTryCount();
     }
 
     private List<String> inputCarName() {
@@ -41,9 +42,12 @@ public class RacingCar {
         cars = new Cars(carList.size(), carList);
     }
 
-    private void inputTryCount() {
+    private int inputTryCount() {
         racingCarView.printInputTryCountMessage();
 
-        String countString = readLine();
+        String tryCountString = readLine();
+        Validator.validateTryCount(tryCountString);
+
+        return Integer.parseInt(tryCountString);
     }
 }
