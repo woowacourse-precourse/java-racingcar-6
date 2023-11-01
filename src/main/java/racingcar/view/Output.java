@@ -2,7 +2,6 @@ package racingcar.view;
 
 import racingcar.model.Car;
 import racingcar.controller.WhoIsWinner;
-
 import java.util.List;
 
 public class Output {

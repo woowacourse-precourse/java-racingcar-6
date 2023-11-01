@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 

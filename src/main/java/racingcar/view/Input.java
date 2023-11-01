@@ -8,7 +8,7 @@ public class Input {
     public static String[] carName() {
         String carNameAll = Console.readLine();
         String[] carNameUnit = carNameAll.split(",");
-        for (String name : carNameUnit){
+        for (String name : carNameUnit) {
             CarNameException.carNameLengthException(name);
             CarNameException.blankException(name);
         }
@@ -21,6 +21,4 @@ public class Input {
         String round = Console.readLine();
         return RoundException.noIntRoundException(round);
     }
-
-
 }
