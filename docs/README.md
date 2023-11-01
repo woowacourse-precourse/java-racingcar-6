@@ -26,3 +26,7 @@
 
 ## 도메인 모델
 ![RacingCarGame.png](RacingCarGame.png)
+
+- RacingCar -> getName() 추가
+- Winner -> viewWinner() 추가
+- RacingGame -> doGame() 추가
