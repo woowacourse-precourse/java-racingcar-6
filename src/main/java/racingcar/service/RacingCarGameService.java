@@ -1,11 +1,10 @@
 package racingcar.service;
 
-import racingcar.util.RandomNumberGenerator;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import racingcar.util.RandomNumberGenerator;
 
 public class RacingCarGameService {
 
@@ -19,14 +18,16 @@ public class RacingCarGameService {
         return racingProgressStatus;
     }
 
-    public void playSingleGame(RandomNumberGenerator racingNumberGenerator, List<String> carNames, LinkedHashMap<String, Integer> racingProgressStatus) {
+    public void playSingleGame(RandomNumberGenerator racingNumberGenerator, List<String> carNames,
+                               LinkedHashMap<String, Integer> racingProgressStatus) {
         for (String carName : carNames) {
             int randomNumber = racingNumberGenerator.getRandomNumber();
             processMoveDecision(randomNumber, racingProgressStatus, carName);
         }
     }
 
-    private void processMoveDecision(int randomNumber, LinkedHashMap<String, Integer> racingProgressStatus, String carName) {
+    private void processMoveDecision(int randomNumber, LinkedHashMap<String, Integer> racingProgressStatus,
+                                     String carName) {
         if (isMoveForward(randomNumber)) {
             moveForward(racingProgressStatus, carName);
         }

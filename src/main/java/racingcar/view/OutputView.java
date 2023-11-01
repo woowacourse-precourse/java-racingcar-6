@@ -29,11 +29,8 @@ public class OutputView {
         System.out.println(ExecutionResult);
     }
 
-    private void makeCarMovingResult(
-            LinkedHashMap<String, Integer> racingProgressStatus,
-            String carName,
-            StringBuilder ExecutionResult
-    ) {
+    private void makeCarMovingResult(LinkedHashMap<String, Integer> racingProgressStatus, String carName,
+                                     StringBuilder ExecutionResult) {
         ExecutionResult.append(carName)
                 .append(" : ");
         for (int i = 0; i < racingProgressStatus.get(carName); i++) {

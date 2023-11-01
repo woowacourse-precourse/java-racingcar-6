@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.LinkedHashMap;
+import java.util.List;
 import racingcar.model.AttemptCount;
 import racingcar.model.RacingCarNames;
 import racingcar.service.RacingCarGameService;
@@ -7,16 +9,14 @@ import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-
 public class RacingCarGameController {
 
     private final RacingCarGameService racingCarGameService;
     private final InputView inputView;
     private final OutputView outputView;
 
-    public RacingCarGameController(RacingCarGameService racingCarGameService, InputView inputView, OutputView outputView) {
+    public RacingCarGameController(RacingCarGameService racingCarGameService, InputView inputView,
+                                   OutputView outputView) {
         this.racingCarGameService = racingCarGameService;
         this.inputView = inputView;
         this.outputView = outputView;
@@ -24,7 +24,8 @@ public class RacingCarGameController {
 
     public void run() {
         List<String> carNames = getCarNames();
-        LinkedHashMap<String, Integer> racingProgressStatus = racingCarGameService.initializeRacingProgressStatus(carNames);
+        LinkedHashMap<String, Integer> racingProgressStatus = racingCarGameService.initializeRacingProgressStatus(
+                carNames);
         int attemptCount = getAttemptCount();
         playRacingCarGame(attemptCount, carNames, racingProgressStatus);
         announceWinners(racingProgressStatus);
@@ -44,7 +45,8 @@ public class RacingCarGameController {
         return attemptCount;
     }
 
-    private void playRacingCarGame(int attemptCount, List<String> carNames, LinkedHashMap<String, Integer> racingProgressStatus) {
+    private void playRacingCarGame(int attemptCount, List<String> carNames,
+                                   LinkedHashMap<String, Integer> racingProgressStatus) {
         System.out.println();
         outputView.printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
