@@ -69,7 +69,7 @@ public class Application {
         }
     }
 
-    private static void validateName(String name) {
+    public static void validateName(String name) {
         if (name.trim().isEmpty() || name.contains(" ") || name.length() > 5) {
             throw new IllegalArgumentException("잘못된 이름이 포함되어 있습니다. 이름을 다시 입력하세요.");
         }
