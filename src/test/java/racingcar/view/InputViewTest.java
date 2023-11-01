@@ -30,4 +30,12 @@ class InputViewTest {
         assertThatThrownBy(inputView::askRoundNumber)
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("입력받은 시도할 회수가 양수가 아닐 시 예외를 던진다")
+    void ask_round_number_fail_not_positive_number() {
+        InputView inputView = new InputView(() -> "0");
+        assertThatThrownBy(inputView::askRoundNumber)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

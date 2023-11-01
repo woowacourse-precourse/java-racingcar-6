@@ -16,7 +16,7 @@ public class Car {
     public Car(String name, MovingStrategy movingStrategy) {
         validateHasText(name);
         validateLength(name);
-        this.name = name;
+        this.name = name.trim();
         this.movingStrategy = movingStrategy;
         this.position = 0;
     }

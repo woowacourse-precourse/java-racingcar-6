@@ -3,14 +3,11 @@ package racingcar.racing;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.car.Car;
-import racingcar.racing.CarStatus;
-import racingcar.racing.Racing;
-import racingcar.racing.RacingResult;
-import racingcar.racing.RacingRoundResult;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class RacingTest {
 
@@ -76,5 +73,15 @@ class RacingTest {
         RacingResult racingResult = racing.race();
 
         assertThat(racingResult.winnerNames()).isEqualTo(List.of(winnerName, anotherWinnerName));
+    }
+
+    @Test
+    @DisplayName("레이싱은 자동차 이름이 중복되는 경우 예외를 던진다")
+    void racing_throw_exception_when_duplicate_car_name() {
+        String duplicateName = "dup";
+        Car car = new Car(duplicateName, () -> true);
+        Car duplicateNameCar = new Car(duplicateName, () -> true);
+        assertThatThrownBy(() -> new Racing(List.of(car, duplicateNameCar), 5))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
