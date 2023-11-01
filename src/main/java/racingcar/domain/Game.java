@@ -32,6 +32,8 @@ public class Game {
         return false;
     }
 
-
+    public List<String> getWinners() {
+        return cars.getWinnersName();
+    }
 
 }
