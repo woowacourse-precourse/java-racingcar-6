@@ -3,38 +3,20 @@ package racingcar.unit.game;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mockStatic;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.groups.Tuple;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
+import racingcar.config.RandomMock;
 import racingcar.domain.RacerRegistry;
 import racingcar.domain.racer.RacingCar;
 import racingcar.game.RacingTurnProcessor;
 import racingcar.game.vo.RacerPosition;
 import racingcar.util.Random;
 
-class RacingTurnProcessorTest {
-
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-
-    private static MockedStatic<Random> random;
-
-    @BeforeAll
-    static void beforeAll() {
-        random = mockStatic(Random.class);
-    }
-
-    @AfterAll
-    static void afterAll() {
-        random.close();
-    }
+class RacingTurnProcessorTest extends RandomMock {
 
     private static RacerRegistry<RacingCar> getRacingCarRegistry(String... names) {
         List<RacingCar> racingCarList = new ArrayList<>();

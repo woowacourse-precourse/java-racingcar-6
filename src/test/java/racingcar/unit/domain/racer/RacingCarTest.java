@@ -1,36 +1,21 @@
-package racingcar.unit.racer;
+package racingcar.unit.domain.racer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mockStatic;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.MockedStatic;
 import racingcar.common.config.RacingCarRule;
+import racingcar.config.RandomMock;
 import racingcar.domain.racer.RacingCar;
 import racingcar.util.Random;
 
-class RacingCarTest {
-
-    private static MockedStatic<Random> random;
-
-    @BeforeAll
-    static void beforeAll() {
-        random = mockStatic(Random.class);
-    }
-
-    @AfterAll
-    static void afterAll() {
-        random.close();
-    }
+class RacingCarTest extends RandomMock {
 
     @Nested
     @DisplayName("이름을 기반으로 경주 자동차 생성 시")

@@ -31,7 +31,7 @@ public class RacingGameScreen {
         this.writer = writer;
     }
 
-    public RacingCarNamesInput inputRacingCar() {
+    public RacingCarNamesInput inputRacingCarNames() {
         writer.writeLine(INPUT_RACING_CAR_NAMES);
         return new RacingCarNamesInput(reader.readLine().trim());
     }

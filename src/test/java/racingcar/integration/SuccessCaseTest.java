@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.integration.config.IntegrationTest;
+import racingcar.config.IntegrationTest;
 
 class SuccessCaseTest extends IntegrationTest {
 
@@ -33,7 +33,7 @@ class SuccessCaseTest extends IntegrationTest {
 
     @DisplayName("우승자가 한 명 나오는 경우, 성공적으로 최종 우승자를 출력한다.")
     @Test
-    void success_OneWinner() {
+    void success_SingleWinner() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "5");

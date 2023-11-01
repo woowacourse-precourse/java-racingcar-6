@@ -1,4 +1,4 @@
-package racingcar.integration.config;
+package racingcar.config;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import racingcar.Application;

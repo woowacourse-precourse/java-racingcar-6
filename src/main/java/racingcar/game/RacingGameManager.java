@@ -25,12 +25,13 @@ public class RacingGameManager {
             racingGameScreen.showError(e.getMessage());
             throw e;
         } finally {
+            racerRegistry.clear();
             racingGameScreen.close();
         }
     }
 
     private void registerRacingCar() {
-        RacingCarNamesInput racingCarNamesInput = racingGameScreen.inputRacingCar();
+        RacingCarNamesInput racingCarNamesInput = racingGameScreen.inputRacingCarNames();
         racerRegistry.addAll(racingCarNamesInput.toRacingCarList());
     }
 
