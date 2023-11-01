@@ -14,14 +14,14 @@ class TotalRoundContextTest {
   @Test
   void generateTotalRound() {
     // given
-    TotalRoundContext totalRoundContext = new TotalRoundContext();
     List<CarRaceRecord> eachCarRaceRecords = List.of(
         CarRaceRecord.of("ppop", RoundRecord.of(List.of(1, 1, 2))),
         CarRaceRecord.of("popo", RoundRecord.of(List.of(1, 2, 3))),
         CarRaceRecord.of("henu", RoundRecord.of(List.of(1, 2, 3)))
     );
+
     // when
-    TotalRoundRecord totalRoundRecord = totalRoundContext.generateTotalRound(eachCarRaceRecords);
+    TotalRoundRecord totalRoundRecord = TotalRoundContext.generateTotalRound(eachCarRaceRecords);
 
     // then
     assertThat(totalRoundRecord.eachRoundRecord()).hasSize(3);

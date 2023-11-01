@@ -22,8 +22,7 @@ public class RaceContext {
   }
 
   private static TotalRoundRecord getTotalRoundRecord(List<CarRaceRecord> carRaceRecords) {
-    TotalRoundContext totalRoundContext = new TotalRoundContext();
-    return totalRoundContext.generateTotalRound(carRaceRecords);
+    return TotalRoundContext.generateTotalRound(carRaceRecords);
   }
 
   private static List<CarRaceRecord> race(RaceStartCommand command) {
