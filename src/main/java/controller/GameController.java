@@ -16,6 +16,7 @@ public class GameController {
     public void startGame() {
         String nameListString = InputView.enterCarNames();
         List<String> nameList = ReformatHandler.nameListDivider(nameListString);
+        Validator.nameValidator(nameList);
         for (String name : nameList) {
             this.carList.add(new Car(name));
         }
