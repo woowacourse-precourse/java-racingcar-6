@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.common.Constants;
 import racingcar.common.RandomUtil;
 
 public class Car {
@@ -26,7 +27,8 @@ public class Car {
     }
 
     public String getCurrentCondition() {
-        return null;
+        String count = Constants.HYPHEN.repeat(moveForwardCount);
+        return String.format("%s : %s", name, count);
     }
 
 }
