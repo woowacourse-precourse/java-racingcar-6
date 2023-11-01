@@ -1,0 +1,38 @@
+## 🏎️ 자동차 경주 기능 목록
+
+- [x] 주어진 횟수 만큼 경기 수행 및 결과 출력 - RacingcarGame#run()
+    - [x] 경기 시작 전 객체 생성 - RacingcarGame#ready()
+    - [x] 경기 시작 전진 또는 멈춤 수행 - RacingcarGame#playcar()
+    - [x] 경기 중간 결과 출력 - RacingcarGame#currentResult()
+- [x] 경기 시작 전 사용자 입력 - InputView#readyToInput()
+- [x] 각 자동차에 이름을 부여 - Car#createName()
+    - [x] 각 자동차가 전진한 수 저장을 위한 HashMap 객체 초기화 - Car#createNameMap()
+    - [x] 자동차 이름이 5자 이하 검증 - Car#validateName()
+    - [x] 자동차 이름을 쉼표(,)를 기준으로 구분 및 문자열 리스트 변환 - Car#splitToName()
+    - [x] 각 자동차 운행 - Car#driving()
+    - [x] 자동차 전진 수 변경 - Car#changeValue()
+    - [x] 단독/공동 우승자만 골라내어 반환 - Car#winnerList()
+    - [x] 우승자 찾기 - Car#findWinner()
+- [x] 사용자가 이동할 횟수 입력 - Player#moveOnInput()
+    - [x] 사용자가 입력한 이동 횟수 검증 - Player#validateCount()
+    - [x] 사용자가 입력한 이동 횟수가 0보다 큰 정수 확인 - Player#isCountRange()
+- [x] 0에서 9사이 무작위 값을 구한다. - Utils#randomNumberGenerator()
+    - [x] 0에서 9사이 무작위 값을 검증 - Utils#isNumberRange()
+    - [x] 무작위 값이 4 이상일 경우 전진 - Car#moveToGo()
+- [x] 자동차 경주 게임을 완료한 후 누가 우승했는지 알린다. - OutputView#printToResult()
+    - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분 - OutputView#winnersToMulti()
+- [x] 자동차 경주 게임 중간 결과를 알린다. - OutputView#resultForMiddle()
+    - [x] 각 자동차가 전진한 만큼 표시한다. - OutputView#currentOnGo()
+- [x] 사용자가 잘못된 값을 입력한 경우 `IllegalArgumentException` 발생 - ExceptionMessage
+
+## ♻️ 자동차 경주 기능 테스트 목록
+
+- [x] Car#createName_메서드_사용시_경주할_자동차_이름을_반환()
+    - [x] Car#createName_메서드_사용시_이름이_5자_초과_예외_발생()
+- [x] Car#driving_메서드_사용시_전진_또는_멈춤_수행()
+- [x] Car#winnerList_메서드_사용시_우승자_명단_반환()
+- [x] Player#moveOnInput_메서드_사용시_경기_시도할_횟수_반환()
+    - [x] Player#moveOnInput_메서드_사용시_0보다_큰_정수_아닐_때_예외_발생()
+- [x] Utils#randomNumberGenerator_메서드_사용시_0에서_9사이_값_반환()
+- [x] OutputView#printToResult_메서드_사용시_최종_우승자_반환()
+- [x] OutputView#resultForMiddle_메서드_사용시_중간_결과_반환()
