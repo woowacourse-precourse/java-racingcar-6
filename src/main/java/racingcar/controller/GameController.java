@@ -22,7 +22,13 @@ public class GameController {
         List<Car> participantCars = setupParticipantCars();
         int rounds = setupRounds();
 
-        Game game = startGame(participantCars, rounds);
+        Game game = gameService.createGame(participantCars);
+
+        gameView.displayResultMessage();
+        for (int i = 0; i < rounds; i++) {
+            gameService.controlCar(game);
+            gameView.displayCurrentCarPosition(game.getCurrentParticipantCarPosition());
+        }
 
         gameView.displayFinalWinner(game.getWinnerNames());
     }
@@ -41,17 +47,5 @@ public class GameController {
     private int setupRounds() {
         gameView.displayAskRounds();
         return gameService.setupRounds(Console.readLine());
-    }
-
-    private Game startGame(List<Car> participantCars, int rounds) {
-        Game game = gameService.createGame(participantCars);
-
-        gameView.displayResultMessage();
-        for (int i = 0; i < rounds; i++) {
-            gameService.controlCar(game);
-            gameView.displayCurrentCarPosition(game.getCurrentParticipantCarPosition());
-        }
-
-        return game;
     }
 }
