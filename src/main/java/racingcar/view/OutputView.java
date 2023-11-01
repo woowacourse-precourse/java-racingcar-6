@@ -1,12 +1,16 @@
 package racingcar.view;
 
+import racingcar.message.InputMessage;
+import racingcar.message.OutputMessage;
+
 import java.util.List;
 
 public class OutputView {
     public void printWinner(List<String> winner){
-        System.out.println("최종 우승자 : " + String.join(",", winner));
+        System.out.println(OutputMessage.WINNER + String.join(InputMessage.CARS_DELIMITER.getMsg(), winner));
     }
     public void printEachFoward(String carName,Integer carPlace){
-        System.out.println(carName + " : "+ "-".repeat(carPlace));
+        String carPlaceHyphen = OutputMessage.CAR_FORWARD_PLACE.getMsg();
+        System.out.println(carName + " : "+ carPlaceHyphen.repeat(carPlace));
     }
 }
