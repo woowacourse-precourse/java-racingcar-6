@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.constants.ErrorConsts;
+
 public record Name(
         String name
 ) {
@@ -17,19 +19,19 @@ public record Name(
 
     private void validateNullity(final String name) {
         if (name == null) {
-            throw new IllegalArgumentException("자동차 이름은 null이 될 수 없습니다.");
+            throw new IllegalArgumentException(ErrorConsts.NULL_NAME.getMessage());
         }
     }
 
     private void validateBlank(final String name) {
         if (name.isBlank()) {
-            throw new IllegalArgumentException("자동차 이름은 공백만으로는 구성할 수 없습니다.");
+            throw new IllegalArgumentException(ErrorConsts.BLANK_NAME.getMessage());
         }
     }
 
     private void validateLength(final String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(ErrorConsts.LONG_NAME.getFormattedMessage(MAX_NAME_LENGTH));
         }
     }
 }
