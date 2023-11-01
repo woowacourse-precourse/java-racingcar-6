@@ -26,6 +26,10 @@
 # 디렉토리 구조 설계
 ## controller
 
+## Domain
+
+### DTO
+
 ## service
 
 ## view
