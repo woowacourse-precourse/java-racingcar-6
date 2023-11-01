@@ -33,7 +33,7 @@ public class UserInputHandlerTest extends InputTest {
 
     @Test
     @DisplayName("자동차 이름 5글자초과 예외 발생 테스트")
-    void TestValidateCarNames() {
+    void testValidateCarNames() {
         UserInputHandler userInputHandler = new UserInputHandler();
         String[] carNames = {"short", "normal", "longname"};
 
@@ -45,7 +45,7 @@ public class UserInputHandlerTest extends InputTest {
 
     @Test
     @DisplayName("중복된 자동차 이름인 경우 테스트")
-    void TestDuplicateCarNames() {
+    void testDuplicateCarNames() {
         UserInputHandler userInputHandler = new UserInputHandler();
         String[] carNames = {"car1", "1212", "1212", "car20", "car20"};
 
@@ -55,7 +55,7 @@ public class UserInputHandlerTest extends InputTest {
 
     @Test
     @DisplayName("자동차 이름이 공백인 경우 테스트")
-    void TestValidateInputNotEmpty() {
+    void testValidateInputNotEmpty() {
         UserInputHandler userInputHandler = new UserInputHandler();
         String carNames = "";
 
@@ -65,7 +65,7 @@ public class UserInputHandlerTest extends InputTest {
 
     @Test
     @DisplayName("입력이 정상적으로 들어온 경우")
-    void TestNormalInput() {
+    void testNormalInput() {
         UserInputHandler userInputHandler = new UserInputHandler();
         String[] carNames = {"NAME1", "NAME2", "NAME5"};
 
