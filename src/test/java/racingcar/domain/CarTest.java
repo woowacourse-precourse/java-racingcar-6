@@ -27,5 +27,13 @@ class CarTest {
         assertThat(car.getForward()).isEqualTo(0);
     }
 
+    @Test
+    void 이름_받아_오기(){
+        assertThat(car.getName()).isEqualTo("jun");
+    }
+    @Test
+    void 전진_횟수_받아_오기(){
+        assertThat(car.getForward()).isEqualTo(0);
+    }
 
 }
