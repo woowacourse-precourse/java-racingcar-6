@@ -35,4 +35,14 @@ public class RacingCarGameTest {
         assertThatThrownBy(() -> game.setPlayers(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+    @Test
+    void setPlayers_콤마_2개_연속_처리() {
+        RacingCarGame game = new RacingCarGame();
+        game.setPlayers("dadi,,dodi");
+        ArrayList<RacingCar> racingCars = game.getRacingCars();
+
+        assertThat(racingCars).hasSize(2);
+        assertThat(racingCars.get(0).getName()).isEqualTo("dadi");
+        assertThat(racingCars.get(1).getName()).isEqualTo("dodi");
+    }
 }
