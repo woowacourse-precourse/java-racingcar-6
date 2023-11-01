@@ -64,7 +64,7 @@
 
 | 구현                   | 메서드                  | 기능                                                                        |
 |----------------------|----------------------|---------------------------------------------------------------------------|
-| :white_large_square: | `시도횟수로숫자가아닌문자입력`     | player가 시도할 횟수로 숫자를 입력하지 않았을 때 `IllegalArgumentException`을 던지는 것을 검증한다.   |
+| :white_large_square: | `숫자가아닌시도횟수입력`        | player가 시도할 횟수로 숫자를 입력하지 않았을 때 `IllegalArgumentException`을 던지는 것을 검증한다.   |
 | :white_large_square: | `자동차이름5자이상`          | player가 입력한 자동차 이름 길이가 5자를 넘는 경우 `IllegalArgumentException`을 던지는 것을 검증한다. |
 | :white_large_square: | `stopWhenpicked3`    | 값이 3인 경우 자동차가 전진하지 않는 것을 검증한다.                                            |
 | :white_large_square: | `goAheadWhenpicked4` | 값이 4인 경우 자동차가 전진하는 것을 검증한다.                                               |
