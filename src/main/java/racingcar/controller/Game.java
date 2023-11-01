@@ -5,6 +5,7 @@ import racingcar.model.Car;
 import racingcar.view.Output;
 import racingcar.view.Input;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,10 +13,29 @@ import java.util.stream.Collectors;
 public class Game {
     private int attempt;
     private List<Car> cars;
+    private final List<Car> result;
+
+    public Game() {
+        cars = new ArrayList<>();
+        result = new ArrayList<>();
+    }
+
     public void run() {
         inputCar();
         inputTimes();
         startGame();
+        calculateWinner();
+    }
+
+    private void calculateWinner() {
+        int longDistance = 0;
+        for (Car car : cars) {
+            longDistance = Math.max(car.getMoveDistance(), longDistance);
+        }
+        for (Car car : cars) {
+            if (car.getMoveDistance() == longDistance)
+                result.add(car);
+        }
     }
 
     private void startGame() {
