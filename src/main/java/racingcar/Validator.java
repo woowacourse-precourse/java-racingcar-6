@@ -6,16 +6,17 @@ import java.util.Objects;
 
 public class Validator {
     public static final int MAX_NAME_LENGTH = 5;
-    public static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5자 이하만 가능합니다.";
-    public static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 존재합니다.";
-    public static final String BLANK_STRING = "";
-    public static final String INVALID_INPUT_ERROR_MESSAGE = "잘못된 값이 입력되었습니다.";
     public static final int ZERO_COUNT = 0;
-    public static final String ZERO_INPUT_ERROR_MESSAGE = "0이 아닌 양의 정수 입력해주세요.";
     public static final int VALID_NUMBER_RANGE_START = '0';
     public static final int VALID_NUMBER_RANGE_END = '9';
-    public static final String NAME_INCLUDE_BLANK_ERROR_MESSAGE = "이름에 공백이 포함되었습니다.";
     public static final String INCLUDE_BLANK_STRING = " ";
+    public static final String BLANK_STRING = "";
+    public static final String NAME_INCLUDE_BLANK_ERROR_MESSAGE = "이름에 공백이 포함되었습니다.";
+    public static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5자 이하만 가능합니다.";
+    public static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 존재합니다.";
+    public static final String INVALID_INPUT_ERROR_MESSAGE = "잘못된 값이 입력되었습니다.";
+    public static final String ZERO_INPUT_ERROR_MESSAGE = "0이 아닌 양의 정수 입력해주세요.";
+
 
     public static void nameBlankCheck(String name) {
         if (name.contains(INCLUDE_BLANK_STRING) || name.equals(BLANK_STRING)) {
