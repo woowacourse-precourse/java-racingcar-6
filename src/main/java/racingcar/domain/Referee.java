@@ -1,6 +1,8 @@
-package racingcar.utils;
+package racingcar.domain;
 
 import racingcar.domain.Car;
+import racingcar.utils.Parser;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +27,7 @@ public class Referee {
 
     private static List<String> collectWinnerNames(List<Car> cars) {
         return cars.stream()
-                .map(car -> car.getName())
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }

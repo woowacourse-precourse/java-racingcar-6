@@ -2,6 +2,8 @@ package racingcar.utils;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.MoveDecider;
+import racingcar.domain.MoveStatus;
 
 public class MoveDeciderTest {
     @Test

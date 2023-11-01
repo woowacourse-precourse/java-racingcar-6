@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.Parser;
-import racingcar.utils.Referee;
-import racingcar.utils.Runner;
 import racingcar.utils.Validator;
 import racingcar.utils.io.InputManager;
 import racingcar.utils.io.OutputManager;

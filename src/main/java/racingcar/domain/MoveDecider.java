@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.domain;
 
 public class MoveDecider {
     private static final int MOVE_CRITERIA_VALUE = 4;
