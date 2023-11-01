@@ -15,7 +15,7 @@ public class CarLocation {
 
     private void validateLocation(int location) {
         Validator validator = new Validator();
-        validator.validateCarLoccation(location);
+        validator.validateCarLocation(location);
     }
 
     public void increaseLocation(int randomNumber) {

@@ -24,7 +24,7 @@ public class Validator {
         }
     }
 
-    public void validateCarLoccation(int location) {
+    public void validateCarLocation(int location) {
         if (location < ZERO_INT) {
             throw new IllegalArgumentException(INVALID_LOCATION.getMessage());
         }
