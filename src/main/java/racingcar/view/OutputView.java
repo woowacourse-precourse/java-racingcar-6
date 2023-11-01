@@ -1,6 +1,6 @@
 package racingcar.view;
 
-public class OutPutView {
+public class OutputView {
 
     public void outputCar(String car) {
         System.out.println(car);
