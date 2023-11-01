@@ -31,7 +31,8 @@ public class InputManager {
 
     static List<RacingCar> makeRacingCars(String inputStr) {
         String[] split_str = inputStr.split(",");
-        List<RacingCar> cars = new ArrayList<RacingCar>();
+        System.out.println(split_str[0]);
+        List<RacingCar> cars = new ArrayList<>();
         for(int i=0;i<split_str.length;i++){
             cars.add(new RacingCar(split_str[i]));
         }
