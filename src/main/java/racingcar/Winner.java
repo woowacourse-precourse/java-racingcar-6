@@ -15,18 +15,27 @@ public class Winner {
         int max = 0;
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
-            if(car.getDistance() > max){
-                max = car.getDistance();
-            }
+            max = checkMaxDistance(max, car);
         }
 
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
-            if(car.getDistance()==max){
-                maxCars.add(car.getName());
-            }
+            checkWinner(max, car);
         }
 
         return maxCars;
+    }
+
+    private void checkWinner(int max, Car car) {
+        if(car.getDistance()== max){
+            maxCars.add(car.getName());
+        }
+    }
+
+    private static int checkMaxDistance(int max, Car car) {
+        if(car.getDistance() > max){
+            max = car.getDistance();
+        }
+        return max;
     }
 }

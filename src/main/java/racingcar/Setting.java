@@ -14,32 +14,35 @@ public class Setting {
 
     public Setting(){}
 
-    public void settingStart(){
+    public List<Car> settingStart(){
         try{
-            beforeSetting();
+            List<Car> cars = beforeSetting();
         }
         catch (IllegalStateException ex){
             System.out.println(ex.getMessage());
         }
+        return cars;
     }
 
-    private void beforeSetting(){
+    private List<Car> beforeSetting(){
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String names = readLine();
-        settingName(names);
+        List<Car> cars = settingName(names);
 
         System.out.println("시도할 회수는 몇회인가요?");
         cycleNumber = Integer.parseInt(readLine());
+        return cars;
     }
 
-    public void settingName(String names) {
+    public List<Car> settingName(String names) {
         StringTokenizer st = new StringTokenizer(names, ",");
         while(st.hasMoreTokens()){
             String name = st.nextToken();
             validateName(name);
             cars.add(new Car(name));
         }
+        return cars;
     }
 
     private void validateName(String name) {

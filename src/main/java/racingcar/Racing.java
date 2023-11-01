@@ -12,8 +12,7 @@ public class Racing {
     }
 
     public void play(){
-        setting.settingStart();
-        cars = setting.getCars();
+        cars = setting.settingStart();
         System.out.println("\n실행 결과");
 
         for (int i = 0; i < setting.getCycleNumber(); i++) {
