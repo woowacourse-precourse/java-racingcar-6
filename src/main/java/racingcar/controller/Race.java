@@ -13,6 +13,7 @@ public class Race {
             System.out.print("\n");
             for (Car car : cars) {
                 String position = car.getPosition();
+                car.moveForward();
                 System.out.println(car.getName() + " : " + position);
             }
             times--;
