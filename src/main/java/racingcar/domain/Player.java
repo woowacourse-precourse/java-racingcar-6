@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.constant.ExceptionMessage.NOT_VALID_CAR_NAME;
+import static racingcar.constant.ExceptionMessage.NOT_VALID_TRY_COUNT;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +21,7 @@ public class Player {
     private void checkUnder5Length(List<String> names) {
         for (String name : names){
             if(name.length() > 5){
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(NOT_VALID_CAR_NAME);
             }
         }
     }
@@ -34,13 +37,13 @@ public class Player {
         try {
             Integer.parseInt(input);
         }catch (NumberFormatException numberFormatException){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NOT_VALID_TRY_COUNT);
         }
     }
 
     private void isGreaterThanZero(int num){
         if(num < 1){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NOT_VALID_TRY_COUNT);
         }
     }
 }

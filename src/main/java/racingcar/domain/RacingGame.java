@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constant.ExceptionMessage.IS_NOT_END_GAME;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.dto.PerGameCarResultDto;
@@ -34,7 +36,7 @@ public class RacingGame {
 
     public List<Car> getRacingWinner(){
         if(totalTryCnt != curTryCnt){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(IS_NOT_END_GAME);
         }
         List<Car> winners = new ArrayList<>();
         for (Car car : cars){
