@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.LinkedHashMap;
 
 public class Race {
     private List<Car> cars;
@@ -38,6 +39,11 @@ public class Race {
     }
     public Map<String, Integer> getEachCarNameAndLocation(List<Car> cars) {
         return cars.stream()
-                .collect(Collectors.toMap(Car::getName, Car::getLocation));
+                .collect(Collectors.toMap(
+                        Car::getName,
+                        Car::getLocation,
+                        (existing, replacement) -> existing, // 만약 중복 키가 있을 경우의 병합 전략. 여기서는 기존 값을 유지합니다.
+                        LinkedHashMap::new
+                ));
     }
 }
