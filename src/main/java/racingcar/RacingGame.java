@@ -35,7 +35,7 @@ public class RacingGame {
             printCurrentPosition();
         }
 
-        String winner = findWinner(carNameList, moveCountList);
+        String winner = findWinner();
         System.out.println("최종 우승자 : " + winner);
     }
 
@@ -121,19 +121,29 @@ public class RacingGame {
         System.out.println();
     }
 
-    private String findWinner(List<String> carNameList, List<Integer> moveCountList) {
+    private String findWinner() {
+        int winnerPosition = getWinnerPosition();
 
-        int max = getMax(moveCountList);
-        List<Integer> maxIndices = getMaxIndices(moveCountList, max);
-
-        return getWinner(carNameList, maxIndices);
+        ArrayList<String> winnerList = new ArrayList<>();
+        for (Car car : cars) {
+            if (winnerPosition == car.getPosition()) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerListToString(winnerList);
     }
 
-    private int getMax(List<Integer> moveCountList) {
-        return moveCountList.stream()
-                .mapToInt(Integer::intValue)
-                .max()
-                .orElse(Integer.MIN_VALUE);
+    private int getWinnerPosition() {
+        int winnerPosition = -1;
+        for (Car car : cars) {
+            winnerPosition = Math.max(winnerPosition, car.getPosition());
+        }
+
+        return winnerPosition;
+    }
+
+    private String winnerListToString(List<String> winnerList) {
+        return String.join(", ", winnerList);
     }
 
     private List<Integer> getMaxIndices(List<Integer> moveCountList, int max) {
