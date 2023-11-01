@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.util.MoveCar;
 import racingcar.util.ValidateCarName;
 import racingcar.util.ValidateTryCount;
+import racingcar.util.FindWinner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.model.Car;
@@ -62,6 +63,10 @@ public class Game {
 
     public void printResult() {
         OutputView.printResult(carList);
+    }
+
+    public void printWinner() {
+        OutputView.printWinner(FindWinner.getWinnerList(carList));
     }
 
 }
