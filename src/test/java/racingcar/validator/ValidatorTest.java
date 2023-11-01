@@ -54,4 +54,15 @@ class ValidatorTest {
                         .hasMessageContaining("Name must not be duplicated")
         );
     }
+
+    @Test
+    void 실행_횟수_입력이_숫자가_아니거나_int_범위보다_클_경우_예외_발생() {
+        String inputCountTry = "13412413541234234";
+        Validator validator = new Validator();
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> validator.checkTryCountInput(inputCountTry))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("Try count input is invalid")
+        );
+    }
 }
