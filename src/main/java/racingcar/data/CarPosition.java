@@ -26,10 +26,6 @@ public class CarPosition {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < pos; i++) {
-            stringBuilder.append(MARKER);
-        }
-        return stringBuilder.toString();
+        return MARKER.repeat(pos);
     }
 }
