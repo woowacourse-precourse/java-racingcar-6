@@ -19,6 +19,9 @@ public class Car {
         String[] carNameArray = getCarName().split(",");
         List <String> carNameList = new ArrayList<>();
         carNameList.addAll(Arrays.asList(carNameArray));
+        if(!isNameLength(carNameList)){
+            throw new IllegalArgumentException();
+        }
         return carNameList;
     }
     private String getCarName() {
@@ -34,5 +37,14 @@ public class Car {
         if(input.contains(","));{
             return true;
         }
+    }
+    private boolean isNameLength(List<String> carNameList){
+        for(int i = 0; i < carNameList.size(); i++){
+            String length = carNameList.get(i);
+            if(length.length() < 4){
+                return true;
+            }
+        }
+        return false;
     }
 }
