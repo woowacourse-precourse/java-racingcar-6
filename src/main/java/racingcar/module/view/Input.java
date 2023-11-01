@@ -27,6 +27,10 @@ public class Input {
     }
 
     public static int readTrialNumber() {
-        return Integer.parseInt(readLine());
+        String input = readLine();
+
+        Validator.validateTrialNumber(input);
+
+        return Integer.parseInt(input);
     }
 }
