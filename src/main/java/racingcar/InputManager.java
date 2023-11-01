@@ -20,6 +20,7 @@ public class InputManager {
         if (validator.isSingleCarInput(carNames)) {
             throw new IllegalArgumentException();
         }
+        validator.checkForWhitespace(carNames);
         return carNames;
     }
 
