@@ -30,6 +30,15 @@ public class MoveCountValidationTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("이동 횟수 소수 입력시 예외 발생")
+    void validate_move_count_decimal() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("a,b", "1.1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

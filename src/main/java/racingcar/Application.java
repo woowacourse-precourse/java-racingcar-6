@@ -133,7 +133,7 @@ public class Application {
      */
     private static boolean isValidMoveCount(String inputString) {
         if (!isPositiveNumber(inputString)) {
-            throw new IllegalArgumentException(String.format("양수가 아닌 입력값 = %s", inputString));
+            throw new IllegalArgumentException(String.format("양의 정수가 아닌 입력값 = %s", inputString));
         }
         return true;
     }
