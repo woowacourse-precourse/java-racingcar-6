@@ -18,6 +18,7 @@ public class GameManager {
     public void gameStart() {
         String carNames = racingCarController.getUserInputForCarNames();
         int rounds = racingCarController.getUserInputForRounds();
+
         setInstance(carNames);
         playGame(rounds);
     }
@@ -26,7 +27,9 @@ public class GameManager {
         for (int i = 0; i < rounds; i++) {
             gameRoundManager.playRound();
         }
+
         List<String> winners = winnerChecker.findWinners();
+
         gameView.printWinner(winners);
     }
 

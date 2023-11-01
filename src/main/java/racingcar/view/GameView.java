@@ -32,9 +32,11 @@ public class GameView {
 
     public void printWinner(List<String> raceResult) {
         StringJoiner stringJoiner = new StringJoiner(",");
+
         for (String result : raceResult) {
             stringJoiner.add(result);
         }
+
         System.out.println("최종 우승자 : " + stringJoiner);
     }
 }
