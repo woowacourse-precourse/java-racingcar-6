@@ -37,9 +37,9 @@ class CarServiceTest {
     void 차_이름_입력_테스트() {
         //given
         final String input = "pobi,woni";
+        final List<Car> cars = carService.setCars(input);
 
         //when
-        final List<Car> cars = carService.setCars(input);
         Car car1 = cars.get(0);
         Car car2 = cars.get(1);
 
@@ -49,19 +49,37 @@ class CarServiceTest {
     }
 
     @Test
-    void 차_전진_후진_테스트(){
+    void 차_전진_테스트(){
         //given
         final String input = "pobi,woni";
-
-        //when
         final List<Car> cars = carService.setCars(input);
         Car car1 = cars.get(0);
         Car car2 = cars.get(1);
+
+        //when
         car1.increaseForward();
-        car2.increaseStop();
+        car2.increaseForward();
+        car2.increaseForward();
 
         //then
         assertThat(car1.getForward()).isEqualTo(1);
-        assertThat(car2.getStop()).isEqualTo(1);
+        assertThat(car2.getStop()).isEqualTo(2);
+    }
+
+    @Test
+    void 차_랜덤_전진_테스트(){
+        //given
+        final String input = "pobi,woni";
+        final List<Car> cars = carService.setCars(input);
+        Car car1 = cars.get(0);
+        Car car2 = cars.get(1);
+
+        //when
+        car1.randomForward(3);
+        car2.randomForward(5);
+
+        //then
+        assertThat(car1.getForward()).isEqualTo(0);
+        assertThat(car2.getForward()).isEqualTo(1);
     }
 }

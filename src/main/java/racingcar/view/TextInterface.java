@@ -9,4 +9,8 @@ public class TextInterface {
     public void inputAttemptsMessage(){
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public void resultMessage(){
+        System.out.println("실행결과");
+    }
 }

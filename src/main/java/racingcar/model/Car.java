@@ -17,6 +17,16 @@ public class Car {
         stop++;
     }
 
+    public void printForward(){
+        System.out.println(name + " : " + "-".repeat(forward));
+    }
+
+    public void randomForward(int random){
+        if(random >= 4){
+            increaseForward();
+        }
+    }
+
     public void createCar(String name){
         validateSize(name);
         this.name = name;

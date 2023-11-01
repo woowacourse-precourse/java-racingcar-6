@@ -14,14 +14,16 @@ public class GameController {
 
     public void run(){
         initGame();
+        startGame();
     }
 
     private void initGame(){
         cars = carService.enterCars();
         attempts = gameService.enterAttempts();
+        System.out.println();
     }
 
     private void startGame(){
-
+        gameService.racing(attempts, cars);
     }
 }
