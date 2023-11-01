@@ -184,7 +184,7 @@ class InputTest {
     }
 
     @Test
-    @DisplayName("5글자 이상 입력시 예외가 발생하는지 확인")
+    @DisplayName("6글자 이상 입력시 예외가 발생하는지 확인")
     public void testInputException() {
 
         String input = "car1,car12345"; // 입력 데이터
