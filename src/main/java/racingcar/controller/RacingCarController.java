@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.dto.Result;
 import racingcar.model.Racer;
 import racingcar.model.Round;
 import racingcar.service.Accelerator;
@@ -24,19 +23,14 @@ public class RacingCarController {
         Round round = Round.of(inputView.readRound());
         outputView.printExecutionMessage();
         while (round.hasRound()) {
-            Result result = race(racer, round);
-            outputView.printResult(result);
+            race(racer, round);
+            outputView.printResult(racer.getResult());
         }
-        outputView.printFinalWinner(winner(racer));
+        outputView.printFinalWinner(racer.getWinner());
     }
 
-    public Result race(Racer racer, Round round) {
+    private void race(Racer racer, Round round) {
         racer.play(accelerator);
         round.turn();
-        return racer.getResult();
-    }
-
-    public Result winner(Racer racer) {
-        return racer.getWinner();
     }
 }
