@@ -13,7 +13,7 @@
 
 - [x] Car : 움직이는 자동차 역할
 - [x] Cars : 제작된 자동차들을 다루는 역할
-- [x] CarController : 제작된 자동차들을 횟수에 맞게 조작(control)하는 역할
+- [x] CarManager : 제작된 자동차들을 횟수에 맞게 조작(control)하는 역할
 - [x] CarFactory : 받은 정보를 바탕으로 자동차들을 제작하는 역할
 - [x] GameOption : 자동차 경주 관련된 옵션들
 - [x] Referee : 우승한 자동차를 판단하는 역할
@@ -50,7 +50,7 @@
 ## 테스트
 
 - [x] Car
-- [x] CarController
+- [x] CarManager
 - [x] CarFactory
 - [x] Referee
 
