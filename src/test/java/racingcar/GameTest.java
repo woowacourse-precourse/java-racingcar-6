@@ -26,4 +26,14 @@ public class GameTest {
         assertThat(game.getWinnerNames()).hasSize(1)
                 .contains("aaa");
     }
+
+    @Test
+    void 동시_우승(){
+        game.moveForwardIndex(0);
+        game.moveForwardIndex(1);
+        game.moveForwardIndex(2);
+
+        assertThat(game.getWinnerNames()).hasSize(3)
+                .contains("aaa", "bbb", "ccc");
+    }
 }
