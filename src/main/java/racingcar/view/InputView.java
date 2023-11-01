@@ -2,9 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import racingcar.exception.ErrorMessage;
 
 public class InputView {
@@ -15,21 +13,21 @@ public class InputView {
     public List<String> readCarNames() {
         System.out.println(CAR_NAME_INPUT_PROMPT);
         String input = Console.readLine();
-        List<String> names = splitAndTrimInput(input);
-        validateNotEmpty(names);
-        return names;
+
+        validateNotEmpty(input);
+        return splitAndTrimInput(input);
+    }
+
+    private void validateNotEmpty(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_SIZE_ERROR.getMessage());
+        }
     }
 
     private List<String> splitAndTrimInput(String input) {
         return Arrays.stream(input.split(","))
                 .map(String::trim)
                 .toList();
-    }
-
-    private void validateNotEmpty(List<String> names) {
-        if (names.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_SIZE_ERROR.getMessage());
-        }
     }
 
     public int readTryCount() {
