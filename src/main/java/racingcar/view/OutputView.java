@@ -4,6 +4,7 @@ import static racingcar.messages.ViewMessage.MOVEMENT;
 import static racingcar.messages.ViewMessage.OUTPUT_CAR_RESULT;
 import static racingcar.messages.ViewMessage.OUTPUT_RESULT;
 
+import java.util.List;
 import racingcar.dto.Car;
 
 public class OutputView {
@@ -23,7 +24,9 @@ public class OutputView {
         System.out.print(OUTPUT_RESULT);
     }
 
-    public void printMovementResult(Car car) {
-        System.out.printf(OUTPUT_CAR_RESULT, car.getName(), MOVEMENT.repeat(car.getMoveCount()));
+    public void printAllCarResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.printf(OUTPUT_CAR_RESULT, car.getName(), MOVEMENT.repeat(car.getMoveCount()));
+        }
     }
 }
