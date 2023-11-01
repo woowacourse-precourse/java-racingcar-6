@@ -13,5 +13,7 @@ public class Application {
         RacingGame racingGame = new RacingGame(racingCars, endLap);
 
         racingGame.run();
+
+        RacingGameConsole.close();
     }
 }
