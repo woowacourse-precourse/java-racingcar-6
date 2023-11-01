@@ -5,23 +5,34 @@ ___
 ## 📖 기능 목록
 ### 1️⃣ 사용자 입력
 #### 0. 공통
-   - [ ] 사용자 입력은 주어진 `camp.nextstep.edu.missionutils.Console`의`readLine()`을 활용한다.
-   - [ ] 입력 값이 비어 있다면 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료시킨다.
+   - [x] 사용자 입력은 주어진 `camp.nextstep.edu.missionutils.Console`의`readLine()`을 활용한다.
+   - [x] 입력 값이 비어 있다면 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료시킨다.
 #### 1. 이름 입력
-   - [ ] 입력받은 문자열을 쉼표(,) 기준으로 나눈다.
-   - [ ] 나누어 나온 이름이 5자 초과시 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료시킨다.
+   - [x] 입력받은 문자열을 쉼표(,) 기준으로 나눈다.
+   - [x] 나누어 나온 이름이 5자 초과시 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료시킨다.
 #### 2. 시도 횟수 입력
-   - [ ] 시도 횟수만큼 게임 차수를 진행한다.
-   - [ ] 입력 값이 숫자가 아니라면 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료시킨다.
+   - [x] 시도 횟수만큼 게임 차수를 진행한다.
+   - [x] 입력 값이 숫자가 아니라면 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료시킨다.
 
 ### 2️⃣ 게임 진행
 #### 1. 자동차 전진
-   - [ ] 0~9사이 랜덤으로 생성된 값이 4이상일 경우 이동한다.
-   - [ ] 랜덤값 생성은 주어진 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
+   - [x] 0~9사이 랜덤으로 생성된 값이 4이상일 경우 이동한다.
+   - [x] 랜덤값 생성은 주어진 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
 
 ### 3️⃣ 출력
 #### 1. 각 차수별 결과 출력
-  - [ ] 이름과 함께 이동 거리만큼 `-`를 출력한다.
+  - [x] 이름과 함께 이동 거리만큼 `-`를 출력한다.
 #### 2. 우승자 출력
-  - [ ] 이동 거리를 비교하여 우승자를 선발한다.
-  - [ ] 이동 거리가 같다면 공동 우승도 가능하다.
+  - [x] 이동 거리를 비교하여 우승자를 선발한다.
+  - [x] 이동 거리가 같다면 공동 우승도 가능하다.
+
+## 🚨 체크 리스트
+- [x] JDK 17 버전인지 확인한다.
+- [x] 테스트 실행 가이드를 실행한다.
+- [x] Java 코드 컨벤션 가이드를 준수한다.
+- [x] 시스템 종료 시 `System.exit()`를 호출하지 않는다.
+- [x] `ApplicationTest`를 모두 성공한다.
+- [x] indent depth를 3이 넘지 않도록 구현한다.
+- [x] 3항 연산자 사용하지 않는다.
+- [ ] 한가지 일만 하도록 최대한 작게 만든다.
+- [x] JUnit5 와 AssettJ를 이용하여 기능 목록을 테스트한다.
