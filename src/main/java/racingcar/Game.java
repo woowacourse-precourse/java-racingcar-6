@@ -13,17 +13,22 @@ public class Game {
         this.round = round;
     }
 
-    public void play() {
+    public void playAllRound() {
         for (int i = 0; i < round; i++) {
             System.out.print(OutputView.ENTER);
-            for (Car car : cars) {
-                int number = NumberGenerator.generate();
-                car.move(number);
-
-                OutputView.printGameResult(car, car.getDistance());
-            }
+            playOneRound();
         }
+
         OutputView.printWinners(findWinners(findMaxDistance()));
+    }
+
+    private void playOneRound() {
+        for (Car car : cars) {
+            int number = NumberGenerator.generate();
+            car.move(number);
+
+            OutputView.printGameResult(car, car.getDistance());
+        }
     }
 
     private int findMaxDistance() {

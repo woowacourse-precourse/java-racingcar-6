@@ -14,6 +14,6 @@ public class Application {
         int round = Converter.convertRound(InputView.inputRound());
 
         Game game = new Game(cars, round);
-        game.play();
+        game.playAllRound();
     }
 }
