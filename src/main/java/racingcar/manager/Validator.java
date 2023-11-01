@@ -26,12 +26,15 @@ public class Validator {
 
     public static void validateRaceRoundInput(String input) {
         try {
-            int round = Integer.parseInt(input);
-            if (round <= 0) {
-                throw new IllegalArgumentException("레이스 라운드는 양의 정수만 가능합니다.");
-            }
+            Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("레이스 라운드는 숫자만 입력 가능합니다.");
+        }
+    }
+
+    public static void validateIsPositiveInteger(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("레이스 라운드는 양의 정수만 가능합니다.");
         }
     }
 }
