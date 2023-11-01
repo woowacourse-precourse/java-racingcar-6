@@ -9,12 +9,9 @@ public class Screen {
         return Console.readLine().split(",");
     }
 
-    static public int askRacingTime() {
+    static public String askRacingTime() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String time = Console.readLine();
-        if (!time.matches("\\d+"))
-            throw (new IllegalArgumentException("Invalid Argument"));
-        return Integer.parseInt(time);
+        return Console.readLine();
     }
 
     static public void displayResultMessage() {

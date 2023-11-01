@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +9,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RaceTest {
+
+    @Test
+    void 음수의_경주_횟수_생성시_예외_반환() {
+        String[] names = {"pobi", "yen"};
+        String time = "-1";
+
+        assertThatThrownBy(() -> new Race(names, time))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 문자열인_경주_횟수_생성시_예외_반환() {
+        String[] names = {"pobi", "yen"};
+        String time = "asdf";
+
+        assertThatThrownBy(() -> new Race(names, time))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Test
     void 한_라운드_실행_후_결과_만들기() {
         String[] names = {"pobi", "yen"};

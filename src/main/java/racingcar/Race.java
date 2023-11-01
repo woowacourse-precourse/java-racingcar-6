@@ -12,13 +12,17 @@ public class Race {
     final private List<Car> cars;
     final private int time;
 
-    public Race() {
-        String[] names = Screen.askCarNames();
-        time = Screen.askRacingTime();
-        cars = new ArrayList<>();
-
+    public Race(String[] names, String time) {
+        this.cars = new ArrayList<>();
         for (String name : names)
-            cars.add(new Car(name));
+            this.cars.add(new Car(name));
+        if (!isValidTime(time))
+            throw (new IllegalArgumentException("Invalid Argument"));
+        this.time = Integer.parseInt(time);
+    }
+
+    private boolean isValidTime(String time) {
+        return time.matches("\\d+") || Integer.parseInt(time) > 0;
     }
 
     public Race(List<Car> cars, int time) {
@@ -30,7 +34,7 @@ public class Race {
         return time < this.time;
     }
 
-    public void runOneRound() {
+    public void runRound() {
         for (Car car : cars) {
             car.moveFoward(Randoms.pickNumberInRange(0, 9));
         }
