@@ -39,8 +39,9 @@ public class Race {
     }
 
     private void printWinners() {
-        String winnerNames = carManager.getWinnerNames();
-        outputView.printWinnerNames(winnerNames);
+        List<String> winnerNames = carManager.getWinnerNames();
+        String result = String.join(", ", winnerNames);
+        outputView.printWinnerNames(result);
     }
 
     private Integer getGameCount() {

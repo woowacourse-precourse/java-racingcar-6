@@ -31,12 +31,12 @@ public class CarManager {
         car.moveCar(randomNumber);
     }
 
-    public String getWinnerNames() {
+    public List<String> getWinnerNames() {
         Integer maxDistance = getMaxDistance();
 
         return carList.stream().filter(car -> car.getDistance() == maxDistance)
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.toList());
     }
 
     private Integer getMaxDistance() {
