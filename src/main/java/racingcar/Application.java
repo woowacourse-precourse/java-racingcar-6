@@ -1,4 +1,5 @@
 package racingcar;
+
 import racingcar.name.Name;
 import racingcar.name.go;
 import java.util.Arrays;
@@ -15,7 +16,12 @@ public class Application {
         for (int i = 0; i < listlist.length; i++){
             distance[i]=0;
         }
-
-
+        if (Arrays.toString(listlist).equals("[]")) {
+            return;
+        }
+        else {
+            int repeat = wow.getRepeat();
+            System.out.println(repeat);
+        }
     }
 }
