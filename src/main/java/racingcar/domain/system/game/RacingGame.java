@@ -103,7 +103,7 @@ public class RacingGame extends BasicGame {
         List<CarKey> keys = winnerCars.stream().map(SavedCarPosition::getSavedCar)
             .map(SavedCar::getKey).collect(Collectors.toList());
         List<SavedCar> winners = carManager.findAll(keys);
-        return winners.stream().map(SavedCar::getCarName)
-            .sorted(Comparator.comparing(CarName::getName)).toList();
+        return winners.stream().sorted(Comparator.comparing(SavedCar::getKey))
+            .map(SavedCar::getCarName).toList();
     }
 }
