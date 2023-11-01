@@ -1,8 +1,10 @@
 package study.domain;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import racingcar.controller.RacingGame;
 import racingcar.model.BadInputException;
 
 public class NameTest {
@@ -40,6 +42,18 @@ public class NameTest {
         assertThatThrownBy(() -> {
             BadInputException.isNameDuplicate(names);
         }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 이름_앞뒤_공백_제거() {
+        String[] names = new String[]{"pobi   ", "  woni ", "   jun"};
+
+        RacingGame racingGame = new RacingGame();
+        racingGame.trimSpaces(names);
+
+        assertEquals("pobi", names[0]);
+        assertEquals("woni", names[1]);
+        assertEquals("jun", names[2]);
     }
 
 }
