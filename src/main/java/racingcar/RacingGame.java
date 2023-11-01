@@ -23,9 +23,8 @@ public class RacingGame {
 
     public void gameSystem() {
         System.out.println(RESULT_MESSAGE);
-        while(winners.getWinnersCount() == 0) {
+        while (winners.getWinnersCount() == 0) {
             for (Car car : cars) {
-//                randomNumber();
                 car.moving(randomNumber());
                 System.out.println(car.getNowCarPosition());
                 newWinner(car.getName(), car.getPosition());

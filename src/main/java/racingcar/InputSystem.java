@@ -29,18 +29,18 @@ public class InputSystem {
     }
 
     public void nameValidator(String input, List<Car> cars) {
-        String[] namesArray = input.split(SEPARATOR,-1);
-        for(String name : namesArray) {
-            if(isNotValidName(name, cars)) {
+        String[] namesArray = input.split(SEPARATOR, -1);
+        for (String name : namesArray) {
+            if (isNotValidName(name, cars)) {
                 throw new IllegalArgumentException();
-            } else{
+            } else {
                 cars.add(new Car(name));
             }
         }
     }
 
     public void cntValidator(String input) {
-        if(!isNumber(input) || !isUnderMax(input)) {
+        if (!isNumber(input) || !isUnderMax(input)) {
             throw new IllegalArgumentException();
         }
     }
@@ -50,8 +50,8 @@ public class InputSystem {
     }
 
     private boolean isDuplicatedName(String name, List<Car> cars) {
-        for(Car car : cars) {
-            if(name.equals(car.getName())) {
+        for (Car car : cars) {
+            if (name.equals(car.getName())) {
                 return true;
             }
         }
@@ -67,7 +67,7 @@ public class InputSystem {
     }
 
     private boolean isNumber(String str) {
-        return Pattern.matches("^[0-9]*$",str);
+        return Pattern.matches("^[0-9]*$", str);
     }
 
     private boolean isUnderMax(String str) {

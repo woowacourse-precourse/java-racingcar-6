@@ -23,11 +23,11 @@ public class Winners {
         StringBuilder sb = new StringBuilder();
         int str = getWinnersCount();
 
-        if(str>0) {
+        if (str > 0) {
             sb.append(winners.get(0));
         }
 
-        for(int i=1; i<str; i++) {
+        for (int i = 1; i < str; i++) {
             sb.append(", ").append(winners.get(i));
         }
         return sb.toString();

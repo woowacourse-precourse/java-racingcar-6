@@ -12,6 +12,7 @@ public class Car {
     public Car(String name) {
         this(name, START_POSITION);
     }
+
     public Car(String name, int position) {
         this.name = name;
         this.position = position;
@@ -39,7 +40,7 @@ public class Car {
 
     private String createStatusBar() {
         StringBuilder sb = new StringBuilder();
-        for (int i=0; i<position; i++) {
+        for (int i = 0; i < position; i++) {
             sb.append(STATUS_BAR);
         }
         return sb.toString();

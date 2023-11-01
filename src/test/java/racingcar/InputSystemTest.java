@@ -22,7 +22,7 @@ public class InputSystemTest {
     void 잘못된_자동차_이름_입력() {
         try {
             inputSystem.nameValidator("A,B,", cars);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
 
         }
     }
@@ -31,7 +31,7 @@ public class InputSystemTest {
     void 올바른_자동차_이름_입력() {
         try {
             inputSystem.nameValidator("car1,car2,car3", cars);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
 
         }
     }
