@@ -13,21 +13,21 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+    void 이름에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("jjweidon", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
+    void 전진_정지() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jjw", "3");
+                    assertThat(output()).contains("pobi : -", "woni : ", "jjw : -", "pobi : -", "woni : -", "jjw : --", "pobi : --", "woni : -", "jjw : --","최종 우승자 : pobi, jjw");
+                },
+                5, 1, 9, 3, 7, 6, 5, 2, 0
         );
     }
 
