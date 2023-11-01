@@ -1,0 +1,35 @@
+package racingcar.Service;
+
+import java.util.List;
+import racingcar.Domain.Car;
+import racingcar.Domain.GameStatus;
+import racingcar.Util.MoveConditionUtil;
+
+public class RacingcarService {
+    private final GameStatus gameStatus = new GameStatus();
+    private final MoveConditionUtil moveConditionUtil = new MoveConditionUtil();
+    public void initailizeGame(List<Car> carList, int goalRound) {
+        gameStatus.setCarList(carList);
+        gameStatus.setGoalRound(goalRound);
+    }
+
+    public void updateCarStatus(Car car) {
+        car.addMovedCount();
+        car.updateMovedStatus();
+    }
+
+    public String move(List<Car> carList) {
+        StringBuilder sb = new StringBuilder();
+        for(Car car : carList) {
+            if(moveConditionUtil.checkMoveCondition()) {
+                updateCarStatus(car);
+            }
+            gameStatus.setMaxCount(car.getMovedCount());
+
+            sb.append(car.getCarName()).append(" : ").append(car.getMovedStatus()).append("\n");
+        }
+
+        return sb.toString();
+    }
+
+}
