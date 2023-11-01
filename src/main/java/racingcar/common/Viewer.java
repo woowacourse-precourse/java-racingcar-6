@@ -4,6 +4,12 @@ import camp.nextstep.edu.missionutils.Console;
 
 public abstract class Viewer<T> {
 
+    protected final Validator validator;
+
+    protected Viewer(Validator validator) {
+        this.validator = validator;
+    }
+
     public abstract T interact();
 
     public void print(Message message) {
