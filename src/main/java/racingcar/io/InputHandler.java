@@ -9,6 +9,9 @@ public class InputHandler {
         System.out.print(message);
         return scanner.nextLine();
     }
-
+    public static int getTryCount(String message){
+        System.out.print(message);
+        return scanner.nextInt();
+    }
 
 }
