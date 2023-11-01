@@ -1,8 +1,8 @@
 package racingcar;
 
+import static racingcar.ErrorMessage.ERROR_NOT_EMPTY;
 import static racingcar.ErrorMessage.ERROR_WRONG_CARS_NAME;
 import static racingcar.ErrorMessage.ERROR_WRONG_CAR_NAME;
-import static racingcar.ErrorMessage.ERROR_WRONG_CAR_NAME_NOT_EMPTY;
 import static racingcar.ErrorMessage.ERROR_WRONG_NUMBER_OF_RACE;
 
 public class ExceptionManager {
@@ -15,9 +15,21 @@ public class ExceptionManager {
         isEndWithComma(carsName);
     }
 
+    public void checkCarNameException(String[] carName) {
+        for (String eachName : carName) {
+            isEmpty(eachName);
+            isRightSize(eachName);
+        }
+    }
+
+    public void checkNumberOfRace(String st) {
+        isEmpty(st);
+        isRightNumber(st);
+    }
+
     private void isEmpty(String eachName) {
         if (eachName.equals("")) {
-            throw new IllegalArgumentException(ERROR_WRONG_CAR_NAME_NOT_EMPTY);
+            throw new IllegalArgumentException(ERROR_NOT_EMPTY);
         }
     }
 
@@ -27,20 +39,13 @@ public class ExceptionManager {
         }
     }
 
-    public void checkCarNameException(String[] carName) {
-        for (String eachName : carName) {
-            isEmpty(eachName);
-            isRightSize(eachName);
-        }
-    }
-
     private void isRightSize(String eachName) {
         if (eachName.length() > MAX_NUM_OF_CAR_NAME) {
             throw new IllegalArgumentException(ERROR_WRONG_CAR_NAME);
         }
     }
 
-    public void checkNumberOfRace(String st) {
+    private void isRightNumber(String st) {
         if (!st.matches(RIGHT_NUM_OF_RACE)) {
             throw new IllegalArgumentException(ERROR_WRONG_NUMBER_OF_RACE);
         }
