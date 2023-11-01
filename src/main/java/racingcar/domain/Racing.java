@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import java.util.Arrays;
 import java.util.List;
-import racingcar.constant.InputDelimiter;
 import racingcar.util.InputUtil;
 
 public class Racing {
@@ -11,40 +9,8 @@ public class Racing {
     private Participants participants;
     private final InputUtil inputUtil = new InputUtil();
 
-    public void race() {
-        prepareRacing();
-        startRace();
-        judge();
-    }
-
-    private void prepareRacing() {
-        this.participants = new Participants(setParticipant());
+    public void prepareRacing() {
         this.racingTrial = setRacingTrial();
-    }
-
-    private void startRace() {
-        while (racingTrial > 0) {
-            participants.race();
-            racingTrial--;
-        }
-    }
-
-    public List<Car> judge() {
-        return participants.judgeWinner();
-    }
-
-    private List<Car> setParticipant() {
-        String participantInput = inputUtil.inputCarName();
-        if (participantInput.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-        return convertStringToList(participantInput);
-    }
-
-    private List<Car> convertStringToList(String participantInput) {
-        List<String> rawParticipantInput = Arrays.stream(
-                participantInput.split(InputDelimiter.PARTICIPANT_INPUT_DELIMITER.getValue())).toList();
-        return rawParticipantInput.stream().map(carName -> new Car(carName, 0)).toList();
     }
 
     private int setRacingTrial() {
@@ -55,4 +21,23 @@ public class Racing {
         return trialInput;
     }
 
+    public void race(Participants participants) {
+        this.participants = participants;
+        for (int i = 0; i < racingTrial; i++) {
+            participants.race();
+        }
+    }
+
+    public String judge() {
+        List<Car> winner = judgeWinner();
+        return "";
+    }
+
+    public List<Car> judgeWinner() {
+        List<Car> participantsCars = participants.getCars();
+        int maxMovedDistance = participantsCars.stream().mapToInt(Car::getMovedDistance).max().orElse(0);
+        return participantsCars.stream()
+                .filter(car -> car.getMovedDistance() == maxMovedDistance)
+                .toList();
+    }
 }
