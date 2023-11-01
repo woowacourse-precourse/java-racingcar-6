@@ -32,8 +32,7 @@ public class GameService {
     public List<Car> extractWinner(List<Car> carList) {
         List<Car> winnerCars = new ArrayList<>();
         int topPosition = -1;
-        for (int i = 0; i < carList.size(); i++) {
-            Car car = carList.get(i);
+        for (Car car : carList) {
             if (topPosition < car.getPosition()) {
                 winnerCars.clear();
                 topPosition = car.getPosition();
