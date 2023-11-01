@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
@@ -17,14 +18,18 @@ class RacingServiceTest {
     RacingService racingService = RacingService.getInstance();
     CarRepository carRepository = CarRepository.getInstance();
 
+    List<String> carNames;
+
+    @BeforeEach
+    void beforeEach() {
+        carNames = new ArrayList<>();
+        carNames.add("pobi");
+        carNames.add("woni");
+    }
+
     @Test
     @DisplayName("자동차들 상태 초기화 테스트")
     void startRound() {
-        List<String> carNames = new ArrayList<>();
-        carNames.add("pobi");
-        carNames.add("woni");
-        carNames.add("jun");
-
         racingService.startRound(carNames);
 
         List<Car> createdCars = carRepository.getCars();
