@@ -29,7 +29,7 @@ public class RacingCarGame {
             printResult();
         }
         computeWinners(racingCars);
-        printWinners();
+        printWinners(winners);
     }
 
     void setRacingCars(String items) {
@@ -95,7 +95,7 @@ public class RacingCarGame {
         }
     }
 
-    void printWinners() {
+    void printWinners(ArrayList<RacingCar> winners) {
         StringBuffer result = new StringBuffer();
         result.append("최종 우승자 : ");
         for (RacingCar winner : winners) {
