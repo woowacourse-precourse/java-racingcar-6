@@ -7,22 +7,25 @@ import java.util.stream.Collectors;
 public class InputViewValidator {
 
     private static final Integer MAX_CAR_NAME_LENGTH = 5;
-    private static final Integer MINIMUM_POSITIVE_LIMIT = 0;
+    private static final Integer MINIMUM_POSITIVE_LIMIT = 1;
     private static final String EMPTY_STRING = "";
     private static final String COMMA = ",";
-    private static final String STRING_EMPTY_ERROR_MESSAGE = "";
-    private static final String CAR_NAME_EMPTY_ERROR_MESSAGE = "";
-    private static final String INVALID_CAR_NAME_LENGTH_ERROR_MESSAGE = "";
-    private static final String DUPLICATE_CAR_NAME_EXISTS_ERROR_MESSAGE = "";
-    private static final String PARSE_INT_FAILURE_ERROR_MESSAGE = "";
-    private static final String INVALID_INTEGER_RANGE_ERROR_MESSAGE = "";
+    private static final String DELETE_SPACES_REGEX = "\\s+";
+    private static final String STRING_EMPTY_ERROR_MESSAGE = "입력은 빈 값이면 안됩니다.";
+    private static final String CAR_NAME_EMPTY_ERROR_MESSAGE = "각각의 차의 이름은 빈 값이면 안됩니다.";
+    private static final String INVALID_CAR_NAME_LENGTH_ERROR_MESSAGE = "차의 이름의 길이는 5글자 이하만 가능합니다.";
+    private static final String DUPLICATE_CAR_NAME_EXISTS_ERROR_MESSAGE = "차의 이름 중 중복된 이름이 존재해선 안됩니다.";
+    private static final String PARSE_INT_FAILURE_ERROR_MESSAGE = "라운드 수는 정수 형식만 가능합니다.";
+    private static final String INVALID_INTEGER_RANGE_ERROR_MESSAGE = "라운드 수는 양수만 가능합니다.";
 
 
 
     public void validateCarNames(String carNamesString){
         if(isStringEmpty(carNamesString)) throw new IllegalArgumentException(STRING_EMPTY_ERROR_MESSAGE);
 
-        List<String> carNameList = Arrays.asList(carNamesString.split(COMMA));
+        carNamesString = carNamesString.replaceAll(DELETE_SPACES_REGEX, EMPTY_STRING);
+        List<String> carNameList = Arrays.asList(carNamesString.split(COMMA,-1));
+        System.out.println(carNameList);
         for (String carName : carNameList){
             if (isCarNameEmpty(carName)) throw new IllegalArgumentException(CAR_NAME_EMPTY_ERROR_MESSAGE);
             if (isInvalidCarNameLength(carName)) throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH_ERROR_MESSAGE);

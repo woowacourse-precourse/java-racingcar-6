@@ -9,6 +9,7 @@ public class InputView {
 
     private static final String INPUT_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_TOTAL_ROUND_NUMBER_MESSAGE = "시도할 횟수는 몇회인가요?";
+    private static final String COMMA = ",";
 
     private final InputViewValidator inputViewValidator;
 
@@ -19,7 +20,7 @@ public class InputView {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
         String carNamesString = Console.readLine();
         inputViewValidator.validateCarNames(carNamesString);
-        List<String> carNameList = Arrays.asList(carNamesString.split(","));
+        List<String> carNameList = Arrays.asList(carNamesString.split(COMMA));
         return carNameList;
     }
 
