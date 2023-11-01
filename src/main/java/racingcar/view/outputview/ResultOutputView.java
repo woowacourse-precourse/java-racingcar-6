@@ -5,6 +5,7 @@ import racingcar.domain.Cars;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static racingcar.view.Parameter.Output.WINNERS;
 
@@ -26,10 +27,8 @@ public final class ResultOutputView implements OutputView {
     }
 
     private String convertNameToString(List<Car> cars) {
-        List<String> winners = cars.stream()
+        return cars.stream()
                 .map(Car::getName)
-                .toList();
-
-        return String.join(WINNER_DELIMITER, winners);
+                .collect(Collectors.joining(WINNER_DELIMITER));
     }
 }
