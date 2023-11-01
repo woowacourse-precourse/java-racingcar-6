@@ -27,7 +27,7 @@ public class OutputViewTest {
         List<RacingCar> racingCarList = Arrays.asList(new RacingCar("pobi"), new RacingCar("woni"),
                 new RacingCar("jun"));
         racingCarList.forEach(car -> {
-            IntStream.rangeClosed(1, 10).forEach(count -> car.moveForwordOrNot());
+            IntStream.rangeClosed(1, 10).forEach(count -> car.moveForwardOrNot());
         });
         // 실행
         outputView.printRacingResultEachCount(racingCarList);

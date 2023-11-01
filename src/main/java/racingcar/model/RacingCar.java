@@ -20,7 +20,7 @@ public class RacingCar {
         return this.currentPosition;
     }
 
-    public void moveForwordOrNot() {
+    public void moveForwardOrNot() {
         if (canMoveForward()) {
             this.currentPosition += 1;
         }
