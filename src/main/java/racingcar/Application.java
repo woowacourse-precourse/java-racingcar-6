@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -10,6 +9,7 @@ public class Application {
     public static void main(String[] args) {
         List<Car> cars = inputCarNames();
         int numAttempts = getNumAttempts();
+
         for (int attempt = 0; attempt < numAttempts; attempt++) {
             for (Car car : cars) {
                 car.moveForwardOrStop();
@@ -19,7 +19,7 @@ public class Application {
         }
 
         List<String> winners = determineWinners(cars);
-        System.out.print("최종 우승자: " + String.join(", ", winners));
+        System.out.print("최종 우승자 : " + String.join(", ", winners));
     }
 
     private static List<Car> inputCarNames() {
@@ -39,11 +39,13 @@ public class Application {
 
         return cars;
     }
+
     private static void validateCarName(String carName) {
         if (carName.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
         }
     }
+
     private static int getNumAttempts() {
         while (true) {
             System.out.println("시도 할 횟수를 입력하세요.");
@@ -82,6 +84,7 @@ public class Application {
                 winners.add(car.getName());
             }
         }
+
         return winners;
     }
 }
