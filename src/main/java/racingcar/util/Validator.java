@@ -9,4 +9,10 @@ public class Validator {
             throw new IllegalArgumentException("자동차의 이름은 공백일 수 없습니다.");
         }
     }
+
+    private void validateContainSymbol(String carsName) {
+        if (!carsName.contains(SYMBOL)) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
