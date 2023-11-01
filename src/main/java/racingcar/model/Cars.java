@@ -21,11 +21,11 @@ public class Cars {
                 .distinct()
                 .toList();
 
-        validate(carNames, cars);
+        validateCarNameIsNotDuplicate(carNames, cars);
         return new Cars(cars);
     }
 
-    private static void validate(final List<Name> carNames, final List<Car> cars) {
+    private static void validateCarNameIsNotDuplicate(final List<Name> carNames, final List<Car> cars) {
         if (carNames.size() != cars.size()) {
             throw new IllegalArgumentException(DUPLICATE_CAR_EXCEPTION.getMessage());
         }
