@@ -5,8 +5,8 @@ import racingcar.constant.RacingConstant;
 public class InputValidation {
 
     public void isNameValid(String name) {
-        if (name.length() >= RacingConstant.MAX_CAR_NAME_LENGTH.getValue()) {
-            throw new IllegalArgumentException("이름은 5글자 이하만 가능합니다.");
+        if (name.length() > RacingConstant.MAX_CAR_NAME_LENGTH.getValue()) {
+            throw new IllegalArgumentException("이름은 5글자를 초과할 수 없습니다.");
         }
     }
 }
