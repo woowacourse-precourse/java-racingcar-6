@@ -12,9 +12,12 @@ public class car implements Comparable<car>{
     public int position;
 
     public car(String name) {
-        validate(name);
         this.name = name;
         this.position = START_POSITION;
+    }
+    public static car fromName(String name) {
+        validate(name);
+        return new car(name);
     }
 
     private static void validate(String name) {

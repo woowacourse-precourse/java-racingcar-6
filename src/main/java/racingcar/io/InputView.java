@@ -2,7 +2,6 @@ package racingcar.io;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static racingcar.constant.Constant.CAR_NAME_SEPARATOR;
 import static racingcar.constant.Message.READ_CAR_NAMES_MESSAGE;
@@ -18,10 +17,10 @@ public class InputView {
     }
 
 
-    public static List<String> readCarNames() {
+    public static String readCarNames() {
         outputView.print(READ_CAR_NAMES_MESSAGE);
         return Arrays.stream(readLine().split(CAR_NAME_SEPARATOR))
-                .toList();
+                .toList().toString();
     }
 
     public String readMoveTurnCount() {

@@ -17,7 +17,7 @@ public class Application {
         InputView inputView = new InputView(outputView);
 
 
-        cars cars = new cars(InputView.readCarNames());
+        cars cars = racingcar.domain.cars.fromCarNames(InputView.readCarNames());
         Racing racing = new Racing(inputView.readMoveTurnCount());
 
         outputView.print(RESULT_MESSAGE);
