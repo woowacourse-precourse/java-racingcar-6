@@ -8,11 +8,7 @@ public class Winner {
     private List<String> winners;
 
     public Winner(List<Car> cars) {
-        int maxMovingCount = cars.stream()
-                .mapToInt(Car::getMovingCount)
-                .max()
-                .orElse(0);
-
+        int maxMovingCount = getMaxMovingCount(cars);
         this.winners = cars.stream()
                 .filter(car -> car.getMovingCount() == maxMovingCount)
                 .map(Car::getName)
@@ -21,5 +17,12 @@ public class Winner {
 
     public List<String> getWinners() {
         return this.winners;
+    }
+
+    private int getMaxMovingCount(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getMovingCount)
+                .max()
+                .orElse(0);
     }
 }
