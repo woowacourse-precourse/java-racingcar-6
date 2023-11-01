@@ -11,7 +11,9 @@ public class Start {
         ArrayList<String> names = new ArrayList<>(Arrays.asList(raw));
 
         for (String name : names) {
-            if (name.length() < 1 || name.length() > 5) {
+            if (name.length() < 1) {
+                throw new IllegalArgumentException("이름을 입력하세요.");
+            } else if (name.length() > 5) {
                 throw new IllegalArgumentException("잘못된 이름입니다.");
             }
         }
