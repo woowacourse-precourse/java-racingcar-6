@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.Game;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,6 +18,15 @@ public class Controller {
     private final Parser parser = new Parser();
     private final Exception exception = new Exception();
     private final CarRepository carRepository = new CarRepository();
+
+    private void play(Game game) {
+        OutputView.printHead();
+        while (!gameService.isEnd(game)) {
+            gameService.Movingstart(game);
+            OutputView.printScore(game.getCars());
+        }
+        OutputView.printWinners(gameService.getWinners(game));
+    }
 
     private void saveCars(List<String> carNames) {
         for (String carName : carNames) {
