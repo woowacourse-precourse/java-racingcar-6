@@ -18,4 +18,15 @@ class RandomTest {
             assertThat(randomNumber >= 0 && randomNumber <= 9).isTrue();
         }
     }
+
+    @Test
+    void 숫자_4이상인_경우(){
+        //given
+        int number = 5;
+        //when
+        boolean b = Random.check(number);
+        //then
+        assertThat(b).isTrue();
+    }
+
 }
