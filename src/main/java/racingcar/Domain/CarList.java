@@ -1,5 +1,8 @@
 package racingcar.Domain;
 
+import static racingcar.common.GameMessage.INPUT_RACINGCAR_NAME_MESSAGE;
+import static racingcar.regex.RegularExpression.CAR_NAME_PATTERN;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -11,11 +14,13 @@ public class CarList {
 
     private List<Car> cars;
 
+    private final static String SEPARATOR = ",";
+
     public void namesInput() {
-        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+        System.out.print(INPUT_RACINGCAR_NAME_MESSAGE);
         String input = Console.readLine().trim();
 
-        List<String> carNames = Arrays.asList(input.split(","));
+        List<String> carNames = Arrays.asList(input.split(SEPARATOR));
         validate(carNames);
 
         namingCars(carNames);

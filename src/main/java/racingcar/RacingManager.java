@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.common.GameMessage.ATTEMPTS_NUMBER_MESSAGE;
+import static racingcar.regex.RegularExpression.ATTEMPTS_NUMBER_PATTERN;
+
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.Domain.CarList;
 import racingcar.Domain.Race;
@@ -20,7 +23,7 @@ public class RacingManager {
     }
 
     public void attemptsNumberInput() {
-        System.out.print("시도할 회수는 몇회인가요?\n");
+        System.out.print(ATTEMPTS_NUMBER_MESSAGE);
         String attemptsNumber = Console.readLine().trim();
 
         validateFormat(attemptsNumber);

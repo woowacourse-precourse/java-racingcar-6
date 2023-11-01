@@ -1,5 +1,7 @@
 package racingcar.Domain;
 
+import static racingcar.common.GameMessage.FINAL_WINNER_MESSAGE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,8 @@ public class Winner {
     private int winnersDistance = 0;
     private final List<String> winners = new ArrayList<>();
 
+    private final static String DELIMITER = ", ";
+
     public Winner(List<Car> cars) {
         this.cars = cars;
     }
@@ -16,7 +20,7 @@ public class Winner {
     public void printWinners() {
         checkWinnersDistance();
         checkWinner();
-        System.out.print("최종 우승자 : " + String.join(", ", winners));
+        System.out.print(FINAL_WINNER_MESSAGE + String.join(DELIMITER, winners));
     }
 
     private void checkWinnersDistance() {
