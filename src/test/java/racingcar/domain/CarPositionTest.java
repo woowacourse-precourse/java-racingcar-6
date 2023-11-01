@@ -28,13 +28,13 @@ class CarPositionTest {
 
     @ParameterizedTest
     @ValueSource(ints = {-1, -2})
-    void 음수를_갖는_객체를_생성하면_예외가_발생한다(int value) {
+    void 생성_시_음수가_입력되면_예외가_발생한다(int value) {
         assertThatThrownBy(() -> CarPosition.from(value)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
     @MethodSource("moveArgumentsProvider")
-    void 주어진_MovingStrategy에_따라_전진하거나_기존값을_반환한다(MovingStrategy movingStrategy, int expectedValue) {
+    void 이동_시_주어진_MovingStrategy에_따라_전진하거나_기존값을_반환한다(MovingStrategy movingStrategy, int expectedValue) {
         CarPosition carPosition = CarPosition.zero();
         CarPosition movedCarPosition = carPosition.move(movingStrategy);
 

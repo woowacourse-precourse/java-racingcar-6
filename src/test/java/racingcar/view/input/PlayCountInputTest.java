@@ -18,7 +18,7 @@ class PlayCountInputTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"a", "ab", "1a", "10%", "1a1", ""})
-    void 파싱시_숫자가_아닌_문자열이_입력되면_예외가_발생한다(String input) {
+    void 파싱_시_숫자가_아닌_문자열이_입력되면_예외가_발생한다(String input) {
         assertThatThrownBy(() -> PlayCountInput.parse(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }

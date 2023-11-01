@@ -22,7 +22,7 @@ class CarTest {
 
     @ParameterizedTest
     @MethodSource("moveArgumentsProvider")
-    void 주어진_MovingStrategy에_따라_이동한다(MovingStrategy movingStrategy, int expectedPosition) {
+    void 이동_시_주어진_MovingStrategy에_따라_이동한다(MovingStrategy movingStrategy, int expectedPosition) {
         Car car = Car.from("melon");
         car.move(movingStrategy);
 

@@ -24,7 +24,7 @@ class CarsTest {
     }
 
     @Test
-    void 자동차_이름이_중복되면_예외가_발생한다() {
+    void 생성_시_자동차_이름이_중복되면_예외가_발생한다() {
         List<String> carNames = List.of("apple", "melon", "melon");
         assertThatThrownBy(() -> Cars.from(carNames))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -32,7 +32,7 @@ class CarsTest {
 
     @ParameterizedTest
     @MethodSource("moveArgumentsProvider")
-    void 주어진_MovingStrategy에_따라_모든_Car를_이동시킨다(MovingStrategy movingStrategy, int expectedPosition) {
+    void 자동차_이동_시_주어진_MovingStrategy에_따라_모든_Car를_이동시킨다(MovingStrategy movingStrategy, int expectedPosition) {
         Cars cars = Cars.from(List.of("apple", "melon", "lime"));
         cars.move(movingStrategy);
 

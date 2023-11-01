@@ -19,7 +19,7 @@ class CarNameTest {
     @ParameterizedTest
     @EmptySource
     @ValueSource(strings = {"gmelon", "gmelons"})
-    void 자동차이름이_공백이거나_5자를_넘어가면_예외가_발생한다(String value) {
+    void 생성_시_자동차이름이_공백이거나_5자를_넘어가면_예외가_발생한다(String value) {
         assertThatThrownBy(() -> CarName.from(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
