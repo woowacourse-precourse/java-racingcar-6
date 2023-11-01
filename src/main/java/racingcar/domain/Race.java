@@ -51,7 +51,7 @@ public class Race {
     }
 
     public void printWinner() {
-        StringJoiner winners = new StringJoiner(", ");
+        StringJoiner winners = new StringJoiner(Console.PRINT_DELIMITER.message());
 
         for (Car car : cars) {
             if (car.getDistance() == bestScore) {
