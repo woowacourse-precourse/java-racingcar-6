@@ -66,27 +66,6 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 숫자_확인(){
-        RoundNumberManager manager = new RoundNumberManager();
-        boolean result = manager.notNumber("abc");
-        assertThat(result).isEqualTo(true);
-    }
-
-    @Test
-    void 음수_확인(){
-        RoundNumberManager manager = new RoundNumberManager();
-        boolean result = manager.negativeNumber(-5);
-        assertThat(result).isEqualTo(true);
-    }
-
-    @Test
-    void 숫자_종합_검사(){
-        RoundNumberManager manager = new RoundNumberManager();
-        boolean result = manager.checkRoundNumberExceptions("0");
-        assertThat(result).isEqualTo(false);
-    }
-
-    @Test
     void 우승자_안내_문구_생성(){
         Leaderboard board = new Leaderboard(Arrays.asList(""));
         String result = board.winnerFormat(Arrays.asList("Kim","Jin","Yi"));

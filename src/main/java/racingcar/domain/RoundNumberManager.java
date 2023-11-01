@@ -2,34 +2,24 @@ package racingcar.domain;
 
 public class RoundNumberManager {
 
-    public boolean checkRoundNumberExceptions(String roundNumberString) {
-        if (notNumber(roundNumberString)) {
-            return true;
-        } else {
-            int roundNumber = Integer.parseInt(roundNumberString);
-            if (negativeNumber(roundNumber)) {
-                return true;
-            }
-        }
+    public void checkRoundNumberExceptions(String roundNumberString) {
+        notNumber(roundNumberString);
 
-        return false;
+        int roundNumber = Integer.parseInt(roundNumberString);
+        negativeNumber(roundNumber);
     }
 
-    public boolean notNumber(String number) {
+    private void notNumber(String number) {
         try {
             Integer.parseInt(number);
         } catch (NumberFormatException e) {
-            return true;
+            throw new IllegalArgumentException("입력한 값이 숫자가 맞는지 확인해주세요.");
         }
-
-        return false;
     }
 
-    public boolean negativeNumber(Integer number) {
+    private void negativeNumber(Integer number) {
         if (number < 0) {
-            return true;
+            throw new IllegalArgumentException("입력한 값이 0이상의 수가 맞는지 확인해주세요.");
         }
-
-        return false;
     }
 }

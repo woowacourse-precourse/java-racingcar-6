@@ -25,9 +25,7 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
 
         String roundNumberString = Console.readLine();
-        if (roundNumberManager.checkRoundNumberExceptions(roundNumberString)) {
-            throw new IllegalArgumentException("시도할 횟수가 0 이상의 정수가 맞는지 확인해주세요.");
-        }
+        roundNumberManager.checkRoundNumberExceptions(roundNumberString);
 
         int roundNumber = Integer.parseInt(roundNumberString);
 
