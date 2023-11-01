@@ -22,7 +22,7 @@ public class RaceController {
         do {
             RaceResultResponse response = race.doRace();
             OutputView.printRace(response);
-        } while (race.isOver());
+        } while (!race.isOver());
         List<String> winners = race.findWinners();
         OutputView.printWinners(winners);
     }
