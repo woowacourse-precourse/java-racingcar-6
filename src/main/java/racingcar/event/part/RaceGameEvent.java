@@ -1,10 +1,10 @@
 package racingcar.event.part;
 
 import racingcar.data.RacingCarRepository;
+import racingcar.dto.RaceGameResult;
+import racingcar.dto.RaceGameResult.TrackPerResult;
 import racingcar.event.core.EventListener.ParameterAndReturnEvent;
 import racingcar.strategy.RacingCarMoveStrategy;
-import racingcar.view.part.RaceGameComponent.RaceGameResult;
-import racingcar.view.part.RaceGameComponent.RaceGameResult.TrackPerResult;
 
 public record RaceGameEvent(
         RacingCarRepository racingCarRepository
@@ -29,8 +29,8 @@ public record RaceGameEvent(
         final var participants = racingCarRepository.findParticipants();
         final var movedParticipants = participants.moveAll(racingCarMoveStrategy);
 
-        racingCarRepository.saveParticipants(movedParticipants);
-        racingCarRepository.saveExtractTrack(extractTrack.consumerCount());
+        racingCarRepository.save(movedParticipants);
+        racingCarRepository.save(extractTrack.consumerCount());
 
         return RaceGameResult.processGameResult(movedParticipants.convert(TrackPerResult::from));
     }

@@ -9,11 +9,11 @@ public class RacingCarRepository {
     private Participants participants;
 
 
-    public void saveExtractTrack(ExtractTrack extractTrack) {
+    public void save(ExtractTrack extractTrack) {
         this.extractTrack = extractTrack;
     }
 
-    public void saveParticipants(Participants participants) {
+    public void save(Participants participants) {
         this.participants = participants;
     }
 

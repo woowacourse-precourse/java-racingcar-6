@@ -7,6 +7,6 @@ import racingcar.event.core.EventListener.ParameterEvent;
 public record InitializeExtractTrackEvent(RacingCarRepository racingCarRepository) implements ParameterEvent<Integer> {
     @Override
     public void execute(Integer input) {
-        racingCarRepository.saveExtractTrack(new ExtractTrack(input));
+        racingCarRepository.save(new ExtractTrack(input));
     }
 }

@@ -8,6 +8,6 @@ import racingcar.event.core.EventListener.ParameterEvent;
 public record InitializeParticipantsEvent(RacingCarRepository racingCarRepository) implements ParameterEvent<List<String>> {
     @Override
     public void execute(List<String> input) {
-        racingCarRepository.saveParticipants(Participants.of(input));
+        racingCarRepository.save(Participants.of(input));
     }
 }
