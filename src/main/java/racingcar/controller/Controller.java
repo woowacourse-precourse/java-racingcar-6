@@ -27,7 +27,6 @@ public class Controller {
         List<Car> carList = prepareCarList();
 
         int tryCount = getTryCount();
-
         outputView.displayResultGuideMessage();
         executeRaces(carList, tryCount);
 
@@ -35,9 +34,19 @@ public class Controller {
     }
 
     private List<Car> prepareCarList() {
+        return getCars(getCarNames());
+    }
+
+    private String[] getCarNames() {
+        String[] carNames = inputView.inputCarNames();
+        carValidator.checkCarCount(carNames);
+        return carNames;
+    }
+
+    private List<Car> getCars(String[] carNames) {
         List<Car> list = new LinkedList<>();
-        for (String name : inputView.inputCarNames()) {
-            carNameValidator.checkCarName(name);
+        for (String name : carNames) {
+            carValidator.checkCarName(name);
             list.add(new Car(name));
         }
         carValidator.checkDuplicate(list);
