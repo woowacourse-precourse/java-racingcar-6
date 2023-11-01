@@ -1,12 +1,25 @@
 package racingcar;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class InputTurnNumTest {
 
     InputTurnNum inputTurnNum = new InputTurnNum();
+
+    static List<Car> CARLIST;
+
+    @BeforeEach
+    void beforeEach() {
+        CARLIST = new ArrayList<>();
+        CARLIST.add(new Car("pobi", 0));
+        CARLIST.add(new Car("woni", 0));
+    }
 
     @Test
     @DisplayName("0이하의 값을 입력했을 때 에러 발생 테스트")
@@ -18,7 +31,7 @@ class InputTurnNumTest {
 
         // then
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            inputTurnNum.inputTurn(input);
+            inputTurnNum.inputTurn(input, CARLIST);
         });
 
     }
@@ -33,7 +46,7 @@ class InputTurnNumTest {
 
         // then
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            inputTurnNum.inputTurn(input);
+            inputTurnNum.inputTurn(input, CARLIST);
         });
 
     }

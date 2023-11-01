@@ -17,7 +17,6 @@ public class InputCarName {
 
             List<Car> cars = new ArrayList<>();
             for (String name : carNameList) {
-                System.out.println(name);
                 if (name.length() > 5) {
                     throw new IllegalArgumentException("6자 이상의 값을 입력하였습니다.");
                 }

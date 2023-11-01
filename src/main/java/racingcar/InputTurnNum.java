@@ -1,20 +1,25 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InputTurnNum {
 
-    public String inputTurn (String input) {
+    private Result result = new Result();
+
+    public void inputTurn(String input, List<Car> carList) {
         try {
             if (input == null || input.isEmpty()) {
                 throw new IllegalArgumentException("입력한 값이 없습니다.");
             }
 
-            int num = Integer.parseInt(input);
+            int turn = Integer.parseInt(input);
 
-            if (num <= 0) {
+            if (turn <= 0) {
                 throw new IllegalArgumentException("입력한 값이 1이상이 아닙니다.");
             }
 
-            return input;
+            result.printResult(turn, carList);
 
 
         } catch (NumberFormatException e) {
