@@ -3,6 +3,8 @@ package racingcar.machine;
 import racingcar.machine.car.Car;
 import racingcar.machine.car.CarInterface;
 import racingcar.machine.ui.RacingCarMachineUI;
+import racingcar.machine.util.random.RandomsAdapter;
+import racingcar.machine.util.random.RandomsProvider;
 
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -12,6 +14,7 @@ public class RacingCarMachine implements RacingCarMachineInterface{
     private final RacingCarMachineUI ui;
 
     private final List<CarInterface> cars = new LinkedList<>();
+    private final RandomsProvider randomsProvider = new RandomsAdapter();
 
     public RacingCarMachine(RacingCarMachineUI ui) {
         this.ui = ui;
@@ -22,7 +25,7 @@ public class RacingCarMachine implements RacingCarMachineInterface{
         ui.displayRequestCarNames();
         List<String> carNames = ui.inputCarNames();
 
-        carNames.forEach(carName -> cars.add(new Car(carName)));
+        carNames.forEach(carName -> cars.add(new Car(carName, randomsProvider)));
     }
 
     @Override

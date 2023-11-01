@@ -1,18 +1,23 @@
 package racingcar.machine.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.machine.util.random.RandomsAdapter;
+import racingcar.machine.util.random.RandomsProvider;
 
 public class Car implements CarInterface {
     private final String name;
+    private final RandomsProvider randomsAdapter;
     private int distance;
 
-    public Car(String name) {
+
+    public Car(String name, RandomsProvider randomsProvider) {
         this.name = name;
+        this.randomsAdapter = randomsProvider;
     }
 
     @Override
     public void tryForwardMove() {
-        int number = Randoms.pickNumberInRange(0, 9);
+        int number = randomsAdapter.pickNumberInRange(0, 9);
         if (number >= 4) distance++;
     }
 
