@@ -32,4 +32,11 @@ public class GameController {
     private void initTryCount() {
         tryCount = inputController.inputTryCount();
     }
+    public GameController(Input inputController, Output outputController) {
+        this.inputController = inputController;
+        this.outputController = outputController;
+        initCarNameList();
+        initCarList();
+        initTryCount();
+    }
 }
