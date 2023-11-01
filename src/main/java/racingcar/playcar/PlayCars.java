@@ -45,4 +45,16 @@ public class PlayCars {
     private boolean runOrStop() {
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
+
+    public void getResult() {
+        System.out.println("실행 결과");
+        eachCurrent();
+    }
+
+    private void eachCurrent() {
+        for (String car : cars) {
+            System.out.printf("%s : %s%n", car, "-".repeat(carToDistance.get(car)));
+        }
+        System.out.println();
+    }
 }
