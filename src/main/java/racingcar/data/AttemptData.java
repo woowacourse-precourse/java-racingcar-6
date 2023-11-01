@@ -1,8 +1,11 @@
 package racingcar.data;
 
+import java.util.List;
+
 public class AttemptData {
     private final MoveAttempts moveAttempts;
     private final AttemptIndex attemptIndex;
+    private static final String WINNER_DELIMITER = ", ";
 
     public AttemptData() {
         this.moveAttempts = new MoveAttempts();
@@ -25,5 +28,10 @@ public class AttemptData {
 
     public Attempt findLastAttemptByIndex() {
         return moveAttempts.findAttemptByIndex(attemptIndex.toInt());
+    }
+
+    public String findWinners() {
+        List<String> Winners =  moveAttempts.findWinnersByIndex(attemptIndex.toInt());
+        return String.join(WINNER_DELIMITER, Winners);
     }
 }

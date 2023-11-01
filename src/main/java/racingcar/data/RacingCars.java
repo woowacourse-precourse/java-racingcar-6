@@ -30,6 +30,26 @@ public class RacingCars {
         return cars.size();
     }
 
+    public int findFurthestPos() {
+        int furthestPos = INIT_POS;
+        for (Car car : cars) {
+            if (furthestPos < car.getPosition()) {
+                furthestPos = car.getPosition();
+            }
+        }
+        return furthestPos;
+    }
+
+    public List<String> findPlayersByPos(int pos) {
+        List<String> players = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.isSamePosition(pos)) {
+                players.add(car.getName());
+            }
+        }
+        return players;
+    }
+
     @Override
     public String toString() {
         return cars.stream()

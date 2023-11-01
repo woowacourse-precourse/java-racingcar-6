@@ -29,4 +29,8 @@ public class GameData {
     public Attempt findLastAttempt() {
         return attemptData.findLastAttemptByIndex();
     }
+
+    public String produceResult() {
+        return attemptData.findWinners();
+    }
 }

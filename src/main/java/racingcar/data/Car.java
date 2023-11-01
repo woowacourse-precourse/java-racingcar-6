@@ -14,6 +14,18 @@ public class Car {
         carPosition.move(moveNum);
     }
 
+    public boolean isSamePosition(int pos) {
+        return carPosition.toInt() == pos;
+    }
+
+    public int getPosition() {
+        return carPosition.toInt();
+    }
+
+    public String getName() {
+        return carName.toString();
+    }
+
     @Override
     public String toString() {
         return carName + CAR_DELIMITER + carPosition;

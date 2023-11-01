@@ -37,4 +37,8 @@ public class MoveAttempts {
     public Attempt findAttemptByIndex(int index) {
         return attempts.get(index);
     }
+
+    public List<String> findWinnersByIndex(int index) {
+        return attempts.get(index).getWinners();
+    }
 }

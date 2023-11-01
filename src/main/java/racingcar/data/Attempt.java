@@ -1,5 +1,7 @@
 package racingcar.data;
 
+import java.util.List;
+
 public class Attempt {
     private final RacingCars racingCars;
     private RandomNumbers randomNumbers;
@@ -31,11 +33,9 @@ public class Attempt {
         for (int i = 0; i < racingCars.isTotal(); i++) {
             if (isForward(randomNumbers.toIntByIndex(i))) {
                 moves += "1";
-                continue;
             }
             if (isStop(randomNumbers.toIntByIndex(i))) {
                 moves += "0";
-                continue;
             }
         }
         return moves;
@@ -60,6 +60,11 @@ public class Attempt {
             return true;
         }
         return false;
+    }
+
+    public List<String> getWinners() {
+        int furthestPos = racingCars.findFurthestPos();
+        return racingCars.findPlayersByPos(furthestPos);
     }
 
     @Override

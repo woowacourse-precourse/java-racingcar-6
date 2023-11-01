@@ -29,8 +29,14 @@ public class Game {
         }
     }
 
+    public void announceResult() {
+        String result = gameData.produceResult();
+        gameExecution.printGameResult(result);
+    }
+
     public void run() {
         initGameData();
         proceed();
+        announceResult();
     }
 }
