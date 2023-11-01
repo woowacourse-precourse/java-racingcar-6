@@ -21,9 +21,12 @@ public class Racing {
                 distanceRecord.add(car.getMovedDist());
             }
         }
+        printEachTurn();
+        selectWinners();
+        printWinners();
     }
 
-    public List<Car> selectWinners() {
+    private void selectWinners() {
         Collections.sort(cars);
         int maxDist = cars.get(0).getMovedDist();
         for (Car car : cars) {
@@ -31,16 +34,15 @@ public class Racing {
                 winners.add(car);
             } else break;
         }
-        return winners;
     }
 
-    public void printWinners() {
-        List<String> winners = selectWinners()
+    private void printWinners() {
+        List<String> winnersName = winners
                 .stream().map(Car::getName).toList();
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        System.out.println("최종 우승자 : " + String.join(", ", winnersName));
     }
 
-    public void printEachTurn() {
+    private void printEachTurn() {
         System.out.println("\n실행결과: ");
         int carIndex = 0;
         for (Integer movedDist : distanceRecord) {
