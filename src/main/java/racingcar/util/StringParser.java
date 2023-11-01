@@ -16,4 +16,19 @@ public class StringParser {
         }
         return carNames;
     }
+
+    /**
+     * @return 0 이상의 정수
+     */
+    public static Integer parseRound(String str) {
+        try {
+            int round = Integer.parseInt(str);
+            if (round < 0) {
+                throw new IllegalArgumentException();
+            }
+            return round;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

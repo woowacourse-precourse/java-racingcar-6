@@ -31,7 +31,9 @@
 ## 3. 유틸 함수
 ### 1) 문자열 파싱 StringParser
 - [x] 문자열을 자동차 이름 배열로 파싱하는 기능 - parseCarName(String str)
-- [ ] 문자열을 횟수 값으로 파싱하는 기능 - parseRound(String str)
+  - 길이가 1 이상인 List<String>
+- [x] 문자열을 횟수 값으로 파싱하는 기능 - parseRound(String str)
+  - 0 이상의 정수
 
 ### 2) 값 검증 Validator
 - [ ] 자동차 이름 값을 검증하는 기능 - validateCarName(String carName)
@@ -39,7 +41,6 @@
   - [ ] 길이가 5 이하여야 함
   - [ ] 앞 뒤에 공백이 없어야 함
 - [ ] 자동차 이름 배열을 검증하는 기능 - validateCarNames(List<String> carNames)
-  - [ ] 이름이 한 개 이상이어야 함
   - [ ] 중복 이름이 없어야 함
 - [ ] 횟수 값을 검증하는 기능 - validateRound(Integer round)
   - [ ] 0 이상의 정수여야 함
