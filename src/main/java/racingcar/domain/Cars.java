@@ -1,23 +1,22 @@
 package racingcar.domain;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
         validateDuplicate(carNames);
-        this.cars = carNames.stream()
+        List<Car> carList = carNames.stream()
                 .map(name -> new Car(name, 0))
-                .collect(Collectors.toList());
+                .toList();
+        this.cars = List.copyOf(carList);
     }
 
     public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+        return cars;
     }
 
     private void validateDuplicate(List<String> listOfNames) {
