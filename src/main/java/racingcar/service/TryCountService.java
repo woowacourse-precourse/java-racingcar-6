@@ -10,19 +10,21 @@ public class TryCountService {
     }
 
     public int convert_StringToPositiveInt(String string_try_count){
-        if(string_try_count == null) {
-            throw new IllegalArgumentException("입력값이 존재해야합니다. 자연수를 입력해주세요.");
+        if(string_try_count.isEmpty()) {
+            throw new IllegalArgumentException("입력값이 없습니다. 자연수를 입력해주세요.");
         }
-        try {
-            int int_try_count = Integer.parseInt(string_try_count);
 
-            if(int_try_count <= 0) {
-                throw new IllegalArgumentException("0 또는 음수는 입력할 수 없습니다. 자연수를 입력해주세요.");
-            }
-            return int_try_count;
+        int int_try_count;
+        try {
+            int_try_count = Integer.parseInt(string_try_count);
         } catch(NumberFormatException e) {
-            throw new IllegalArgumentException("소수와 문자는 입력할 수 없습니다. 자연수를 입력해주세요.");
+            throw new IllegalArgumentException("소수 또는 문자는 입력할 수 없습니다. 자연수를 입력해주세요.");
         }
+
+        if(int_try_count <= 0) {
+            throw new IllegalArgumentException("0 또는 음수는 입력할 수 없습니다. 자연수를 입력해주세요.");
+        }
+        return int_try_count;
     }
 
     public TryCount inputTryCount(){
