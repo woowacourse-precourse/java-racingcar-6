@@ -23,12 +23,12 @@ public class Car{
             if(car.get(i) == null ||car.get(i).isBlank()||car.get(i).length()>5){
                 throw new IllegalArgumentException("에러가 발생했습니다.");
             }
-            TestSame(i);
+            TestSame(car.get(i));
         }
     }
-    void TestSame(int j){
+    void TestSame(String j){
         for(int i=0;i<car.size();i++){
-            if(car.get(i).equals(car.get(j))){
+            if(car.get(i).equals(j)){
                 throw new IllegalArgumentException("에러가 발생했습니다.");
             }
         }
@@ -64,11 +64,11 @@ public class Car{
                 max_position = position.get(i);
                 winners.add(car.get(i));
             }
-            else if(position.get(i)==max_position){
+            if(position.get(i)==max_position){
                 winners.add(car.get(i));
             }
         }
-        String result = String.join(",", winners);
+        String result = String.join(", ", winners);
         System.out.println("최종 우승자 : "+result);
     }
     void Play(){
