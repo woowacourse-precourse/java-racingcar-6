@@ -5,14 +5,21 @@ import static racingcar.constants.ErrorCode.INVALID_INPUT;
 import static racingcar.constants.ErrorCode.INVALID_NAME_LENGTH;
 import static racingcar.constants.Message.SEPARATOR_REGEX;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Validator {
 
     public void validateCarName(String input) {
-        List<String> names = List.of(input.split(SEPARATOR_REGEX.toString()));
+        List<String> names = removeBlank(input);
         validateDuplicateName(names);
         validateLengthOfName(names);
+    }
+
+    private List<String> removeBlank(String input) {
+        return Arrays.stream(input.split(SEPARATOR_REGEX.toString()))
+                .map(String::trim)
+                .toList();
     }
 
     private void validateLengthOfName(List<String> carNames) {

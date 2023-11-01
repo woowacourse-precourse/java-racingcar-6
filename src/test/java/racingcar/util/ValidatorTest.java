@@ -22,7 +22,7 @@ class ValidatorTest {
 
     @ParameterizedTest
     @DisplayName("이름을 입력받았을 때, 중복되는 이름이 존재하는 경우 예외가 발생한다.")
-    @ValueSource(strings = {"pobi,pobi,crong", "crong,crong,pobi"})
+    @ValueSource(strings = {"pobi,pobi,crong", "crong,crong,pobi", "crong, crong,pobi", "crong ,crong,pobi"})
     public void should_throwException_when_NameDuplicated(String input) {
         assertThatThrownBy(() -> validator.validateCarName(input))
                 .isInstanceOf(IllegalArgumentException.class)
