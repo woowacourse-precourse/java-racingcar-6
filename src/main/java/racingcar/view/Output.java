@@ -24,4 +24,8 @@ public class Output {
     public static void winnerMessage() {
         System.out.print(WINNER);
     }
+
+    public static void newLine() {
+        System.out.println();
+    }
 }

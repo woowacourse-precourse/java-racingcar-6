@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.view.Output;
 import camp.nextstep.edu.missionutils.Randoms;
 
 class Car {
@@ -20,8 +21,8 @@ class Car {
     }
 
     void move() {
-        int num = Randoms.pickNumberInRange(0, 9);
-        if (num >= 4) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
             forwardCount++;
         }
     }
@@ -31,6 +32,6 @@ class Car {
         for (int i = 0; i < forwardCount; i++) {
             System.out.print("-");
         }
-        System.out.println();
+        Output.newLine();
     }
 }

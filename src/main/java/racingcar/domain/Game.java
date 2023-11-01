@@ -29,11 +29,21 @@ public class Game {
     private void currentCondition() {
         Output.attemptResultMessage();
         for (int attempt = 0; attempt < attemptCount; attempt++) {
-            for (Car car : cars) {
-                car.move();
-                car.currentLocation();
-            }
-            System.out.println();
+            moveCars();
+            printCurrentLocation();
+            Output.newLine();
+        }
+    }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
+
+    private void printCurrentLocation() {
+        for (Car car : cars) {
+            car.currentLocation();
         }
     }
 

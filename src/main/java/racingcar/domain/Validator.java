@@ -7,11 +7,11 @@ public class Validator {
     }
 
     public static void checkCarNames(String carNames) {
-        if (Validator.isEmpty(carNames)) {
+        if (isEmpty(carNames)) {
             RacingGame.exception(ErrorMessage.NO_NAME);
-        } else if (Validator.isNumber(carNames)) {
+        } else if (isNumber(carNames)) {
             RacingGame.exception(ErrorMessage.IS_NUMBER);
-        } else if (Validator.isOneString(carNames)) {
+        } else if (isOneString(carNames)) {
             RacingGame.exception(ErrorMessage.ONE_NAME);
         }
     }
@@ -47,9 +47,9 @@ public class Validator {
 
     /* for attemptCount */
     public static void checkAttemptCount(int attemptCount) {
-        if (Validator.isZero(attemptCount)) {
+        if (isZero(attemptCount)) {
             RacingGame.exception(ErrorMessage.IS_ZERO);
-        } else if (Validator.isNegative(attemptCount)) {
+        } else if (isNegative(attemptCount)) {
             RacingGame.exception(ErrorMessage.IS_NEGATIVE);
         }
     }
