@@ -18,9 +18,11 @@ public class RacingController {
     }
 
     public void start() {
+        PrintUtils.printInputCarName();
         String carNamesInput = inputReader.readLine();
         RaceParticipants raceParticipants = settingParticipants(carNamesInput);
 
+        PrintUtils.printInputRacingNumber();
         String roundInput = inputReader.readLine();
         Round round = settingRound(roundInput);
 
