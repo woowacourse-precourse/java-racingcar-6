@@ -32,6 +32,18 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    public void 우승자가_여려명이면_쉼표로_구분한다(){
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : - ", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         try {

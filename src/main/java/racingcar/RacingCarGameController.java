@@ -49,7 +49,7 @@ public class RacingCarGameController {
         carMoveService.move(cars,userInputCarMoveCountDto);
 
         //7. 우승자 판별
-        carRacingWinnerService.selectWinner(cars);
+        carRacingWinnerService.selectWinnerWithOutput(cars);
 
         //8. 출력
         Output.printResult();
