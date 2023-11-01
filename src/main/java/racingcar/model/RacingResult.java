@@ -12,7 +12,7 @@ public class RacingResult {
         this.winnerStrategy = winnerStrategy;
     }
 
-    public List<String> getWinnerNames() {
-        return winnerStrategy.determineWinner(cars);
+    public List<String> determineWinnerNames() {
+        return winnerStrategy.judgeWinner(cars);
     }
 }

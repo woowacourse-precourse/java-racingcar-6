@@ -6,7 +6,7 @@ import racingcar.model.Cars;
 public class MaximumForwardStrategy implements WinnerStrategy {
 
     @Override
-    public List<String> determineWinner(Cars cars) {
+    public List<String> judgeWinner(Cars cars) {
         int maxForwardCount = cars.calculateMaxForwardCount();
         return cars.findAllNameByForwardCount(maxForwardCount);
     }
