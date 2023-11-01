@@ -10,12 +10,19 @@ import racingcar.domain.Car;
 public class CarNameValidator {
 
     public static void validateCarName(String carName) {
+        checkNull(carName);
         checkLength(carName);
         checkBlank(carName);
     }
 
     public static void validateCarName(List<Car> carList) {
         checkDuplicateName(carList);
+    }
+
+    public static void checkNull(String carName) {
+        if (carName == null) {
+            throw new IllegalArgumentException(MessageConstants.INVALID_CAR_NAME_FOR_NULL);
+        }
     }
 
     public static void checkLength(String carName) {
