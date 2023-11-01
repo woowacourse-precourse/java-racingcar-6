@@ -31,6 +31,7 @@ public class Controller {
     }
 
     private int getNumberOfPlayCount() {
+
         return parser.parseNumberOfPlaycount(getPlayCountByUserInput());
     }
 
@@ -60,10 +61,7 @@ public class Controller {
         return checkValidateCarName(input);
     }
 
-    private String getPlayCountByUserInput() {
-        InputView.requestNumberOfPlayCountMessage();
-        return checkValidationNumberOfPlayCount(Console.readLine());
-    }
+
 
     private String checkValidateCarName(String input) {
         try {
@@ -73,6 +71,11 @@ public class Controller {
             OutputView.printException(e.getMessage());
             return getCarNameByUserInput();
         }
+    }
+
+    private String getPlayCountByUserInput() {
+        InputView.requestNumberOfPlayCountMessage();
+        return checkValidationNumberOfPlayCount(Console.readLine());
     }
 
     private String checkValidationNumberOfPlayCount(String input) {
