@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 
 public class RandomGameRuleImpl implements GameRule {
     static final String IDENTIFIER = ", ";
@@ -10,18 +10,18 @@ public class RandomGameRuleImpl implements GameRule {
     static final int RANDOM_MAX = 9;
     static final int PROGRESS_VALUE = 4;
 
-    private final CarList carList;
+    private Cars carList;
 
-    public RandomGameRuleImpl(CarList carList) {
+    public RandomGameRuleImpl(Cars carList) {
         this.carList = carList;
     }
 
     @Override
     public void playRound() {
-        for (int i = 0; i < carList.size(); i++) {
+        for (Car car : carList.getCarList()) {
             int randomNumber = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
 
-            progressCar(carList.get(i), randomNumber);
+            progressCar(car, randomNumber);
         }
 
         carList.printCarsState();

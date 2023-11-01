@@ -2,10 +2,11 @@ package racingcar.model;
 
 import java.util.ArrayList;
 
-public class CarList {
+public class Cars {
+
     private ArrayList<Car> carList;
 
-    public CarList() {
+    public Cars() {
         this.carList = new ArrayList<>();
     }
 
@@ -13,6 +14,9 @@ public class CarList {
         return carList.get(index);
     }
 
+    public ArrayList<Car> getCarList(){
+        return carList;
+    }
     public int size() {
         return carList.size();
     }

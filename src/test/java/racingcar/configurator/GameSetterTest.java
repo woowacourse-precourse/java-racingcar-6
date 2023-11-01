@@ -2,18 +2,18 @@ package racingcar.configurator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class GameSetterTest {
 
     private GameSetter gameSetter;
-    private CarList carList;
+    private Cars carList;
 
     @BeforeEach
     public void setUp() {
-        carList = new CarList();
+        carList = new Cars();
 
         String userInputValue = "Car1,Car2,Car3";
         int coin = 5;

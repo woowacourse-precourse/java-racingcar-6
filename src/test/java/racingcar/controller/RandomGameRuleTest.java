@@ -4,18 +4,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import racingcar.model.Car;
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RandomGameRuleTest {
 
     private RandomGameRuleImpl gameRule;
-    private CarList carList;
+    private Cars carList;
 
     @BeforeEach
     public void setUp() {
-        carList = new CarList();
+        carList = new Cars();
 
         carList.addCar(new Car("Car1"));
         carList.addCar(new Car("Car2"));

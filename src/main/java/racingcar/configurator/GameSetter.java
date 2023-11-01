@@ -1,19 +1,19 @@
 package racingcar.configurator;
 
 import racingcar.model.Car;
-import racingcar.model.CarList;
+import racingcar.model.Cars;
 import racingcar.view.UserView;
 
 public class GameSetter {
     static final int NAME_LENGTH_LIMIT = 5;
 
-    private final CarList carList;
+    private final Cars carList;
     private final UserView userView;
 
     private String userInputValue;
     private int coin;
 
-    public GameSetter(CarList carList) {
+    public GameSetter(Cars carList) {
         this.carList = carList;
         this.userView = new UserView();
 
@@ -21,7 +21,7 @@ public class GameSetter {
         this.coin = userView.inputCoinValue();
     }
 
-    public GameSetter(CarList carList, String inputValue, int coinValue){
+    public GameSetter(Cars carList, String inputValue, int coinValue){
         this.carList = carList;
         this.userView = new UserView();
 
