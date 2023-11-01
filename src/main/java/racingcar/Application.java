@@ -74,10 +74,7 @@ public class Application {
     }
 
     private static List<String> getWinners(List<String> carNames, List<Integer> position) {
-        int maxPosition = position.stream()
-                .mapToInt(value -> value)
-                .max()
-                .orElseThrow();
+        int maxPosition = getMaxPosition(position);
         List<String> winners = new ArrayList<>();
 
         for (int i = 0; i < carNames.size(); i++) {
@@ -111,6 +108,13 @@ public class Application {
         if (canMoveForward()) {
             position.set(index, position.get(index) + 1);
         }
+    }
+
+    private static int getMaxPosition(List<Integer> position) {
+        return position.stream()
+                .mapToInt(value -> value)
+                .max()
+                .orElseThrow();
     }
 
     /**
