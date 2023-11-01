@@ -22,8 +22,6 @@ public class GameCountInputManager implements InputManager<Integer>{
             return Integer.parseInt(input);
         }catch (NumberFormatException | NoSuchElementException | IllegalStateException e){
             throw new IllegalArgumentException();
-        }finally {
-            Console.close();
         }
     }
 }
