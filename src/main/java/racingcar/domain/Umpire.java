@@ -2,8 +2,8 @@ package racingcar.domain;
 
 import static racingcar.constant.GameMessage.DELIMITER_WINNER;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.view.OutputView;
 
 public class Umpire {
@@ -18,23 +18,19 @@ public class Umpire {
     }
 
     public int findMaxPosition() {
-        int maxPosition = 0;
-        for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
-        }
-
-        return maxPosition;
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 
     public String findWinner() {
-        List<String> winners = new ArrayList<>();
         int maxPosition = findMaxPosition();
 
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
-        }
+        List<String> winners = cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
 
         return String.join(DELIMITER_WINNER, winners);
     }
