@@ -22,7 +22,7 @@ public class OutputViewTest {
         cars.getCars().get(1).tryMove(3);
         cars.getCars().get(2).tryMove(9);
 
-        outputView.printCarsPosition(cars);
+        outputView.printCarsPosition(cars.getCars());
 
         assertThat(out.toString()).isEqualTo(
                 "실행 결과" + System.getProperty("line.separator")

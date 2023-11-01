@@ -16,8 +16,8 @@ public class OutputView {
         System.out.println(EXECUTION_RESULT);
     }
 
-    public void printCarsPosition(Cars cars) {
-        for (Car car : cars.getCars()) {
+    public void printCarsPosition(List<Car> cars) {
+        for (Car car : cars) {
             System.out.println(car.getName() + " : " + printSymbol(car));
         }
         System.out.println();

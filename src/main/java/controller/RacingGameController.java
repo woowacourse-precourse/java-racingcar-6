@@ -17,7 +17,7 @@ public class RacingGameController {
 
         for (int i = 0; i < tryCount.getCount(); i++) {
             cars.allTryMove();
-            outputView.printCarsPosition(cars);
+            outputView.printCarsPosition(cars.getCars());
         }
 
         outputView.printWinner(new Winners(cars.getCars()));
