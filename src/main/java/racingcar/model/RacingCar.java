@@ -2,6 +2,9 @@ package racingcar.model;
 
 public class RacingCar {
 
+    private static final String DELIMITER = " : ";
+    private static final String MOVE = "-";
+
     private final String carName;
     private int carLocation;
 
@@ -25,8 +28,8 @@ public class RacingCar {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(carName);
-        sb.append(" : ")
-                .append("-".repeat(carLocation));
+        sb.append(DELIMITER)
+                .append(MOVE.repeat(carLocation));
         return sb.toString();
     }
 }
