@@ -16,4 +16,29 @@ public class Cars {
     public void addCar(String carName) {
         state.put(carName, 0);
     }
+
+    public List<String> getWinner() {
+        List<String> winner = new ArrayList<>();
+        int highScore = getHighScore();
+
+        for (Map.Entry<String, Integer> entry : state.entrySet()) {
+            String name = entry.getKey();
+            Integer score = entry.getValue();
+            if (score.equals(highScore)) {
+                winner.add(name);
+            }
+        }
+        Collections.sort(winner);
+        return winner;
+    }
+
+    public int getHighScore() {
+        int highScore = Integer.MIN_VALUE;
+        for (int score : state.values()) {
+            if (score > highScore) {
+                highScore = score;
+            }
+        }
+        return highScore;
+    }
 }
