@@ -29,7 +29,6 @@ public class GameManager {
         }
 
         List<String> winners = winnerChecker.findWinners();
-
         gameView.printWinner(winners);
     }
 
