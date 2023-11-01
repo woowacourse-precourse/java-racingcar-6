@@ -13,6 +13,7 @@ public class CarGroup {
     public static CarGroup from(List<Car> carGroup) {
         return new CarGroup(carGroup);
     }
+
     public int getMaxPosition() {
         return carGroup.stream()
             .mapToInt(Car::getPosition)
