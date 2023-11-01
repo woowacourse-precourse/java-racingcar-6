@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CarRacingInputService {
 
-    public static List<String> inputCarNameList() throws IllegalArgumentException {
+    public List<String> inputCarNameList() throws IllegalArgumentException {
         String carNameString = readLine();
         List<String> carNames = List.of(carNameString.split(","));
 
