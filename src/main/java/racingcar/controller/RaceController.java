@@ -6,8 +6,8 @@ import racingcar.domain.PlayCount;
 import racingcar.domain.Winners;
 import racingcar.dto.CarDto;
 import racingcar.domain.RandomNumberGenerator;
-import racingcar.view.InputViewable;
-import racingcar.view.OutputViewable;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,10 +16,10 @@ public class RaceController {
 
     private PlayCount playCount;
     private Cars cars;
-    private final InputViewable inputView;
-    private final OutputViewable outputView;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public RaceController(InputViewable inputView, OutputViewable outputView) {
+    public RaceController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         setRace();
