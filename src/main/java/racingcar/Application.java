@@ -15,35 +15,53 @@ public class Application {
 
     private static final List<Car> cars = new ArrayList<>();
     public static void main(String[] args) {
-        System.out.println(CAR_NAME_INPUT_MESSAGE);
-        String carNameInput = camp.nextstep.edu.missionutils.Console.readLine();
+        String carNamesInput = getCarNamesInput();
+        setCarsWithCarNames(carNamesInput);
 
-        List<String> carNames = Arrays.stream(carNameInput.split(",")).toList();
+        int tryCount = getTryCount();
+        processGameWithCount(tryCount);
+
+        printGameResult();
+    }
+
+    static String getCarNamesInput() {
+        System.out.println(CAR_NAME_INPUT_MESSAGE);
+        return camp.nextstep.edu.missionutils.Console.readLine();
+    }
+
+    static void setCarsWithCarNames(String carNamesInput) {
+        List<String> carNames = Arrays.stream(carNamesInput.split(",")).toList();
         for (String carName : carNames) {
             validateCarName(carName);
             Car car = new Car(carName);
             cars.add(car);
         }
+    }
 
-        System.out.println(TRY_COUNT_INPUT_MESSAGE);
-        String tryCountInput = camp.nextstep.edu.missionutils.Console.readLine();
-        int tryCount;
+    static void validateTryCountInput(String tryCountInput) {
         try {
-            tryCount = Integer.parseInt(tryCountInput);
+            int tryCount = Integer.parseInt(tryCountInput);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
-
-        System.out.println(RESULT_TITLE_MESSAGE);
-        for (int nowCount = 1; nowCount <= tryCount; nowCount++) {
-            processGame();
-            printResultOfTry();
-        }
-
-        printGameResult();
     }
 
-    static void processGame() {
+    static int getTryCount() {
+        System.out.println(TRY_COUNT_INPUT_MESSAGE);
+        String tryCountInput = camp.nextstep.edu.missionutils.Console.readLine();
+        validateTryCountInput(tryCountInput);
+        return Integer.parseInt(tryCountInput);
+    }
+
+    static void processGameWithCount(int tryCount) {
+        System.out.println(RESULT_TITLE_MESSAGE);
+        for (int nowCount = 1; nowCount <= tryCount; nowCount++) {
+            processSubGame();
+            printResultOfSubGame();
+        }
+    }
+
+    static void processSubGame() {
         for (Car car : cars) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             if (randomNumber >= 4) {
@@ -52,7 +70,7 @@ public class Application {
         }
     }
 
-    static void printResultOfTry() {
+    static void printResultOfSubGame() {
         for (Car car : cars) {
             String movingCount = "-".repeat(car.getPosition());
             System.out.println(car.getName() + " : " + movingCount);
