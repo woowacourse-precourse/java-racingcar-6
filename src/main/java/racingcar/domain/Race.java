@@ -9,9 +9,9 @@ public class Race {
     GenerateRandomNum randomNum = new GenerateRandomNum();
     View view = new View();
 
-    public void race(List<Car> cars, HashMap<String, Integer> racing){
+    public void race(List<Car> cars, HashMap<String, Integer> racing) {
         cars.forEach(car -> {
-            if(stopOrGo.move(randomNum.createRandomNum())){
+            if (stopOrGo.move(randomNum.createRandomNum())) {
                 car.move();
             }
             String name = car.getName();
