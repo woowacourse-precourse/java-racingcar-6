@@ -6,11 +6,14 @@ import static racingcar.Vars.LENGTH_CAR_NAME;
 
 public class Validator {
     public Validator(String name) {
-        validateCarNameLength(name);
+    validateCarNameLength(name);
     }
 
     public static void validateCarNameLength(String name) {
-        if (name.isEmpty() || name.length() > LENGTH_CAR_NAME) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 비어있을 수 없습니다.");
+        }
+        if (name.length() > LENGTH_CAR_NAME) {
             throw new IllegalArgumentException("자동차 이름의 길이는 1~" + LENGTH_CAR_NAME + "자만 가능합니다.");
         }
     }
@@ -18,15 +21,25 @@ public class Validator {
     public static void validateNoDuplicateNames(String[] names) {
         Set<String> uniqueNames = new HashSet<>();
         for (String name : names) {
-            if (!uniqueNames.add(name)) {
-                throw new IllegalArgumentException("중복된 이름이 있습니다: " + name);
-            }
+            validateUniqueName(uniqueNames, name);
         }
     }
 
-    public static void validateRaceRoundInput(String input) {
+    private static void validateUniqueName(Set<String> uniqueNames, String name) {
+        if (!uniqueNames.add(name)) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다: " + name);
+        }
+    }
+
+    public static int validateRaceRoundInput(String input) {
+        int round = convertToInteger(input);
+        validateIsPositiveInteger(round);
+        return round;
+    }
+
+    private static int convertToInteger(String input) {
         try {
-            Integer.parseInt(input);
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("레이스 라운드는 숫자만 입력 가능합니다.");
         }
