@@ -26,4 +26,16 @@ public class CarList {
         return this.cars;
     }
 
+    public int getMaxPositon() {
+        int maxDistance = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > maxDistance) {
+                maxDistance = car.getPosition();
+            }
+        }
+        return maxDistance;
+
+    }
 }
+
+

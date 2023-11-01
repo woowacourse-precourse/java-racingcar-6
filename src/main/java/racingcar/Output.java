@@ -27,22 +27,17 @@ public class Output {
     }
 
     // 최종 우승자 출력
-    public void printWinner(List<Car> cars) {
-        int maxDistance = cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(0);
-        StringBuilder sb = new StringBuilder();
-        cars.stream()
-                .forEach(car -> {
-                    if (car.getPosition() == maxDistance) {
-                        if (sb.length() > 0) {
-                            sb.append(",\n   ");
-                        }
-                        sb.append(car.getName());
-                    }
-                });
-        System.out.println("최종 우승자 : " + sb);
+    public void printWinner(List<Car> cars, int maxPosition) {
+
+        System.out.print("최종 우승자 : ");
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                System.out.print(car.getName());
+            }
+        }
+        System.out.println();
+
+
     }
 
 

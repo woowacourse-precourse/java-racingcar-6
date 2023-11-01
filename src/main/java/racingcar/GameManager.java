@@ -51,7 +51,7 @@ public class GameManager {
     }
 
     private void printWinners() {
-        output.printWinner(carList.getCarList());
+        output.printWinner(carList.getCarList(), carList.getMaxPositon());
     }
 
 }
