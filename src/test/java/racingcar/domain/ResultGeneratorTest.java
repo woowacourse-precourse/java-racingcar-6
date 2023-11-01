@@ -89,7 +89,53 @@ class ResultGeneratorTest {
     }
 
     @Test
-    void generateWinnerList() {
+    void generateWinnerList_메서드로_우승자_리스트_만들기_우승자_1명() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car("A", 1));
+        carList.add(new Car("B", 2));
+        carList.add(new Car("C", 3));
+
+        // when
+        List<String> winnerList = resultGenerator.generateWinnerList(carList);
+
+        // then
+        assertThat(winnerList).isEqualTo(List.of("C"));
+    }
+
+    @Test
+    void generateWinnerList_메서드로_우승자_리스트_만들기_우승자_2명() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car("A", 1));
+        carList.add(new Car("B", 3));
+        carList.add(new Car("C", 3));
+
+        ResultGenerator resultGenerator = new ResultGenerator();
+
+        // when
+        List<String> winnerList = resultGenerator.generateWinnerList(carList);
+
+        // then
+        assertThat(winnerList).isEqualTo(List.of("B", "C"));
+    }
+
+    @Test
+    void generateWinnerList_메서드로_우승자_리스트_만들기_우승자_3명() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car("A", 3));
+        carList.add(new Car("B", 3));
+        carList.add(new Car("C", 3));
+
+        // when
+        List<String> winnerList = resultGenerator.generateWinnerList(carList);
+
+        // then
+        assertThat(winnerList).isEqualTo(List.of("A", "B", "C"));
     }
 
     @Test
