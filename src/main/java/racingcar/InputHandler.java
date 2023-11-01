@@ -44,7 +44,7 @@ public class InputHandler {
         else if (target.contains(Constants.COMMA+Constants.COMMA)) {   // 쉼표(,) 2개이상 연속
             throw new IllegalArgumentException();
         }
-        else if (isEndPattern(target)) {    // 쉼표(,) 맨 앞/뒤 위치
+        else if (isEndCommaPattern(target)) {    // 쉼표(,) 맨 앞/뒤 위치
             throw new IllegalArgumentException();
         }
         else if (hasLengthExcess(target)) {   // 길이 제한 초과
@@ -73,7 +73,7 @@ public class InputHandler {
         }
     }
 
-    private static boolean isEndPattern(String target) {
+    private static boolean isEndCommaPattern(String target) {
         return (Pattern.matches(Constants.START_WITH_COMMA_EXPRESSION, target)
                 || Pattern.matches(Constants.END_WITH_COMMA_EXPRESSION, target));
     }
