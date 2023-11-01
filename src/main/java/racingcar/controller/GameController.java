@@ -11,6 +11,7 @@ public class GameController {
     public void playGame() {
         Cars cars = makeCars();
         Integer tryNumber = inputTryNumber();
+        simulateResults(cars, tryNumber);
     }
 
     private Cars makeCars() {
@@ -22,5 +23,13 @@ public class GameController {
     private Integer inputTryNumber() {
         outputView.printInputTryNumber();
         return inputView.inputTryNumber();
+    }
+
+    private void simulateResults(Cars cars, Integer tryNumber) {
+        outputView.printBlankLine();
+        for (int round = 0; round < tryNumber; round++) {
+            cars.tryCars();
+            outputView.printRoundResult(cars.toString());
+        }
     }
 }
