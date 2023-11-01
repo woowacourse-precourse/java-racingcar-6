@@ -7,7 +7,7 @@ public class NumberOfAttempts {
 
     private static final Integer MINIMUM_NUMBER_OF_ATTEMPTS = 1;
 
-    private Integer numberOfAttempts;
+    private final int numberOfAttempts;
 
     public NumberOfAttempts(String numberOfAttemptsBeforeConverting) {
         Integer numberOfAttempts = convertInputToInteger(numberOfAttemptsBeforeConverting);
@@ -21,9 +21,9 @@ public class NumberOfAttempts {
         }
     }
 
-    private Integer convertInputToInteger(String input) {
+    private int convertInputToInteger(String input) {
         try {
-            return Integer.valueOf(input);
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER);
         }
