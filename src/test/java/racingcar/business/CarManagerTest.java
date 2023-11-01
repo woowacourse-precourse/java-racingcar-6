@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -51,6 +51,16 @@ class CarManagerTest {
         assertThat(nameList.size()).isEqualTo(size);
     }
 
+    private List<String> convertToName(List<Car> carList) {
+        return carList.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 
+    private List<Car> runMatch(List<Integer> expectedNumbers) {
+        expectedNumberMaker.setExpectedNumbers(expectedNumbers);
+
+        return carManager.runMatch();
+    }
 
 }
