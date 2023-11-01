@@ -7,10 +7,12 @@ import racingcar.view.ResultView;
 public class Race {
     private final List<Car> cars;
     private final int rounds;
+    private final MoveStrategy moveStrategy;
 
-    public Race(List<Car> cars, int rounds) {
+    public Race(List<Car> cars, int rounds, MoveStrategy moveStrategy) {
         this.cars = cars;
         this.rounds = rounds;
+        this.moveStrategy = moveStrategy;
     }
 
     public void run() {
@@ -22,7 +24,7 @@ public class Race {
 
     private void runRound() {
         for (Car car : cars) {
-            car.move();
+            car.move(moveStrategy);
         }
     }
 
