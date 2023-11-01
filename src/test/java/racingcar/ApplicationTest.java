@@ -31,25 +31,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    void 자동차_이름의_중복_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi, pobi", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
 
-    void 자동차_이름의_타입_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,j218h", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-
-
-    void 사용자_횟수_입력의_타입_판별() {
-        //
-    }
 
 
     @Override

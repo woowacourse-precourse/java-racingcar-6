@@ -30,6 +30,7 @@ public class Game {
         for (int i = 0; i < trialCounts; i++) {
             run();
         }
+        printWinner();
     }
 
     public void run() {
@@ -48,7 +49,7 @@ public class Game {
         trialCounts = user.setTrialNumber();
     }
 
-    public List<String> decideWinners() {
+    public List<String> decideWinner() {
         cars.sort(Comparator.comparing(Car::getPosition).reversed());
         final int winnerPosition = cars.get(0).getPosition();
         return cars.stream()
@@ -57,8 +58,8 @@ public class Game {
                 .collect(Collectors.toList());
     }
 
-    public void printWinners() {
-        System.out.println(GAME_WINNER_MESSAGE + String.join(", ", decideWinners()));
+    public void printWinner() {
+        System.out.println(GAME_WINNER_MESSAGE + String.join(", ", decideWinner()));
     }
 }
 
