@@ -20,7 +20,7 @@ public class Winner {
         int maxMoveCount = getMaxMoveCount(cars);
 
         return cars.stream()
-                .filter(car -> car.getMoveCount() == maxMoveCount)
+                .filter(car -> car.isWinner(maxMoveCount))
                 .collect(Collectors.toList());
     }
 
