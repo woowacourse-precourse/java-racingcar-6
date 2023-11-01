@@ -29,7 +29,7 @@ public class Car {
         return this.position.length();
     }
 
-    public void run() {
+    public void performEachRound() {
         this.moveForward();
         this.display();
     }
