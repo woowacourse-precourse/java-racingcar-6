@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import org.mockito.internal.matchers.Null;
+
 import java.util.*;
 
 public class Application {
@@ -14,10 +16,16 @@ public class Application {
             if(carNames.get(i).length() > 5) {
                 throw new IllegalArgumentException();
             }
+            if(carNames.get(i).isEmpty()) {
+                throw new IllegalArgumentException();
+            }
         }
         List<Integer> carForward = new ArrayList<Integer>(Collections.nCopies(carNames.size(), 0));
         System.out.println("시도할 횟수는 몇 회인가요?");
         int cycleNumber = Integer.parseInt(Console.readLine());
+        if(cycleNumber == 0) {
+            throw new IllegalArgumentException();
+        }
 
         //실행 알고리즘 + 출력 결과(cycle별)
         System.out.println("실행 결과");
@@ -51,8 +59,13 @@ public class Application {
         int carCount = 0;
         for(int i = 0; i < forwards.size(); i++) {
             //가장 큰 car 찾기
-            if(carMax == forwards.get(i)) {
-                System.out.print(cars.get(i) + ",");
+            if(carMax == forwards.get(i) && carCount == 0) {
+                System.out.print(cars.get(i));
+                carCount++;
+            }
+            else if(carMax == forwards.get(i) && carCount != 0) {
+                System.out.print(", " + cars.get(i));
+                carCount++;
             }
         }
     }
