@@ -13,7 +13,7 @@ public class Discriminator {
             throw new IllegalArgumentException("Invalid car name.");
         }
     }
-    /*
+    /**
     시도 회수에 대한 유효성을 검사하는 메소드입니다.
 
     시도 회수가 0이하일 경우 예외 처리가 발생되며, 정수로 변환할 수 없는 경우(시도 회수 입력이 문자 등 숫자가 아닌 경우)
