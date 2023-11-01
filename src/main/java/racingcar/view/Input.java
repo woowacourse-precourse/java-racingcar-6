@@ -9,11 +9,13 @@ import static racingcar.constant.Constant.INIT_NUMBER;
 
 public class Input {
 
+    InputException inputException = new InputException();
+
     public String[] inputCarName(){
         System.out.println(INIT_CAR_NAME);
         String input = Console.readLine();
-        if(input.contains(" "))
-            throw new IllegalArgumentException("쉽표(,)를 통해 구분해 주세요.");
+
+        inputException.inputSeparatorException(input);
 
         String[] cars = input.split(",");
         if(cars.length == 1)
