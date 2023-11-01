@@ -66,8 +66,8 @@
 * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
 * 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 ### 메서드
-    * printRoundResult(List<Car>)(return void) : 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
-    * printGameEnd()(return void) : "게임 종료!" 메시지 출력
+    * printCar(Car car)(return void) : 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
+    * printCars(List<Car>)(return void): printCar의 리스트 출력
     * printWinners(List<String>)(return void) : 최종 우승자 출력
 
 
