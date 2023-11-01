@@ -3,7 +3,6 @@ package racingcar.mvc.model;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import racingcar.model.CarSetting;
@@ -52,8 +51,6 @@ class CarSettingTest {
         Map<String, Integer> carsSituation = carSetting.getCarsSituation();
 
         //then
-        Iterator<String> iterator = carsSituation.keySet().iterator();
-
         assertThat(carsSituation.size()).isEqualTo(2);
         assertThat(carsSituation.keySet()).contains("songHee", "minGu");
         assertThat(carsSituation.values()).contains(0, 0);

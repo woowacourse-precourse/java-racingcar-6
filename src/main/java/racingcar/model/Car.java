@@ -61,4 +61,9 @@ public class Car {
         return CarSetting.findFinalWinner();
     }
 
+    public CarSetting setCarSetting(CarSetting carSetting) {
+        this.carSetting = carSetting;
+        return this.carSetting;
+    }
+
 }

@@ -52,6 +52,10 @@ public class CarSetting {
         this.maxScore = scoreValue;
     }
 
+    public int getMaxScore() {
+        return maxScore;
+    }
+
     public static List<String> findFinalWinner() {
         List<String> maxScoreUser = new ArrayList<>();
         Iterator<String> iterator = carGameSituation.keySet().iterator();
