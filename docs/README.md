@@ -41,7 +41,7 @@ jun : -----
 - [x] 시도할 횟수를 받으면 숫자형태로 반환한다. - toInt
 
 ### InputManager
-- [x] Controller에서 자동차들 이름 입력을 관리한다. - inputCarNames()
+- [x] 자동차들 이름 입력을 관리한다. - inputCarNames()
 - [x] 시도할 횟수 입력을 관리한다 - inputAttemptCount()
 
 ### OutputView
@@ -55,13 +55,14 @@ jun : -----
   - [x] 자동차 이름은 5자 이하만 가능하다. - validateNameLength()
 - [x] 자동차 위치를 움직인다. - movePosition()
 - [x] 자동차의 현재 위치 상태를 알 수 있다. - statusCarPosition()
+- [x] 자동차의 위치가 일치하는지 판별 한다. - isEqualCarPosition()
 
 ### Cars
 - [x] 자동차들을 저장한다. - Cars()
   - [x] 자동차들의 최소 개수는 2개이다. - validateCarsCount()
 - [x] 자동차들의 현재 위치를 알 수 있다. - statusCarsPosition()
-- [x] 자동차들의 최대 위치를 찾을 수 있다. - findMaxCarPosition()
 - [x] 자동차들의 최종 우승자를 알 수 있다. - getFinalWinners()
+- [x] 자동차들의 최대 위치를 찾을 수 있다. - findMaxCarPosition()
   - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 
 ### MovingCondition
@@ -76,6 +77,9 @@ jun : -----
 ### RacingCarService
 - [x] 레이싱카들이 레이싱을 한다. - startRacing()
 
+### RacingCarFactory
+- [x] 객체들의 DI 관리를 한다.
+
 ## 예외 목록
 - CarNameLengthException
   - [x] 자동차 이름 길이 예외
@@ -85,8 +89,6 @@ jun : -----
   - [x] 자동차 이름 구분자 예외
 - InputNumericException
   - [x] 숫자 입력 예외
-- NotFoundCarPositionException
-  - [x] 자동차 위치 찾기 예외
 
 ## 상수 목록
 - ErrorMessage
@@ -104,4 +106,4 @@ jun : -----
 - RacingCarMove
   - [x] 레이싱카 이동 상수
     - [x] 게임 진행을 판별한다. - isProcessing()
-    - [x] 게임 진행 횟수를 변경한다. - updateAttemptCount()
+    - [x] 게임 진행 횟수를 변경한다. - decreaseAttemptCount()
