@@ -19,7 +19,7 @@
   - 사용자로부터 자동차들의 이름을 입력받는 메서드 구현  
     사용자가 시도할 횟수를 입력받는 메서드 구현
   - feat(Utils): Add InputUtil for handling user input
-- [ ] Game 클래스 구현
+- [x] Game 클래스 구현
   - Game 클래스 생성  
     Game class private 멤버 변수 선언 (자동차 리스트, 라운드 수 등)  
     생성자 정의  
