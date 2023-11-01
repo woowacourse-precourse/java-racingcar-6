@@ -1,13 +1,14 @@
 package racingcar.domain.car;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static racingcar.domain.car.testutil.CarsTestUtils.createCarFinished;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.boxed.CarName;
 import racingcar.domain.car.dto.output.WinnersDto;
 import racingcar.domain.coordinate.boxed.Coordinate;
+import racingcar.domain.move.MoveCommand;
 
 final class CarsFinishedTest {
 
@@ -38,28 +39,73 @@ final class CarsFinishedTest {
         assertThat(cars.get(2).coordinate).isEqualTo(Coordinate.zero());
     }
 
-    @DisplayName("")
+    @DisplayName("CarRacing의 상태를 그대로 유지한 채 CarFinished로 변환 가능")
     @Test
-    void test() {
+    void Car() {
         // given
-        final CarFinished carFinished1 = createCarFinished("a");
-        final CarFinished carFinished2 = createCarFinished("b");
-        final CarFinished carFinished3 = createCarFinished("c");
-
-        final List<CarFinished> carFinishedList = List.of(
-                carFinished1,
-                carFinished2,
-                carFinished3
-        );
-        final CarsFinished carsFinished = new CarsFinished(carFinishedList);
+        final CarRacing carRacing1 = new CarRacing("a");
+        final CarRacing carRacing2 = new CarRacing("b");
+        final CarRacing carRacing3 = new CarRacing("c");
+        final CarsRacing carsRacing = CarsRacing.from(List.of(carRacing1, carRacing2, carRacing3));
 
         // when
-        final WinnersDto winnersDto = carsFinished.toWinnersDto();
+        final CarsFinished carsFinished = carsRacing.toFinished();
 
         // then
+        assertThat(carsFinished.cars.get(0).carName).isEqualTo(carRacing1.carName);
+        assertThat(carsFinished.cars.get(0).coordinate).isEqualTo(carRacing1.coordinate);
+
+        assertThat(carsFinished.cars.get(1).carName).isEqualTo(carRacing2.carName);
+        assertThat(carsFinished.cars.get(1).coordinate).isEqualTo(carRacing2.coordinate);
+
+        assertThat(carsFinished.cars.get(2).carName).isEqualTo(carRacing3.carName);
+        assertThat(carsFinished.cars.get(2).coordinate).isEqualTo(carRacing3.coordinate);
     }
 
-    private CarFinished createCarFinished(final String carName) {
-        return new CarFinished(new CarName(carName), Coordinate.zero());
+    @DisplayName("CarsFinished를 WinnersDto로 변환하여 우승자 이름 조회 가능")
+    @Test
+    void toWinnersDto_fromCarsFinished_shouldReturnWinnersDtoContainsSingleWinnerName() {
+        // given
+        final CarRacing carRacing1 = new CarRacing("a");
+        final CarRacing carRacing2 = new CarRacing("b");
+        final CarRacing carRacing3 = new CarRacing("c");
+
+        carRacing1.moveBy(MoveCommand.GO);
+        carRacing1.moveBy(MoveCommand.GO);
+
+        carRacing2.moveBy(MoveCommand.GO);
+
+        final CarsRacing carsRacing = CarsRacing.from(List.of(carRacing1, carRacing2, carRacing3));
+
+        // when
+        final WinnersDto winnersDto = carsRacing.toFinished().toWinnersDto();
+
+        // then
+        assertThat(winnersDto.winners().size()).isEqualTo(1); // 우승자 1명 "a"
+
+        assertThat(winnersDto.winners().get(0).carName()).isEqualTo("a");
+    }
+
+    @DisplayName("CarsFinished를 WinnersDto로 변환하여 모든 우승자 이름 조회 가능")
+    @Test
+    void toWinnersDto_fromCarsFinished_shouldReturnWinnersDtoContainsManyWinnerNames() {
+        // given
+        final CarRacing carRacing1 = new CarRacing("a");
+        final CarRacing carRacing2 = new CarRacing("b");
+        final CarRacing carRacing3 = new CarRacing("c");
+
+        carRacing1.moveBy(MoveCommand.GO);
+        carRacing2.moveBy(MoveCommand.GO);
+
+        final CarsRacing carsRacing = CarsRacing.from(List.of(carRacing1, carRacing2, carRacing3));
+
+        // when
+        final WinnersDto winnersDto = carsRacing.toFinished().toWinnersDto();
+
+        // then
+        assertThat(winnersDto.winners().size()).isEqualTo(2); // 우승자 2명 "a", "b"
+
+        assertThat(winnersDto.winners().get(0).carName()).isEqualTo("a");
+        assertThat(winnersDto.winners().get(1).carName()).isEqualTo("b");
     }
 }
