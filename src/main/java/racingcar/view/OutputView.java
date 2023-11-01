@@ -2,7 +2,6 @@ package racingcar.view;
 
 import racingcar.model.Cars;
 import racingcar.domain.Car;
-
 import java.util.List;
 
 public class OutputView {
