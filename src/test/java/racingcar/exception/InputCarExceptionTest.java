@@ -19,6 +19,15 @@ class InputCarExceptionTest extends NsTest {
 
     @Test
     void 입력한_자동차의_개수가_1개_이하() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Test
