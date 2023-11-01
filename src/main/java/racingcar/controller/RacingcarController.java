@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.RacingcarService;
+import racingcar.view.ExceptionHandler;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -10,10 +11,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static racingcar.view.errorMessage.*;
+import static racingcar.view.ExceptionHandler.*;
 
 public class RacingcarController {
     private static final RacingcarService racingcarService = new RacingcarService();
+    private static final ExceptionHandler exceptionHandler = new ExceptionHandler();
     private static final InputView inputView = InputView.getInstance();
     private static final OutputView outputView = OutputView.getInstance();
     List<Car> carList = new ArrayList<>();
@@ -37,19 +39,15 @@ public class RacingcarController {
 
     private void validateCarNames(String[] carNames){
         for (String carName : carNames) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException(ERROR_CAR_NAME_TOO_LONG);
-            }
+            exceptionHandler.isValidCarName(carName);
         }
     }
 
     private int getRoundCount(){
-        try{
-            String roundCount = inputView.getRoundCount();
-            return Integer.parseInt(roundCount);
-        } catch (NumberFormatException e){
-            throw new IllegalArgumentException(ERROR_INTEGER_ONLY);
-        }
+        String roundCount = inputView.getRoundCount();
+        exceptionHandler.isIntegerInput(roundCount);
+
+        return Integer.parseInt(roundCount);
     }
 
     private void game(int roundCount){
