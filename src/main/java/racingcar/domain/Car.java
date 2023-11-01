@@ -16,7 +16,7 @@ public class Car {
     protected Car() {
     }
 
-    public void increaseDistance() {
+    public void increaseCarDistance() {
         distance++;
     }
 

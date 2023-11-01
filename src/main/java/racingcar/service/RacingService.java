@@ -28,11 +28,15 @@ public class RacingService {
 
     public List<Car> progressRacing() {
         for (Car car : carRepository.getCarList()) {
-            if (isBiggerThanFour(getRandomValue())) {
-                car.increaseDistance();
-            }
+            increaseDistance(car);
         }
         return carRepository.getCarList();
+    }
+
+    private void increaseDistance(Car car) {
+        if (isBiggerThanFour(getRandomValue())) {
+            car.increaseCarDistance();
+        }
     }
 
     public List<Car> chooseWinner() {
