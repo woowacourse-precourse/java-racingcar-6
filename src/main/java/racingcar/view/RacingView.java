@@ -35,6 +35,7 @@ public class RacingView {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (int i = 0; i < theNumOf; i++) {
+            stringBuilder.setLength(0);
             stringBuilder.append(name.get(i)).append(" : ").append(location.get(i));
             System.out.println(stringBuilder);
         }
