@@ -4,7 +4,6 @@ import static constants.Constant.*;
 import static constants.StringError.*;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
 
@@ -42,25 +41,17 @@ public class RacingManager {
         List<String> playerNamesList;
         Integer tryNumber;
 
-//        Scanner sc = new Scanner(System.in);
 
         System.out.println(CMD_QUESTION_NAME);
         playersNameString = Console.readLine();
-//        playersNameString = sc.next();
 
         playerNamesList = new ArrayList<String>(
                 Arrays.asList(playersNameString.split(SEP_COMMA_STRING)));
         validatePlayerName(playerNamesList);
 
-//        for(String pl : playerNamesList){
-//            System.out.println(pl);
-//        }
 
         System.out.println(CMD_QUESTION_NUMBER);
         tryNumber = Integer.parseInt(Console.readLine());
-
-//        tryNumber = Integer.parseInt(sc.next());
-//        System.out.println(tryNumber);
 
         racingData.saveRacingData(playerNamesList, tryNumber);
     }
