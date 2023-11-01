@@ -44,8 +44,15 @@ public class RacingTest {
         assertThat(afterForwardCount).isEqualTo(beforeForwardCount + ONE_STEP);
     }
 
-    void 이동_시도_횟수가_0회가_되면_이동_불가하다고_판단한다() {
-        
+    @Test
+    void 이동_후_이동_시도_횟수가_0회가_되면_이동_불가하다고_판단한다() {
+        boolean before = defaultRacing.canMove();
+
+        defaultRacing.doMove();
+
+        boolean after = defaultRacing.canMove();
+        assertThat(before).isTrue();
+        assertThat(after).isFalse();
     }
 
     void 이동_후_현재_경주_상태를_확인할_수_있다() {
