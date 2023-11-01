@@ -1,56 +1,90 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class RacingcarGame {
 
-    private List<String> userCarName;
-    //private List<String> user
-
-    //public RacingcarGame(List<String> carName) {
-    //    this.userCarName = carName;
-    //}
-
     public void gameStart() {
-        System.out.println("경주 할 자동차 이름을 입력하세요");
-        String userInputName = Console.readLine();
-        this.userCarName = createList(userInputName);
-        checkUName();
-        //checkURaceNum();
-        //System.out.println(resultMessage);
-
+        List<Car> cars = CarInput.getCarsFromUser();
+        int numOfTrial = trialInput.getTrialFromUser();
+        RaceManager.startRace(cars, numOfTrial);
+        resultOutput.printResult(cars);
     }
 
-    public void checkUName() {
-        //if (userCarName.size() < 1) {
-            // 여기 코드 수정 필요함.
-            //throw new IllegalArgumentException("2대 이상 입력하세요.");
-        //}
-        if (userCarName.contains(",")) {
-            throw new IllegalArgumentException("영어로 입력하세요.");
-        }
-        if (userCarName == null) {
-            throw new IllegalArgumentException("경주 할 자동차 이름을 입력하세요.");
+
+    public class trialInput {
+        public static int getTrialFromUser() {
+            System.out.println("시도 할 횟수는 몇회인가요?");
+            String userInput = Console.readLine();
+            int numofTrial = Trial.validatenumOfTrial(userInput);
+            return numofTrial;
         }
     }
 
-    public List<String> createList(String userInputName) {
-        String[] arrayInput = userInputName.split(",");
-        List<String> carNameTest = new ArrayList<>();
-        return carNameTest;
-    }
-
-    public boolean gameOver() {
-        //위에 입력 조건 확인하려고 대충 써놓긴 했지만 조건 안틀리면 무한 반복임 지금
-        if (userCarName != null) {
-            System.out.println("일단 테스트");
+    public class RaceManager {
+        public static void startRace(List<Car> cars, int numOfTrial) {
+            for (int i = 0; i < numOfTrial; i++) {
+                System.out.println();
+                for (Car car : cars) {
+                    car.move();
+                    car.finalresult();
+                }
+            }
         }
-        return true;
     }
 
+    public class CarInput {
+        public static List<Car> getCarsFromUser() {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            String userInput = Console.readLine();
+            List<String> names = Name.validateNames(userInput);
+
+            List<Car> cars = Car.createCars(names);
+            return cars;
+
+        }
+    }
+
+    public class Trial {
+        public static int validatenumOfTrial(String userInput) {
+            int numofTrial;
+            try {
+                numofTrial = Integer.parseInt(userInput);
+                if (numofTrial <= 0) {
+                    throw new IllegalArgumentException("숫자 1 이상 입력하세요.");
+                }
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("숫자를 입력하세요.");
+            }
+            return numofTrial;
+        }
+    }
+
+    public class resultOutput {
+        public static void printResult(List<Car> cars) {
+            List<String> winner = raceWinner.getwinner(cars);
+            System.out.println("\n최종 우승자 : " + String.join(", ",winner));
+        }
+    }
+
+    public class raceWinner {
+        public static List<String> getwinner(List<Car> cars) {
+            List<String> winner = new ArrayList<>();
+            int maxPosition = cars.stream()
+                    .mapToInt(Car::carPosition)
+                    .max()
+                    .orElse(0);
+
+            for (Car car : cars) {
+                if (car.carPosition() == maxPosition) {
+                    winner.add(car.carNamePrint());
+                }
+            }
+
+            return winner;
+        }
+    }
 }
