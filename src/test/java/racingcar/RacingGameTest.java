@@ -1,7 +1,6 @@
 package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
@@ -11,10 +10,15 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.stubbing.OngoingStubbing;
 
@@ -34,42 +38,29 @@ public class RacingGameTest {
         output.reset();
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"부릉이"})
     @DisplayName("자동차 경주 우승자 출력 테스트")
-    void canPrintRacingGameWinnerTest() throws Exception{
-        final int MOVE_SUCESS = 9;
-        final int MOVE_FAIL = 1;
-        InputStream input = new ByteArrayInputStream("부릉이,따릉이\n2".getBytes());
-        System.setIn(input);
+    void canPrintRacingGameWinnerTest(String testWinner) throws Exception{
+        RacingGame racingGame = new RacingGame();
 
-        int[] values = new int[]{MOVE_SUCESS, MOVE_SUCESS, MOVE_FAIL, MOVE_SUCESS};
-        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
-            OngoingStubbing<Integer> stubbing = mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()));
-            for (int value : values) {
-                stubbing = stubbing.thenReturn(value);
-            }
-            Application.main(null);
-            assertThat(output.toString()).contains("최종 우승자 : 따릉이" + lineSeparator);
-        }
+        List<String> winners = Arrays.asList(testWinner.split(","));
+        Method method = racingGame.getClass().getDeclaredMethod("printWinner", List.class);
+        method.setAccessible(true);
+        method.invoke(racingGame, winners);
+        assertThat(output.toString()).isEqualTo("최종 우승자 : 부릉이" + lineSeparator);
     }
-
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"부릉이,따릉이"})
     @DisplayName("자동차 경주 중복 우승자 출력 테스트")
-    void canPrintRacingGameDuplicateWinnerTest() throws Exception{
-        final int MOVE_SUCESS = 9;
-        final int MOVE_FAIL = 1;
-        InputStream input = new ByteArrayInputStream("부릉이,따릉이\n2".getBytes());
-        System.setIn(input);
+    void canPrintRacingGameDuplicateWinnerTest(String testWinner) throws Exception{
+        RacingGame racingGame = new RacingGame();
 
-        int[] values = new int[]{MOVE_SUCESS, MOVE_SUCESS, MOVE_FAIL, MOVE_FAIL};
-        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
-            OngoingStubbing<Integer> stubbing = mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()));
-            for (int value : values) {
-                stubbing = stubbing.thenReturn(value);
-            }
-            Application.main(null);
-            assertThat(output.toString()).contains("최종 우승자 : 부릉이, 따릉이" + lineSeparator);
-        }
+        List<String> winners = Arrays.asList(testWinner.split(","));
+        Method method = racingGame.getClass().getDeclaredMethod("printWinner", List.class);
+        method.setAccessible(true);
+        method.invoke(racingGame, winners);
+        assertThat(output.toString()).isEqualTo("최종 우승자 : 부릉이, 따릉이"+ lineSeparator);
     }
 
     @Test
