@@ -16,9 +16,16 @@ public class Application {
         }
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNumber = getTryNumber();
+        if (tryNumber < 0) {
+            throw new IllegalArgumentException("시도 횟수는 0 이상만 가능합니다.");
+        }
     }
 
     private static int getTryNumber() {
-        return getTryNumber();
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자만 가능합니다.");
+        }
     }
 }
