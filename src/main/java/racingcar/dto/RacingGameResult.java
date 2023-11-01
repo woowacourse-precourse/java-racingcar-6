@@ -1,16 +1,19 @@
 package racingcar.dto;
 
+import java.util.Collections;
+import java.util.List;
+
 public class RacingGameResult {
-    private final RacingGameStatus racingGameStatus;
+    private final List<RaceStatus> raceStatuses;
     private final WinnerNames winnerNames;
 
-    public RacingGameResult(RacingGameStatus racingGameStatus, WinnerNames winnerNames) {
-        this.racingGameStatus = racingGameStatus;
+    public RacingGameResult(List<RaceStatus> raceStatuses, WinnerNames winnerNames) {
+        this.raceStatuses = raceStatuses;
         this.winnerNames = winnerNames;
     }
 
-    public RacingGameStatus getRacingGameStatus() {
-        return racingGameStatus;
+    public List<RaceStatus> getRaceStatuses() {
+        return Collections.unmodifiableList(raceStatuses);
     }
 
     public WinnerNames getWinnerNames() {

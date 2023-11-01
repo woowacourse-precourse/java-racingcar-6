@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.dto.RaceStatus;
 import racingcar.dto.RacingGameResult;
-import racingcar.dto.RacingGameStatus;
 import racingcar.dto.WinnerNames;
 import racingcar.exception.RaceCountLessThanOneException;
 
@@ -22,14 +21,16 @@ public class RacingGame {
 
     public RacingGameResult race(int raceCount) {
         verifyRaceCount(raceCount);
-        List<RaceStatus> raceStatuses = IntStream.range(0, raceCount)
-                .mapToObj(cnt -> cars.driveCarsByRule(RacingGame::raceRule))
-                .toList();
-
-        RacingGameStatus racingGameStatus = new RacingGameStatus(raceStatuses);
+        List<RaceStatus> raceStatuses = loggingRaceStatuses(raceCount);
         WinnerNames winnerNames = cars.getWinnerNames();
 
-        return new RacingGameResult(racingGameStatus, winnerNames);
+        return new RacingGameResult(raceStatuses, winnerNames);
+    }
+
+    private List<RaceStatus> loggingRaceStatuses(int raceCount) {
+        return IntStream.range(0, raceCount)
+                .mapToObj(cnt -> cars.driveCarsByRule(RacingGame::raceRule))
+                .toList();
     }
 
     private void verifyRaceCount(int raceCount) {

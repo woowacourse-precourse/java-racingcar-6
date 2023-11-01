@@ -1,9 +1,9 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.dto.CarStatus;
 import racingcar.dto.RaceStatus;
 import racingcar.dto.RacingGameResult;
-import racingcar.dto.RacingGameStatus;
 import racingcar.dto.WinnerNames;
 
 public class ConsoleOutputView implements OutputView {
@@ -34,7 +34,7 @@ public class ConsoleOutputView implements OutputView {
     @Override
     public void printRacingGameResult(RacingGameResult racingGameResult) {
         printResultMessage();
-        printRacingGameStatus(racingGameResult.getRacingGameStatus());
+        printRaceStatuses(racingGameResult.getRaceStatuses());
         printWinnerNames(racingGameResult.getWinnerNames());
     }
 
@@ -43,9 +43,8 @@ public class ConsoleOutputView implements OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void printRacingGameStatus(RacingGameStatus racingGameStatus) {
-        racingGameStatus.getRaceStatuses()
-                .forEach(this::printRaceStatus);
+    public void printRaceStatuses(List<RaceStatus> raceStatuses) {
+        raceStatuses.forEach(this::printRaceStatus);
     }
 
     private void printRaceStatus(RaceStatus raceStatus) {
