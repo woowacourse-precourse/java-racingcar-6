@@ -5,6 +5,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.util.TestConstantsProvider.provideInvalidSystemTestNameConstants;
+import static racingcar.util.TestConstantsProvider.provideInvalidSystemTestPlayNumberConstants;
 import static racingcar.util.TestConstantsProvider.provideValidSystemTestConstants;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
@@ -52,8 +53,23 @@ public class RacingGameSystemTest extends NsTest {
             );
         }
 
+        @ParameterizedTest(name = "시도 회수로 {1}을 입력하면 예외가 발생한다.")
+        @DisplayName("잘못된 시도 회수 테스트")
+        @MethodSource("provideInvalidSystemTestPlayNumberParameter")
+        void playNumberExceptionTest(final String validCarName, final String invalidPlayNumber) {
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException(validCarName, invalidPlayNumber))
+                            .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+
+
         private Stream<Arguments> provideInvalidSystemTestNameParameter() {
             return provideInvalidSystemTestNameConstants();
+        }
+
+        private Stream<Arguments> provideInvalidSystemTestPlayNumberParameter() {
+            return provideInvalidSystemTestPlayNumberConstants();
         }
     }
 
