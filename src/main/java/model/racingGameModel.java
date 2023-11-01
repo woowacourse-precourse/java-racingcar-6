@@ -43,13 +43,11 @@ public class racingGameModel {
         }
     }
     private int findMaxCountOfCarInfos(){
-        int max = 0;
+        int maxCount = 0;
         for(racingCarInfo carInfo : racingCarInfos){
-            if(carInfo.moveCount>=max){
-                max=carInfo.moveCount;
-            }
+            maxCount=Math.max(maxCount,carInfo.moveCount);
         }
-        return max;
+        return maxCount;
     }
 }
 
