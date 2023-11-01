@@ -54,4 +54,17 @@ class CarControllerTest {
         });
     }
 
+    @Test
+    @DisplayName("입력값 테스트 4 - 시도하는 횟수가 0이 아닌 정수일 때")
+    void inputTest4() {
+        //given
+        String userCars = "boot, jpa,, sql";
+        String userCount = "-100";
+
+        // when & then
+        assertThrows(IllegalArgumentException.class, () -> {
+            carController.createRacingGame(userCars, userCount);
+        });
+    }
+
 }
