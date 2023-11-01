@@ -8,25 +8,34 @@ import java.util.List;
 
 public class User {
 
+    private List<String> carNamesList;
+    private int tryCount;
+
     public User() {
     }
 
-    public List<String> inputCarNames() {
+    public void inputCarNames() {
         InputView.inputCarName();
+
         String carNames = Console.readLine();
+
         String[] carNamesSplit = carNames.split(",");
-        List<String> carNamesList = Arrays.asList(carNamesSplit);
-        checkExceed5Digits(carNamesList);
-        return carNamesList;
+        carNamesList = Arrays.asList(carNamesSplit);
+
+        checkCarNameExceed5Digits(carNamesList);
     }
 
     public int inputTryCount() {
         InputView.inputTryCount();
-        String tryCount = Console.readLine();
-        return Integer.parseInt(tryCount);
+
+        String tryCountString = Console.readLine();
+
+        tryCount = Integer.parseInt(tryCountString);
+
+        return tryCount;
     }
 
-    public void checkExceed5Digits(List<String> userInputCarNames) {
+    public void checkCarNameExceed5Digits(List<String> userInputCarNames) {
         for(String carName : userInputCarNames) {
             if(carName.length() > 5) {
                 throw new IllegalArgumentException("차 이름이 5자를 초과하였습니다.");
@@ -34,11 +43,19 @@ public class User {
         }
     }
 
-    public void checkTryCountIsNum(String tryCount) {
+    public void checkTryCountIsNumeric(String tryCountString) {
         try {
-            Integer.parseInt(tryCount);
+            Integer.parseInt(tryCountString);
         }catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닌 값을 입력하였습니다.");
         }
+    }
+
+    public List<String> getCarNamesList() {
+        return carNamesList;
+    }
+
+    public int getTryCount() {
+        return tryCount;
     }
 }
