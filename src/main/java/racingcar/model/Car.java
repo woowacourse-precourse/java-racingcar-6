@@ -14,10 +14,7 @@ public class Car {
     }
 
     public boolean isWinner(Position maxPosition) {
-        if (maxPosition.equals(position)) {
-            return true;
-        }
-        return false;
+        return maxPosition.equals(position);
     }
 
     public boolean isGreaterPositionThan(Position maxPosition) {
