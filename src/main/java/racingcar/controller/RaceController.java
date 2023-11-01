@@ -23,7 +23,7 @@ public class RaceController {
         outputView.printGameResult(resultList, new Referee());
     }
 
-    public StringBuilder getWinner(List<Car> carNameList, Referee referee) {
+    public StringBuilder getGameResult(List<Car> carNameList, Referee referee) {
         StringBuilder gameResult = getInstance().getGameResult();
         boolean anyCarMove = false;
 
@@ -39,7 +39,7 @@ public class RaceController {
         if (anyCarMove) {
             for (Car car : carNameList) {
                 gameResult.append(OutputView.name(car))
-                        .append(OutputView.countToMileage(car)).append('\n');
+                        .append(OutputView.distanceToPosition(car)).append('\n');
             }
             gameResult.append('\n');
         }
