@@ -34,7 +34,8 @@ class ValidatorTest {
     @Test
     @DisplayName("부적절한 시도 회수 예외 발생 테스트")
     void isValidNumber() {
-        List<String> testCaseList = Arrays.asList(new String[]{"9999999999999999999999999999", "123a"});
+        List<String> testCaseList = Arrays.asList(new String[]{"99999999999999999999999",
+                "123a", "-1"});
         for (String testCase : testCaseList) {
             assertThatThrownBy(() -> validator.validate(testCase, 1));
         }

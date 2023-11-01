@@ -77,11 +77,16 @@ public class Validator {
      */
     private boolean isValidNumber(String string) {
         Long number;
+
         try {
             number = Long.parseLong(string);
         } catch (NumberFormatException e) { // 숫자로 변환이 안될 경우
             throw new IllegalArgumentException();
         }
+
+        // 음수이거나 0일 경우
+        if (number <= 0)
+            throw new IllegalArgumentException();
 
         // 변환한 숫자와 원본 문자열의 숫자가 같지 않을 경우
         if (!string.equals(number.toString()))
