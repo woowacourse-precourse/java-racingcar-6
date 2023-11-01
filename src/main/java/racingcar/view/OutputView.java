@@ -50,6 +50,11 @@ public class OutputView {
         System.out.println("최종 우승자 : " + winnerName);
     }
 
+    public void announceMultipleWinner(List<String> winnerNames) {
+        String finalWinners = String.join(", ", winnerNames);
+        System.out.println("최종 우승자 : " + finalWinners);
+    }
+
     private void printCarCurrentPosition(String carName, int currentPosition) {
         System.out.print(carName + " : ");
         IntStream.rangeClosed(1, currentPosition)
