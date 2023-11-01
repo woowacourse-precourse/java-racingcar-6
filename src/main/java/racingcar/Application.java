@@ -8,5 +8,6 @@ public class Application {
         GameUI gameUI = new GameUI();
         RacingGame racingGame = new RacingGame(gameUI);
         racingGame.run();
+
     }
 }
