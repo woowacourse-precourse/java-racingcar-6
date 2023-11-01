@@ -12,6 +12,14 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getStepCount() {
+        return stepCount;
+    }
+
     /**
      * 전진 가능한 Random 수 얻기
      *
