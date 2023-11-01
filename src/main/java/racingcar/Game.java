@@ -17,7 +17,8 @@ public class Game {
         System.out.println("경주할 자동차 이름을 입력하세요.");
         String carInput = Console.readLine();
         String[] carNames = carInput.split(",");
-        // 최소 자동차 2대
+
+        // 최소 자동차 2대 에러처리
         if (carNames.length<2){
             throw new IllegalArgumentException();
         }
@@ -26,7 +27,19 @@ public class Game {
             CarList.add(car);
         }
         System.out.println("시도할 회수는 몇회인가요?");
-        this.totalMove = Integer.parseInt(Console.readLine());
+        String moveInput = Console.readLine();
+
+        // 숫자 에러 처리
+        try {
+            this.totalMove = Integer.parseInt(moveInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("올바른 숫자를 입력하세요.");
+        }
+
+        if (totalMove <= 0) {
+            throw new IllegalArgumentException("양수의 횟수를 입력하세요.");
+        }
+
         for(int i = 0; i < totalMove; i++){
             System.out.println("실행 결과");
             Match();
