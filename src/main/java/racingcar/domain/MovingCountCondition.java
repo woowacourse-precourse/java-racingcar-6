@@ -1,13 +1,13 @@
 package racingcar.domain;
 
-public enum TryingCountCondition {
+public enum MovingCountCondition {
 
     MIN_COUNT(1),
     MAX_COUNT(10);
 
     private final int count;
 
-    TryingCountCondition(final int count) {
+    MovingCountCondition(final int count) {
         this.count = count;
     }
 

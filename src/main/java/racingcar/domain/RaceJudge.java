@@ -2,7 +2,8 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.function.Supplier;
-import racingcar.dto.MoveResult;
+import racingcar.dto.MoveResults;
+import racingcar.dto.WinnerNames;
 
 public class RaceJudge {
 
@@ -18,17 +19,14 @@ public class RaceJudge {
         cars.moveAllForward(randomNumberSupplier);
     }
 
-    public List<MoveResult> createSingleMoveResults() {
+    public MoveResults createSingleMoveResults() {
         Cars cars = findCarsObject();
-        return cars.cars()
-                .stream()
-                .map(MoveResult::createResultFrom)
-                .toList();
+        return MoveResults.from(cars);
     }
 
-    public List<String> findAllWinnerNames() {
+    public WinnerNames findAllWinnerNames() {
         Cars cars = findCarsObject();
-        return cars.findAllWinnerNames();
+        return WinnerNames.from(cars);
     }
 
     private Cars findCarsObject() {

@@ -2,8 +2,8 @@ package racingcar;
 
 import java.util.List;
 import racingcar.domain.RaceJudge;
-import racingcar.dto.MoveResult;
-import racingcar.generator.MoveResultMessageGenerator;
+import racingcar.dto.MoveResults;
+import racingcar.dto.WinnerNames;
 import racingcar.generator.RandomNumberGenerator;
 import racingcar.validator.InputMoveCountValidator;
 import racingcar.view.InputView;
@@ -39,13 +39,12 @@ public class CarRaceGame {
     }
 
     private void printWinner() {
-        List<String> winners = judge.findAllWinnerNames();
-        OutputView.printWinners(winners);
+        WinnerNames names = judge.findAllWinnerNames();
+        OutputView.printWinnerNames(names.toString());
     }
 
     private void printSingleMoveResult() {
-        List<MoveResult> singleMoveResults = judge.createSingleMoveResults();
-        String singleResult = MoveResultMessageGenerator.generateMessage(singleMoveResults);
-        OutputView.printSingleResult(singleResult);
+        MoveResults singleMoveResults = judge.createSingleMoveResults();
+        OutputView.printSingleMoveResult(singleMoveResults.toString());
     }
 }

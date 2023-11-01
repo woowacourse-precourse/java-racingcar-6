@@ -49,6 +49,7 @@ class RaceJudgeTest {
         // when
         raceJudge.moveCars(() -> 4);
         boolean isMove = raceJudge.createSingleMoveResults()
+                .results()
                 .stream()
                 .map(MoveResult::position)
                 .allMatch(number -> number == 1);
@@ -67,6 +68,7 @@ class RaceJudgeTest {
         // when
         raceJudge.moveCars(() -> 3);
         boolean isStop = raceJudge.createSingleMoveResults()
+                .results()
                 .stream()
                 .map(MoveResult::position)
                 .allMatch(number -> number == 0);
@@ -84,7 +86,7 @@ class RaceJudgeTest {
 
         // when
         raceJudge.moveCars(() -> 4);
-        String winners = String.join(",", raceJudge.findAllWinnerNames());
+        String winners = raceJudge.findAllWinnerNames().toString();
 
         // then
         assertThat(winners).isEqualTo("pobi,jason");
