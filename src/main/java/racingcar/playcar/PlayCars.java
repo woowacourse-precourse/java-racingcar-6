@@ -8,15 +8,10 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class PlayCars {
 
-    private final Scanner scanner;
     private final List<String> winners = new ArrayList<>();
     private List<String> cars;
     private Map<String, Integer> carToDistance;
     private int numberOfTry;
-
-    public PlayCars(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     public void input() {
         try {
