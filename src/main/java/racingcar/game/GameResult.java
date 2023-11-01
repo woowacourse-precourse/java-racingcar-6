@@ -20,7 +20,7 @@ public class GameResult {
                 winners.add(car);
             }
         }
-        return null;
+        return cars;
     }
 
     private int getMaxPosition() {
