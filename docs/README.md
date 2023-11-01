@@ -27,8 +27,8 @@
 
 ### Valid한 이름인지 확인
 
-- 이름의 길이가 5자 이상인지 확인한다.
-  - 5자 이하이면 `IllegalArgumentException`을 발생시킨다.
+- 이름의 길이가 5자 이하인지 확인한다.
+  - 5자를 초과하면 `IllegalArgumentException`을 발생시킨다.
 
 ### 자동차 전진
 
