@@ -14,6 +14,7 @@
 - [O] 결과 출력 변수 초기화 -ActionCars#resetCountResult()
 - [O] 결과 최대값 변수 반환 기능 - ActionCars#winnerGoCount()
 - [O] 우승 자동차 String 반환 기능 - ActionCars#winnerCar()
+- [O] 이동 횟수만큼 연산 기능 - ActionCars#carsCycle()
 
 - [ ] 입력에 대한 출력.
     - 차 이름 입력 안내문 - InputView#printCarNamesInformation()
