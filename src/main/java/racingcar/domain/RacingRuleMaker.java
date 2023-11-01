@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingRuleMaker {
 
@@ -22,8 +23,11 @@ public class RacingRuleMaker {
     public List<String> namingCar() {
 
         String carNames = Console.readLine();
-        String[] carsNamesArray = carNames.split(",");
-        cars = Arrays.asList(carsNamesArray);
+        //문자열 -> ArrayList , 자동차 이름 끝단 공백 제거
+        cars = Arrays.stream(carNames.split(","))
+                .map(String::strip)
+                .collect(Collectors.toList());
+
         errorCheck.carNameCheck(cars);
         return cars;
     }
