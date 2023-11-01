@@ -30,7 +30,7 @@ public class GameController {
         OUTPUT_VIEW.printResultMessage();
         for (int i = 0; i < numberOfAttempt; i++) {
             cars.driveAll();
-            OUTPUT_VIEW.printRoundResult(cars.getRoundResult());
+            OUTPUT_VIEW.printRoundResult(cars.toString());
         }
     }
 

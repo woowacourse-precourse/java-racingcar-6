@@ -38,9 +38,11 @@ public class Cars {
         return cars.stream().map(Car::getName).collect(Collectors.toList());
     }
 
-    public List<String> getRoundResult() {
-        return cars.stream()
+    @Override
+    public String toString() {
+        List<String> carsString = cars.stream()
                 .map(Car::toString)
                 .collect(Collectors.toList());
+        return String.join("\n", carsString);
     }
 }

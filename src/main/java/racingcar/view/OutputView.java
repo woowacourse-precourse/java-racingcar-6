@@ -21,8 +21,8 @@ public class OutputView {
         System.out.println(RUN_RESULT_PRINT_MESSAGE.get());
     }
 
-    public void printRoundResult(List<String> result) {
-        result.forEach(System.out::println);
+    public void printRoundResult(String result) {
+        System.out.println(result);
         System.out.println();
     }
 

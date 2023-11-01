@@ -39,10 +39,12 @@
 + [x] Cars 클래스를 구현
     + [x] 멤버변수로 List<Car>를 가진다.
     + [x] 생성자를 통해 List<Car>를 초기화한다.
-    + [x] 우승자를 리턴하는 메소드
-    + [x] 매 경기 결과를 알아내는 메소드(List<String> 형태로)
+    + [x] 우승자들의 차 이름을 리턴하는 메소드
+    + [x] 각 Car의 최대 이동거리를 리턴하는 기능
+    + [x] 매 경기 결과를 알아내는 메소드(toString 오버라이드)
     + [x] Car를 각각 Drive(전진 및 멈추기)시키는 기능
     + [x] 자동차의 각 이름을 리턴하는 기능
+    + [x] 자동차의 각 이동거리를 리턴하는 기능
 + [x] InputView 클래스를 구현
     + [x] 입력을 담당하는 클래스로 ```camp.nextstep.edu.missionutils.Console```의 ```readLine()```을 활용하여 입력받는다.
 + [x] OutputView 클래스를 구현
