@@ -1,4 +1,4 @@
-package racingcar.model.car;
+package racingcar.model;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
@@ -7,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.ErrorMessage;
 import racingcar.mock.TestNumberGenerator;
+import racingcar.model.car.Car;
+import racingcar.model.car.CarDTO;
 
 class CarTest {
 
