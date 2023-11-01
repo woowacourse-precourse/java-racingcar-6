@@ -9,35 +9,40 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static racingcar.MessageType.CAR_NAMES;
+import static racingcar.MessageType.EXECUTION_RESULT;
+import static racingcar.MessageType.FINAL_WINNER;
+import static racingcar.MessageType.TRY_COUNT;
+
 public class GameSystem {
-    private static final String INSERT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String INSERT_TRY_COUNT = "시도할 회수는 몇회인가요?";
     private static final String POSSIBLE_TRY_COUNT_REGEX = "^[1-9][0-9]*$";
-    private static final String EXECUTION_RESULT = "실행 결과";
-    private static final String FINAL_WINNER = "최종 우승자";
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUBER = 9;
     
     public List<Car> cars = new LinkedList<>();
     private String userInput;
-    private StringBuilder resultMessage;
-    private StringBuilder winnerMessage;
+    private String resultMessage;
+    private String winnerMessage;
     
     public void startGame() {
-        System.out.println(INSERT_CAR_NAMES);
+        print(CAR_NAMES.getMessage());
         userInput = getUserInput();
         setUpCars(userInput);
         
-        System.out.println(INSERT_TRY_COUNT);
+        print(TRY_COUNT.getMessage());
         userInput = getUserInput();
         int tryCount = verfiyTryCount(userInput);
         
         runRace(tryCount);
-        System.out.println(EXECUTION_RESULT);
-        System.out.print(resultMessage);
+        print(EXECUTION_RESULT.getMessage());
+        print(resultMessage);
         
         executeWinner();
-        System.out.println(winnerMessage);
+        print(winnerMessage);
+    }
+    
+    private void print(String message) {
+        System.out.println(message);
     }
     
     public void setUpCars(String userInput) {
@@ -83,10 +88,10 @@ public class GameSystem {
     }
     
     private void runRace(int tryCount) {
-        resultMessage = new StringBuilder();
+        StringBuilder resultMessageBuilder = new StringBuilder();
         for (int i = 0; i < tryCount; i++) {
             raceCars();
-            makeResultMessageForCars(resultMessage);
+            makeResultMessageForCars(resultMessageBuilder);
         }
     }
     
@@ -97,11 +102,12 @@ public class GameSystem {
         }
     }
     
-    private void makeResultMessageForCars(StringBuilder result) {
+    private void makeResultMessageForCars(StringBuilder resultMessageBuilder) {
         for (Car car : cars) {
-            result.append(car.name).append(" : ").append(car.getLocationStatus()).append("\n");
+            resultMessageBuilder.append(car.name).append(" : ").append(car.getLocationStatus()).append("\n");
         }
-        result.append("\n");
+        resultMessageBuilder.append("\n");
+        resultMessage = resultMessageBuilder.toString();
     }
     
     private void executeWinner() {
@@ -138,12 +144,11 @@ public class GameSystem {
     }
     
     private void calculateWinnerMessage(List<Car> winners) {
-        winnerMessage = new StringBuilder();
-        
+        StringBuilder winnerMessageBuilder = new StringBuilder();
         String winnerNames = winners.stream()
                 .map(car -> car.name)
                 .collect(Collectors.joining(", "));
-        
-        winnerMessage.append(FINAL_WINNER).append(" : ").append(winnerNames);
+        winnerMessageBuilder.append(FINAL_WINNER.getMessage()).append(" : ").append(winnerNames);
+        winnerMessage = winnerMessageBuilder.toString();
     }
 }
