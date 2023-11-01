@@ -9,8 +9,8 @@ public class inputView {
         return Console.readLine();
     }
 
-    public static int requireRacingCount() {
+    public static String requireRacingCount() {
         System.out.println(REQUIRE_RACING_COUNT);
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }
