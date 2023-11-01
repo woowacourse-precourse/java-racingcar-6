@@ -52,7 +52,12 @@ public class CarValidator {
         errorInTry(tryNumbers.isEmpty());
 
         errorInTry(!numberCheck);
-        
+
+
+    }
+
+    public int getIntNumber() {
+        return Integer.parseInt(tryNumbers);
     }
 
     public void errorInTry(boolean tryNumbers) {
@@ -64,7 +69,7 @@ public class CarValidator {
     public Integer intTryNumber () {
         tryValid();
 
-        return Integer.parseInt(tryNumbers);
+        return getIntNumber();
     }
 
 
