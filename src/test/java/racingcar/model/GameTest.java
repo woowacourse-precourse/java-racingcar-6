@@ -9,7 +9,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -18,13 +17,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-class GameScoreTest {
-    private GameScore gameScore;
+class GameTest {
+    private Game game;
     private List<RacingCar> racingCars;
 
     private void createSingleWinner(RacingCar winner, String score) {
         for(int i = 0; i < score.length(); i++){
-            gameScore.update(winner, () -> Randoms.pickNumberInRange(4, 9) );
+            game.updateStatus(winner, () -> Randoms.pickNumberInRange(4, 9) );
         }
     }
 
@@ -40,14 +39,14 @@ class GameScoreTest {
                 new RacingCar("pobi"),
                 new RacingCar("woni"),
                 new RacingCar("jun"));
-        gameScore = GameScore.createByRacingCars(racingCars);
+        game = Game.createByRacingCars(racingCars);
     }
 
     @DisplayName("자동차 별 점수를 초기화 할 수 있다")
     @Test
     void create(){
         String expected = "pobi : \n" + "woni : \n" + "jun : \n";
-        assertThat(gameScore.toString()).isEqualTo(expected);
+        assertThat(game.toString()).isEqualTo(expected);
     }
 
     @DisplayName("중복된 이름을 가진 자동차가 있을 시 예외가 발생한다")
@@ -55,7 +54,7 @@ class GameScoreTest {
     void validateDuplicate(){
         List<RacingCar> duplicateCars = Arrays.asList(new RacingCar("pobi"), new RacingCar("pobi"));
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> GameScore.createByRacingCars(duplicateCars));
+                .isThrownBy(() -> Game.createByRacingCars(duplicateCars));
     }
 
 
@@ -63,8 +62,8 @@ class GameScoreTest {
     @ParameterizedTest
     @MethodSource("updatedData")
     void update(RacingCar racingCar, String output) {
-        gameScore.update(racingCar, () -> Randoms.pickNumberInRange(4, 9));
-        assertThat(gameScore.toString()).isEqualTo(output);
+        game.updateStatus(racingCar, () -> Randoms.pickNumberInRange(4, 9));
+        assertThat(game.toString()).isEqualTo(output);
     }
 
     @DisplayName("우승자가 한명인 경우 누가 우승했는지 알 수 있다.")
@@ -72,7 +71,7 @@ class GameScoreTest {
     @CsvSource(value = {"---:pobi", "--:woni", "-:jun"}, delimiter = ':')
     void getWinner(String score, String expectedWinner) {
         createSingleWinner(new RacingCar(expectedWinner), score);
-        List<RacingCar> result = gameScore.getWinner();
+        List<RacingCar> result = game.findWinners();
         Assertions.assertAll(
                 () -> assertThat(result.size()).isEqualTo(1),
                 () -> assertThat(result.get(0)).isEqualTo(new RacingCar(expectedWinner))
@@ -84,7 +83,7 @@ class GameScoreTest {
     @MethodSource("winnerData")
     void getMultipleWinner(String score, List<RacingCar> expectedWinners) {
         createMultipleWinner(expectedWinners, score);
-        List<RacingCar> result = gameScore.getWinner();
+        List<RacingCar> result = game.findWinners();
         Assertions.assertAll(
                 () -> assertThat(result.size()).isEqualTo(expectedWinners.size()),
                 () -> assertThat(result).containsAll(expectedWinners)

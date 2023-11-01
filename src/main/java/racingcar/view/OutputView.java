@@ -1,12 +1,12 @@
 package racingcar.view;
 
 import racingcar.constant.InformationResponse;
-import racingcar.model.GameScore;
+import racingcar.model.Game;
 
 public class OutputView {
 
-    public void printGameScore(GameScore gameScore){
-        System.out.println(gameScore);
+    public void printGameStatus(Game game){
+        System.out.println(game);
     }
 
     public void printWinner(String winner){

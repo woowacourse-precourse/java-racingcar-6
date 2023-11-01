@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class GameScore {
+public class Game {
     private final static String DELIMITER =  " : ";
     private final Map<RacingCar, String> participants;
 
-    private GameScore(Map<RacingCar, String> participants) {
+    private Game(Map<RacingCar, String> participants) {
         this.participants = participants;
     }
 
@@ -26,21 +26,21 @@ public class GameScore {
         }
     }
 
-    public static GameScore createByRacingCars(List<RacingCar> racingCars){
+    public static Game createByRacingCars(List<RacingCar> racingCars){
         validateDuplicate(racingCars);
-        Map<RacingCar, String> gameScore = new LinkedHashMap<>();
+        Map<RacingCar, String> gameStatus = new LinkedHashMap<>();
         for (RacingCar racingCar : racingCars) {
-            gameScore.put(racingCar, CarStatus.STOP.getOutput());
+            gameStatus.put(racingCar, CarStatus.STOP.getOutput());
         }
-        return new GameScore(gameScore);
+        return new Game(gameStatus);
     }
 
-    public void update(RacingCar racingCar, Supplier<Integer> supplier) {
+    public void updateStatus(RacingCar racingCar, Supplier<Integer> moveCondition) {
         participants.replace(racingCar, participants.get(racingCar)
-                + racingCar.apply(supplier.get()).getOutput());
+                + racingCar.decideMove(moveCondition.get()).getOutput());
     }
 
-    public List<RacingCar> getWinner() {
+    public List<RacingCar> findWinners() {
         String winnerScore = participants.entrySet()
                 .stream()
                 .map(Map.Entry::getValue)
@@ -54,12 +54,12 @@ public class GameScore {
 
     @Override
     public String toString() {
-        String gameScore = new String();
+        String gameStatus = new String();
         for(Map.Entry<RacingCar, String> entry :participants.entrySet()){
-            gameScore += entry.getKey() + DELIMITER + entry.getValue();
-            gameScore += System.lineSeparator();
+            gameStatus += entry.getKey() + DELIMITER + entry.getValue();
+            gameStatus += System.lineSeparator();
         }
-        return gameScore;
+        return gameStatus;
     }
 
 
