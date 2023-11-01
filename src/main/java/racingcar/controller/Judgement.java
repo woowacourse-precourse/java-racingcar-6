@@ -22,7 +22,7 @@ public class Judgement {
         int maxAdvancementCount = MIN_ADVANCEMENT_COUNT;
 
         for(int i = 0; i < carInformationList.size(); i++){
-            if(isMaxCount(carInformationList.get(i).getAdvancementCount(), maxAdvancementCount){
+            if(isMaxCount(carInformationList.get(i).getAdvancementCount(), maxAdvancementCount)){
                 maxAdvancementCount = carInformationList.get(i).getAdvancementCount();
             }
         }
