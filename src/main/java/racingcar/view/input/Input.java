@@ -16,14 +16,17 @@ public final class Input {
 
     public static List<String> inputNames() {
         String name = Console.readLine();
+
         return devideToList(name);
     }
 
     public static int inputTrialAmount() {
         String trialAmount = Console.readLine();
         validateNotBlank(trialAmount);
+
         try {
             return Integer.parseInt(trialAmount);
+
         } catch (InputIllegalArgumentException e) {
             throw new InputIllegalArgumentException(InputError.MUST_BE_NUMBER);
         }
@@ -32,20 +35,23 @@ public final class Input {
     private static List<String> devideToList(String value) {
         String removedSpaceValue = removeSpace(value);
         List<String> dividedName = Arrays.stream(removedSpaceValue.split(DIVIDING_STANDARD)).toList();
+
         validateNameLength(dividedName);
+
         return dividedName;
     }
 
     private static String removeSpace(String value) {
+
         return REMOVE_REGEX_PATTERN.matcher(value).replaceAll("");
     }
 
     private static void validateNameLength(List<String> names) {
-        int countNames = (int) names.stream()
-                .filter(name -> name.length() <= MAXIMUM_NAME_LENGTH && name.length() >= MINIMUM_NAME_LENGTH)
+        long countNames = names.stream()
+                .dropWhile(name -> name.length() >= MINIMUM_NAME_LENGTH && name.length() <= MAXIMUM_NAME_LENGTH)
                 .count();
 
-        if (countNames != names.size()) {
+        if (countNames > 0) {
             throw new InputIllegalArgumentException(InputError.EXCEEDED_MAXIMUM_ERROR, MAXIMUM_NAME_LENGTH,
                     MINIMUM_NAME_LENGTH);
         }
