@@ -1,6 +1,7 @@
 package racingcar.enums;
 
 public enum OutputMessage {
+    LINE_FEED("\n"),
     START_OF_RESULT("실행 결과"),
     FORMAT_OF_NAME_AFTER_CAR_FORWARD("%s : "),
     FORMAT_OF_PROGRESS_AFTER_CAR_FORWARD("%s"),
