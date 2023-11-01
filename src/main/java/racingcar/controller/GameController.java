@@ -21,18 +21,14 @@ public class GameController {
 
     public void play() {
 
-        // 자동차 이름들 입력
-        InputView.inputCarNamesMessage();
-        List<String> carNames = parser.parseCarName(Console.readLine());
-        List<Car> cars = parser.parseStringToCar(carNames);
+        /* 자동차 이름들, 시도 횟수 입력 */
+        List<Car> cars = inputCarNames();
+        int attemptNumber = inputAttempCnt();
 
-        //시도횟수 입력
-        InputView.inputNumberOfAttemptCntMessage();
-        int attemptNumber = parser.parseAttempt(Console.readLine());
         gameService.createGame(cars, attemptNumber);
         OutputView.printResultMessage();
 
-        // 게임진행
+        /* 게임진행 */
         while (true) {
             gameService.playSingleRoundGame();
             gameService.printCurrentGameResult();
@@ -42,14 +38,29 @@ public class GameController {
             }
         }
 
-        List<String> winners = gameService.getGameWinner();
+        printWinner(gameService.getGameWinner());
+
+    }
+
+    public List<Car> inputCarNames(){
+        InputView.inputCarNamesMessage();
+        List<String> carNames = parser.parseCarName(Console.readLine());
+        List<Car> cars = parser.parseStringToCar(carNames);
+        return  cars;
+    }
+
+    public int inputAttempCnt(){
+        InputView.inputNumberOfAttemptCntMessage();
+        return parser.parseAttempt(Console.readLine());
+    }
+
+    public void printWinner(List<String> winners){
         if (winners.size() == 1) {
             OutputView.printSoloWin(winners.get(0));
         }
         if (winners.size() > 1) {
             OutputView.printWinners(winners);
         }
-
     }
 
 
