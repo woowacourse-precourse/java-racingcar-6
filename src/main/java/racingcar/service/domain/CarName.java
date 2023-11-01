@@ -19,21 +19,21 @@ public class CarName {
         validateLength(name);
     }
 
-    private static void validateLength(String name) {
-        if (name.isEmpty() || name.length() > ConfigurationConstants.CAR_NAME_LENGTH_MAX_LIMIT) {
-            throw new IllegalArgumentException(CarExceptionMessage.OUT_OF_NAME_LENGTH.getError());
+    private void validateBlank(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException(CarExceptionMessage.ONLY_BLANK_NAME.getError());
         }
     }
 
-    private static void validateCommaExists(String name) {
+    private void validateCommaExists(String name) {
         if (name.contains(COMMA)) {
             throw new IllegalArgumentException(CarExceptionMessage.COMMA_EXISTS.getError());
         }
     }
 
-    private static void validateBlank(String name) {
-        if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException(CarExceptionMessage.ONLY_BLANK_NAME.getError());
+    private void validateLength(String name) {
+        if (name.isEmpty() || name.length() > ConfigurationConstants.CAR_NAME_LENGTH_MAX_LIMIT) {
+            throw new IllegalArgumentException(CarExceptionMessage.OUT_OF_NAME_LENGTH.getError());
         }
     }
 
