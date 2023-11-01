@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.util.RandomMoving;
+
 public class Car {
     private final CarName carName;
     private int position = 0;
@@ -13,6 +15,12 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public void progress(RandomMoving movingStrategy) {
+        if (movingStrategy.isMovable()) {
+            position++;
+        }
     }
 
     public boolean isSamePosition(int position) {

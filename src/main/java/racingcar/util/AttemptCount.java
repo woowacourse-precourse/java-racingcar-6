@@ -7,6 +7,22 @@ public class AttemptCount {
         checkPositiveNumber(this.totalAttemptCount);
     }
 
+    public int getTotalAttemptCount() {
+        return totalAttemptCount;
+    }
+
+    public boolean isContinue() {
+        if (totalAttemptCount == 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void reduceAttemptCount() {
+        totalAttemptCount = totalAttemptCount - 1;
+    }
+
     private int checkTranslateInteger(String attempt) {
         try {
             return Integer.parseInt(attempt);
