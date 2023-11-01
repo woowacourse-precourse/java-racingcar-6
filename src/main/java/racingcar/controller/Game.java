@@ -27,6 +27,7 @@ public class Game {
     private void askGameRounds(){
         OutputView.askGameRounds();
         round = Parser.parsingInteger(InputView.readLine());
+        InputView.close();
     }
 
     private void racing(){
