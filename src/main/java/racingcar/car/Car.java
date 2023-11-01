@@ -11,7 +11,7 @@ public class Car {
         this.name = name;
     }
     public void move(int numberToMove) {
-        if (numberToMove > MIN_VALUE_FOR_MOVE) {
+        if (MIN_VALUE_FOR_MOVE < numberToMove) {
             currentPosition++;
         }
     }
