@@ -26,8 +26,9 @@ public class CarTest {
         assertThatCode(() -> new Car(name));
     }
 
+    @DisplayName("성공 : 차례 진행시 자동차의 이동결과가 표시된다")
     @Test
-    void Car_이동메서드_체크() {
+    void test3() {
         Integer moveCount = 5;
         Car car = new Car("name");
         for (int i = 0; i < moveCount; i++) {
