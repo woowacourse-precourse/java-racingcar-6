@@ -26,7 +26,11 @@ public class Application {
         int tryNumber = Integer.parseInt(readLine());
 
         for(int i=0;i<tryNumber;i++){
-            printRacingState(carMap);
+            for(String key : carMap.keySet()){
+                determineGoOrStop(carMap, key, Randoms.pickNumberInRange(0,9));
+                printRacingState(carMap, key);
+            }
+            System.out.println();
         }
 
         System.out.print("최종 우승자 : "+ decideWinners(carMap));
@@ -38,17 +42,16 @@ public class Application {
                 .anyMatch(it -> it.length()>maxLength);
     }
 
-    public static void printRacingState(Map<String, Integer> carMap){
+    public static void determineGoOrStop(Map<String, Integer> carMap, String key, int randomNumber){
+        if(randomNumber>=4){
+            carMap.put(key, carMap.get(key)+1);
+        }
+    }
 
-        for(String key : carMap.keySet()){
-            System.out.print(key + " : ");
-            if(Randoms.pickNumberInRange(0,9)>=4){
-                carMap.put(key, carMap.get(key)+1);
-            }
-            for(int i=0;i< carMap.get(key);i++){
-                System.out.print("-");
-            }
-            System.out.println();
+    public static void printRacingState(Map<String, Integer> carMap, String key){
+        System.out.print(key + " : ");
+        for(int i=0;i< carMap.get(key);i++){
+            System.out.print("-");
         }
         System.out.println();
     }
