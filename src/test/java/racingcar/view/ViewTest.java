@@ -17,7 +17,7 @@ public class ViewTest {
 
     @Test
     public void InputView_총_라운드_수_입력_화면_테스트() {
-        assertThat(InputView.enterCarNamesMessage()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        assertThat(InputView.enterNumberOfRoundsMessage()).isEqualTo("시도할 회수는 몇회인가요?");
     }
 
     @Test
