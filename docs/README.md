@@ -11,6 +11,7 @@
    - playGame() 메서드로 게임을 진행
    - determineMove() 메서드로 전진 or 멈춤 파악
    - printResultOfRounds() 메서드로 게임의 라운드 당 결과 출력
+   - printWinner() 메서드로 최종 우승자 출력
 
    
 3. InputCarInfo
@@ -23,6 +24,11 @@
    - 게임 회수 입력 받는 기능
    - number 입력이 valid 한지 검증
    - valid 하다면 게임 계속 진행
+
+
+5. Winner
+   - MaxDistance를 계산하는 기능
+   - MaxDistance를 기반으로 최종 Winner(s) 찾아서 return
 
 
 
