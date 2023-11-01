@@ -8,7 +8,7 @@ public class InputView {
 
     private final InputReader inputReader;
 
-    public InputView(InputReader inputReader) {
+    public InputView(final InputReader inputReader) {
         this.inputReader = inputReader;
     }
 
