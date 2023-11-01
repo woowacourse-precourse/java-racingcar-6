@@ -13,18 +13,15 @@ public class ValidationTest {
     }
     @Test
     void 횟수_입력값_테스트(){
-//        public static void validateNum(String roundNum){
-//            try {
-//                Integer.parseInt(roundNum);
-//            }catch (Exception e){
-//                throw new IllegalArgumentException("숫자를 입력하세요.");
-//            }
-//        }
-
+        String roundNum = "a";
+        assertThatThrownBy(() -> CheckValidation.validateNum(roundNum))
+                .isInstanceOf(IllegalArgumentException.class);
     }
     @Test
     void 횟수_입력범위_제한_테스트(){
-
+        String roundNum = "0";
+        assertThatThrownBy(() -> CheckValidation.validateZero(roundNum))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
