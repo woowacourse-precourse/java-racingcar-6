@@ -9,7 +9,7 @@ public class GameManager {
     private static final String TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     public static int tryCount;
     public static List<String> racingCarNames;
-    public static final List<RacingCar> racingCars = new ArrayList<RacingCar>();
+    public static List<RacingCar> racingCars;
 
     public GameManager() {
 
