@@ -10,9 +10,11 @@ import racingcar.domain.power.DefaultPowerGenerator;
 
 public class CarFactoryService {
 
+    private static final int LINEAR_START_POSITION = 0;
+
     public Cars prepareRacingCars(List<CarName> carNames) {
         List<Car> cars = carNames.stream()
-                .map(carName -> new Car(carName, new Position(0), new DefaultPowerGenerator()))
+                .map(carName -> new Car(carName, new Position(LINEAR_START_POSITION), new DefaultPowerGenerator()))
                 .collect(Collectors.toList());
         return Cars.createFrom(cars);
     }
