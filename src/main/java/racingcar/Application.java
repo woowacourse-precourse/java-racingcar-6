@@ -35,6 +35,9 @@ public class Application {
 
     private static Collection<Car> inputCarNames() {
         String carNames = Console.readLine();
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException("값을 입력하세요");
+        }
         return extractCarNames(carNames);
     }
 

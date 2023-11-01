@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     private final String name;
     private int odometer;
@@ -52,4 +51,5 @@ public class Car {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다");
         }
     }
+
 }

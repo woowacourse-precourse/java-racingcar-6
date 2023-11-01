@@ -23,7 +23,7 @@ public class GameHost {
         return new GameHost(cars);
     }
 
-    public String announceWinner(){
+    public String announceWinner() {
         int maxOdometer = getMaxOdometer();
         return getWinner(maxOdometer);
     }
@@ -31,7 +31,7 @@ public class GameHost {
     private int getMaxOdometer() {
         int maxOdometer = 0;
         for (Car car : carList) {
-            if(maxOdometer < car.getOdometer()) {
+            if (maxOdometer < car.getOdometer()) {
                 maxOdometer = car.getOdometer();
             }
         }
@@ -41,11 +41,11 @@ public class GameHost {
     private String getWinner(int maxOdometer) {
         StringBuilder sb = new StringBuilder();
         for (Car car : carList) {
-            if(maxOdometer == car.getOdometer()) {
+            if (maxOdometer == car.getOdometer()) {
                 sb.append(car.getName()).append(",");
             }
         }
-        sb.deleteCharAt(sb.length()-1);
+        sb.deleteCharAt(sb.length() - 1);
         return sb.toString();
     }
 
