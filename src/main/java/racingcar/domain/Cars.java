@@ -8,6 +8,8 @@ public class Cars {
     public List<Car> cars;
 
     public Cars(List<String> carNames) {
+        Validator.validateCarNames(carNames);
+
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
             Car car = new Car(carName);
