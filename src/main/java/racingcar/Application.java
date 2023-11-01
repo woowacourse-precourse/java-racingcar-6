@@ -17,7 +17,7 @@ public class Application {
         Racer[] racers = createRacerFromInput(Console.readLine());
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int attemptCount = setAttemptCountFromInput();
+        int attemptCount = setAttemptCountFromInput(Console.readLine());
 
         System.out.println("실행 결과");
         for(int i=0; i<attemptCount; i++){

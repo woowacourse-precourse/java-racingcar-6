@@ -34,9 +34,9 @@ public class InputHandler {
         return true;
     }
 
-    static int setAttemptCountFromInput(){
+    static int setAttemptCountFromInput(String input){
         try {
-            int attemptCount = Integer.parseInt(Console.readLine());
+            int attemptCount = Integer.parseInt(input);
             return attemptCount;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("정수형 입력이 필요합니다.");
