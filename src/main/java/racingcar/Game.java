@@ -8,14 +8,16 @@ import racingcar.Validator;
 public class Game {
         private String name;
         private List<Car> carList = new ArrayList<>();
+        private List<String> winnerList = new ArrayList<>();
         private String[] carNames;
         private int count;
         public void start(){
                 inputCarName();
                 inputTryCount();
                 play(count);
-
-
+                getWinnerList();
+                //winnerList Car.name 전부 출력
+                System.out.print("최종 우승자 : "+ String.join(", ",winnerList));
 
                 // position을 비교
 
@@ -59,4 +61,19 @@ public class Game {
                 }
                 return carList;
         }
+        public List<String> getWinnerList(){
+                int max = 0;
+                for(Car car: carList){
+                        if(car.getPosition() > max){
+                                max = car.getPosition();
+                        }
+                }
+                for(Car car: carList){
+                        if(car.getPosition() == max){
+                                winnerList.add(car.getName());
+                        }
+                }
+                return winnerList;
+        }
+
 }
