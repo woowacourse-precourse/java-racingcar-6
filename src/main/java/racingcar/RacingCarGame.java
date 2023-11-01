@@ -6,14 +6,14 @@ import java.util.List;
 public class RacingCarGame {
 
     private CarNameManager carNameManager;
+    private CarMovingCountManager carMovingCountManager;
     private List<Car> carList;
-    private List<Integer> carMovingCountList;
     private int movingCount;
 
     public RacingCarGame() {
         carList = new ArrayList<>();
-        carMovingCountList = new ArrayList<>();
         carNameManager = new CarNameManager();
+        carMovingCountManager = new CarMovingCountManager();
         movingCount = 0;
     }
 
@@ -32,27 +32,20 @@ public class RacingCarGame {
         this.movingCount = movingCount;
     }
 
-    public void saveCarMovingCount() {
-        carMovingCountList.clear();
-        for (int i = 0; i < carList.size(); i++) {
-            Car car = carList.get(i);
-            int carMovingCount = car.getMovingCount();
-            carMovingCountList.add(carMovingCount);
-        }
+    public void setCarMovingCountManager() {
+        carMovingCountManager.saveCarMovingCount(carList);
     }
 
     public boolean isGameOver() {
-        saveCarMovingCount();
-        for (int i = 0; i < carMovingCountList.size(); i++) {
-            if (carMovingCountList.get(i) == movingCount) {
-                return true;
-            }
+        if (carMovingCountManager.isGameOver(movingCount)) {
+            return true;
         }
         return false;
     }
 
     public String getWinnerName() {
         List<String> winner = new ArrayList<>();
+        List<Integer> carMovingCountList = carMovingCountManager.getCarMovingCountList();
 
         for (int i = 0; i < carMovingCountList.size(); i++) {
             if (carMovingCountList.get(i) == movingCount) {
@@ -72,11 +65,11 @@ public class RacingCarGame {
         return movingCount;
     }
 
-    public List<Integer> getCarMovingCountList() {
-        return carMovingCountList;
-    }
-
     public CarNameManager getCarNameManager() {
         return carNameManager;
+    }
+
+    public CarMovingCountManager getCarMovingCountManager() {
+        return carMovingCountManager;
     }
 }

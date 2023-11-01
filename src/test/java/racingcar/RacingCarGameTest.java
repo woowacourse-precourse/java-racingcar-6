@@ -45,10 +45,10 @@ class RacingCarGameTest {
         String name = String.join(",", players);
 
         racingCarGame.createCar(name);
+        racingCarGame.setCarMovingCountManager();
 
-        racingCarGame.saveCarMovingCount();
-
-        List<Integer> carMovingCountList = racingCarGame.getCarMovingCountList();
+        CarMovingCountManager carMovingCountManager = racingCarGame.getCarMovingCountManager();
+        List<Integer> carMovingCountList = carMovingCountManager.getCarMovingCountList();
 
         assertThat(carMovingCountList.size()).isEqualTo(players.size());
 

@@ -49,7 +49,7 @@ public class GameManager {
             car.raiseMovingCount();
         }
 
-        racingCarGame.saveCarMovingCount();
+        racingCarGame.setCarMovingCountManager();
     }
 
     public boolean checkGameOver() {
@@ -66,7 +66,9 @@ public class GameManager {
         while (true) {
             getCarMovingCount();
             CarNameManager carNameManager = racingCarGame.getCarNameManager();
-            outputView.printRacingCarGameResult(carNameManager.getCarNameList(), racingCarGame.getCarMovingCountList());
+            CarMovingCountManager carMovingCountManager = racingCarGame.getCarMovingCountManager();
+            outputView.printRacingCarGameResult(carNameManager.getCarNameList(),
+                    carMovingCountManager.getCarMovingCountList());
 
             if (checkGameOver()) {
                 break;
