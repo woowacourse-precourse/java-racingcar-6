@@ -28,18 +28,23 @@ public class Race {
         Integer carCnt = getCarCntFromUser();
 
         while (carCnt--!=0) {
-            String result = "";
-            for (int i=0; i<carModelList.size(); i++){
-                CarModel carModel = carModelList.get(i);
-                if(checkRandomNumber()){
-                    carModel.goForward();
-                }
-                result += carModel.printRacing();
-            }
-            printResult(result);
+            play(carModelList);
         }
+
         notifyFinalWinner();
         printWinner(carModelList);
+    }
+
+    public static void play(List<CarModel> carModelList){
+        String result = "";
+        for (int i=0; i<carModelList.size(); i++){
+            CarModel carModel = carModelList.get(i);
+            if(checkRandomNumber()){
+                carModel.goForward();
+            }
+            result += carModel.printRacing();
+        }
+        printResult(result);
     }
 
     public static void notifyToWriteName(){
