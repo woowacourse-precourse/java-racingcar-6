@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -27,6 +28,39 @@ class ApplicationTest extends NsTest {
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_중복_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,java", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 빈칸_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("\n"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test()
+    @DisplayName("1보다 작은 수 예외")
+    void 시도_횟수_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java","0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test()
+    @DisplayName("문자 입력 시 예외")
+    void 시도_횟수_문자_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java","a"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
