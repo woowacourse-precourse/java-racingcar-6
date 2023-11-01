@@ -14,6 +14,9 @@ public class RacingCarGame {
     public ArrayList<RacingCar> getRacingCars() {
         return racingCars;
     }
+    public ArrayList<RacingCar> getWinners() {
+        return winners;
+    }
     public int getGameCount() {
         return gameCount;
     }
