@@ -8,7 +8,7 @@ public class RacingCars {
     private final List<Car> cars;
     private static final int INIT_POS = 0;
     private static final String RACING_CARS_DELIMITER = "\n";
-    private static final String DUPLICATE_RACING_CAR_NAME_MESSAGE = "CarNames should be distinct.";
+    private static final String DUPLICATE_EXCEPTION = "CarNames should be distinct.";
 
     public RacingCars() {
         this.cars = new ArrayList<>();
@@ -57,7 +57,7 @@ public class RacingCars {
                 .map(Car::getName)
                 .anyMatch(name::equals);
         if (hasName) {
-            throw new IllegalArgumentException(DUPLICATE_RACING_CAR_NAME_MESSAGE);
+            throw new IllegalArgumentException(DUPLICATE_EXCEPTION);
         }
     }
 

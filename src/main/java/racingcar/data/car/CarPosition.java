@@ -3,7 +3,7 @@ package racingcar.data.car;
 public class CarPosition {
     private int pos;
     private static final String MARKER = "-";
-    private static final String NEGATIVE_INTEGER = "CarPosition cannot be a negative integer.";
+    private static final String NEGATIVE_INTEGER_EXCEPTION = "CarPosition cannot be a negative integer.";
 
     public CarPosition(int pos) {
         validateCarPosition(pos);
@@ -16,7 +16,7 @@ public class CarPosition {
 
     public static void validateCarPosition(int pos) {
         if (pos < 0) {
-            throw new IllegalArgumentException(NEGATIVE_INTEGER);
+            throw new IllegalArgumentException(NEGATIVE_INTEGER_EXCEPTION);
         }
     }
 

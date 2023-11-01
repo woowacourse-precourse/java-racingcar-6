@@ -3,8 +3,8 @@ package racingcar.data.car;
 public class CarName {
     private final String name;
     private static final int LIMIT = 5;
-    private static final String EMPTY_MESSAGE = "CarName cannot be empty.";
-    private static final String LONGER_THAN_LIMIT = "CarName should be no longer than ";
+    private static final String EMPTY_EXCEPTION = "CarName cannot be empty.";
+    private static final String LONGER_THAN_LIMIT_EXCEPTION = "CarName should be no longer than ";
 
     public CarName(String name) {
         validateCarName(name, LIMIT);
@@ -13,10 +13,10 @@ public class CarName {
 
     public static void validateCarName(String name, int limit) {
         if (name.length() < 1) {
-            throw new IllegalArgumentException(EMPTY_MESSAGE);
+            throw new IllegalArgumentException(EMPTY_EXCEPTION);
         }
         if (name.length() > limit) {
-            throw new IllegalArgumentException(LONGER_THAN_LIMIT + limit + ".");
+            throw new IllegalArgumentException(LONGER_THAN_LIMIT_EXCEPTION + limit + ".");
         }
     }
 

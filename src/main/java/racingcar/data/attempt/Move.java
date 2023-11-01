@@ -5,7 +5,7 @@ public enum Move {
     FORWARD(1);
 
     private final int move;
-    private static final String WRONG_MOVES = "Moves should be ";
+    private static final String WRONG_MOVE_EXCEPTION = "Moves should be ";
     
     Move(int move) {
         this.move = move;
@@ -17,7 +17,7 @@ public enum Move {
                 return move.getMove();
             }
         }
-        throw new IllegalArgumentException(WRONG_MOVES + STOP.getMove() + " or " + FORWARD.getMove() + ".");
+        throw new IllegalArgumentException(WRONG_MOVE_EXCEPTION + STOP.getMove() + " or " + FORWARD.getMove() + ".");
     }
 
     public int getMove() {

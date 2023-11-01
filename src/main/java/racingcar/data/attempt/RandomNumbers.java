@@ -9,7 +9,7 @@ public class RandomNumbers {
     private final int totalSize;
     private static final int RANGE_MIN = 0;
     private static final int RANGE_MAX = 9;
-    private static final String OUT_OF_RANGE = "InputNumber should be between ";
+    private static final String OUT_OF_RANGE_EXCEPTION = "InputNumber should be between ";
 
     public RandomNumbers(int totalSize) {
         this.numbers = new ArrayList<>();
@@ -30,7 +30,7 @@ public class RandomNumbers {
 
     public static void validateRandomNumber(int number) {
         if (number < RANGE_MIN || RANGE_MAX < number) {
-            throw new IllegalArgumentException(OUT_OF_RANGE + RANGE_MIN + " and " + RANGE_MAX + ".");
+            throw new IllegalArgumentException(OUT_OF_RANGE_EXCEPTION + RANGE_MIN + " and " + RANGE_MAX + ".");
         }
     }
 }
