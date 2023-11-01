@@ -10,9 +10,15 @@ public class ErrorCheck {
         }
     }
 
+    public void isNoValue(String cars) {
+        if (cars == null || cars.isBlank()) {
+            throw new IllegalArgumentException("공백만 입력할 수 없습니다.");
+        }
+    }
+
     public void biggerThanFive(String car) {
         if (car.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException("5자 이하의 자동차 이름을 콤마로 구분하여 입력해주세요.");
         }
     }
 

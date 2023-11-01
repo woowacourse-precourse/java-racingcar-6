@@ -12,6 +12,7 @@ public class RacingRuleMaker {
     ErrorCheck errorCheck = new ErrorCheck();
 
     public RacingRuleMaker(String carNames, String inputRacingRound) {
+        errorCheck.isNoValue(carNames);
         namingCar(carNames);
         inputRacingRound(inputRacingRound);
     }
