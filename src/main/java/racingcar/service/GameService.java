@@ -9,7 +9,9 @@ import racingcar.domain.Game;
 import racingcar.repository.GameRepository;
 
 public class GameService {
+
     private static final int START_POSITION = 0;
+    private static final int MOVING_POSITION = 4;
     private static final int END_POSITION = 9;
     private static final int MIN_VALUE = -1;
     private final GameRepository gameRepository = new GameRepository();
@@ -60,7 +62,7 @@ public class GameService {
 
     private void moveForwardByRandomNumber(Game game) {
         for (Car car : game.getCars()) {
-            if (START_POSITION <= getRandomDistance()) {
+            if (MOVING_POSITION <= getRandomDistance()) {
                 car.moveFoward(1);
             }
         }
