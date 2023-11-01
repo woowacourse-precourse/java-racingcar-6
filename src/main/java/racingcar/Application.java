@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.domain.Car;
+import racingcar.domain.Judgment;
+import racingcar.domain.NumberGenerator;
 import racingcar.domain.Racing;
 import racingcar.domain.Referee;
 import racingcar.util.CarNames;
@@ -21,10 +23,13 @@ public class Application {
         Integer playRound = askPlayRound();
 
         Racing racing = new Racing(racingCars);
-        System.out.println("\n" + PLAY_RESULT);
-        IntStream.range(0, playRound).forEach(i -> racing.run());
-
         Referee referee = new Referee();
+        Judgment judgment = new Judgment();
+        NumberGenerator numberGenerator = new NumberGenerator();
+
+        System.out.println("\n" + PLAY_RESULT);
+        IntStream.range(0, playRound).forEach(i -> racing.run(judgment, numberGenerator.createRandomNumber()));
+
         referee.announcementWinners(racingCars);
     }
 

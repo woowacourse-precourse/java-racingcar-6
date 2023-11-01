@@ -16,8 +16,10 @@ public class Car implements Comparable<Car> {
         this.moveDistance = 0;
     }
 
-    public void forward() {
-        moveDistance++;
+    public void forward(Judgment judgment, Integer randomNumber) {
+        if (judgment.isMoreThanFour(randomNumber)) {
+            moveDistance++;
+        }
     }
 
     public String currentLocation() {

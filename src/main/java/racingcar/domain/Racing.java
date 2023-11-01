@@ -9,20 +9,12 @@ public class Racing {
         this.racingCar = racingList;
     }
 
-    public void run() {
-        for (Car car : racingCar) {
-            if (shouldCarMoveForward()) {
-                car.forward();
-            }
+    public void run(Judgment judgment, Integer randomNumber) {
+        racingCar.forEach(car -> {
+            car.forward(judgment, randomNumber);
             printCarLocation(car);
-        }
+        });
         System.out.println();
-    }
-
-    private boolean shouldCarMoveForward() {
-        NumberGenerator numberGenerator = new NumberGenerator();
-        Judgment judgment = new Judgment();
-        return judgment.isMoreThanFour(numberGenerator.createRandomNumber());
     }
 
     private void printCarLocation(Car car) {
