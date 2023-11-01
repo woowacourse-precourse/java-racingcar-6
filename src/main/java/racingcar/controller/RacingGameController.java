@@ -54,8 +54,17 @@ public class RacingGameController implements Controller {
         int tryCount = inputView.getUserInputCount();
         while (tryCount-- > MINIMUM_TRY_COUNT.number()) {
             cars.forEach(Car::moveOrStop);
-            outputView.recordStatus(cars);
+            outputView.recordStatus(getCurrentStatuses(cars));
         }
+    }
+
+    private List<String> getCurrentStatuses(List<Car> cars) {
+        List<String> statusList = new ArrayList<>();
+        for (Car car:cars) {
+            statusList.add(car.toString());
+        }
+
+        return statusList;
     }
 
     private void judgeWinner(final List<Car> cars) {

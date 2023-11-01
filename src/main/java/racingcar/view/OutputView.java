@@ -5,7 +5,6 @@ import static racingcar.view.ConstantMessage.RESULT_MESSAGE_START;
 import static racingcar.view.ConstantMessage.WINNER_IS;
 
 import java.util.List;
-import racingcar.model.Car;
 
 public class OutputView implements View {
     private final StringBuilder result;
@@ -20,8 +19,8 @@ public class OutputView implements View {
      *
      * @param cars 자동차(Car) 리스트
      */
-    public void recordStatus(final List<Car> cars) {
-        cars.forEach(car -> result.append(car.toString()).append(NEXT_LINE.message()));
+    public void recordStatus(final List<String> cars) {
+        cars.forEach(car -> result.append(car).append(NEXT_LINE.message()));
         result.append(NEXT_LINE.message());
     }
 
