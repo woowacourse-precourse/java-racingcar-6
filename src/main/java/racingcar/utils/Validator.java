@@ -20,4 +20,10 @@ public class Validator {
     public static void validateRangeOfExecutions(int numOfExecutions) throws IllegalArgumentException {
         validateRange(numOfExecutions, 1, 1000);
     }
+
+    public static void validateCarName(String name) throws IllegalArgumentException {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException(ErrorMessage.OUT_OF_NAME_LENGTH);
+        }
+    }
 }
