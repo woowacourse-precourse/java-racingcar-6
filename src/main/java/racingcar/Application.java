@@ -66,6 +66,10 @@ public class Application {
         return winnerArr;
     }
 
+    static void printWinner (List<String> winnerArr){
+        System.out.println(String.join(", ", winnerArr));
+    }
+
     public static void main(String[] args) {
         String[] cars = splitCarName(inputCarName());
         List<Car> carArr = new ArrayList<>();
