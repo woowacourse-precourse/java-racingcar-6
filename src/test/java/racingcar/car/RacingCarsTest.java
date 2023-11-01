@@ -11,7 +11,7 @@ class RacingCarsTest {
 
     @Test
     void output_자동화_경기의_실행_결과가_잘_출력_되는지_확인(){
-        assertThat(racingCars.toString()).isEqualTo("pobi : ");
+        assertThat(racingCars.toString()).isEqualTo("pobi : \nhash : \nneo : \n");
     }
 
 }
