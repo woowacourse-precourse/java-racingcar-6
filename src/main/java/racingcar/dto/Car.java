@@ -1,7 +1,5 @@
 package racingcar.dto;
 
-import racingcar.validator.InputValidator;
-
 public class Car {
     private String name;
     private int moveCount;
