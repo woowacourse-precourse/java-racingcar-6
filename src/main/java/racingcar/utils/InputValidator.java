@@ -5,7 +5,12 @@ import java.util.List;
 
 public class InputValidator {
 
-    private static List<String> check_duplicate = new ArrayList<>();
+    private final List<String> check_duplicate;
+
+    public InputValidator() {
+        this.check_duplicate = new ArrayList<>();
+
+    }
 
     public int number(String numString){
         Integer number = validateNum(numString);
@@ -22,7 +27,7 @@ public class InputValidator {
         return carStr;
     }
 
-    private static void validateCars(String name) {
+    private void validateCars(String name) {
         if (check_duplicate.contains(name)) {
             throw new IllegalArgumentException("중복된 이름을 입력하셨습니다.");
         }

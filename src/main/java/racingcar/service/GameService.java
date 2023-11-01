@@ -5,7 +5,7 @@ import racingcar.utils.ServiceOutputManager;
 public class GameService {
     CarManager carManager;
 
-    ServiceOutputManager serviceOutputManager = new ServiceOutputManager();
+    static final ServiceOutputManager serviceOutputManager = new ServiceOutputManager();
 
 
     public void execute(String cars, int number) {
