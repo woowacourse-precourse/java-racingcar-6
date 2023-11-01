@@ -4,7 +4,10 @@ import java.util.List;
 
 public class RacingGame {
     public void startGame() {
+        OutputView.printAskCarNames();
         List<Car> cars = InputView.inputCarsInfo();
+
+        OutputView.printAskRound();
         int round = InputView.inputRound();
 
         OutputView.printExecutionResultText();
