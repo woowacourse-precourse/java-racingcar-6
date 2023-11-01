@@ -61,9 +61,7 @@ public class Race {
     }
 
     private void conductRace() {
-        for (Car car : participatingCars) {
-            car.tryMove(injectFuel());
-        }
+        participatingCars.forEach(car -> car.tryMove(injectFuel()));
     }
 
     private void decreaseMoveCounts() {
