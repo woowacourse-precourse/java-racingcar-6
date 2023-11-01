@@ -71,7 +71,7 @@
 ## controller
 
 - **RacingCarController**
-    - 도메인과 도메인. 도메안과 뷰를 상호작용 시키는 클래스
+    - 도메인과 도메인. 도메인과 뷰를 상호작용 시키는 클래스
 
 ## domain
 
