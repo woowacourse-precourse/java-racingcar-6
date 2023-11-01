@@ -39,6 +39,14 @@ public class RacingTest extends NsTest{
         );
     }
 
+    @Test
+    void 차가_1개만_주어진_것에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
     @Override
     public void runMain() {
