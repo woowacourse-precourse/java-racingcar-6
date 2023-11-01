@@ -45,7 +45,20 @@ public class InputValidationTest {
     @Test
     void count_not_integer() {
         // given
-        String input = "121111111111111";
+        String input = "12a";
+
+        // then
+        assertThatThrownBy(
+                () -> InputValidation.checkCountRight(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("유효하지 않은 숫자입니다.");
+    }
+
+    @DisplayName("횟수 입력값에 음수 입력 시 예외 발생")
+    @Test
+    void count_not_positive() {
+        // given
+        String input = "-12";
 
         // then
         assertThatThrownBy(
