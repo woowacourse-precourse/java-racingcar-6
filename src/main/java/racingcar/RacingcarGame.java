@@ -15,4 +15,13 @@ public class RacingcarGame {
     return locations;
   }
 
+  public List<String> evaluateWinner(List<String> cars, List<Integer> locations) {
+    List<String> winners = new ArrayList<>();
+    for (int i = 0; i < locations.size(); i++) {
+      if (locations.get(i) >= Collections.max(locations)) {
+        winners.add(cars.get(i));
+      }
+    }
+    return winners;
+  }
 }
