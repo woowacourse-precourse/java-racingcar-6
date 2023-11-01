@@ -22,4 +22,11 @@ class PositionTest {
     void Position_생성시_자동으로_초기값_생성() {
         assertThat(position.getPosition()).isEqualTo(0);
     }
+
+    @Test
+    void move_메소드_호출시_위치가_1_증가() {
+        position.move();
+        assertThat(position.getPosition()).isEqualTo(1);
+    }
+
 }
