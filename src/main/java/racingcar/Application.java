@@ -35,7 +35,7 @@ public class Application {
             }
 
             for (int carindex = 0; carindex < carSize; carindex++) {
-                System.out.print(carNameList.get(carindex) + ": ");
+                System.out.print(carNameList.get(carindex) + " : ");
                 for (int a = 0;a < distances[carindex]; a++) {
                     System.out.print("-");
                 }
