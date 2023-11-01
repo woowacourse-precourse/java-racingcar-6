@@ -4,6 +4,9 @@ import java.util.List;
 import racingcar.dto.CarDto;
 
 public class MainOutputView {
+    private MainOutputView() {
+    }
+
     public static void printNewLine() {
         System.out.println();
     }

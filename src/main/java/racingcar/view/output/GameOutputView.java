@@ -4,6 +4,9 @@ import java.util.List;
 import racingcar.dto.CarDto;
 
 public class GameOutputView {
+    private GameOutputView() {
+    }
+
     public static void printPlayResultTitle() {
         System.out.println("실행 결과");
     }
