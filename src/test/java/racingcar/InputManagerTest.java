@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 public class InputManagerTest {
     @Test
@@ -15,9 +14,10 @@ public class InputManagerTest {
         String invalidName = "abcdef";
 
         assertThatThrownBy(() -> inputManager.isValidName(invalidName))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessage("자동차 이름은 5자를 초과할 수 없습니다.");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 5자를 초과할 수 없습니다.");
     }
+
 
     @ParameterizedTest
     @CsvSource({"-1, 시도 횟수는 음수가 될 수 없습니다.", "abc, 문자는 입력할 수 없습니다."})
@@ -25,7 +25,7 @@ public class InputManagerTest {
         InputManager inputManager = new InputManager();
 
         assertThatThrownBy(() -> inputManager.isValidNum(invalidNum))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessage(expectedMessage);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(expectedMessage);
     }
 }
