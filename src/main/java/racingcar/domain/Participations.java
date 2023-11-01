@@ -21,8 +21,17 @@ public class Participations { // 일급컬렉션
         cars = carList;
     }
 
+    private Participations(List<Car> carList) {
+        validateDuplicatedName(carList);
+        cars = carList;
+    }
+
     public static Participations create(String carNames) {
         return new Participations(carNames);
+    }
+
+    public static Participations create(List<Car> carList) {
+        return new Participations(carList);
     }
 
     public List<Car> getParticipations() {

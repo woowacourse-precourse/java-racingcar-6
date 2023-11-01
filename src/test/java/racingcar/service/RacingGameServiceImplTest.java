@@ -115,7 +115,7 @@ public class RacingGameServiceImplTest {
                 .hasMessageContaining("1 이상 2,147,483,647 이하의 정수 값이 필요합니다.");
     }
 
-    @Test
+    /*@Test
     public void 시도횟수만큼_각Car에_랜덤정수넣기() {
         // given
         String carNames = "pobi,woni,jun";
@@ -128,18 +128,18 @@ public class RacingGameServiceImplTest {
         // then
         racingGame.getParticipationsList()
                 .forEach( car -> assertThat(car.calcPickedNumberSize()).isEqualTo(5));
-    }
+    }*/
 
     @Test
     public void 단일_우승자_계산하기() {
         // given
         Car pobi = Car.create("pobi");
-        pobi.insertPickedNumber(1);
-        pobi.insertPickedNumber(2);
+        pobi.addPositionByRandomNum(1);
+        pobi.addPositionByRandomNum(2);
 
         Car woni = Car.create("woni");
-        woni.insertPickedNumber(1);
-        woni.insertPickedNumber(4);
+        woni.addPositionByRandomNum(1);
+        woni.addPositionByRandomNum(4);
 
         List<Car> carList = new ArrayList<>() {{
            add(pobi);
@@ -158,7 +158,6 @@ public class RacingGameServiceImplTest {
 
         // when
         racingGameService.calculateWinners(racingGame);
-
         // then
         assertThat(racingGame.calcWinnerSize()).isEqualTo(1);
         assertThat(racingGame.getWinnerList()).isEqualTo(winnerList);

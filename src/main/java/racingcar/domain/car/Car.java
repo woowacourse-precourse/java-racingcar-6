@@ -1,8 +1,5 @@
 package racingcar.domain.car;
 
-import static racingcar.domain.Constants.MIN_MOVE_NUMBER;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.IndexModel;
@@ -11,7 +8,6 @@ public class Car extends IndexModel {
 
     private final Name name;
     private final Positions positions = Positions.create();
-    private List<Integer> pickedNumbers = new ArrayList<>();
 
     private Car(String strName) {
         name = Name.create(strName);
@@ -31,14 +27,6 @@ public class Car extends IndexModel {
         return name.getName();
     }
 
-    public Positions getPositions() {
-        return positions;
-    }
-
-    public int calcPickedNumberSize() {
-        return pickedNumbers.size();
-    }
-
     public int calcMaxPosition() {
         return positions.calcMaxPosition();
     }
@@ -47,8 +35,11 @@ public class Car extends IndexModel {
         return positions.findPositionAt(index);
     }
 
-    public void moveForward() {
-        positions.moveForward();
+    public void addPositionByRandomNum(int randomNum) {
+        positions.addPositionByRandomNum(randomNum);
     }
 
+    public boolean isPositionSameOrOver(int maxPosition) {
+        return positions.isPositionSameOrOver(maxPosition);
+    }
 }
