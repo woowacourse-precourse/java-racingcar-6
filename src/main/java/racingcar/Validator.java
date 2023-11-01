@@ -1,15 +1,18 @@
 package racingcar;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Validator {
     /**
      * 입력 값 검증 함수
-     * 입력: String(사용자의 경주 자동차 이름 입력값)
+     * 입력: String(사용자의 경주 자동차 이름 입력값), int(입력값의 종류, 0일 경우 String, 1일 경우 Long)
      * 출력: boolean(정상적으로 경주 자동차 이름이 배정됐을 경우 true)
      */
     public boolean validate(String string, int type) {
         // 경주자동차 이름을 지정하는 입력값일 경우
         if (type == 1) {
-            if (!isSplitedByComma(string))
+            if (!isSplitByComma(string))
                 return false;
 
             if (!isValidLength(string.split(",")))
@@ -28,7 +31,20 @@ public class Validator {
      * 입력: String(사용자의 경주 자동차 이름 입력값)
      * 출력: boolean(',' 기준으로 정상적으로 분리될 경우 true)
      */
-    private boolean isSplitedByComma(String string) {return true;}
+    private boolean isSplitByComma(String string) {
+        IllegalArgumentException exception = new IllegalArgumentException();
+        // pobi,,woni와 같은 경우일 경우
+        if (string.contains(",,"))
+            throw exception;
+
+        // ,만 입력했을 경우
+        if (string.strip().equals(","))
+            throw exception;
+
+        // pobi,나 pobi와 같이 하나의 자동차 이름만 입력했을경우
+        if (Arrays.asList(string.strip().split(",")).size() < 2)
+            throw exception;
+    }
 
     /**
      * 자동차 이름 길이 검증 기능
