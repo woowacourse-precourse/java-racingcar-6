@@ -44,7 +44,7 @@ public class RacingCarService {
         }
     }
 
-    public int getMaxMoveCount() {
+    private int getMaxMoveCount() {
         return carList.stream()
                 .mapToInt(Car::getMoveCount)
                 .max()
