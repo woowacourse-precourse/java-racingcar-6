@@ -11,15 +11,17 @@ import racingcar.constant.IllegalStateExceptionType;
 
 class RacingGameStateTest {
 
-    Car fakeCar1, fakeCar2;
+    Car alwaysMovingCar, neverMovingCar;
     List<Car> rawCars;
     RacingGameState playingRacingGameState, endedRacingGameState;
 
     @BeforeEach
     void setUp() {
-        fakeCar1 = new FakeCar("붕붕카", 1);
-        fakeCar2 = new FakeCar("차차차", 0);
-        rawCars = List.of(fakeCar1, fakeCar2);
+        alwaysMovingCar = new AlwaysMovingCar("붕붕카");
+        neverMovingCar = new NeverMovingCar("차차차");
+        alwaysMovingCar.attemptToMove();
+
+        rawCars = List.of(alwaysMovingCar, neverMovingCar);
 
         playingRacingGameState = new RacingGameState(false, rawCars);
         endedRacingGameState = new RacingGameState(true, rawCars);
@@ -29,11 +31,11 @@ class RacingGameStateTest {
     void 완료_게임_진행_상태_조회_테스트() {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(endedRacingGameState.isEnd()).isEqualTo(true);
-        softAssertions.assertThat(endedRacingGameState.getCarDistanceByIndex(0)).isEqualTo(fakeCar1.getDistance());
-        softAssertions.assertThat(endedRacingGameState.getCarDistanceByIndex(1)).isEqualTo(fakeCar2.getDistance());
-        softAssertions.assertThat(endedRacingGameState.getCarNameByIndex(0)).isEqualTo(fakeCar1.getName());
-        softAssertions.assertThat(endedRacingGameState.getCarNameByIndex(1)).isEqualTo(fakeCar2.getName());
-        softAssertions.assertThat(endedRacingGameState.getWinnersName()).containsOnly(fakeCar1.getName());
+        softAssertions.assertThat(endedRacingGameState.getCarDistanceByIndex(0)).isEqualTo(alwaysMovingCar.getDistance());
+        softAssertions.assertThat(endedRacingGameState.getCarDistanceByIndex(1)).isEqualTo(neverMovingCar.getDistance());
+        softAssertions.assertThat(endedRacingGameState.getCarNameByIndex(0)).isEqualTo(alwaysMovingCar.getName());
+        softAssertions.assertThat(endedRacingGameState.getCarNameByIndex(1)).isEqualTo(neverMovingCar.getName());
+        softAssertions.assertThat(endedRacingGameState.getWinnersName()).containsOnly(alwaysMovingCar.getName());
         softAssertions.assertAll();
     }
 

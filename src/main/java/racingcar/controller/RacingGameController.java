@@ -2,9 +2,8 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.RandomMovingCar;
 import racingcar.domain.Cars;
-import racingcar.domain.GameCar;
-import racingcar.domain.GameCars;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -13,16 +12,16 @@ public class RacingGameController {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
-    private Car createGameCar(String carName) {
-        return new GameCar(carName);
+    private Car createRandomMovingCar(String carName) {
+        return new RandomMovingCar(carName);
     }
 
     private Cars createGameCarsByCarNames(List<String> carNames) {
         List<Car> gameCars = carNames.stream()
-                .map(this::createGameCar)
+                .map(this::createRandomMovingCar)
                 .toList();
 
-        return new GameCars(gameCars);
+        return new Cars(gameCars);
     }
 
     private RacingGame initRacingGame() {

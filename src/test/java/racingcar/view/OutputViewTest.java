@@ -11,15 +11,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalStateExceptionType;
+import racingcar.domain.AlwaysMovingCar;
 import racingcar.domain.Car;
-import racingcar.domain.FakeCar;
+import racingcar.domain.NeverMovingCar;
 import racingcar.domain.RacingGameState;
 
 class OutputViewTest {
 
     private PrintStream standardOut;
     private OutputStream captor;
-    Car fakeCar1, fakeCar2;
+    Car alwaysMovingCar, neverMovingCar;
     List<Car> rawCars;
     RacingGameState playingRacingGameState, endedRacingGameState;
 
@@ -27,9 +28,11 @@ class OutputViewTest {
 
     @BeforeEach
     void setUp() {
-        fakeCar1 = new FakeCar("붕붕카", 1);
-        fakeCar2 = new FakeCar("차차차", 0);
-        rawCars = List.of(fakeCar1, fakeCar2);
+        alwaysMovingCar = new AlwaysMovingCar("붕붕카");
+        neverMovingCar = new NeverMovingCar("차차차");
+        alwaysMovingCar.attemptToMove();
+
+        rawCars = List.of(alwaysMovingCar, neverMovingCar);
 
         playingRacingGameState = new RacingGameState(false, rawCars);
         endedRacingGameState = new RacingGameState(true, rawCars);
