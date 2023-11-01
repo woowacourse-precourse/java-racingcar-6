@@ -3,9 +3,14 @@ package study;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class StringTest {
+    @BeforeAll
+    static void print_출력() {
+        System.out.println("start");
+    }
 
     @Test
     void split_메서드로_주어진_값을_구분() {
