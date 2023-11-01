@@ -35,4 +35,24 @@ public class Game {
         return players;
     }
 
+    public String decideWinners() {
+        List<String> winners = new ArrayList<>();
+
+        String maxState = "";
+        for (Car car : players) {
+            if (maxState.length() < car.state.length()) {
+                maxState = car.state;
+            }
+        }
+
+        for (Car car : players) {
+            if (maxState == car.state) {
+                winners.add(car.name);
+            }
+        }
+
+        return String.join(",",winners);
+
+    }
+
 }
