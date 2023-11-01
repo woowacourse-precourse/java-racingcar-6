@@ -44,4 +44,15 @@ class CarsTest {
                 }).isEqualTo(expected);
     }
 
+    @Test
+    void 가장_먼_거리_구하기() {
+        // given
+        IntStream.range(0, 5).forEach(i -> {
+            car1.move(4);
+            car2.move(3);
+        });
+        // then
+        Assertions.assertThat(cars.getMaxDistance()).isEqualTo(5);
+    }
+
 }
