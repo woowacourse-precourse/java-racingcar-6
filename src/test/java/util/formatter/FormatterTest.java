@@ -12,29 +12,27 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class FormatterTest {
+    Formatter formatter = new Formatter();
+
     @Test
     void formatListStringToString_메서드_정상적인_입력() {
-        Formatter formatter = new Formatter();
         List<String> inputList = Arrays.asList(CAR_NAME_1, CAR_NAME_2, CAR_NAME_3);
-        String sb = CAR_NAME_1
-                + ","
+        String expectedResult = CAR_NAME_1
+                + COMMA
                 + CAR_NAME_2
-                + ","
+                + COMMA
                 + CAR_NAME_3;
         String result = formatter.formatListStringToString(inputList);
-        assertEquals(sb, result);
+        assertEquals(expectedResult, result);
     }
 
     @Test
     void formatListStringToString_메서드_null_입력() {
-        Formatter formatter = new Formatter();
-        List<String> inputList = null;
-        assertThrows(NullPointerException.class, () -> formatter.formatListStringToString(inputList));
+        assertThrows(NullPointerException.class, () -> formatter.formatListStringToString(null));
     }
 
     @Test
     void formatStringToListString_메서드_정상적인_입력() {
-        Formatter formatter = new Formatter();
         String inputString = CAR_NAME_1 + COMMA + CAR_NAME_2 + COMMA + CAR_NAME_3;
         List<String> expectedResult = Arrays.asList(CAR_NAME_1, CAR_NAME_2, CAR_NAME_3);
         List<String> result = formatter.formatStringToListString(inputString);
@@ -43,8 +41,6 @@ public class FormatterTest {
 
     @Test
     void formatStringToListString_메서드_null_입력() {
-        Formatter formatter = new Formatter();
-        String inputString = null;
-        assertThrows(NullPointerException.class, () -> formatter.formatStringToListString(inputString));
+        assertThrows(NullPointerException.class, () -> formatter.formatStringToListString(null));
     }
 }
