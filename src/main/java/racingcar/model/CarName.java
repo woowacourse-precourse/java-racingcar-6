@@ -3,6 +3,7 @@ package racingcar.model;
 public class CarName {
 
     private static final int MAX_LENGTH = 5;
+
     private final String name;
 
     private CarName(final String name) {
