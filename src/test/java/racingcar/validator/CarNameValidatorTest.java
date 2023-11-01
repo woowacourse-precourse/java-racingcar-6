@@ -66,6 +66,16 @@ class CarNameValidatorTest {
         //act, assert
         assertThatThrownBy(() -> carNameValidator.checkBlankCarName(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 공백일 수 없습니다.");
+                .hasMessage("자동차 이름은 공백이거나 빈 값일 수 없습니다.");
+    }
+    @Test
+    void 자동차_이름이_빈_값인_경우() {
+        //arrange
+        String name = "";
+
+        //act, assert
+        assertThatThrownBy(() -> carNameValidator.checkBlankCarName(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 공백이거나 빈 값일 수 없습니다.");
     }
 }
