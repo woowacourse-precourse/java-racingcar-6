@@ -162,22 +162,23 @@ Randoms.pickNumberInRange(0,9);
   - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
 
-## 기능 구현 목록
-- 입력
-- [ ] 게임문구 출력 InputView
-  - 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) InputView#getCarName
-  - 시도할 회수는 몇회인가요? InputView#GetTryCount
-- [ ] 쉼표를 기준으로 n개의 자동차 입력받음(자동차 이름은 5자 이하) InputView#getCarName
-- [ ] 시도할 횟수를 입력받음 (n 대의 자동차가 전진 또는 멈추는 횟수) InputView#getTryCount
+## 💡기능 구현 목록
+### ✅ 입력
+- [x] 게임문구 출력 InputView
+  - [x] 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) InputView#generateCarNameInput
+  - [x] 시도할 회수는 몇회인가요? InputView#generateTryCountInput
+- [x] 쉼표를 기준으로 n개의 자동차 입력받음(자동차 이름은 5자 이하) InputView#generateCarNameInput
+- [x] 시도할 횟수를 입력받음 (n 대의 자동차가 전진 또는 멈추는 횟수) InputView#generateTryCountInput
+- [ ] 자동차 이름 값은 , 를 기준으로 5자 이하이어야 한다. CarNameValidator
 
 <br/>
 
-- 프로그램
-- [ ] 입력받은 횟수로 랜덤한 값을 생성한다 GameNumber#generateRandomNumber
-- [ ] 0-3사이인 경우 멈추고, 4이상 9 이하인 경우 전진한다 GameNumber#isMoveState
-- [ ] 모든 횟수를 다 돈 후 가장 길이가 긴(전진을 많이 한) 자동차가 승리한다 Car#getLength
+### ✅ 프로그램
+- [x] 입력받은 횟수로 랜덤한 값을 생성한다 GameNumber#generateRandomNumber
+- [x] 0-3사이인 경우 멈추고, 4이상 9 이하인 경우 전진한다 Car#checkProcess
+- [x] 모든 횟수를 다 돈 후 가장 길이가 긴(전진을 많이 한) 자동차가 승리한다 GameController#findWinners
 
 <br/>
 
-- 출력
-- [ ] 승리한 자동차가 두개 이상이라면 쉼표를 기준으로 출력하고 한 개라면 그냥 출력한다. 
+###  ✅ 출력
+- [x] 승리한 자동차가 두개 이상이라면 쉼표를 기준으로 출력하고 한 개라면 그냥 출력한다. 
