@@ -5,6 +5,7 @@
 # 프리코스 2주차 미션: 자동차 경주
 
 ![Generic badge](https://img.shields.io/badge/precourse-week2-blue.svg)
+![Generic badge](https://img.shields.io/badge/unitTest-6-green.svg)
 
 > 우아한테크코스 6기 2주차 미션, 자동차 경주를 구현한 저장소입니다.
 
@@ -16,7 +17,9 @@
 
 <br>
 
-<img src="racingcar.gif">
+<p align="center">
+  <img src="racingcar.gif" alt="구현스크린샷" width="1920">
+</p>
 
 <br>
 
@@ -25,6 +28,7 @@
 ## 목차
 
 - [패키지 구조](#패키지-구조)
+- [게임 흐름](#게임-흐름)
 - [기능 목록](#기능-목록)
     - [️플레이어 등록](#1-플레이어-등록)
     - [시도 횟수 입력](#2-시도-횟수-입력)
@@ -76,13 +80,19 @@
 
 ```
 
+## 게임 흐름
+
+<p align="center">
+  <img src="gameflow.png" alt="게임흐름" width="5370">
+</p>
+
 <br>
 
 ---
 
 ## 기능 목록
 
-> 게임 흐름 순서로 기능 목록이 나열되어 있습니다. [구현 스크린샷 참고](#구현-스크린샷)
+> 게임 흐름 순서로 기능 목록이 나열되어 있습니다. [구현 스크린샷](#구현-스크린샷) [게임 흐름](#게임-흐름)
 
 ### 1️⃣ 플레이어 등록
 
