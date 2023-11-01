@@ -15,14 +15,15 @@ public class OutputView {
 
     public void printGameResultProgressBar(String carName, int distance) {
         StringBuilder sb = new StringBuilder();
-        sb.append(carName).append(" : ");
+        sb.append(carName).append(Messages.DELIMITER_CAR_NAME_AND_PROGRESSBAR.getMessage());
         for (int i = 0; i < distance; i++) {
-            sb.append("-");
+            sb.append(Messages.PROGRESS_BAR.getMessage());
         }
         System.out.println(sb);
     }
 
     public void printGameWinnerName(List<String> winners) {
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        System.out.println(Messages.WINNER_ANNOUNCE_TITLE.getMessage()
+                + String.join(", ", winners));
     }
 }
