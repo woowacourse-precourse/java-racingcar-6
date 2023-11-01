@@ -11,6 +11,17 @@ public class OutputViewTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
 
     @Test
+    void 이동을_잘_하는지_확인(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "2");
+                    assertThat(output()).contains("pobi : --", "jun : --");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void 우승자가_여러명일때_잘_출력하는지_확인() {
         assertRandomNumberInRangeTest(
                 () -> {
