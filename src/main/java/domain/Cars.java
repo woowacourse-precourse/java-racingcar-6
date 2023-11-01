@@ -29,7 +29,7 @@ public class Cars {
         tryCount--;
     }
 
-    public boolean isCompleted() {
+    public boolean isTryCountZero() {
         return tryCount == 0;
     }
 

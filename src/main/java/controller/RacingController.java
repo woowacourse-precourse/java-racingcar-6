@@ -11,7 +11,7 @@ public class RacingController {
         initCars();
 
         OutputView.printResultStartMessage();
-        while (!cars.isCompleted()) {
+        while (!cars.isTryCountZero()) {
             tryOnce();
         }
 
