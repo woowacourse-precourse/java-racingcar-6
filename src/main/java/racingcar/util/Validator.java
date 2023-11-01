@@ -22,8 +22,9 @@ public class Validator {
                 continue;
             }
 
-            throw new IllegalArgumentException(String.format(INPUT_CAR_NAME_LENGTH_EXCEPTION.getMessage(),
-                CAR_NAME_LENGTH.getNumber()));
+            throw new IllegalArgumentException(
+                String.format(INPUT_CAR_NAME_LENGTH_EXCEPTION.getMessage(),
+                    CAR_NAME_LENGTH.getNumber()));
         }
     }
 
@@ -70,7 +71,8 @@ public class Validator {
     }
 
     private int countComma(String carInput) {
-        return (int) carInput.chars().filter(c -> c == Delimiter.COMMA.getDelimiter().charAt(0))
+        return (int) carInput.chars()
+            .filter(inputLetter -> inputLetter == Delimiter.COMMA.getDelimiter().charAt(0))
             .count();
     }
 
