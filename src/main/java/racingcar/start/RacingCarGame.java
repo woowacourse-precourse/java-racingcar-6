@@ -1,7 +1,6 @@
 package racingcar.start;
 
 import racingcar.controller.RacingCarController;
-import racingcar.view.RacingCarView;
 
 public class RacingCarGame {
 

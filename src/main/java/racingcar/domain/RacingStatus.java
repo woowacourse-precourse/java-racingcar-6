@@ -50,9 +50,7 @@ public class RacingStatus {
 	public List<String> findMaxValueFromCarStatus() {
 		List<String> maxKeys = new ArrayList<>();
 		int maxValue = Integer.MIN_VALUE;
-
 		roofFindMaxValue(maxKeys, maxValue);
-
 		return maxKeys;
 	}
 

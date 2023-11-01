@@ -17,5 +17,4 @@ public class RacingCarService {
 		return racingStatus;
 	}
 
-
 }

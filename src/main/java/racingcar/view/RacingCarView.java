@@ -21,7 +21,7 @@ public class RacingCarView {
 		for (Map.Entry<String, Integer> entry : carStatus.entrySet()) {
 			String carName = entry.getKey();
 			int value = entry.getValue();
-			String dashes = "-".repeat(value); // value 값 만큼 "-" 문자를 반복하여 생성
+			String dashes = "-".repeat(value);
 			System.out.println(carName + " : " + dashes);
 		}
 		System.out.print("\n");
@@ -33,7 +33,7 @@ public class RacingCarView {
 			result.append(resultCarName.get(i));
 			addComma(resultCarName, result, i);
 		}
-		System.out.println(result.toString());
+		System.out.println(result);
 	}
 
 	private static void addComma(List<String> resultCarName, StringBuilder result, int i) {

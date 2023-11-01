@@ -1,7 +1,8 @@
 package racingcar.controller;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import racingcar.domain.RacingStatus;
@@ -9,7 +10,6 @@ import racingcar.dto.request.CarNameReq;
 import racingcar.dto.request.TryNumberReq;
 import racingcar.service.RacingCarService;
 import racingcar.view.RacingCarView;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RacingCarController {
@@ -18,7 +18,6 @@ public class RacingCarController {
 	TryNumberReq tryNumberReq = new TryNumberReq();
 
 	RacingCarView racingCarView = new RacingCarView();
-
 	RacingCarService racingCarService = new RacingCarService();
 
 	public void startGame() {
@@ -44,18 +43,16 @@ public class RacingCarController {
 		racingCarView.printCarStatus(carStatus);
 	}
 
-
-
 	private void saveCarName() {
 		carNameReq.setCarName(readLine());
 		validateCarName(carNameReq.getCarName());
 	}
 
-
 	private void saveTryNumber() {
 		tryNumberReq.setTryNumber(readLine());
 		validateTryNumber(tryNumberReq.getTryNumber());
 	}
+
 
 	private static void validateTryNumber(String tryNumber) {
 		if (tryNumber.isEmpty()) {
@@ -81,13 +78,25 @@ public class RacingCarController {
 	}
 
 	public static void validateCarName(String carName) {
+		validateEmpty(carName);
+
+		String[] names = carName.split(",");
+		Set<String> nameSet = new HashSet<>();
+		for (String name : names) {
+			checkLengthAndSpace(name);
+			duplicateName(nameSet, name);
+		}
+	}
+
+	private static void validateEmpty(String carName) {
 		if (carName == null || carName.isEmpty()) {
 			throw new IllegalArgumentException("입력이 비어 있습니다.");
 		}
+	}
 
-		String[] names = carName.split(",");
-		for (String name : names) {
-			checkLengthAndSpace(name);
+	private static void duplicateName(Set<String> nameSet, String name) {
+		if (!nameSet.add(name)) {
+			throw new IllegalArgumentException("중복된 이름이 포함되어 있습니다.");
 		}
 	}
 
