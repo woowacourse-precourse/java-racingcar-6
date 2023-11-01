@@ -21,7 +21,7 @@ public class Application {
         int numberOfAttempts = Integer.parseInt(Console.readLine());
     }
 
-    private static List<String> getCarNames(String inputCarNames) {
+    public static List<String> getCarNames(String inputCarNames) {
         String[] split = inputCarNames.split(",");
         List<String> carNames = new ArrayList<>(Arrays.asList(split));
         return carNames;
