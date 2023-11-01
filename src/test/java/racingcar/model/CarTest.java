@@ -12,6 +12,8 @@ import static org.assertj.core.api.Assertions.*;
 @DisplayName("자동차 객체에 대해")
 class CarTest {
 
+    private final String carName = "pobi";
+
     @ParameterizedTest
     @ValueSource(strings = {"박준수12222", "123456", "1234567"})
     @DisplayName("이름 길이가 5 이하가 아니라면 에러가 발생한다.")
@@ -32,7 +34,7 @@ class CarTest {
     @DisplayName("이동한 만큼의 현재 위치를 알 수 있다.")
     void status_car_position() {
         //given
-        Car car = new Car("pobi");
+        Car car = new Car(carName);
         IntStream
                 .range(0, 3)
                 .forEach(i -> car.movePosition());
@@ -48,7 +50,7 @@ class CarTest {
     @DisplayName("현재 위치와 일치하는지 판별할 수 있다.")
     void check_equal_car_position() {
         //given
-        Car car = new Car("woni");
+        Car car = new Car(carName);
         IntStream
                 .range(0, 3)
                 .forEach(i -> car.movePosition());

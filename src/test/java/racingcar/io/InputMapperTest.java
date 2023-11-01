@@ -16,7 +16,8 @@ class InputMapperTest {
     @DisplayName("자동차 이름들이 Cars객체로 변환한다.")
     void names_to_cars() {
         //given
-        Cars cars = inputMapper.toCars("pobi,woni");
+        String givenCarNames = "pobi,woni";
+        Cars cars = inputMapper.toCars(givenCarNames);
 
         //when
         int carsCount = cars.getRacingCars().size();
@@ -29,8 +30,10 @@ class InputMapperTest {
     @DisplayName("시도 횟수를 int형으로 변환한다.")
     void attempt_count_to_int() {
         //given
+        String givenAttemptCount = "3";
+
         //when
-        int attemptCount = inputMapper.toInt("3");
+        int attemptCount = inputMapper.toInt(givenAttemptCount);
 
         //then
         assertThat(attemptCount).isInstanceOf(Integer.class);

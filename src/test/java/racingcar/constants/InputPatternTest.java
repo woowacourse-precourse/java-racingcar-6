@@ -12,8 +12,11 @@ class InputPatternTest {
     @DisplayName("쉼표(,)로 구분해서 입력하지 않으면 true를 반환한다.")
     void check_car_names_pattern() {
         //given
+        String givenCarNames = "pobi/woni,jun";
+
         //when
-        boolean isNotMatch = InputPattern.isNotMatchCarNamesPattern("pobi/woni,jun");
+        boolean isNotMatch = InputPattern.isNotMatchCarNamesPattern(givenCarNames);
+
         //then
         assertThat(isNotMatch).isTrue();
 
@@ -23,8 +26,11 @@ class InputPatternTest {
     @DisplayName("숫자를 입력하지 않으면 true를 반환한다.")
     void check_attempt_count_numeric_pattern() {
         //given
+        String givenAttemptNumber = "pobi#";
+
         //when
-        boolean isNotMatch = InputPattern.isNotNumeric("pobi#");
+        boolean isNotMatch = InputPattern.isNotNumeric(givenAttemptNumber);
+
         //then
         assertThat(isNotMatch).isTrue();
 

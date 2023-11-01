@@ -12,8 +12,10 @@ class RacingCarMoveTest {
     @DisplayName("위치가 0보다 크면 계속 진행중이다.")
     void check_processing() {
         //given
+        int givenAttemptCount = 5;
+
         //when
-        boolean isProcessing = RacingCarMove.isProcessing(5);
+        boolean isProcessing = RacingCarMove.isProcessing(givenAttemptCount);
 
         //then
         assertThat(isProcessing).isTrue();
@@ -23,9 +25,12 @@ class RacingCarMoveTest {
     @DisplayName("시도 횟수가 한 단계씩 줄어든다.")
     void update_attempt_count() {
         //given
+        int givenAttemptCount = 5;
+
         //when
-        int attemptCount = RacingCarMove.decreaseAttemptCount(5);
+        int actualAttemptCount = RacingCarMove.decreaseAttemptCount(givenAttemptCount);
+
         //then
-        assertThat(attemptCount).isEqualTo(4);
+        assertThat(actualAttemptCount).isEqualTo(4);
     }
 }
