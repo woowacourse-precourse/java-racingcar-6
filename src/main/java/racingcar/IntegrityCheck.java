@@ -10,7 +10,6 @@ public class IntegrityCheck {
                 return true;
             }
         }
-
         return false;
     }
 
