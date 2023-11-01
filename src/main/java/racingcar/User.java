@@ -8,8 +8,7 @@ public class User {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carList = Console.readLine();
 
-        String[] carArray = carList.split(",");
-        validateCarArray(carArray);
+        String[] carArray = validateCarArray(carList);
 
         return carArray;
     }
@@ -31,13 +30,24 @@ public class User {
         return count;
     }
 
-    private void validateCarArray(String[] carArray) {
+    private String[] validateCarArray(String carList) {
+        int lastChar = carList.length() - 1;
+        if (lastChar < 0
+                || carList.charAt(lastChar) == ','
+                || !carList.contains(",")) {
+            throw new IllegalArgumentException();
+        }
+
+        String[] carArray = carList.split(",");
+
         for (String carName : carArray) {
             int nameLength = carName.length();
             if (nameLength > 5) {
                 throw new IllegalArgumentException();
             }
         }
+
+        return carArray;
     }
 
 }

@@ -13,6 +13,7 @@ public class CarList {
         carList = new HashMap<>();
 
         for (String carName : carArray) {
+            checkList(carName);
             carList.put(carName, 0);
         }
     }
@@ -38,6 +39,12 @@ public class CarList {
 
         if (position > max) {
             max = position;
+        }
+    }
+
+    private void checkList(String carName) {
+        if (carList.containsKey(carName)) {
+            throw new IllegalArgumentException();
         }
     }
 
