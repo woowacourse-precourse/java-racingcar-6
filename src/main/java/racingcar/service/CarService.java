@@ -4,6 +4,7 @@ import racingcar.object.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
@@ -47,6 +48,13 @@ public class CarService {
         car.setStatus(car.getStatus() + append_status);
     }
 
+    public void printCarStatus(List<Car> carList) {
+        System.out.println("실행 결과");
+        for (Car car : carList) {
+            System.out.println(car.getName() + " : " + car.getStatus());
+        }
+    }
+
     public void moveCars(List<Car> carList){
         for(Car car : carList){
             int move_count = pickNumberInRange(0 ,9);
@@ -55,5 +63,29 @@ public class CarService {
                 appendCarStatus(car, append_status);
             }
         }
+        printCarStatus(carList);
+    }
+
+    public List<String> checkWinner(List<Car> carList){
+        List<String> winners_name = new ArrayList<>();
+
+        int maxLength = 0;
+        for(Car car : carList){
+            maxLength = Math.max(maxLength, car.getStatus().length());
+        }
+
+        for(Car car : carList){
+            if(car.getStatus().length() == maxLength){
+                winners_name.add(car.getName());
+            }
+        }
+        return winners_name;
+    }
+
+    public void printWinners(List<Car> carList){
+        System.out.print("최종 우승자 : ");
+        List<String> winners_name = checkWinner(carList);
+
+        System.out.println(String.join(", ", winners_name));
     }
 }
