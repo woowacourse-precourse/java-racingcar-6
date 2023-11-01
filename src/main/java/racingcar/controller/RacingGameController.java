@@ -17,7 +17,7 @@ public class RacingGameController {
     private static Integer tryNumber;
     private static View view;
     public void init(){
-        view = View.getInstance();
+        view = new View();
 
         carNameList = new CarNameList(getCarString());
 

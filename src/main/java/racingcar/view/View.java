@@ -3,13 +3,8 @@ package racingcar.view;
 import java.util.List;
 
 public class View {
-    public static View instance;
+    public View(){
 
-    public static View getInstance() {
-        if(instance == null){
-            instance = new View();
-        }
-        return instance;
     }
     public void initView(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
