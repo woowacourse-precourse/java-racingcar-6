@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
 public class TextProcessorTest {
     private final TextProcessor textProcessor = new TextProcessor();
 
@@ -24,8 +22,10 @@ public class TextProcessorTest {
 
         int result = textProcessor.parseTryNumber(input);
 
-        assertThat(result).isEqualTo(60);
-        assertThat(result).isInstanceOf(Integer.class);
+        assertThat(result)
+                .isEqualTo(60);
+        assertThat(result)
+                .isInstanceOf(Integer.class);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class TextProcessorTest {
     void tryCountInputEmptyException() {
         String input = "";
 
-        Assertions.assertThatThrownBy(
+        assertThatThrownBy(
                         () -> textProcessor.parseTryNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.EMPTY_TRY_COUNT
@@ -45,7 +45,7 @@ public class TextProcessorTest {
     void tryCountInputParseException() {
         String input = "12t";
 
-        Assertions.assertThatThrownBy(
+        assertThatThrownBy(
                         () -> textProcessor.parseTryNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INVALID_INTEGER_FORMAT
@@ -82,28 +82,24 @@ public class TextProcessorTest {
         Car car1 = Mockito.mock(Car.class);
         Car car2 = Mockito.mock(Car.class);
 
-        Mockito.when(car1.getName()).thenReturn("test1");
-        Mockito.when(car2.getName()).thenReturn("test2");
+        Mockito.when(car1.getName())
+                .thenReturn("test1");
+        Mockito.when(car2.getName())
+                .thenReturn("test2");
+        Mockito.when(car1.getDistance())
+                .thenReturn(2);
+        Mockito.when(car2.getDistance())
+                .thenReturn(1);
 
-        Mockito.when(cars.getCars()).thenReturn(Arrays.asList(car1, car2));
+        Mockito.when(cars.getCars())
+                .thenReturn(Arrays.asList(car1, car2));
 
         String result = """
-                test1 :\s
-                test2 :\s
+                test1 : --
+                test2 : -
                 """;
 
         assertThat(textProcessor.carsDistanceAsString(cars))
-                .isEqualTo(result);
-    }
-
-    @Test
-    @DisplayName("차_이동거리_문자_출력")
-    void distanceDisplay() {
-        int input = 3;
-
-        String result = "---";
-
-        assertThat(textProcessor.displayDistance(input))
                 .isEqualTo(result);
     }
 }
