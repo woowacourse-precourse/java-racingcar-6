@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import racingcar.controller.utils.CarNameValidator;
 import racingcar.controller.utils.StringParser;
 import racingcar.controller.utils.TrialNumberValidator;
@@ -45,7 +46,7 @@ public class GameController {
         view.printWinner(winnerNames);
     }
 
-    private List<Car> createCarObject(List<String> carNames) {
+    public List<Car> createCarObject(List<String> carNames) {
         return carNames.stream()
                 .map(name -> new Car(name, 0))
                 .collect(Collectors.toList());
@@ -57,10 +58,14 @@ public class GameController {
         view.printResultMessage();
         for (int i = 0; i < trialNumber; i++) {
             model.moveCars();
-            for (Car car : cars) {
-                view.printCarCurrentStatus(car.getName(), car.getCurrentLocation());
-            }
+            printEachCarCurrentStatus(cars);
             view.printEnter();
+        }
+    }
+
+    private void printEachCarCurrentStatus(List<Car> cars) {
+        for (Car car : cars) {
+            view.printCarCurrentStatus(car.getName(), car.getCurrentLocation());
         }
     }
 }

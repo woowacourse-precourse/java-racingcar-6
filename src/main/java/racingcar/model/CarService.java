@@ -28,9 +28,13 @@ public class CarService {
         List<Car> cars = getAllCars();
 
         for (Car car : cars) {
-            if (FORWARD_CONDITION <= getRandomNumber()) {
-                car.moveForward();
-            }
+            moveIfSatisfyCondition(car);
+        }
+    }
+
+    private void moveIfSatisfyCondition(Car car) {
+        if (FORWARD_CONDITION <= getRandomNumber()) {
+            car.moveForward();
         }
     }
 
@@ -45,15 +49,19 @@ public class CarService {
 
         for (Car car : cars) {
             int currentLocation = car.getCurrentLocation();
-            if (currentLocation > longestDistance) {
-                longestDistance = currentLocation;
-                winnerName.clear();
-                winnerName.add(car.getName());
-            } else if (currentLocation == longestDistance) {
-                winnerName.add(car.getName());
-            }
+            longestDistance = getLongestDistance(winnerName, longestDistance, car, currentLocation);
         }
         return winnerName;
     }
 
+    private int getLongestDistance(List<String> winnerName, int longestDistance, Car car, int currentLocation) {
+        if (currentLocation > longestDistance) {
+            longestDistance = currentLocation;
+            winnerName.clear();
+            winnerName.add(car.getName());
+        } else if (currentLocation == longestDistance) {
+            winnerName.add(car.getName());
+        }
+        return longestDistance;
+    }
 }
