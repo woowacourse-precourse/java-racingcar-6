@@ -8,7 +8,8 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Application {
 
     static ArrayList<String> playerCar = new ArrayList<>();
-    static ArrayList<String> playerLine = new ArrayList<>();
+    static ArrayList<Integer> playerLine = new ArrayList<>();
+
     static ArrayList<String> winner = new ArrayList<>();
     public static void main(String[] args) {
 
@@ -19,6 +20,7 @@ public class Application {
                 throw new IllegalArgumentException("자동차 이름을 다시 입력해주세요.");
             }
             playerCar.add(carName);
+            playerLine.add(0);
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -36,12 +38,11 @@ public class Application {
            for(int j=0;j<playerCar.size();j++){
                int randomNum = Randoms.pickNumberInRange(0,9);
                if(randomNum >=4){
-                   playerLine.add("-");
+                  playerLine.set(j,playerLine.get(j)+1);
                }
+               System.out.println(playerCar.get(j).concat(" : ").concat("-".repeat(playerLine.get(j))));
            }
         }
+
     }
-
-
-
 }
