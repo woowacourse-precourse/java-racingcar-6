@@ -17,7 +17,7 @@ public class OutputHandler {
         System.out.print("최종 우승자 : ");
         for (int index = ZERO; index < nameList.size(); index++) {
             System.out.print(nameList.get(index));
-            if (index + 1 == nameList.size()) {
+            if (index + 1 < nameList.size()) {
                 System.out.print(", ");
             }
         }
