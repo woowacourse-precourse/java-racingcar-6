@@ -1,6 +1,5 @@
 package racingcar.game;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.Validation;
 
 public class Round {

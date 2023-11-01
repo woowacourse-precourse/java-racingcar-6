@@ -9,12 +9,12 @@ import racingcar.util.UserInput;
 
 public class RaceGame {
     private final Printer printer = new Printer();
-    private final UserInput userInput = new UserInput();
     private final RaceResult raceResult = new RaceResult();
     private final ScoreBoard scoreBoard;
     private final Round round;
 
     public RaceGame() {
+        UserInput userInput = new UserInput();
         printer.printStartMessage();
         this.scoreBoard = new ScoreBoard(userInput.getUserInput());
 
