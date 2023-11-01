@@ -25,7 +25,7 @@ public class RacingCars {
     }
 
     private void validateCarNameIsBlankOrNull(String carNamesBeforeSeparation) {
-        if (carNamesBeforeSeparation.isBlank() || carNamesBeforeSeparation == null) {
+        if (carNamesBeforeSeparation == null || carNamesBeforeSeparation.isBlank()) {
             throw new IllegalArgumentException(CAR_NAME_BLANK_OR_NULL);
         }
     }
