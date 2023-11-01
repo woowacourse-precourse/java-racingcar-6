@@ -17,10 +17,9 @@ public class CarRacing {
                 .collect(Collectors.toList());
     }
 
-    public RaceResultDTO oneRace() {
+    public void oneRacing() {
         moveCars();
         updateFarthestPosition();
-        return new RaceResultDTO(getNames(), getPositions());
     }
 
     private void moveCars() {
@@ -42,6 +41,10 @@ public class CarRacing {
         return cars.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    public RacingResultDTO toDTO() {
+        return new RacingResultDTO(getNames(), getPositions());
     }
 
     private List<Integer> getPositions() {
