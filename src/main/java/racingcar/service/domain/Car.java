@@ -7,7 +7,7 @@ import java.util.Objects;
 // TODO: getter 없애도록 고민해볼 것
 public class Car {
     private static final int CAN_MOVE_MIN_CONDITION = 4;
-    public final CarName name;
+    private final CarName name;
     private final CarEngine carEngine;
     private int position;
 
