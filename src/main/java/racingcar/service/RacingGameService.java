@@ -11,13 +11,9 @@ import racingcar.view.SystemMessage;
 
 public class RacingGameService {
 
-    SystemMessage systemMessage = new SystemMessage();
-
     InputValidation inputValidation = new InputValidation();
 
     public List<RacingCar> carNameInput() {
-        systemMessage.printRequestInputMessage();
-
         String input = readLine();
 
         inputValidation.validateCarName(input);
@@ -36,8 +32,6 @@ public class RacingGameService {
     }
 
     public int racingRoundInput() {
-        systemMessage.printRequestTryCountMessage();
-
         String input = readLine();
 
         inputValidation.validateRound(input);

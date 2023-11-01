@@ -10,8 +10,12 @@ public class RacingGameController {
     RacingGameService racingGameService = new RacingGameService();
 
     SystemMessage systemMessage = new SystemMessage();
+
     public void playRacingGame() {
+        systemMessage.printRequestInputMessage();
         List<RacingCar> racingCars = racingGameService.carNameInput();
+
+        systemMessage.printRequestTryCountMessage();
         int round = racingGameService.racingRoundInput();
 
         for (int i = 0; i < round; i++) {
