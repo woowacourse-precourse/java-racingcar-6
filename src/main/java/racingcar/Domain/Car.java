@@ -30,4 +30,8 @@ public class Car {
         return this.name + " : "
                 + positionStamp.repeat(this.position);
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
