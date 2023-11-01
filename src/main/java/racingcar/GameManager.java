@@ -34,8 +34,7 @@ public class GameManager {
     }
 
     public void makeCar() {
-        racingCarGame.splitCarName(carName);
-        racingCarGame.createCar();
+        racingCarGame.createCar(carName);
     }
 
     public void setMovingCount() {
@@ -66,7 +65,8 @@ public class GameManager {
         outputView.printResultMessage();
         while (true) {
             getCarMovingCount();
-            outputView.printRacingCarGameResult(racingCarGame.getCarNameList(), racingCarGame.getCarMovingCountList());
+            CarNameManager carNameManager = racingCarGame.getCarNameManager();
+            outputView.printRacingCarGameResult(carNameManager.getCarNameList(), racingCarGame.getCarMovingCountList());
 
             if (checkGameOver()) {
                 break;

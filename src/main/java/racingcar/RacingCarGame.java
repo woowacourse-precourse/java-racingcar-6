@@ -5,27 +5,23 @@ import java.util.List;
 
 public class RacingCarGame {
 
-    private List<String> carNameList;
+    private CarNameManager carNameManager;
     private List<Car> carList;
     private List<Integer> carMovingCountList;
     private int movingCount;
 
     public RacingCarGame() {
-        carNameList = new ArrayList<>();
         carList = new ArrayList<>();
         carMovingCountList = new ArrayList<>();
+        carNameManager = new CarNameManager();
         movingCount = 0;
     }
 
-    public void splitCarName(String carName) {
-        String[] carNameArray = carName.split(",");
+    public void createCar(String carName) {
+        carNameManager.splitCarName(carName);
 
-        for (int i = 0; i < carNameArray.length; i++) {
-            carNameList.add(carNameArray[i]);
-        }
-    }
+        List<String> carNameList = carNameManager.getCarNameList();
 
-    public void createCar() {
         for (int i = 0; i < carNameList.size(); i++) {
             Car car = new Car(carNameList.get(i), 0);
             carList.add(car);
@@ -68,10 +64,6 @@ public class RacingCarGame {
         return String.join(", ", winner);
     }
 
-    public List<String> getCarNameList() {
-        return carNameList;
-    }
-
     public List<Car> getCarList() {
         return carList;
     }
@@ -82,5 +74,9 @@ public class RacingCarGame {
 
     public List<Integer> getCarMovingCountList() {
         return carMovingCountList;
+    }
+
+    public CarNameManager getCarNameManager() {
+        return carNameManager;
     }
 }
