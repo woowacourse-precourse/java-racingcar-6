@@ -26,7 +26,6 @@ class StringUtilTest {
     void drawLine() {
         assertEquals("---", StringUtil.drawLine(3));
     }
-
     @Test
     void concatNamesByCommas() {assertEquals("pobi, woni, jun", StringUtil.concatNamesByCommas(Arrays.asList("pobi", "woni", "jun")));
     }
