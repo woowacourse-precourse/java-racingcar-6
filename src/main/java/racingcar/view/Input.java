@@ -25,4 +25,10 @@ public class Input {
         }
         return carNames;
     }
+    public int inputTryCount() {
+        System.out.println(INPUT_TRY_COUNT);
+        String inputTryString = Console.readLine();
+        int inputTry = Integer.parseInt(inputTryString);
+        return inputTry;
+    }
 }
