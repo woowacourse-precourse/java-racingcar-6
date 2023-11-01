@@ -5,7 +5,7 @@ import racingcar.domain.Cars;
 
 public record WinnerNames(List<String> names) {
 
-    public static WinnerNames from(final Cars cars) {
+    public static WinnerNames createFrom(final Cars cars) {
         return new WinnerNames(cars.findAllWinnerNames());
     }
 

@@ -6,7 +6,7 @@ import racingcar.domain.Cars;
 
 public record MoveResults(List<MoveResult> results) {
 
-    public static MoveResults from(final Cars cars) {
+    public static MoveResults createFrom(final Cars cars) {
         return new MoveResults(cars.cars()
                 .stream()
                 .map(MoveResult::createResultFrom)

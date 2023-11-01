@@ -21,12 +21,12 @@ public class RaceJudge {
 
     public MoveResults createSingleMoveResults() {
         Cars cars = findCarsObject();
-        return MoveResults.from(cars);
+        return MoveResults.createFrom(cars);
     }
 
     public WinnerNames findAllWinnerNames() {
         Cars cars = findCarsObject();
-        return WinnerNames.from(cars);
+        return WinnerNames.createFrom(cars);
     }
 
     private Cars findCarsObject() {
