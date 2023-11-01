@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import static racingcar.constant.ErrorMessage.CAR_NAME_DUPLICATED;
 import static racingcar.constant.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;

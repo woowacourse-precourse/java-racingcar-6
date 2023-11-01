@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import static racingcar.constant.ErrorMessage.CAR_NAME_OVER_MAX_LENGTH;
 import static racingcar.constant.PrintMessage.LOCATION_SIGN;

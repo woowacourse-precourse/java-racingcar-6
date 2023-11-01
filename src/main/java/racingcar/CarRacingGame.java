@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.model.NumberOfAttempts;
+import racingcar.model.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
