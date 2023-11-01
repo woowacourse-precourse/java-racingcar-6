@@ -38,7 +38,7 @@ public class RacingController {
 
     private void printMoveResult() {
         int attempts = racingService.findAttempt();
-        for (int i=0; i<attempts; i++) {
+        for (int i = 0; i < attempts; i++) {
             List<Car> cars = racingService.move();
             outputView.printMoveResult(cars);
         }

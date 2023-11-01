@@ -3,6 +3,10 @@ package racingcar.service;
 public class Validation {
 
     public void validateCarName(String car) {
+        if (car.length() == 0) {
+            throw new IllegalArgumentException("자동차 이름을 입력해주세요");
+        }
+
         if (car.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다.");
         }

@@ -26,4 +26,9 @@ public class RacingRepository {
     public Integer findAttempts() {
         return attempts;
     }
+
+    public void clear() {
+        attempts = 0;
+        cars.clear();
+    }
 }
