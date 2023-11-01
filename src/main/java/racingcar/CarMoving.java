@@ -1,54 +1,68 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CarMoving {
 
-	public List<String> CarMoving(List<String> CarName, Integer MovingCount) {
-		int i = 0;
-		List<String> PrintBar = new ArrayList<>();
+	Computer ComputerClass = new Computer();
 
-		while (i < CarNameCountLong(CarName)) {
-			String MovingBarStr = MovingBar(MovingCount);
-			PrintBar.add(CarName.get(i) + " : " + MovingBarStr);
+	public List<Integer> CarMovingPrint(List<String> CarName, Integer TryCount) {
+		int i = 0;
+		List<Integer> BarCountList = initializeBarCountList(CarName);
+
+		while (i < TryCount) {
+			CarPositionPrint(CarName, BarCountList);
 			i++;
 		}
 
-		return PrintBar;
+		return BarCountList;
 	}
 
-	private Integer CarNameCountLong(List<String> CarName) {
-		Long CarNameCountLong = CarName.stream().collect(Collectors.counting());
-		int CarNameCountInt = CarNameCountLong.intValue();
+	private void CarPositionPrint(List<String> CarName, List<Integer> BarCountList) {
+		int i = 0;
+		int CarNameCount = CarNameCount(CarName);
+		List<Integer> Bar = BarCountList(CarNameCount, BarCountList);
+
+		while (i < CarNameCount) {
+
+			System.out.print(CarName.get(i) + " : ");
+			PrintBar(Bar.get(i));
+			System.out.println();
+			i++;
+		}
+		System.out.println();
+
+	}
+
+	private void PrintBar(int count) {
+		for (int i = 0; i < count; i++) {
+			System.out.print("-");
+		}
+	}
+
+	private List<Integer> BarCountList(int CarNameCount, List<Integer> BarCountList) {
+		int i = 0;
+
+		while (i < CarNameCount) {
+			int count = BarCountList.get(i) + 1;
+			if (ComputerClass.RandomComputerNum() >= 4) {
+				BarCountList.set(i, count);
+			}
+			i++;
+		}
+
+		return BarCountList;
+	}
+
+	public int CarNameCount(List<String> CarName) {
+		int CarNameCountInt = CarName.size();
 		return CarNameCountInt;
 	}
 
-	private String MovingBar(Integer MovingCount) {
-		List<String> BarList = new ArrayList<>();
-		int j = 0;
-
-		while (j != MovingCount) {
-			int ComputerRandomNum = RandomNum();
-			if (ComputerRandomNum >= 4) {
-				BarList.add("-");
-			}
-			j++;
-		}
-
-		return ListToStr(BarList);
+	private List<Integer> initializeBarCountList(List<String> carNames) {
+		return IntStream.range(0, carNames.size()).mapToObj(i -> 0).collect(Collectors.toList());
 	}
 
-	private Integer RandomNum() {
-		Computer ComputerClass = new Computer();
-		int RandomNum = ComputerClass.RandomComputerNum();
-
-		return RandomNum;
-	}
-
-	private String ListToStr(List<String> list) {
-		String strValue = list.stream().map(String::valueOf).collect(Collectors.joining());
-		return strValue;
-	}
 }

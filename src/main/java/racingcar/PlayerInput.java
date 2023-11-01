@@ -8,7 +8,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class PlayerInput {
 	private String PreCarNameInput() {
-		
+
 		return Console.readLine();
 	}
 

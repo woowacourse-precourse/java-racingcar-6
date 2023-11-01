@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.List;
 
-
 public class Exception {
 
 	PlayerInput Input = new PlayerInput();
@@ -14,7 +13,7 @@ public class Exception {
 		return Name;
 	}
 
-	public Integer MovingCount() {
+	public int MovingCount() {
 		String Count = Input.PreMovingCountInput();
 		int MoveCount = InputStrException(Count);
 
@@ -25,13 +24,13 @@ public class Exception {
 		if (LengthSize > 5) {
 			throw new IllegalArgumentException("5자 이하로 입력하십시오.");
 		}
-		
+
 		if (LengthSize == 0) {
 			throw new IllegalArgumentException("0자 이상 입력하십시오.");
 		}
 	}
 
-	private Integer CarName_Max_LengthSize(List<String> InputName) {
+	private int CarName_Max_LengthSize(List<String> InputName) {
 		List<String> lines = InputName;
 		return lines.stream().mapToInt(String::length).max().getAsInt();
 	}
