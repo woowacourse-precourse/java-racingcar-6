@@ -1,13 +1,12 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class Car {
     private String name;
     private StringBuffer forwardDistance;
 
     public Car(String name) {
         this.name = name;
+        this.forwardDistance = new StringBuffer("");
     }
 
     public String getName() {
