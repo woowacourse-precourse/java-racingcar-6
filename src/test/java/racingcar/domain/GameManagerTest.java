@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class GameManagerTest {
     private static final List<String> EMPTY_STRING_LIST = List.of("", " ", "   ", "    ");
+    private static final String VALID_USER_INPUT = "pobi,woni,crong,honux";
 
     @Test
     void validateRacingCarName_메서드로_RacingCar_Name_검증() {
@@ -47,10 +48,9 @@ class GameManagerTest {
     @Test
     void validateUserInput_메서드로_User_Input_검증() {
         // given
-        String userInput = "pobi,woni,crong,honux";
         // when
         // then
-        assertThat(GameManager.validateUserInput(userInput)).isTrue();
+        assertThat(GameManager.validateUserInput(VALID_USER_INPUT)).isTrue();
     }
 
     @Test
@@ -134,5 +134,15 @@ class GameManagerTest {
                 .hasMessageContaining("유저 입력값이 1보다 작습니다.");
     }
 
+    @Test
+    void instantiateRacingCars_메서드로_RacingCar_인스턴스_생성() {
+        // given
+        // when
+        GameManager.validateUserInput(VALID_USER_INPUT);
+        GameManager.validateUserInputForTryCount("5");
+        // then
+        // check if the return list is equal to the list of RacingCar instances
+        assertThat(GameManager.instantiateRacingCars()).isEqualTo(GameManager.racingCars);
+    }
 
 }
