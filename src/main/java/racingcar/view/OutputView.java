@@ -1,8 +1,9 @@
 package racingcar.view;
 
-import static racingcar.model.Car.carsNum;
 import static racingcar.model.CarForward.forwardCount;
+import static racingcar.model.Winner.maxCountCars;
 import static racingcar.view.InputView.cars;
+import static racingcar.view.InputView.carsNum;
 
 import java.util.List;
 
@@ -28,7 +29,18 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printWinners() {
+    public static void printFinal() {
         System.out.print("최종 우승자 : ");
+    }
+
+    public static void printWinners() {
+        if (!maxCountCars.isEmpty()) {
+            for (int i = 0; i < maxCountCars.size(); i++) {
+                System.out.print(maxCountCars.get(i));
+                if (i < maxCountCars.size() - 1) {
+                    System.out.print(", ");
+                }
+            }
+        }
     }
 }

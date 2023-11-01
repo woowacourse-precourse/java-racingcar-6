@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.List;
-
 import racingcar.model.Car;
 import racingcar.model.CarForward;
 import racingcar.model.Winner;
@@ -17,10 +15,11 @@ public class GameController {
         int gameCount = InputView.inputGameCount();
 
         OutputView.printGameResult();
+        CarForward.forwardCountInit();
 
         for (int i = 0; i < gameCount; i++) {
             Car.carRandomNum();
-            CarForward.forwardCountInit();
+
             CarForward.carMoreThanFour();
 
             OutputView.printForwardResult();
@@ -28,8 +27,8 @@ public class GameController {
 
         Winner.compareWinner();
 
+        OutputView.printFinal();
+
         OutputView.printWinners();
-
-
     }
 }

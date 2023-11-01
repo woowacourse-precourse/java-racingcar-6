@@ -1,9 +1,11 @@
 package racingcar.model;
 
+import static racingcar.view.InputView.carsNum;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    public static int carsNum;
+
     static int[] randomNumArray;
 
     public static void carRandomNum() {

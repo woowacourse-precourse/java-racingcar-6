@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import static racingcar.model.Car.carsNum;
 import static racingcar.model.Car.randomNumArray;
+import static racingcar.view.InputView.carsNum;
 
 public class CarForward {
     public static StringBuilder[] forwardCount = new StringBuilder[carsNum];
