@@ -4,6 +4,7 @@ import racingcar.domain.RacingCar;
 import racingcar.service.RacingCarService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.util.constant.ProductConstant.*;
@@ -19,7 +20,7 @@ public class RacingCarGame {
 
         System.out.println(INPUT_NAMES);
         input = readLine();
-        ArrayList<RacingCar> racingCars = racingCarService.initRacingCarMembers(input);
+        List<RacingCar> racingCars = racingCarService.initRacingCarMembers(input);
 
         System.out.println(INPUT_NUMBER_OF_ATTEMPTS);
         input = readLine();
@@ -34,7 +35,7 @@ public class RacingCarGame {
             start = racingCarService.addTime(start);
         }
 
-        ArrayList<String> finalWinner = racingCarService.getFinalWinner(racingCars);
+        List<String> finalWinner = racingCarService.getFinalWinner(racingCars);
         racingCarService.printWinners(finalWinner);
     }
 }
