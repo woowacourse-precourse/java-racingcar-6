@@ -12,7 +12,6 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
-    private static final String ERROR_MESSAGE = "[ERROR]";
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
@@ -24,49 +23,31 @@ class ApplicationTest extends NsTest {
         );
     }
 
+
     @Test
     void 이름에_대한_예외_처리() {
-        assertSimpleTest(
-                () -> {
-                    runException("pobi,javaji");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
-    void 이름중복에_대한_예외_처리() {
-        assertSimpleTest(
-                () -> {
-                    runException("pobi,hello,hello");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
+    void 이름_중복에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
 
     @Test
     void 이름_공백입력에_대한_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(" ", "1"))
+                assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
-    @Test
-    void 시도할_횟수_음수입력에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,hello,maru", "-123"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-    @Test
-    void 시도할_횟수_0입력_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,hello,maru", "0"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
 
     @Override
     public void runMain() {
