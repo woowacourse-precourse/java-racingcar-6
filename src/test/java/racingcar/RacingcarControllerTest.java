@@ -28,4 +28,14 @@ class RacingcarControllerTest {
         List<Car> carsList = racingcarController.cars.cars;
         assertThat(carsList.size()).isEqualTo(carsName.length);
     }
+
+    @Test
+    void 랜덤값에_따라_자동차_number_1_증가() {
+        Car car = new Car("test", 0);
+
+        racingcarController.cars.addCarList(car);
+        racingcarController.getRandom();
+
+        assertThat(car.getNumber()).isBetween(0, 1);
+    }
 }
