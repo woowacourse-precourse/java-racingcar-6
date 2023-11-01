@@ -37,14 +37,15 @@
 ## 기능 목록
 - [ ] 게임 시작 RacingGame #run()
   - [ ] 몇번 이동할 것인지 '사용자'가 선택 기능 RacingGame #inputTryCount()
-  - [ ] 게임 완료 후 우승자 출력한다. (공동 우승 가능)  RacingGame #winner()
-- [ ] 0 ~ 9 까지 무작위 값 n개를 생성한다. NumberGenerator #createRandomNumbers()
-- [ ] n대의 자동차를 생성한다. Car #createCars()
-    - [ ] 자동차를 전진하거나 멈출 수 있다. Car #racing()
+  - [ ] 게임 완료 후 우승자 출력한다. (공동 우승 가능)  RacingGame #printWinners()
+- [ ] 0 ~ 9 까지 무작위 값 n개를 생성한다. Car #createRandomNumbers()
+- [ ] n대의 자동차를 생성한다. RacingGame #createCars()
+    - [ ] 자동차를 전진하거나 멈출 수 있다. RacingGame #sprint()
       - [ ] 4이상일 경우 전진
-      - [ ] 3미만은 멈춤
+      - [ ] 3미만은 멈춤 
+- [ ] 이름 유효성 검사 RacingGame #validateName , #checkOverlappingName
+- [ ] 시도 횟수 유효성 검사 RacingGame #validateInputTryCount
 
 ## 클래스 구성
-1. RandomNumbers (랜덤 변수 생성)
-2. Cars (자동차)
-3. RacingGame (경주 게임)
+1. Cars (자동차)
+2. RacingGame (경주 게임)
