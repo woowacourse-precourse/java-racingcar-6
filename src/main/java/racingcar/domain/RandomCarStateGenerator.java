@@ -8,10 +8,10 @@ public class RandomCarStateGenerator {
     private static final int MOVE_STANDARD_NUMBER = 4;
 
     public static CarState generate() {
-        return CarState.from(isMoving());
+        return CarState.from(isMove());
     }
 
-    private static boolean isMoving() {
+    private static boolean isMove() {
         return getRandomNumber() >= MOVE_STANDARD_NUMBER;
     }
 
