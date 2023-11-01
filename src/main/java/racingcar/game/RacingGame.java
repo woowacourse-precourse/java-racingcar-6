@@ -1,71 +1,40 @@
 package racingcar.game;
 
-import java.util.ArrayList;
 import java.util.List;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.message.Console;
-import racingcar.evaluator.Evaluator;
-
-import static camp.nextstep.edu.missionutils.Console.*;
+import racingcar.evaluator.WinnerEvaluator;
+import racingcar.printer.ResultPrinter;
+import racingcar.processor.CarDataProcessor;
+import racingcar.processor.Generator;
+import racingcar.processor.Request;
 
 public class RacingGame {
 
-    private static final String FOOTPRINT = "-";
-    private static final int MIN_MOVE_VALUE = 4;
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
+    private final CarDataProcessor processor;
+    private final Movement movement;
+    private final ResultPrinter printer;
 
-    static Evaluator evaluator = new Evaluator();
+    public RacingGame() {
+        Request request = new Request();
+        Generator generator = new Generator();
+        WinnerEvaluator evaluator = new WinnerEvaluator();
+        this.processor = new CarDataProcessor(request);
+        this.movement = new Movement(generator);
+        this.printer = new ResultPrinter(evaluator);
+    }
 
-    public static void run() {
-        Console.requestCarName();
-        List<Car> cars = inputCarName();
+    public void run() {
+        List<Car> cars = processor.process();
+        int gameRounds = processor.processCount();
 
-        Console.requestCount();
-        int gameCount = inputGameCount();
-
-        while (gameCount > 0) {
-            for (Car car : cars) {
-                moveCar(car);
-                Console.move(car.getName(), convertMovementToString(car));
-            }
-            System.out.println();
-            gameCount--;
+        while (gameRounds-- > 0) {
+            cars.forEach(car -> {
+                movement.moveCar(car);
+                Console.move(car.getName(), car.toString());
+            });
+            Console.newLine();
         }
-        evaluator.evaluate(cars);
-    }
-
-    static List<Car> inputCarName() {
-        String inputCars = readLine();
-        return saveCars(inputCars);
-    }
-
-    static List<Car> saveCars(String inputCars) {
-        String[] carNames = inputCars.split(",");
-        List<Car> cars = new ArrayList<>();
-
-        for (String car : carNames) {
-            cars.add(new Car(car));
-        }
-        return cars;
-    }
-
-    static int inputGameCount() {
-        return Integer.parseInt(readLine());
-    }
-
-    static int generateRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-    }
-
-    static void moveCar(Car car) {
-        if (generateRandomNumber() >= MIN_MOVE_VALUE) {
-            car.updateMovingCount();
-        }
-    }
-
-    static String convertMovementToString(Car car) {
-        return FOOTPRINT.repeat(car.getMoving());
+        printer.print(cars);
     }
 }
