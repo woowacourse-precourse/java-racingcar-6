@@ -34,6 +34,18 @@ public class GameTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("승자가 여러 명일 때")
+    void makeWinners() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("ye,seul", "1");
+                    assertThat(output()).contains("최종 우승자 : ye, seul");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
