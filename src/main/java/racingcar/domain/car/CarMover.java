@@ -15,7 +15,6 @@ public class CarMover {
     public Integer moveForward() {
         Car updatedCar = new Car(car.name(), car.position() + UNIT_OF_MOVEMENT);
         carStore.updateCarInfo(updatedCar);
-
         return updatedCar.position();
     }
 

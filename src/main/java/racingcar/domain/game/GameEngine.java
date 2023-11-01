@@ -1,5 +1,7 @@
 package racingcar.domain.game;
 
+import static racingcar.constant.CommonConstant.ONE_BLANK_LINE;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.CarInfo;
@@ -13,9 +15,9 @@ public class GameEngine {
     public void processTurn() {
         for (Car currentCar : carInfo.getAllCarInfo()) {
             CarMovementDecider decider = new CarMovementDecider(currentCar);
-
             printStatusOfRaceCar(currentCar.name(), decider.decideMovement());
         }
+        OutputView.printBlankLine(ONE_BLANK_LINE);
     }
 
     public void findWinner() {
@@ -44,12 +46,5 @@ public class GameEngine {
                 .collect(Collectors.joining(", "));
         OutputView.printOutputMessage(result);
     }
-
-//    public static void printGameWinner(List<Car> winnerCar) {
-//        String result = winnerCar.stream()
-//                .map(Car::name)
-//                .collect(Collectors.joining(", "));
-//        System.out.println(OUTPUT_MESSAGE_OF_GAME_WINNER + result);
-//    }
 }
 
