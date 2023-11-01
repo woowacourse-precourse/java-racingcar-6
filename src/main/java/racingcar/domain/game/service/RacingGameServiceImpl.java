@@ -36,7 +36,7 @@ public class RacingGameServiceImpl implements RacingGameService {
     }
 
     @Override
-    public Winner findWinner(Cars cars) {
+    public Winner findWinner(final Cars cars) {
         cars.sortingCarsOrderByPosition();
         Car winnerCar = cars.get(0);
 
