@@ -5,6 +5,9 @@ import constant.ExceptionMessage;
 public class Car implements Comparable<Car>{
     public static final int MAXIMUM_NAME_LENGTH = 5;
     public static final int INITIAL_POSITION = 0;
+    public static final int MINIMUM_INITIAL_POSITION = 0;
+    public static final int MAXIMUM_INITIAL_POSITION = 9;
+    public static final int STANDARD_FOR_GO = 4;
 
     private final String name;
     private int position;

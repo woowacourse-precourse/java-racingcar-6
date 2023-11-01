@@ -2,9 +2,12 @@ package domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CarTest {
 
@@ -18,6 +21,16 @@ public class CarTest {
         assertThat(cars.get(0).getName()).isEqualTo("pobi");
         assertThat(cars.get(1).getName()).isEqualTo("woni");
         assertThat(cars.get(2).getName()).isEqualTo("jun");
+    }
+
+    @Test
+    void 전진_조건이_정상적으로_반영되는가() {
+        Cars cars = new Cars(new ArrayList<>());
+
+        assertFalse(cars.decideGo(0));
+        assertFalse(cars.decideGo(3));
+        assertTrue(cars.decideGo(4));
+        assertTrue(cars.decideGo(9));
     }
 
     @Test

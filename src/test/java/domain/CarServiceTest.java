@@ -12,16 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CarServiceTest {
 
     @Test
-    void 전진_조건이_정상적으로_반영되는가() {
-        CarService carService = new CarService();
-
-        assertFalse(carService.decideGo(0));
-        assertFalse(carService.decideGo(3));
-        assertTrue(carService.decideGo(4));
-        assertTrue(carService.decideGo(9));
-    }
-
-    @Test
     void 최종_우승자를_판단할_수_있는가() {
         CarService carService = new CarService();
         List<String> names = List.of("pobi", "woni", "jun");

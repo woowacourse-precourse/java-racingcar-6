@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 public class Cars {
     private final List<Car> carList;
 
@@ -25,32 +27,40 @@ public class Cars {
         carList = Collections.unmodifiableList(newCarList);
     }
 
-    public int size() {
-        return carList.size();
+    public void moveCars() {
+        for (int i = 0; i < carList.size(); i++) {
+            if (decideGo(getRandomNumber())) {
+                go(i);
+                continue;
+            }
+            stop(i);
+        }
     }
 
-    public void go(int index) {
+    private void go(int index) {
         carList.get(index).go();
     }
 
-    public void stop(int index) {
+    private void stop(int index) {
         carList.get(index).stop();
     }
 
-    public Car getCar(int index) {
-        Car car = carList.get(index);
-        return new Car(car.getName(), car.getPosition());
+    boolean decideGo(int condition) {
+        return condition >= Car.STANDARD_FOR_GO;
     }
 
-    public List<Car> getAll() {
-        return new ArrayList<>(carList);
+    private int getRandomNumber() {
+        return pickNumberInRange(Car.MINIMUM_INITIAL_POSITION, Car.MAXIMUM_INITIAL_POSITION);
     }
 
-    public int getPosition(int index) {
-        return carList.get(index).getPosition();
+    public List<Car> decideWinner() {
+        int max = getMaxPosition();
+        return carList.stream()
+                .filter(car -> car.getPosition() == max)
+                .toList();
     }
 
-    public int getMaxPosition() {
+    private int getMaxPosition() {
         validateCarList();
         return carList.stream()
                 .max(Car::compareTo)
@@ -62,5 +72,13 @@ public class Cars {
         if (carList.isEmpty()) {
             throw new RuntimeException(ExceptionMessage.CARLIST_IS_EMPTY.getMessage());
         }
+    }
+
+    public int size() {
+        return carList.size();
+    }
+
+    public List<Car> getAll() {
+        return new ArrayList<>(carList);
     }
 }
