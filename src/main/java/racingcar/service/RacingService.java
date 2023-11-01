@@ -7,10 +7,8 @@ import racingcar.repository.ResultRepository;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingService {
-
     public static final int MAX_BIGGER_NUMBER = 4;
     public static final int PICK_MIN_NUMBER = 0;
     public static final int PICK_MAX_NUMBER = 9;
@@ -38,7 +36,10 @@ public class RacingService {
     }
 
     public List<Car> chooseWinner() {
-        List<Integer> distanceList = carRepository.getCarList().stream().map(Car::getDistance).collect(Collectors.toList());
+        List<Integer> distanceList = carRepository.getCarList()
+                .stream()
+                .map(Car::getDistance)
+                .toList();
         int maxDistance = Collections.max(distanceList);
 
         for (Car car : carRepository.getCarList()) {
@@ -56,7 +57,7 @@ public class RacingService {
     private int getRandomValue() {
         return Randoms.pickNumberInRange(PICK_MIN_NUMBER, PICK_MAX_NUMBER);
     }
-    
+
     private boolean isBiggerThanFour(int number) {
         return number >= MAX_BIGGER_NUMBER;
     }

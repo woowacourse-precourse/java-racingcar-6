@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
 import racingcar.repository.ResultRepository;
 import racingcar.service.RacingService;

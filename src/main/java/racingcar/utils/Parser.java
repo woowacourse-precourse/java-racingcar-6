@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Parser {
-
     public static final String COMMA = ",";
     public static final int MAX_LENGTH_NUMBER = 5;
 
@@ -13,7 +12,8 @@ public class Parser {
         List<String> nameList = Arrays.stream(input.split(COMMA)).collect(Collectors.toList());
         for (String s : nameList) {
             String trimmed = s.trim();
-            if (s.length() > MAX_LENGTH_NUMBER || trimmed.isEmpty() || s.isEmpty() || s.equals("\n") || s.equals("\r") || s.equals("\r\n")) {
+            if (s.length() > MAX_LENGTH_NUMBER || trimmed.isEmpty()
+                    || s.isEmpty() || s.equals("\n") || s.equals("\r") || s.equals("\r\n")) {
                 throw new IllegalArgumentException();
             }
         }

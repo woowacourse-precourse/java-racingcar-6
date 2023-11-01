@@ -13,7 +13,7 @@ public class Car {
         this.distance = distance;
     }
 
-    protected Car(){
+    protected Car() {
     }
 
     public void increaseDistance() {
