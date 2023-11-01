@@ -13,9 +13,9 @@ public class InputContext {
   }
 
   public static InputEndedEvent inputRacingCar() {
-    out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    out.println(InputGuideMessage.GUIDE_CAR_NAME.getMessage());
     ValidatedCars validatedCars = inputRacingCarName();
-    out.println("시도할 회수는 몇회인가요?");
+    out.println(InputGuideMessage.GUIDE_ROUND_COUNT.getMessage());
     ValidatedRoundCount validatedRoundCount = inputRacingCount();
     return InputEndedEvent.of(validatedCars, validatedRoundCount);
   }
