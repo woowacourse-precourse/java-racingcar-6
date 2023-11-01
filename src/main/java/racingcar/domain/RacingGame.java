@@ -20,4 +20,9 @@ public class RacingGame {
     private void printCurrentPositions() {
         cars.forEach(car -> System.out.println(car.getName() + " : " + "-".repeat(car.getScore())));
     }
+
+    private void findWinners(ArrayList<Car> cars) {
+        RacingGameWinner winner = new RacingGameWinner(cars);
+        winner.printWinners();
+    }
 }
