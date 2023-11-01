@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Race {
+    private static final int ZERO = 0;
+    private static final int WINNER_SUBSTRING = 2;
+
     private Cars cars;
 
     public Race() {
@@ -12,7 +15,7 @@ public class Race {
     }
 
     public void advanceFullRound(int attemptCount) {
-        for (int round = 0; round < attemptCount; round++) {
+        for (int round = ZERO; round < attemptCount; round++) {
             advanceOneRound();
             System.out.println();
         }
@@ -35,7 +38,7 @@ public class Race {
         Map<Integer, String> map = getIntegerStringMap();
 
         Integer maxMoveCount = Collections.max(map.keySet());
-        String winners = map.get(maxMoveCount).substring(2);
+        String winners = map.get(maxMoveCount).substring(WINNER_SUBSTRING);
 
         return winners;
     }
