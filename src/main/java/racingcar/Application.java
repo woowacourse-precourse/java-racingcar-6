@@ -66,7 +66,22 @@ public class Application {
         }
     }
 
+    public static List<RacingCar> getWinner(List<RacingCar> cars) {
+        List<RacingCar> winnerCars = new ArrayList<>(
+                cars
+                        .stream()
+                        .sorted(Comparator.comparing(RacingCar::getMoved).reversed())
+                        .toList()
+        );
+        int maxMoved = winnerCars.get(0).getMoved();
+
+        winnerCars.removeIf(nowCar -> nowCar.getMoved() != maxMoved);
+
+        return winnerCars;
+    }
+
     public static void main(String[] args) {
+        List<RacingCar> winnerCars;
         List<String> carNames = readCarNameList();
         List<RacingCar> racingCars = registerRacingCars(carNames);
         int tryCount = readTryCount();
@@ -75,5 +90,6 @@ public class Application {
         System.out.println("실행 결과");
 
         playRacing(racingCars, tryCount);
+        winnerCars = getWinner(racingCars);
     }
 }
