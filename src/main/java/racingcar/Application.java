@@ -1,7 +1,10 @@
 package racingcar;
 
+import racingcar.domain.Judge;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Judge judge = new Judge();
+        judge.run();
     }
 }
