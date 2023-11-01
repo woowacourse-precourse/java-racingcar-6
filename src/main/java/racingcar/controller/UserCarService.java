@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.Map;
+import racingcar.domain.UserCar;
 
 public class UserCarService {
     public boolean checkCorrectName(Map<String, Integer> car){

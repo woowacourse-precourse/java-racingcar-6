@@ -9,6 +9,7 @@ import racingcar.view.InputView;
 
 public class UserCar {
     private Map<String, Integer> car;
+    private int roundNumber;
     private UserCarService userCarService = new UserCarService();
     public UserCar(){
     }
