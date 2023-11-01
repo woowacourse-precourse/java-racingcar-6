@@ -48,18 +48,19 @@ public class RapsResult {
         return text.toString();
     }
 
-    //랜덤값을 생성하여 전진할지 멈출지 결정하고, 최종 결과를 반환합니다.
-    public boolean determineForward() {
+    //랜덤값을 생성합니다.
+    public int generateNumber() {
 
         int num = Randoms.pickNumberInRange(0, 9);
 
-        return reader(num);
+        return num;
     }
 
-    //랜덤값을 생성하여 전진할지 멈출지 결정합니다.
+    //랜덤값을 생성하여 전진할지 멈출지 결정하고, 최종 결과를 반환합니다.
     public String forwardOrNot() {
 
-        boolean forward = determineForward();
+        int num = generateNumber();
+        boolean forward = reader(num);
         changeCarStatus(forward);
 
         return resultText();

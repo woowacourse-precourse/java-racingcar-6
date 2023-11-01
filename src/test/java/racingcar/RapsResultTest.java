@@ -40,7 +40,7 @@ class RapsResultTest {
     }
 
     @Test
-    void distanceText_1경기_끝난후_자동차_이동거리_텍스트_반환() {
+    void testDistanceText_1경기_끝난후_자동차_이동거리_텍스트_반환() {
 
         String result = rapsResult.distanceText();
 
@@ -48,7 +48,10 @@ class RapsResultTest {
     }
 
     @Test
-    void determineForward() {
+    void TestDetermineForward_() {
+
+
+
     }
 
     @Test
