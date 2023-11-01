@@ -48,7 +48,7 @@ public class RacingCarController {
 
     private void printRaceResult(List<Car> cars) {
         for (Car car : cars) {
-            car.printCarResult();
+            outputView.printCarResult(car.getName(), car.getPosition());
         }
         println();
         close();
