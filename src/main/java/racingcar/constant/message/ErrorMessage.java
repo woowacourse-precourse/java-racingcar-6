@@ -11,6 +11,7 @@ public class ErrorMessage {
     public static final String INVALID_TYPE = "잘못된 타입입니다.";
     public static final String INVALID_RANGE = "잘못된 범위입니다.";
     public static final String DUPLICATE_NAME = "중복된 이름입니다.";
+    public static final String INVALID_SEPARATOR = "이름 구분자 오류입니다.";
 
     private ErrorMessage() {
     }

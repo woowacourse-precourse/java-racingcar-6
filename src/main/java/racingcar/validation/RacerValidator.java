@@ -40,7 +40,7 @@ public class RacerValidator implements Validator {
     private void validateSeparator(String value) {
         String doubleNameSeparator = Message.NAME_SEPARATOR.repeat(2);
         if (value.contains(doubleNameSeparator) || value.startsWith(Message.NAME_SEPARATOR)) {
-            throw new IllegalArgumentException(ErrorMessage.BLANK_SPACE);
+            throw new IllegalArgumentException(ErrorMessage.INVALID_SEPARATOR);
         }
     }
 
