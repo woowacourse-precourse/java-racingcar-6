@@ -3,8 +3,8 @@ package racingcar.domain;
 public class Car {
     private static final int INIT_POSITION = 0;
     private static final int MOVE_DISTANCE = 1;
-    final String name;
-    int position;
+    private final String name;
+    private int position;
 
     public Car(String name) {
         this.name = name;

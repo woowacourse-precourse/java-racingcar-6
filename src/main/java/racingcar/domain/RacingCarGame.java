@@ -7,14 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
+    private static final String NOT_VALID_ATTEMPT_COUNT_FORMAT_ERROR_MESSAGE = "시도 횟수는 1이상값만 가능합니다.";
+    private static final String NOT_VALID_ATTEMPT_COUNT_RANGE_ERROR_MESSAGE = "시도 횟수는 숫자값만 가능합니다.";
 
     public void start() {
         Cars cars = initCarNames();
         int attemptCount = initAttemptNumber();
+
         race(cars, attemptCount);
 
-        List<String> winners = judge(cars);
-        OutputView.outputWinner(winners);
+        judge(cars);
     }
 
     private Cars initCarNames() {
@@ -22,35 +24,48 @@ public class RacingCarGame {
     }
 
     private int initAttemptNumber() {
+
+        int attemptNumber = isNumber();
+
+        if (attemptNumber < 1) {
+            throw new IllegalArgumentException(NOT_VALID_ATTEMPT_COUNT_RANGE_ERROR_MESSAGE);
+        }
+        return attemptNumber;
+    }
+
+    private static int isNumber() {
         try {
             return Integer.parseInt(InputView.inputAttemptNumber());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 양의 정수만 입력 가능합니다.");
+            throw new IllegalArgumentException(NOT_VALID_ATTEMPT_COUNT_FORMAT_ERROR_MESSAGE);
         }
     }
 
     private void race(Cars cars, int attemptNumber) {
+        OutputView.showStartRace();
+
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
         while (attemptNumber-- > 0) {
             List<Integer> randomNumbers = randomNumberGenerator.generate(cars.getCars().size());
             cars.goOrStop(randomNumbers);
-            OutputView.outputRaceProgress(cars.getCars());
+            OutputView.showRaceProgress(cars.getCars());
         }
     }
 
-    private List<String> judge(Cars cars) {
+    private void judge(Cars cars) {
         List<String> winners = new ArrayList<>();
         int maxPosition = -1;
+
         for (Car car : cars.getCars()) {
-            maxPosition = Math.max(car.position, maxPosition);
+            maxPosition = Math.max(car.getPosition(), maxPosition);
         }
 
         for (Car car : cars.getCars()) {
-            if (car.position == maxPosition) {
-                winners.add(car.name);
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
             }
         }
-        return winners;
+        OutputView.showWinner(winners);
     }
 }
