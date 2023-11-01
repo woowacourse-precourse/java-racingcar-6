@@ -28,8 +28,26 @@
 
 ## Functions
 
+**class** *GameManager*
+1. it roles taking some inputs needed to play the game from user
+2. send inputs to *Discriminator* to prove validation
+3. play game by calling *RacingCarGame*  
 
+**class** *Discriminator*
+1. it validate user input
+2. its validating list is as follows:
 
+| object     | description                                                        |
+|------------|--------------------------------------------------------------------|
+| carNumber  | its range (1,16)                                                   |
+| carName    | is it empty? length is more than 5 ? does it have any white-space? |
+| trialCount | is it positive integer? size of input < 4097 ?                     |
+
+**class** *RacingCarGame*
+1. it plays actual game logic.
+2. determinate whether each car 'go' or 'stop'
+3. print out status of each round
+4. print out winner
 
 ### The Rule of Commit Messages
 
