@@ -5,10 +5,13 @@
 - [x] "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" 출력
 - [x] 자동차 이름 입력 프롬프트
     - [x] 쉼표(,)를 기준으로 구분
-    - [x] 이름은 5자 이하만 가능(잘못된 값을 입력시 `IllegalArgumentException`을 발생)
+    - [x] 잘못된 값을 입력시 `IllegalArgumentException`을 발생
+        - [x] 이름은 5자 이하만 가능(잘못된 값을 입력시 `IllegalArgumentException`을 발생)
+        - [x] (추가) 이름은 1자 이상만 가능(잘못된 값을 입력시 `IllegalArgumentException`을 발생)
 - [x] "시도할 회수는 몇회인가요?" 출력
 - [x] 시도할 회수 입력 프롬프트
     - [x] 잘못된 값을 입력시 `IllegalArgumentException`을 발생
+        - [x] (추가) 양의 정수만 가능
 - [x] "실행 결과"출력
 
 ## 게임 진행 🏎️
