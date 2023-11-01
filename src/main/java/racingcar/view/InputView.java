@@ -29,7 +29,14 @@ public class InputView {
 
     private void validateCarName(String carName) {
         validateLength(carName);
+        validateIsNotEmpty(carName);
 
+    }
+
+    private void validateIsNotEmpty(String carName) {
+        if (carName.length() == 0) {
+            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+        }
     }
 
     private void validateLength(String carName) {
