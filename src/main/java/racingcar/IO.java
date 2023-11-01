@@ -24,7 +24,9 @@ public class IO {
 
     public String count(){
         System.out.println("시도할 회수는 몇회인가요?");
-        return Console.readLine();
+        String count = Console.readLine();
+        checkForm.CountForm(count);
+        return count;
     }
 
     public void printNull(){ //클래스에서 관리해줄 내용은 아니지만, 중복되어 사용되기에 함수처리 했습니다.
