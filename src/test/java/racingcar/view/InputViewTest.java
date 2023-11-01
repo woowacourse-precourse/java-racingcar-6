@@ -24,7 +24,7 @@ class InputViewTest {
         ArrayList<String> carNames = new ArrayList<>(List.of("pobi", "woni", "jun", "jun"));
         //when, then
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validCarsDuplicate(carNames);
+            InputView.inputCars(carNames);
         });
     }
 
@@ -34,7 +34,7 @@ class InputViewTest {
         ArrayList<String> carNames = new ArrayList<>(List.of("pobi", "woni", "junnnn"));
         //when, then
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validCarNameLength(carNames);
+            InputView.inputCars(carNames);
         });
     }
 
@@ -44,7 +44,7 @@ class InputViewTest {
         ArrayList<String> carNames = new ArrayList<>(List.of("pobi", "woni", "jun"));
         //when, then
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            InputView.validCarNameBlank(carNames);
+            InputView.inputCars(carNames);
         });
     }
 
@@ -60,5 +60,11 @@ class InputViewTest {
 
     @Test
     void inputGameRound_1미만일_경우_에러() {
+        //given
+        String input = "0";
+        //when, then
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            InputView.validInputGameRound(input);
+        });
     }
 }
