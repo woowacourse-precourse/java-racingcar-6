@@ -18,8 +18,8 @@ public class InputView {
         return new Cars(cars);
     }
 
-    private List<Car> parseCarList(String input) {
-        return Stream.of(input.split(DELIMITER))
+    private List<Car> parseCarList(String carNames) {
+        return Stream.of(carNames.split(DELIMITER))
                 .map(Car::new)
                 .toList();
     }
