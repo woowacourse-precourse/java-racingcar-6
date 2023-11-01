@@ -25,12 +25,6 @@ public class Application {
                 .distinct()
                 .count();
 
-        for (String name : car) {
-            if (!ALPHABET_AND_HANGUL_PATTERN.matcher(name).matches()) {
-                throw new IllegalArgumentException("차 이름은 영어 또는 한글만 가능");
-            }
-        }
-
         if (car.size() != carNameSize) {
             throw new IllegalArgumentException("중복 이름 불가");
         }
@@ -93,6 +87,8 @@ public class Application {
 
         List<String> carNames = toList(input);
 
+        validateCarNames(carNames);
+
         return carNames;
     }
 
@@ -103,5 +99,13 @@ public class Application {
 
     private static List<String> toList(String input) {
         return Arrays.asList(input.split(","));
+    }
+
+    private static void validateCarNames(List<String> carNames) {
+        for (String carName : carNames) {
+            if (!ALPHABET_AND_HANGUL_PATTERN.matcher(carName).matches()) {
+                throw new IllegalArgumentException("차 이름은 영어 또는 한글만 가능");
+            }
+        }
     }
 }
