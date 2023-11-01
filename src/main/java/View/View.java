@@ -10,11 +10,11 @@ public class View {
     }
 
     public static void printGameProgress(String progress) {
-        System.out.println( progress);
+        System.out.println(progress);
     }
 
 
     public static void printWinners(String winners) {
-        System.out.println("최종 우승자: " + winners);
+        System.out.println("최종 우승자 : " + winners);
     }
 }

@@ -11,12 +11,14 @@ public class GameService {
     public Game createGame() {
         String[] carNames = getCarName();
         int tryCount = getTryCount();
+        System.out.println("");
         Car[] cars = createCars(carNames);
         return new Game(cars, tryCount);
     }
 
     public void runGame(Game game) {
         game.runGame();
+        System.out.println("실행 결과");
         showGameProgress(game.getGameProgress(), game.getCars());
 
         String winners = game.getWinners();
