@@ -1,9 +1,9 @@
 package racingcar.service;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.*;
 import racingcar.entity.Car;
 import racingcar.entity.Game;
 import racingcar.repository.CarRepository;
@@ -19,7 +19,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import org.mockito.junit.jupiter.MockitoExtension;
 import racingcar.IO.IOService;
 import racingcar.dto.GameDto;
 import racingcar.entity.Car;
@@ -29,7 +28,7 @@ import racingcar.repository.GameRepository;
 import java.util.Arrays;
 import java.util.List;
 
-@ExtendWith(MockitoExtension.class)
+
 class GameServiceTest {
 
     @InjectMocks
@@ -40,7 +39,10 @@ class GameServiceTest {
     @Mock
     CarService carService;
 
-
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test
     void initGameTest() {

@@ -15,8 +15,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import org.mockito.junit.jupiter.MockitoExtension;
-@ExtendWith(MockitoExtension.class)
 
 class GameControllerTest {
 
@@ -24,7 +22,10 @@ class GameControllerTest {
     GameController gameController;
 
     private static MockedStatic<IOService> ioService;
-
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
     @BeforeAll
     public static void beforeAll() {
         ioService = mockStatic(IOService.class);
