@@ -42,9 +42,10 @@ public class RacingGameController {
 
     // 한 라운드를 진행
     private void playSingleRace() {
-        int randomRoundValue = Randoms.pickNumberInRange(0, 9); //0 ~ 9 사이의 랜덤한 값을 생성
+        int randomRoundValue;
 
         for (Car car : cars) {
+            randomRoundValue = Randoms.pickNumberInRange(0, 9); //0 ~ 9 사이의 랜덤한 값을 생성
             if (randomRoundValue >= 4) {  //4이상이면 전진.
                 car.move();
             }
