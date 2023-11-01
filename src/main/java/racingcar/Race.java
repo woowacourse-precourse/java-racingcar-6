@@ -16,10 +16,9 @@ import java.util.stream.Collectors;
 public class Race {
     private String userInput;
     public static List<String> players;
-
     private HashMap<String, Integer> playingStatus = new HashMap<>();
-
     private Integer roundInt;
+    public static List<String> winners = new ArrayList<>();
 
 
     public void run() {
@@ -38,6 +37,7 @@ public class Race {
             play();
             printEachRound();
         }
+        findWinner();
     }
 
     public void separatePlayers(String userInput) {
@@ -60,6 +60,7 @@ public class Race {
                 collect(Collectors.joining(",")).toString();
         System.out.println(print);
     }
+
     public void updateStatus(String player) {
         playingStatus.put(player, playingStatus.get(player) + 1);
     }
@@ -70,11 +71,13 @@ public class Race {
             updateStatus(player);
         }
     }
+
     private void play() {
         for (String player : players) {
             move(player);
         }
     }
+
     private void printEachRound() {
         for (String player : players) {
             StringBuilder stringBuilder = new StringBuilder();
@@ -85,5 +88,22 @@ public class Race {
             System.out.println(stringBuilder);
         }
         System.out.println();
+    }
+
+    private void findWinner() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("최종 우승자 : ");
+        int maxValue = Collections.max(playingStatus.values());
+        for (Map.Entry<String, Integer> set :
+                playingStatus.entrySet()) {
+            if (maxValue == set.getValue()) {
+                winners.add(set.getKey());
+            }
+        }
+        String print = winners.stream().
+                map(Object::toString).
+                collect(Collectors.joining(", ")).toString();
+        stringBuilder.append(print);
+        System.out.println(stringBuilder);
     }
 }
