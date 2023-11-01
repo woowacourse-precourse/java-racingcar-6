@@ -1,9 +1,14 @@
 package racingcar;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import org.mockito.Mockito;
+import racingcar.model.Car;
 import racingcar.util.ConsoleWrapper;
 import racingcar.view.ConsoleView;
 
@@ -89,7 +94,7 @@ class ConsoleViewTest {
     }
 
     @Test
-    @DisplayName("유효하지 않은 회수 입력 시 예외 발생: 특수문자 포함")
+    @DisplayName("특수문자 입력 시 예외 발생")
     void validateInvalidInputWithSpecialCharacters() {
         // given
         Mockito.when(consoleWrapper.readLine()).thenReturn("3#");
@@ -98,5 +103,23 @@ class ConsoleViewTest {
         assertThatThrownBy(() -> consoleView.readValidNumberOfAttempts())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("올바른 회수가 아닙니다.");
+    }
+
+    @Test
+    @DisplayName("우승자 출력 테스트")
+    void printWinners() {
+
+        ConsoleView consoleView = new ConsoleView(consoleWrapper);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        List<Car> winners = Arrays.asList(car1, car2);
+
+        consoleView.printWinners(winners);
+        String printedOutput = outputStream.toString().trim();
+
+        assertThat(printedOutput).isEqualTo("최종 우승자 : car1, car2");
     }
 }
