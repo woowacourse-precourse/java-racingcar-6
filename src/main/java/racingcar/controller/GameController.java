@@ -24,5 +24,7 @@ public class GameController {
         List<Car> carList = carNameList.stream()
                 .map(Car::new)
                 .toList();
+
+        int rounds = gameModel.getRounds();
     }
 }

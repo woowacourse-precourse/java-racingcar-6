@@ -11,4 +11,9 @@ public class GameView {
         System.out.println(INPUT_CAR_NAME);
         return Arrays.asList(readLine().split(","));
     }
+
+    public int inputRounds() {
+        System.out.println(INPUT_ROUNDS);
+        return Integer.parseInt(readLine());
+    }
 }

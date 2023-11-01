@@ -10,4 +10,8 @@ public class GameModel {
     public List<String> getCarName() {
         return gameView.inputCarName();
     }
+
+    public int getRounds() {
+        return gameView.inputRounds();
+    }
 }
