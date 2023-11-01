@@ -49,3 +49,7 @@
 ### MovingCondition 클래스
 - [ ] getRandomNumber
 - [ ] isMoveForward
+
+### RacingGame 클래스
+- [ ] race
+- [ ] printProgressResult
