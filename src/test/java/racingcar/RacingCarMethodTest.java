@@ -2,6 +2,8 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +47,24 @@ public class RacingCarMethodTest {
         var result = carMap.get(testCar);
 
         assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    void printRacingState_메서드는_전달받은_요소의_key값과_value만큼의_전진을_출력(){
+
+        Map<String, Integer> carMap = new HashMap<>();
+        String testCar = "testCar";
+        carMap.put(testCar, 4);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Application.printRacingState(carMap, testCar);
+
+        String expectedOutput = "testCar : ----";
+        String result = outContent.toString().trim();
+
+        assertThat(result).isEqualTo(expectedOutput);
     }
 
 }
