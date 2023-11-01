@@ -62,6 +62,7 @@ public class Application {
         String input = Console.readLine();
 
         for(String i : input.split(",")){
+            checkName(i);
             list.add(i);
         }
 
@@ -79,6 +80,14 @@ public class Application {
         String input = Console.readLine();
 
         return Integer.parseInt(input);
+    }
+
+    public static void checkTry(String input){
+        for(int i = 0; i < input.length();i++){
+            if(0 > input.charAt(i)-'0' || input.charAt(i)-'0' > 9){
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
 
