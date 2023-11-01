@@ -1,21 +1,24 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-
-public class NCars {
+public class RacingCars implements Cars{
     private final List<Car> cars;
 
-    public NCars(final List<Car> cars) {
+    public RacingCars(final List<Car> cars) {
         this.cars = cars;
     }
-
-    public static NCars applyNames(final List<String> names) {
-        List<Car> cars = names.stream()
-                .map(Car::applyName)
-                .toList();
-        return new NCars(cars);
+    public RacingCars() {
+        this.cars = new ArrayList<>();
+    }
+    public RacingCars applyNames(final List<String> names) {
+        int numberOfPeople = names.size();
+        IntStream.range(0,numberOfPeople).forEach(i->{
+            cars.add(Car.applyName(names.get(i)));
+        });
+        return this;
     }
 
     public List<Integer> moveCars() {

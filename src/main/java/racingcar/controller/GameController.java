@@ -2,31 +2,32 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.stream.IntStream;
-import racingcar.model.NCars;
+import racingcar.model.Cars;
 
 public final class GameController {
-    NCars nCars;
+    private final Cars cars;
     private final IOController ioController;
 
-    private GameController() {
-        this.ioController = new IOController();
+    private GameController(Cars cars, IOController ioController) {
+        this.cars = cars;
+        this.ioController = ioController;
     }
 
-    public static GameController startGame() {
-        return new GameController();
+    public static GameController startGame(Cars cars, IOController ioController) {
+        return new GameController(cars, ioController);
     }
 
     public void setUpCars() {
         ioController.showIntroMessage();
         List<String> names = ioController.getCarNames();
-        this.nCars = NCars.applyNames(names);
+        this.cars.applyNames(names);
     }
 
     public void processGame() {
         setUpCars();
         int round = getRoundNumber();
         moveCarsByGivenRoundNumber(round);
-        ioController.showWinner(nCars.getWinnerName());
+        ioController.showWinner(cars.getWinnerName());
     }
 
     public int getRoundNumber() {
@@ -36,8 +37,8 @@ public final class GameController {
 
     private void moveCarsByGivenRoundNumber(final int round) {
         IntStream.range(0, round).forEach(i -> {
-            nCars.moveCars();
-            ioController.showRoundResult(nCars.getSingleRoundResult());
+            cars.moveCars();
+            ioController.showRoundResult(cars.getSingleRoundResult());
         });
     }
 

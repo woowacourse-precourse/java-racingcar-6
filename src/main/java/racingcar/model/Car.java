@@ -3,6 +3,7 @@ package racingcar.model;
 public final class Car {
     private final String name;
     private Integer position;
+
     @Override
     public String toString() {
         return name;
@@ -32,7 +33,7 @@ public final class Car {
         return new RoundResult(name, position);
     }
 
-    public boolean isWinner(Integer givenPosition) {
+    public Boolean isWinner(Integer givenPosition) {
         return position.equals(givenPosition);
     }
 }

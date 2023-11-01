@@ -12,19 +12,20 @@ import org.junit.jupiter.api.Test;
 public class NCarsTest {
     String givenNames = "pobi,woni";
     List<String> names = Arrays.stream(givenNames.split(",")).toList();
-    NCars nCars;
+    Cars nCars = new RacingCars();
 
     @BeforeEach
     void setUp() {
-        nCars = NCars.applyNames(names);
+        nCars = nCars.applyNames(names);
     }
 
     @Test
     @DisplayName("자동차들에 이름들을 부여할 수 있다.")
     public void carNameApplyTest() {
         String givenNames = "pobi,woni";
+        Cars nCars = new RacingCars();
         List<String> names = Arrays.stream(givenNames.split(",")).toList();
-        nCars = NCars.applyNames(names);
+        nCars = nCars.applyNames(names);
         List<String> targetNames = Arrays.stream(givenNames.split(",")).toList();
         assertThat(nCars.getNamesForTest()).isEqualTo(targetNames);
     }
@@ -62,7 +63,7 @@ public class NCarsTest {
 
         carList.add(carOne);
         carList.add(carTwo);
-        nCars = new NCars(carList);
+        nCars = new RacingCars(carList);
 
         List<String> message = new ArrayList<>(Arrays.asList("cho : --", "sung : --"));
         assertThat(nCars.getSingleRoundResult()).isEqualTo(message);
@@ -92,7 +93,7 @@ public class NCarsTest {
         carList.add(carTwo);
         carList.add(carThree);
 
-        nCars = new NCars(carList);
+        nCars = new RacingCars(carList);
 
         List<String> message = new ArrayList<>(Arrays.asList("sung", "Loo"));
         assertThat(nCars.getWinnerName()).isEqualTo(message);
