@@ -47,7 +47,7 @@ public class RacingGame {
 
     private void validateEndLap(int endLap) {
         if (endLap < MINIMUM_END_LAP) {
-            throw new IllegalArgumentException("시도 횟수는 %d보다 작을 수 없습니다.".formatted(endLap));
+            throw new IllegalArgumentException("시도 횟수는 %d보다 작을 수 없습니다.".formatted(MINIMUM_END_LAP));
         }
     }
 
