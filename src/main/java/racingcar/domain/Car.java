@@ -7,6 +7,14 @@ public class Car {
     private int position;
     private String name;
 
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public Car(String name) {
         //생성시 이름 철자 개수 제한
         if (name.length() > 5) {
