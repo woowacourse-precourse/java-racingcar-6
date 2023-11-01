@@ -32,9 +32,9 @@ public class Cars {
     }
 
     private void validateDuplicateName(List<Car> cars) {
-        Set<Car> carSet = new HashSet<>(cars);
+        Set<Car> duplicateCars = new HashSet<>(cars);
 
-        if (cars.size() != carSet.size()) {
+        if (cars.size() != duplicateCars.size()) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE);
         }
     }
