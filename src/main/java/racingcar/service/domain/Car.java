@@ -19,7 +19,7 @@ public class Car {
     public void moveCar() {
         int power = startEngine();
         if (canMove(power)) {
-            this.position++;
+            position++;
         }
     }
 
@@ -41,14 +41,6 @@ public class Car {
 
     public String getName() {
         return name.getName();
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "name=" + name +
-                ", position=" + position +
-                '}';
     }
 
     @Override
