@@ -10,14 +10,18 @@ import java.util.List;
 public class Car {
     private String carName;
     private String result = "";
+    private static int maxLength;
+
     public void carMoveOrStop() {
         if (isMoveAble()) {
             result += "-";
         }
     }
+
     public void giveNameOfCar(String carName) {
-            this.carName = carName;
+        this.carName = carName;
     }
+
     public String printMovingCarWithCarName() {
         return carName + " : " + result + "\n";
     }
@@ -29,5 +33,12 @@ public class Car {
     public int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    public void storeMaxLength() {
+        if (carName.length() > maxLength) {
+            maxLength = carName.length();
+        }
+    }
+
 
 }
