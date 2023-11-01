@@ -1,2 +1,14 @@
+- feat(output): add game result output feature
+- refactor(main): remove unnecessary try-catch block
+- refactor(init): extract print logic to new method
+- feat(output): add movement result print
+- feat(move): add movement feature
+- feat(car): add carinfo object
+- feat(random): check car can move
+- feat(move count): add read movecount input feature
+- feat(input): add feature to store input value
+- feat(input): add input validation utility
+- feat(input): add car list input feature
+- docs(CHANGELOG): add changelog.md file
 - docs(README): add readme.md under docs directory
 - feat: setup precourse racingcar project
