@@ -27,7 +27,7 @@ public class Controller {
         OutputMessage.outputResultText();
         while (tryNumber != 0) {
             tryOne(carNamesArray);
-            Output.outputGameProgress(Car.getHashMap());
+            Output.outputGameProgress(Car.getHashMap(), carNamesArray);
             tryNumber--;
         }
         judgeFinalWinner(Car.getHashMap());

@@ -2,13 +2,12 @@ package racingcar.view;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public final class Output {
 
-    public static void outputGameProgress(HashMap<String,String> hashMap) {
-        for (Map.Entry<String,String> m : hashMap.entrySet()) {
-            System.out.println(m.getKey() + " : " + m.getValue());
+    public static void outputGameProgress(HashMap<String,String> hashMap, String[] carNamesArray) {
+        for (String car : carNamesArray) {
+            System.out.println(car + " : " + hashMap.get(car));
         }
         System.out.println();
     }
