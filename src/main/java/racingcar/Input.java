@@ -16,7 +16,7 @@ public class Input {
     }
 
     public List<Car> getCars() {
-
+        iv.initNameCount();
         List<Car> cars = new ArrayList<>();
 
         String carsName = getCarsName();

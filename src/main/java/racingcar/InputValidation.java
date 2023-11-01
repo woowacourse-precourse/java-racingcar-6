@@ -25,6 +25,10 @@ public class InputValidation {
         return name;
     }
 
+    public void initNameCount() {
+        nameCount.clear();
+    }
+
     int validNum(String input) {
         boolean matches = input.matches("^[0-9]+$");
 
