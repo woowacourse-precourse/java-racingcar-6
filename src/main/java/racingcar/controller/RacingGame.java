@@ -2,31 +2,29 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
+    private final List<Car> cars;
+    private final int round;
+
+    public RacingGame(List<Car> cars, int round) {
+        this.cars = cars;
+        this.round = round;
+    }
+
     public void startGame() {
-        OutputView.printAskCarNames();
-        List<Car> cars = InputView.inputCarNames();
-
-        OutputView.printAskRound();
-        int round = InputView.inputRound();
-
         OutputView.printExecutionResultText();
-        proceedEachRound(cars, round);
+
+        for (int count = 1; count <= round; count++) {
+            proceedRound();
+            OutputView.printNewLine();
+        }
         OutputView.printWinners(cars);
     }
 
-    private void proceedEachRound(List<Car> cars, int totalRound) {
-        for (int round = 1; round <= totalRound; round++) {
-            proceedRound(cars);
-        }
-    }
-
-    private void proceedRound(List<Car> cars) {
+    private void proceedRound() {
         cars.forEach(Car::move);
         cars.forEach(OutputView::printRoundResult);
-        OutputView.printNewLine();
     }
 }
