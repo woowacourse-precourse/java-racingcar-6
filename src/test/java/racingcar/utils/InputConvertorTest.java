@@ -38,6 +38,16 @@ class InputConvertorTest {
     }
 
     @Test
+    @DisplayName("중복된 이름이 입력으로 들어올 경우, 예외를 발생한다.")
+    void duplicationInputTest() {
+        String inputNameDuplicated = "pobi, woni, pobi";
+
+        assertThatThrownBy(() -> InputConvertor.separateInputToNames(inputNameDuplicated))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름의 중복은 허용하지 않습니다.");
+    }
+
+    @Test
     @DisplayName("시도 횟수 입력 시, int로 변환한다.")
     void parseTryCountTest() {
         String inputTry = "12";
