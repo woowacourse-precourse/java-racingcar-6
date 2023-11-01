@@ -76,7 +76,11 @@ public class GameManager {
 
     public static void printRacingCarsPosition() {
         for (RacingCar racingCar : racingCars) {
-            System.out.println(racingCar.name + " : " + racingCar.position);
+            System.out.print(racingCar.name + " : ");
+            for (int i = 0; i < racingCar.position; i++) {
+                System.out.print("-");
+            }
+            System.out.println("");
         }
     }
 
@@ -95,6 +99,7 @@ public class GameManager {
                 racingCar.tryMove();
             }
             printRacingCarsPosition();
+            System.out.println();
         }
     }
 
