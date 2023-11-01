@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.model.Car;
 
 public class RacingGameView {
 
@@ -24,5 +25,14 @@ public class RacingGameView {
     // "실행 결과"를 출력하는 메서드
     public void printResultMessage(){
         System.out.println("\n실행 결과");
+    }
+
+    // 자동차들의 현재 전진 횟수를 "-" 개수로 출력하는 메서드
+    public void printCarsLocation(List<Car> cars){
+        for(Car car: cars){
+            System.out.printf("%s : ", car.getName());
+            System.out.println("-".repeat(car.getForwardCount()));
+        }
+        System.out.println();
     }
 }
