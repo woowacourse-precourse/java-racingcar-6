@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
@@ -34,6 +35,16 @@ public class Race {
             }
         }
         return max;
+    }
+
+    public List<Car> getSameDistanceCars(int distance) {
+        List<Car> sameDistanceCars = new ArrayList<>();
+        for (Car car : cars) {
+            if (distance == car.getDistance()) {
+                sameDistanceCars.add(car);
+            }
+        }
+        return sameDistanceCars;
     }
 
 }
