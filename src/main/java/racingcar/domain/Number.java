@@ -14,10 +14,20 @@ public class Number {
         }
     }
 
-    private void validateNumber(String num) {
+    private boolean isNumeric(String num) {
+        if (num == null) {
+            return false;
+        }
         try {
             int number = Integer.parseInt(num);
         } catch (NumberFormatException e) {
+            return false;
+        }
+        return false;
+    }
+
+    private void validateNumber(String num) {
+        if (!isNumeric(num)) {
             throw new IllegalArgumentException("숫자가 아닙니다!");
         }
     }
