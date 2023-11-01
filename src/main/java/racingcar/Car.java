@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.utils.Constants;
+
 public class Car {
     private String name;
     private int location = 0;
@@ -26,7 +28,7 @@ public class Car {
     }
 
     private boolean canMove(int fuel) {
-        return fuel >= 4;
+        return fuel >= Constants.MINIMUM_MOVE_FUEL_LEVEL;
     }
 
     public String getName() {

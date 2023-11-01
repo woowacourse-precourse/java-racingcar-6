@@ -34,13 +34,14 @@ public class Race {
     private int injectFuel() {
         int fuel;
         do {
-            fuel = Randoms.pickNumberInRange(Constants.MINIMUM_FUEL_LEVEL, Constants.MAXIMUM_FUEL_LEVEL);
+            fuel = Randoms.pickNumberInRange(Constants.MINIMUM_GENERATE_FUEL_LEVEL,
+                    Constants.MAXIMUM_GENERATE_FUEL_LEVEL);
         } while (!isFuelInRange(fuel));
         return fuel;
     }
 
     private boolean isFuelInRange(int fuel) {
-        return fuel >= Constants.MINIMUM_FUEL_LEVEL && fuel <= Constants.MAXIMUM_FUEL_LEVEL;
+        return fuel >= Constants.MINIMUM_GENERATE_FUEL_LEVEL && fuel <= Constants.MAXIMUM_GENERATE_FUEL_LEVEL;
     }
 
     public void startCarRacing() {
@@ -56,7 +57,7 @@ public class Race {
     }
 
     public boolean isRaceOver() {
-        return moveCounts <= 0;
+        return moveCounts <= Constants.MINIMUM_MOVE_COUNTS;
     }
 
     private void conductRace() {
