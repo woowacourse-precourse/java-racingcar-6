@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.util.Validator;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,5 +16,9 @@ public class RacingCars {
         return carNameList.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+    }
+
+    private void validateNameList(List<String> nameList) {
+        Validator.validateDuplicateNames(nameList);
     }
 }
