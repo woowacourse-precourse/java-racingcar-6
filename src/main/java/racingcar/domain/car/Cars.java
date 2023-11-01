@@ -1,9 +1,7 @@
 package racingcar.domain.car;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.view.OutputView;
 
 public class Cars {
 
@@ -23,15 +21,9 @@ public class Cars {
         }
     }
 
-
     private List<Car> createCars(List<String> carNames) {
         return carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
-
-
-
-
-
 }
