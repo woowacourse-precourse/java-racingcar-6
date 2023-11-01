@@ -58,4 +58,12 @@ public class CarTest {
             InputValidator.validateName(names);
         });
     }
+
+    @Test
+    public void 유효한_이름_길이_검증() throws Exception{
+        String[] names = {"brian", "poby", "andres"};
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateNameLength(names);
+        });
+    }
 }
