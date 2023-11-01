@@ -60,7 +60,10 @@
     * responseCarNames()(List<Car>) : 필터링된 자동차 반환
     * doTrim() (return List<String>): String의 공백제거
     * putCars() (return List<Car>) : doTrim된 자동차 배열 넣어 반환
-    }
+    
+    * inputRounds() (return int) : 몇 경기 할지 입력받는다.
+    * stringToInteger() (return int) : 문자를 인트형으로 반환
+    * validateEqualMoreOne(int)(return void) (return void) : 입력값이 1이상이여야함
 ## 2. OutputView 클래스
 * 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
 * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
