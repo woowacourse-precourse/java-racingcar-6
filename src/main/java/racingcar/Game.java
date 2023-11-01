@@ -46,6 +46,8 @@ public class Game {
         System.out.println("시도할 회수는 몇회인가요?");
         int count = Integer.parseInt(readLine());
 
+        System.out.println();
+        System.out.println("실행 결과");
         Narrator narrator = new Narrator();
         for (int i = 0; i < count; i++) {
             giveRandomNumber();
