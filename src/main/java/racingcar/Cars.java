@@ -76,7 +76,7 @@ public class Cars {
     }
 
     private boolean canMove() {
-        return pickNumberInRange(1, 9) >= 4;
+        return pickNumberInRange(0, 9) >= 4;
     }
 
     public void printResult() {
