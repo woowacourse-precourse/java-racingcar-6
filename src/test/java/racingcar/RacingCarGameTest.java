@@ -62,4 +62,11 @@ public class RacingCarGameTest {
         assertThatThrownBy(() -> game.setPlayers("dodi, dadidudedo"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+    @Test
+    void setGameCount_정수_아닌_입력_예외_처리() {
+        RacingCarGame game = new RacingCarGame();
+
+        assertThatThrownBy(() -> game.setGameCount("abc"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
