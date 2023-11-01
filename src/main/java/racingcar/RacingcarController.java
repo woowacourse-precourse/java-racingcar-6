@@ -1,6 +1,7 @@
 package racingcar;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingcarController {
@@ -18,6 +19,9 @@ public class RacingcarController {
   }
 
   public void playRacingcar() {
+    List<String> cars = inputView.carName();
+    int trialNum = inputView.trialNum();
+    List<Integer> locations = new ArrayList<>(Collections.nCopies(cars.size(), 0));
 
   }
 }
