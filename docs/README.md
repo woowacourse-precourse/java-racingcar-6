@@ -8,6 +8,7 @@
    1) 시도할 회수는 몇회인가요? 출력
    2) 1보다 작은 수 입력 시 IllegalArgumentException
    3) 문자 입력 시 IllegalArgumentException
+   4) 공백 입력 시 IllegalArgumentException
 3. 자동차 이동
    1) Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용
    2) carList크기 만큼 Move 배열 생성
@@ -18,3 +19,11 @@
    1) HashMap에 자동차 이름,Move 요소 담음
    2) Move의 맥스값과 HashMapd의 value를 비교하여 맥스값이랑 일치 시 해당 Key값 WinnerList에 담음
    3) winnerList 출력 
+6. 테스트 케이스
+   1) 자동차 이름 중복 테스트
+   2) 자동차 이름 Null 테스트
+   3) 자동차 이름 6자 이상 테스트
+   4) 경주 시도 횟수 1미만 테스트
+   5) 경주 시도 횟수 문자 입력 테스트
+   6) 경주 시도 횟수 공백 입력 테스트
+   
