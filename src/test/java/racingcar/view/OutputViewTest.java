@@ -72,17 +72,17 @@ public class OutputViewTest extends NsTest {
     @Test
     void 자동차_경주_실행_결과를_출력하는_기능_테스트() {
         assertRandomNumberInRangeTest(() -> {
-            //when
-            cars.moveAheadCars();
-            cars.moveAheadCars();
-            RaceResult yoonRaceResult = yoonCar.generateResult();
-            RaceResult suRaceResult = suCar.generateResult();
+                //when
+                cars.moveAheadCars();
+                cars.moveAheadCars();
+                RaceResult yoonRaceResult = yoonCar.generateResult();
+                RaceResult suRaceResult = suCar.generateResult();
 
-            OutputView.printRaceResult(yoonRaceResult);
-            OutputView.printRaceResult(suRaceResult);
+                OutputView.printRaceResult(yoonRaceResult);
+                OutputView.printRaceResult(suRaceResult);
 
-            //then
-            Assertions.assertThat(output()).contains("yoon : --", "su : -");
+                //then
+                Assertions.assertThat(output()).contains("yoon : --", "su : -");
             },
             MOVING_FORWARD, STOP,
             MOVING_FORWARD, MOVING_FORWARD
