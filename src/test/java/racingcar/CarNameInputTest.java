@@ -34,10 +34,10 @@ public class CarNameInputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"부릉이,따릉이,딸랑이"})
+    @ValueSource(strings = {"부릉이,따릉이,딸랑이", "부릉이,따릉이", "부릉이"})
     @DisplayName ("경주할 자동차 이름입력 정상동작 테스트")
     void canGetCarNameGeneralTest(String testInput) {
-        String[] answer = {"부릉이", "따릉이", "딸랑이"};
+        String[] answer = testInput.split(",");
         RacingSetting racingSetting = new RacingSetting();
         InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
