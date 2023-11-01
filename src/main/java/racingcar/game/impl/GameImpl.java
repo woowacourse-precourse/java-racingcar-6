@@ -20,6 +20,7 @@ public class GameImpl implements Game {
             if (dice >= 4) {
                 car.move();
             }
+            car.printProcess();
         });
     }
 
