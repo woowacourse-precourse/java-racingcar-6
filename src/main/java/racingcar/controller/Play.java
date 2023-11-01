@@ -22,7 +22,7 @@ public class Play {
         //최종승자메세지생성기능
         championMessage();
     }
-    
+
     public void inputGameInformation(){
         //자동차 이름 저장(inputCarNmaeInformation)
         String carName = Console.readLine();
@@ -49,4 +49,26 @@ public class Play {
         gameTryNumber = Integer.parseInt(checkGameTryNumber);
     }
 
+
+
+    //예외처리
+    public void varifyCarNameLength(String[] carNameStringArray){
+        for (String charName : carNameStringArray) {
+            if(charName.length() > 5){
+                throw new IllegalArgumentException(wrongInputLength);
+            }
+        }
+    }
+
+    public void varifyCarNameBlank(String gameInformation){
+        if(gameInformation.isBlank()){
+            throw new IllegalArgumentException(wrongInputBlank);
+        }
+    }
+
+    public void varifyTryNumberIsNumeric(String gameInformation){
+        if(!gameInformation.matches("\\d+")){
+            throw new IllegalArgumentException(wrongInputType);
+        }
+    }
 }
