@@ -17,8 +17,8 @@ public class GameController {
 
 	private void gameStart() {
 		Cars cars = new Cars(inputView.inputCarName().stream()
-			.map(carName -> new RacingCar(carName))
-			.collect(Collectors.toList()));
+				.map(carName -> new RacingCar(carName))
+				.collect(Collectors.toList()));
 
 		Round round = new Round(inputView.inputRoundNumber());
 		lap = new Lap(cars, round);

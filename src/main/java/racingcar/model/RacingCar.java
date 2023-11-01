@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.util.Constant;
-
 public class RacingCar {
 	private final String name;
 	private int position = 0;
