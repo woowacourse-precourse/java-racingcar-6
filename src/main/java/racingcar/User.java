@@ -28,7 +28,6 @@ public class User {
         }
     }
 
-
     public static String input() {
         return Console.readLine();
     }
@@ -46,7 +45,7 @@ public class User {
     }
 
     public static void isNull(String input) {
-        if (Objects.isNull(input)) {
+        if (input == null) {
             throw new IllegalArgumentException("입력값이 없습니다.");
         }
     }
