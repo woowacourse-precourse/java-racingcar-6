@@ -14,6 +14,7 @@ public class Participations { // 일급컬렉션
     private List<Car> cars;
 
     private Participations(String carNames) {
+        carNames = StringUtil.deleteAllSpaces(carNames);
         List<Car> carList = processCarNamesInput(carNames);
         validateCars(carNames, carList);
 
@@ -48,9 +49,8 @@ public class Participations { // 일급컬렉션
                 .orElse(0);
     }
 
-    private List<Car> processCarNamesInput(String input) {
-        input = StringUtil.deleteAllSpaces(input);
-        return Car.createList(StringUtil.parseListseperatedByComma(input));
+    private List<Car> processCarNamesInput(String carNames) {
+        return Car.createList(StringUtil.parseListseperatedByComma(carNames));
     }
 
     private void validateEmptyInput(String input, List<Car> carList) {
