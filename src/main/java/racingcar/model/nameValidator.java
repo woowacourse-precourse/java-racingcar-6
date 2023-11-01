@@ -5,11 +5,12 @@ import java.util.List;
 import java.util.Set;
 
 public class nameValidator {
-    public static void namesException(String names){
+    public static List<String> namesException(String names){
         isNamesNull(names);
         List<String> nameList = List.of(names.split(","));
         isNamesRightSize(nameList);
         isNamesUnique(nameList);
+        return nameList;
     }
     public static void isNamesNull(String names) {
         if (names.isEmpty()) throw new IllegalArgumentException("자동차 이름을 입력해주세요");
