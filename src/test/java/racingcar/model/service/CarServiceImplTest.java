@@ -14,6 +14,7 @@ class CarServiceImplTest {
 
     @BeforeEach
     void setUp() {
+        carDao.init();
         carService.registerCarLineUp("pobi,woni,jun");
         carDao.increaseMoveCount("pobi");
         carDao.increaseMoveCount("jun");
