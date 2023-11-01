@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingCars {
 
@@ -22,28 +21,12 @@ public class RacingCars {
             .forEach(System.out::println);
     }
 
+    public void printWinnersName() {
+        RacingReferee.printWinnersName(List.copyOf(racingCars));
+    }
+
     private String getPositionBar(RacingCar racingCar) {
         int positionBarLength = racingCar.getPosition();
         return POSITION_BLOCK.repeat(positionBarLength);
-    }
-
-    public void printWinnersName() {
-        System.out.println(getWinnersName());
-    }
-
-    private String getWinnersName() {
-        final int winnerPosition = getWinnerPosition();
-
-        return racingCars.stream()
-            .filter(racingCar -> racingCar.getPosition() == winnerPosition)
-            .map(RacingCar::getName)
-            .collect(Collectors.joining(", "));
-    }
-
-    private int getWinnerPosition() {
-        return racingCars.stream()
-            .mapToInt(RacingCar::getPosition)
-            .max()
-            .orElse(0);
     }
 }
