@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import racingcar.model.Cars;
 
 public final class GameController {
-    private final Cars cars;
+    private Cars cars;
     private final IOController ioController;
 
     private GameController(Cars cars, IOController ioController) {
@@ -20,7 +20,7 @@ public final class GameController {
     public void setUpCars() {
         ioController.showIntroMessage();
         List<String> names = ioController.getCarNames();
-        this.cars.applyNames(names);
+        this.cars = cars.applyNames(names);
     }
 
     public void processGame() {

@@ -13,23 +13,22 @@ import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RacingCarsTest {
-
-    private String givenNames = "pobi,woni";
     private List<String> names;
     private Cars nCars;
 
     @BeforeEach
     void setUp() {
+        String givenNames = "pobi,woni";
         names = Arrays.stream(givenNames.split(",")).collect(Collectors.toList());
         nCars = new RacingCars();
-        nCars.applyNames(names);
+        nCars = nCars.applyNames(names);
     }
 
     @Test
     @DisplayName("자동차들에 이름들을 부여할 수 있다.")
     void carNameApplyTest() {
         Cars testCars = new RacingCars();
-        testCars.applyNames(names);
+        testCars = testCars.applyNames(names);
         assertThat(testCars.getNamesForTest()).isEqualTo(names);
     }
 
