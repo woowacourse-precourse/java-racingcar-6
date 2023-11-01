@@ -1,31 +1,26 @@
 package racingcar.domain;
 
-
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Referee {
 
-  public String judgementGameWon(List<Car> cars) {
-    int maxProgress = getMaxProgress(cars);
-    StringBuilder winners = new StringBuilder();
-    for (Car car : cars) {
-      if (car.getProgressCount() == maxProgress) {
-        if (winners.length() > 0) {
-          winners.append(", ");
-        }
-        winners.append(car.getCarName());
-      }
+    public String determineWinners(List<Car> cars) {
+        int maxProgress = getMaxProgress(cars);
+        return cars.stream()
+                .filter(car -> car.getProgressCount() == maxProgress)
+                .map(Car::getCarName)
+                .collect(Collectors.joining(", "));
     }
-    return winners.toString();
-  }
 
-  private int getMaxProgress(List<Car> cars) {
-    int max = 0;
-    for (Car car: cars) {
-      if (car.getProgressCount() > max) {
-        max = car.getProgressCount();
-      }
+    private static int getMaxProgress(List<Car> cars) {
+        int max = 0;
+        for (Car car : cars) {
+            if (car.getProgressCount() > max) {
+                max = car.getProgressCount();
+            }
+        }
+        return max;
     }
-    return max;
-  }
 }
