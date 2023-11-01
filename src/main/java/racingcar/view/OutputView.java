@@ -11,9 +11,9 @@ public class OutputView {
     public void printRacing(List<Car> cars) {
         for (Car car : cars) {
             printCarPosition(car);
-            System.out.print("\n");
+            System.out.println();
         }
-        System.out.print("\n");
+        System.out.println();
     }
 
     private void printCarPosition(Car car) {
@@ -32,6 +32,6 @@ public class OutputView {
             }
             winnerNames.append(winner.getName());
         }
-        System.out.print("최종 우승자 : " + winnerNames);
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 }
