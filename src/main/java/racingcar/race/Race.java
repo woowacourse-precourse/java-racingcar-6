@@ -27,10 +27,11 @@ public class Race {
     }
 
     private int getWinnersPosition(List<Car> participantList) {
-        Collections.sort(participantList, (o1, o2) -> o2.getPosition() - o1.getPosition());
-
-        int winnerPosition = participantList.get(0).getPosition();
-        return winnerPosition;
+        int defaultPosition = 0;
+        return participantList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(defaultPosition);
     }
 
     private List<String> getWinner(List<Car> participantList) {
