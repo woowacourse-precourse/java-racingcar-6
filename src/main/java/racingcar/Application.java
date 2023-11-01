@@ -32,16 +32,7 @@ public class Application {
 
             System.out.println("\n실행 결과");
 
-            for (int i = 0; i < tryCount; i++) {
-                for (int j = 0; j < carNames.size(); j++) {
-                    int randomNumber = Randoms.pickNumberInRange(0, 9);
-                    String carMovement = carMotion(randomNumber);
-                    addMovement(carMovements, j, carMovement);
-
-                    System.out.println(carNames.get(j) + " : " + carMovements[j]);
-                }
-                System.out.println();
-            }
+            calculateMovement(tryCount, carNames, carMovements);
 
             Map<String, Integer> carHashMap = new HashMap<String, Integer>();
 
@@ -52,15 +43,9 @@ public class Application {
             List<String> finalWinners = findWinners(carHashMap);
 
             // formatting
-            StringBuilder winnersFormatted = new StringBuilder();
-            for (String winner : finalWinners) {
-                if (winnersFormatted.length() > 0) {
-                    winnersFormatted.append(", ");
-                }
-                winnersFormatted.append(winner);
-            }
+            String winnersFormatted = String.join(", ", finalWinners);
 
-            System.out.println("최종 우승자 : " + winnersFormatted.toString());
+            System.out.println("최종 우승자 : " + winnersFormatted);
 
         } catch (NoSuchElementException e) {
             throw new IllegalArgumentException(e.getMessage());
@@ -77,6 +62,19 @@ public class Application {
             carMovements[index] = carMovement;
         } else {
             carMovements[index] += carMovement;
+        }
+    }
+
+    private static void  calculateMovement(int tryCount, ArrayList<String> carNames, String[] carMovements) {
+        for (int i = 0; i < tryCount; i++) {
+            for (int j = 0; j < carNames.size(); j++) {
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                String carMovement = carMotion(randomNumber);
+                addMovement(carMovements, j, carMovement);
+
+                System.out.println(carNames.get(j) + " : " + carMovements[j]);
+            }
+            System.out.println();
         }
     }
 }
