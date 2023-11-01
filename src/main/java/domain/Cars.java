@@ -36,9 +36,24 @@ public class Cars {
     }
     public void printCars(List<String>cars){
         for (int i=0;i<carPos.size();i++){
-            System.out.println(cars.get(i)+" : "+carPos.get(i) );
+            System.out.println(cars.get(i)+" : "+carPos.get(i));
         }
         System.out.println();
     }
-
+    public void printWinner(List<String>cars){
+        int count=0;
+        for (int i=0;i<cars.size();i++){
+            if (count<carPos.get(i).length()){
+                count=carPos.get(i).length();
+            }
+        }
+        List<String> winner = new ArrayList<>();
+        for (int i=0;i<cars.size();i++){
+            if (count==carPos.get(i).length()){
+                winner.add(cars.get(i));
+            }
+        }
+        String result = String.join(",",winner);
+        System.out.println("최종 우승자 : "+result);
+    }
 }

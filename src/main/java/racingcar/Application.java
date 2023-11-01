@@ -26,6 +26,7 @@ public class Application {
         for (int i=0;i<num;i++){
             cars.move(carNames);
         }
+        cars.printWinner(carNames);
         // TODO: 프로그램 구현
     }
 }
