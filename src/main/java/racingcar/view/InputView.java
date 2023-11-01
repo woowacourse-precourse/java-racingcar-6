@@ -15,4 +15,9 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
+    public int inputLoopStringToInt() {
+        String inputLoop = Console.readLine();
+        Validator.validatePositiveInteger(Integer.parseInt(inputLoop));
+        return Integer.parseInt(inputLoop);
+    }
 }
