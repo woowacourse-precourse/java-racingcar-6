@@ -19,6 +19,14 @@ class InputExceptionTest extends NsTest {
         );
     }
 
+    @Test
+    void trial_num_when_negative() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("aaaa,jaji", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
