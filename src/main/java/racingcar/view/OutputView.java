@@ -2,7 +2,7 @@ package racingcar.view;
 
 
 import racingcar.domain.RacingGame;
-import racingcar.service.RacingGameResult;
+import racingcar.domain.RacingGameResult;
 import racingcar.util.StringUtil;
 
 public class OutputView {

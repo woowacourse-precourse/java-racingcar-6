@@ -1,11 +1,11 @@
-package racingcar.service;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGameResult {
-    List<String> winners;
-    RacingGameResult() {
+    private List<String> winners;
+    public RacingGameResult() {
         winners = new ArrayList<>();
     }
 
