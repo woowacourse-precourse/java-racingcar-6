@@ -8,10 +8,10 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingcarControllerTest {
-    private RacingcarController racingcarController;
+    private RacingcarGame racingcarController;
     @BeforeEach
     void beforeEach() {
-        racingcarController = new RacingcarController();
+        racingcarController = new RacingcarGame();
     }
 
     @Test
