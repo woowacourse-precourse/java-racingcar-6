@@ -56,6 +56,8 @@ public class Racing {
             if(car.getCarName().equals(carName))
                 throw new IllegalArgumentException("같은 이름이 입력되었습니다.");
         }
+        if(carName.equals(""))
+            throw new IllegalArgumentException("자동차 이름이 입력되지 않았습니다.");
     }
 
     public void validateTryCount(String inputString) {
