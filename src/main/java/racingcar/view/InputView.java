@@ -7,36 +7,37 @@ import java.util.List;
 import racingcar.validation.Validator;
 
 public class InputView {
-  private Validator inputValidator;
 
-  public InputView() {
-    this.inputValidator = new Validator();
-  }
+    private Validator inputValidator;
 
-  public String readCarName() {
-    String names = readLine();
-    names = removeBlank(names);
-    validateCarName(names);
-    return names;
-  }
+    public InputView() {
+        this.inputValidator = new Validator();
+    }
 
-  public int readCount() {
-    String count = readLine();
-    validateCount(count);
-    return Integer.parseInt(count);
-  }
+    public String readCarName() {
+        String names = readLine();
+        names = removeBlank(names);
+        validateCarName(names);
+        return names;
+    }
 
-  private String removeBlank(String name) {
-    return name.replaceAll("\\s", "");
-  }
+    public int readCount() {
+        String count = readLine();
+        validateCount(count);
+        return Integer.parseInt(count);
+    }
 
-  private void validateCarName(String names) {
-    inputValidator.isNull(names);
-  }
+    private String removeBlank(String name) {
+        return name.replaceAll("\\s", "");
+    }
 
-  private void validateCount(String count) {
-    inputValidator.isNull(count);
-    inputValidator.isContainLetter(count);
-    inputValidator.isNotNaturalNum(count);
-  }
+    private void validateCarName(String names) {
+        inputValidator.isNull(names);
+    }
+
+    private void validateCount(String count) {
+        inputValidator.isNull(count);
+        inputValidator.isContainLetter(count);
+        inputValidator.isNotNaturalNum(count);
+    }
 }
