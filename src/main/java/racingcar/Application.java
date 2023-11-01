@@ -2,6 +2,33 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
     }
+}
+
+class RacingCar {
+    public RacingCar(){
+
+    }
+
+    private void getCarNames(){
+
+    }
+
+    private void getNumberOfMove(){
+
+    }
+
+    private void generateRandomNumber(){
+
+    }
+
+    private void printWinner(){
+
+    }
+
+    private void startRacingCar(){
+
+    }
+
+
 }
