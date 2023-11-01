@@ -13,4 +13,7 @@ public class GameOutput {
     public static void printGameStart() {
         System.out.println(AppConstants.MSG_GAME_START);
     }
+    public static void printRoundResult(String str) {
+        System.out.println(str);
+    }
 }

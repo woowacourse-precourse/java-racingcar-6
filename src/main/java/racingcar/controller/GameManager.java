@@ -34,6 +34,8 @@ public class GameManager {
 
     private void startGameProcess(int round, List<Car> carList) {
         gameProgressService.moveCars(carList);
+        String roundResult = gameProgressService.getRoundResults(carList);
+        GameOutput.printRoundResult(roundResult);
     }
 
 }
