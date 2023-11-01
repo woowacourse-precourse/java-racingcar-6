@@ -11,14 +11,14 @@ import static racingcar.message.Message.*;
 
 public class RacingCarService {
     public static int tryCount;
-    public static List<RacingCar>racingCars;
+    public static List<RacingCar> racingCars = new ArrayList<RacingCar>();
     public static List<String> winners = new ArrayList<String>();
 
     public static void runGame(){
         System.out.println(GAME_START_MESSAGE.getMessage());
         setCars(readLine());
         setTryCount();
-        for(int i =0;i<setTryCount();i++){
+        for(int i =0;i<tryCount;i++){
             playRacing();
             getResult();
         }
@@ -32,9 +32,9 @@ public class RacingCarService {
         }
     }
 
-    public static int setTryCount(){
+    public static void setTryCount(){
         System.out.println(CHECK_TRY_MESSAGE.getMessage());
-        return Integer.parseInt(readLine());
+        tryCount = Integer.parseInt(readLine());
     }
 
     public static void playRacing(){

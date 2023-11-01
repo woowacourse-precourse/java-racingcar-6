@@ -5,8 +5,8 @@ import lombok.Getter;
 
 public class RacingCar {
     @Getter
-    private String carName;
-    private int score = 0;
+    public String carName;
+    public int score = 0;
 
     public RacingCar(String name){
         this.carName = name;
