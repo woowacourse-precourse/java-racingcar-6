@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Car {
     public static final int MAX_NAME_LENGTH = 5;
     public static final int STANDARD_MOVING_CAR = 4;
+    public static final char ONE_MOVING_MARK = '-';
 
     private String name;
     private int distance;
@@ -65,5 +66,17 @@ public class Car {
     @Override
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(name).append(" : ");
+
+        for (int i = 0; i < distance; i++) {
+            result.append(ONE_MOVING_MARK);
+        }
+
+        return result.toString().trim();
     }
 }

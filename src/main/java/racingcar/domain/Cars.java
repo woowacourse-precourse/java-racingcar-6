@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class Cars {
+    public static final String LINE_BREAK = "\n";
     private List<Car> cars;
 
     public Cars(List<String> names) {
@@ -31,5 +32,14 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        cars.stream()
+                .forEach((car) -> result.append(car.toString()).append(LINE_BREAK));
+
+        return result.toString().trim();
     }
 }

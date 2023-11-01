@@ -131,4 +131,26 @@ public class CarsTest {
                         car.getDistance()).isBetween(0, repeat)
                 );
     }
+
+    @DisplayName("Cars 이동결과 toString() 메시지 일치 확인")
+    @ParameterizedTest
+    @ValueSource(ints = {4,5,6,7,8,9})
+    public void moveResult_whenMove(int movableValue) throws Exception {
+        //given
+        int repeat = 3;
+
+        Cars cars = new Cars(List.of(name1, name2, name3));
+
+        //when
+        for (int i = 0; i < repeat; i++) {
+            cars.tryToMove(() -> movableValue);
+        }
+
+        //then
+        assertThat(cars.toString()).isEqualTo(
+                name1 + " : ---\n" +
+                        name2 + " : ---\n" +
+                        name3 + " : ---"
+        );
+    }
 }
