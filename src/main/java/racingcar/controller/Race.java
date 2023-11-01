@@ -14,7 +14,7 @@ public class Race {
     CarModel[] cars;
 
     /**
-     * 레이스 시작
+     * 레이스 시
      */
     public void start() {
         String[] carNames = getCarNames();
@@ -78,12 +78,13 @@ public class Race {
         }
     }
 
-    private CarModel[] getWinners() {
+    private String[] getWinners() {
         int maxPosition = getMaxPosition();
 
         return Arrays.stream(cars)
                 .filter(car -> car.getPosition() == maxPosition)
-                .toArray(CarModel[]::new);
+                .map(CarModel::getName)
+                .toArray(String[]::new);
     }
 
     private Integer getMaxPosition() {
