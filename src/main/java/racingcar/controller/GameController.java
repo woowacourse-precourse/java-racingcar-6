@@ -21,6 +21,7 @@ public class GameController {
 
         Race race = new Race(carNames);
 
+        raceView.printRaceIntro();
         for (int i = 0; i < numberAttempts; i++) {
             race.doAttempt();
             raceView.printRace(race);

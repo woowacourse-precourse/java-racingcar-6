@@ -11,6 +11,10 @@ public class RaceView {
         return carName + " : " + "-".repeat(distance);
     }
 
+    public void printRaceIntro() {
+        System.out.println("\n실행 결과");
+    }
+
     public void printRace(Race race) {
         for (String name : race.getCarNames()) {
             String renderedCarState = renderCarState(name, race.getDistance(name));
