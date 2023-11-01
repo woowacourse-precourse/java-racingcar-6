@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -6,13 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static racingcar.constant.ErrorMessage.CAR_NAME_DUPLICATED;
 import static racingcar.constant.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.model.RacingCars;
 
-class RacingCarsTest {
+class RacingCarsTest extends NsTest {
 
     @Test
     @DisplayName("쉼표 기준으로 파싱하면 car1과 car2을 이름으로 가진 자동차가 각각 생성되므로 toString()을 호출했을 때 각각의 자동차에 대한 정보를 출력해야한다.")
@@ -44,4 +42,9 @@ class RacingCarsTest {
                 .hasMessageContaining(NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS);
     }
 
+
+    @Override
+    protected void runMain() {
+
+    }
 }
