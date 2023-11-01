@@ -6,33 +6,25 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
+import racingcar.domain.car.Cars;
 import racingcar.domain.game.Game;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
-    private Game game;
-
-    public void run() {
-        prepareSettingValue();
-        play();
-    }
 
     public void play() {
-        while (game.isPlay()) {
-            moveCars();
-            game.updateTryNumber();
-        }
-        List<Car> carList = game.getCarList();
-        sortFinalWinner(carList);
-    }
-
-    private void prepareSettingValue() {
         List<String> carNames = inputCarNames();
         String stringNumber = InputView.askTryNumber();
+
         validateTryNumberType(stringNumber);
         int tryNumber = Integer.parseInt(stringNumber);
-        game = new Game(tryNumber, carNames);
+
+        Cars cars = new Cars(carNames);
+        Game game = new Game(tryNumber);
+
+        performRound(cars, game);
+        sortFinalWinner(cars);
     }
 
     private static void validateTryNumberType(String stringNumber) {
@@ -64,20 +56,15 @@ public class GameController {
         }
     }
 
-    private void moveCars() {
-        List<Car> carList = game.getCarList();
-        carList.forEach(car -> {
-            int randomDistance = Randoms.pickNumberInRange(0,9);
-                    if(randomDistance >= 4) {
-                car.updateCarLocation(randomDistance);
-            }
-            OutputView.informCarMoveDistance(car.getCarName(), randomDistance);
-        });
-        System.out.println();
+    private void performRound(Cars cars, Game game) {
+        for (int i = 0; i < game.getTryNumber(); i++) {
+            cars.moveCars();
+            OutputView.informCarMoveDistance(cars.getCars());
+        }
     }
 
-    private void sortFinalWinner(List<Car> carList) {
-        List<Car> sortedCars = getSortedCars(carList);
+    private void sortFinalWinner(Cars cars) {
+        List<Car> sortedCars = getSortedCars(cars.getCars());
         List<Car> farthestCars = getFarthestCars(sortedCars);
         List<String> winnerCarNames = getWinnerCarNames(farthestCars);
         OutputView.informFinalWinner(winnerCarNames);
