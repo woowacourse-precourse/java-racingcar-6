@@ -9,27 +9,21 @@ import view.InputView;
 import view.OutputView;
 
 public class RaceInitializer {
-    private final InputView inputView;
-    private final OutputView outputView;
-    private final NameListValidator nameListValidator;
-    private final AttemptTimesValidator attemptTimesValidator;
-
-    RaceInitializer(){
-        this.inputView = new InputView();
-        this.outputView = new OutputView();
-        this.nameListValidator = new NameListValidator();
-        this.attemptTimesValidator = new AttemptTimesValidator();
-    }
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
+    private final NameListValidator nameListValidator = new NameListValidator();
+    private final AttemptTimesValidator attemptTimesValidator  = new AttemptTimesValidator();
 
     public RaceDto initRace(){
-        HashMap<String, String> carNames = initCarNames();
+        List<String> carNames = getAndValidateNames();
         int attemptTimes = getAndValidateAttempts();
-        return new RaceDto(carNames, attemptTimes);
+        HashMap<String, String> carNameToAdvanceMap = makeHashMapInitializedKeyBy(carNames);
+        return new RaceDto(carNameToAdvanceMap, attemptTimes);
     }
 
-    private HashMap<String, String> initCarNames(){
+    private HashMap<String, String> makeHashMapInitializedKeyBy(List<String> names){
         HashMap<String, String> cars = new HashMap<>();
-        getAndValidateNames().forEach( e -> cars.put(e, ""));
+        names.forEach( e -> cars.put(e, ""));
         return cars;
     }
 
