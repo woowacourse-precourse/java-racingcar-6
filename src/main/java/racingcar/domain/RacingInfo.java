@@ -12,17 +12,17 @@ public class RacingInfo {
     private List<String> carNames;
     private int turn;
 
+    public RacingInfo(List<String> carNames, int turn) {
+        this.carNames = carNames;
+        this.turn = turn;
+    }
+
     public List<String> getCarNames() {
         return carNames;
     }
 
     public int getTurn() {
         return turn;
-    }
-
-    public RacingInfo(List<String> carNames, int turn) {
-        this.carNames = carNames;
-        this.turn = turn;
     }
 
     public static RacingInfo enter() {

@@ -1,12 +1,15 @@
 package racingcar.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Racing {
     private List<Car> cars;
     private int turn;
     private List<Integer> distanceRecord;
     private List<Car> winners;
+
     public Racing(List<Car> cars, int turn) {
         this.cars = cars;
         this.turn = turn;
@@ -30,22 +33,6 @@ public class Racing {
         }
     }
 
-    private void selectWinners() {
-        Collections.sort(cars);
-        int maxDist = cars.get(0).getMovedDist();
-        for (Car car : cars) {
-            if (car.getMovedDist() == maxDist) {
-                winners.add(car);
-            } else break;
-        }
-    }
-
-    private void printWinners() {
-        List<String> winnersName = winners
-                .stream().map(Car::getName).toList();
-        System.out.println("최종 우승자 : " + String.join(", ", winnersName));
-    }
-
     private void printEachTurn() {
         System.out.println("\n실행결과: ");
         int carIndex = 0;
@@ -60,6 +47,22 @@ public class Racing {
             carIndex++;
         }
         System.out.println();
+    }
+
+    private void selectWinners() {
+        Collections.sort(cars);
+        int maxDist = cars.get(0).getMovedDist();
+        for (Car car : cars) {
+            if (car.getMovedDist() == maxDist) {
+                winners.add(car);
+            } else break;
+        }
+    }
+
+    private void printWinners() {
+        List<String> winnersName = winners
+                .stream().map(Car::getName).toList();
+        System.out.println("최종 우승자 : " + String.join(", ", winnersName));
     }
 
     public static Racing create(RacingInfo racingInfo) {
