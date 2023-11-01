@@ -49,7 +49,7 @@ public class Controller {
 
     public static void judgeEachCar(String key, HashMap<String,String> hashMap, int maxNum) {
         if (hashMap.get(key).length() == maxNum) {
-            winnerArrayList.add(hashMap.get(key));
+            winnerArrayList.add(key);
         }
     }
 
