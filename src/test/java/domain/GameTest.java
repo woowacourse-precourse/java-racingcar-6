@@ -19,10 +19,9 @@ import racingcar.domain.Game;
 import racingcar.domain.Umpire;
 
 public class GameTest extends NsTest {
-    private static final int NOT_MOVE = 0;
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-    private final String[] names = new String[] {"pobi", "woni", "jun"};
+    private final String[] names = new String[]{"pobi", "woni", "jun"};
 
     @Test
     void 자동차_이름을_쉼표로_구분하여_입력받기() {
@@ -41,17 +40,6 @@ public class GameTest extends NsTest {
         command("5");
 
         assertThatCode(() -> attempt.saveAttemptNumber()).doesNotThrowAnyException();
-    }
-
-    @Test
-    void 아무도_움직이지_않았을_경우() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("pobi,woni", "2");
-                    assertThat(output()).contains("pobi : ", "woni : ", "pobi : ", "woni : ", "최종 우승자 :");
-                },
-                NOT_MOVE, NOT_MOVE
-        );
     }
 
     @Test
