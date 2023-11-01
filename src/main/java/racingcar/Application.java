@@ -33,6 +33,7 @@ public class Application {
 
         for (int i = 0; i < time; i++) {
             for (int j = 0; j < track.size(); j++) {
+                randNum.generateRandomNumber();
                 int randomNumber = randNum.getRandomNumber();
                 carSimulate.goSimulate(randomNumber, j, track);
             }
@@ -42,7 +43,7 @@ public class Application {
 
         Winner winner = new Winner();
         int bestRecord = winner.calculateBestRecord(track);
-        List<Integer> result = winner.findWinnerindex(track,bestRecord);
+        List<Integer> result = winner.findWinnerindex(track, bestRecord);
         winner.printResult(result, car);
     }
 }

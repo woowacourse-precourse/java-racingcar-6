@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
-    public int calculateBestRecord(List<Integer> track){
+    public int calculateBestRecord(List<Integer> track) {
         int bestRecord = 0;
         for (int currentPosition : track) {
             if (bestRecord <= currentPosition) {
@@ -14,7 +14,8 @@ public class Winner {
         return bestRecord;
 
     }
-    public List<Integer> findWinnerindex(List<Integer> track,int bestRecord) {
+
+    public List<Integer> findWinnerindex(List<Integer> track, int bestRecord) {
         List<Integer> winnerIndex = new ArrayList<>();
 
         for (int i = 0; i < track.size(); i++) {
