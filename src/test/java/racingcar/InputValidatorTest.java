@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.consts.ErrorMessages;
-import racingcar.util.InputValidator;
+import racingcar.domain.InputValidator;
 
 public class InputValidatorTest {
     InputValidator inputValidator = new InputValidator();
