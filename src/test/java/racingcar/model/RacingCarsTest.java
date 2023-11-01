@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.mock.FakeMovingStrategy.ALWAYS_MOVING_STRATEGY;
@@ -10,8 +10,6 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.model.RacingCar;
-import racingcar.model.RacingCars;
 
 public class RacingCarsTest {
 
