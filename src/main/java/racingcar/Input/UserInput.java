@@ -22,6 +22,9 @@ public class UserInput {
 
         for (String name : names) {
             String trimmedName = name.trim(); // 앞 뒤 공백은 허용
+            if (trimmedName.isEmpty()) {
+                throw new IllegalArgumentException("공백은 자동차 이름이 될 수 없습니다.");
+            }
             if (trimmedName.contains(" ")) {
                 throw new IllegalArgumentException("자동차 이름에는 띄어쓰기가 포함되면 안 됩니다.");
             }
