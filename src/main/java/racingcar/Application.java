@@ -40,7 +40,10 @@ public class Application {
         }
     }
 
-    // 횟수 입력시 생길수있는 예외처리(예외발생시 바로종료)
+    /**
+     * 횟수 입력시 생길수있는 예외처리(예외발생시 바로종료)
+     * @param attemptsInput attempts input array
+     */
     private static void validateAttempts(String attemptsInput) {
         int numberOfAttempts;
         try {
