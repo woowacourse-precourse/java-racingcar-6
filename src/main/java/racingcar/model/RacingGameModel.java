@@ -29,5 +29,23 @@ public class RacingGameModel {
         }
     }
 
+    // 승리한 자동차 List를 넘겨주는 메서드
+    public List<Car> pickWinners(List<Car> cars){
+        List<Car> winners = new ArrayList<>();
+        int maxCount = 0;
+
+        for(Car car: cars){
+            if(car.getForwardCount() > maxCount){
+                maxCount = car.getForwardCount();
+            }
+        }
+        for(Car car: cars){
+            if(car.getForwardCount() == maxCount){
+                winners.add(car);
+            }
+        }
+        return winners;
+    }
+
 
 }
