@@ -3,27 +3,17 @@ package racingcar;
 import racingcar.utils.Constants;
 
 public class Car {
-    private String name;
-    private int location = 0;
+    private Name name;
+    private Location location;
 
     public Car(String name) {
-        validateName(name);
-        this.name = name;
-    }
-
-    private void validateName(String name) {
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름은 비어있을 수 없습니다.");
-        }
-    }
-
-    private void move() {
-        location++;
+        this.name = new Name(name);
+        this.location = new Location();
     }
 
     public void tryMove(int fuel) {
         if (canMove(fuel)) {
-            move();
+            location.move();
         }
     }
 
@@ -32,10 +22,10 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.getValue();
     }
 
     public int getLocation() {
-        return location;
+        return location.getValue();
     }
 }
