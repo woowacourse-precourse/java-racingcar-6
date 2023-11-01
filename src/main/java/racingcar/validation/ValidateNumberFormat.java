@@ -2,7 +2,6 @@ package racingcar.validation;
 
 import racingcar.exception.InvalidNumberFormatException;
 
-import java.util.Arrays;
 
 public class ValidateNumberFormat {
     public static void validate(String value) {
