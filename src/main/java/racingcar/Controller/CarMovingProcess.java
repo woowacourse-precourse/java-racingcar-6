@@ -14,15 +14,16 @@ public class CarMovingProcess {
     RacingData racingData = RacingData.getInstance();
 
 
-    public void makingForwardCountList(){
+    public List<Integer> makingForwardCountList(List<String> carNameList){
 
         List<Integer> forwardCountList = new ArrayList<>();
 
-        for (int i = 0; i < car.getPassedTestList().size(); i++) {
+        for (int i = 0; i < carNameList.size(); i++) {
             forwardCountList.add(i ,0);
         }
 
         racingData.setForwardPointList(forwardCountList);
+        return forwardCountList;
     }
 
     public void upDateForwardCountList(){
@@ -37,6 +38,22 @@ public class CarMovingProcess {
         }
 
         racingData.setForwardPointList(forwardCountList);
+    }
+
+
+    public List<Integer> upDateForwardCountList(List<Integer> beforePointList){
+
+        int updateCount = 0;
+
+        List<Integer> forwardCountList = beforePointList;
+
+        for (int i = 0; i < beforePointList.size(); i++) {
+            updateCount = forwardCountList.get(i) + moveOrNot();
+            forwardCountList.set(i,updateCount);
+        }
+
+        racingData.setForwardPointList(forwardCountList);
+        return forwardCountList;
     }
 
     public int makeRandomNum() {
