@@ -23,13 +23,13 @@ public class Cars {
             car.goForward(randomNumber.createRandomNumber());
         }
     }
-    public static void makeHash(){
+    private static void makeHash(){
         for(Car car : cars){
             findMax.put(car.getName(), car.getForward());
         }
     }
 
-    public static int findMaxForward(){
+    private static int findMaxForward(){
         makeHash();
         int maxForward = findMax.values().stream()
                 .mapToInt(Integer::intValue)
