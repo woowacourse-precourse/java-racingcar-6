@@ -21,9 +21,9 @@ public class InputView {
 		return Arrays.asList(dividedCarNames);
 	}
 
-	public static int readTrial() {
+	public static Long readTrial() {
 		String trial = Console.readLine();
 		TrialValidator.validate(trial);
-		return Integer.parseInt(trial);
+		return Long.valueOf(trial);
 	}
 }
