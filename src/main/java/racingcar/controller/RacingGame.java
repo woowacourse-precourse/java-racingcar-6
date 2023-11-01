@@ -11,7 +11,6 @@ import racingcar.constant.Validator;
 import racingcar.domain.Race;
 
 public class RacingGame {
-    private Race race;
     private static final RacingGame instance = new RacingGame();
 
     private RacingGame() {
@@ -27,7 +26,7 @@ public class RacingGame {
         System.out.println(TRY.message());
         int totalRound = roundInputRequest();
 
-        race = new Race(totalRound);
+        Race race = new Race(totalRound);
         race.entry(carNames);
 
         race.start();
