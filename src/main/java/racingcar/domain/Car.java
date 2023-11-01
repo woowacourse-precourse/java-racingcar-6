@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Objects;
 import racingcar.vo.CarName;
 
 public class Car {
@@ -29,6 +30,23 @@ public class Car {
         if (isCarMove) {
             this.moveForward();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Car otherCar = (Car) o;
+        return this.name.equals(otherCar.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.name);
     }
 
 }

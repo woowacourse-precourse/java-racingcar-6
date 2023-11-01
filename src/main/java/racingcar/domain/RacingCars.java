@@ -12,6 +12,8 @@ public class RacingCars implements Iterable<Car> {
     private final List<Car> cars;
 
     public RacingCars(List<Car> cars) {
+        checkNameDuplication(cars);
+
         this.cars = new ArrayList<>(cars);
     }
 
