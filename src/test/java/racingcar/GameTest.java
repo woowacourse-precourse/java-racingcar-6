@@ -1,0 +1,7 @@
+package racingcar;
+
+class GameTest {
+
+
+
+}
