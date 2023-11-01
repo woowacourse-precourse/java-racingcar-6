@@ -19,6 +19,23 @@
 
 
 ## ⚙ 구현할 기능
+### 📮 패키지 구조
+
+![package.jpg](package.jpg)
+
+- 📁 racingCar
+  - 📁 controller
+    - RacingCarController.java
+  - 📁 domain
+    - Car.java
+    - CarList.java
+  - 📁 service
+    - RacingCarService.java
+  - 📁 validation
+    - RacingCarValidation.java
+  - 📁 view
+    - RacingCarView.java
+  - Application.java
 
 ### 🚀 기능
 - [x] 도메인
