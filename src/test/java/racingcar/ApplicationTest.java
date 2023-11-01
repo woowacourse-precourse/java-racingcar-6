@@ -6,11 +6,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    private static final List<String> names = new ArrayList<>();
 
     @Test
     void 전진_정지() {
@@ -33,8 +37,10 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 비어있는_이름_입력시_예외_처리() {
+        names.clear();
+        names.add("");
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> InputValidator.carsName("", new String[]{""}))
+                assertThatThrownBy(() -> InputValidator.carsName("", names))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -119,9 +125,11 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 자동차_위치_증가() {
-        String[] names = {
-                "abc", "def", "ghi"
-        };
+        names.clear();
+        names.add("abc");
+        names.add("def");
+        names.add("ghi");
+
         CarList carList = new CarList(names);
         carList.plusOnePosition(0);
         carList.plusOnePosition(0);
@@ -133,13 +141,15 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 자동차_최대_위치_탐색_1명() {
-        String[] names = {
-                "abc", "def", "ghi"
-        };
+        names.clear();
+        names.add("abc");
+        names.add("def");
+        names.add("ghi");
+
         CarList carList = new CarList(names);
         carList.plusOnePosition(0);
         carList.plusOnePosition(0);
-        int[] maxPositionIndexArray = carList.findMaxCarPositionIndex();
+        List<Integer> maxPositionIndexArray = carList.findMaxCarPositionIndex();
         assertThat(maxPositionIndexArray)
                 .containsExactly(0);
 
@@ -152,13 +162,15 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 자동차_최대_위치_탐색_다수() {
-        String[] names = {
-                "abc", "def", "ghi"
-        };
+        names.clear();
+        names.add("abc");
+        names.add("def");
+        names.add("ghi");
+        
         CarList carList = new CarList(names);
         carList.plusOnePosition(0);
         carList.plusOnePosition(1);
-        int[] maxPositionIndexArray = carList.findMaxCarPositionIndex();
+        List<Integer> maxPositionIndexArray = carList.findMaxCarPositionIndex();
         assertThat(maxPositionIndexArray)
                 .containsExactly(0, 1);
     }
