@@ -16,9 +16,11 @@ class CarTest extends NsTest {
 
     Car car1 = new Car("car1");
     Car car2 = new Car("car2");
+
     @AfterEach
-    void setClear(){
-        car1.clear();;
+    void setClear() {
+        car1.clear();
+        ;
         car2.clear();
     }
 
@@ -62,15 +64,15 @@ class CarTest extends NsTest {
 
     @Test
     @DisplayName("자동차가 정지하면 이동거리는 증가하지 않는다.")
-    void 정지_테스트(){
+    void 정지_테스트() {
         //given
-        String locate1="";
-        for(int i=0;i<2;i++){
-            locate1=car1.moveForward();
+        String locate1 = "";
+        for (int i = 0; i < 2; i++) {
+            locate1 = car1.moveForward();
         }
 
         //when
-        locate1=car1.moveStop();
+        locate1 = car1.moveStop();
 
         //then
         Assertions.assertThat(locate1).isEqualTo("--");
@@ -78,9 +80,9 @@ class CarTest extends NsTest {
 
     @Test
     @DisplayName("자동차가 현재 위치를 알려줄 수 있다.")
-    void 자동차_위치(){
+    void 자동차_위치() {
         //given
-        String distance="---";
+        String distance = "---";
 
         //when
         car1.moveForward();
@@ -93,7 +95,7 @@ class CarTest extends NsTest {
 
     @Test
     @DisplayName("자동차의 위치를 초기화한다.")
-    void 자동차_초기화(){
+    void 자동차_초기화() {
         //given
         car1.moveForward();
         car1.moveForward();
@@ -107,7 +109,7 @@ class CarTest extends NsTest {
 
     @Test
     @DisplayName("자동차의 이름이 공백이면 예외를 발생한다.")
-    void 이름_예외_처리(){
+    void 이름_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,  ,hello ", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
