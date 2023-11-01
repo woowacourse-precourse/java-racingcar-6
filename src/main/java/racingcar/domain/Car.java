@@ -20,4 +20,10 @@ public class Car {
         }
         return 0;
     }
+    public String addWinner(int maxDistance,String winners){
+        if(this.distance == maxDistance){
+            return winners+" "+name+",";
+        }
+        return winners;
+    }
 }

@@ -13,6 +13,7 @@ public class Game{
     static String inputAttempts="";
     static int attempts=0;
     static int maxDistance=0;
+    static String winners = "최종 우승자 :";
     public void run(){
         setInputMembers();
         makeMembers();
@@ -20,6 +21,7 @@ public class Game{
         makeAttempts();
         startAttempts();
         setMaxDistance();
+        createWinners();
         showWinners();
     }
     public void setInputMembers(){
@@ -72,7 +74,15 @@ public class Game{
             }
         }
     }
+    public void createWinners(){
+        for (Car car:members) {
+            winners = car.addWinner(maxDistance,winners);
+        }
+    }
     public void showWinners(){
-
+        if (winners.endsWith(",")) {
+            winners = winners.substring(0, winners.length() - 1);
+        }
+        System.out.println(winners);
     }
 }
