@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class RacingcarGame {
+    private static final int MAX_MOVE_FORWARD_COUNT = 0;
     private static final int CRITERION_FOUR = 4;
     private static final int MOVE_FORWARD_ONCE = 1;
 
@@ -19,7 +20,7 @@ public class RacingcarGame {
         return cars.stream()
                    .mapToInt(Car::getMoveForwardCount)
                    .max()
-                   .orElse(0);
+                   .orElse(MAX_MOVE_FORWARD_COUNT);
     }
 
     public void increaseMoveForwardCount(Car car, int randomNumber) {

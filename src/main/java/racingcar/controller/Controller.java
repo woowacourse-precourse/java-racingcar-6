@@ -9,25 +9,25 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
+    private static final int STOP_MOVE_FORWARD = 0;
     private final RacingcarGame racingcarGame = new RacingcarGame();
+    private List<Car> cars;
+    private int attemptCount;
 
     public void run() {
-        OutputView.printInputCarName();
-        List<Car> cars = createCarsFromInputCarNames();
+        startGame();
+        playGame();
+        showWinners();
+    }
 
-        OutputView.printInputAttemptCount();
-        Attempt attempt = createAttemptFromInputAttemptCount();
-        int attemptCount = attempt.getAttemptCount();
-
-        OutputView.printRaceResult();
-        iterateMoveCars(cars, attemptCount);
-
+    private void showWinners() {
         List<String> winners = racingcarGame.createWinners(cars);
         OutputView.printWinner(winners);
     }
 
-    private void iterateMoveCars(List<Car> cars, int attemptCount) {
-        while (attemptCount > 0) {
+    private void playGame() {
+        OutputView.printRaceResult();
+        while (attemptCount > STOP_MOVE_FORWARD) {
             moveCars(cars);
             attemptCount--;
             System.out.println();
@@ -42,12 +42,20 @@ public class Controller {
         }
     }
 
-    private Attempt createAttemptFromInputAttemptCount() {
-        return new Attempt(InputView.inputAttemptCount());
+    private void startGame() {
+        setupCarsFromInputCarNames();
+        setupAttemptCountFromInputAttemptCount();
     }
 
-    private List<Car> createCarsFromInputCarNames() {
-        return InputView.inputCarNames()
+    private void setupAttemptCountFromInputAttemptCount() {
+        OutputView.printInputAttemptCount();
+        Attempt attempt = new Attempt(InputView.inputAttemptCount());
+        attemptCount = attempt.getAttemptCount();
+    }
+
+    private void setupCarsFromInputCarNames() {
+        OutputView.printInputCarNames();
+        cars = InputView.inputCarNames()
                         .stream()
                         .map(Car::new)
                         .toList();
