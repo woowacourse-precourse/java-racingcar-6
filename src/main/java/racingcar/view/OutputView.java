@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.RacingCar;
+import racingcar.domain.RacingCar;
 
 public class OutputView {
     private static final String COLON = " : ";
