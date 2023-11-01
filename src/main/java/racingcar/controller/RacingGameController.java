@@ -1,6 +1,11 @@
-package racingcar;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.Car;
+import racingcar.domain.GameData;
+import racingcar.verifier.CarNameVerifier;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +28,11 @@ public class RacingGameController {
 
     // GameDate 초기화
     private void initializeGameData() {
-        try {
-            String carNamesInput = InputView.receiveCarNames();
-            String[] carNames = carNamesInput.split(",");
-            int tryCount = Integer.parseInt(InputView.getRound());
-            gameData = new GameData(carNames, tryCount);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
-        }
+        String carNamesInput = InputView.receiveCarNames();
+        new CarNameVerifier(carNamesInput);
+        String[] carNames = carNamesInput.split(",");
+        int tryCount = Integer.parseInt(InputView.getRound());
+        gameData = new GameData(carNames, tryCount);
     }
     // Cars 초기화.
     private void initializeCars() {
