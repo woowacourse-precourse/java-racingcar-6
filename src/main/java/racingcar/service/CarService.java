@@ -6,8 +6,8 @@ public class CarService {
 
     private final int FORWARD_COUNT;
 
-    public CarService(int FORWARD_COUNT) {
-        this.FORWARD_COUNT = FORWARD_COUNT;
+    public CarService(int forwardCount) {
+        this.FORWARD_COUNT = forwardCount;
     }
 
     public void ForwardOrStop(Car car) {

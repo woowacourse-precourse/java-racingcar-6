@@ -22,7 +22,7 @@ public class RaceConfig {
         return new RaceManager(cars, carService, inputManager, outputManager);
     }
 
-    private List<Car> getCars(){
+    private List<Car> getCars() {
 
         CarFactory carFactory = new CarFactory();
         return carFactory.generateCars();
