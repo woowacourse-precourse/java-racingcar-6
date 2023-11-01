@@ -1,6 +1,5 @@
-package racingcar.Service;
+package racingcar.service;
 
-import java.util.*;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputHandler {

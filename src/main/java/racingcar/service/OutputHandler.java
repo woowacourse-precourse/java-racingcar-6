@@ -1,4 +1,4 @@
-package racingcar.Service;
+package racingcar.service;
 
 import racingcar.domain.Car;
 import java.util.*;
