@@ -6,6 +6,9 @@ public class Car {
     private int moveCount = 0;
     private String name= "";
 
+    public Car(String name) {
+        this.name = name;
+    }
 
     public void tryToMove(){
         if (compare(generateRandomNumber())){

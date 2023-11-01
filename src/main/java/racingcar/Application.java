@@ -14,7 +14,7 @@ public class Application {
         List<Car> cars = new ArrayList<Car>();
         List<String> names = askName();
         for (int i = 0; i < 3; i++) {
-            cars.get(i).setName(names.get(i));
+            cars.add(new Car(names.get(i)));
         }
 
         int n = askCount();
@@ -46,11 +46,7 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
 
         String[] names = readLine().split(",");
-        List<String> ret = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            ret.add(names[i]);
-        }
-        return ret;
+        return new ArrayList<>(Arrays.asList(names));
     }
     public static int askCount(){
         System.out.println("시도할 회수는 몇회인가요?\n");

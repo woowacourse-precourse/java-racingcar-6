@@ -5,7 +5,7 @@
   - [x] 4 이상일 경우 전진한다. Car#compare()
 - [x] 각 자동차에 이름을 부여한다. Application#askName()
 - [x] 몇번 이동할 것인지 입력받는다. Application#askCount()
-- [ ] 경주 종료후 우승자를 출력한다. Application#printResult()
+- [x] 경주 종료후 우승자를 출력한다. Application#printResult()
 
 
 ## 🚀 기능 요구 사항
