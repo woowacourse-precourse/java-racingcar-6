@@ -1,9 +1,11 @@
 package racingcar.service;
 
-import static racingcar.Constants.MOVEMENT;
-import static racingcar.Constants.MOVEMENT_CONDITION;
-import static racingcar.Constants.NUMBER_END;
-import static racingcar.Constants.NUMBER_START;
+import static racingcar.constant.Constants.IDENTITY_NUMBER;
+import static racingcar.constant.Constants.MOVEMENT;
+import static racingcar.constant.Constants.MOVEMENT_CONDITION;
+import static racingcar.constant.Constants.NUMBER_END;
+import static racingcar.constant.Constants.NUMBER_START;
+import static racingcar.constant.Constants.STARTING_POSITION;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
@@ -14,6 +16,18 @@ public class CarService {
     private final CarRepository carRepository = new CarRepository();
 
     public CarService() {
+    }
+
+    public void carGenerate(String name) {
+        this.carRepository.add(new Car(
+                IDENTITY_NUMBER++,
+                name,
+                STARTING_POSITION
+        ));
+    }
+
+    public List<Car> getAllCar() {
+        return this.carRepository.findAll();
     }
 
     public void carMovement(Car car) {
