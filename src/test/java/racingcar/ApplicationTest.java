@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.constant.AnnouncerScript;
 import racingcar.constant.Error;
 import racingcar.domain.Car;
 
@@ -53,7 +54,6 @@ class ApplicationTest extends NsTest {
     }
 
     @DisplayName("GameService - setCarName")
-
     @Test
     void 중복된_자동차_이름_예외_처리() {
         // given
@@ -95,9 +95,13 @@ class ApplicationTest extends NsTest {
     @DisplayName("GameService - setTryNumber")
     @Test
     void 시도_횟수가_자연수() {
-        //given
+        // given
         String attemp = "1";
 
+        // when
+        assertThatCode(() -> {
+            run("poni,woni", attemp);
+        }).doesNotThrowAnyException();
     }
 
 
