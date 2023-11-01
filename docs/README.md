@@ -20,5 +20,5 @@
 - [x] 턴 진행 후 각 레이싱카의 실행 결과 출력한다. -Race#displayRoundResults
 
 ### 결과
-- [ ] 가장 많은 전진을 기록한 레이싱카를 우승자로 선정(중복 가능) -Game#determineWinners
-- [ ] 우승자 출력한다. -Game#displayWinners
+- [x] 가장 많은 전진을 기록한 레이싱카를 우승자로 선정(중복 가능) -Game#determineWinners
+- [x] 우승자 출력한다. -Game#displayWinners
