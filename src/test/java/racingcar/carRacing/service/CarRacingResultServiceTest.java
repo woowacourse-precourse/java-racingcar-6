@@ -20,7 +20,7 @@ public class CarRacingResultServiceTest {
     private CarRacingGameService carRacingGameService;
 
     @BeforeEach
-    public void beforEach() {
+    public void beforeEach() {
         carRacing = new CarRacing();
         carRacingGameService = new CarRacingGameService(carRacing);
     }
