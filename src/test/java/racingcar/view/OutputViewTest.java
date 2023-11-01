@@ -31,6 +31,17 @@ public class OutputViewTest extends NsTest {
         });
     }
 
+    @Test
+    void 자동차_경주_실행_결과_도입부_문구를_출력하는_기능_테스트() {
+        assertSimpleTest(() -> {
+            //when
+            OutputView.printRaceResultIntroduction();
+
+            //then
+            Assertions.assertThat(output()).contains("실행 결과");
+        });
+    }
+
 
 
     @Override
