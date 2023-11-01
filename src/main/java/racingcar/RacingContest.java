@@ -14,6 +14,13 @@ public class RacingContest {
     }
 
     void insertCar(RacingCar newCar){
+        //이미 중복된 이름을 가지고 있을 경우 Exception
+        for(RacingCar existCar : racingCars){
+            if(existCar.getName().compareTo(newCar.getName())==0){
+                throw new IllegalArgumentException();
+            }
+        }
+
         racingCars.add(newCar);
     }
 
