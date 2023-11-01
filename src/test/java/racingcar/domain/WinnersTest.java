@@ -11,8 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class WinnersTest {
 
     @Test
-    @DisplayName("공동 우승자 1명")
-    void findWinnersTestOne() {
+    @DisplayName("두 자동차의 위치가 다르면 우승자 1명")
+    void When_TwoPositionsAreDifferent_Expect_1Winners() {
         // given
         List<Car> cars = new ArrayList<>();
         Car pobiCar = new Car("pobi");
@@ -23,8 +23,8 @@ class WinnersTest {
         // when
         int goRandomNumber = 4;
         int stopRandomNumber = 3;
-        pobiCar.goOrStop(goRandomNumber);
-        woniCar.goOrStop(stopRandomNumber);
+        pobiCar.MoveOrStop(goRandomNumber);
+        woniCar.MoveOrStop(stopRandomNumber);
 
         Winners winners = new Winners(cars);
 
@@ -34,8 +34,8 @@ class WinnersTest {
     }
 
     @Test
-    @DisplayName("공동 우승자 2명")
-    void findWinnersTestTwo() {
+    @DisplayName("두 자동차의 위치가 같으면 우승자 2명")
+    void When_TwoPositionsAreSame_Expect_2Winners() {
         // given
         List<Car> cars = new ArrayList<>();
         Car pobiCar = new Car("pobi");
@@ -46,8 +46,8 @@ class WinnersTest {
         // when
         int goRandomNumber = 4;
         int stopRandomNumber = 5;
-        pobiCar.goOrStop(goRandomNumber);
-        woniCar.goOrStop(stopRandomNumber);
+        pobiCar.MoveOrStop(goRandomNumber);
+        woniCar.MoveOrStop(stopRandomNumber);
 
         Winners winners = new Winners(cars);
 

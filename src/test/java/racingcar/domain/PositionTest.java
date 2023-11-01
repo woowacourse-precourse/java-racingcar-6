@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 class PositionTest {
 
     @Test
-    @DisplayName("position 값 1 증가")
-    void moveTest() {
+    @DisplayName("위치 값 1 증가")
+    void Expect_IncreasePositionBy1() {
         // given
         Position position = new Position();
 
@@ -20,8 +20,8 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("compareToSame 비교 결과 0(위치 값이 같음)")
-    void compareToTestSame() {
+    @DisplayName("두 위치 값이 같을 때 비교 결과 0")
+    void When_TwoPositionAreSame_Expect_0() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();
@@ -34,8 +34,8 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("compareToSame 비교 결과 양수(위치 값이 더 큼)")
-    void compareToTestDifferentMore() {
+    @DisplayName("첫 번째 위치 값이 더 클 때 비교 결과 양수")
+    void When_FirstPositionIsLarger_Expect_Positive() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();
@@ -49,8 +49,8 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("compareToSame 비교 결과 음수(위치 값이 더 작음)")
-    void compareToTestDifferentLess() {
+    @DisplayName("첫 번째 위치 값이 더 작을 때 비교 결과 음수")
+    void When_FirstPositionIsSmaller_Expect_Negative() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();
@@ -64,8 +64,8 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("isSamePosition 비교 결과 같음")
-    void isSamePositionTestSame() {
+    @DisplayName("두 위치 값이 같을 때 비교 결과 true")
+    void When_TwoPositionAreSame_Expect_True() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();
@@ -78,8 +78,8 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("isSamePosition 비교 결과 다름")
-    void isSamePositionTestDifferent() {
+    @DisplayName("두 위치 값이 다를 때 비교 결과 false")
+    void When_TwoPositionAreDifferent_Expect_False() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();

@@ -8,7 +8,7 @@ class NameTest {
 
     @Test
     @DisplayName("자동차 이름이 5글자 이하이면 성공")
-    void validateNameTest() {
+    void When_CarNameIsLessThan5_Expect_Success() {
         // when
         Name name = new Name("jason");
 
@@ -18,7 +18,7 @@ class NameTest {
 
     @Test
     @DisplayName("자동차 이름이 5글자 초과이면 실패")
-    void validateNameFailTest() {
+    void When_CarNameIsLongerThan5_Expect_Fail() {
         // then
         Assertions.assertThatThrownBy(() -> new Name("jasonn"))
                 .isInstanceOf(IllegalArgumentException.class);

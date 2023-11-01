@@ -6,44 +6,30 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
 
-    private static final String CORRECT_NAME = "pobi";
     private static final int MOVABLE_NUMBER = 4;
     private static final int IMMOVABLE_NUMBER = 3;
 
     @Test
-    @DisplayName("자동차 객체 생성 성공")
-    void carTest() {
+    @DisplayName("랜덤 값이 4 이상이면 전진")
+    void When_NumberIs4OrMore_Expect_Move() {
         // given
-        String name = CORRECT_NAME;
+        Car car = new Car("pobi");
 
         // when
-        Car car = new Car(name);
-
-        // then
-        Assertions.assertThat(car).isNotNull();
-    }
-
-    @Test
-    @DisplayName("4 이상이면 전진")
-    void goOrStopTestGo() {
-        // given
-        Car car = new Car(CORRECT_NAME);
-
-        // when
-        car.goOrStop(MOVABLE_NUMBER);
+        car.MoveOrStop(MOVABLE_NUMBER);
 
         // then
         Assertions.assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @Test
-    @DisplayName("4 미만이면 정지")
-    void goOrStopTestStop() {
+    @DisplayName("랜덤 값이 4 미만이면 정지")
+    void When_NumberIsLessThan4_Expect_Stop() {
         // given
-        Car car = new Car(CORRECT_NAME);
+        Car car = new Car("pobi");
 
         // when
-        car.goOrStop(IMMOVABLE_NUMBER);
+        car.MoveOrStop(IMMOVABLE_NUMBER);
 
         // then
         Assertions.assertThat(car.getPosition()).isEqualTo(0);

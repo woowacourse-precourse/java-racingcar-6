@@ -9,21 +9,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class CarsTest {
 
     @Test
-    @DisplayName("Cars 객체 생성 성공")
-    void CarsTest() {
-        // given
-        String inputNames = "pobi,yoni";
-
-        // when
-        Cars cars = new Cars(inputNames);
-
-        // then
-        Assertions.assertThat(cars).isNotNull();
-    }
-
-    @Test
     @DisplayName("자동차 이름에 공백이 포함되면 실패")
-    void CarsTestFailByBlank() {
+    void When_IncludeBlank_Expect_Fail() {
         // given
         String inputNamesNonSpace = "pobi,";
         String inputNamesSpace = "pobi, ";
@@ -36,8 +23,8 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("자동차 이름이 1개 입력되면 실패")
-    void CarsTestFailByCarCount() {
+    @DisplayName("자동차 이름이 1개만 입력되면 실패")
+    void When_CarIsOne_Expect_Fail() {
         // given
         String inputNames = "pobi";
 
@@ -48,7 +35,7 @@ class CarsTest {
 
     @Test
     @DisplayName("자동차 이름이 중복되면 실패")
-    void CarsTestFailByDuplicate() {
+    void When_Duplicated_Expect_Fail() {
         // given
         String inputNames = "pobi,pobi";
 
