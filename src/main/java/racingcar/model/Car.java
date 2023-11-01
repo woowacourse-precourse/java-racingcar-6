@@ -26,7 +26,7 @@ public class Car {
     }
 
     public boolean isWinner(final int winnerPosition) {
-        return position.getPosition() == winnerPosition;
+        return position.isEqualTo(winnerPosition);
     }
 
     public String getName() {

@@ -11,6 +11,10 @@ public class CarPosition {
         position++;
     }
 
+    public boolean isEqualTo(final int position) {
+        return this.position == position;
+    }
+
     public int getPosition() {
         return position;
     }
