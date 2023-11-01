@@ -36,7 +36,7 @@ public class ValidationTest {
         String name = ",김,,";
         Assertions.assertThatThrownBy(() -> Validation.endsWithComma(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("올바르지 않은 입력이에요.");
+                .hasMessageContaining("이름 마지막에 ,(comma)를 붙이지 말아주세요.");
     }
 
     @Test
@@ -44,7 +44,7 @@ public class ValidationTest {
         String name = "\n";
         Assertions.assertThatThrownBy(() -> Validation.isEmpty(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("올바르지 않은 입력이에요.");
+                .hasMessageContaining("아무 값도 입력하지 않았어요.");
     }
 }
 
