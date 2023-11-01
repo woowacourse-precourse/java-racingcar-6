@@ -31,5 +31,6 @@ public class Application {
             result.racePrint(cars, raceNumber);
             System.out.println(" ");
         }
+        result.resultPrint(cars, raceNumber);
     }
 }
