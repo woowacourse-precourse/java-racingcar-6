@@ -7,7 +7,6 @@ import racingcar.Domain.Car;
 import racingcar.Domain.Race;
 
 public class RacingCarService {
-
     private static final int minimizeRandomNumber = 4;
     private static final int moveForward = 1;
     private static final int minNumber = 0;
@@ -56,4 +55,5 @@ public class RacingCarService {
         }
         return max;
     }
+    
 }

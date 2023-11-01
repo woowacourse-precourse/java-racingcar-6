@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private List<Car> cars;
-
     private static final String commaSeparator = ",";
+
+    private List<Car> cars;
 
     public Cars(String carNames) {
         List<String> carNameList = splitByComma(carNames);
@@ -25,4 +25,5 @@ public class Cars {
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
+
 }

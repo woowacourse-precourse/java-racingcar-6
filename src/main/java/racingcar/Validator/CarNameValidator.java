@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class CarNameValidator {
-
     private static final int maxCarCount = 9;
     private static final int maxCarName = 5;
     private static final String commaSeparator = ",";
@@ -43,4 +42,5 @@ public class CarNameValidator {
     private static boolean isNotSplitByComma(String carName) {
         return !carName.contains(commaSeparator);
     }
+
 }

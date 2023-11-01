@@ -1,7 +1,6 @@
 package racingcar.Validator;
 
 public class TrialCountValidator {
-
     public static int validateTrialCount(String trialCountInput) {
         try {
             int trialCount = Integer.parseInt(trialCountInput);
@@ -15,4 +14,5 @@ public class TrialCountValidator {
             throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
         }
     }
+
 }

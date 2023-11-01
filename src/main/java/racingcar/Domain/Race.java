@@ -22,6 +22,4 @@ public class Race {
     public void increaseTrialCount() {
         trialCount++;
     }
-
-
 }
