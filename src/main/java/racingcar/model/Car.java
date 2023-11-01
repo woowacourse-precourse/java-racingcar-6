@@ -5,32 +5,30 @@ import java.util.Objects;
 public class Car {
 
     private static final int FORWARD_BASE_NUMBER = 4;
-    private static final String EMPTY_SPACE = "";
-    private static final String FORWARD_MOVEMENT_INDICATOR = "-";
     private static final String SEPARATOR = " : ";
 
     private final Name name;
-    private String location;
+    private final Location location;
 
     public Car(Name name) {
         this.name = name;
-        location = EMPTY_SPACE;
+        location = new Location();
     }
 
-    private Car(Name name, String location) {
+    private Car(Name name, Location location) {
         this.name = name;
         this.location = location;
     }
 
     public Car move(int randomNumber) {
         if (isForward(randomNumber)) {
-            location += FORWARD_MOVEMENT_INDICATOR;
+            location.goForward();
         }
         return new Car(name, location);
     }
 
     public int getLocationLength() {
-        return location.length();
+        return location.getLocationLength();
     }
 
     public String getName() {
@@ -51,7 +49,7 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location);
+        return Objects.hash(name);
     }
 
     @Override
