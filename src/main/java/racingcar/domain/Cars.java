@@ -29,15 +29,15 @@ public class Cars {
 
     public List<String> findWinners() {
         return cars.stream()
-            .filter(car -> car.getPosition() == findMaxPosition())
-            .map(Car::getName)
-            .collect(Collectors.toList());
+                .filter(car -> car.getPosition() == findMaxPosition())
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     public int findMaxPosition() {
         return cars.stream()
-            .mapToInt(Car::getPosition)
-            .max()
-            .orElse(-1);
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(-1);
     }
 }

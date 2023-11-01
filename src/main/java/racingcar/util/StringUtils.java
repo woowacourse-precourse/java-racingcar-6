@@ -14,13 +14,11 @@ public class StringUtils {
 
     public List<String> separateAndRemoveSpace(String string) {
         List<String> list = new ArrayList<>();
-
         StringTokenizer stringTokenizer = new StringTokenizer(string, SEPARATOR);
         while (stringTokenizer.hasMoreTokens()) {
             String carName = stringTokenizer.nextToken();
             list.add(removeSpace(carName));
         }
-
         return list;
     }
 
