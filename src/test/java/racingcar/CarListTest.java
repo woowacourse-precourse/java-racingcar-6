@@ -1,10 +1,12 @@
 package racingcar;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.CarList;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -12,13 +14,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarListTest {
 
+    private OutputView output ;
     private CarList cars;
     private Car pobiCar;
     private Car woniCar;
 
     @BeforeEach
     public void setUp() {
+
         cars = new CarList("pobi,woni,jun");
+        output = new OutputView();
 
         pobiCar = cars.getCars().get(0);
         woniCar = cars.getCars().get(1);
@@ -84,7 +89,22 @@ public class CarListTest {
 
     }
 
+    @Test
+    @DisplayName("position만큼 '-' 출력되는지 확인")
+    public void showPositionWithDashesTest() throws Exception{
+
+        Assertions.assertThat(output.showPositionWithDashes("-",pobiCar.getPosition()))
+                  .isEqualTo("---");
+
+        moveCarOnePosition(pobiCar);
+
+        Assertions.assertThat(output.showPositionWithDashes("-",pobiCar.getPosition()))
+                  .isEqualTo("----");
+
+    }
+
     private void moveCarOnePosition(Car carName) {
         cars.moveCarWhenNumberFourOrAbove(carName, 4);
     }
+
 }

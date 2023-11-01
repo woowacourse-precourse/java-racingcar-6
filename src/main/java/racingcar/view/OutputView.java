@@ -31,7 +31,7 @@ public class OutputView {
         System.out.println(car.getName()+" : "+ showPositionWithDashes("-", car.getPosition()));
     }
 
-    private String showPositionWithDashes(String str, int position) {
+    public String showPositionWithDashes(String str, int position) {
         return IntStream.range(0, position)
                 .mapToObj(i -> "-")
                 .collect(Collectors.joining());
