@@ -1,5 +1,6 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
+import controller.InputValidator;
 import model.Player;
 
 import java.io.ByteArrayOutputStream;
@@ -26,7 +27,7 @@ public class CarRaceGame {
             printResult(players);
             System.out.println();
         }
-        System.out.print("최종 우승자 :");
+        System.out.print("최종 우승자 : ");
         List<String> winners = getWinner(players);
         for(int i = 0; i < winners.size(); i++){
             if(i == winners.size()-1)
@@ -34,13 +35,11 @@ public class CarRaceGame {
             else
                 System.out.print(winners.get(i) + ", ");
         }
-
-
         // 입력한 값 숫자가 맞는지 에러처리기능(추후 메서드 화 시켜야함) - docs 변경 리펙토링
         // printResult(int n) - docs 변경 리펙토링
     }
     public static String[] saveName(String userInputName) {
-        String[] userNames = userInputName.split(",");
+        String[] userNames = InputValidator.exceptionHanding(userInputName);
         return userNames;
     }
 
@@ -78,4 +77,5 @@ public class CarRaceGame {
         }
         return winners;
     }
+
 }
