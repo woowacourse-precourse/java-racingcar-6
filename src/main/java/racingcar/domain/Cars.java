@@ -10,9 +10,10 @@ public class Cars {
     private static final String NAMING_BLANK_ERROR_MESSAGE = "공백은 자동차 이름이 될 수 없습니다.";
     private static final String CAR_COUNT_ERROR_MESSAGE = "1개의 자동차는 경주를 할 수 없습니다.";
     private static final String NAMING_DUPLICATES_ERROR_MESSAGE = "자동차 이름은 중복될 수 없습니다.";
+    private final RandomNumberGenerator randomNumberGenerator;
     private List<Car> cars;
 
-    public Cars(String inputNames) {
+    public Cars(String inputNames, RandomNumberGenerator randomNumberGenerator) {
         List<String> names = convertStringToList(inputNames);
         validateBlank(names);
 
@@ -23,6 +24,8 @@ public class Cars {
         cars = trimNames.stream()
                 .map(Car::new)
                 .toList();
+
+        this.randomNumberGenerator = randomNumberGenerator;
     }
 
     private List<String> convertStringToList(String inputNames) {
@@ -57,7 +60,7 @@ public class Cars {
 
     public void play() {
         cars.stream()
-                .forEach(car -> car.MoveOrStop(RandomNumberGenerator.generateRandomNumber()));
+                .forEach(car -> car.MoveOrStop(randomNumberGenerator.generateRandomNumber()));
     }
 
     public List<Car> getCars() {

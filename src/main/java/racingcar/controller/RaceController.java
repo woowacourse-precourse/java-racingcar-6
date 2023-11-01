@@ -5,6 +5,7 @@ import racingcar.domain.Cars;
 import racingcar.domain.PlayCount;
 import racingcar.domain.Winners;
 import racingcar.dto.CarDto;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputViewable;
 import racingcar.view.OutputViewable;
 
@@ -31,7 +32,7 @@ public class RaceController {
 
     private void setCar() {
         String inputNames = inputView.askCarName();
-        cars = new Cars(inputNames);
+        cars = new Cars(inputNames, RandomNumberGenerator.getInstance());
     }
 
     private void setPlayCount() {
