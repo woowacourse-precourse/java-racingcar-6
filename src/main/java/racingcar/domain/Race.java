@@ -32,6 +32,29 @@ public class Race {
         }
 
         // 레이스 종료 후 최종 우승자 검사 및 list에 저장
+        List<String> winnerCarNameList = getWinnerCarList(carMap);
+
+        // 최종 우승자 출력
+        String commaWinnerCarName = String.join(",", winnerCarNameList);
+        System.out.println("최종 우승자 : " + commaWinnerCarName);
+    }
+
+
+
+    // 각 car 별로 레이스를 1회씩 진행
+    private static void runOnceRace(Map<String, String> carMap) {
+
+        for (String carName : carMap.keySet()) {
+            int randomNum = NumberGenerator.getRandomNumberInRange(0, 9);
+            if (randomNum > 3) {
+                carMap.put(carName, carMap.get(carName) + "-"); // 전진인 경우 "-" 추가해준다
+            }
+        }
+    }
+
+    // 모든 레이스 완료 후 우승자 list에 저장
+    private static List<String> getWinnerCarList(Map<String, String> carMap) {
+
         int maxMoveForwardCount = 0;
         List<String> winnerCarNameList = new ArrayList<>();
         for (String carName : carMap.keySet()) {
@@ -46,20 +69,7 @@ public class Race {
 
             // System.out.println(carName + " -- moveForwardCount = " + moveForwardCount);
         }
-
-        // 최종 우승자 출력
-        String commaWinnerCarName = String.join(",", winnerCarNameList);
-        System.out.println("최종 우승자 : " + commaWinnerCarName);
-    }
-
-    // 각 car 별로 레이스를 진행
-    private static void runOnceRace(Map<String, String> carMap) {
-        for (String carName : carMap.keySet()) {
-            int randomNum = NumberGenerator.getRandomNumberInRange(0, 9);
-            if (randomNum > 3) {
-                carMap.put(carName, carMap.get(carName) + "-"); // 전진인 경우 "-" 추가해준다
-            }
-        }
+        return winnerCarNameList;
     }
 
 }
