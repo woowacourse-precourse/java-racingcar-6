@@ -5,6 +5,8 @@ import java.util.*;
 import camp.nextstep.edu.missionutils.*;
 
 public class RacingGameManager {
+    static final int STRING=0;
+    static final int LONG=1;
     private List<Car> carList;
     private Long racingTry;
 
@@ -18,7 +20,7 @@ public class RacingGameManager {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
-        if (validator.validate(input)) {
+        if (validator.validate(input, STRING)) {
             // 사용자의 입력값이 유효할 경우 ','를 기준으로 경주 자동차 이름 분리 후 객체 추가
             carList = new ArrayList<>();
             Arrays.asList(input.split((","))).forEach(
@@ -28,7 +30,7 @@ public class RacingGameManager {
         }
 
         input = Console.readLine();
-        if (validator.validate(input))
+        if (validator.validate(input, LONG))
             // 사용자의 입력값이 유효할 경우 시도 회수 초기화
             this.racingTry = Long.parseLong(input);
 

@@ -6,7 +6,22 @@ public class Validator {
      * 입력: String(사용자의 경주 자동차 이름 입력값)
      * 출력: boolean(정상적으로 경주 자동차 이름이 배정됐을 경우 true)
      */
-    public boolean validate(String string) {return true;}
+    public boolean validate(String string, int type) {
+        // 경주자동차 이름을 지정하는 입력값일 경우
+        if (type == 1) {
+            if (!isSplitedByComma(string))
+                return false;
+
+            if (!isValidLength(string.split(",")))
+                return false;
+
+        }else { // 시도 회수를 나타내는 입력값일 경우
+            if (!isValidNumber(string))
+                return false;
+        }
+
+        return true;
+    }
 
     /**
      * 자동차 이름 분리 가능여부 검증 함수
