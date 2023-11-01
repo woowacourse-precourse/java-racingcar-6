@@ -14,17 +14,17 @@ public class OutputInterface implements Output {
         this.renderer = renderer;
     }
 
-    @Override
-    public void println(String str) {
-        out.println(str);
-    }
-
     public void printStage(Game game) {
         out.println(game.render() + "\n");
     }
 
     public void printWinners(List<String> winners) {
         out.println(renderer.renderWinners(winners));
+    }
+
+    @Override
+    public void println(String str) {
+        out.println(str);
     }
 
 }

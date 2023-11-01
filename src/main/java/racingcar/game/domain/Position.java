@@ -11,12 +11,13 @@ public class Position implements Comparable<Position> {
         return new Position(x);
     }
 
-    Position forward(int dx) {
+    public Position forward(int dx) {
         return new Position(x + dx);
     }
 
-    public int getX() {
-        return x;
+    @Override
+    public int compareTo(Position other) {
+        return this.x - other.x;
     }
 
     @Override
@@ -37,8 +38,7 @@ public class Position implements Comparable<Position> {
         return Integer.hashCode(x);
     }
 
-    @Override
-    public int compareTo(Position other) {
-        return this.x - other.x;
+    public int getX() {
+        return x;
     }
 }

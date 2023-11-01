@@ -8,18 +8,20 @@ public class FixedGameRandom implements GameRandom {
     private final List<Integer> numbers;
     private int cur = 0;
 
-    FixedGameRandom(List<Integer> list){
+    FixedGameRandom(List<Integer> list) {
         this.numbers = list;
     }
-    private int increaseAndGet(){
+
+    private int increaseAndGet() {
         int result = cur;
-        cur = (cur+1) % numbers.size();
+        cur = (cur + 1) % numbers.size();
         return result;
     }
 
-    private int next(){
+    private int next() {
         return numbers.get(increaseAndGet());
     }
+
     @Override
     public int randomNumberRange(int start, int end) {
         return next();

@@ -31,6 +31,31 @@ public class RacingCarGame implements Game {
         checkTrial(maxTrial);
     }
 
+    private static void checkTrial(int trial) {
+        if (trial <= 0) {
+            throw new IllegalArgumentException("시도횟수는 1 이상의 값이여야 합니다.");
+        }
+    }
+
+    private static void checkNames(String[] names) {
+        Set<String> carSet = new HashSet<>();
+
+        for (String name : names) {
+            if (carSet.contains(name)) {
+                throw new IllegalArgumentException("자동차의 이름이 중복됩니다.: " + name);
+            }
+            carSet.add(name);
+        }
+    }
+
+    private static List<RacingCar> createCars(String[] names) {
+        checkNames(names);
+
+        return Arrays.stream(names)
+                .map(RacingCar::new)
+                .collect(toList());
+    }
+
     private List<String> getWinners() {
         RacingCar highest = getCarWithHighestPosition();
 
@@ -51,14 +76,12 @@ public class RacingCarGame implements Game {
         return highest.get();
     }
 
-    private List<RacingCar> createCars(String[] names) {
-        checkNames(names);
-
-        return Arrays.stream(names)
-                .map(RacingCar::new)
-                .collect(toList());
+    @Override
+    public boolean isFinished() {
+        return maxTrial <= currentTrial;
     }
 
+    @Override
     public void runStage() {
         if (isFinished()) {
             return;
@@ -80,27 +103,7 @@ public class RacingCarGame implements Game {
         out.printWinners(getWinners());
     }
 
-    private static void checkTrial(int trial) {
-        if (trial <= 0) {
-            throw new IllegalArgumentException("시도횟수는 1 이상의 값이여야 합니다.");
-        }
-    }
-
-    private static void checkNames(String[] names) {
-        Set<String> carSet = new HashSet<>();
-
-        for (String name : names) {
-            if (carSet.contains(name)) {
-                throw new IllegalArgumentException("자동차의 이름이 중복됩니다.: " + name);
-            }
-            carSet.add(name);
-        }
-    }
-
-    public boolean isFinished() {
-        return maxTrial <= currentTrial;
-    }
-
+    @Override
     public String render() {
         if (currentTrial == 1) {
             return renderer.renderFirstStage(

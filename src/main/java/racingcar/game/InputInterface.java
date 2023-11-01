@@ -4,8 +4,8 @@ import game.Input;
 import game.Output;
 
 public class InputInterface implements Input {
-    Input in;
-    Output out;
+    private Input in;
+    private Output out;
 
     public InputInterface(Input in, Output out) {
         this.in = in;
