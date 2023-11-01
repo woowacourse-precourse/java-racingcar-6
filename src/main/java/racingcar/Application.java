@@ -25,6 +25,6 @@ public class Application {
 
         // 최종 우승자 출력
         String commaWinnerCarName = String.join(", ", winnerCarNameList);
-        System.out.println("최종 우승자 : " + commaWinnerCarName);
+        System.out.print("최종 우승자 : " + commaWinnerCarName);
     }
 }
