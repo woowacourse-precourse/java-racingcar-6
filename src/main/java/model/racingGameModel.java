@@ -27,16 +27,20 @@ public class racingGameModel {
             }
         }
     }
-    public List<String> getWinnerNames(){
+    public List<String> getWinnerNames() {
         int max = findMaxCountOfCarInfos();
-
         List<String> winnerNames = new ArrayList<>();
-        for(racingCarInfo carInfo : racingCarInfos){
-            if(carInfo.moveCount==max){
-                winnerNames.add(carInfo.name);
-            }
+
+        for (racingCarInfo carInfo : racingCarInfos) {
+            addWinnerIfMaxCount(winnerNames, carInfo, max);
         }
+
         return winnerNames;
+    }
+    private void addWinnerIfMaxCount(List<String> winnerNames, racingCarInfo carInfo, int max) {
+        if (carInfo.moveCount == max) {
+            winnerNames.add(carInfo.name);
+        }
     }
     private int findMaxCountOfCarInfos(){
         int max = 0;

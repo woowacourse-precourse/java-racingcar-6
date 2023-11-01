@@ -9,7 +9,6 @@ public class raceStatus{
             printMoveStatus(carInfo);
         }
     }
-
     private void printMoveStatus(racingCarInfo carInfo){
         for(int count=0;count<carInfo.moveCount;count++){
             System.out.print("-");
