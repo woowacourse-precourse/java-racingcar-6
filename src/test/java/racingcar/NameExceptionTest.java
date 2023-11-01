@@ -15,7 +15,6 @@ public class NameExceptionTest extends NsTest {
         );
     }
 
-    // To-Do 함수들 타입에 맞춰 순서 정렬
     @Test
     void 이름_입력시_공백_있을_경우_예외_처리1() {
         assertSimpleTest(() ->
