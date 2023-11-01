@@ -26,7 +26,6 @@ public class InputView {
     
     public static List<Car> convertToCarList(String cars){
         List<Car> res = new ArrayList<>();
-        //이름은 5자 이하 -> 아니면 오류발생
         for(String name : List.of(cars.split(","))){
             if(checkName(name))
                 res.add(new Car(name));
