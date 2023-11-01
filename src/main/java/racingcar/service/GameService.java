@@ -59,4 +59,12 @@ public class GameService {
                 .filter(car -> car.getPosition() == maxPosition)
                 .toList();
     }
+
+    public void validateAttemptNumber(String attemptNumber) {
+        try {
+            Integer.parseInt(attemptNumber);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자가 아닌 입력입니다.");
+        }
+    }
 }

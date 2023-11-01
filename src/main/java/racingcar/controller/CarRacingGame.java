@@ -20,7 +20,9 @@ public class CarRacingGame {
         String inputCarNames = InputView.inputCarNames();
         this.cars = gameService.createCars(inputCarNames);
 
-        this.attemptTime = Integer.parseInt(InputView.inputAttemptionNumber());
+        String attemptNumber = InputView.inputAttemptNumber();
+        gameService.validateAttemptNumber(attemptNumber);
+        this.attemptTime = Integer.parseInt(attemptNumber);
 
         OutputView.printResultPhrase();
         while (attemptTime-- > 0) {
