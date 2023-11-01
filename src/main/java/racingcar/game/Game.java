@@ -19,7 +19,12 @@ public class Game {
         inputCarName();
         printPhraseNumberOfTry();
         inputNumberOfTry();
-        initRound();
+    }
+
+    public void setRound() throws IllegalArgumentException {
+        if (!checkNumberOfTry()) throw new IllegalArgumentException();
+
+        tryNumber = Integer.parseInt(numberOfTry);
     }
 
     public void startGame(List<Car> cars) throws IllegalArgumentException {
@@ -31,22 +36,6 @@ public class Game {
         }
 
         printPhrasesWinner(getWinner(cars));
-    }
-
-    private void printPhrasesCarName() {
-        System.out.println(PHRASES_INPUT_CAR_NAME);
-    }
-
-    private void inputCarName() {
-        carNames = readLine();
-    }
-
-    private void printPhraseNumberOfTry() {
-        System.out.println(PHRASES_INPUT_NUMBER_OF_TRY);
-    }
-
-    private void inputNumberOfTry() {
-        numberOfTry = readLine();
     }
 
     public List<Car> makeCarEntity() throws IllegalArgumentException{
@@ -66,12 +55,6 @@ public class Game {
         }
 
         return true;
-    }
-
-    private void initRound() throws IllegalArgumentException {
-        if (!checkNumberOfTry()) throw new IllegalArgumentException();
-
-        tryNumber = Integer.parseInt(numberOfTry);
     }
 
     private boolean checkNumberOfTry() {
@@ -100,6 +83,22 @@ public class Game {
         }
 
         return String.join(",", winner);
+    }
+
+    private void printPhrasesCarName() {
+        System.out.println(PHRASES_INPUT_CAR_NAME);
+    }
+
+    private void inputCarName() {
+        carNames = readLine();
+    }
+
+    private void printPhraseNumberOfTry() {
+        System.out.println(PHRASES_INPUT_NUMBER_OF_TRY);
+    }
+
+    private void inputNumberOfTry() {
+        numberOfTry = readLine();
     }
 
     private void printPhrasesWinner(String winner) {
