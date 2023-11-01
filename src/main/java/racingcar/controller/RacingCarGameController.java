@@ -6,11 +6,16 @@ import racingcar.view.RepeatingGameView;
 public class RacingCarGameController implements GameController {
     private final Game game;
     private final RepeatingGameView gameView;
-    private boolean playGame;
+    private boolean playGame = true;
 
     public RacingCarGameController(Game game, RepeatingGameView gameView) {
         this.game = game;
         this.gameView = gameView;
+    }
+
+    @Override
+    public void quitGame() {
+        playGame = false;
     }
 
     public void race() {
