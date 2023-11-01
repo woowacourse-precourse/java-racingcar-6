@@ -11,13 +11,14 @@ public class OutputView {
     private static final String WINNER_PHRASE = "최종 우승자 : ";
     private static final String POSITION_STRING = "-";
     private static final String COLON_WITH_SPACE = " : ";
+    private static final String SPLITTER = ", ";
 
     public void printResultPhrase() {
         System.out.println(RESULT_PHRASE);
     }
 
     public void printWinner(List<Car> cars) {
-        String winner = StringHandler.listToString(cars);
+        String winner = StringHandler.listToStringSplitBy(cars, SPLITTER);
         String result = String.format("%s%s",WINNER_PHRASE,winner);
 
         System.out.println(result);
