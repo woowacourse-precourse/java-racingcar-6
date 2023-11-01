@@ -3,7 +3,7 @@ package racingcar.method;
 import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.Application;
+import racingcar.UserInput;
 
 import java.io.ByteArrayInputStream;
 
@@ -18,7 +18,7 @@ public class InputNumberOfRoundsTest {
         String testInput = "5";
         System.setIn(new ByteArrayInputStream(testInput.getBytes()));
 
-        Assertions.assertThat(Application.inputNumberOfRounds()).isEqualTo(5);
+        Assertions.assertThat(UserInput.inputNumberOfRounds()).isEqualTo(5);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class InputNumberOfRoundsTest {
         Console.close();
         System.setIn(new ByteArrayInputStream(testInput.getBytes()));
 
-        assertThatThrownBy(Application::inputNumberOfRounds)
+        assertThatThrownBy(UserInput::inputNumberOfRounds)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1 ~ 2147483647 사이의 유효한 숫자를 입력해 주세요.");
     }

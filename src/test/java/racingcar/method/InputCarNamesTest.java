@@ -1,26 +1,24 @@
 package racingcar.method;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.Application;
+import racingcar.UserInput;
 
 import java.io.ByteArrayInputStream;
-import java.util.Arrays;
 
 public class InputCarNamesTest {
 
     @Test
-    void 정상_입력시_리스트반환() {
+    void 정상_입력시_맵반환() {
         Console.close();
 
         String testInput = " Jun , Alex , David ";
         System.setIn(new ByteArrayInputStream(testInput.getBytes()));
 
-        Assertions.assertThat(Application.inputCarNames()).containsKeys("Jun", "Alex", "David");
+        Assertions.assertThat(UserInput.inputCarNames()).containsKeys("Jun", "Alex", "David");
     }
 
     @Test
@@ -61,7 +59,7 @@ public class InputCarNamesTest {
         Console.close();
         System.setIn(new ByteArrayInputStream(testInput.getBytes()));
 
-        assertThatThrownBy(Application::inputCarNames)
+        assertThatThrownBy(UserInput::inputCarNames)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(errorMessage);
     }
