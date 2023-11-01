@@ -3,12 +3,15 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RacingCar {
 
     Map<String, String> playersMap = new HashMap<>();
+    List<String> winnerList = new ArrayList<>();
 
     //입력 분할
     public String[] splitCarsName(String input){
@@ -90,8 +93,18 @@ public class RacingCar {
         return max;
     }
 
+    public void getWinner(int max) {
+
+        for (String player : playersMap.keySet()) {
+            int roundResultLength = playersMap.get(player).length();
+            if (roundResultLength == max) {
+                winnerList.add(player);
+            }
+        }
+    }
     public void endGame(){
         int valueOfWinner = getMaxValue();
+        getWinner(valueOfWinner);
 
     }
 
@@ -108,5 +121,6 @@ public class RacingCar {
             play();
         }
 
+        endGame();
     }
 }

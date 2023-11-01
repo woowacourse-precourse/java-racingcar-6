@@ -21,4 +21,30 @@ public class EndGameTest {
 
         assertThat(result).isEqualTo(7);
     }
+
+    @Test
+    void testGetWinner(){
+
+        test.playersMap.put("aa", "----");
+        test.playersMap.put("bb", "---");
+        test.playersMap.put("cc", "-------");
+        test.playersMap.put("dd", "--");
+
+        test.getWinner(7);
+
+        assertThat(test.winnerList).containsExactly("cc");
+
+        test.winnerList.clear();
+        test.playersMap.clear();
+
+        test.playersMap.put("aa", "----");
+        test.playersMap.put("bb", "----");
+        test.playersMap.put("cc", "--");
+        test.playersMap.put("dd", "-");
+
+        test.getWinner(4);
+
+        assertThat(test.winnerList).containsExactly("aa", "bb");
+
+    }
 }
