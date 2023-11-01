@@ -4,9 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -41,7 +39,7 @@ public class Application {
             //n회 시도 - 자동차 수 만큼 반복
             for (int j = 0; j < carNameList.size(); j++) {
                 //전진
-                if (Randoms.pickNumberInRange(0, 9) > 3) {
+                if (Randoms.pickNumberInRange(0, 9) >= 4) {
                     forwardCountStr.set(j, forwardCountStr.get(j) + "-");
                     forwardCountInt.set(j, forwardCountInt.get(j) + 1);
                 }
@@ -52,6 +50,14 @@ public class Application {
             System.out.print("\n");
         }
 
-        System.out.println("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
+        List<String> winner = new ArrayList<>();
+        for (int i = 0; i < carNameList.size(); i++) {
+            if (forwardCountInt.get(i) == Collections.max(forwardCountInt)) {
+                winner.add(carNameList.get(i));
+            }
+        }
+        String winners = String.join(", ", winner);
+        System.out.println(winners);
     }
 }
