@@ -26,11 +26,11 @@ public class Exception {
         }
     }
 
-    public static void checkWithinRange(Integer number) {
-        if (number <= 0) {
+    public static void checkWithinRange(Integer tryNumber) {
+        if (tryNumber <= 0) {
             throwIllegalArgumentException();
         }
-        if (number > 100) {
+        if (tryNumber > 100) {
             throwIllegalArgumentException();
         }
     }

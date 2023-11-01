@@ -16,11 +16,11 @@ import java.util.stream.Collectors;
 public class Game {
 
     private List<Car> carList;
-    private Integer moveNumber;
+    private Integer tryNumber;
 
     public Game() {
         this.carList = new ArrayList<>();
-        this.moveNumber = 0;
+        this.tryNumber = 0;
     }
 
     public void run() {
@@ -28,9 +28,9 @@ public class Game {
         saveCarName();
         alertEnterMoveNumber();
         saveMoveNumber();
-        while (moveNumber > 0) {
+        while (tryNumber > 0) {
             race();
-            moveNumber--;
+            tryNumber--;
         }
         informWinner();
     }
@@ -55,10 +55,10 @@ public class Game {
 
     private void saveMoveNumber() {
         String readLine = Console.readLine();
-        moveNumber = convertStringToInteger(readLine);
+        tryNumber = convertStringToInteger(readLine);
 
-        checkInteger(moveNumber);
-        checkWithinRange(moveNumber);
+        checkInteger(tryNumber);
+        checkWithinRange(tryNumber);
     }
 
     private void race() {
