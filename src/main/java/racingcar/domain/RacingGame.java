@@ -30,7 +30,8 @@ public class RacingGame {
         if (names.length <= 1) {
             throw new IllegalArgumentException();
         }
-        return names;
+        this.carnum = names.length; //
+        this.names = names;
     }
 
     private int inputNumber() {
