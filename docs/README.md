@@ -1,22 +1,26 @@
 # 자동차 경주 게임
 ## 기능 목록
 #### 경주 게임 (Application)
-- [x] 게임 시작 시 "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"를 출력한다
-- [x] 경주할 자동차 이름을 입력받은 후 "시도할 회수는 몇회인가요?"를 출력한다
-- [x] 사용자로부터 입력받은 시도 횟수만큼 경주를 진행한다
+- [x] 게임 시작 시 경주할 자동차 이름을 묻는 프롬프트를 출력하고 경주를 준비한다 → `Application.SetupRacing`
+- [x] 사용자로부터 시도 횟수를 묻는 프롬프트를 출력하고 입력된 시도 횟수만큼 경주를 진행한다 → `Application.playRacing`
 
 #### 경주 (Racing)
-- [x] 사용자로부터 입력받은 경주할 자동차 이름을 쉼표(,)를 기준으로 구분해서 목록을 만든다 → `Racing(TString userInput)`
-- [x] 목록에 있는 자동차가 순서대로 전진 시도한다 → `Racing.moveAllCarsForward`
-- [x] 게임을 완료한 후 우승자를 선별한다 → `Racing.determineWinningCars`
-    - [x] 가장 긴 경로를 업데이트한다 → `Racing.updateLongestCarRoute`
+- [x] 사용자로부터 입력받은 경주할 자동차 이름을 쉼표(,)를 기준으로 구분해서 목록을 만든다 → `Racing(TString carNames)`
+- [x] 목록에 있는 자동차가 전부 전진 시도한다 → `Racing.moveAllCarsForward`
+- [x] 경주 현황을 알려준다 → `Racing.toString`
+
+### 우승자 (Winner)
+- [x] 경주에 참여한 자동차 중에 최대 위치에 있는 자동차를 우승자 리스트에 추가한다 → `Winner(List<Car> racingCars)`
+    - [x] 경주에 참여한 자동차가 있는 최대 위치를 찾는다 → `Winner.findMaxPosition`
+    - [x] 공등 우승자가 있을 경우 쉼표(,)를 이용하여 구분한다 → `Winner.toString`
 
 #### 자동차 (Car)
 - [x] 자동차는 생성될 때 이름을 부여받는다 → `Car(TString name)`
-- [x] 자동차가 이름을 알려준다 → `Car.getName`
-- [x] 자동차가 전진한 루트를 알려준다 → `Car.getRoute`
+- [x] 자동차의 이름을 알려준다 → `Car.getName`
+- [x] 자동차의 위치를 알려준다 → `Car.getPosition`
 - [x] 자동차는 전진한다 → `Car.moveForward`
-- [x] 0에서 9 사이에서 무작위 값을 구한 후 값이 4 이상인지 알려준다 → `Car.isMovable`
+- [x] 0에서 9 사이에서 무작위 값을 구한 후 값이 4 이상이면 true를 반환한다 → `Car.isMovable`
+- [x] 자동차의 상태를 알려준다 → `Car.toString`
 
 #### 입력 (InputManager & Validator)
 - [x] 사용자로부터 경주할 자동차 이름을 입력받는다 → `InputManager.readCarNames`
@@ -29,7 +33,6 @@
 #### 출력 (OutputManager)
 - [x] 각 시도별로 실행 결과를 출력한다 → `OutputManager.printRacingStatus`
 - [x] 게임을 완료한 후 우승자 안내 문구를 출력한다 → `OutputManager.printRacingResult`
-    - [x] 공등 우승자가 있을 경우 쉼표(,)를 이용하여 구분한다
 
 ## 🚀 기능 요구 사항
 초간단 자동차 경주 게임을 구현한다.

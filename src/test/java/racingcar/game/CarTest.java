@@ -20,18 +20,18 @@ class CarTest {
     }
 
     @Test
-    void Car_객체_생성_시_루트가_빈칸인지() {
-        assertEquals("", car.getRoute());
+    void Car_객체_생성_시_위치가_0인지() {
+        assertEquals(0, car.getPosition());
     }
 
     @Test
-    void moveForward_루트가_한_칸씩_증가하는지() {
-        car.moveForward();
-        assertEquals("-", car.getRoute());
-        car.moveForward();
-        assertEquals("--", car.getRoute());
-        car.moveForward();
-        assertEquals("---", car.getRoute());
+    void moveForward_위치가_1씩_증가하는지() {
+        car = car.moveForward();
+        assertEquals(1, car.getPosition());
+        car = car.moveForward();
+        assertEquals(2, car.getPosition());
+        car = car.moveForward();
+        assertEquals(3, car.getPosition());
     }
 
     @RepeatedTest(100)

@@ -30,39 +30,14 @@ public class RacingTest {
     @Test
     void moveAllCarsForward_모든_자동차가_움직이는지() {
         for (Car car : racingCars) {
-            assertEquals("", car.getRoute());
+            assertEquals(0, car.getPosition());
         }
         for (int i = 0; i < 100; i++) {
             racing.moveAllCarsForward();
         }
+        racingCars = racing.getRacingCars();
         for (Car car : racingCars) {
-            assertTrue(car.getRoute().length() > 0);
+            assertTrue(car.getPosition() > 0);
         }
-    }
-
-    @Test
-    void determineWinningCars_우승자가_한명인_경우_판별하는지() {
-        racingCars.get(0).moveForward();
-        racingCars.get(0).moveForward();
-        racingCars.get(1).moveForward();
-        racingCars.get(2).moveForward();
-        racing.determineWinningCars();
-        List<Car> winningCars = racing.getWinningCars();
-        assertEquals(1, winningCars.size());
-        assertEquals("pobi", winningCars.get(0).getName());
-    }
-
-    @Test
-    void determineWinningCars_우승자가_여러_명인_경우_판별하는지() {
-        racingCars.get(0).moveForward();
-        racingCars.get(0).moveForward();
-        racingCars.get(1).moveForward();
-        racingCars.get(2).moveForward();
-        racingCars.get(2).moveForward();
-        racing.determineWinningCars();
-        List<Car> winningCars = racing.getWinningCars();
-        assertEquals(2, winningCars.size());
-        assertEquals("pobi", winningCars.get(0).getName());
-        assertEquals("jun", winningCars.get(1).getName());
     }
 }
