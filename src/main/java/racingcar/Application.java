@@ -30,6 +30,10 @@ public class Application {
 
     private static int requestRaceCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (RuntimeException e) {
+            throw new IllegalArgumentException("잘못된 입력값을 입력 하셨습니다.");
+        }
     }
 }
