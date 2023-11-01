@@ -17,7 +17,7 @@ public class RacingGame {
         // racingProgress.forEach((key, value) -> {
         // System.out.println(key + value);
         // });
-
+        System.out.println(Integer.MAX_VALUE);
         Integer gameTimes = inputGameTimes();
         // System.out.println(gameTimes);
         System.out.println("");
@@ -64,10 +64,10 @@ public class RacingGame {
             String readlineGameTimes = Console.readLine();
             gameTimes = Integer.parseInt(readlineGameTimes);
         } catch (Exception e) {
-            throw new IllegalArgumentException("자연수만 입력하세요.");
+            throw new IllegalArgumentException(Integer.MAX_VALUE + "이하의 자연수만 입력하세요.");
         }
         if (gameTimes <= 0) {
-            throw new IllegalArgumentException("자연수만 입력하세요.");
+            throw new IllegalArgumentException(Integer.MAX_VALUE + "이하의 자연수만 입력하세요.");
         }
         return gameTimes;
     }
