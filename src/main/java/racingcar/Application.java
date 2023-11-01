@@ -1,4 +1,5 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -27,6 +28,7 @@ public class Application {
             }
             cars.add(new Car(carName));
         }
+
         getTry();
     }
 
@@ -37,16 +39,65 @@ public class Application {
             throw new IllegalArgumentException("시도할 횟수는 1 이상이어야 합니다.");
         }
 
+        racing();
     }
 
-    class Car {
-        private String name;
-        private int position;
+    public void racing() {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < tryNumber; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
+            printCarStatus();
+        }
+        determineWinners();
+    }
 
-        public Car(String name) {
-            this.name = name;
-            this.position = 0;
+    public void printCarStatus() {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + car.getPositionString());
+        }
+        System.out.println();
+    }
+
+    public void determineWinners() {
+        int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(0);
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
         }
 
+        System.out.println("최종 우승자: " + String.join(", ", winners));
+    }
+}
+
+class Car {
+    private String name;
+    private int position;
+
+    public Car(String name) {
+        this.name = name;
+        this.position = 0;
+    }
+
+    public void move() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            position++;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getPositionString() {
+        return "-".repeat(position);
     }
 }
