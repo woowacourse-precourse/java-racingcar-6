@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+`import java.util.stream.IntStream;
 import racingcar.car.Car;
 import racingcar.utils.randomGenerator.RandomNumberGenerator;
 import racingcar.utils.result.ResultGenerator;
@@ -12,7 +13,7 @@ import racingcar.utils.writer.Writer;
 
 public class RacingCarGame {
 
-    public static final int MIN_DISTANCE = 0;
+    public static final int INIT_COUNT = 0;
     public static final int FORWARD_CONDITIONAL_VALUE = 4;
     public static final String EXECUTION_RESULT = "실행 결과";
     private final RandomNumberGenerator randomNumberGenerator;
@@ -34,7 +35,7 @@ public class RacingCarGame {
     }
 
     private void executeRounds(int attemptCount) {
-        for (int round = MIN_DISTANCE; round < attemptCount; round++) {
+        for (int round = INIT_COUNT; round < attemptCount; round++) {
             moveCarsForward();
             display(resultGenerator.makeExecutionResult(cars));
         }
