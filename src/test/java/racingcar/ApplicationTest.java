@@ -25,22 +25,42 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_전진() {
+        String name = "torch";
+        Car car = new Car(name, 0);
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    car.move();
+                    assertThat(car.path()).isEqualTo("torch : -");
+                    car.move();
+                    assertThat(car.path()).isEqualTo("torch : -");
+                    car.move();
+                    assertThat(car.path()).isEqualTo("torch : --");
+                    car.move();
+                    assertThat(car.path()).isEqualTo("torch : ---");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni,jun", "5");
-                assertThat(output()).contains("pobi : -", "woni : ", "jun : -",
-                        "pobi : -", "woni : -", "jun : --",
-                        "pobi : --", "woni : --", "jun : --",
-                        "pobi : --", "woni : ---", "jun : ---",
-                        "pobi : ---", "woni : ----", "jun : ----",
-                        "최종 우승자 : woni, jun");
-            },
-            MOVING_FORWARD, STOP, MOVING_FORWARD,
-                    STOP, MOVING_FORWARD, MOVING_FORWARD,
-                    MOVING_FORWARD, MOVING_FORWARD, STOP,
-                    STOP, MOVING_FORWARD, MOVING_FORWARD,
-                    MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+                () -> {
+                    run("pobi,woni,jun", "5");
+                    assertThat(output()).contains("pobi : -", "woni : ", "jun : -",
+                            "pobi : -", "woni : -", "jun : --",
+                            "pobi : --", "woni : --", "jun : --",
+                            "pobi : --", "woni : ---", "jun : ---",
+                            "pobi : ---", "woni : ----", "jun : ----",
+                            "최종 우승자 : woni, jun");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                STOP, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, STOP,
+                STOP, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
