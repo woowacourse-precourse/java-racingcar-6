@@ -44,9 +44,10 @@ class GameServiceTest {
 
         // when / then
         assertThatThrownBy(() -> gameService.createCars(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차의 이름이 5자를 초과합니다.");
 
-        /* same code using org.junit.jupiter.api.Assertions.assertThrows()
+        /* same code using org.junit.jupiter.api.Assertions.assertThrows() without checking message
         assertThrows(IllegalArgumentException.class,
                 () -> gameService.createCars(carNames));*/
     }
@@ -58,8 +59,11 @@ class GameServiceTest {
         String attemptNumber = "a";
 
         // when
-        assertThrows(IllegalArgumentException.class,
-                () -> gameService.validateAttemptNumber(attemptNumber));
+        assertThatThrownBy(() -> gameService.validateAttemptNumber(attemptNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자가 아닌 입력입니다.");
+        /*assertThrows(IllegalArgumentException.class,
+                () -> gameService.validateAttemptNumber(attemptNumber));*/
 
     }
 
