@@ -30,6 +30,7 @@ class ParticipantTest {
     }
 
     @Test
+    @DisplayName("주어진 플레이어로 participant 객체를 생성시, 객체의 이름과 dto 이름이 동일해야 합니다.")
     void from() {
         //given
         List<String> exampleCar = List.of("배달이", "동준이", "민족이");

@@ -17,6 +17,9 @@ class CarTest {
     private static MockedStatic<Randoms> randoms;
     private static int SUCCESS_VALUE = 4;
     private static int FAIL_VALUE = 3;
+    private static String INITAIL_NAME = "배달이";
+    private static Integer INITAIL_SCORE = 0;
+
 
     @BeforeAll
     public static void beforeTest() {
@@ -69,13 +72,14 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("배달이 car 객체를 생성한 후 dto를 생성할 시 초기값이 나와야 합니다.")
     void sendStatus() {
         //given
-        Car car = Car.create("배달이");
+        Car car = Car.create(INITAIL_NAME);
         //when
         CarStatusDto carStatusDto = car.sendStatus();
         //then
-        Assertions.assertThat(carStatusDto.name()).isEqualTo("배달이");
-        Assertions.assertThat(carStatusDto.score()).isEqualTo(0);
+        Assertions.assertThat(carStatusDto.name()).isEqualTo(INITAIL_NAME);
+        Assertions.assertThat(carStatusDto.score()).isEqualTo(INITAIL_SCORE);
     }
 }
