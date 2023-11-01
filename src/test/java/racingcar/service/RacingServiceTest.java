@@ -71,6 +71,18 @@ class RacingServiceTest {
     @Test
     @DisplayName("우승자 판별 테스트")
     void decideWinner() {
-        // TODO: 테스트코드 작성
+        carRepository.createCars(carNames);
+        assertRandomNumberInRangeTest(
+                () -> {
+                    racingService.processRound();
+                },
+                MOVING_FORWARD, STOP
+        );
+
+        List<Car> winners = racingService.decideWinner();
+
+        assertEquals(winners.size(),1);
+        assertEquals(winners.get(0).getName(),"pobi");
+        assertEquals(winners.get(0).getMoveCount(),1);
     }
 }
