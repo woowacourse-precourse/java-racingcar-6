@@ -1,6 +1,4 @@
-package racingCar_backup;
-
-//package racingcar;
+package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +22,7 @@ public class UserInputView {
         System.out.println(ALERT_MESSAGE);
         String userInput = Console.readLine();
 
-        // 예외 발생 여부 확인
+        Errors.namingError(userInput);
 
         return splitCarNames(userInput);
     }
@@ -44,8 +42,9 @@ public class UserInputView {
         String userInputNumber = Console.readLine();
         int userInputTrialNumber = Integer.parseInt(userInputNumber);
 
-        // 예외 처리 여부 확인
-
+        Errors.inputWrongNumberError(userInputNumber);
+        Errors.inputNegativeNumberError(userInputTrialNumber);
+        Errors.inputZeroError(userInputTrialNumber);
 
         return userInputTrialNumber;
     }
