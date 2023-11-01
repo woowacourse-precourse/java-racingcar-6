@@ -32,26 +32,39 @@ public class Validator {
      * 출력: boolean(',' 기준으로 정상적으로 분리될 경우 true)
      */
     private boolean isSplitByComma(String string) {
-        IllegalArgumentException exception = new IllegalArgumentException();
         // pobi,,woni와 같은 경우일 경우
         if (string.contains(",,"))
-            throw exception;
+            throw new IllegalArgumentException();
 
         // ,만 입력했을 경우
         if (string.strip().equals(","))
-            throw exception;
+            throw new IllegalArgumentException();
 
         // pobi,나 pobi와 같이 하나의 자동차 이름만 입력했을경우
         if (Arrays.asList(string.strip().split(",")).size() < 2)
-            throw exception;
+            throw new IllegalArgumentException();
+
+        return true;
     }
 
     /**
-     * 자동차 이름 길이 검증 기능
+     * 자동차 이름 검증 기능
      * 입력: String[](경주 자동차 이름 배열)
      * 출력: boolean(경주 자동차의 이름이 1자 이상 5자 이하일 경우 true)
      */
-    private boolean isValidLength(String[] string) {return true;}
+    private boolean isValidLength(String[] string) {
+        for (String carName : string) {
+            // 자동차 이름이 공백을 포함할 경우
+            if (carName.contains(" "))
+                throw new IllegalArgumentException();
+
+            // 자동차 이름이 6자 이상일 경우
+            if (carName.length() > 5)
+                throw new IllegalArgumentException();
+        }
+
+        return true;
+    }
 
     /**
      * 시도 회수 검증 기능
