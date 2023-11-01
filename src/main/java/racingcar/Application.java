@@ -2,6 +2,7 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Game game = null; // TODO: Replace null with an actual game
+        game.start();
     }
 }
