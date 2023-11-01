@@ -13,6 +13,7 @@ public class CarController {
 
     public void startGame(){
         carService.inputGame();
+        carService.racingGame();
     }
 
 
