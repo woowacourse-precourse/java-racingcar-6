@@ -52,6 +52,10 @@ public class Racing {
     public void validateCarName(String carName) {
         if(carName.length() > MAX_CARNAME_LENGTH)
             throw new IllegalArgumentException("잘못된 값이 입력되었습니다.");
+        for(Car car : carList) {
+            if(car.getCarName().equals(carName))
+                throw new IllegalArgumentException("같은 이름이 입력되었습니다.");
+        }
     }
 
     public void validateTryCount(String inputString) {
