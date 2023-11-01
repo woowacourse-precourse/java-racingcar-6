@@ -20,7 +20,7 @@ public class Application {
         try {
             System.out.println("시도할 회수는 몇회인가요?");
             count = Integer.parseInt(Console.readLine());
-            System.out.println();
+            System.out.println("\n실행 결과");
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
@@ -32,13 +32,29 @@ public class Application {
                 }
             }
             for (int j = 0; j < len; j++) {
-                System.out.println(cars[j] + " : ");
-                for (int k = 0; k < cars[j].length(); k++) {
+                System.out.print(cars[j] + " : ");
+                for (int k = 0; k < cars_move[j]; k++) {
                     System.out.print("_");
                 }
+                System.out.println();
             }
+            System.out.println();
         }
 
+        int cnt = 0;
+        cars_move[1] = 10;
+        cars_move[2] = 10;
+        System.out.println();
+        System.out.print("최종 우승자 : ");
+        List<Integer> maxIndices = findMaxIndices(cars_move);
+        for (Integer maxIndex : maxIndices) {
+            if (cnt != 0) {
+                System.out.print(", ");
+            }
+            int max = maxIndex;
+            cnt += 1;
+            System.out.print(cars[max]);
+        }
         int max = 0;
         for (int i : cars_move) {
             if (i > max) {
@@ -59,7 +75,7 @@ public class Application {
                 maxIndices.clear();
                 maxIndices.add(i);
             } else if (arr[i] == max) {
-                maxIndices.add(i);g
+                maxIndices.add(i);
             }
         }
 
