@@ -3,6 +3,8 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.util.NumberGenerator;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.GameUI;
 import racingcar.view.RaceView;
 

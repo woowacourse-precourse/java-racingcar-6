@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.controller.InputHandler;
+import racingcar.util.InputHandler;
 
 public class GameUI {
 

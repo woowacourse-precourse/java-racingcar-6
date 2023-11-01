@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.util;
 
 public interface NumberGenerator {
 

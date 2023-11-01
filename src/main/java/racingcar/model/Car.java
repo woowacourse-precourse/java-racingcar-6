@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.controller.NumberGenerator;
+import racingcar.util.NumberGenerator;
 
 public class Car {
     private final String name;
