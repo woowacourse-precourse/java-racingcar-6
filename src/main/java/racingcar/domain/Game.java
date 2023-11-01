@@ -9,7 +9,7 @@ import racingcar.utils.GameUtil;
 public class Game {
 
     private List<Car> cars = new ArrayList<>();
-    private List<String> winners;
+    private List<String> winners = new ArrayList<>();
     private int totalTrialCount;
     private int curTrialCount = 0;
 
