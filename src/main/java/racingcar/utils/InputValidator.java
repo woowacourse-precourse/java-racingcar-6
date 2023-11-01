@@ -4,12 +4,23 @@ import java.util.Arrays;
 
 public class InputValidator {
     public static void validateCarNames(String carNames) {
+        validateCarNameIsNotDuplicated(carNames);
         Arrays.stream(carNames.split(",", -1))
                 .forEach(name -> {
                     validateCarNameIsNotBlank(name);
                     validateCarNameIsNotEmpty(name);
                     validateCarNameLength(name);
                 });
+    }
+
+    private static void validateCarNameIsNotDuplicated(String carNames) {
+        String[] splitNames = carNames.split(",", -1);
+        long notDuplicatedNames = Arrays.stream(splitNames)
+                .distinct()
+                .count();
+        if (splitNames.length != notDuplicatedNames) {
+            throw new IllegalArgumentException("the car names cannot be duplicated");
+        }
     }
 
     private static void validateCarNameIsNotBlank(String carName) {
