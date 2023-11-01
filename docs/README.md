@@ -13,8 +13,17 @@
 - [x] 시도한 횟수마다 현재 경주 결과 출력
 - [x] 경주 결과를 기반으로 최종 우승자 출력(둘 이상일수도 있음)
 
-
 ## 기능 분리
+
+### constant
+#### RacingConstant
+- enum을 이용한 상수처리
+
+### controller
+#### RacingController
+- 시작 문구와 최종 우승자 문구를 불러온다.
+- 자동차 이름을 ","로 구분하는 로직을 만들고 Cars 객체를 생성한다.
+- 레이싱을 시작하고 로직들을 불러와 게임을 구현한다.
 
 ### domain
 #### Car
@@ -22,26 +31,19 @@
 #### Cars
 - Car 객체를 List로 담고, 이들을 비교
 - 가장 높은 포지션을 갖고 있는 자동차를 반환
+
+### util
+#### RandomNumberGenerator
 - Car 객체 리스트에서 랜덤 값을 이용하여 4이상인 객체 포지션 전진시킴
+
+### validation
+#### InputValidation
+- 사용자의 입력이 올바른지 검증 및 예외처리
+
 ### view
 #### InputView
 - 사용자로부터 입력되는 view 구현
 #### OutputView
 - 입력으로부터 출력되는 view 구현
-
-### service
-#### RacingService
-- model에서 레이서들의 랜덤 값을 불러와 4이상이면 count++
-- 가장 앞서있는 레이서를 계산 및 반환
-
-### controller
-#### RacingController
-- 경주에 필요한 문구들을 불러온다
-- 전진 가능 횟수 저장 후 service 로직을 처리하고 현재 레이싱 상황을 보여준다.
-- 전진 가능 횟수만큼 반복문이 다 돌면 현재 레이싱 참여자 중 우승자를 출력한다.
-
-## Exception
-- 이름이 5자리 이상일때 예외처리
-- 이름이 한글이나 영어가 아닌 특수문자 및 숫자일 경우 예외처리
-- 시도할 횟수가 숫자가 아닐때 예외처리
-
+#### Message
+- 필요한 정적 message 구성
