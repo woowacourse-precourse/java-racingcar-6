@@ -35,7 +35,7 @@ public class Winner {
             }
         }
         String winnerNm = WinnerToString(winner);
-        System.out.println("우승자 : " + winnerNm);
+        System.out.println("최종 우승자 : " + winnerNm);
     }
 }
 
