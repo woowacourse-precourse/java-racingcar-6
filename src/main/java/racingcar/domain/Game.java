@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.controller.RacingGame;
 import racingcar.view.Output;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,10 @@ public class Game {
 
     public void start() {
         Output.attemptResultMessage();
+        currentCondition();
+    }
+
+    public void currentCondition() {
         for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
             for (Car car : cars) {
                 car.move();

@@ -41,7 +41,7 @@ public class Validator {
     }
 
     public static void checkNameRestriction(String name) {
-        if (!isShorterFive(name)) {
+        if (isShorterFive(name)) {
             RacingGame.exception(ErrorMessage.NAME_RESTRICTION);
         }
     }
