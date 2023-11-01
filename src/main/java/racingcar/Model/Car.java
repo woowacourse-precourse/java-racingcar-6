@@ -1,7 +1,7 @@
-package Model;
+package racingcar.Model;
 
-import View.carRaceOutputService;
-import Validator.CarNameValidator;
+import racingcar.View.carRaceOutputService;
+import racingcar.Validator.CarNameValidator;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {

@@ -1,4 +1,4 @@
-package Validator;
+package racingcar.Validator;
 
 public class CarNameValidator {
     private static CarNameValidator carNameValidator;

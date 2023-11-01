@@ -1,6 +1,4 @@
-package Utility;
-
-import Validator.StringValidator;
+package racingcar.Utility;
 
 public class StringModifier {
     private static StringModifier stringModifier = null;

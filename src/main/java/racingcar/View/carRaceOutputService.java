@@ -1,6 +1,6 @@
-package View;
+package racingcar.View;
 
-import Model.Car;
+import racingcar.Model.Car;
 import java.util.ArrayList;
 
 public class carRaceOutputService {

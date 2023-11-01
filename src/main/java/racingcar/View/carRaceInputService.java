@@ -1,7 +1,7 @@
-package View;
+package racingcar.View;
 
-import Utility.StringModifier;
-import Validator.GameRoundValidator;
+import racingcar.Utility.StringModifier;
+import racingcar.Validator.GameRoundValidator;
 import camp.nextstep.edu.missionutils.Console;
 
 public class carRaceInputService {

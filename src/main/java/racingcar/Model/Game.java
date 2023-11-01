@@ -1,6 +1,6 @@
-package Model;
+package racingcar.Model;
 
-import View.carRaceOutputService;
+import racingcar.View.carRaceOutputService;
 import java.util.ArrayList;
 
 public class Game {
