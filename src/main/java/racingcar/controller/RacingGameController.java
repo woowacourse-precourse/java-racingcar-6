@@ -1,14 +1,17 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import java.util.List;
+import racingcar.manager.Validator;
 
 public class RacingGameController {
     public void play() {
         String[] carNames = InputView.inputCarNames();
-        int rounds = InputView.inputRaceRounds();
+        String roundsInput = InputView.inputRaceRounds();
+
+        int rounds = Validator.validateRaceRoundInput(roundsInput);
 
         RacingGame racingGame = new RacingGame(carNames, rounds);
 
