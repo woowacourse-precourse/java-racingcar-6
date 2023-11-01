@@ -13,6 +13,10 @@ public class Car {
         this.name = name;
     }
 
+    public int getPosition() {
+        return this.position;
+    }
+
     public String getName() {
         return this.name;
     }
