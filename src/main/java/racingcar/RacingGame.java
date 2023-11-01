@@ -11,7 +11,9 @@ public class RacingGame {
     public void startGame() {
         List<Car> cars = inputCarsInfo();
         int round = inputRound();
+
         System.out.println("실행 결과");
+
         for (int count = 1; count <= round; count++) {
             proceedRound(cars);
             System.out.println();
