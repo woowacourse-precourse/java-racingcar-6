@@ -13,7 +13,7 @@ public class Car {
 
     @Override
     public String toString() {
-        String result = name + LOCATION_AND_NAME_DELIMITER;
+        String result = name.name() + LOCATION_AND_NAME_DELIMITER;
         for (int i = 0; i < location; i++) {
             result += LOCATION;
         }
@@ -21,7 +21,7 @@ public class Car {
     }
 
     public String getName() {
-        return name.name();
+        return this.name.name();
     }
 
     public void goOrStop(int i) {
