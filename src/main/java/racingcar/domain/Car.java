@@ -45,4 +45,11 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    protected boolean isSamePosition(int maxPosition) {
+        if (this.position == maxPosition) {
+            return true;
+        }
+        return false;
+    }
 }
