@@ -1,5 +1,7 @@
 package racingcar.utils;
 
+import racingcar.validation.Validation;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -39,5 +41,15 @@ public final class Utils {
 
     public static String replaceCommaToBlank(String string) {
         return string.replace(","," ");
+    }
+
+    public static HashMap<String,String> arrayToHashMap(String[] arr) {
+        HashMap<String,String> hashMap = new HashMap<>();
+        for (String carName : arr) {
+            Validation.validateCarNameLength(carName);
+            Validation.validateCarNamesNotDuplicate(hashMap,carName);
+            hashMap.put(carName,"");
+        }
+        return hashMap;
     }
 }
