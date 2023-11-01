@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
@@ -32,29 +31,18 @@ public class RacingGame {
     }
 
     private List<String> getWinnerNames(List<Car> cars) {
-        List<String> winners = new ArrayList<>();
         int maxPosition = getMaxPosition(cars);
 
-        for (Car car : cars) {
-            int position = car.getPosition();
-
-            if (position == maxPosition) {
-                winners.add(car.getName());
-            }
-        }
-        return winners;
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
     }
 
     private int getMaxPosition(List<Car> cars) {
-        int maxPosition = 0;
-
-        for (Car car : cars) {
-            int position = car.getPosition();
-
-            if (position > maxPosition) {
-                maxPosition = position;
-            }
-        }
-        return maxPosition;
+        return cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compare)
+                .orElse(0);
     }
 }
