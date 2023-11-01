@@ -19,4 +19,8 @@ public class Car {
     public Integer getLocation(){
         return location;
     }
+
+    public String getName(){
+        return name;
+    }
 }
