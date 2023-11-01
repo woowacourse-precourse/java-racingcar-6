@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.opportunityvalidator.OpportunityValidator;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class OpportunityValidatorTest {
     @Test
