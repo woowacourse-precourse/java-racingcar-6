@@ -14,7 +14,7 @@ public class Constants {
 	public static final String ROUND_RESULT = "\n실행 결과";
 	public static final String ROUND_RESULT_DELIMITER = " : ";
 
-	public static final Pattern namesStringPattern = Pattern.compile("^[가-힣\\w]+[가-힣\\w" + DELIMITER + "]*[가-힣\\w]$");
+	public static final Pattern namesStringPattern = Pattern.compile("^[가-힣\\w]*$" + DELIMITER + "^[가-힣\\w]*$");
 	public static final Pattern roundNumPattern = Pattern.compile("^[1-9][0-9]*$");
 
 	public static final String ERROR = "[ERROR] ";
