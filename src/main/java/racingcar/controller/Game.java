@@ -19,51 +19,44 @@ public class Game {
         randomGenerator = new RandomGenerator();
     }
 
-    public void run() {
-        setRace();
-        setRound();
-        printResultStart();
-
-        while (round.isRemaining()) {
-            runSingleRound();
-            printResult();
-            round.subtractOne();
-        }
-
-        printResultEnd();
-    }
-
-    private void setRace() {
+    public void setRace() {
         String namesInput = InputView.readCarNames();
         ValidateInput.validateNamesInput(namesInput);
         race.setCarList(namesInput);
     }
 
-    private void setRound() {
+    public void setRound() {
         String roundInput = InputView.readRoundNumber();
         ValidateInput.validateRoundInput(roundInput);
         round.setRound(roundInput);
     }
 
-    private void runSingleRound() {
+    public void runSingleRound() {
         int size = race.getCarListSize();
         List<Integer> randomNumbers = randomGenerator.getNumbers(size);
         race.moveCars(randomNumbers);
     }
 
-    private void printResultStart() {
+    public void printResultStart() {
         OutputView.printResultStartMessage();
     }
 
-    private void printResult() {
+    public void printResult() {
         List<String> carNames = race.getCarNames();
         List<Integer> roundResult = race.getRoundResult();
         OutputView.printRoundResult(carNames, roundResult);
     }
 
-    private void printResultEnd() {
+    public void printResultEnd() {
         List<String> winners = race.getWinners();
         OutputView.printGameWinners(winners);
     }
 
+    public boolean isRoundRemain() {
+        return round.isRemaining();
+    }
+
+    public void subtractOneRound() {
+        round.subtractOne();
+    }
 }
