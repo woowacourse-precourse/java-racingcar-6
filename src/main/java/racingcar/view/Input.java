@@ -14,6 +14,7 @@ public class Input {
             String carName = stringTokenizer.nextToken();
             validateCarNameLength(carName);
             validateCarNameForSpace(carName);
+            validateDuplicateCarName(carName, carNameList);
             carNameList.add(carName);
         }
 
@@ -25,6 +26,12 @@ public class Input {
         validateTryCountIfZero(tryCount);
 
         return tryCount;
+    }
+
+    private void validateDuplicateCarName(String carName, List<String> carNameList){
+        if(carNameList.contains(carName)){
+            throw new IllegalArgumentException("중복된 이름을 사용하였습니다.");
+        }
     }
 
     private void validateTryCountIfZero(int tryCount) {
