@@ -2,7 +2,7 @@ package CarGameStart;
 
 import java.util.List;
 
-import Carset.CarFuctSet;
+import Carset.Car;
 import Carset.CarNamedSet;
 import Carset.PrintResult;
 
@@ -24,6 +24,7 @@ public class CarGameStart {
 	
 	
 	public void run() {
+		result.printStatus();
 		
 		
 		

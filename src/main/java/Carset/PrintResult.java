@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrintResult {
-	List<String> carNames;
-	CarFuctSet fuctset;
+	private List<Car> cars;
 	
 	public PrintResult(List<String> carNames) {
-		this.carNames = carNames;
-		this.fuctset = new CarFuctSet();
+		this.cars = new ArrayList<>();
+		for(String carName: carNames) {
+			cars.add(new Car(carName));
+		}
 	}
 	
 	public void Start() {
@@ -22,14 +23,18 @@ public class PrintResult {
 	
 	
 	public void printStatus() {
+		
+		int number = CarFuctSet.inputNumber();
+		
 		Start();
-		int number = fuctset.InputNumber();
 		
 		for(int i =0; i < number; i ++) {
-			for(String carName : carNames) {
-				fuctset.MoveCondition();
-				 printCarStatus(carName, fuctset.getDistance());
+			
+			for(Car car: cars) {
+				car.MoveCondition();
+				 printCarStatus(car);
 			}
+			System.out.println();
 		}
 		
 		List<String> winners = determineWinners();
@@ -38,9 +43,9 @@ public class PrintResult {
 		
 	}
 	
-	private void printCarStatus(String carName, int distance) {
-        System.out.print(carName + " : ");
-        for (int i = 0; i < distance; i++) {
+	private void printCarStatus(Car car) {
+        System.out.print(car.getName() + " : ");
+        for (int i = 0; i < car.getDistance(); i++) {
             System.out.print("-");
         }
         System.out.println();
@@ -51,15 +56,15 @@ public class PrintResult {
 		int maxDistance = 0;
 		List<String> winners = new ArrayList<>();
 		
-		for(String carName : carNames) {
-			int distance = fuctset.getDistance();
+		for(Car car: cars) {
+			int distance = car.getDistance();
 			
 			if(distance > maxDistance) {
 				maxDistance = distance;
 				winners.clear();
-				winners.add(carName);
+				winners.add(car.getName());
 			}else if(distance == maxDistance) {
-				winners.add(carName);
+				winners.add(car.getName());
 			}
 		}
 		return winners;
