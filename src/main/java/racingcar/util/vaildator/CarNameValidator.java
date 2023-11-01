@@ -12,6 +12,16 @@ public class CarNameValidator {
     private static final String INPUT_NAME_MINIMUM_EXCEPTION = "2명 이상 입력해주세요.";
     private static final String INPUT_NAME_DUPLICATE_EXCEPTION = "중복된 이름이 존재합니다.";
 
+    public static void validateInputCarName(String name) {
+        validateInputNameSize(name);
+        validateInputName(name);
+    }
+
+    public static void validateCarList(List<String> carList) {
+        validateMinimumCarNameCount(carList);
+        validateInputNameDupication(carList);
+    }
+
     public static void validateInputNameSize(String name) {
         if (name.length() > MAX_INPUT_NAME_SIZE) {
             throw new IllegalArgumentException(INPUT_NAME_SIZE_EXCEPTION);
