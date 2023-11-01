@@ -18,9 +18,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
-import racingcar.model.Car;
-import racingcar.model.RacingGame;
-import racingcar.model.Result;
+
 
 @DisplayName("레이싱 게임 테스트")
 class RacingGameTest {
