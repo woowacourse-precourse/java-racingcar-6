@@ -2,10 +2,12 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.*;
 
+import java.io.ByteArrayInputStream;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.test.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,9 +24,14 @@ class Car{
         this.name = name;
 
     }
+
+    static int makeRandomNumberInRange(){
+
+        return Randoms.pickNumberInRange(0,9);
+    }
     void carMove(){
 
-        int random=Randoms.pickNumberInRange(0,9);
+        int random= Car.makeRandomNumberInRange();
         if(random>=4){
             this.moveCount++;
             moveCountToDash.append("-");
@@ -141,27 +148,32 @@ class UserNameInput{
 
 }
 
-class RacingCarTest extends NsTest{
+class InputTest extends NsTest{
 
     @Test
-    @DisplayName("자동차 게임이 입력값에 따라 잘 구현 되는지 확인")
-    public void testValidInput(){
-        run("car1,car2,car3,car4,car5,car6,car7","5");
+    @DisplayName("사용자 입력이 콤마 단위로 List에 구현 되는지 확인")
+    public void testInputNameToList() {
 
-        String expectedOutput = "";
+        String input = "car1,car2,car3,car4,car5"; // 입력 데이터
+        System.setIn(new ByteArrayInputStream(input.getBytes())); // 입력
+
+
+        ArrayList<String> nameList = UserNameInput.InputNameToList();
+
+
+        assertThat(nameList).containsExactly("car1", "car2", "car3", "car4", "car5");
     }
-
-
-
     @Override
     protected void runMain(){
 
+        Application.main(new String[]{});
+
     }
 
-
-
-
 }
+
+
+
 
 
 
@@ -185,8 +197,6 @@ public class Application {
         ArrayList<String> winner = Car.makeWinnerList(carList);
 
         UserNameInput.printWinner(winner);
-
-
 
     }
 
