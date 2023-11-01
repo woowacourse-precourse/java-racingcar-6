@@ -29,4 +29,30 @@ public class Application {
             System.out.println();
         }
     }
+
+    //우승자를 출력하는 메소드
+    public static void printWinners(String[] carNames, int[][] raceResults) {
+        int maxDistance = 0; //최대 이동 거리 저장
+        StringBuilder winners = new StringBuilder(); //우승자 저장
+
+        for (int i = 0; i < raceResults[0].length; i++) {
+            int totalDistance = 0; //각 자동차의 총 이동 거리 저장
+
+            for (int j = 0; j < raceResults.length; j++) {
+                totalDistance += raceResults[j][i]; //각 자동차의 이동거리 + 총 이동거리
+            }
+
+            //우승자를 결정한다.
+            if (totalDistance > maxDistance) { //현재 자동차의 현재 distance가 지금까지의 max보다 크면
+                maxDistance = totalDistance; //바뀜
+                //최종 우승자를 stringBuilder에 설정함
+                winners = new StringBuilder(carNames[i]);
+            } else if (totalDistance == maxDistance) {
+                winners.append(",").append(carNames[i]);
+                //공동우승하는 경우를 다뤄준다
+            }
+        }
+
+        System.out.println("최종 우승자 : " + winners.toString());
+    }
 }
