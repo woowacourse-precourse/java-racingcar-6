@@ -31,18 +31,16 @@ public class RacingGame {
         String[] names = carNames.split(",");
 
         Exception.checkMinimumParticipants(names); // 2명 이상인지 확인
-        Exception.isSpace(names); // 이름에 공백이 포함되어 있는지 확인
-        checkLength(names); // 5글자 이하 확인
+
+        for (String name : names) {
+            Exception.isSpace(name); // 이름에 공백이 포함되어 있는지 확인
+            Exception.checkNameLength(name);
+        }
 
         return names;
     }
 
-    private void checkLength(String[] names) {
-        for (String name : names) {
-            Exception.checkNameLength(name);
-        }
-    }
-
+    
     private void addCar(String name) {
         Car car = new Car(name);
         carList.add(car);

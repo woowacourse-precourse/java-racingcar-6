@@ -19,12 +19,9 @@ public class Exception {
         return false;
     }
 
-    public static void isSpace(String[] names) {
-        for (String name : names) {
-            String word = name.trim();
-            if (word.contains(" ")) {
-                throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다.");
-            }
+    public static void isSpace(String name) {
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다.");
         }
     }
 
