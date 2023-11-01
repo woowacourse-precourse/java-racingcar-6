@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.stream.IntStream;
 import racingcar.domain.Cars;
 import racingcar.util.NumberGenerator;
 import racingcar.view.InputView;
@@ -18,17 +19,29 @@ public class GameController {
     }
 
     public void run() {
-        Cars cars = Cars.of(inputView.getNames());
-        int trialCount = inputView.getTrialCount();
+        Cars cars = getCars();
+        int trialCount = getTrialCount();
 
-        raceCars(cars, trialCount);
+        raceWith(cars, trialCount);
         outputView.printWinners(cars.getWinnerNames());
     }
 
-    private void raceCars(Cars cars, int trialCount) {
+    private Cars getCars() {
+        return Cars.from(inputView.getNames());
+    }
+
+    private int getTrialCount() {
+        return inputView.getTrialCount();
+    }
+
+    private void raceWith(Cars cars, int trialCount) {
         outputView.printRaceStartMessage();
-        for (int i = 0; i < trialCount; i++) {
-            outputView.printRoundResult(cars.race(numberGenerator));
-        }
+        IntStream.range(0, trialCount)
+                .forEach(count -> race(cars));
+    }
+
+    private void race(Cars cars) {
+        cars.race(numberGenerator);
+        outputView.printRoundResult(cars.toDto());
     }
 }
