@@ -5,6 +5,7 @@ import racingcar.model.Score;
 import racingcar.utils.RacingGameMessage;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class RacingGameView {
@@ -24,22 +25,18 @@ public class RacingGameView {
     public void raceResults(final List<List<Score>> raceResult) {
         System.out.println();
         System.out.println(RacingGameMessage.GAME_RESULT_MESSAGE.getRaceResultMessage());
-        for(int i = 0; i < raceResult.size(); i++) {
-            System.out.print(convertScoreToString(raceResult.get(i)));
+        raceResult.forEach(scores -> {
+            System.out.print(convertScoreToString(scores));
             System.out.println();
-        }
+        });
     }
 
-    public String convertScoreToString(List<Score> oneRoundScore) {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String convertScoreToString(final List<Score> oneRoundScore) {
+        final String result = oneRoundScore.stream().map(score -> score.getCarName() + " : "
+                + convertMoverCountToString(score.getMoveCount()) + "\n")
+                .collect(Collectors.joining());
 
-        for (int i = 0; i < oneRoundScore.size(); i++) {
-            stringBuilder.append(oneRoundScore.get(i).getCarName());
-            stringBuilder.append(" : ");
-            stringBuilder.append(convertMoverCountToString(oneRoundScore.get(i).getMoveCount()));
-            stringBuilder.append("\n");
-        }
-        return stringBuilder.toString();
+        return result;
     }
 
     public String convertMoverCountToString(final int moveCount) {

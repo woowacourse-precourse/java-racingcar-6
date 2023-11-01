@@ -4,8 +4,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Score;
 
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.List;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class RacingGameViewTest {
 
@@ -14,6 +17,9 @@ public class RacingGameViewTest {
     void raceResultView() {
         //when
         RacingGameView racingGameView = new RacingGameView();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(byteArrayOutputStream));
+
 
         //given
 
@@ -23,7 +29,23 @@ public class RacingGameViewTest {
         List<Score> fourRound = List.of(new Score("pobi", 2), new Score("suhw", 3));
 
         List<List<Score>> result = List.of(oneRound, twoRound, threeRound, fourRound);
-        //then
         racingGameView.raceResults(result);
+        String expectedResult = "\n" +
+                "실행 결과\n" +
+                "pobi : -\n" +
+                "suhw : \n" +
+                "\n" +
+                "pobi : -\n"
+                + "suhw : -\n" +
+                "\n" +
+                "pobi : --\n" +
+                "suhw : --\n" +
+                "\n" +
+                "pobi : --\n" +
+                "suhw : ---\n" +
+                "\n";
+        //then
+        assertThat(byteArrayOutputStream.toString()).isEqualTo(expectedResult);
+        System.setOut(System.out);
     }
 }

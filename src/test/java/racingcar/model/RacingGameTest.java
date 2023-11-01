@@ -12,9 +12,10 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 
 public class RacingGameTest {
+
     @DisplayName("레이싱 자동차 목록에 공복이 포함된 경우의 테스트")
     @Test
-    void carNameInputLineDelimiterTest() {
+    void carNameInputLineSpaceTest() {
         //when
         RacingGame racingGame = new RacingGame();
 
