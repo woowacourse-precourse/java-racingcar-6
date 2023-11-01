@@ -49,7 +49,15 @@ public class ExceptionTest extends NsTest {
     }
 
     @Test
-    void 시도_회수에_대한_예외_처리2_양수만_입력() {
+    void 시도_회수에_대한_예외_처리2_양수만_입력1() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_회수에_대한_예외_처리2_양수만_입력2() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
