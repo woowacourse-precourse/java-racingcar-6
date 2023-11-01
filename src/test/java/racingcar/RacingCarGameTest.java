@@ -93,4 +93,19 @@ public class RacingCarGameTest {
         }
         assertThat(game.printRacingCarScore(racingCar)).isEqualTo("dadi : ---");
     }
+    @Test
+    void computeWinners_우승자_한_명_정산한다() {
+        RacingCarGame game = new RacingCarGame();
+        RacingCar dadi = new RacingCar("dadi");
+        RacingCar dodi = new RacingCar("dodi");
+        dadi.move(9);
+
+        ArrayList<RacingCar> racingCars = new ArrayList<>();
+        racingCars.add(dadi);
+        racingCars.add(dodi);
+
+        game.computeWinners(racingCars);
+        assertThat(game.getWinners()).hasSize(1);
+        assertThat(game.getWinners().get(0).getName()).isEqualTo("dadi");
+    }
 }
