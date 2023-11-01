@@ -7,8 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputUser {
-    public List<String> getNames(){
-        String userInput = Console.readLine();
+    public List<String> getNames(String userInput){
         List<String> names = new ArrayList<>(Arrays.asList(userInput.split(",")));
         return names;
     }

@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import domain.Cars;
 import domain.InputUser;
 
@@ -15,7 +16,8 @@ public class Application {
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         InputUser inputUser = new InputUser();
-        List<String> carNames = inputUser.getNames();
+        String userInput = Console.readLine();
+        List<String> carNames = inputUser.getNames(userInput);
         System.out.println("시도할 회수는 몇회인가요?");
         int num = inputUser.getNumber();
         System.out.println();
