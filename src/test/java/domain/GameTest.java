@@ -1,34 +1,25 @@
 package domain;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 import racingcar.domain.Attempt;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.domain.Game;
-import racingcar.domain.Movement;
+import racingcar.domain.Umpire;
 
-public class GameTest {
-    private Cars cars;
-    private Attempt attempt;
-    private Movement movement;
-
-    @BeforeEach
-    public void setUp() {
-        cars = new Cars();
-        attempt = new Attempt();
-        movement = new Movement();
-    }
-
+public class GameTest extends NsTest {
     @Test
     void 자동차_이름을_쉼표로_구분하여_입력받기() {
+        Cars cars = new Cars();
         String input = "pobi,woni,jun";
         command(input);
 
@@ -39,9 +30,21 @@ public class GameTest {
 
     @Test
     void 시도_횟수_입력받아_저장하기() {
+        Attempt attempt = new Attempt();
         command("5");
 
         assertThatCode(() -> attempt.saveAttemptNumber()).doesNotThrowAnyException();
+    }
+
+    @Test
+    void 아무도_움직이지_않았을_경우() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : ", "woni : ", "pobi : ", "woni : ", "최종 우승자 :");
+                },
+                0, 0
+        );
     }
 
     @Test
@@ -51,7 +54,7 @@ public class GameTest {
         cars.add(new Car("woni"));
         cars.add(new Car("jun"));
 
-        Game game = new Game(cars, 5);
+        Umpire umpire = new Umpire(cars);
 
         cars.get(0).move();
         cars.get(1).move();
@@ -59,7 +62,7 @@ public class GameTest {
         cars.get(0).move();
         cars.get(1).move();
 
-        String winnerResult = game.listWinner();
+        String winnerResult = umpire.findWinner();
 
         assertEquals("pobi, woni", winnerResult);
     }
@@ -67,6 +70,11 @@ public class GameTest {
     private void command(final String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
+    }
+
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
     }
 
 }
