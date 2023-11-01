@@ -13,4 +13,5 @@ public class RacingCarService {
 		List<String> maxValueFromCarStatus = racingStatus.findMaxValueFromCarStatus();
 	}
 
+
 }
