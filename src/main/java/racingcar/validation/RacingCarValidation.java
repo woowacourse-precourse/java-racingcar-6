@@ -2,6 +2,7 @@ package racingcar.validation;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.view.InputView;
 
 public class RacingCarValidation {
     public static final String CAR_LIST_IS_NOT_AVAIL = "최소 두 개 이상의 차 이름을 입력해주세요.";
@@ -20,5 +21,15 @@ public class RacingCarValidation {
         if (invalidCarNameExists) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_IS_NOT_AVAIL);
         }
+    }
+
+    public static int isAvailNumber() {
+        int number;
+        try {
+            number = new InputView().gameRunningNumber();
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력해주세요.");
+        }
+        return number;
     }
 }

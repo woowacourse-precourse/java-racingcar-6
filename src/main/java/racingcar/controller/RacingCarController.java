@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
 import racingcar.service.RacingCarService;
+import racingcar.validation.RacingCarValidation;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -37,7 +38,7 @@ public class RacingCarController {
 
     public int settingGameNumber() {
         inputView.gameRunningNumberLog();
-        return inputView.gameRunningNumber();
+        return RacingCarValidation.isAvailNumber();
     }
 
     public CarList initializeCarList() {
