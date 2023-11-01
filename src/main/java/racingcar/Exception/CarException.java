@@ -30,24 +30,24 @@ public class CarException {
         if (Arrays.stream(names.split(",")).count() <= 1) {
             throw new IllegalArgumentException(ExceptionMessage.ONE_CAR_ERROR);
         }
-        return names.split(",");
+        return names.split(",", -1);
     }
 
     public boolean validateName(String name) {
-        if (name == null || name.trim().isEmpty()) {
+        if (name == null || name.trim().isEmpty() || name.length() < 1) {
             throw new IllegalArgumentException(ExceptionMessage.NOTHING_ERROR);
         }
         return true;
     }
 
-    public void checkFiveWords(String name){
+    public void checkFiveWords(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException(ExceptionMessage.FIVE_LENGTH_ERROR);
         }
     }
 
     public void checkSpaceWords(String name) {
-        if (name.contains(" ")) {
+        if (name.contains(" ") || name.equals("")) {
             throw new IllegalArgumentException(ExceptionMessage.IS_SPACE_ERROR);
         }
     }
