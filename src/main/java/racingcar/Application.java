@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     public static void main(String[] args) {
         String[] carNames = getCarNames();
+        int count = getCount();
+
     }
 
     private static String[] getCarNames() {
@@ -19,5 +21,12 @@ public class Application {
         }
 
         return carNames;
+    }
+
+    private static int getCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int count = Integer.parseInt(Console.readLine());
+
+        return count;
     }
 }
