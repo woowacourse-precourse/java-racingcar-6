@@ -7,11 +7,12 @@ import java.util.Map;
 
 public class Referee {
     public List<String> find_maxKeys(LinkedHashMap<String, Integer> map) {
-
         List<String> maxKeys = new ArrayList<>();
         int maxValue = 0;
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             int value = entry.getValue();
+
             if (value > maxValue) {
                 maxValue = value;
                 maxKeys.clear();

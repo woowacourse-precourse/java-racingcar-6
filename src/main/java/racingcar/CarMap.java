@@ -10,9 +10,11 @@ public class CarMap {
     public LinkedHashMap<String, Integer> makeInitMap(Start start) {
         LinkedHashMap<String, Integer> mapInit = new LinkedHashMap<>();
         carList = start.getCarList();
+
         for (String key : carList) {
             mapInit.put(key, 0);
         }
+
         this.map = mapInit;
 
         return map;
@@ -24,13 +26,14 @@ public class CarMap {
 
         for (String key : carList) {
             boolean isAdvance = randomValue.forwardDecision();
+
             if (isAdvance) {
                 int value = map.get(key);
                 value++;
                 mapUpdate.put(key, value);
             }
-
         }
+
         this.map = mapUpdate;
         return mapUpdate;
     }

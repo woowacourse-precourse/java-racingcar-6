@@ -15,6 +15,7 @@ public class Play {
             map = carMap.updateMap();
             executionResult.outputView(map);
         }
+
         return map;
     }
 }
