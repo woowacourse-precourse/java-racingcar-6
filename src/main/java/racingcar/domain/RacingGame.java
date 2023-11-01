@@ -25,4 +25,13 @@ public class RacingGame {
         RacingGameWinner winner = new RacingGameWinner(cars);
         winner.printWinners();
     }
+
+    public void startRace(){
+        for (int i = 0; i < numberOfRepetition; i++) {
+            moveOrStop();
+            printCurrentPositions();
+            System.out.println();
+        }
+        findWinners(cars);
+    }
 }
