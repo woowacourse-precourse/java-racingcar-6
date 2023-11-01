@@ -1,13 +1,12 @@
 package racingcar.view;
 
-import static racingcar.exception.InvalidAttemptCountException.parseAttemptCount;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarFactory;
 import racingcar.exception.InvalidAttemptCountException;
 import racingcar.exception.InvalidCarNameException;
+import racingcar.utils.AttemptCountParser;
 
 /**
  * <p>사용자 입력을 담당하는 뷰 클래스입니다.</p>
@@ -35,15 +34,13 @@ public class InputView {
     /**
      * <p>사용자로부터 시도할 횟수를 입력받습니다.</p>
      *
-     * <p>입력받은 시도할 횟수는 {@link InvalidAttemptCountException#parseAttemptCount(String)}
-     * 메서드를 통해 정수로 변환됩니다. 유효하지 않은 시도 횟수에 대해서는 {@link InvalidAttemptCountException#validate(int)}를 통해
-     * 예외 처리됩니다.</p>
+     * <p>유효하지 않거나 양수가 아닌 값에 대한 처리는 {@link InvalidAttemptCountException}에서 합니다.</p>
      *
      * @return 사용자로부터 입력받은 시도할 횟수
      */
     public static int inputAttemptCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int attemptCount = parseAttemptCount(Console.readLine());
+        int attemptCount = AttemptCountParser.parseAttemptCount(Console.readLine());
         InvalidAttemptCountException.validate(attemptCount);
         return attemptCount;
     }
