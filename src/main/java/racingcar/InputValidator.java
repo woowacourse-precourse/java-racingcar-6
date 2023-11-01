@@ -7,7 +7,7 @@ public class InputValidator {
 
     public static boolean carName(String[] inputs) {
         for (String input : inputs)
-            if (!Pattern.matches("^[a-zA-Z]*$", input) && input.length()<=MAX_CAR_NAME_LENGTH && !input.isEmpty()) {
+            if (!Pattern.matches("^[a-zA-Z]*$", input) || input.length()>MAX_CAR_NAME_LENGTH || input.isEmpty()) {
                 return false;
             }
         return true;
