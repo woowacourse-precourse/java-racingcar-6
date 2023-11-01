@@ -85,6 +85,12 @@ public class RacingManager {
         if (carNames.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차의 이름들을 입력해주세요.");
         }
+
+        List<String> nameList = Arrays.asList(carNames.split(","));
+        Set<String> nameSet = new HashSet<>(nameList);
+        if (nameList.size() != nameSet.size()) {
+            throw new IllegalArgumentException("자동차의 이름은 중복될 수 없습니다.");
+        }
     }
 
     private int parseMoveCountInput(String moveCountInput) {
