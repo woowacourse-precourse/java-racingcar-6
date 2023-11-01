@@ -28,7 +28,7 @@ class RacingGameTest {
     @Test
     void initResultList_초기화_여부_확인_테스트() {
         int numOfCars = 5;
-        List<String> result = racingGame.initResultList(5);
+        List<String> result = racingGame.initResultList(numOfCars);
         assertThat(result).isEqualTo(Arrays.asList("","","","",""));
     }
 
