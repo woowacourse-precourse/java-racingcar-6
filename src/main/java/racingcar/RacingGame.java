@@ -5,24 +5,28 @@ import racingcar.io.OutputHandler;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.stream.Collectors;
+
+
+
 
 public class RacingGame extends Game{
-    private final List<RacingCar> car = new ArrayList<>();
+    private final List<RacingCar> cars = new ArrayList<>();
     private int tryCount;
 
     @Override
     public void initGame() {
-        String[] carNames = InputHandler.getCarNames("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String[] carNames = InputHandler.getCarNames();
         for (String name : carNames) {
             cars.add(new RacingCar(name));
         }
-        tryCount = InputHandler.getRaceCount();
+        tryCount = InputHandler.getTryCount();
     }
 
     @Override
     protected void playGame() {
-        for (int i = 0; i < raceCount; i++) {
+        for (int i = 0; i < tryCount; i++) {
             playRound();
             System.out.println(); // 줄바꿈으로 각 라운드 구분
         }
