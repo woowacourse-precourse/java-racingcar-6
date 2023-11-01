@@ -67,6 +67,7 @@ public class GameControl extends Cars {
             }
         }
 
+
         System.out.print("최종 우승자 : ");
         String winnersString = String.join(", ", winners);
         System.out.println(winnersString);
