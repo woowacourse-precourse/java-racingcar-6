@@ -23,7 +23,8 @@ public class Application {
         //split을 통한 이름을 나눠 배열에 저장
         List<String> carNames = inputUser.getNames(userInput);
         System.out.println("시도할 회수는 몇회인가요?");
-        int num = inputUser.getNumber();
+        int getNum = Integer.parseInt(Console.readLine());
+        int num = inputUser.getNumber(getNum);
         System.out.println();
 
         //각각의 차마다 전진과 멈춤 기록이 가능한 인스턴스 생성

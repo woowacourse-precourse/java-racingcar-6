@@ -16,10 +16,9 @@ public class InputUser {
         }
         return names;
     }
-    public int getNumber(){
+    public int getNumber(int num){
         try {
-            int getNum = Integer.parseInt(Console.readLine());
-            return getNum;
+            return num;
         }catch (NumberFormatException e){
             throw new IllegalArgumentException();
         }
