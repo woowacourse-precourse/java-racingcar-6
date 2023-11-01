@@ -1,4 +1,4 @@
-package racingcar.View;
+package racingcar.Service;
 
 import static org.assertj.core.api.Assertions.*;
 

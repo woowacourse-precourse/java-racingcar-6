@@ -1,4 +1,4 @@
-package racingcar.View;
+package racingcar.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
