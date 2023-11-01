@@ -1,25 +1,27 @@
 package racingcar;
 
 import java.util.Objects;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Player implements Comparable<Player>{
 
     private final String name;
     public int step;
 
-    public Player(String name){ this.name = name; }
+    public Player(String name){
+        this.name = name;
+        this.step = 0;
+    }
 
     public void move(){
-        if(movable()){
+        final int getRandomNumber
+                = Utils.genNumberInRange(RacingGame.RANDOM_NUM_MIN_RANGE, RacingGame.RANDOM_NUM_MAX_RANGE);
+        if(movable(getRandomNumber)){
             this.step+=1;
         }
     }
 
-    public boolean movable(){
-        final int getRandomNumber
-                = Randoms.pickNumberInRange(RacingGame.RANDOM_NUM_MIN_RANGE, RacingGame.RANDOM_NUM_MAX_RANGE);
-        if (getRandomNumber>= RacingGame.MOVE_FORWARD_COND){
+    public boolean movable(int number){
+        if (number>= RacingGame.MOVE_FORWARD_COND){
             return true;
         }
         return false;

@@ -21,7 +21,7 @@ public class RacingGame {
 
         guideUserInsertRacingTryCount();
         final int tryCount = Utils.inputTryCount();
-        guideUserRacingResult();
+        guideUserResult();
         for(int i=0; i<tryCount; i++){
             players.stream()
                     .forEach(player -> {player.move(); player.print();});
@@ -38,7 +38,7 @@ public class RacingGame {
     public void guideUserInsertRacingTryCount(){
         System.out.println("시도할 회수는 몇회인가요?");
     }
-    public void guideUserRacingResult(){
+    public void guideUserResult(){
         System.out.println("실행결과");
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Utils {
 
@@ -36,6 +37,10 @@ public class Utils {
         }
 
         return tryCount;
+    }
+
+    public static int genNumberInRange(int min, int max){
+        return Randoms.pickNumberInRange(min, max);
     }
 
     public static String[] inputNameSplit(String sep, String target){
