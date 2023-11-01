@@ -10,10 +10,10 @@ public class OutputView {
     }
 
     public void printResultGame(String carNames, String gameResult){
-        System.out.println(carNames + ":" + gameResult);
+        System.out.println(carNames + " : " + gameResult);
     }
 
     public void printWinner(String winner){
-        System.out.println(winnerInformation + winner);
+        System.out.println(winnerInformation + " : " +winner);
     }
 }
