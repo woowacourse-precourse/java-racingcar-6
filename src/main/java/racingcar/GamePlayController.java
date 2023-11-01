@@ -22,6 +22,12 @@ public class GamePlayController {
         gameSetting = new GameSetting(repeatNumber, cars);
     }
 
+    private void playAllGame() {
+        for (int i = 0; i < gameSetting.getRepeatNumber(); i++) {
+            playSubGame();
+        }
+    }
+
     private void playSubGame() {
         List<Car> cars = gameSetting.getCars();
         for (Car car : cars) {
