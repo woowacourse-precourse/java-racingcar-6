@@ -26,7 +26,7 @@ public class Car {
         return inputNames;
     }
 
-    public void validateInputNames(List<String> inputNames) {
+    private void validateInputNames(List<String> inputNames) {
         checkEmpty(inputNames);
         checkDuplicate(inputNames);
         checkLength(inputNames);

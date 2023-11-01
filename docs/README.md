@@ -35,21 +35,17 @@
 ### Car 클래스
 - [ ] getNames
 - [ ] splitInputNames
-- [ ] validateInputNames
-  - [ ] checkEmpty
-  - [ ] checkDuplicate
-  - [ ] checkLength
+- [ ] checkEmpty
+- [ ] checkDuplicate
+- [ ] checkLength
 
 ### Attempt 클래스
 - [ ] getCount
-- [ ] validateAttemptCount
-  - [ ] checkInt
-  - [ ] checkNatural
+- [ ] checkInt
+- [ ] checkNatural
 
 ### MovingCondition 클래스
-- [ ] getRandomNumber
 - [ ] isMoveForward
 
 ### RacingGame 클래스
 - [ ] race
-- [ ] printProgressResult
