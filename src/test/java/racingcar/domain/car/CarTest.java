@@ -21,7 +21,7 @@ class CarTest {
     @Test
     @DisplayName("Car은 정상적으로 생성 되어야 한다.")
     void Car_정상_생성_테스트() {
-        Car car = new Car("test");
+        Car car = new Car(new Name("First"));
 
         assertNotNull(car);
         assertNotEquals(0, car.hashCode());
@@ -30,7 +30,7 @@ class CarTest {
     @Test
     @DisplayName("Car의 이름이 5글자를 넘으면 오류가 발생한다.")
     void Car_Name_6글자_이상이면_익셉션_발생() {
-        assertThrows(WrongNameException.class, () -> new Car("abcdef"));
+        assertThrows(WrongNameException.class, () -> new Car(new Name("abcdef")));
     }
 
     @ParameterizedTest
@@ -40,11 +40,11 @@ class CarTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(value);
 
-        Car car = new Car("test");
+        Car car = new Car(new Name("First"));
         car.move(moveRule);
         String position = car.printPosition();
 
-        assertEquals("test : -\n", position);
+        assertEquals("First : -\n", position);
     }
 
     @ParameterizedTest
@@ -54,12 +54,12 @@ class CarTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5);
 
-        Car car = new Car("test");
+        Car car = new Car(new Name("First"));
         car.move(moveRule);
         car.move(moveRule);
         String position = car.printPosition();
 
-        assertEquals("test : --\n", position);
+        assertEquals("First : --\n", position);
     }
 
     @Test
@@ -68,11 +68,11 @@ class CarTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(3);
 
-        Car car = new Car("test");
+        Car car = new Car(new Name("First"));
         car.move(moveRule);
         String position = car.printPosition();
 
-        assertEquals("test : \n", position);
+        assertEquals("First : \n", position);
     }
 
     @Test
@@ -81,8 +81,8 @@ class CarTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 2);
 
-        Car first = new Car("First");
-        Car secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car secon = new Car(new Name("Secon"));
         first.move(moveRule);
         secon.move(moveRule);
 
@@ -97,8 +97,8 @@ class CarTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(2, 5);
 
-        Car first = new Car("First");
-        Car secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car secon = new Car(new Name("Secon"));
         first.move(moveRule);
         secon.move(moveRule);
 

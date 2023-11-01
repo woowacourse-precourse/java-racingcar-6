@@ -1,6 +1,5 @@
 package racingcar.domain.car;
 
-import exception.WrongNameException;
 import racingcar.domain.policy.MoveRule;
 import racingcar.domain.policy.MovePolicy;
 
@@ -8,28 +7,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class Car {
-    private final String name;
+    private final Name name;
     private int position;
 
-    private static final int NAME_LENGTH = 5;
-
-    public Car(String name) {
-        valid(name);
+    public Car(Name name) {
         this.name = name;
-    }
-
-    private void valid(String name) {
-        if (isLengthOver(name) || isEmpty(name)) {
-            throw new WrongNameException("이름을 확인해주세요.");
-        }
-    }
-
-    private boolean isLengthOver(String name) {
-        return name.length() > NAME_LENGTH;
-    }
-
-    private boolean isEmpty(String name) {
-        return name.isEmpty();
     }
 
     public void move(MoveRule moveRule) {
@@ -43,7 +25,7 @@ public class Car {
     }
 
     public String printPosition() {
-        return name + " : " + "-".repeat(position) + "\n";
+        return name.value() + " : " + "-".repeat(position) + "\n";
     }
 
     public String getWinner(List<Car> cars) {
@@ -51,7 +33,7 @@ public class Car {
                 .noneMatch(c -> this.position < c.position);
 
         if (isWinner) {
-            return this.name;
+            return this.name.value();
         }
 
         return "";

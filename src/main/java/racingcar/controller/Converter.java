@@ -3,6 +3,7 @@ package racingcar.controller;
 import exception.WrongInputException;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
+import racingcar.domain.car.Name;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Converter {
         String[] names = values.split(",");
 
         return Arrays.stream(names)
+                .map(Name::new)
                 .map(Car::new)
                 .toList();
     }

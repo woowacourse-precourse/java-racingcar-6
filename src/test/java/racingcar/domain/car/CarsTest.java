@@ -18,8 +18,8 @@ class CarsTest {
     @Test
     @DisplayName("Cars는 정상적으로 생성되어야 한다.")
     void Cars_정상_생성() {
-        Car first = new Car("First");
-        Car Secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car Secon = new Car(new Name("Secon"));
 
         Cars cars = new Cars(List.of(first, Secon));
 
@@ -38,8 +38,8 @@ class CarsTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(4, 4);
 
-        Car first = new Car("First");
-        Car Secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car Secon = new Car(new Name("Secon"));
 
         Cars cars = new Cars(List.of(first, Secon));
         cars.move(moveRule);
@@ -59,8 +59,8 @@ class CarsTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 2);
 
-        Car first = new Car("First");
-        Car Secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car Secon = new Car(new Name("Secon"));
 
         Cars cars = new Cars(List.of(first, Secon));
         cars.move(moveRule);
@@ -80,8 +80,8 @@ class CarsTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(2, 2);
 
-        Car first = new Car("First");
-        Car Secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car Secon = new Car(new Name("Secon"));
 
         Cars cars = new Cars(List.of(first, Secon));
         cars.move(moveRule);
@@ -101,8 +101,8 @@ class CarsTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 2);
 
-        Car first = new Car("First");
-        Car Secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car Secon = new Car(new Name("Secon"));
 
         Cars cars = new Cars(List.of(first, Secon));
         cars.move(moveRule);
@@ -118,8 +118,8 @@ class CarsTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 5);
 
-        Car first = new Car("First");
-        Car Secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car Secon = new Car(new Name("Secon"));
 
         Cars cars = new Cars(List.of(first, Secon));
         cars.move(moveRule);
@@ -135,8 +135,8 @@ class CarsTest {
         MoveRule moveRule = mock(RandomMoveRule.class);
         when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(2, 2);
 
-        Car first = new Car("First");
-        Car Secon = new Car("Secon");
+        Car first = new Car(new Name("First"));
+        Car Secon = new Car(new Name("Secon"));
 
         Cars cars = new Cars(List.of(first, Secon));
         cars.move(moveRule);

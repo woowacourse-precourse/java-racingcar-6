@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
+import racingcar.domain.car.Name;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,9 @@ public class CarsFixture {
 
     private CarsFixture() {
         List<Car> carList = new ArrayList<>();
-        carList.add(new Car("First"));
-        carList.add(new Car("Secon"));
-        carList.add(new Car("Third"));
+        carList.add(new Car(new Name("First")));
+        carList.add(new Car(new Name("Secon")));
+        carList.add(new Car(new Name("Third")));
 
         this.cars = new Cars(carList);
     }
