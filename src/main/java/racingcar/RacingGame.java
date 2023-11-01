@@ -5,17 +5,16 @@ import racingcar.message.ErrorMessage;
 import racingcar.message.GameMessage;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingGame {
-    private List<Car> cars;
-    private Integer tryCount;
+    private final List<Car> cars;
+    private final Integer tryCount;
     private Integer turnCount;
 
     private RacingGame(Builder builder) {
         this.cars = builder.carInput.getCarNames().stream()
                 .map(Car::new)
-                .collect(Collectors.toList());
+                .toList();
 
         this.tryCount = builder.tryCount;
         this.turnCount = 0;
@@ -26,7 +25,7 @@ public class RacingGame {
             playOneRound();
             turnCount++;
         }
-//        printWinner();
+        printWinner();
     }
 
     public List<Car> getWinner() {
@@ -82,10 +81,6 @@ public class RacingGame {
     public static class Builder {
         private CarInput carInput;
         private Integer tryCount;
-
-        public Builder Builder() {
-            return this;
-        }
 
         public Builder carInput(CarInput carInput) {
             this.carInput = carInput;
