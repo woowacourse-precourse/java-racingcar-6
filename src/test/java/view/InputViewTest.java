@@ -2,6 +2,7 @@ package view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,7 +21,8 @@ public class InputViewTest {
     @ParameterizedTest
     @ValueSource(strings = {"잠온다,자고싶다", ",","라라", " ","   ","라라, ","여섯글자인데, 붕붕이"})
     void validateCarNamesTest(String carNames){
-        assertThat(inputView.validateCarNames(carNames)).isTrue();
+        Assertions.assertThatThrownBy(() -> assertThat(inputView.validateCarNames(carNames)).isTrue())
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
