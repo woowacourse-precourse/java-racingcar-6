@@ -29,7 +29,10 @@ public class Cars {
     public String getRacingResult() {
         return carList.stream()
                 .map(Car::getRacingResult)
-                .collect(Collectors.joining("\n", "", "\n"));
+                .collect(Collectors.joining(
+                        SeparatorConstant.NEW_LINE.getValue(),
+                        SeparatorConstant.EMPTY_STRING.getValue(),
+                        SeparatorConstant.NEW_LINE.getValue()));
     }
 
     public String getRacingWinner() {
@@ -44,7 +47,7 @@ public class Cars {
                 .filter(car -> car.getDashNum() == maxDash())
                 .map(Car::getWinnerName)
                 .findAny()
-                .orElse("");
+                .orElse(SeparatorConstant.EMPTY_STRING.getValue());
     }
 
     private String getWinners() {
