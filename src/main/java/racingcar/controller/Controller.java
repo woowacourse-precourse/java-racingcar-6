@@ -32,7 +32,10 @@ public class Controller {
     private void play(Game game) {
         OutputView.printHead();
         gameService.play(game);
+        OutputView.showScore(game.getCars());
+        OutputView.showWinners(gameService.findWinners(game));
     }
+
 
     Map<Car, List<Integer>> getPositionHistory() {
         return positionHistory;
