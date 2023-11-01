@@ -1,18 +1,22 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
 
     public void start() {
-        HashMap<String, String> racingProgress = inputCarNames();
+        LinkedHashMap<String, String> racingProgress = inputCarNames();
         // for (String name : racingProgress.keySet()) {
         // // need change variable name - name > carName
         // System.out.println(name + racingProgress.get(name));
         // }
+        // racingProgress.forEach((key, value) -> {
+        // System.out.println(key + value);
+        // });
 
         Integer gameTimes = inputGameTimes();
         // System.out.println(gameTimes);
@@ -29,8 +33,8 @@ public class RacingGame {
 
     }
 
-    private HashMap<String, String> inputCarNames() {
-        HashMap<String, String> racingProgress = new HashMap<String, String>();
+    private LinkedHashMap<String, String> inputCarNames() {
+        LinkedHashMap<String, String> racingProgress = new LinkedHashMap<String, String>();
         String[] readlineCarNames;
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         try {
@@ -65,7 +69,7 @@ public class RacingGame {
         return gameTimes;
     }
 
-    private HashMap<String, String> eachRace(HashMap<String, String> racingProgress) {
+    private LinkedHashMap<String, String> eachRace(LinkedHashMap<String, String> racingProgress) {
         for (String carName : racingProgress.keySet()) {
             if (Randoms.pickNumberInRange(1, 9) >= 4) {
                 racingProgress.put(carName, racingProgress.get(carName) + "-");
@@ -79,7 +83,7 @@ public class RacingGame {
         return racingProgress;
     }
 
-    private void racingResult(HashMap<String, String> racingProgress, Integer gameTimes) {
+    private void racingResult(LinkedHashMap<String, String> racingProgress, Integer gameTimes) {
         // eachRace(racingProgress)
         int winnerLength = 0;
         ArrayList<String> test = new ArrayList<>();
