@@ -16,6 +16,7 @@ public class GameUtil {
 
     public int getMoveCount() {
         System.out.println("시도할 회수는 몇회인가요?");
+
         int res;
         try {
             String input = Console.readLine();
@@ -23,14 +24,17 @@ public class GameUtil {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
         }
+
+        if(res <= 0){
+            throw new IllegalArgumentException("시도할 회수는 0보다 커야합니다.");
+        }
         return res;
     }
 
     public void printWinner(List<Racer> winners) {
-        System.out.print("최종 우승자 : ");
         String winnerNames = winners.stream()
                 .map(Racer::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(", ", "최종 우승자 : ", ""));
         System.out.println(winnerNames);
     }
 
@@ -42,7 +46,7 @@ public class GameUtil {
                     .append(racer.getScore())
                     .append("\n");
         }
-        System.out.println(result.toString());
+        System.out.println(result);
     }
 
     public List<String> inputToNameList(String input) {
@@ -56,7 +60,7 @@ public class GameUtil {
                     if (!nameSet.add(name)) {
                         throw new IllegalArgumentException("중복된 이름입니다.");
                     }
-                }).collect(Collectors.toList());
+                }).toList();
     }
 
     /**
