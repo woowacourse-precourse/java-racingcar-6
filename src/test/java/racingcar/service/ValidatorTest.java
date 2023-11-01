@@ -50,4 +50,12 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("반복 횟수는 정수 혹은 양수만 가능합니다.");
     }
+    @Test
+    @DisplayName("시도 횟수가 음수일 경우에 대한 예외처리 테스트")
+    void validate_Trial_Num_When_Negative() {
+        String testTrialNumber = "-1";
+        assertThatThrownBy(() -> validator.validateNonIntTrialNumber(testTrialNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("반복 횟수는 정수 혹은 양수만 가능합니다.");
+    }
 }
