@@ -34,14 +34,12 @@ public class Validator {
         }
     }
 
-    public void correctCommaLocation(final List<String> members, final String carNames) {
+    public void correctCommaLocation(final String carNames) {
         if (carNames.startsWith(",") || carNames.endsWith(",")) {
             throw new IllegalArgumentException("쉼표는 입력의 처음과 끝에 존재할 수 없습니다.");
         }
-        final boolean isMemberEmpty = members.stream()
-                .anyMatch(String::isBlank);
-        if (isMemberEmpty) {
-            throw new IllegalArgumentException("쉼표를 연속으로 입력할 수 없습니다.");
+        if (carNames.contains(",,")) {
+            throw new IllegalArgumentException("쉼표는 연속으로 입력할 수 없습니다.");
         }
     }
 
