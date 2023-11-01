@@ -19,28 +19,40 @@ public class RacingController {
     }
 
     public void playRacingGame() {
-        // 사용자로부터 자동차 이름을 받기
-        carNameInput.requestCarNames();
-        String carNamesInput = carNameInput.getUserCarNames();
-        List<String> carNames = carNameInput.parseCarNames(carNamesInput);
-        CarNameValidator.validateCarNames(carNames);
 
-        // 사용자로부터 시도할 횟수 받기
-        RacingAttemptInput attemptInput = new RacingAttemptInput();
-        attemptInput.requestAttemptCount();
-        String input = attemptInput.readUserInput();
-        int attemptCount = AttemptCountValidator.validateAttemptCount(input);
+        List<String> carNames = getValidCarNames();
+        int attemptCount = getValidAttemptCount();
 
-        // 게임 초기화
-        racingGame = new RacingGame(carNames, new RealRandomGenerator());
+        initializeGame(carNames);
+        executeRacingGame(attemptCount);
+    }
 
-        // 게임 실행 로직
+    private void executeRacingGame(int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
             racingGame.race();
             printRaceResults(racingGame.getCars());
         }
-
         racingGame.printWinners();
+    }
+
+    private void initializeGame(List<String> carNames) {
+        racingGame = new RacingGame(carNames, new RealRandomGenerator());
+    }
+
+    private static int getValidAttemptCount() {
+        RacingAttemptInput attemptInput = new RacingAttemptInput();
+        attemptInput.requestAttemptCount();
+        String input = attemptInput.readUserInput();
+        return AttemptCountValidator.validateAttemptCount(input);
+
+    }
+
+    private List<String> getValidCarNames() {
+        carNameInput.requestCarNames();
+        String carNamesInput = carNameInput.getUserCarNames();
+        List<String> carNames = carNameInput.parseCarNames(carNamesInput);
+        CarNameValidator.validateCarNames(carNames);
+        return carNames;
     }
 
     private void printRaceResults(List<Car> cars) {
