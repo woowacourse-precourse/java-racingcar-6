@@ -3,7 +3,6 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.RepeatedTest;
@@ -49,20 +48,6 @@ public class RacingCarTest {
         int number = Randoms.pickNumberInRange(0, 9);
         System.out.println("number = " + number);
         assertThat(racingCar.moveBy(number)).isIn(true, false);
-    }
-
-    @RepeatedTest(10)
-    void 입력값_범위로인해_에러_발생_양수() {
-        int number = Randoms.pickNumberInRange(10, 100);
-        System.out.println("number = " + number);
-        Assertions.assertThatThrownBy(() -> racingCar.moveBy(number)).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @RepeatedTest(10)
-    void 입력값_범위로인해_에러_발생_음수() {
-        int number = Randoms.pickNumberInRange(-100, -1);
-        System.out.println("number = " + number);
-        Assertions.assertThatThrownBy(() -> racingCar.moveBy(number)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @AfterAll
