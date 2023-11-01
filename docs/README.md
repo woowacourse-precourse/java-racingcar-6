@@ -41,7 +41,7 @@
 |------------|--------------------------------------------------------------------|
 | carNumber  | its range (1,16)                                                   |
 | carName    | is it empty? length is more than 5 ? does it have any white-space? |
-| trialCount | is it positive integer? size of input < 4097 ?                     |
+| trialCount | is it positive integer? is it valid?                               |
 
 **class** *RacingCarGame*
 1. it plays actual game logic.
