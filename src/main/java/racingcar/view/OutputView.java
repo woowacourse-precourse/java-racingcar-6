@@ -6,11 +6,12 @@ import racingcar.dto.ResultDto;
 
 public class OutputView {
     private static final String HYPHEN = "-";
+    private static final String PLAY_RESULT_TEXT = "\n실행 결과";
     private static final String RESULT_FORM = "%s : %s%n";
     private static final String FINAL_WINNER_FORM = "최종 우승자 : %s";
 
     public void printPlayResultText() {
-        System.out.println("\n실행 결과");
+        System.out.println(PLAY_RESULT_TEXT);
     }
 
     public void printResult(OneGameResultsDto resultDto) {
