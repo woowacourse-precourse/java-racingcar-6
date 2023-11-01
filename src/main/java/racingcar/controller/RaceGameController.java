@@ -18,6 +18,7 @@ public class RaceGameController {
     public void startGame() {
         RacingCars racingCars = initializeGame();
         int inputLoop = getInputLoopCount();
+        playGameMultipleTimes(racingCars, inputLoop);
     }
 
     private RacingCars initializeGame() {
@@ -29,6 +30,13 @@ public class RaceGameController {
     private int getInputLoopCount() {
         outputView.printLoopSetMessage();
         return inputView.inputLoopStringToInt();
+    }
+
+    private void playGameMultipleTimes(RacingCars racingCars, int inputLoop) {
+        outputView.printFirstResultMessage();
+        for (int i = 0; i < inputLoop; i++) {
+            playingGame(racingCars);
+        }
     }
 
     private void playingGame(RacingCars racingCars) {
