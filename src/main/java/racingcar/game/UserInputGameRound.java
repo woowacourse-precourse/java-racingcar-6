@@ -16,6 +16,7 @@ public class UserInputGameRound {
     }
 
     public static int processInput(String round) {
+        checkIsBlank(round);
         int gameRound = checkIsNumber(round);
         checkIsZero(gameRound);
 
@@ -39,8 +40,14 @@ public class UserInputGameRound {
     }
 
     private static void checkIsZero(int num){
-        if(num == Constant.MIN_VALUE){
-            throw new IllegalArgumentException("시도 횟수 0");
+        if(num <= Constant.MIN_VALUE){
+            throw new IllegalArgumentException("시도 횟수 0 이하입니다.");
+        }
+    }
+
+    private static void checkIsBlank(String gameRound){
+        if (gameRound.isEmpty()) {
+            throw new IllegalArgumentException("입력값이 공백입니다.");
         }
     }
 }
