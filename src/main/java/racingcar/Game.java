@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Game {
-    abstract boolean initGame();
+    abstract void initGame();
 
     abstract void playGame();
 }
