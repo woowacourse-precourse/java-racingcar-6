@@ -7,18 +7,18 @@ import java.util.Arrays;
 public class Game {
 
     private static final int MAX_NAME_LENGTH = 5;
-    public static void play() {
 
+    public static void play() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNames = getCarNames(Console.readLine());
 
         System.out.println("시도할 횟수는 몇회인가요?");
         int count = getCount();
 
-        Race race = new Race(carNames, count);
-
         System.out.println("실행 결과");
+        Race race = new Race(carNames, count);
         race.start();
+        race.result();
     }
 
     private static int getCount() {

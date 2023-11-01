@@ -1,7 +1,5 @@
 package racingcar.game;
 
-import racingcar.game.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,15 +25,12 @@ public class Race {
     }
 
     public void result() {
-        if (count == 0) {
-            System.out.println("최종 우승자 : " + getWinners());
-        }
+        System.out.println("최종 우승자 : " + getWinners());
     }
 
     private void moveAndPrint() {
         cars.forEach(Car::move);
         cars.forEach(Car::printNameAndPosition);
-
         System.out.println();
     }
 
