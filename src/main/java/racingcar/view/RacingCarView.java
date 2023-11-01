@@ -14,7 +14,7 @@ public class RacingCarView {
 	}
 
 	public void printStatusIntro() {
-		System.out.println("실행 결과");
+		System.out.println("\n"+"실행 결과");
 	}
 
 	public void printCarStatus(Map<String,Integer> carStatus) {
@@ -24,7 +24,7 @@ public class RacingCarView {
 			String dashes = "-".repeat(value); // value 값 만큼 "-" 문자를 반복하여 생성
 			System.out.println(carName + " : " + dashes);
 		}
-		System.out.println(" ");
+		System.out.print("\n");
 	}
 
 	public void printResult(List<String> resultCarName) {

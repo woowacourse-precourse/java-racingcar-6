@@ -1,16 +1,20 @@
 package racingcar.service;
 
 import java.util.List;
+import racingcar.controller.RacingCarController;
 import racingcar.domain.RacingStatus;
+import racingcar.view.RacingCarView;
 
 public class RacingCarService {
 
-	public void startRacingCarGame(String carNames, String tryNumber) {
+	public RacingStatus updateCarStatus(RacingStatus racingStatus) {
+		racingStatus.updateCarStatus();
+		return racingStatus;
+	}
+
+	public RacingStatus saveRacingCarStatus(String carNames, String tryNumber) {
 		RacingStatus racingStatus = new RacingStatus(carNames, tryNumber);
-		for (int i = 0; i < racingStatus.getTryNumber(); i++) {
-			racingStatus.updateCarStatus();
-		}
-		List<String> maxValueFromCarStatus = racingStatus.findMaxValueFromCarStatus();
+		return racingStatus;
 	}
 
 
