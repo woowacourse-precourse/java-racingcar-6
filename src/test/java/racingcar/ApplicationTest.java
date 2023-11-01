@@ -64,6 +64,16 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void getCarNameListFromCarNames_메서드에서_trim_메소드로_좌우_공백을_제거() {
+        final List<String> expected = List.of("pobi", "woni", "jun");
+
+        final String actualInput = " pobi,woni, jun ";
+        final List<String> actual = Application.getCarNameListFromCarNames(actualInput);
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
     void getCarNameListFromCarNames_메서드에서_받은_리스트는_수정이_불가능() {
         final List<String> carNameList = Application.getCarNameListFromCarNames("pobi,woni,jun");
         assertThatThrownBy(() -> carNameList.set(0, "daram"))

@@ -44,7 +44,10 @@ public class Application {
 
     public static List<String> getCarNameListFromCarNames(final String carNames) {
         final String[] carNamesSplittingByDelimiter = carNames.split(DELIMITER_CAR_NAMES);
-        final List<String> carNameList = Arrays.asList(carNamesSplittingByDelimiter);
+        final List<String> carNameList = Arrays.asList(carNamesSplittingByDelimiter)
+                .stream()
+                .map(String::trim)
+                .collect(Collectors.toList());
         return Collections.unmodifiableList(carNameList);
     }
 
