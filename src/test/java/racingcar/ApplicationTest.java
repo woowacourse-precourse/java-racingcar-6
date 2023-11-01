@@ -35,9 +35,25 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test @DisplayName("유효하지 않은 입력: ,,,")
+    void testCarName1() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",,,,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test @DisplayName("유효하지 않은 입력: 띄어쓰기와 콤마 혼용")
+    void testCarName2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("0, 1, 2, 3, 4", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     
     @Test @DisplayName("띄어쓰기로_입력한_경우")
-    void testCarName1() {
+    void testCarName3() {
 
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("this That what", "3"))
@@ -47,11 +63,20 @@ class ApplicationTest extends NsTest {
     }
     
     @Test @DisplayName("이름이_같은_경우")
-    void testCarName2() {
+    void testCarName4() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("자동차,자동차,자동차", "5"))
                         .isInstanceOf(IllegalArgumentException.class)
                 );
+    }
+    
+    @Test @DisplayName("Car 생성자: ")
+    void testCar() {
+        String input = " ";
+        Throwable throwable = catchThrowable(() ->
+                new Car(input));
+        assertThat(throwable)
+                .isInstanceOf(IllegalArgumentException.class);
     }
     
     @Test @DisplayName("이름을_구분자로_구분하나_makeCars()")
@@ -113,7 +138,6 @@ class ApplicationTest extends NsTest {
         winner = executor.findWinner(cars);
         assertThat(winner).containsExactly("이름1", "이름2");
     }
-    
     
     @Override
     public void runMain() {

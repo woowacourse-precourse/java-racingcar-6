@@ -15,7 +15,7 @@ public class Car {
     }
 
     public Car(String name) {
-        if (!isValid(name)) {
+        if (!isValid(name) || name.charAt(0)== ' ') {
             throw new IllegalArgumentException("Car name invalid: " + name);
         }
         this.name = name;
