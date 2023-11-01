@@ -15,7 +15,7 @@ public class Application {
         List<String> carList = List.of(cars.split(","));
         int maxLength = 5;
 
-        if(isCarNameTooLong(carList, maxLength)){
+        if(isCarnameTooLong(carList, maxLength)){
             throw new IllegalArgumentException();
         }
 
@@ -33,12 +33,12 @@ public class Application {
 
     }
 
-    private static boolean isCarNameTooLong(List<String> carList, int maxLength){
+    public static boolean isCarnameTooLong(List<String> carList, int maxLength){
         return carList.stream()
                 .anyMatch(it -> it.length()>maxLength);
     }
 
-    private static void printRacingState(Map<String, Integer> carMap){
+    public static void printRacingState(Map<String, Integer> carMap){
 
         for(String key : carMap.keySet()){
             System.out.print(key + " : ");
@@ -53,7 +53,7 @@ public class Application {
         System.out.println();
     }
 
-    private static String decideWinners(Map<String, Integer> resultMap) {
+    public static String decideWinners(Map<String, Integer> resultMap) {
         Integer maxValue = resultMap.get(
             Collections.max(resultMap.entrySet(),
                 Comparator.comparingInt(Map.Entry :: getValue))
