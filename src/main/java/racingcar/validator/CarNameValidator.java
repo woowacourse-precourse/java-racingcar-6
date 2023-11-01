@@ -16,8 +16,8 @@ public class Validator {
     }
 
     private void checkLength(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("Length must be less or equal than" + LENGTH_STANDARD);
+        if (name.length() > LENGTH_STANDARD) {
+            throw new IllegalArgumentException(String.format("Length must be less or equal than %d", LENGTH_STANDARD));
         }
     }
 
