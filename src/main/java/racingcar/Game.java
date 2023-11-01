@@ -18,6 +18,7 @@ public class Game {
     public void play() {
         String carListInput = getCarNameInput();
         String trialNumberInput = getTrialNumberInput();
+        validateInput(carListInput, trialNumberInput);
         Input input = getInput(carListInput, trialNumberInput);
         printMessage("\n실행 결과");
         List<Car> resultSet = playGameSet(input);
@@ -33,12 +34,17 @@ public class Game {
         return gameState;
     }
 
-    public void playGame(List<Car> gameState){
+    public void playGame(List<Car> gameState) {
         gameState = gameState.stream().map(this::pauseOrProgess).toList();
         printEachGameState(gameState);
     }
 
-    public Car pauseOrProgess(Car car){
+    public void validateInput(String carListInput, String trialNumberInput) {
+        isValidCarListInput(carListInput);
+        validateAndParseString(trialNumberInput);
+    }
+
+    public Car pauseOrProgess(Car car) {
         int randomNumber = pickNumberInRange(RANDOM_MINIMUM, RANDOM_MAXIMUM);
         if(randomNumber >= 4){
             car.progress();
@@ -51,7 +57,7 @@ public class Game {
         System.out.print("최종 우승자 : " + winners);
     }
 
-    public String findWinners(List<Car> gameState){
+    public String findWinners(List<Car> gameState) {
         int maxDistance = gameState.stream()
                 .mapToInt(o -> o.getState().length())
                 .max()
@@ -75,20 +81,20 @@ public class Game {
         return carListInput;
     }
 
-    private String getTrialNumberInput(){
+    private String getTrialNumberInput() {
         printMessage("시도할 회수는 몇회인가요?");
         String trialNumberInput = readLine();
         return trialNumberInput;
     }
 
-    private Input getInput(String carListInput, String trialNumberInput){
+    private Input getInput(String carListInput, String trialNumberInput) {
         List<String> carList = Arrays.stream(carListInput.split(",")).collect(Collectors.toList());
         Integer trialNumber = Integer.parseInt(trialNumberInput);
         Input input = new Input(carList, trialNumber);
         return input;
     }
 
-    private List<Car> setStartState(Input input){
+    private List<Car> setStartState(Input input) {
         List<Car> gameState = new ArrayList<>();
         for(String car : input.getCarList()){
             gameState.add(new Car(car, ""));
@@ -96,10 +102,22 @@ public class Game {
         return gameState;
     }
 
-    private void printEachGameState(List<Car> gameState){
+    private void printEachGameState(List<Car> gameState) {
         for(Car car : gameState){
             System.out.println(car.getCarName() + " : " + car.getState());
         }
         System.out.println();
+    }
+
+    private void isValidCarListInput(String input) {
+        if (!input.matches("^\\w{1,5}(,\\w{1,5})*$")) {
+            throw new IllegalArgumentException("자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    private void validateAndParseString(String input) {
+        if (input.equals("0") || !input.matches("^-?\\d+$")) {
+            throw new IllegalArgumentException("정수값으로 시도할 횟수를 입력해야 합니다.");
+        }
     }
 }
