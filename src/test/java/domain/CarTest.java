@@ -1,5 +1,7 @@
 package domain;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -16,6 +18,16 @@ public class CarTest {
     private ByteArrayOutputStream mockOutput;
     private static final String SPERATOR = " : ";
     private static final String PROGRESS_BAR = "-";
+
+    @BeforeEach
+    public void setUp() {
+        originalSystemOut = System.out;
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.setOut(originalSystemOut);
+    }
 
     @ParameterizedTest
     @ValueSource(strings = {
@@ -44,7 +56,7 @@ public class CarTest {
 
         String name = "daki";
         Car car = new Car(name);
-        System.out.println(car);
+        System.out.print(car);
 
         String printedContent = mockOutput.toString();
 
@@ -58,31 +70,28 @@ public class CarTest {
 
         String name = "daki";
         Car car = new Car(name);
-        System.out.println(car);
+        System.out.print(car);
 
         String printedContent = mockOutput.toString();
         assertThat(printedContent).isEqualTo(name + SPERATOR);
+        mockOutput.reset();
 
         car.forward();
         car.forward();
-        System.out.println();
+        System.out.print(car);
         printedContent = mockOutput.toString();
         assertThat(printedContent).isEqualTo(name + SPERATOR + PROGRESS_BAR + PROGRESS_BAR);
     }
 
     @Test
-    void equals_동작확인() {
-        String userA = "pobi";
-        String userB = "daki";
+    public void compareTo_동작확인() {
+        Car car1 = new Car("Car1");
+        Car car2 = new Car("Car2");
 
-        Car carA = new Car(userA);
-        Car carB = new Car(userB);
+        assertThat(car1.compareTo(car2)).isEqualTo(0);
 
-        assertThat(carA).isEqualTo(carB);
-
-        carA.forward();
-        carB.forward();
-
-        assertThat(carA).isEqualTo(carB);
+        car1.forward();
+        assertThat(car1.compareTo(car2)).isEqualTo(1);
+        assertThat(car2.compareTo(car1)).isEqualTo(-1);
     }
 }
