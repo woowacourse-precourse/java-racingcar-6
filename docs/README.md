@@ -11,6 +11,7 @@
 - [O] 0에서 9 사이의 임의의 수를 생성한다. - NumberGenerator#createRandomNumbers()
     - [O] 숫자가 4 이상인 경우 전진 - ActionCars#goCar()
 
+- [O] 게임 시작 기능    - ActionCars#gameStart()
 - [O] 결과 출력 변수 초기화 -ActionCars#resetCountResult()
 - [O] 결과 최대값 변수 반환 기능 - ActionCars#winnerGoCount()
 - [O] 우승 자동차 String 반환 기능 - ActionCars#winnerCar()

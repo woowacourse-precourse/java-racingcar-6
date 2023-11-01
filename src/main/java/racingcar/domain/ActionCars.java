@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.model.RacingGame;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class ActionCars {
@@ -11,6 +12,34 @@ public class ActionCars {
     RacingGame racinggame = new RacingGame();
     NumberGenerator numbergenerator = new NumberGenerator();
     OutputView outputview = new OutputView();
+    InputView inputview = new InputView();
+    CarGenerator cargenerator = new CarGenerator();
+
+    public void gameStart(){
+        String winner = "";
+        int maxlength = 0;
+        int gameChance;
+        int carNumbers;
+
+        inputview.printCarNamesInformation();
+        cargenerator.inputCarNames();
+        inputview.printGameChanceInformation();
+        numbergenerator.goChance();
+        System.out.println();
+
+        gameChance = racinggame.getGameChance();
+        carNumbers = racinggame.getCarNumbers();
+        resetCountResult();
+
+        for(int  i = 0 ; i < gameChance; i++){
+            carsCycle(carNumbers);
+        }
+        maxlength = winnerGoCount(carNumbers);
+
+        outputview.printInformation();
+        winner = winnerCar(maxlength);
+        outputview.printWinner(winner);
+    }
 
     public void carsCycle(int carNumbers){
         for(int  i = 0 ; i < carNumbers; i++){
