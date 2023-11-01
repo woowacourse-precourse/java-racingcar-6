@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.util.RandomNumberGenerator;
 import racingcar.util.validator.InputValidator;
 
 import java.util.ArrayList;
@@ -28,7 +29,8 @@ public class Cars {
 
     public void moveForwardByRandomNumber() {
         for (Car car : cars) {
-            car.canIMove();
+            RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+            car.canIMove(randomNumberGenerator.pickRandomNumber());
         }
     }
 
