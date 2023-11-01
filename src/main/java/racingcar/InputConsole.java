@@ -29,6 +29,7 @@ public class InputConsole {
         } catch(NumberFormatException e) {
             throw new IllegalArgumentException("올바르지 않은 입력입니다.");
         }
+        System.out.println();
         return round;
     }
 
