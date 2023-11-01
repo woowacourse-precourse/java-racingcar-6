@@ -8,5 +8,8 @@ public class RacingGame {
     public void start() {
         OutputView.printStartMessage();
         List<String> carName = InputView.readCarName();
+
+        OutputView.printTryNumMessage();
+        int tryNumber = InputView.readTryNumber();
     }
 }

@@ -12,4 +12,10 @@ public class InputView {
         String[] splitCarNames = carNames.split(GameRule.DELIM);
         return Arrays.asList(splitCarNames);
     }
+
+    public static int readTryNumber() {
+        String tryNumber = Console.readLine();
+
+        return Integer.parseInt(tryNumber);
+    }
 }
