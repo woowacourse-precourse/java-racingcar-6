@@ -6,6 +6,7 @@ public class User {
 
     public User() {
 
+
     }
 
     public static List<String> inputCarNames() {
@@ -13,8 +14,7 @@ public class User {
         String userInput = Console.readLine();
 
         List<String> carList = splitCarNames(userInput);
-        Checker.checkNameLength(carList);
-        Checker.checkNameDuplication(carList);
+        Checker.checkCarNames(carList);
 
         return carList;
     }

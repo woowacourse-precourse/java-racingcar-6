@@ -2,7 +2,11 @@ package racingcar;
 import java.util.*;
 
 public class Checker {
-    public static void checkNameLength(List<String> carNames) {
+    public static void checkCarNames(List<String> carNames) {
+        checkNameLength(carNames);
+        checkNameDuplication(carNames);
+    }
+    private static void checkNameLength(List<String> carNames) {
         for (String name : carNames) {
             if (name.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
@@ -10,7 +14,7 @@ public class Checker {
         }
     }
 
-    public static void checkNameDuplication(List<String> carNames) {
+    private static void checkNameDuplication(List<String> carNames) {
         Set<String> nameSet = new HashSet<>(carNames);
         if (nameSet.size() != carNames.size()) {
             throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");
