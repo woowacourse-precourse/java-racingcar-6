@@ -8,13 +8,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class InputHandler {
     private static final String COMMA = ",";
     private static final String BLANK = " ";
     private static final String NUMBER = "[0-9]";
-    private static int MAX_LENGTH = 5;
+    private static final int MAX_LENGTH = 5;
 
     public static List<Car> getCarListFromInput() {
         List<Car> carList = new ArrayList<>();
