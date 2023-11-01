@@ -7,6 +7,7 @@ public class Car {
 
     public Car(String name) {
         Validator.nameLengthCheck(name);
+        Validator.blankCheck(name);
         this.name = name;
         this.state = INIT_STATE;
     }
@@ -31,6 +32,7 @@ public class Car {
 
     public void setName(String name) {
         Validator.nameLengthCheck(name);
+        Validator.blankCheck(name);
         this.name = name;
     }
 }
