@@ -20,12 +20,14 @@ class Cars {
     public void SetCarNames(String carName) {       //자동차 이름 setter
         int MAX_LENGTH = 5;
 
-        if(carName.isEmpty()) throw new IllegalArgumentException("You must write carNames");
+        if(carName.isEmpty()) throw new IllegalArgumentException("You must write carNames!");
 
         String[] InputArray = carName.split(",");
         for (String car : InputArray) {
             if (car.length() > MAX_LENGTH)
                 throw new IllegalArgumentException("CarName cannot exceed 5!");
+            if (car.trim().isEmpty())
+                throw new IllegalArgumentException("CarName cannot be EmptyString!");
             carNames.add(car.trim());
         }
     }
