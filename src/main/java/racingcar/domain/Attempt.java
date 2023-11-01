@@ -4,24 +4,16 @@ import static racingcar.constant.ExceptionMessage.BLANK_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.NON_INTEGER_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.NON_POSITIVE_NUMBER_EXCEPTION;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.Utils;
 import racingcar.view.InputView;
 
 public class Attempt {
     private int attemptNumber;
 
-    public Attempt(String roundNumber) {
-        this.attemptNumber = saveAttemptNumber();
-    }
-
-    public int saveAttemptNumber() {
-        InputView.printRequestAttempt();
-        String attemptInput = Console.readLine();
+    public void saveAttemptNumber() {
+        String attemptInput = InputView.printRequestAttempt();
         validateAttemptNumber(attemptInput);
-        Utils.printLineChanging();
-
-        return Integer.parseInt(attemptInput);
+        this.attemptNumber = Integer.parseInt(attemptInput);
     }
 
     public void validateAttemptNumber(String number) {
