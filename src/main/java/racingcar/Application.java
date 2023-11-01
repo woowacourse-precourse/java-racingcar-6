@@ -28,7 +28,7 @@ public class Application {
         String winnerNames = winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
-        System.out.println(winnerNames + "가 최종 우승했습니다.");
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 
     private static List<Car> createCars(List<String> carNames) {
