@@ -1,8 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.GameManager;
 import racingcar.view.InputView;
@@ -16,35 +13,17 @@ public class GameController {
 
     public void gameStart() {
         OutputView.printInputCarNameMessage();
-        cars = createCars(inputView.getCarsName());
+        cars = gameManager.createCars(inputView.getCarsName());
         OutputView.printInputMovingTryCountMessage();
         runRacing(inputView.getMovingTryCount(), cars);
-        OutputView.printGameRoundResultMessage(gameManager.getWinnerNameList(cars.getMaxMoveInCars(),cars));
-    }
-
-    public void runRound(Cars cars) {
-        for (int i = 0; i < cars.size(); i++) {
-            gameManager.tryMoveCar(cars.getCarInIndex(i));
-        }
+        OutputView.printGameRoundResultMessage(gameManager.getWinnerNameList(cars.getMaxMoveInCars(), cars));
     }
 
     public void runRacing(int round, Cars cars) {
         OutputView.printGameRoundResultMessage();
         for (int i = 0; i < round; i++) {
-            runRound(cars);
+            gameManager.runRound(cars);
             OutputView.printInfomation(cars.toString());
         }
-    }
-
-    public Cars createCars(List<String> carsName) {
-        List<Car> carsTempHolder = new ArrayList<>();
-        Cars cars;
-
-        for (String carName : carsName) {
-            Car car = new Car(carName);
-            carsTempHolder.add(car);
-        }
-        cars = new Cars(carsTempHolder);
-        return cars;
     }
 }

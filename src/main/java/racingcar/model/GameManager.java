@@ -9,9 +9,21 @@ public class GameManager {
     private final static int MIN_VALUE = 0;
     private final static int MAX_VALUE = 9;
 
-    public void tryMoveCar(Car car) {
-        if (makeRandomNumber() >= MOVE_CONDITION) {
-            car.moveCar();
+    public Cars createCars(List<String> carsName) {
+        List<Car> carsTempHolder = new ArrayList<>();
+        Cars cars;
+
+        for (String carName : carsName) {
+            Car car = new Car(carName);
+            carsTempHolder.add(car);
+        }
+        cars = new Cars(carsTempHolder);
+        return cars;
+    }
+
+    public void runRound(Cars cars) {
+        for (int i = 0; i < cars.size(); i++) {
+            tryMoveCar(cars.getCarInIndex(i));
         }
     }
 
@@ -23,6 +35,12 @@ public class GameManager {
             }
         }
         return result;
+    }
+
+    private void tryMoveCar(Car car) {
+        if (makeRandomNumber() >= MOVE_CONDITION) {
+            car.moveCar();
+        }
     }
 
     private int makeRandomNumber() {
