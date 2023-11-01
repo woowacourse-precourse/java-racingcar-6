@@ -22,6 +22,7 @@ public class CarService {
     }
 
     public void carGenerate(String name) {
+        validationDuplicateName(name);
         this.carRepository.add(new Car(
                 IDENTITY_NUMBER++,
                 name,
@@ -29,6 +30,11 @@ public class CarService {
         ));
     }
 
+    private void validationDuplicateName(String name) {
+        if (this.carRepository.findByName(name)) {
+            throw new IllegalArgumentException();
+        }
+    }
     public List<Car> getAllCar() {
         return this.carRepository.findAll();
     }
