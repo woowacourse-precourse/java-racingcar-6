@@ -15,6 +15,14 @@ public class Car {
         if (determineMove(randomNumber)) moveForward();
     }
 
+    public Name getCarName() {
+        return carName;
+    }
+
+    public Distance getCarDistance() {
+        return carDistance;
+    }
+
     private boolean determineMove(Integer number) {
         if (number >= Constants.MOVE_NUMBER.getNumber()) {
             return true;
