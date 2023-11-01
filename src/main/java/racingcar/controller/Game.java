@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.util.ValidateCarName;
+import racingcar.util.ValidateTryCount;
 import racingcar.view.InputView;
 import racingcar.model.Car;
 
@@ -10,9 +11,11 @@ import java.util.List;
 public class Game {
 
     private List<Car> carList;
+    private int tryCount;
 
     public Game() {
         this.carList = new ArrayList<>();
+        this.tryCount = 0;
     }
 
     public static Game create() {
@@ -32,6 +35,11 @@ public class Game {
             this.carList.add(car);
         }
 
+    }
+
+    public void InputTryCount() {
+        String Input = InputView.inputTryCount();
+        this.tryCount =  ValidateTryCount.validateInputValue(Input); //예외시 IllegalArgumentException
     }
 
 }
