@@ -20,8 +20,14 @@ public class Car{
         car.add(Arrays.toString((inputValue.split(","))));
 
         for(int i=0;i<car.size();i++){
-            if(car.get(i) == null ||car.get(i).isBlank()||car.get(i).length()>5){
-                throw new IllegalArgumentException("에러가 발생했습니다.");
+            if(car.get(i).length()>5){
+                throw new IllegalArgumentException("[ERROR] 이름은 5자 이하만 가능하다.");
+            }
+            if(car.get(i)==null){
+                throw new IllegalArgumentException("[ERROR] 이름을 입력해야한다.");
+            }
+            if(car.get(i).equals(" ")){
+                throw new IllegalArgumentException("[ERROR] 이름은 빈칸일 수 없다.");
             }
             TestSame(car.get(i));
         }
@@ -29,7 +35,7 @@ public class Car{
     void TestSame(String j){
         for(int i=0;i<car.size();i++){
             if(car.get(i).equals(j)){
-                throw new IllegalArgumentException("[ERROR] 이름은 5자 이하만 가능하다.");
+                throw new IllegalArgumentException("[ERROR] 이름은 중복될 수 없다.");
             }
         }
     }
