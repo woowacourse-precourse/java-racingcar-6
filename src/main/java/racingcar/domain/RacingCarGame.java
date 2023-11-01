@@ -70,4 +70,25 @@ public class RacingCarGame {
 		}
 		System.out.println();
 	}
+
+	private void printWinners() {
+		int maxPosition = -1;
+		List<String> winners = new ArrayList<>();
+
+		for (Car car : cars) {
+			if (car.getPosition() > maxPosition) {
+				maxPosition = car.getPosition();
+				winners.clear();
+				winners.add(car.getName());
+			} else if (car.getPosition() == maxPosition) {
+				winners.add(car.getName());
+			}
+		}
+
+		System.out.printf("최종 우승자 : %s", winners.get(0));
+		for (int i = 1; i < winners.size(); i++) {
+			System.out.printf(", %s", winners.get(i));
+		}
+		System.out.println();
+	}
 }
