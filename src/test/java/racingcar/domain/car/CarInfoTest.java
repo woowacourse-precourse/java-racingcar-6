@@ -2,6 +2,8 @@ package racingcar.domain.car;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
@@ -96,9 +98,21 @@ class CarInfoTest {
         // when & then
         String name2 = "ss";
         int position2 = 1004;
+
+//        1.
         assertThrows(IllegalArgumentException.class, () -> {
             carInfo.updateCarInfo(new Car(name2, position2));
-        });
+        }).getMessage().contains("업데이트 하려는 이름이 없습니다.");
+
+//        2.
+        assertThatThrownBy(() -> carInfo.updateCarInfo(new Car(name2, position2)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("업데이트 하려는 이름이 없습니다.");
+
+//        3.
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> carInfo.updateCarInfo(new Car(name2, position2)))
+                .withMessageContaining("업데이트 하려는 이름이 없습니다.");
     }
 
     @DisplayName("자동차의 정보를 얻을 수 있다.")
