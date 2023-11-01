@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.NumberGenerator;
 
 public class RandomNumberGenerator implements NumberGenerator {
     private static final int START_NUMBER = 0;

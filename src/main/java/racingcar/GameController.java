@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.domain.RaceRound;
+import racingcar.util.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
