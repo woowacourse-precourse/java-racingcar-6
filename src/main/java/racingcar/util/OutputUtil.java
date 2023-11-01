@@ -1,7 +1,8 @@
-package racingcar.model;
+package racingcar.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.model.Car;
 
 public class OutputUtil {
     public static List<String> printCarInfo(List<Car> carObjects) {

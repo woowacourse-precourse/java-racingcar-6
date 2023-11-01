@@ -3,8 +3,8 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.model.InputUtil;
-import racingcar.model.RaceService;
+import racingcar.util.InputUtil;
+import racingcar.service.RaceService;
 import racingcar.view.RaceStartView;
 
 public class GameController {

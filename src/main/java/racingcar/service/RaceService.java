@@ -1,6 +1,9 @@
-package racingcar.model;
+package racingcar.service;
 
 import java.util.List;
+import racingcar.model.Car;
+import racingcar.util.OutputUtil;
+import racingcar.util.RandomUtil;
 import racingcar.view.RaceProgressView;
 
 public class RaceService {
