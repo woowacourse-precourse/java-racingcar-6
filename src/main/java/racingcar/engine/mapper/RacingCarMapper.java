@@ -12,12 +12,6 @@ public class RacingCarMapper {
         return carNames.stream().map(Car::new).toList();
     }
 
-    public String toProgressBar(List<Car> cars) {
-        return cars.stream()
-                .map(Car::toString)
-                .collect(Collectors.joining("\n"));
-    }
-
     public String toNames(List<Car> winners) {
         return winners.stream()
                 .map(Car::getName)

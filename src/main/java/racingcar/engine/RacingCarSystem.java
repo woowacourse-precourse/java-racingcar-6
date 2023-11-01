@@ -35,6 +35,8 @@ public sealed interface RacingCarSystem {
     Policy<Integer> DRIVE_THRESHOLD = new Policy<>(4);
     Policy<Integer> RANDOM_NUMBER_MINIMUM_VALUE = new Policy<>(1);
     Policy<Integer> RANDOM_NUMBER_MAXIMUM_VALUE = new Policy<>(1);
+    Policy<String> RACING_RESULT_FORMAT = new Policy<>("%s : %s");
+    Policy<String> RACING_RESULT_PROGRESS_BAR = new Policy<>("-");
 
     record Policy<T>(T value) implements RacingCarSystem {
     }

@@ -3,6 +3,7 @@ package racingcar;
 import racingcar.common.Validator;
 import racingcar.common.Viewer;
 import racingcar.engine.RacingCarGame;
+import racingcar.engine.manager.DisplayBoard;
 import racingcar.engine.manager.Referee;
 import racingcar.engine.mapper.RacingCarMapper;
 import racingcar.view.RacingCarViewer;
@@ -14,10 +15,12 @@ public class Application {
         Validator validator = new Validator();
         RacingCarViewerMapper racingCarViewerMapper = new RacingCarViewerMapper();
         Viewer<RacingCarUserInputDto> viewer = new RacingCarViewer(validator, racingCarViewerMapper);
+
+        DisplayBoard displayBoard = new DisplayBoard();
         RacingCarMapper racingCarMapper = new RacingCarMapper();
         Referee referee = new Referee();
-        RacingCarGame game = new RacingCarGame(viewer, referee, racingCarMapper);
 
+        RacingCarGame game = new RacingCarGame(viewer, referee, racingCarMapper, displayBoard);
         game.start();
     }
 }

@@ -18,13 +18,6 @@ public class Car {
         }
     }
 
-    @Override
-    public String toString() {
-        return new StringJoiner(" ", name + " : ", "")
-                .add(PROGRESS_BAR.repeat(progress))
-                .toString();
-    }
-
     public String getName() {
         return name;
     }

@@ -10,6 +10,7 @@ import static racingcar.engine.RacingCarSystem.TextMessage.OUTPUT_THE_WINNER_PRE
 import java.util.List;
 import racingcar.common.Viewer;
 import racingcar.engine.domain.Car;
+import racingcar.engine.manager.DisplayBoard;
 import racingcar.engine.manager.Referee;
 import racingcar.engine.mapper.RacingCarMapper;
 import racingcar.utils.RandomUtils;
@@ -20,10 +21,16 @@ public class RacingCarGame {
     private final Referee referee;
     private final RacingCarMapper racingCarMapper;
 
-    public RacingCarGame(Viewer<RacingCarUserInputDto> viewer, Referee referee, RacingCarMapper racingCarMapper) {
+    private final DisplayBoard displayBoard;
+
+    public RacingCarGame(Viewer<RacingCarUserInputDto> viewer,
+                         Referee referee,
+                         RacingCarMapper racingCarMapper,
+                         DisplayBoard displayBoard) {
         this.viewer = viewer;
         this.referee = referee;
         this.racingCarMapper = racingCarMapper;
+        this.displayBoard = displayBoard;
     }
 
     public void start() {
@@ -48,8 +55,8 @@ public class RacingCarGame {
             );
             car.drive(DRIVE_THRESHOLD.value(), randomNumber);
         });
-        String progressBar = racingCarMapper.toProgressBar(cars);
-        viewer.println(() -> progressBar);
+        String racingStatus = displayBoard.show(cars);
+        viewer.println(() -> racingStatus);
         viewer.printNewLine();
     }
 
