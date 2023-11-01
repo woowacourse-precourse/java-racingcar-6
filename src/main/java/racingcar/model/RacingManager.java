@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.exception.ErrorCode;
 
 public class RacingManager {
+    private static final int ONE_MOVE = 1;
     private int tryCount;
 
     public RacingManager(int tryCount) {
@@ -11,7 +12,7 @@ public class RacingManager {
     }
 
     public void countMove() {
-        tryCount++;
+        tryCount -= ONE_MOVE;
     }
 
     public boolean canMove() {

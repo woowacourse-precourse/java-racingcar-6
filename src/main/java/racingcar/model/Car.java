@@ -6,7 +6,7 @@ import racingcar.model.intgenerator.RandomIntGenerator;
 
 public class Car {
     private static final int MAXIMUM_NAME_LENGTH = 5;
-    private static final int ONE_STEP = 1;
+    private static final int ONE_FORWARD = 1;
     private static final int MINIMUM_FORWARD_CONDITION = 4;
     private final String name;
     private final IntGenerator intGenerator;
@@ -41,7 +41,7 @@ public class Car {
 
     public void tryForward() {
         if (canForward()) {
-            this.forwardCount += ONE_STEP;
+            this.forwardCount += ONE_FORWARD;
         }
     }
 
