@@ -25,6 +25,13 @@ public class RacingCar {
         createCarList(nameList);
 
         tryCount = inputTryCount();
+
+        racingCarView.printEmptyLine();
+        racingCarView.printResultMessage();
+
+        for (int i = 0; i < tryCount; i++) {
+            cars.move();
+        }
     }
 
     private List<String> inputCarName() {
@@ -39,7 +46,7 @@ public class RacingCar {
 
     private void createCarList(List<String> nameList) {
         List<Car> carList = Converter.nameListToCarList(nameList);
-        cars = new Cars(carList.size(), carList);
+        cars = new Cars(carList);
     }
 
     private int inputTryCount() {

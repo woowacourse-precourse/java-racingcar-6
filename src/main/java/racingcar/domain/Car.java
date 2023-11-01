@@ -26,4 +26,8 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name);
     }
+
+    public void forward() {
+        count++;
+    }
 }

@@ -4,11 +4,20 @@ import java.util.List;
 
 public class Cars {
 
-    private int size;
+    private static final int BOUNDARY = 4;
     private List<Car> cars;
 
-    public Cars(int size, List<Car> cars) {
-        this.size = size;
+    public Cars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public void move() {
+        for (Car car: cars) {
+            int randomNumber = RandomNumberGenerator.createRandomNumber();
+
+            if (randomNumber >= BOUNDARY) {
+                car.forward();
+            }
+        }
     }
 }
