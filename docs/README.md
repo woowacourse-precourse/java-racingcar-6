@@ -22,6 +22,8 @@
   - [ ] RacingGameBridge의 입력은 검증하지 않는다.
 - [x] 0~9 사이의 정수를 랜덤하게 생성하여 진행 여부를 결정하고, cars의 상태를 수정한다.
 - [ ] 게임 종료 여부를 알려주는 메소드를 갖는다.
+- [ ] cars의 멤버들에 대해 확률적 진행 후 각 cars의 position을 List<Integer>로 반환하는 메소드를 갖는다.
+- [ ] 우승자 목록을 List<String>으로 반환하는 메소드를 갖는다. 이 메소드는 게임 종료 여부를 체크하여 종료된 경우에 동작한다.
 
 ## racingcar.game.io package
 
