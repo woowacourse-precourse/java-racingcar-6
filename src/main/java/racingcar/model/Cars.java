@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.view.input.ErrorConstants;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -10,6 +12,9 @@ public class Cars {
     private final List<Car> cars;
 
     private Cars(String[] carNames) {
+        if (carNames.length == 0) {
+            throw new IllegalArgumentException(ErrorConstants.NO_CAR_ERROR);
+        }
         cars = Arrays.stream(carNames)
                 .map((name) -> new Car(name))
                 .collect(Collectors.toUnmodifiableList());

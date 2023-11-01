@@ -3,6 +3,8 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final Integer MOVING_FORWARD = 4;
+
     private String name;
     private Integer position;
 
@@ -13,7 +15,7 @@ public class Car {
 
     public void advanceOrStop() {
         int random = Randoms.pickNumberInRange(0, 9);
-        if (random >= 4) {
+        if (random >= MOVING_FORWARD) {
             position += 1;
         }
     }
