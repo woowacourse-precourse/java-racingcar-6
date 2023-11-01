@@ -15,7 +15,7 @@ public class RoundExecutionService {
         List<RoundResultDto> roundHistories = new ArrayList<>();
         while (roundCount.hasNextRound()) {
             executeRound(participants);
-            roundHistories.add(new RoundResultDto(participants.getStatusSnapShot()));
+            roundHistories.add(participants.getCurrentRoundSnapshot());
             roundCount.consumeRound();
         }
         return roundHistories;

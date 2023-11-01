@@ -28,8 +28,7 @@ public class RacingGameService {
     public GameResultDto run(List<CarName> carNames, RoundCount roundCount) {
         Cars participants = carFactoryService.prepareRacingCars(carNames);
         List<RoundResultDto> roundHistories = roundExecutionService.executeAllRounds(participants, roundCount);
-        List<CarStatusDto> carsStatusAtRaceEnd = participants.getStatusSnapShot();
-        List<CarStatusDto> winners = winnerSelectionService.selectWinners(carsStatusAtRaceEnd);
+        List<CarStatusDto> winners = winnerSelectionService.selectWinners(participants);
         return gameResultPublishService.publishGameResult(roundHistories, winners);
     }
 
