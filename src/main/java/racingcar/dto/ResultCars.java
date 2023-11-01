@@ -6,14 +6,14 @@ import java.util.List;
 
 public class ResultCars {
 
-    private final List<ResultCar> resultCars;
+    private final List<ResultCar> values;
 
-    public ResultCars(final List<ResultCar> resultCars) {
-        this.resultCars = Collections.unmodifiableList(resultCars);
+    public ResultCars(final List<ResultCar> values) {
+        this.values = Collections.unmodifiableList(values);
     }
 
-    public List<ResultCar> getResultCars() {
-        new ArrayList<>(resultCars);
-        return resultCars;
+    public List<ResultCar> getValues() {
+        new ArrayList<>(values);
+        return values;
     }
 }

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.constant.ExceptionMessage;
+import racingcar.constant.message.ExceptionMessage;
 
 public class Car {
 

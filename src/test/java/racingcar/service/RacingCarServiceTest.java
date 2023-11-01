@@ -40,15 +40,15 @@ public class RacingCarServiceTest {
         String input = "pobi,woni,yunho";
 
         //when
-        Cars expectedCars = racingCarService.saveCarName(input);
+        Cars actualCars = racingCarService.saveCarName(input);
 
         //then
-        assertThat(expectedCars.getCars().get(FIRST_INDEX).getName())
-                .isEqualTo(cars.getCars().get(FIRST_INDEX).getName());
-        assertThat(expectedCars.getCars().get(SECOND_INDEX).getName())
-                .isEqualTo(cars.getCars().get(SECOND_INDEX).getName());
-        assertThat(expectedCars.getCars().get(THIRD_INDEX).getName())
-                .isEqualTo(cars.getCars().get(THIRD_INDEX).getName());
+        assertThat(actualCars.getValues().get(FIRST_INDEX).getName())
+                .isEqualTo(cars.getValues().get(FIRST_INDEX).getName());
+        assertThat(actualCars.getValues().get(SECOND_INDEX).getName())
+                .isEqualTo(cars.getValues().get(SECOND_INDEX).getName());
+        assertThat(actualCars.getValues().get(THIRD_INDEX).getName())
+                .isEqualTo(cars.getValues().get(THIRD_INDEX).getName());
     }
 
     @Test
@@ -62,8 +62,8 @@ public class RacingCarServiceTest {
         racingCarService.moveCar(cars);
 
         //then
-        assertThat(cars.getCars().get(FIRST_INDEX).getDistance()).isEqualTo(oneDistance);
-        assertThat(cars.getCars().get(SECOND_INDEX).getDistance()).isEqualTo(oneDistance);
-        assertThat(cars.getCars().get(THIRD_INDEX).getDistance()).isEqualTo(oneDistance);
+        assertThat(cars.getValues().get(FIRST_INDEX).getDistance()).isEqualTo(oneDistance);
+        assertThat(cars.getValues().get(SECOND_INDEX).getDistance()).isEqualTo(oneDistance);
+        assertThat(cars.getValues().get(THIRD_INDEX).getDistance()).isEqualTo(oneDistance);
     }
 }

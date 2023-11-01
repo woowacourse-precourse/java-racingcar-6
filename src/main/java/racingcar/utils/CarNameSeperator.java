@@ -2,14 +2,14 @@ package racingcar.utils;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.constant.ExceptionMessage;
+import racingcar.constant.message.ExceptionMessage;
 
 public class CarNameSeperator {
 
     private static final String DELIMITER = ",";
     private static final String DOUBLE_DELIMITER = ",,";
 
-    public List<String> separateCarNames(final String input) {
+    public List<String> seperateCarNames(final String input) {
         validateNoName(input);
         return Arrays.stream(input.split(DELIMITER)).toList();
     }

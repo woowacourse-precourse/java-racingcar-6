@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.constant.ExceptionMessage;
+import racingcar.constant.message.ExceptionMessage;
 
 public class InputValidator {
 

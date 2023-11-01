@@ -46,7 +46,7 @@ public class CarsTest {
         ResultCars expectedResultCars = cars.filterCarsWithMaxDistance();
 
         //then
-        assertThat(expectedResultCars.getResultCars().get(firstIndex).getName())
+        assertThat(expectedResultCars.getValues().get(firstIndex).getName())
                 .isEqualTo(expectedCarName);
     }
 }

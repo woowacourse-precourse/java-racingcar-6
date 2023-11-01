@@ -18,7 +18,7 @@ public class OutputFormatter {
     public List<String> getCarDistanceStatus(final Cars cars) {
         final List<String> carStatus = new ArrayList<>();
 
-        for (Car car : cars.getCars()) {
+        for (Car car : cars.getValues()) {
             String viewDistance = appendStatus(car.getDistance());
             carStatus.add(car.getName() + SPACE + COLON + SPACE + viewDistance);
         }
@@ -31,7 +31,7 @@ public class OutputFormatter {
     }
 
     public String getWinner(final ResultCars resultCars) {
-        return resultCars.getResultCars().stream()
+        return resultCars.getValues().stream()
                 .map(ResultCar::getName)
                 .collect(Collectors.joining(COMMAS + SPACE));
     }

@@ -17,7 +17,7 @@ public class RacingCarService {
     }
 
     public Cars saveCarName(final String input) {
-        final List<String> seperatedCarNames = carNameSeperator.separateCarNames(input);
+        final List<String> seperatedCarNames = carNameSeperator.seperateCarNames(input);
         return new Cars(seperatedCarNames.stream().map(Car::new).toList());
     }
 
@@ -26,7 +26,7 @@ public class RacingCarService {
     }
 
     private void judgeMoveCar(final Cars cars) {
-        for (Car car : cars.getCars()) {
+        for (Car car : cars.getValues()) {
             if (judgementRandomGenerator.isIncreaseDistance()) {
                 car.increaseDistance();
             }

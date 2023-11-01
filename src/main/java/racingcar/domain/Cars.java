@@ -9,15 +9,15 @@ import racingcar.dto.ResultCars;
 public class Cars {
 
     private static final int FIRST_INDEX = 0;
-    private final List<Car> cars;
+    private final List<Car> values;
 
-    public Cars(final List<Car> cars) {
-        this.cars = cars.stream().map(Car::new).toList();
+    public Cars(final List<Car> values) {
+        this.values = values.stream().map(Car::new).toList();
     }
 
-    public List<Car> getCars() {
-        new ArrayList<>(cars);
-        return cars;
+    public List<Car> getValues() {
+        new ArrayList<>(values);
+        return values;
     }
 
     public ResultCars filterCarsWithMaxDistance() {
@@ -35,7 +35,7 @@ public class Cars {
     }
 
     private List<Car> sortedCarByDistance() {
-        return cars.stream()
+        return values.stream()
                 .sorted(Comparator.comparingInt(Car::getDistance).reversed())
                 .toList();
     }

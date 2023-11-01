@@ -40,12 +40,8 @@ public class RacingCarController {
         return repeatCount;
     }
 
-    private void printResultOfEachRun(Cars cars, int repeatCount) {
+    private void printResultOfEachRun(final Cars cars, int repeatCount) {
         outputView.printGameStatusMessage();
-//        for (int i = 0; i < repeatCount; i++) {
-//            racingCarService.moveCar(cars);
-//            outputView.printGameStatus(cars);
-//        }
         while (RacingCarMove.isProcessing(repeatCount)) {
             racingCarService.moveCar(cars);
             outputView.printGameStatus(cars);
@@ -53,7 +49,7 @@ public class RacingCarController {
         }
     }
 
-    private void printWinner(Cars cars) {
+    private void printWinner(final Cars cars) {
         final ResultCars resultCars = cars.filterCarsWithMaxDistance();
         outputView.printRacingCarResult(resultCars);
     }

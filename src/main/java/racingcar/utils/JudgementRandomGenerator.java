@@ -12,5 +12,4 @@ public class JudgementRandomGenerator {
         final int pick = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
         return pick >= STANDARD_OF_JUDGMENT;
     }
-
 }
