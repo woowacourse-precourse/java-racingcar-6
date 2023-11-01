@@ -32,6 +32,13 @@ class RacingCarTest {
     }
 
     @Test
-    void accel() {
+    void accel() {  // 랜덤하게 나온 값이 n일때 이동거리가 l로 나오는지 테스트
+        int before = car.getLoc();
+        when(Randoms.pickNumberInRange(0, 9)).thenReturn(3);
+
+        car.accel();
+        int after = car.getLoc();
+        int result = after-before;
+        assertThat(result).isEqualTo(0);
     }
 }

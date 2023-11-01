@@ -14,6 +14,7 @@ class RacingCar {
     // 속성
     private String name;             // 레이싱카 이름
     private int loc = 0;             // 레이싱카 현재 위치 : default 0
+    private int rand_num;
 
     // 인스턴스 메소드들
     public RacingCar(String input) { // 생성자 : 이름으로 입력 받아 생성
@@ -27,9 +28,11 @@ class RacingCar {
     String getName() {                // 이름 반환
         return name;
     }
-
+    int getRand_num(){
+        return Randoms.pickNumberInRange(0, 9);
+    }
     void accel() {                    // 확률에 의해 이동
-        int prob = Randoms.pickNumberInRange(0, 9);
+        int prob = getRand_num();
         if (prob >= 4) {
             loc += 1;
         }
