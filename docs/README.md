@@ -2,9 +2,9 @@
 
 ### 자동차 경주
 
-### - 클래스 다이어그램
+### - 클래스 다이어그램 예상 및 고안
 
-<img src="img/class.png">
+<img src="img/Initial_ClassDiagram.png">
 
 ### - 기능 목록 정리
 
@@ -56,3 +56,6 @@
         2. gameRunning 기능
         3. gameEnd 기능
            <br><br>
+
+### 최종 구현 후 클래스 다이어그램
+<img src = "img/Final_ClassDiagram.png">
