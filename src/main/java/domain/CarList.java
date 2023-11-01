@@ -1,9 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 
 public class CarList {
     private final ArrayList<Car> cars= new ArrayList<>();
@@ -23,15 +21,6 @@ public class CarList {
         return cars;
     }
 
-    public HashMap<String, Integer> getTurnPositions() {
-        HashMap<String, Integer> turnResult = new HashMap<>();
-        for(Car car : cars){
-            car.go();
-            turnResult.put(car.getName(), car.getPosition());
-        }
-        return turnResult;
-
-    }
 
     public String[] getWinnerNames(){
         int maxPosition= ArrayMax(getCarsPositions());
