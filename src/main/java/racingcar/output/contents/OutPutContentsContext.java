@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 import java.util.stream.IntStream;
-import racingcar.output.OutPutCommand;
+import racingcar.race.OutPutCommand;
 import racingcar.race.totalRound.FinalWinners;
 import racingcar.race.totalRound.TotalRoundRecord;
 

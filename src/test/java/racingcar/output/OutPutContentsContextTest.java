@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.race.OutPutCommand;
 import racingcar.output.contents.OutPutContents;
 import racingcar.output.contents.OutPutContentsContext;
 import racingcar.race.totalRound.EachRoundRecords;
