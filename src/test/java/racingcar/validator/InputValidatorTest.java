@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
