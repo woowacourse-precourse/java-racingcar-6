@@ -1,3 +1,4 @@
+/*zz*/
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
