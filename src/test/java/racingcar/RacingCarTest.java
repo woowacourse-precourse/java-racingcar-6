@@ -18,4 +18,10 @@ class RacingCarTest {
         assertEquals(1, car.getPosition());
     }
 
+    @Test
+    void notMoveRacingCar() {
+        RacingCar car = new RacingCar("test");
+        car.move(3); // 전진 조건에 만족하지 않을 때
+        assertEquals(0, car.getPosition());
+    }
 }
