@@ -26,5 +26,36 @@ public class Application {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하로 입력해야 합니다.");
             }
         }
+
+        Car[] cars = new Car[carNames.length];
+        for (int i = 0; i < carNames.length; i++) {
+            cars[i] = new Car(carNames[i]);
+        }
+    }
+
+    static class Car {
+        private String name;
+        private int position;
+
+        public Car(String name) {
+            this.name = name;
+            this.position = 0;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getPosition() {
+            return position;
+        }
+
+        public void move() {
+            int randomNumber = Randoms.pickNumberInRange(0, 9); // 0에서 9 사이의 무작위 값
+            System.out.println("랜덤숫자:"+randomNumber);
+            if (randomNumber >= 4) {
+                position++;
+            }
+        }
     }
 }
