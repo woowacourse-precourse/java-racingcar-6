@@ -22,6 +22,7 @@ public class InputValidator {
     }
 
     public static int numberHandlingException(String gameCount){
+        isNotEmpty(gameCount);
         return isNumberic(gameCount);
     }
 
@@ -32,6 +33,12 @@ public class InputValidator {
             return returnNumber;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("입력값이 숫자가 아닙니다.");
+        }
+    }
+
+    public static void isNotEmpty(String gameCount) {
+        if (gameCount.isEmpty()) {
+            throw new IllegalArgumentException("입력값이 존재하지 않습니다.");
         }
     }
 

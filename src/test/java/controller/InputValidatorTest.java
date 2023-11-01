@@ -53,8 +53,20 @@ public class InputValidatorTest {
         assertDoesNotThrow(() -> {
            isNumberic(gameintCount);
         });
-
-
     }
 
+    @DisplayName("입력한 글자가 공백처리인지 확인하는 테스트 코드")
+    @Test
+    void isNotEmptyTest() {
+        String gameCountEmpty = "";
+        String gameintCount = "1";
+
+        assertThrows(IllegalArgumentException.class, () ->{
+            isNotEmpty(gameCountEmpty);
+        });
+
+        assertDoesNotThrow(() -> {
+            isNotEmpty(gameintCount);
+        });
+    }
 }
