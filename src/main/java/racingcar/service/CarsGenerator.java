@@ -7,7 +7,15 @@ import racingcar.model.Car;
 public class CarsGenerator {
     List<Car> carList;
 
-    public CarsGenerator() {
+    private static class SingletonCarsGenerator {
+        private static final CarsGenerator CARS_GENERATOR = new CarsGenerator();
+    }
+
+    public static CarsGenerator getInstance() {
+        return SingletonCarsGenerator.CARS_GENERATOR;
+    }
+
+    private CarsGenerator() {
         carList = new ArrayList<>();
     }
 
