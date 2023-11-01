@@ -64,6 +64,8 @@ public class Application {
         // TODO: 실행 결과
         System.out.println("실행 결과");
         for (int f = 0; f < carsNum; f++) {
+            System.out.print(cars[f]);
+            System.out.print(" : ");
             System.out.println(forwardCount[f]);
         }
 
