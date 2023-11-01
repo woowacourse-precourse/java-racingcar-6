@@ -15,7 +15,7 @@ public class Validator {
         checkCarNameLengthAndSpaceThrowException(carNames);
     }
 
-    private void checkNumberOfTrialInput(String input) throws IllegalArgumentException {
+    public void checkNumberOfTrialInput(String input) throws IllegalArgumentException {
         checkEmptyAndThrowException(input);
         checkCharAndThrowException(input);
     }
