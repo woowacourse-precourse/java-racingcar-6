@@ -94,6 +94,10 @@ class ApplicationTest extends NsTest {
         Car car1 = new Car("car1");
         Car car2 = new Car("car2");
         Car car3 = new Car("car3");
+
+        Mockito.mockStatic(Randoms.class);
+        when(Randoms.pickNumberInRange(0, 9)).thenReturn(4);
+
         car1.move();
         car2.move();
         car3.move();
