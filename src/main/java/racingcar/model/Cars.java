@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.OutputView;
 
@@ -16,11 +15,11 @@ public class Cars {
     }
 
     public void moveCars() {
-        for (Car car : carList) {
+        carList.forEach(car -> {
             car.forward(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
             OutputView.printRacing(car.getName(), car.getLocation());
-        }
-        System.out.println("");
+        });
+        System.out.println();
     }
 
     public List<Car> winner() {
