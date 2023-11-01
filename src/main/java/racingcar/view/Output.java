@@ -24,6 +24,9 @@ public class Output {
         }
         System.out.println();
     }
-
+    public void printStart() {
+        System.out.println();
+        System.out.println(RESULT);
+    }
 
 }
