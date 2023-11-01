@@ -1,6 +1,5 @@
 package racingcar.validator;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -10,6 +9,7 @@ import racingcar.exception.RacingCarException;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.fixture.CarsFixture.CAR_NAMES_LIST;
 import static racingcar.fixture.CarsFixture.DUPLICATED_CAR_NAMES_LIST;
@@ -85,7 +85,7 @@ class InputValidatorTest {
             final int validRoundCountC = 300;
 
             //when &&then
-            Assertions.assertAll(
+            assertAll(
                     () -> assertDoesNotThrow(() -> InputValidator.validateRoundCount(validRoundCountA)),
                     () -> assertDoesNotThrow(() -> InputValidator.validateRoundCount(validRoundCountB)),
                     () -> assertDoesNotThrow(() -> InputValidator.validateRoundCount(validRoundCountC))
@@ -99,12 +99,23 @@ class InputValidatorTest {
             // given
             final int invalidRoundCountA = 0;
             final int invalidRoundCountB = -50;
-            final int invalidRoundCountC = -21474837647;
+            final int invalidRoundCountC = -2147483647;
 
             // when &&then
-            assertThatThrownBy(() -> InputValidator.validateRoundCount(invalidRoundCountA))
-                    .isInstanceOf(RacingCarException.class)
-                    .hasMessageContaining(ErrorMessage.INVALID_ROUND_COUNT.getMessage());
+            assertAll(
+                    () -> assertThatThrownBy(() ->
+                            InputValidator.validateRoundCount(invalidRoundCountA))
+                            .isInstanceOf(RacingCarException.class)
+                            .hasMessageContaining(ErrorMessage.INVALID_ROUND_COUNT.getMessage()),
+                    () -> assertThatThrownBy(() ->
+                            InputValidator.validateRoundCount(invalidRoundCountB))
+                            .isInstanceOf(RacingCarException.class)
+                            .hasMessageContaining(ErrorMessage.INVALID_ROUND_COUNT.getMessage()),
+                    () -> assertThatThrownBy(() ->
+                            InputValidator.validateRoundCount(invalidRoundCountC))
+                            .isInstanceOf(RacingCarException.class)
+                            .hasMessageContaining(ErrorMessage.INVALID_ROUND_COUNT.getMessage())
+            );
         }
     }
 }
