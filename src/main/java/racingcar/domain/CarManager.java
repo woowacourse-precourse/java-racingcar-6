@@ -31,7 +31,7 @@ public class CarManager {
                 .toList();
     }
 
-    private void updateMaxMoveForwardCount(int count) {
+    public void updateMaxMoveForwardCount(int count) {
         this.maxMoveForwardCount = Math.max(count, this.maxMoveForwardCount);
     }
 
