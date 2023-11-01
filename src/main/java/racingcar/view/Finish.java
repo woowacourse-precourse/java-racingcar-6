@@ -13,7 +13,7 @@ public class Finish {
             }
         }
         String finalResult = String.join(",", victoryResult);
-        System.out.println(finalResult);
+        System.out.println("최종 우승자 " + finalResult);
     }
 
     private static int victoryDistance(int currentLocation[], List<String> carsName) {
