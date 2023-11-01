@@ -17,6 +17,11 @@ public class OutputView {
         System.out.println();
     }
 
+    public void displayWinners(List<String> winnerNames) {
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(",", winnerNames));
+
+    }
 
     public String getFormattedPosition(int position) {
         return "-".repeat(position);
