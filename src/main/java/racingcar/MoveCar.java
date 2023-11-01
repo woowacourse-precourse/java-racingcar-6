@@ -26,7 +26,7 @@ public class MoveCar {
             if(move >= 4){
                 car.MoveCar();
             }
-            System.out.println(car.ReturnCarName() + ":" +moveCar.CarMove(car.ReturnMove()));
+            System.out.println(car.ReturnCarName() + " : " +moveCar.CarMove(car.ReturnMove()));
 
 
         }
