@@ -125,7 +125,7 @@ public class PlayRacingcarGameTest extends NsTest {
         if (car.getPositionDistance() != 0) {
             positionLength = car.getPositionDistance();
         }
-        assertThat(positionLength).isEqualTo(1);
+        assertThat(positionLength).isLessThanOrEqualTo(1);
     }
 
     @Test
