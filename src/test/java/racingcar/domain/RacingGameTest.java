@@ -52,5 +52,25 @@ class RacingGameTest {
         assertThat(resultMove).isEqualTo("");
     }
 
+    @Test
+    void 게임_단독_우승자_판단_테스트() {
+        List<String> winner = new ArrayList<>();
+        resultList.set(0,"-");
+        resultList.set(1,"--");
+        resultList.set(2,"-");
+        winner = racingGame.chooseWinners(winner,resultList,cars);
 
+        assertThat(winner).containsExactly("woni");
+    }
+
+    @Test
+    void 게임_공동_우승자_판단_테스트() {
+        List<String> winner = new ArrayList<>();
+        resultList.set(0,"-");
+        resultList.set(1,"--");
+        resultList.set(2,"--");
+        winner = racingGame.chooseWinners(winner,resultList,cars);
+
+        assertThat(winner).containsExactly("woni","jin");
+    }
 }
