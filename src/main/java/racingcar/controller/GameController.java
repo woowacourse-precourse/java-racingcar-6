@@ -28,7 +28,7 @@ public class GameController {
         OutputView.playMessage();
         for (int i = 0; i < repeatNum; i++) {
             cars.move();
-            getCarStates();
+            updateCarStates();
         }
     }
 
@@ -36,7 +36,7 @@ public class GameController {
         OutputView.resultMessage(cars.getWinners());
     }
 
-    public void getCarStates() {
+    public void updateCarStates() {
         carStates = cars.carsStates();
         OutputView.carsStateShow(carStates);
     }
