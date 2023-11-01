@@ -25,7 +25,7 @@ public class findWinner {
         return mostMovedCar;
     }
 
-    public static ArrayList<String> getRaceResultList(ArrayList<String> carDistanceList) {
+    public static String getRaceResult(ArrayList<String> carDistanceList) {
         ArrayList<String> mostMovedCarName = getMostMovedCar(carDistanceList);
 
         String winnerName= "";
@@ -36,7 +36,6 @@ public class findWinner {
                 winnerName = winnerName.concat(carName);
             }
         }
-        carDistanceList.add("최종 우승자 : " + winnerName);
-        return carDistanceList;
+        return "최종 우승자 : " + winnerName;
     }
 }
