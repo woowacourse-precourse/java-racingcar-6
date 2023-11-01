@@ -1,6 +1,6 @@
 package racingcar.domain.race;
 
-import racingcar.domain.car.Car;
+import racingcar.domain.race.car.Car;
 import racingcar.domain.race.dto.Distance;
 import racingcar.domain.race.manager.RaceCarManager;
 import racingcar.domain.race.rule.Rule;
