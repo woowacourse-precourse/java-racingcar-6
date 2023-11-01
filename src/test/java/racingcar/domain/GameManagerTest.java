@@ -174,4 +174,14 @@ class GameManagerTest {
         // then
         assertThat(GameManager.judgeWinners()).isEqualTo(List.of("pobi", "honux"));
     }
+
+    @Test
+    void printWinners_메서드로_우승자_출력() {
+        // given
+        // when
+        // then
+        GameManager.printWinners(List.of("pobi"));
+        GameManager.printWinners(List.of("pobi", "honux"));
+        GameManager.printWinners(List.of("pobi", "honux", "crong"));
+    }
 }
