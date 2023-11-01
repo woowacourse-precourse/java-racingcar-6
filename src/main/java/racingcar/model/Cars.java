@@ -1,9 +1,6 @@
 package racingcar.model;
 
-import static racingcar.model.exception.ExceptionMessage.DUPLICATE_CAR_EXCEPTION;
-
 import racingcar.model.randomnumber.RandomNumber;
-import racingcar.util.NameFactory;
 import java.util.List;
 
 public class Cars {
@@ -14,21 +11,14 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars from(final String names) {
-        List<Name> carNames = NameFactory.createNames(names);
+    public static Cars from(final String input) {
+        List<Name> carNames = Names.from(input)
+                .getNames();
         List<Car> cars = carNames.stream()
                 .map(Car::createDefault)
-                .distinct()
                 .toList();
 
-        validateCarNameIsNotDuplicate(carNames, cars);
         return new Cars(cars);
-    }
-
-    private static void validateCarNameIsNotDuplicate(final List<Name> carNames, final List<Car> cars) {
-        if (carNames.size() != cars.size()) {
-            throw new IllegalArgumentException(DUPLICATE_CAR_EXCEPTION.getMessage());
-        }
     }
 
     public void race(final RandomNumber randomNumber) {
