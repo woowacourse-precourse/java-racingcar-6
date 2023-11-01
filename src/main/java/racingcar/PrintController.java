@@ -17,22 +17,30 @@ public class PrintController {
         System.out.println("");
         System.out.println("실행 결과");
     }
+
     public void printResult(int index) {
         String carName =carArrList.get(index).getName();
         int distance =carArrList.get(index).getDistance();
+
         System.out.printf("%s : ",carName);
+
         for (int i = 0; i < distance; i++) {
             System.out.print("-");
         }
+
         System.out.println("");
     }
 
     void printWinner() {
         String winnerName =carArrList.get(0).getName();
+
         System.out.printf("최종 우승자 : %s", winnerName);
+
         int carNum =carArrList.size();
+
         for (int index = 1; index < carNum; index++) {
-            if (carArrList.get(index).getDistance() ==winnerDistance) {
+
+            if (carArrList.get(index).getDistance() == winnerDistance) {
                 winnerName =carArrList.get(index).getName();
                 System.out.printf(", %s", winnerName);
             }

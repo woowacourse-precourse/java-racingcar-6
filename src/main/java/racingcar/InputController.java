@@ -19,6 +19,7 @@ public class InputController {
 
     void inputCarName() {
         PrintController.printCarNameDirection();
+
         String carNames =readLine();
         carNamesArray= carNames.split(",", -1);
         ArrayList<String> carNamesList = new ArrayList<>(Arrays.asList(carNamesArray));
@@ -28,6 +29,7 @@ public class InputController {
         validator.checkCarNameLength(carNamesList);
         validator.checkCarNameBlank(carNamesList);
         validator.checkSameName(carNamesList);
+
         for (String carName :carNamesArray) {
             carArrList.add(new Car(carName));
         }
@@ -35,6 +37,7 @@ public class InputController {
 
     void inputCycleNum() {
         PrintController.printCycleNumDirection();
+
         String stringCycleNum =readLine();
         cycleNum= Integer.parseInt(stringCycleNum);
 
