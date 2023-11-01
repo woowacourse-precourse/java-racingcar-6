@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalArgumentExceptionType;
 
 class RandomMovingCarsTest {
-
     @DisplayName("빈_리스트로_객체_생성_실패_테스트")
     @Test
     void creationWithEmptyListFailTest() {

@@ -28,6 +28,7 @@ public abstract class Car {
             throw IllegalArgumentExceptionType.CAR_NAME_MIN_LENGTH_ERROR_MESSAGE.getException();
         }
     }
+
     private void validateIsCarNameExceedingMaxLength() {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw IllegalArgumentExceptionType.CAR_NAME_MAX_LENGTH_ERROR_MESSAGE.getException();

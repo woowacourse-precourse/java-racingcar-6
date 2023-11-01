@@ -5,7 +5,6 @@ import racingcar.domain.RacingGameState;
 
 public class OutputView {
     private static final String GAME_RESULT_MESSAGE = "\n실행 결과";
-
     private static final String CAR_STATE_EXPRESSION = "%s : %s%n";
     private static final String DISTANCE_EXPRESSION_ELEMENT = "-";
     private static final String WINNERS_JOIN_DELIMITER = ", ";
@@ -43,6 +42,7 @@ public class OutputView {
 
     public void printGameState(RacingGameState racingGameState) {
         String gameState = buildGameStateExpression(racingGameState);
+
         System.out.println(gameState);
     }
 

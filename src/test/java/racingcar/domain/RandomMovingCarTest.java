@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RandomMovingCarTest {
-
     @DisplayName("차량_생성_성공_테스트")
     @Test
     void creatingCarSuccessTest() {

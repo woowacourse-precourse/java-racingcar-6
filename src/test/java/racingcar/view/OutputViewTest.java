@@ -18,13 +18,11 @@ import racingcar.domain.NeverMovingCar;
 import racingcar.domain.RacingGameState;
 
 class OutputViewTest {
-
-    private PrintStream standardOut;
-    private OutputStream captor;
+    PrintStream standardOut;
+    OutputStream captor;
     Car alwaysMovingCar, neverMovingCar;
     List<Car> rawCars;
     RacingGameState playingRacingGameState, endedRacingGameState;
-
     OutputView outputView = new OutputView();
 
     @BeforeEach

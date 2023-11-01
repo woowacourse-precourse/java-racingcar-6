@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalArgumentExceptionType;
 
 class InputViewTest {
-
     InputView inputView = new InputView();
 
     void setUp(String[] args) {
@@ -24,7 +23,6 @@ class InputViewTest {
     void tearDown() {
         Console.close();
     }
-
 
     @DisplayName("차량이름_입력_성공_테스트")
     @Test
@@ -66,5 +64,3 @@ class InputViewTest {
                 .hasMessage(exception.getMessage());
     }
 }
-
-

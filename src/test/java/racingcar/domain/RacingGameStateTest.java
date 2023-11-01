@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalStateExceptionType;
 
 class RacingGameStateTest {
-
     Car alwaysMovingCar, neverMovingCar;
     List<Car> rawCars;
     RacingGameState playingRacingGameState, endedRacingGameState;

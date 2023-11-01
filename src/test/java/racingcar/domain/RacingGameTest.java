@@ -11,9 +11,9 @@ import racingcar.constant.IllegalArgumentExceptionType;
 import racingcar.constant.IllegalStateExceptionType;
 
 class RacingGameTest {
+    final int ZERO_ATTEMPT = 0;
+    final int ONE_ATTEMPT = 1;
 
-    private static final int ZERO_ATTEMPT = 0;
-    private static final int ONE_ATTEMPT = 1;
     Car alwaysMovingCar1, alwaysMovingCar2;
     List<Car> rawCars;
     Cars cars;
