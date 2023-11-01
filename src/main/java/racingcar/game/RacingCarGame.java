@@ -66,6 +66,7 @@ public class RacingCarGame {
     private void initCars(List<String> carNames) {
         cars = new ArrayList<>();
         for (String carName : carNames) {
+            carName = carName.trim();
             cars.add(Car.of(carName));
         }
     }

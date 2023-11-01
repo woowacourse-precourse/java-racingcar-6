@@ -15,6 +15,7 @@ public class CarNameValidator implements Validator{
 
     private void checkNameLength(String[] carNames) {
         for (String carName : carNames) {
+            carName=carName.trim();
             if (carName.length()> MAX_LENGTH || carName.isBlank()) {
                 throw new IllegalArgumentException(INPUT_ERROR_MESSAGE);
             }
