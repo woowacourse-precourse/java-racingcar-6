@@ -26,6 +26,7 @@ public class RacingTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름은 5글자를 초과할 수 없습니다.");
     }
+
     @Test
     public void 입력한_횟수_숫자로_변환_불가능_할_때_검증() {
         String input = "abc";
