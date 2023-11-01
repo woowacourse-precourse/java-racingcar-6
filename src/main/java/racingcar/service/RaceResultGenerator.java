@@ -6,13 +6,13 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import racingcar.domain.Car;
+import racingcar.dto.CarDto;
 
 public class RaceResultGenerator {
 
-    public List<String> checkWinner(LinkedHashSet<Car> cars) {
+    public List<String> checkWinner(LinkedHashSet<CarDto> carDtos) {
         List<String> winners = new ArrayList<>();
-        LinkedHashMap<String, Integer> raceStatus = generateRaceStatus(cars);
+        LinkedHashMap<String, Integer> raceStatus = generateRaceStatus(carDtos);
         int max = Collections.max(raceStatus.values());
 
         for(Map.Entry<String, Integer> entry : raceStatus.entrySet()) {
@@ -23,11 +23,11 @@ public class RaceResultGenerator {
         return winners;
     }
 
-    private LinkedHashMap<String, Integer> generateRaceStatus(LinkedHashSet<Car> cars) {
+    private LinkedHashMap<String, Integer> generateRaceStatus(LinkedHashSet<CarDto> carDtos) {
         LinkedHashMap<String, Integer> raceResult = new LinkedHashMap<>();
 
-        for (Car car : cars) {
-            raceResult.put(car.getName(), car.getMoved());
+        for (CarDto carDto : carDtos) {
+            raceResult.put(carDto.name(), carDto.moved());
         }
         return raceResult;
     }

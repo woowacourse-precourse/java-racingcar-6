@@ -15,6 +15,7 @@ public class RacingController implements Observer {
     private List<String> carNames;
     private int attemptCount;
     private LinkedHashSet<Car> cars;
+    private LinkedHashSet<CarDto> carDtos;
 
     public void run() {
         setRacing();
@@ -25,6 +26,7 @@ public class RacingController implements Observer {
 
     private void setRacing() {
         OutputView.printCarNameInputMessage();
+
         carNames = racingService.carValidate(getUserInput());
         OutputView.printAttemptCountInputMessage();
         attemptCount = Integer.parseInt(racingService.attemptCountValidate(getUserInput()));
@@ -33,12 +35,17 @@ public class RacingController implements Observer {
     private void createCars() {
         cars = racingService.createCars(carNames);
     }
+    private void createCarDtos() {
+        carDtos = racingService.creatCarDtos(cars);
+    }
 
     private void startRace() {
         OutputView.printGameResultMessage();
-        racingService.moveAllCar(attemptCount, cars, OutputView::printEachRoundSeparator);
 
-        List<String> winners = racingService.generateRaceResult(cars);
+        racingService.moveAllCar(attemptCount, cars, OutputView::printEachRoundSeparator);
+        createCarDtos();
+        List<String> winners = racingService.generateRaceResult(carDtos);
+
         OutputView.printWinner(winners);
     }
 
