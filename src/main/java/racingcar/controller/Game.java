@@ -28,8 +28,8 @@ public class Game {
     public void askGameRounds(){
         OutputView.askGameRounds();
         String input = InputView.readLine();
-        InputValidator.inputMustHaveValue(input);
-        InputValidator.inputMustBeInteger(input);
+        InputValidator.mustHaveValue(input);
+        InputValidator.mustBeInteger(input);
         round = Parser.parsingInteger(input);
         InputView.close();
     }

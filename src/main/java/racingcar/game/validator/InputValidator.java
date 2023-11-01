@@ -13,12 +13,12 @@ public class InputValidator {
         }
     }
 
-    public static void inputMustBeInteger(String input){
+    public static void mustBeInteger(String input){
         if (Pattern.matches(INTEGER_REGULAR_EXPRESSION.getValue(), input)) return;
         Exception.illegalArgument(VALUE_MUST_BE_INTEGER.getMessage());
     }
 
-    public static void inputMustHaveValue(String input){
+    public static void mustHaveValue(String input){
         if (input == null) {
             Exception.illegalArgument(NULL_VALUE.getMessage());
         }
