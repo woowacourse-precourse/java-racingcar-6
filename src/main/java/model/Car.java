@@ -23,7 +23,7 @@ public class Car {
     public static boolean validateCarName(String carName){
         if(carName.isBlank()){
             throw new IllegalArgumentException(ErrorCodeConstant.STRING_BLANK_ERROR);
-        } else if(GameConstant.NAME_MAX_LENGTH < carName.length()){
+        } else if(GameConstant.MAX_NAME_LENGTH < carName.length()){
             throw new IllegalArgumentException(ErrorCodeConstant.NAME_LENGTH_ERROR);
         }
         return true;

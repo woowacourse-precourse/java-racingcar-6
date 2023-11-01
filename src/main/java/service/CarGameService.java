@@ -31,12 +31,4 @@ public class CarGameService {
         return carList;
     }
 
-    public boolean validateCarNameList(String carList){
-        String[] carArray = carList.split(",");
-        for(String car : carArray){
-            Car.validateCarName(car);
-        }
-        return true;
-    }
-
 }
