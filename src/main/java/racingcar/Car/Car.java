@@ -1,4 +1,4 @@
-package racingcar.User.Car;
+package racingcar.Car;
 
 public class Car {
 
