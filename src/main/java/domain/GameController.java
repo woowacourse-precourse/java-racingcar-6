@@ -4,6 +4,8 @@ import domain.InputView.InputNames;
 import domain.InputView.InputTurn;
 import domain.OutputView.*;
 
+import static message.NoticeMessages.RESULT_MESSAGE;
+
 public class GameController {
 
     private CarList  carArray;
@@ -36,7 +38,7 @@ public class GameController {
     }
 
     public void play(){
-        System.out.println("실행결과");
+        System.out.println(RESULT_MESSAGE);
         for(int i=0; i<turnNum; i++)
         {
             OutputCars.printTurnResult(carArray.turnGoOrStay());

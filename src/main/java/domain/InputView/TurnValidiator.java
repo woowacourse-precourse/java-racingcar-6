@@ -1,11 +1,13 @@
 package domain.InputView;
 
+import static message.ErrorMessages.NEGATIVE_INPUT_ERROR;
+
 public class TurnValidiator {
 
     public TurnValidiator(String num){
         int newnum= checkNumber(num);
         if(newnum<0){
-            throw new IllegalArgumentException("입력된 숫자가 음수입니다.");
+            throw new IllegalArgumentException(NEGATIVE_INPUT_ERROR);
         }
 
     }
