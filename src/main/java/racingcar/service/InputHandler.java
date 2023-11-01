@@ -27,6 +27,7 @@ public class InputHandler {
         validateRaceCount(input);
         return Integer.parseInt(input);
     }
+
     private void validateRaceCount(String input) {
         try {
             int raceCount = Integer.parseInt(input);
