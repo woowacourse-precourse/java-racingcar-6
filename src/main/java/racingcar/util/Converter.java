@@ -40,7 +40,7 @@ public class Converter {
             throw new IllegalArgumentException("자동차의 이름을 1글자 이상 입력해주세요");
         }
         if (name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다");
+            throw new IllegalArgumentException("자동차의 이름을 5글자 이하로 입력해주세요");
         }
     }
 

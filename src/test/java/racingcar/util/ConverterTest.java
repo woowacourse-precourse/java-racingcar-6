@@ -20,7 +20,7 @@ class ConverterTest {
     void 자동차의_이름이_다섯_글자_초과인_경우_예외를_발생한다() {
         assertThatThrownBy(() -> Converter.parseCars("pobiwoni"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름은 5자 이하만 가능합니다");
+                .hasMessageContaining("자동차의 이름을 5글자 이하로 입력해주세요");
     }
 
     @Test
