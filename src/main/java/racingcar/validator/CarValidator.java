@@ -1,23 +1,29 @@
 package racingcar.validator;
 
-import racingcar.domain.Car;
-
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class CarValidator {
     private final static int LENGTH_STANDARD = 5;
 
-    public void checkCarCount(String[] carNameInput) {
+    public void checkInput(String[] carNameInput) {
+        checkCarCount(carNameInput);
+        checkCarName(carNameInput);
+        checkDuplicate(carNameInput);
+    }
+
+    private void checkCarCount(String[] carNameInput) {
         if (carNameInput.length == 0) {
             throw new IllegalArgumentException("At least one car required");
         }
     }
 
-    public void checkCarName(String name) {
-        checkLength(name);
-        checkNonBlank(name);
+    private void checkCarName(String[] carNames) {
+        for (String carName : carNames) {
+            checkLength(carName);
+            checkNonBlank(carName);
+        }
     }
 
     private void checkLength(String name) {
@@ -32,12 +38,9 @@ public class CarValidator {
         }
     }
 
-    public void checkDuplicate(List<Car> carList) {
-        Set<String> nameSet = carList.stream()
-                .map(Car::getName)
-                .collect(Collectors.toSet());
-
-        if (carList.size() != nameSet.size()) {
+    private void checkDuplicate(String[] carNames) {
+        Set<String> carNameSet = new HashSet<>(Arrays.asList(carNames));
+        if (carNames.length != carNameSet.size()) {
             throw new IllegalArgumentException("Name must not be duplicated");
         }
     }
