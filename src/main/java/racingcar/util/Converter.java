@@ -7,7 +7,8 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 
 public class Converter {
-    private static final int LENGTH_LIMITER = 5;
+    private static final int MIN_LENGTH = 1;
+    private static final int MAX_LENGTH = 5;
     private static final String DELIMITER = ",";
     private static final String SINGLE_BLANK = " ";
     private static final String COLON = ":";
@@ -35,10 +36,10 @@ public class Converter {
     }
 
     private static void validateLength(String name) {
-        if (name.length() == 0) {
+        if (name.length() < MIN_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름을 1글자 이상 입력해주세요");
         }
-        if (name.length() > LENGTH_LIMITER) {
+        if (name.length() > MAX_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다");
         }
     }
