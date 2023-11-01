@@ -22,4 +22,9 @@ public class Car {
             throw new IllegalArgumentException("null을 입력하지 마세요.");
         }
     }
+    public void validateLengthZero(String str) {
+        if (str.length() == 0) {
+            throw new IllegalArgumentException("길이를 0보다 크게 입력하셔야 합니다.");
+        }
+    }
 }
