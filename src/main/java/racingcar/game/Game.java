@@ -10,7 +10,7 @@ public class Game {
     public static void play() {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] carNames = toCarNames(Console.readLine());
+        String[] carNames = getCarNames(Console.readLine());
 
         int count = getCount();
 
@@ -29,7 +29,7 @@ public class Game {
         return count;
     }
 
-    private static String[] toCarNames(String carNameString) {
+    private static String[] getCarNames(String carNameString) {
         String[] carNames = carNameString.split(",");
 
         boolean exceedsNameLengthMax = Arrays.stream(carNames).anyMatch(name -> name.length() > MAX_NAME_LENGTH);
