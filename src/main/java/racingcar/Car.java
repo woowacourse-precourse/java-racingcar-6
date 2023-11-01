@@ -7,9 +7,6 @@ public class Car {
 	private String name;
 	private int position;
 
-	public Car() {
-	}
-
 	public String getName() {
 		return name;
 	}
