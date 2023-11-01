@@ -15,16 +15,17 @@
 - [ ] 자동차 이름 입력 (inputCarNames)
 - [ ] 경주할 자동차 생성 (generateCarsByCarNames)
 - [ ] 시도 횟수 입력 (inputTrialCount)
+- [ ] 게임 진행 (playGame)
 - [ ] 각 차수 실행 (attemptTrial)
 - [ ] 실행 결과 출력 (printTrialResult)
-- [ ] 우승자 판단 (judgeWinner)
-- [ ] 우승자 출력 (printWinner)
+- [ ] 우승자 판단 (judgeWinners)
+- [ ] 우승자 출력 (printWinners)
 
 ### 3. 게임에 필요한 도구 (GameUtil)
 
 - [ ] 자동차 이름을 쉼표로 구분 (splitNamesByComma)
 - [ ] 0에서 9 사이에서 무작위 값을 구하기 (generateRandomNumber)
-- [ ] 우승자 여러 명인 경우, 출력 포맷팅 (formatWinners)
+- [ ] 우승자 여러 명인 경우, 출력 포맷팅 (formatWinners) → Game.printWinners에서 진행
 - [ ] 값이 4 이상인지(전진인지) 판단 (judgeGo)
 
 ### 4. 입력값을 판단하는 도구 (ValidateUtil)
