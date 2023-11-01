@@ -13,7 +13,7 @@ public class Winner {
 
         int maxRaceResultLength = getMaxResultLength(raceResultsES);
 
-        List<String> winners = getWinnersArrayList(raceResultsES , maxRaceResultLength);
+        List<String> winners = getWinnersArrayList(raceResultsES, maxRaceResultLength);
 
         return winners;
     }

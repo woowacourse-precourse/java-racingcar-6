@@ -19,6 +19,7 @@ public class UserInput {
         return carNamesInputList;
     }
 
+
     public static int getTrialNumber() {
         int trialNumber = Integer.parseInt(Console.readLine());
 
@@ -26,7 +27,7 @@ public class UserInput {
     }
 
 
-    private static List<String> convertInputToArrayList(String carNamesInput){
+    private static List<String> convertInputToArrayList(String carNamesInput) {
         List<String> carNamesInputList = Arrays.asList(carNamesInput.split(","));
 
         return carNamesInputList;
