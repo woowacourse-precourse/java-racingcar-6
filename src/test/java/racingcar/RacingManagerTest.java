@@ -14,6 +14,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.tuple;
 
 public class RacingManagerTest {
+    final int FORWARD = RacingCar.MAX_MOVE_WEIGHT;
+    final int STOP = RacingCar.MIN_MOVE_WEIGHT;
+
     @Test
     void 올바른_입력이_주어졌을_때_정상적으로_racing_manager_인스턴스가_생성된다() {
         String validCarsNameInput = "pobi,woni,jun";
@@ -63,10 +66,7 @@ public class RacingManagerTest {
         String validCarsNameInput = "pobi,woni";
         String validRacingCountInput = "2";
 
-        int forward = RacingCar.MAX_MOVE_WEIGHT;
-        int stop = RacingCar.MIN_MOVE_WEIGHT;
-        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(forward, stop, forward, stop);
-
+        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(FORWARD, STOP, FORWARD, STOP);
         RacingManager racingManager = new RacingManager(validCarsNameInput, validRacingCountInput, fixedNumberGenerator);
 
         racingManager.startRace();
@@ -80,10 +80,7 @@ public class RacingManagerTest {
         String validCarsNameInput = "pobi,woni";
         String validRacingCountInput = "2";
 
-        int forward = RacingCar.MAX_MOVE_WEIGHT;
-        int stop = RacingCar.MIN_MOVE_WEIGHT;
-        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(forward, forward, forward, stop);
-
+        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(FORWARD, FORWARD, FORWARD, STOP);
         RacingManager racingManager = new RacingManager(validCarsNameInput, validRacingCountInput, fixedNumberGenerator);
 
         racingManager.startRace();
