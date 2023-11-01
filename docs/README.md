@@ -55,15 +55,11 @@
 
   
 ### 메서드
-    * static requestCarName() (return List<String>) { 
-       1. "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" 메세지 출력
-       2. String input = readLine();(이름은 쉼표(,) 기준으로 구분)
-       3. ' , ' 기준으로 이름리스트에 넣고 return
-    }
-    * static requestRoundCounts()(return int) {
-      1. "시도할 회수는 몇회인가요?" 메세지 출력
-      2. String input = readLine(); (숫자 검증하기)
-      3. String -> int로 변환해서 return
+    * inputCars() (return List<Car>) : 자동차 입력 및 필터링된 자동차 반환
+    * requestCarNames() (return void) : 자동차 입력받아옴
+    * responseCarNames()(List<Car>) : 필터링된 자동차 반환
+    * doTrim() (return List<String>): String의 공백제거
+    * putCars() (return List<Car>) : doTrim된 자동차 배열 넣어 반환
     }
 ## 2. OutputView 클래스
 * 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
