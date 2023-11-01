@@ -17,20 +17,27 @@ public class Application {
         int i = 0;
 
         while (i < count) {
-            for (String input : inputs) {
-                map.put(input, map.getOrDefault(input, Number.MIN.getValue()));
-                int num = createRandom();
-
-                if (num >= Number.RANDOM_VALUE.getValue()) {
-                    if (map.containsKey(input)) {
-                        map.put(input, map.get(input) + 1);
-                    }
-                }
-            }
+            map = getMap(inputs);
             print(map);
             i++;
         }
         output(map);
+    }
+
+    public static Map<String, Integer> getMap(String[] inputs){
+        Map<String, Integer> map = new LinkedHashMap<>();
+        for (String input : inputs) {
+            map.put(input, map.getOrDefault(input, Number.MIN.getValue()));
+            int num = createRandom();
+
+            if (num >= Number.RANDOM_VALUE.getValue()) {
+                if (map.containsKey(input)) {
+                    map.put(input, map.get(input) + 1);
+                }
+            }
+        }
+
+        return map;
     }
 
     public static String[] inputCarName() {
