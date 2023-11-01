@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import racingcar.Controller.RacingGameController;
 import racingcar.Model.Car;
+import racingcar.Model.RandomNumberGenertorImpI;
 import racingcar.View.RacingGameView;
 
 import java.util.Arrays;
@@ -30,14 +31,14 @@ class Mytest extends NsTest {
     void 설정() {
         RacingGameView view = new RacingGameView();
         List<String> carNames = Arrays.asList("car1", "car2");
-        controller = new RacingGameController(carNames, view);
+        controller = new RacingGameController(carNames, view,new RandomNumberGenertorImpI());
     }
 
     @Test
     void 이름_테스트() {
         RacingGameView view = new RacingGameView();
         String[] carNames = {"verylongcarname", "short"};
-        assertThatThrownBy(() -> new RacingGameController(Arrays.asList(carNames), view))
+        assertThatThrownBy(() -> new RacingGameController(Arrays.asList(carNames), view,new RandomNumberGenertorImpI()))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
     }
@@ -45,7 +46,7 @@ class Mytest extends NsTest {
 
     @Test
     void 게임_횟수_음수_테스트() {
-        RacingGameController controller = new RacingGameController(Arrays.asList("pobi", "woni"), new RacingGameView());
+        RacingGameController controller = new RacingGameController(Arrays.asList("pobi", "woni"), new RacingGameView(),new RandomNumberGenertorImpI());
 
         assertThatThrownBy(() -> controller.startGame(-1))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -56,7 +57,7 @@ class Mytest extends NsTest {
     void 랜덤_값_테스트() {
         RacingGameView view = new RacingGameView();
         String[] carNames = {"car1", "car2"};
-        RacingGameController controller = new RacingGameController(Arrays.asList(carNames), view);
+        RacingGameController controller = new RacingGameController(Arrays.asList(carNames), view,new RandomNumberGenertorImpI());
 
         Mockito.mockStatic(Randoms.class);
         when(Randoms.pickNumberInRange(0, 9)).thenReturn(4);
@@ -96,9 +97,9 @@ class Mytest extends NsTest {
         Mockito.mockStatic(Randoms.class);
         when(Randoms.pickNumberInRange(0, 9)).thenReturn(4);
 
-        car1.move();
-        car2.move();
-        car3.move();
+        car1.move(new RandomNumberGenertorImpI());
+        car2.move(new RandomNumberGenertorImpI());
+        car3.move(new RandomNumberGenertorImpI());
         List<Car> cars = Arrays.asList(car1, car2, car3);
 
         // Act

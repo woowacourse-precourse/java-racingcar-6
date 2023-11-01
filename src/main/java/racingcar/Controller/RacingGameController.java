@@ -1,20 +1,23 @@
 package racingcar.Controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Model.Car;
+import racingcar.Model.RandomNumberGenerator;
 import racingcar.View.RacingGameView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 public class RacingGameController {
     private List<Car> cars;
     private RacingGameView view;
-
-    public RacingGameController(List<String> carNames, RacingGameView view) {
+    private RandomNumberGenerator randomNumberGenerator;
+    public RacingGameController(List<String> carNames, RacingGameView view,RandomNumberGenerator randomNumberGenerator) {
         this.view = view;
         cars = new ArrayList<>();
-
+        this.randomNumberGenerator = randomNumberGenerator;
 
         for (String carName : carNames) {
             if(carName.length()>5){
@@ -30,11 +33,8 @@ public class RacingGameController {
         }
         for (int i = 0; i < game; i++) {
             for (Car car : cars) {
-                try {
-                    car.move();
-                } catch (Exception e) {
-                    System.err.println("오류: " + e.getMessage());
-                }
+                car.move(randomNumberGenerator);
+
             }
             view.displayStatus(cars);
         }

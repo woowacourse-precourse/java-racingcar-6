@@ -1,12 +1,12 @@
 package racingcar.Model;
 
-import java.util.Random;
+
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumberGenertorImpI implements RandomNumberGenerator{
-    private Random random=new Random();
 
     @Override
     public int nextInt(int bound){
-        return random.nextInt(bound);
+        return Randoms.pickNumberInRange(0,bound);
     }
 }
