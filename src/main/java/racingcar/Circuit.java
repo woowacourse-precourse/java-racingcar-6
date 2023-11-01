@@ -5,8 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class Circuit {
-
-
     public Circuit(ArrayList<Car> carArrayList){
         for(int i=0;i<carArrayList.size();i++){//각 자동차별 전진 여부 판별하는 반복문
 
@@ -27,7 +25,4 @@ public class Circuit {
 
         return false;
     }
-
-
-
 }

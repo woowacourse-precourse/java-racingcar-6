@@ -87,7 +87,6 @@ public class Progress {
     }
 
 
-
     //number만큼의 경주 반복 결과
     public static ArrayList <Car> repeatCircuit(){
         for(long i = 0; i< cycle; i++){
@@ -112,6 +111,4 @@ public class Progress {
         }
         return winners;
     }
-
-
 }
