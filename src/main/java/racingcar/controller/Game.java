@@ -1,10 +1,10 @@
 package racingcar.controller;
 
+import racingcar.util.MoveCar;
 import racingcar.util.ValidateCarName;
 import racingcar.util.ValidateTryCount;
 import racingcar.view.InputView;
 import racingcar.model.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +40,22 @@ public class Game {
     public void InputTryCount() {
         String Input = InputView.inputTryCount();
         this.tryCount =  ValidateTryCount.validateInputValue(Input); //예외시 IllegalArgumentException
+    }
+
+    public void processRound(){
+
+        for (int i = 0; i < tryCount; i++) {
+            moveCar();
+        }
+
+    }
+
+    public void moveCar() {
+
+        for (Car car : carList) {
+            MoveCar.moveCar(car);
+        }
+
     }
 
 }
