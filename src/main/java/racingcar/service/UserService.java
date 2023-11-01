@@ -11,6 +11,17 @@ public class UserService {
 
     public int getMoveCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        String cnt = Console.readLine();
+        isValid(cnt);
+
+        return Integer.parseInt(cnt);
+    }
+
+    private void isValid(String cnt) {
+        for (char c : cnt.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
