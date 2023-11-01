@@ -8,8 +8,18 @@ public class RacingCar {
     public RacingCar(String name) {
         this.name = name;
     }
+    public void move() {
+        int randomValue = RandomNumGenerator.generate();
+        if (randomValue >= RacingCarConstant.MOVE_THRESHOLD) {
+            position++;
+        }
+    }
 
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
