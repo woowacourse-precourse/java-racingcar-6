@@ -1,25 +1,30 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 
 public class RacingGame {
 
+    String[] names;
+    private int carnum;
+    private ArrayList<Car> cars;
+
     public RacingGame() {
-        Progress();
+        progress();
     }
 
-    private void Progress() {
+    private void progress() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-        String[] names = InputName();
+        inputName();
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int num = InputNumber();
+        int num = inputNumber();
 
         System.out.println("\n실행 결과");
     }
 
-    private String[] InputName() {
+    private void inputName() {
         String[] names = Console.readLine().split(",");
         //검사-자동차 수가 2개보다 작으면 예외처리
         if (names.length <= 1) {
@@ -28,7 +33,7 @@ public class RacingGame {
         return names;
     }
 
-    private int InputNumber() {
+    private int inputNumber() {
         int num;
         try {
             //검사
