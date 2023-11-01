@@ -1,9 +1,15 @@
-Stationary.java
+Message.java
 - 안내 문구 생성
-    - namingCarMessage = "경주할 자동차 이름을 입력하세요 ~~"
-    - getCountsMessage = "시도할 회수는 ~~"
-    - PringGamingMessage = "실행 결과"
-    - winner = "최종 우승자 : "
+  - namingCarMessage = "경주할 자동차 이름을 입력하세요 ~~"
+  - getCountsMessage = "시도할 회수는 ~~"
+  - printGamingMessage = "실행 결과"
+  - printWinnerMessage = "최종 우승자 : "
+
+BoundaryValue.java
+- 경계값 지정
+  - goCondition
+  - minRandomNumber
+  - maxRandomNumber
 
 Application.java
 - 전반적인 게임 진행 개요
