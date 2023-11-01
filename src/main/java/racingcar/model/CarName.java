@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import racingcar.exception.ErrorMessage;
+import racingcar.exception.InvalidInputException;
+
 public class CarName {
 
     private static final int MAX_LENGTH = 5;
@@ -16,7 +19,7 @@ public class CarName {
 
     private static String validate(String input) {
         if (input.isEmpty() || input.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException();
+            throw InvalidInputException.with(ErrorMessage.INVALID_LENGTH);
         }
         return input;
     }

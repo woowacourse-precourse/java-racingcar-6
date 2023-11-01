@@ -2,15 +2,15 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-import racingcar.view.constant.Message;
+import racingcar.view.constant.Messageable;
 
 public class View {
-    
+
     public static String getInput() {
         return readLine();
     }
 
-    public static void printMessage(Message message) {
-        System.out.println(message.getMessage());
+    public static void printMessage(Messageable messageable) {
+        System.out.println(messageable.getMessage());
     }
 }

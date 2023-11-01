@@ -2,7 +2,7 @@ package racingcar.view.constant;
 
 import java.util.List;
 
-public class Winner implements Message {
+public class Winner implements Messageable {
 
     private static final String WINNER_ANNOUNCEMENT_PREFIX = "최종 우승자 : ";
     private static final String DELIMITER = ", ";

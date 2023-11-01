@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.RaceResultDTO;
 
-public class Result implements Message {
+public class Result implements Messageable {
 
     private static final String MOVE_SYMBOL = "-";
     private static final String COLON = " : ";

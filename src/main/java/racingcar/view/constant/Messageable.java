@@ -1,5 +1,5 @@
 package racingcar.view.constant;
 
-public interface Message {
+public interface Messageable {
     public String getMessage();
 }

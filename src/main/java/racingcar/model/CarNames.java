@@ -2,6 +2,8 @@ package racingcar.model;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.exception.ErrorMessage;
+import racingcar.exception.InvalidInputException;
 
 public class CarNames {
 
@@ -26,7 +28,7 @@ public class CarNames {
     private List<String> validate(List<String> seperatedInput) {
         long distinctCount = seperatedInput.stream().distinct().count();
         if (seperatedInput.size() != distinctCount) {
-            throw new IllegalArgumentException();
+            throw InvalidInputException.with(ErrorMessage.DUPLICATE_NAME);
         }
         return seperatedInput;
     }
