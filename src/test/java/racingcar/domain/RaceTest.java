@@ -30,4 +30,24 @@ public class RaceTest {
             assertThat(car.getPosition()).isBetween(0, 5);
         }
     }
+
+    @Test
+    void 단일_우승자_선택_검증() {
+        cars.get(0).move(() -> true);
+        cars.get(1).move(() -> false);
+        cars.get(2).move(() -> false);
+
+        List<Car> winners = race.getWinners();
+        assertThat(winners).containsExactly(cars.get(0));
+    }
+
+    @Test
+    void 복수_우승자_선택_검증() {
+        cars.get(0).move(() -> true);
+        cars.get(1).move(() -> true);
+        cars.get(2).move(() -> false);
+
+        List<Car> winners = race.getWinners();
+        assertThat(winners).containsExactlyInAnyOrder(cars.get(0), cars.get(1));
+    }
 }
