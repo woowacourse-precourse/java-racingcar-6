@@ -22,4 +22,8 @@ public class Car {
     public Long getPosition() {
         return position;
     }
+
+    public void setPosition(Long position) {
+        this.position = position;
+    }
 }
