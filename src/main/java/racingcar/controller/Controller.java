@@ -11,11 +11,11 @@ import racingcar.domain.Car;
 import java.util.List;
 
 public class Controller {
-    Views view = new Views();
-    GameService service = new GameService();
-    Cars cars = new Cars();
-    Validator validator = new Validator();
-    TypeConverter typeConverter = new TypeConverter();
+    private Views view = new Views();
+    private GameService service = new GameService();
+    private Cars cars = new Cars();
+    private Validator validator = new Validator();
+    private TypeConverter typeConverter = new TypeConverter();
     private final int FIRST_LOCATION = 0;
 
     public void makeGame(){
