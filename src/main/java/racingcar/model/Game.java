@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import racingcar.model.dto.CarDto;
 
 public class Game {
 
@@ -21,5 +22,11 @@ public class Game {
     public void playOneRound() {
         cars.forEach(Car::moveIfPossible);
         completedRounds++;
+    }
+
+    public List<CarDto> getCars() {
+        return cars.stream()
+                .map(car -> new CarDto(car.getName(), car.getLocation()))
+                .toList();
     }
 }

@@ -45,8 +45,10 @@ public class GameController {
     }
 
     private void playGame() {
+        outputView.displayRoundResultHeader();
         while (game.hasRemainingRounds()) {
             game.playOneRound();
+            outputView.displayRoundResult(game.getCars());
         }
     }
 }
