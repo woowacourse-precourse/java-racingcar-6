@@ -7,6 +7,7 @@ public class CarNameValidator {
     private final String NAMES_STRING;
     public final ArrayList<String> NAMES;
 
+
     public CarNameValidator(String namesString) {
         this.NAMES_STRING = namesString;
         this.NAMES = Util.toArrayList(namesString);
@@ -15,6 +16,7 @@ public class CarNameValidator {
 
     public void validate() {
         isRightNamesString();
+        isNotNumber();
         isNotDuplicate();
         isRightNameSize();
     }
@@ -35,6 +37,12 @@ public class CarNameValidator {
     public void isNotDuplicate() {
         if (NAMES.size() != NAMES.stream().distinct().count()) {
             throw new IllegalArgumentException(Rule.CAR_NAME_DUPLICATE_ERROR);
+        }
+    }
+
+    public void isNotNumber() {
+        if (Rule.namesNouNumPattern.matcher(NAMES_STRING).find()) {
+            throw new IllegalArgumentException(Rule.CAR_NAME_NUMBER_ERROR);
         }
     }
 }
