@@ -1,11 +1,11 @@
 package racingcar.game;
 
 import java.util.List;
+import racingcar.domain.RacerRegistry;
+import racingcar.domain.RacingTurn;
+import racingcar.domain.racer.Racer;
 import racingcar.game.vo.RacingCarNamesInput;
 import racingcar.game.vo.TotalTurnInput;
-import racingcar.race.Racer;
-import racingcar.race.RacerRegistry;
-import racingcar.race.RacingTurn;
 
 public class RacingGameManager {
 

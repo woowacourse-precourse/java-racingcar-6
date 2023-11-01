@@ -13,10 +13,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
+import racingcar.domain.RacerRegistry;
+import racingcar.domain.racer.RacingCar;
 import racingcar.game.RacingTurnProcessor;
 import racingcar.game.vo.RacerPosition;
-import racingcar.race.RacerRegistry;
-import racingcar.race.RacingCar;
 import racingcar.util.Random;
 
 class RacingTurnProcessorTest {

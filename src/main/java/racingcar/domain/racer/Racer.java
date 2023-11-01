@@ -1,4 +1,4 @@
-package racingcar.race;
+package racingcar.domain.racer;
 
 import java.util.Objects;
 import racingcar.validator.RacerValidator;

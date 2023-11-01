@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.common.config.RacingCarRule;
+import racingcar.domain.RacingTurn;
 
 class RacingTurnTest {
 

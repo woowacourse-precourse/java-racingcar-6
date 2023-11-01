@@ -1,7 +1,8 @@
-package racingcar.race;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.racer.Racer;
 import racingcar.validator.RacerValidator;
 
 public class RacerRegistry<T extends Racer> {
