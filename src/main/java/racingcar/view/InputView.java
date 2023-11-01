@@ -9,6 +9,9 @@ public class InputView {
     /** 자동차 이름을 입력받아 문자열 배열로 반환 */
     public static String[] inputCarNames() {
         String carNames = Console.readLine();
+        if(carNames == null || carNames.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름이 입력되지 않았습니다.");
+        }
         return carNames.split(",");
     }
 
