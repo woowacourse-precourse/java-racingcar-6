@@ -15,6 +15,12 @@ public class Cars {
         cars.add(car);
     }
 
+    public void moveCars(RandomNumbers randomNumbers) {
+        for (int i = 0; i < cars.size(); i++) {
+            get(i).move(randomNumbers.get(i));
+        }
+    }
+
     public int size() {
         return cars.size();
     }

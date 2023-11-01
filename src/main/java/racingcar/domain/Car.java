@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.configuration.RandomNumberConfig.START_POSITION;
+import static racingcar.configuration.StartingPositionConfig.START_POSITION;
 import static racingcar.constant.ErrorMessage.CAR_LENGTH_EXCESS_EXCEPTION;
 
 public class Car {
@@ -15,6 +15,14 @@ public class Car {
 
     public static Car of(String name) {
         return new Car(name, START_POSITION);
+    }
+
+    public void move(int index) {
+        if (index < 4) {
+            return;
+        }
+
+        ++position;
     }
 
 }

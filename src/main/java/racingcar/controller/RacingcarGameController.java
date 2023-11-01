@@ -1,10 +1,16 @@
 package racingcar.controller;
 
+import racingcar.domain.Cars;
+import racingcar.domain.GameStatus;
+import racingcar.domain.RandomNumbers;
 import racingcar.service.RacingcarGameService;
 import racingcar.service.RacingcarGameServiceImpl;
+import racingcar.utility.RandomNumberGenerator;
 import racingcar.utility.TypeConverter;
 import racingcar.view.InputHandler;
 import racingcar.view.Printer;
+
+import static racingcar.domain.GameStatus.PLAYING;
 
 public class RacingcarGameController {
 
@@ -22,8 +28,14 @@ public class RacingcarGameController {
 
     private static void playRacingcarGame(String carChoiceInputMessage, int roundToRace) {
         RacingcarGameService racingcarGameService = new RacingcarGameServiceImpl();
-        racingcarGameService.generateCarsToRace(carChoiceInputMessage);
+        Cars cars = racingcarGameService.generateCarsToRace(carChoiceInputMessage);
+
         Printer.printResultHeadMessage();
+
+        while (gameStatus.isGamePlaying()) {
+            RandomNumbers randomNumbers = new RandomNumbers(RandomNumberGenerator.generateRandomNumbers(cars.size()));
+            racingcarGameService.playOneRound(cars, randomNumbers);
+        }
     }
 
 }

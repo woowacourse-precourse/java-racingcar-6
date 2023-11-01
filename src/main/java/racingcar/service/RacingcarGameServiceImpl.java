@@ -3,6 +3,7 @@ package racingcar.service;
 import racingcar.domain.Car;
 import racingcar.domain.CarNames;
 import racingcar.domain.Cars;
+import racingcar.domain.RandomNumbers;
 
 public class RacingcarGameServiceImpl implements RacingcarGameService {
 
@@ -16,6 +17,11 @@ public class RacingcarGameServiceImpl implements RacingcarGameService {
         }
 
         return cars;
+    }
+
+    @Override
+    public void playOneRound(Cars cars, RandomNumbers randomNumbers) {
+        cars.moveCars(randomNumbers);
     }
 
     private CarNames generateCarName(String inputMessage) {
