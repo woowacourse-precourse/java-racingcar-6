@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 public class RacingSystem {
 //    public static ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();
+    EvaluateSystem raceCount = new EvaluateSystem();
     public void nameInput() {
         System.out.printf("자동차 이름은 쉼표(,)를 기준으로 구분하여 작성 부탁 드리며, 이름은 5자 이하로 작성 요망 : ");
         String carNameInput = Console.readLine();
@@ -34,7 +35,7 @@ public class RacingSystem {
             addRecord(carRecordSheet, carList.length);//recording race
             //raceStep++;
             displaySystem(winnerCheckList, carRecordSheet, carList);
-            tempCount += sequence(winnerCheckList, carRecordSheet);
+            raceCount.winnerSearch(winnerCheckList, carList);
         }
         return 0;
     }
@@ -47,7 +48,6 @@ public class RacingSystem {
     }
 
     public void addRecord(ArrayList<ArrayList<Integer>> raceSheet, int carListSize) {
-        EvaluateSystem raceCount = new EvaluateSystem();
         for (int i = 0; i < carListSize; i++) {
             raceSheet.get(i).add(raceCount.racingCondition());
         }
@@ -56,19 +56,6 @@ public class RacingSystem {
         ArrayList<String> tempName = new ArrayList<>(Arrays.asList(ownerList));
         resultSheet.add(tempName);
     }
-
-
-
-
-
-//    public int sequence(ArrayList<ArrayList<String>> resultRecord, ArrayList<ArrayList<Integer>> raceList) {
-//        EvaluateSystem raceResult = new EvaluateSystem();
-//        for (int i = 0; i < ; i++) {
-//            carRecordSheet.add(raceResult.racingCondition());
-//        }
-//
-//        return 0;
-//    }
     public static void displaySystem(ArrayList<ArrayList<String>> resultRecord, ArrayList<ArrayList<Integer>> RecordSheet, String[] carName) {
         for (int j = 0; j < RecordSheet.size(); j++) {
             System.out.printf(carName[j] + "'s car : ");
