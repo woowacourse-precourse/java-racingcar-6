@@ -21,16 +21,16 @@ public class Snapshot {
         ioHelper = Config.getSystemIOHelper();
     }
 
-    public static Snapshot createSnapShot(int tryCount) {
+    public static Snapshot create(int tryCount) {
         return new Snapshot(tryCount);
     }
 
-    public void printSnapshot(int order) {
+    public void print(int order) {
         if (order < 1 || order > snapshots.size()) {
             throw new IllegalArgumentException("존재하지 않는 순서의 스냅샷입니다.");
         }
 
-        Map<String, Integer> snapshot = getSnapshot(order);
+        Map<String, Integer> snapshot = get(order);
         StringBuilder sb = new StringBuilder();
         if (snapshot.keySet().size() == 0) {
             sb.append("no snapshot\n");
@@ -55,7 +55,7 @@ public class Snapshot {
 
     private String findWinner(int order){
         List<String> result = new ArrayList<>();
-        Map<String, Integer> snapshot = getSnapshot(order);
+        Map<String, Integer> snapshot = get(order);
         int max = Collections.max(snapshot.values());
         for (String name : snapshot.keySet()) {
             if (snapshot.get(name) == max) {
@@ -65,11 +65,11 @@ public class Snapshot {
         return String.join(", ", result);
     }
 
-    private Map<String, Integer> getSnapshot(int order) {
+    private Map<String, Integer> get(int order) {
         return new LinkedHashMap<>(this.snapshots.get(order));
     }
 
-    public void setSnapshot(int order, List<Car> cars) {
+    public void set(int order, List<Car> cars) {
         // 차량 순서를 유지하기 위해 LinkedHashMap을 사용한다.
         this.snapshots.add(order, new LinkedHashMap<>());
         Map<String, Integer> snapshot = this.snapshots.get(order);

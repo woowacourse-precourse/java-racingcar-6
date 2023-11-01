@@ -9,7 +9,7 @@ public class Car {
         this.mover = new LinearMover(location);
     }
 
-    public static Car createCar(String name, int location) {
+    public static Car create(String name, int location) {
         return new Car(name, location);
     }
 

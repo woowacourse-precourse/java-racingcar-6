@@ -13,7 +13,7 @@ class CarTest {
     @Test
     @DisplayName("자동차_전진__step값_검증")
     void run_메서드_실행후_step값_검증() {
-        Car car = Car.createCar("cc", 1);
+        Car car = Car.create("cc", 1);
         car.run();
 
         assertRandomNumberInRangeTest(

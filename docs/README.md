@@ -61,15 +61,15 @@ Snapshot.findWinner(int order)
 🪄 경기 중 진행기록을 남기는 스냅샷 기능
 - 스냅샷 세팅
 ```
-Snapshot.setSnapshot(int order)
+Snapshot.set(int order)
     order번째 전진의 스냅샷을 세팅한다.
 
-Snapshot.getSnapshot(int order)
+Snapshot.get(int order)
     order번째 전진의 스냅샷을 가져온다.
 ```
 - 스냅샷 출력
 ```
-Snapshot.printSnapshot(int order)
+Snapshot.print(int order)
     order번째 전진의 스냅샷을 출력한다.
 
 Snapshot.numberToHyphen(int number)
