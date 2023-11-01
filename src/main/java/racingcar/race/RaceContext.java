@@ -12,6 +12,9 @@ import racingcar.race.totalRound.TotalRoundRecord;
 
 public class RaceContext {
 
+  private RaceContext() {
+  }
+
   public static RaceEndedEvent start(RaceStartCommand command) {
     List<CarRaceRecord> carRaceRecords = race(command);
     TotalRoundRecord totalRoundRecord = getTotalRoundRecord(carRaceRecords);
