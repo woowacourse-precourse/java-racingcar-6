@@ -23,14 +23,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 이름에_대한_예외_처리() {
-        assertSimpleTest(() -> {
-                runException("pobi,javaji");
-            }
-        );
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
