@@ -28,11 +28,7 @@ public class RaceController {
         cars = race.setCarNames(cars);
         int gameCount = race.setNumberOfAttempts();
 
-        System.out.println("실행 결과");
-        for(int i=0;i<gameCount;i++){
-            carService.runOneTurn(cars);
-            carService.showResults(cars);
-        }
+        gamePlay(gameCount, cars);
 
         raceService.showResults(cars);
     }
