@@ -1,14 +1,33 @@
 package racingcar.view;
 
-public class InputView {
-    private static final String INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String INPUT_ATTEMPTS_NUMBER = "시도할 회수는 몇회인가요?";
+import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
+import racingcar.utils.Validator;
 
-    public String inputCarNames() {
-        return "";
+public class InputView {
+    private static final String ERROR_INVALID_ATTEMPTS = "시도 횟수는 숫자로 입력해주세요.";
+
+    public List<String> inputCarNames() {
+        String input = Console.readLine();
+        List<String> carNames = splitCarNames(input);
+        Validator.validateCarNames(carNames);
+        return carNames;
+    }
+
+    private List<String> splitCarNames(String input) {
+        return Arrays.asList(input.split(","));
     }
 
     public int inputAttemptsNumber() {
-        return 0;
+        String input = Console.readLine();
+        int attempts;
+        try {
+            attempts = Integer.parseInt(input);
+            Validator.validateAttemptsNumber(attempts);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ERROR_INVALID_ATTEMPTS);
+        }
+        return attempts;
     }
 }
