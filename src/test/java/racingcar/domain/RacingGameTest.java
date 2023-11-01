@@ -29,6 +29,10 @@ class RacingGameTest {
 
     @Test
     void isEndGame() {
+        RacingGame racingGame = new RacingGame(List.of("pobi", "nana", "boo"), 1);
+        assertThat(racingGame.isEndGame()).isFalse();
 
+        racingGame.startRacingGame();
+        assertThat(racingGame.isEndGame()).isTrue();
     }
 }
