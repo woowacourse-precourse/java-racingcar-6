@@ -41,6 +41,8 @@ public class Application {
         for(String carName: race.keySet()){
             int forward = getForwardDistance();
 
+            printCarProgress(carName, forward);
+
             if(forward >= 4) {
                 race.put(carName, race.getOrDefault(carName, 0) + forward);
             }
@@ -50,5 +52,13 @@ public class Application {
 
     public static int getForwardDistance() {
         return Randoms.pickNumberInRange(0,9);
+    }
+
+    public static void printCarProgress(String carName, int forward) {
+        System.out.print(carName + " : ");
+        for(int i=0; i<forward; i++){
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
