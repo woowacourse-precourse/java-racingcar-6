@@ -41,7 +41,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 숫자가_문자일_때에_대한_예외_처리() {
+    void 숫자_입력이_문자일_때에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("son,kane", "ss"))
                         .isInstanceOf(IllegalArgumentException.class)
