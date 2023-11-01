@@ -29,16 +29,11 @@ public class GameController {
     }
 
     private void startRace(int moves) {
+        System.out.println("\n실행 결과");
         for (int i = 0; i < moves; i++) {
             race.moveCars();
             view.printRaceResult(race.getCars());
         }
-    }
-
-    private void announceWinners() {
-        System.out.println("실행 결과");
-        ArrayList<Car> winners = getWinners();
-        view.printWinners(winners);
     }
 
     private ArrayList<Car> getWinners() {
@@ -54,6 +49,11 @@ public class GameController {
             }
         }
         return winners;
+    }
+
+    private void announceWinners() {
+        ArrayList<Car> winners = getWinners();
+        view.printWinners(winners);
     }
 
     public void setView(CarView view) {
