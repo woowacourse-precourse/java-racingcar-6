@@ -1,12 +1,10 @@
 package racingcar;
 
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
-import racingcar.view.WinnerView;
-
-import static racingcar.view.InputView.*;
-import static racingcar.view.OutputView.*;
-import static racingcar.view.WinnerView.*;
+import static racingcar.view.InputView.displayAttemptNumberInputView;
+import static racingcar.view.InputView.displayCarNamesInputView;
+import static racingcar.view.OutputView.displayOutputView;
+import static racingcar.view.OutputView.displayStaticOutView;
+import static racingcar.view.WinnerView.displayWinnerView;
 
 public class Game {
     private final CarManager carManager;
