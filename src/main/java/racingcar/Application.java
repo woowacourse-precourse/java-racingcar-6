@@ -27,6 +27,16 @@ public class Application {
             }
             cars.add(new Car(carName));
         }
+        getTry();
+    }
+
+    public void getTry() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        tryNumber = Integer.parseInt(Console.readLine());
+        if (tryNumber < 1) {
+            throw new IllegalArgumentException("시도할 횟수는 1 이상이어야 합니다.");
+        }
+
     }
 
     class Car {
