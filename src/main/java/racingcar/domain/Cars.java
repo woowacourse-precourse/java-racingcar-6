@@ -3,11 +3,15 @@ package racingcar.domain;
 import racingcar.exception.CarNameException;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import static java.util.stream.Collectors.*;
 import static racingcar.exception.CarNameException.validateCarNameDuplicate;
 
 public class Cars {
     private final static String NEW_LINE = "\n";
+    private final static int DEFAULT_MAX_POS = 0;
+    private static final String WINNER_NAMES_REGEX = ", ";
 
     private final List<Car> cars;
 
@@ -39,5 +43,19 @@ public class Cars {
         return result.toString();
     }
 
+    public String getWinner() {
+        int maxPos = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isSamePosition(maxPos))
+                .map(Car::getName)
+                .collect(Collectors.joining(WINNER_NAMES_REGEX));
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(DEFAULT_MAX_POS);
+    }
 
 }
