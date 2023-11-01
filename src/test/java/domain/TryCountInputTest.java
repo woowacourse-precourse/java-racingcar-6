@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class TryCountInputTest {
 	@ParameterizedTest
 	@ValueSource(ints = {0, -1, -2, -3})
-	public void validatePositive_메서드로_시도_횟수가_0이하이면_예외발생(int tryCount) {
+	void validatePositive_메서드로_시도_횟수가_0이하이면_예외발생(int tryCount) {
 		//given
 		TryCountInput tryCountInput = new TryCountInput("1");
 
@@ -18,7 +18,7 @@ public class TryCountInputTest {
 
 	@ParameterizedTest
 	@ValueSource(strings = {"a", "12345678901", "a1"})
-	public void validateAndParseInteger_메서드로_시도_횟수가_정수형이_아니라면_예외발생(String input) {
+	void validateAndParseInteger_메서드로_시도_횟수가_정수형이_아니라면_예외발생(String input) {
 		//given
 		TryCountInput tryCountInput = new TryCountInput("1");
 
