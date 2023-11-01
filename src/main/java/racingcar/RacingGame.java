@@ -8,20 +8,22 @@ public class RacingGame {
 
         String runningNumber = InputView.requestRunningCount();
 
-        Integer runningCount = Integer.parseInt(runningNumber);
-
-        progressRound(cars, runningCount);
+        progressRound(cars, runningNumber);
 
         announceFinalResult(cars);
     }
 
-    private void progressRound(Cars cars, Integer runningCount) {
+    private void progressRound(Cars cars, String runningNumber) {
+
+        Integer runningCount = Integer.parseInt(runningNumber);
+
         OutputView.noticeRunningResult();
 
         cars.printCarsGameResult(runningCount);
     }
 
     private void announceFinalResult(Cars cars) {
+
         OutputView.noticeFinalWinner();
         OutputView.printWinnerNames(cars.findWinnerCars());
     }
