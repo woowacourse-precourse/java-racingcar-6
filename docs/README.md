@@ -8,7 +8,7 @@
 - [x] 자동차들의 정보를 저장하고, 관리 - `CarManager`
   - [x] 자동차들에게 전진 명령 - `CarManager#orderCarsMoveForward`
 - [ ] 자동차 개별 객체 - `Car`
-  - [ ] 자동차를 전진 - `Car#moveForward`
-      - [ ] 0에서 9 사이의 무작위 값이 4 이상인 경우 전진
+  - [x] 자동차를 전진 - `Car#moveForward`
+      - [x] 0에서 9 사이의 무작위 값이 4 이상인 경우 전진
   - [ ] 자동차 이름과 이동 횟수 반환 - `Car#getCurrentCondition`
 - [ ] 우승자를 판단하는 기능 - `Referee#determineWinners`

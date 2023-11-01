@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.common.RandomUtil;
+
 public class Car {
 
     private final String name;
@@ -18,7 +20,9 @@ public class Car {
     }
 
     public void moveForward() {
-
+        if (RandomUtil.isMoveForward()) {
+            moveForwardCount++;
+        }
     }
 
     public String getCurrentCondition() {
