@@ -12,7 +12,6 @@ import display.ConsoleDisplay;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import static utility.Const.DISTANCE_BAR;
 import static utility.Const.EXECUTION_COMMENT;

@@ -13,7 +13,10 @@ import java.util.Arrays;
 
 import display.ConsoleDisplay;
 
-import static utility.Const.*;
+import static utility.Const.RACING_PLAYER_NAME_START_COMMENT;
+import static utility.Const.DIIVIDE_RACING_PLAYER_NAME;
+import static utility.Const.TRYING_NUMBER_START_COMMENT;
+import static utility.Const.CHANGING_LINE;
 
 public class McPlayer implements Player{
     // 입출력을 위한 display 객체
@@ -59,7 +62,23 @@ public class McPlayer implements Player{
         String RacingPlayers = display.input();
         String[] RacingPlayersList = RacingPlayers.split(DIIVIDE_RACING_PLAYER_NAME);
         racingPlayerNameArr = new ArrayList<String>(Arrays.asList(RacingPlayersList));
+        checkNameCondition();
     }
+
+    /**
+     * Description :  레이싱플레이어(자동차) 이름 - "이름은 5자 이하만 가능" 조건 처리
+     *
+     * @Method : ()
+     */
+    public void checkNameCondition() throws IllegalArgumentException{
+        int NameLength = 5;
+        for (String racingPlayerName : racingPlayerNameArr ){
+            if(racingPlayerName.length() > NameLength){
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
 
     /**
      * Description :  레이싱플레이어(자동차) 객체를 생성
