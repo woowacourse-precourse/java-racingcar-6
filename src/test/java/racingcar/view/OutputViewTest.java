@@ -28,6 +28,13 @@ class OutputViewTest extends NsTest {
     @Test
     @DisplayName("단독 우승 출력 테스트")
     void printWinners_1() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : -", "pobi : --", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP
+        );
     }
 
     @Test
