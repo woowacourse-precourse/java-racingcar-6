@@ -9,7 +9,9 @@ public class Computer {
     public static final String PROMPT_FOR_CAR_NAMES = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분)";
     public static final String ATTEMPT_COUNT_PROMPT = "시도할 회수는 몇회인가요?";
 
+    public static final String SHOW_WINNERS = "최종 우승자 : ";
     Validator validator = new Validator();
+    FindWinners findWinners = new FindWinners();
 
     public String getInputCarNames() {
         System.out.println(PROMPT_FOR_CAR_NAMES);
@@ -34,4 +36,15 @@ public class Computer {
         }
         return carsList;
     }
+
+    public static void printWinners(List<Car> winners) {
+        System.out.print(SHOW_WINNERS);
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i).getName());
+            if (i != winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+    }
+
 }
