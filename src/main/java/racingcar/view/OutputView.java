@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class OutputView {
-    public void printStartResult(){
+    public void printStartResult() {
         System.out.println();
         System.out.println("실행 결과");
     }

@@ -10,6 +10,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.exception.ErrorMessage.CAR_NAME_NOT_EMPTY;
+import static racingcar.exception.ErrorMessage.NUMBER_OF_TIMES_NOT_NUMBER;
+
 public class RacingCarController {
     private static final int FORWARD_RULE = 4;
     private static final char COMMA = ',';
@@ -90,27 +93,27 @@ public class RacingCarController {
 
     private void validateEmptyName(List<String> carNames) {
         if (carNames.contains(EMPTY_NAME)) {
-            throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
+            throw new IllegalArgumentException(CAR_NAME_NOT_EMPTY);
         }
     }
 
     private void validateEmpty(String input) {
-        if(input.equals("")){
-            throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
+        if (input.equals("")) {
+            throw new IllegalArgumentException(CAR_NAME_NOT_EMPTY);
         }
     }
 
     private void validateFirstCharComma(String input) {
         int firstIndex = 0;
         if (input.charAt(firstIndex) == COMMA) {
-            throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
+            throw new IllegalArgumentException(CAR_NAME_NOT_EMPTY);
         }
     }
 
     private void validateLastCharComma(String input) {
         int lastIndex = input.length() - 1;
         if (input.charAt(lastIndex) == COMMA) {
-            throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
+            throw new IllegalArgumentException(CAR_NAME_NOT_EMPTY);
         }
     }
 
@@ -119,7 +122,7 @@ public class RacingCarController {
                 .allMatch(Character::isDigit);
 
         if (!isCharAllNumbers) {
-            throw new IllegalArgumentException("시도 횟수 입력이 숫자가 아닙니다.");
+            throw new IllegalArgumentException(NUMBER_OF_TIMES_NOT_NUMBER);
         }
     }
 }

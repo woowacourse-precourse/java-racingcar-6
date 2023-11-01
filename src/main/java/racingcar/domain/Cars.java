@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static racingcar.exception.ErrorMessage.CAR_NAME_DUPLICATE;
+
 public class Cars {
     private final List<Car> cars;
 
@@ -24,8 +26,8 @@ public class Cars {
         int sizeOfSet = setOfNames.size();
         int sizeOfList = listOfNames.size();
 
-        if(sizeOfList != sizeOfSet){
-            throw new IllegalArgumentException("자동차 이름들은 중복될 수 없습니다.");
+        if (sizeOfList != sizeOfSet) {
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE);
         }
     }
 }

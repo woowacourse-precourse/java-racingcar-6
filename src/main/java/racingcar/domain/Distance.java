@@ -11,7 +11,7 @@ public class Distance {
         return distance;
     }
 
-    public void forward(){
+    public void forward() {
         distance++;
     }
 }
