@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -78,6 +79,105 @@ class RaceTest {
                     },
                     STOP,
                     STOP
+            );
+        }
+    }
+
+    @Nested
+    class 가장_멀리온_차의_거리_리턴 {
+        static Car car1;
+        static Car car2;
+        static Car car3;
+
+        static Race race;
+
+        static int expectedRound = 3;
+        @Test
+        public void 모두_같은_경우() throws Exception {
+            car1 = new Car("alpha");
+            car2 = new Car("bravo");
+            car3 = new Car("char");
+
+            List<Car> expectedCars = Arrays.asList(car1, car2, car3);
+            race = new Race(3, List.of(car1, car2, car3));
+
+            camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                    () -> {
+                        for (int i = 0; i < expectedRound; i++) {
+                            race.proceedRound();
+                        }
+                        Assertions.assertThat(race.getMaxDistance()).isEqualTo(0);
+                    },
+                    STOP,
+                    STOP
+            );
+        }
+
+        @Test
+        public void 한개만_같은경우() throws Exception {
+            car1 = new Car("alpha");
+            car2 = new Car("bravo");
+            car3 = new Car("char");
+
+            List<Car> expectedCars = Arrays.asList(car1, car2, car3);
+            race = new Race(3, List.of(car1, car2, car3));
+
+            camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                    () -> {
+                        for (int i = 0; i < expectedRound; i++) {
+                            race.proceedRound();
+                        }
+                        Assertions.assertThat(race.getMaxDistance()).isEqualTo(3);
+                    },
+                    STOP,
+                    MOVING_FORWARD
+            );
+        }
+
+        @Test
+        public void 두개가_같은_경우() throws Exception {
+            car1 = new Car("alpha");
+            car2 = new Car("bravo");
+            car3 = new Car("char");
+
+            List<Car> expectedCars = Arrays.asList(car1, car2, car3);
+            race = new Race(3, List.of(car1, car2, car3));
+
+            camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                    () -> {
+                        Randoms.pickNumberInRange(0, 9);
+                        for (int i = 0; i < expectedRound; i++) {
+                            race.proceedRound();
+                        }
+                        Assertions.assertThat(race.getMaxDistance()).isEqualTo(3);
+                    },
+                    STOP,
+                    MOVING_FORWARD
+            );
+        }
+
+        @Test
+        public void 모두_다른_경우() throws Exception {
+            car1 = new Car("alpha");
+            car2 = new Car("bravo");
+            car3 = new Car("char");
+
+            List<Car> expectedCars = Arrays.asList(car1, car2, car3);
+            race = new Race(3, List.of(car1, car2, car3));
+
+            camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                    () -> {
+                        for (Car car : race.getCars()) {
+                            System.out.println(car.getDistance());
+                        }
+                        Randoms.pickNumberInRange(0, 9);
+                        for (int i = 0; i < expectedRound; i++) {
+                            race.proceedRound();
+                        }
+                        Assertions.assertThat(race.getMaxDistance()).isEqualTo(3);
+                    },
+                    STOP,
+                    MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, STOP, MOVING_FORWARD, STOP, STOP
             );
         }
     }
