@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -77,5 +78,16 @@ class CarNameValidatorTest {
         assertThatThrownBy(() -> carNameValidator.checkBlankCarName(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 공백이거나 빈 값일 수 없습니다.");
+    }
+
+    @Test
+    void 모든_자동차_이름이_빈_값인_경우() {
+        //arrange
+        List<String> carNames = new ArrayList<>();
+
+        //act, assert
+        assertThatThrownBy(() -> carNameValidator.checkAllBlankName(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("모든 자동차 이름은 공백이거나 빈 값일 수 없습니다.");
     }
 }
