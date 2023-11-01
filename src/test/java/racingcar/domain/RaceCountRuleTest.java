@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import org.junit.jupiter.api.DisplayName;
@@ -9,23 +10,14 @@ import racingcar.validator.InputMoveCountValidator;
 
 class RaceCountRuleTest {
 
-    @DisplayName("이동 횟수가 1미만, 10초과라면 예외가 발생합니다.")
+    @DisplayName("이동 횟수가 1미만, 10초과라면 참을 반환합니다.")
     @ParameterizedTest
-    @ValueSource(strings = {"0", "11"})
-    void validateCount_exception_withInvalidRange(String invalidInputCount) {
-        // given & when & then
-        assertThatIllegalArgumentException()
-                .isThrownBy(() -> InputMoveCountValidator.validateCount(invalidInputCount))
-                .withMessageContaining("이동 횟수는 1 이상 10 이하의 숫자를 입력해야 합니다.");
-    }
+    @ValueSource(ints = {0, 11})
+    void validateCount_exception_withInvalidRange(int invalidInputCount) {
+        // given & when
+        boolean isNotInRange = RaceCountRule.isNotInRange(invalidInputCount);
 
-    @DisplayName("이동 횟수가 숫자가 아닌 입력이라면 예외가 발생합니다.")
-    @ParameterizedTest
-    @ValueSource(strings = {"0_", "f3"})
-    void validateCount_exception_withNumberFormat(String invalidInputCount) {
-        // given & when & then
-        assertThatIllegalArgumentException()
-                .isThrownBy(() -> InputMoveCountValidator.validateCount(invalidInputCount))
-                .withMessageContaining("이동 횟수는 숫자만 입력해야 합니다.");
+        // then
+        assertThat(isNotInRange).isTrue();
     }
 }
