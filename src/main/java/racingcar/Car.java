@@ -8,7 +8,7 @@ public class Car implements Comparable<Car> {
         name = name.trim();
         validateName(name);
         this.name = name;
-        position = 0;
+        position = GameConfig.INIT_NUMBER.getValue();
     }
 
     public void move(int randomNumber) {

@@ -10,13 +10,13 @@ public class PromptHandler {
     }
 
     public static void promptOutputWinner(List<String> winner) {
-        System.out.println(GameMessage.FINAL_WINNER.getMessage() + String.join(", ", winner));
+        System.out.println(GameMessage.FINAL_WINNER.getMessage() + String.join(GameMessage.DELIMITER.getMessage(), winner));
     }
 
     public static String[] promptInputCarsName() {
         String input = Console.readLine();
 
-        return input.split(",");
+        return input.split(GameMessage.DELIMITER.getMessage());
     }
 
     public static int promptInputRoundCount() {

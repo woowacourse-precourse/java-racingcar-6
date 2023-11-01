@@ -13,7 +13,7 @@ public class GameController {
     }
 
     private void play() {
-        int roundCount = 0;
+        int roundCount = GameConfig.INIT_NUMBER.getValue();
         PromptHandler.promptOutput(GameMessage.EXECUTION_RESULT.getMessage());
         while (game.isProcess(++roundCount)) {
             game.play();
