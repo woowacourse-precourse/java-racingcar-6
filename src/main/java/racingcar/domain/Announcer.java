@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class Announcer {
-    public void displayWinner(List<Car> winner) {
+    public StringBuffer displayWinner(List<Car> winner) {
         StringBuffer finalWinner = new StringBuffer("최종 우승자 : ");
         for (int i = 0; i < winner.size(); i++) {
             finalWinner.append(winner.get(i).getName());
@@ -11,6 +11,6 @@ public class Announcer {
                 finalWinner.append(", ");
             }
         }
-        System.out.print(finalWinner);
+        return finalWinner;
     }
 }
