@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.model.Race;
 
 public class RaceView {
 
@@ -37,5 +38,13 @@ public class RaceView {
         } catch (Exception e) {
             throw new IllegalArgumentException(e.getMessage());
         }
+    }
+
+    /**
+     * 주어진 경주의 현재 라운드 상황을 출력합니다.
+     * @param race 경주
+     */
+    public static void printCurrentState(Race race) {
+        System.out.println(race);
     }
 }
