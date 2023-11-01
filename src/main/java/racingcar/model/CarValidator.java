@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Validator {
+public class CarValidator {
 
     private static final int MAX_NAME_SIZE = 5;
 

@@ -34,10 +34,10 @@ public class Car {
     }
 
     public void exceptCarNameValidate(String carName) {
-        if (Validator.validateMaxNameLength(carName)) {
+        if (CarValidator.validateMaxNameLength(carName)) {
             throw new IllegalArgumentException("입력값이 최대 길이를 초과 했습니다.");
         }
-        if (Validator.validateNameIsNull(carName)) {
+        if (CarValidator.validateNameIsNull(carName)) {
             throw new IllegalArgumentException("자동차 이름을 입력하지 않았습니다.");
         }
     }

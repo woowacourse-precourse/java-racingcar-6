@@ -19,19 +19,19 @@ public class InputView {
     }
 
     public void exceptInputCarNames(String inputData) {
-        if (Validator.validateInputExist(inputData)) {
+        if (InputValidator.validateInputExist(inputData)) {
             throw new IllegalArgumentException("입력값이 없습니다.");
         }
     }
 
     public void exceptInputRaceTimes(String inputData) {
-        if (Validator.validateInputExist(inputData)) {
+        if (InputValidator.validateInputExist(inputData)) {
             throw new IllegalArgumentException("입력값이 없습니다.");
         }
-        if (Validator.validateInputNotNum(inputData)) {
+        if (InputValidator.validateInputNotNum(inputData)) {
             throw new IllegalArgumentException("입력값은 정수여야 합니다.");
         }
-        if (Validator.validateInputIsZero(inputData)) {
+        if (InputValidator.validateInputIsZero(inputData)) {
             throw new IllegalArgumentException("입력값은 0이 아니어야 합니다.");
         }
     }
