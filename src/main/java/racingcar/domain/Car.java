@@ -17,7 +17,7 @@ public class Car {
         }
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
@@ -25,7 +25,7 @@ public class Car {
         step += 1;
     }
 
-    public int getStep() {
+    int getStep() {
         return step;
     }
 }

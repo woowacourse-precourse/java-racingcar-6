@@ -1,14 +1,12 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.constants.SystemMessage;
-import racingcar.validation.CheckingInput;
+import java.util.stream.Collectors;
 
 public class Racing {
-    int attemptCount;
-    List<Car> cars;
+    private int attemptCount;
+    private final List<Car> cars;
 
     public Racing() {
         this.attemptCount = 0;
@@ -25,64 +23,43 @@ public class Racing {
         attemptCount = Integer.parseInt(count);
     }
 
+    int getAttemptCount() {
+        return attemptCount;
+    }
+
+    List<Car> getCars() {
+        return cars;
+    }
+
     void runCarsOnce() {
         for (Car car : cars) {
             car.run();
         }
     }
 
-    void printStepResults() {
-        for (int i = 0; i < attemptCount; i++) {
-            runCarsOnce();
-            printCarsResult();
-            System.out.print("\n");
-        }
+    private int getMaxSteps() {
+        return cars.stream()
+                .map(Car::getStep)
+                .mapToInt(x -> x)
+                .max()
+                .orElse(0);
     }
 
-    void printCarsResult() {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getStep()));
-        }
+    private List<String> getWinnerList(int max) {
+        return cars.stream()
+                .filter(car -> car.getStep() == max)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
-    String getWinner() {
-        List<String> stepList = new ArrayList<>();
+    String getWinners() {
 
-        int max = 0;
-        for (Car car : cars) {
-            int carStep = car.getStep();
-            if (carStep > max) {
-                max = carStep;
-            }
-        }
+        int max = getMaxSteps();
+        List<String> winnerList = getWinnerList(max);
 
-        for (Car car : cars) {
-            int carStep = car.getStep();
-            if (carStep == max) {
-                stepList.add(car.getName());
-            }
-        }
-
-        return String.join(", ", stepList);
+        return String.join(", ", winnerList);
 
     }
 
-    public void execute() {
-        System.out.println(SystemMessage.PLEASE_INPUT_CAR_NAME);
 
-        String[] carNames = (Console.readLine()).split(",");
-        CheckingInput.validateInputNames(carNames);
-        setCars(carNames);
-
-        System.out.println(SystemMessage.PLEASE_INPUT_ATTEMPT_NUMBER);
-
-        String count = Console.readLine();
-        CheckingInput.validateInputCount((count));
-        setAttemptCount(count);
-
-        System.out.println("\n" + SystemMessage.RACING_RESULT);
-        printStepResults();
-
-        System.out.println(SystemMessage.RACING_WINNER + " : " + getWinner());
-    }
 }

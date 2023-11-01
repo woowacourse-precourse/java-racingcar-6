@@ -39,8 +39,6 @@ public class CheckingInput {
     }
 
     public static void validateInputNames(String[] carNames) {
-        int carNamesLength = carNames.length;
-
         for (String carName : carNames) {
             validateCarName(carName);
         }
