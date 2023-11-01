@@ -15,7 +15,7 @@ public class RacingGameController {
      * <p>자동차 경주 게임을 실행하는 메소드입니다.</p>
      * <p>사용자로부터 자동차 이름과 시도 횟수를 입력 받아 {@link Race} 객체를 생성하고 경주를 시작합니다.</p>
      */
-    public void execute() {
+    public void run() {
         Race race = new Race(inputCarNames(), inputAttemptCount());
         race.startRace();
     }
