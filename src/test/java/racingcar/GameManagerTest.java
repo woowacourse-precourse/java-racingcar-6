@@ -1,40 +1,27 @@
 package racingcar;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
-
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GameManagerTest {
-    private PrintStream standardOut;
-    private OutputStream captor;
-
-    @BeforeEach
-    protected final void init() {
-        standardOut = System.out;
-        captor = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(captor));
-    }
-
-    @AfterEach
-    protected final void printOutput() {
-        System.setOut(standardOut);
-        System.out.println(output());
-    }
-
-    protected final String output() {
-        return captor.toString().trim();
-    }
+public class GameManagerTest extends NsTest {
+    private static final int MOVING_FORWARD = 4;
 
     @Test
-    void 게임시작_시_자동차이름_입력_멘트_출력() {
-        GameManager gameManager = new GameManager();
-        gameManager.start();
-        assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    void 우승자가_2명_이상일_경우_콤마로_구분하여_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Override
+    protected void runMain() {
+        Application.main(new String[]{});
     }
 }
