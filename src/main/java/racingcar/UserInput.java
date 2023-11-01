@@ -47,7 +47,7 @@ public class UserInput {
 
     private void checkSameName(String[] strings, int idx, String name){
         for(int i = idx; i < strings.length; i++){
-            if(strings[i] == name){
+            if(strings[i].equals(name)){
                 throw new IllegalArgumentException("이름은 중복될 수 없습니다");
             }
         }
@@ -67,7 +67,7 @@ public class UserInput {
             number = Integer.parseInt(input);
         }
         catch (NumberFormatException ex){
-            ex.printStackTrace();
+            throw new NumberFormatException("양의 정수를 입력해주세요");
         }
         return number;
     }
