@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.service.CarService;
 
 public class StringTest {
 
@@ -46,6 +47,14 @@ public class StringTest {
         assertThatThrownBy(() -> input.charAt(5))
                 .isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
+    }
+
+    @Test
+    void carName_이름이_5자가_넘어갈_경우_예외_발생(){
+        CarService service = new CarService();
+        String names = "abcdef,asd";
+        assertThatThrownBy(() -> service.namesToCarList(names))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
