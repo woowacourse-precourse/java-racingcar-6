@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class CarNameVerifier {
-    private final Pattern validPattern = Pattern.compile("^[a-zA-Z0-9]+$"); // 영문자와 숫자만 허용
     private final List<String> carNames;
 
     public CarNameVerifier(String input){
