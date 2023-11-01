@@ -5,10 +5,13 @@ import static racingcar.utill.Validator.validateAttemptNumber;
 import static racingcar.utill.Validator.validateCarsName;
 import static racingcar.utill.Validator.validateNullInput;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Validator 테스트")
 class ValidatorTest {
 
+    @DisplayName("null 입력 검증 테스트")
     @Test
     void validateNullInputTest() {
         //given
@@ -18,6 +21,7 @@ class ValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> validateNullInput(nullString));
     }
 
+    @DisplayName("자동차 이름 입렵 검증 테스트")
     @Test
     void ValidateCarsNameTest() {
         //given
@@ -31,6 +35,7 @@ class ValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> validateCarsName(sixLength));
     }
 
+    @DisplayName("시도 횟수 입력 검증 테스트")
     @Test
     void validateAttemptNumberTest() {
         //given
