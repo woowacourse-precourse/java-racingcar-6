@@ -36,7 +36,7 @@ public class Racing {
 
     public List<String> getWinningCarNames() {
         if (!isFinished()) {
-            throw new IllegalStateException();
+            throw new IllegalRacingStatusException();
         }
         Integer maxCount = getMaxMoveCount();
         return cars.stream().filter(car -> maxCount.equals(car.getMoveCount())).map(Car::getName)
