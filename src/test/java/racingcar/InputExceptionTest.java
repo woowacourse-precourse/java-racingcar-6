@@ -14,7 +14,7 @@ public class InputExceptionTest {
         ex = new InputException();
     }
     @Test
-    void charAt_이름_5글자_이상_일_때_예외_발생(){
+    void 자동차_이름_5글자_이상_일_때_예외_발생(){
         List<String> input = Arrays.asList("aaaaaa","bbbbb");
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -23,7 +23,7 @@ public class InputExceptionTest {
     }
 
     @Test
-    void charAt_이름_중복이_있을_때_예외_발생(){
+    void 자동차_이름_중복이_있을_때_예외_발생(){
         List<String> input = Arrays.asList("aaa","bbb","aaa");
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -31,4 +31,12 @@ public class InputExceptionTest {
         });
     }
 
+    @Test
+    void 시도할_회수_정수형_아닐_때_예외_발생(){
+        String input = "a";
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            ex.changeStringToInt(input);
+        });
+    }
 }
