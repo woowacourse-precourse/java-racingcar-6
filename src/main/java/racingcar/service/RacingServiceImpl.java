@@ -2,19 +2,25 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
-import racingcar.repository.MemoryCarRepository;
 
-public class RacingServiceImpl implements RacingService{
-    CarRepository carRepository = new MemoryCarRepository();
+public class RacingServiceImpl implements RacingService {
+    private final CarRepository carRepository;
+
+    public RacingServiceImpl(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
+
     List<String> record = new ArrayList<>();
+
     @Override
     public void race(List<String> carList, String count) {
         int tryCount = Integer.parseInt(count);
         registerCars(carList);
 
-        for (int i = 0; i < tryCount ; i++) {
+        for (int i = 0; i < tryCount; i++) {
             driveAllCars(carRepository.getCarList());
             writeRecord(carRepository.getCarList());
         }

@@ -4,11 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
 
-import racingcar.repository.CarRepository;
 import racingcar.service.JudgingService;
-import racingcar.service.JudgingServiceImpl;
 import racingcar.service.RacingService;
-import racingcar.service.RacingServiceImpl;
 import racingcar.util.NameParser;
 import racingcar.validation.NameInputValidator;
 import racingcar.validation.TryCountInputValidator;
@@ -21,6 +18,14 @@ public class RacingManager {
 
     private static List<String> carList;
     private static String tryCount;
+
+    private final RacingService racingService;
+    private final JudgingService judgingService;
+
+    public RacingManager(RacingService racingService, JudgingService judgingService) {
+        this.racingService = racingService;
+        this.judgingService = judgingService;
+    }
 
     public void run() {
         inputCarName();
@@ -49,8 +54,7 @@ public class RacingManager {
     private void playRacing() {
         System.out.println(GAME_RESULT_MESSAGE);
 
-        RacingService racingService = new RacingServiceImpl();
-        racingService.race(carList,tryCount);
+        racingService.race(carList, tryCount);
 
         List<String> racingRecord = racingService.getRecord();
 
@@ -60,9 +64,8 @@ public class RacingManager {
     }
 
     private void announceWinner() {
-        JudgingService judgingService = new JudgingServiceImpl();
         String winner = judgingService.determineWinner();
 
-        System.out.println(FINAL_WINNER_MESSAGE+winner);
+        System.out.println(FINAL_WINNER_MESSAGE + winner);
     }
 }

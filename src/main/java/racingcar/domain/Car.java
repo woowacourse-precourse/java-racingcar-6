@@ -6,7 +6,7 @@ public class Car {
     private static final int THRESHOLD_NUMBER = 4;
 
     private String name;
-    private int position = 0;
+    private static int position = 0;
 
     private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 

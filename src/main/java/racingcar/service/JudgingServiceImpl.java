@@ -2,12 +2,17 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
-import racingcar.repository.MemoryCarRepository;
 
 public class JudgingServiceImpl implements JudgingService {
-    CarRepository carRepository = new MemoryCarRepository();
+    private final CarRepository carRepository;
+
+    public JudgingServiceImpl(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
+
     @Override
     public String determineWinner() {
         List<String> winners = new ArrayList<>();
