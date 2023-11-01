@@ -27,12 +27,6 @@ public class OutputView {
     public void responseRaceWinner(List<String> winnerList) {
         StringBuilder champion = new StringBuilder();
         champion.append(GAME_WINNER.getMessage());
-        for (int count = 0; count < winnerList.size(); count++) {
-            if (count > 0) {
-                champion.append(", ");
-            }
-            champion.append(winnerList.get(count));
-        }
-        System.out.println(champion);
+        System.out.println(GAME_WINNER.getMessage() + String.join(", ", winnerList));
     }
 }
