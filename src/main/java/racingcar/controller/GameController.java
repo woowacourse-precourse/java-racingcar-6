@@ -71,7 +71,7 @@ public class GameController {
                     if(randomDistance >= 4) {
                 car.updateCarLocation(randomDistance);
             }
-            OutputView.outputCarMoveDistance(car.getCarName(), randomDistance);
+            OutputView.informCarMoveDistance(car.getCarName(), randomDistance);
         });
         System.out.println();
     }

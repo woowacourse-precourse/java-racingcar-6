@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputView {
-    public static void outputCarMoveDistance(String carName, int stepDistance) {
+    public static void informCarMoveDistance(String carName, int stepDistance) {
         System.out.print(carName + " : ");
         for (int i = 0; i < stepDistance; i++) {
             System.out.print("-");
