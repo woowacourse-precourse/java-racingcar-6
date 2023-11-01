@@ -14,4 +14,16 @@ class CarTest {
         assertEquals("Test", car.getName());
         assertEquals(0, car.getDistance());
     }
+
+    @Test
+    @DisplayName("차가 잘 이동하는지 확인하는 테스트코드")
+    public void testMoveCar() {
+        Car car = new Car("Test");
+        car.move(4);
+        assertEquals(1, car.getDistance());
+        car.move(2);
+        assertEquals(1, car.getDistance());
+        car.move(5);
+        assertEquals(2, car.getDistance());
+    }
 }
