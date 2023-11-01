@@ -18,4 +18,14 @@ public class RacingCarGameTest {
         assertThat(racingCars).hasSize(1);
         assertThat(racingCars.get(0).getName()).isEqualTo("dadi");
     }
+    @Test
+    void setPlayers_사용자_여러명_설정할_수_있다() {
+        RacingCarGame game = new RacingCarGame();
+        game.setPlayers("dadi,dodi");
+        ArrayList<RacingCar> racingCars = game.getRacingCars();
+
+        assertThat(racingCars).hasSize(2);
+        assertThat(racingCars.get(0).getName()).isEqualTo("dadi");
+        assertThat(racingCars.get(1).getName()).isEqualTo("dodi");
+    }
 }
