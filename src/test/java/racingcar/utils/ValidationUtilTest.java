@@ -23,7 +23,7 @@ class ValidationUtilTest extends NsTest {
     @DisplayName("자동차_입력값이_빈문자열인_경우")
     void testRacingCarIsEmpty() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(" ", "5"))
+                assertThatThrownBy(() -> runException("\n", "5"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -32,7 +32,7 @@ class ValidationUtilTest extends NsTest {
     @DisplayName("횟수_입력값이_빈문자열인_경우")
     void testAttemptIsEmpty() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,java", " "))
+                assertThatThrownBy(() -> runException("pobi,java", "\n"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
