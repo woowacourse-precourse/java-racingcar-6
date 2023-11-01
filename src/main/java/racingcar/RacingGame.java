@@ -32,7 +32,7 @@ public class RacingGame {
         System.out.println("실행 결과");
         for (int i = 0; i < trialTimes; i++) {
             moveForward();
-            printCurrentPosition(carNameList, moveCountList);
+            printCurrentPosition();
         }
 
         String winner = findWinner(carNameList, moveCountList);
@@ -114,9 +114,9 @@ public class RacingGame {
         moveCountList.set(i, currentValue + 1);
     }
 
-    private void printCurrentPosition(List<String> carNameList, List<Integer> moveCountList) {
-        for (int i = 0; i < carNameList.size(); i++) {
-            System.out.println(carNameList.get(i) + " : " + "-".repeat(moveCountList.get(i)));
+    private void printCurrentPosition() {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
         System.out.println();
     }
