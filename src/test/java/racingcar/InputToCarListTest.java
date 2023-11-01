@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.InputToCarList;
-import racingcar.view.OutputView;
 
 /* 테스트 케이스
    1. " ,1" : 성공 (공백은 안됩니다.)
@@ -27,7 +26,7 @@ class InputToCarListTest {
         InputToCarList instance = InputToCarList.getInstance();
 
         //when
-        List<Car> cars = instance.askCarName(input);
+        List<Car> cars = instance.askCarNameToCarList(input);
 
         StringBuilder sb = new StringBuilder();
         //then
@@ -48,7 +47,7 @@ class InputToCarListTest {
         String input = "김민수,손흥민";
 
         //when
-        List<Car> cars = instance.askCarName(input);
+        List<Car> cars = instance.askCarNameToCarList(input);
 
         //then
         Assertions.assertThat(cars).isInstanceOf(List.class);
@@ -62,7 +61,7 @@ class InputToCarListTest {
         InputToCarList instance = InputToCarList.getInstance();
 
         //then
-        Assertions.assertThatThrownBy(() -> instance.askCarName(input))
+        Assertions.assertThatThrownBy(() -> instance.askCarNameToCarList(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -74,7 +73,7 @@ class InputToCarListTest {
         String input = ",,,";
 
         //then
-        Assertions.assertThatThrownBy(() -> instance.askCarName(input)).isInstanceOf(
+        Assertions.assertThatThrownBy(() -> instance.askCarNameToCarList(input)).isInstanceOf(
                 IllegalArgumentException.class);
 
     }
