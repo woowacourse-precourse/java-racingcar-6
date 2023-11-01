@@ -16,6 +16,10 @@ public class InputView {
 
     public List<String> inputCarNames() {
         String carNames = Console.readLine();
+        return getValidatedCarNames(carNames);
+    }
+
+    private List<String> getValidatedCarNames(String carNames) {
         CarNameValidator.validateMultipleCarName(carNames);
 
         List<String> convertedCarNames = convertToList(carNames);
