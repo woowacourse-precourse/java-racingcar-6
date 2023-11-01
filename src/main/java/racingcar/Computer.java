@@ -65,27 +65,34 @@ public class Computer {
     }
 
     public List<String> startRace() {
-        if (isZero(this.round)) {
-            throw new IllegalArgumentException();
+        if (hasRaceResult()) {
+            resetRace();
         }
-        while (hasNextRound()) {
+        int round = this.round;
+
+        while (hasNextRound(round)) {
             this.roundResults.add(playRound());
-            endRound();
+            round--;
         }
         return this.roundResults;
     }
 
-    private boolean hasNextRound() {
-        return this.round > ZERO;
+    private boolean hasRaceResult() {
+        return !this.roundResults.isEmpty();
+    }
+
+    private void resetRace() {
+        this.racingCars.forEach(RacingCar::reset);
+        this.roundResults.clear();
+    }
+
+    private boolean hasNextRound(int round) {
+        return round > ZERO;
     }
 
     private String playRound() {
         this.racingCars.stream().filter(RacingCar::isMovable).forEach(RacingCar::move);
         return roundResult();
-    }
-
-    private void endRound() {
-        this.round--;
     }
 
     private String roundResult() {
@@ -95,19 +102,19 @@ public class Computer {
     }
 
     public List<String> findWinner() {
-        if (isNotZero(this.round) || this.roundResults.isEmpty()) {
+        if (this.roundResults.isEmpty()) {
             throw new IllegalArgumentException();
         }
         final int maxPosition = maxPosition();
+        return findRacingCarsWithPosition(maxPosition);
+    }
+
+    private List<String> findRacingCarsWithPosition(int maxPosition) {
         return this.racingCars.stream()
                 .filter(car ->
                         car.getPosition() == maxPosition)
                 .map(RacingCar::getName)
                 .toList();
-    }
-
-    private boolean isNotZero(int round) {
-        return round != ZERO;
     }
 
     private int maxPosition() {

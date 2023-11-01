@@ -33,6 +33,10 @@ public class RacingCar {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= MOVEMENT_THRESHOLD;
     }
 
+    public void reset() {
+        this.position = ZERO;
+    }
+
     @Override
     public String toString() {
         return name + " : " + MOVEMENT_SYMBOL.repeat(position);
