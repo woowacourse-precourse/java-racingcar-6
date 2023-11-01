@@ -1,15 +1,20 @@
 package racingcar.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Players {
 
     private List<String> playersList;
-    private List<Integer> forwardStepList;
+    private List<Integer> forwardStepList = new ArrayList<>();
 
 
     public List<String> getPlayersList(){
         return playersList;
+    }
+
+    public void attemptListInit(){
+        playersList.forEach(i -> forwardStepList.add(0));
     }
 
     public List<Integer> getForwardStepList(){
@@ -21,6 +26,17 @@ public class Players {
     }
     public Players(List<String> playersList) {
         this.playersList = playersList;
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+
+        for(int index = 0; index < playersList.size() ; index++){
+            result += playersList.get(index) + " : " + "-".repeat(forwardStepList.get(index)) + '\n';
+        }
+
+        return result;
     }
 
 }

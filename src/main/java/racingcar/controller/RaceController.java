@@ -23,9 +23,11 @@ public class RaceController {
     }
     private void raceSimulate(Players players, int attemptCount){
 
+        players.attemptListInit();
 
         do {
             raceService.raceOneSimulate(players);
+            OutputView.printMiddleProcess(players);
         }while(attemptCount-->0);
 
 
