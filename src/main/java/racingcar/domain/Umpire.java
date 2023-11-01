@@ -27,6 +27,10 @@ public class Umpire {
     public String findWinner() {
         int maxPosition = findMaxPosition();
 
+        if (maxPosition == 0) {
+            return "";
+        }
+
         List<String> winners = cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
