@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumberGenerator implements Generator {
 
-    private final int START_INCLUSIVE = 1;
+    private final int START_INCLUSIVE = 0;
     private final int END_INCLUSIVE = 9;
 
     @Override
