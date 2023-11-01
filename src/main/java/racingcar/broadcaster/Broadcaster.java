@@ -12,6 +12,7 @@ public class Broadcaster {
         for (Map.Entry<String, Integer> entry : carLocations.entrySet()) {
             printCarLocation(entry.getKey(), entry.getValue());
         }
+        System.out.println();
     }
     private static void printCarLocation(String name, Integer location){
         System.out.println(name + " : " + "-".repeat(Math.max(0, location)));
