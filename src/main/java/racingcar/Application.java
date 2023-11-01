@@ -8,8 +8,8 @@ public class Application {
     public static void main(String[] args) {
         List<String> delimitedCarNames = Converter.delimitCarNames(InputView.inputCarNames());
         List<Car> cars = new ArrayList<>();
-        for (int i = 0; i < delimitedCarNames.size(); i++) {
-            cars.add(new Car(delimitedCarNames.get(i)));
+        for (String delimitedCarName : delimitedCarNames) {
+            cars.add(new Car(delimitedCarName));
         }
         int round = Converter.convertRound(InputView.inputRound());
 

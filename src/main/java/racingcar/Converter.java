@@ -29,8 +29,8 @@ public class Converter {
 
     public static List<String> convertWinners(List<Car> winners) {
         List<String> convertedWinners = new ArrayList<>();
-        for (int i = 0; i < winners.size(); i++) {
-            convertedWinners.add(winners.get(i).getName());
+        for (Car winner : winners) {
+            convertedWinners.add(winner.getName());
         }
         return convertedWinners;
     }

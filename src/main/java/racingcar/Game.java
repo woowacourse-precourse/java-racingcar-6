@@ -16,11 +16,11 @@ public class Game {
     public void play() {
         for (int i = 0; i < round; i++) {
             System.out.print(OutputView.ENTER);
-            for (int j = 0; j < cars.size(); j++) {
+            for (Car car : cars) {
                 int number = NumberGenerator.generate();
-                cars.get(j).move(number);
+                car.move(number);
 
-                OutputView.printGameResult(cars.get(j), cars.get(j).getDistance());
+                OutputView.printGameResult(car, car.getDistance());
             }
         }
         OutputView.printWinners(findWinners(findMaxDistance()));
@@ -28,9 +28,9 @@ public class Game {
 
     private int findMaxDistance() {
         int maxDistance = 0;
-        for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getDistance() >= maxDistance) {
-                maxDistance = cars.get(i).getDistance();
+        for (Car car : cars) {
+            if (car.getDistance() >= maxDistance) {
+                maxDistance = car.getDistance();
             }
         }
         return maxDistance;
@@ -38,9 +38,9 @@ public class Game {
 
     private List<Car> findWinners(int maxDistance) {
         List<Car> winners = new ArrayList<>();
-        for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getDistance() == maxDistance) {
-                winners.add(cars.get(i));
+        for (Car car : cars) {
+            if (car.getDistance() == maxDistance) {
+                winners.add(car);
             }
         }
         return winners;
