@@ -1,10 +1,10 @@
 package racingcar.model;
 
 import java.util.List;
-import racingcar.dto.response.CarInfo;
 import racingcar.dto.request.CarNames;
-import racingcar.dto.response.RacingStatus;
 import racingcar.dto.request.TryCount;
+import racingcar.dto.response.CarInfo;
+import racingcar.dto.response.RacingStatus;
 import racingcar.dto.response.WinnerNames;
 import racingcar.exception.IllegalRacingStatusException;
 
@@ -21,7 +21,9 @@ public class Racing {
     }
 
     public static Racing of(CarNames carNames, TryCount tryCount) {
-        return new Racing(carNames.getNames().stream().map(Car::new).toList(), tryCount.getCount());
+        return new Racing(carNames.getNames().stream()
+            .map(name -> new Car(name, new NumberGeneratorImpl())).toList(),
+            tryCount.getCount());
     }
 
     public void race() {
