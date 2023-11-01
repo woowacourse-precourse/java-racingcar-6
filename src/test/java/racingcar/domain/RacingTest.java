@@ -17,7 +17,7 @@ public class RacingTest {
 
         assertNotNull(racing);
         assertEquals(cars, racing.getCars());
-        assertEquals(Integer.valueOf(5), racing.getIterNum());
-        assertEquals(3, racing.getThreshold());
+        assertEquals(5, racing.getIterNum());
+        assertEquals(4, racing.getThreshold());
     }
 }

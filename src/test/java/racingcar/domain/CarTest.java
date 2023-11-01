@@ -8,7 +8,7 @@ public class CarTest {
     @Test
     void getName_이름_반환() {
         Car car = new Car("Car1");
-        assertThat(car.getName()).isEqualTo("myCar1");
+        assertThat(car.getName()).isEqualTo("Car1");
     }
 
     @Test
