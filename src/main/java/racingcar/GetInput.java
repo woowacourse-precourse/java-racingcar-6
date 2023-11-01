@@ -7,7 +7,9 @@ import static racingcar.Validation.*;
 public class GetInput {
 
     public static String getCarNames() {
-        return Console.readLine();
+        String input = Console.readLine();
+        checkCarNameInput(input);
+        return input;
     }
 
     public static int getCounts() {
