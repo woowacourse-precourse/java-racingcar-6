@@ -22,11 +22,11 @@
 - [ ] 횟수를 입력받는 기능 - readRound()
 
 ### 2) 콘솔 출력 ConsolePrinter
-- [ ] 자동차 이름 입력 메시지 출력 - printCarNameMessage()
-- [ ] 횟수 입력 메시지 출력 - printRoundMessage()
-- [ ] 실행 결과 메시지 출력 - printResultMessage()
-- [ ] 자동차 위치 출력 - printCarPosition(Car car)
-- [ ] 최종 우승자 출력 - printFinalWinner(List<String> names)
+- [x] 자동차 이름 입력 메시지 출력 - printCarNameMessage()
+- [x] 횟수 입력 메시지 출력 - printRoundMessage()
+- [x] 실행 결과 메시지 출력 - printResultMessage()
+- [x] 자동차 위치 출력 - printCarPosition(Car car)
+- [x] 최종 우승자 출력 - printFinalWinner(List<String> names)
 
 ## 3. 유틸 함수
 ### 1) 문자열 파싱 StringParser
