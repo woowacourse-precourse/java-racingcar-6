@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Model;
 
 public class Car {
 
@@ -6,6 +6,7 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        validateName(name);
         this.name = name;
     }
 
@@ -21,5 +22,11 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    private void validateName(String name) {
+        if (name.isEmpty() || name.length() >= 5) {
+            throw new IllegalArgumentException();
+        }
     }
 }
