@@ -3,15 +3,14 @@ package racingcar.view;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.List;
-import racingcar.validator.Vaildator;
-
+import racingcar.validator.Validator;
 
 public class InputView {
 
     public static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String INPUT_MOVE_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 
-    private final Vaildator vaildator = new Vaildator();
+    private final Validator validator = new Validator();
 
     public InputView() {
     }
@@ -38,19 +37,19 @@ public class InputView {
     }
 
     public void validateMoveCount(String input) {
-        if (!vaildator.isPositiveInteger(input)) {
+        if (!validator.isPositiveInteger(input)) {
             throw new IllegalArgumentException("error: 숫자가 아닌 값이 입력되었습니다.");
         }
     }
 
     public void validateCarNames(List<String> carNameList) {
-        if (vaildator.checkDuplicateName(carNameList)) {
+        if (validator.checkDuplicateName(carNameList)) {
             throw new IllegalArgumentException("error: 중복된 이름이 입력되었습니다.");
         }
-        if (vaildator.checkCharactorLimit(carNameList)) {
+        if (validator.checkCharacterLimit(carNameList)) {
             throw new IllegalArgumentException("error: 글자수가 초과된 이름이 입력되었습니다.");
         }
-        if (vaildator.checkEmptyName(carNameList)) {
+        if (validator.checkEmptyName(carNameList)) {
             throw new IllegalArgumentException("error: 구분자 사이에 입력되지 않은 이름이 있습니다.");
         }
     }
