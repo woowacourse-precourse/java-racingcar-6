@@ -29,6 +29,7 @@ public class Simulator {
         }
         return this.cars;
     }
+
     public void eachCarForward() {
         for (Car car: cars) {
             if (canForward()) {

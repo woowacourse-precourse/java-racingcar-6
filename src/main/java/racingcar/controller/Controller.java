@@ -6,6 +6,7 @@ import racingcar.view.Output;
 
 public class Controller {
     private final Simulator simulator = new Simulator();
+
     public void run() {
         initRace();
         startRace();
