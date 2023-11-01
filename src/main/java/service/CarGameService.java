@@ -6,18 +6,20 @@ import model.Car;
 import model.Game;
 
 public class CarGameService {
-    //Game 객체
+    Game game = new Game();
 
-    Car car = new Car();
-
+    /**
+     * 한판의 레이싱 게임 실행
+     *
+     * @param carList 경주에 참여할 자동차
+     * @return 경주에 참여한 모든 자동차들의 게임 결과 리턴
+     */
     public List<String> runRacingGame(List<Car> carList){
-        List<String> racingGameBoard = new ArrayList<>();
         Game.tryCount--;
-
         List<Car> racingGameResult = getRacingGameResult(carList);
+        List<String> getRacingGameResultList = game.getRacingGameResultList(racingGameResult);
 
-
-        return racingGameBoard;
+        return getRacingGameResultList;
     }
 
     /**
@@ -30,6 +32,7 @@ public class CarGameService {
         List<Car> carList = new ArrayList<>();
         String[] carNameArray = carNames.split(",");
         for(String carName : carNameArray){
+            carName = carName.trim();
             carList.add(new Car(carName));
         }
 
