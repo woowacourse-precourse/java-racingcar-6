@@ -7,7 +7,6 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 public class Cars {
     private final static String COMMA = ",";
     private final static String WINNER_COMMA = ", ";
-    private final static String RESULT_MESSAGE = "실행 결과";
     private final static String WINNER_MESSAGE = "최종 우승자 : ";
     private final static int MAX_LENGTH = 5;
     private final static int ZERO = 0;
@@ -80,8 +79,8 @@ public class Cars {
     }
 
     public void printResult() {
-        System.out.println(RESULT_MESSAGE);
         printResultByCar();
+        System.out.println();
     }
 
     private void printResultByCar() {

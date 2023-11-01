@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Time {
+    private final static String RESULT_MESSAGE = "실행 결과";
     private final static int ZERO = 0;
     private static final int ONE = 1;
 
@@ -32,6 +33,7 @@ public class Time {
     }
 
     public void moveCarsByTime(Cars cars) {
+        System.out.println(RESULT_MESSAGE);
         for (int time = ONE; time <= count; time++) {
             cars.moveCars();
             cars.printResult();
