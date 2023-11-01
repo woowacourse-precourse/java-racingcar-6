@@ -29,25 +29,25 @@ public class OutputTest {
         output.reset();
     }
     @Test
-     void printCarNameInputRequestTest() {
+     void canPrintCarNameInputRequest() {
         printCarNameInputRequest();
         assertThat(output.toString()).isEqualTo(CAR_NAME_INPUT_REQUEST_MESSAGE + lineSeparator);
     }
 
     @Test
-    void printTryNumberInputRequestTest() {
+    void canPrintTryNumberInputRequest() {
         printTryNumberInputRequest();
         assertThat(output.toString()).isEqualTo(TRY_NUMBER_INPUT_REQUEST_MESSAGE + lineSeparator);
     }
 
     @Test
-    void printResultTitleTest() {
+    void canPrintResultTitle() {
         printResultTitle();
         assertThat(output.toString()).isEqualTo(RESULT_TITLE + lineSeparator);
     }
 
     @Test
-    void printRacingMapTest() {
+    void canPrintRacingResult() {
         LinkedHashMap<String, Integer> racingMap = new LinkedHashMap<>();
         racingMap.put("car1", 3);
         racingMap.put("car2", 5);
@@ -58,7 +58,7 @@ public class OutputTest {
     }
 
     @Test
-    void printWinnersTest() {
+    void canPrintWinners() {
         ArrayList<String> winners= new ArrayList<>(Arrays.asList("car1", "car2", "car3"));
         printWinners(winners);
         String answer = "최종 우승자 : car1, car2, car3";
