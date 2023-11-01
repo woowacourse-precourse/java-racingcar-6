@@ -11,11 +11,6 @@ public class GameManager {
 	}
 
 	public void viewGmae(List<String> _InputList, List<Integer> _IntputCarStateList) {
-
-		for (int i = 0; i < _InputList.size(); i++) {
-			System.out.println(_IntputCarStateList.get(i));
-		}
-
 		System.out.println();
 		for (int i = 0; i < _InputList.size(); i++) {
 			System.out.print(_InputList.get(i) + " : ");
