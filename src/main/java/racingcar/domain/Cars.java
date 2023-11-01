@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -18,16 +17,6 @@ public class Cars {
         for (Car car : cars) {
             car.attemptToMove();
         }
-    }
-
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
-    }
-
-    public List<String> getCarNames() {
-        return cars.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
     }
 
     public Map<String, Integer> getRoundInfo() {
