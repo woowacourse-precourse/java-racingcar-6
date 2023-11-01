@@ -10,7 +10,7 @@ import constants.ErrorCodeConstant;
 public class InputView {
 
     /**
-     * 사용자가 입력한 자동차 이름들 값 유무검사
+     * 사용자가 입력한 값 유무검사
      * - 공백일 경우 예외 발생
      *
      * @param data
