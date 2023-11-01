@@ -22,7 +22,7 @@ public class RacingCarGameController {
         int count = racingCarGameView.inputTryCount();
         TryCount tryCount = new TryCount(count);
 
-        RacingResult racingResult = new RacingResult(carNames, tryCount);
+        RacingResult racingResult = new RacingResult(carNames);
 
         System.out.println(RESULT);
 

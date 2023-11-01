@@ -6,7 +6,7 @@ public class RacingResult {
     private Map<String, Integer> result;
     private static int INITIAL_DISTANCE = 0;
 
-    public RacingResult(CarNames carNames, TryCount tryCount) {
+    public RacingResult(CarNames carNames) {
         result = new HashMap<>();
 
         for (String carName : carNames.getCarNames()) {
