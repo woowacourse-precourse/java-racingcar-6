@@ -8,6 +8,9 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         RacingCar racingCar = new RacingCar();
+        while(true){
+            racingCar.startRacingCar();
+        }
     }
 }
 
@@ -17,6 +20,7 @@ class RacingCar {
     private Integer randomNum;
     public RacingCar(){
         getCarNames();
+        getNumberOfMove();
     }
 
     private void getCarNames(){
@@ -30,15 +34,23 @@ class RacingCar {
         numberOfTry = Integer.parseInt(Console.readLine());
     }
 
-    private void generateRandomNumber(){
+    private Boolean checkRandomNumber(){
         randomNum = Randoms.pickNumberInRange(0,9);
+        if(randomNum>=4){
+            return true;
+        }
+        return false;
     }
 
     private void printWinner(){
 
     }
 
-    private void startRacingCar(){
+    private void printMove(int move){
+
+    }
+
+    public void startRacingCar(){
 
     }
 
