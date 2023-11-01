@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Collections;
 import java.util.Map;
 
 public class Racing {
@@ -40,6 +41,18 @@ public class Racing {
         System.out.println("실행 결과");
         for (int i = 0; i<count; i++) {
             printRacing(carInfo);
+        }
+        int maxValueInMap=(Collections.max(carInfo.values()));
+        System.out.print("최종 우승자 : ");
+        int cnt = 0;
+        for (Map.Entry<String, Integer> entry : carInfo.entrySet()) {
+            cnt++;
+            if (cnt == 1) {
+                System.out.println(entry.getKey());
+            }
+            else if (entry.getValue() == maxValueInMap) {
+                System.out.print("," + entry.getKey());
+            }
         }
     }
 
