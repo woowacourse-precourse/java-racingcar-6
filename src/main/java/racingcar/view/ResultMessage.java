@@ -57,5 +57,4 @@ public class ResultMessage {
     private static boolean whetherSoloWinner(List<String> winnerList){
         return winnerList.size()==1;
     }
-    //TODO : exception
 }

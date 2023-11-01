@@ -80,6 +80,4 @@ public class Controller {
             throw new IllegalArgumentException();
         }
     }
-    //TODO : validator 확인
-    //TODO : 기능 테스트 작성
 }
