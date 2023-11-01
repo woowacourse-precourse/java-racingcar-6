@@ -29,7 +29,7 @@ public class RacingGameController {
 
         for (Car car : carNameList) {
             int previousDistance = car.getDistance();
-            referee.startEngine(car);
+            referee.startEngine(car, referee.canMove());
 
             if (car.getDistance() > previousDistance) {
                 anyCarMove = true;

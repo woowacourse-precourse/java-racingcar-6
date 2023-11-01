@@ -14,13 +14,13 @@ public class Referee {
         return list;
     }
 
-    public void startEngine(Car car) {
-        if (canMove()) {
+    public void startEngine(Car car, int randomValue) {
+        if (randomValue >= OVER_CONDITION) {
             car.accel();
         }
     }
 
-    private boolean canMove() {
-        return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= OVER_CONDITION;
+    public int canMove() {
+        return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 }
