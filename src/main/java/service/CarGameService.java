@@ -14,12 +14,37 @@ public class CarGameService {
      * @param carList 경주에 참여할 자동차
      * @return 경주에 참여한 모든 자동차들의 게임 결과 리턴
      */
-    public List<String> runRacingGame(List<Car> carList){
+    public List<Car> runRacingGame(List<Car> carList){
         Game.tryCount--;
         List<Car> racingGameResult = getRacingGameResult(carList);
-        List<String> getRacingGameResultList = game.getRacingGameResultList(racingGameResult);
 
-        return getRacingGameResultList;
+        return racingGameResult;
+    }
+
+    /**
+     * 자동차 실행 결과 가공하기
+     *
+     * @param carList 경주한 자동차와 이동횟수를 담은 List
+     * @return "자동차명 : 전진횟수" 형태로 가공하여 리턴
+     */
+    public List<String> getRacingGameResultList(List<Car> carList){
+        List<String> racingGameResultList = new ArrayList<>();
+
+        for(Car car : carList){
+            String step = "";
+            int stepCount = car.getStepCount();
+            while (stepCount > 0){
+                stepCount--;
+                step += "-";
+            }
+
+            StringBuilder gameText = new StringBuilder(car.getName())
+                    .append(" : ")
+                    .append(step);
+            racingGameResultList.add(gameText.toString());
+        }
+
+        return racingGameResultList;
     }
 
     /**
@@ -57,9 +82,16 @@ public class CarGameService {
     }
 
     /**
-     * 자동차 경주 우승자 결과
+     * 자동차 경주 우승자 결과 만들기
      *
+     * @param carList 경주한 자동차들의 결과를 담은 List
+     * @return 자동차 경주 우승자 결과 리턴
      */
+    public String getRacingGameWinner(List<Car> carList){
+        int maxStepCount = game.getMaxStepCount(carList);
+        String getWinnerList = game.getWinnerList(carList, maxStepCount);
+        return getWinnerList;
+    }
 
 
 }
