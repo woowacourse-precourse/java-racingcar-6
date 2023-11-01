@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.Application;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -30,6 +31,17 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+   /* @Test
+    void 여러_우승자() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("luda,mori", "1");
+                    assertThat(output()).contains("luda : -", "mori : -", "최종 우승자 : luda, mori");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }*/
 
     @Override
     public void runMain() {
