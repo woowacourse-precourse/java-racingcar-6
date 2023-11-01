@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.Arrays;
 
-public class InputValidator implements FrontValidator {
+public final class InputValidator implements FrontValidator {
 
     public void validateSingleNumber(String givenInput) {
         try {

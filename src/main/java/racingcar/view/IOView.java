@@ -3,7 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
-public class IOView implements ConsoleView{
+public final class IOView implements ConsoleView{
     public void showSingleMessage(final String message) {
         System.out.println(message);
     }

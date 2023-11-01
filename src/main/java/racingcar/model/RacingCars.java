@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class RacingCars implements Cars{
+public non-sealed class RacingCars implements Cars{
     private final List<Car> cars;
 
     public RacingCars(final List<Car> cars) {

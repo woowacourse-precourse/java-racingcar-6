@@ -2,7 +2,7 @@ package racingcar.model;
 
 import java.util.List;
 
-public interface Cars {
+public sealed interface Cars permits RacingCars {
     Cars applyNames(final List<String> names);
 
     List<Integer> moveCars();

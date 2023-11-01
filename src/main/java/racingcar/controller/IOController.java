@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 
-public interface IOController {
+public sealed interface IOController permits GameIOController {
     void showIntroMessage();
 
     List<String> getCarNames();
