@@ -16,7 +16,7 @@ public class Game {
         PlayRound(carNames, round);
     }
 
-    private ArrayList<String> InputCarName() {
+    public ArrayList<String> InputCarName() {
         ArrayList<String> carNames = new ArrayList<>();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -26,32 +26,34 @@ public class Game {
             carNames.add(inputName[i]);
             gameException.NameCount(inputName[i]);
         }
+        gameException.NameNull(carNames);
         return carNames;
     }
 
-    private int InputRound() {
+    public int InputRound() {
         int inputRound;
 
         System.out.println("시도할 회수는 몇회인가요?");
         inputRound = Integer.parseInt(Console.readLine());
+        gameException.ZeroRound(inputRound);
 
         return inputRound;
     }
 
-    private void PlayRound(ArrayList<String> carNames, int round) {
+    public void PlayRound(ArrayList<String> carNames, int round) {
         int carMax = carNames.size();
-        int[] counts = new int[carMax];
+        int[] goCounts = new int[carMax];
 
-        for (int i = 0; round >= i; i++) { //1depth
+        for (int i = 0; round > i; i++) { //1depth
             for (int j = 0; carMax > j; j++) { //2depth
-                counts[j] = GoCount(carNames, counts[j], j);
+                goCounts[j] = GoCount(carNames, goCounts[j], j);
             }
             System.out.println("");
         }
-        Winner(carNames, counts);
+        Winner(carNames, goCounts);
     }
 
-    private int GoCount(ArrayList<String> carNames, int count, int round) {
+    public int GoCount(ArrayList<String> carNames, int count, int round) {
         int minNumber = 0;
         int maxNumber = 9;
 
@@ -66,7 +68,7 @@ public class Game {
         return count;
     }
 
-    private void ResultText(String carName, int count) {
+    public void ResultText(String carName, int count) {
         String result = "";
 
         for (int i = 0; count > i; i++) {
@@ -74,21 +76,23 @@ public class Game {
         }
         System.out.println(carName + " : " + result);
     }
-    private void Winner(ArrayList<String> carNames, int[] count) {
+    public void Winner(ArrayList<String> carNames, int[] count) {
         ArrayList<String> winner = new ArrayList<>();
 
-        int wincount = 0;
+        int winCount = 0;
 
         for (int i = 0; count.length > i; i++) {
-            if (wincount < count[i]) {
-                wincount = count[i];
+            if (winCount < count[i]) {
+                winCount = count[i];
             }
         }
+
         for (int i = 0; count.length > i; i++) {
-            if (wincount == count[i]) {
+            if (winCount == count[i]) {
                 winner.add(carNames.get(i));
             }
         }
+
         if (winner.size() > 1) {
             String allWinner = String.join(",", winner);
             System.out.print("최종 우승자 : " + allWinner);
