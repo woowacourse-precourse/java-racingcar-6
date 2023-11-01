@@ -11,20 +11,27 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGameService {
+    private static final String INIT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String WRONG_CAR_NAME_MESSAGE = "잘못된 자동차 이름을 입력하셨습니다.";
+    private static final String TOTAL_GAME_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String WRONG_TOTAL_GAME_COUNT_MESSAGE = "총 시도 횟수는 양수여야 합니다.";
+    private static final String VALID_CAR_NAME_REGEX = "^[a-zA-Z0-9가-힣]*$";
+    private static final String EXECUTE_RESULT_MESSAGE = "실행 결과";
+    private static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
     public void initGame(User user, RacingGame racingGame){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INIT_MESSAGE);
         String carNameString = user.inputCarName();
         if(!validateCarName(carNameString)){
-            throw new IllegalArgumentException("잘못된 자동차 이름을 입력하셨습니다.");
+            throw new IllegalArgumentException(WRONG_CAR_NAME_MESSAGE);
         }
 
         String[] carNames = parseCarName(carNameString);
         setCarsInRacingGame(carNames, racingGame);
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(TOTAL_GAME_COUNT_MESSAGE);
         int count = Integer.parseInt(user.inputTryCount());
         if(!validateCount(count)){
-            throw new IllegalArgumentException("총 시도 횟수는 양수여야 합니다.");
+            throw new IllegalArgumentException(WRONG_TOTAL_GAME_COUNT_MESSAGE);
         }
         user.updateTotalGameCount(count);
 
@@ -38,11 +45,11 @@ public class RacingGameService {
     private boolean validateCarName(String carNameString) {
         String[] carNames = parseCarName(carNameString);
         return Arrays.stream(carNames)
-                .allMatch(name -> name.length() <= 5 && !name.isEmpty() && name.matches("^[a-zA-Z0-9가-힣]*$"));
+                .allMatch(name -> name.length() <= 5 && !name.isEmpty() && name.matches(VALID_CAR_NAME_REGEX));
     }
 
     public void doGame(int totalCount, RacingGame racingGame){
-        System.out.println("실행 결과");
+        System.out.println(EXECUTE_RESULT_MESSAGE);
         for (int i=0; i<totalCount; i++){
             List<Car> cars = racingGame.getCars();
             moveCars(cars);
@@ -81,7 +88,7 @@ public class RacingGameService {
             printResultMessage(iterator, outputMessage);
         }
 
-        System.out.println("최종 우승자 : " + outputMessage);
+        System.out.println(FINAL_WINNER_MESSAGE + outputMessage);
     }
 
     private void printResultMessage(Iterator<Car> iterator, StringBuilder outputMessage) {
