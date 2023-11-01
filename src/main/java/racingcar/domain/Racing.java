@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Racing {
 
@@ -23,9 +25,19 @@ public class Racing {
     }
 
     public void generateCars(List<String> carsName) {
+        validateUniqueName(carsName);
         carsName.stream()
                 .map(Car::of)
                 .forEach(cars::add);
+    }
+
+    private void validateUniqueName(List<String> carsName) {
+        Set<String> set = new HashSet<>();
+        carsName.forEach(carName -> {
+            if (!set.add(carName)) {
+                throw new IllegalArgumentException("중복된 자동차 이름입니다.");
+            }
+        });
     }
 
     public void runRace() {
