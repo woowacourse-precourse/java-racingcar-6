@@ -12,7 +12,8 @@ public class Controller {
 
     public List<String> getStringList(final String delimiter) throws IllegalArgumentException {
         try {
-            return Stream.of(Console.readLine().split(delimiter)).toList();
+            String[] tokens = Console.readLine().split(delimiter, -1);
+            return Stream.of(tokens).toList();
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
