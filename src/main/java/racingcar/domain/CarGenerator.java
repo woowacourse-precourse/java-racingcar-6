@@ -7,9 +7,10 @@ public class CarGenerator {
     public CarGenerator() {
     }
 
-    public static List<Car> createCarList() {
+    public List<Car> createCarList() {
         List<Car> carList = new ArrayList<>();
-        List<String> nameList = UserInput.setCarNames();
+        UserInput userInput = new UserInput();
+        List<String> nameList = userInput.setCarNames();
         for (String name : nameList) {
             carList.add(new Car(name));
         }
