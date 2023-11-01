@@ -24,8 +24,11 @@ public class GameController {
         Race race = new Race(cars);
 
         view.printGameStartMessage();
-        race.run(movement);
-        view.printRaceStatus(cars);
+
+        for (int i = 0; i< movement ; i++){
+            race.run(1);
+            view.printRaceStatus(cars);
+        }
 
         List<String> winners = race.getWinners();
         view.printWinners(winners);
