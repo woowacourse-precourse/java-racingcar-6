@@ -12,7 +12,7 @@ class StateMakerTest {
 
     @Test
     void 전진_판단_테스트() {
-        // Give
+        // Given
         Racer testRacer = new Racer("testRacer");
         StateMaker.getGoOrStop(testRacer);
 
@@ -30,7 +30,7 @@ class StateMakerTest {
 
     @Test
     void 정지_판단_테스트() {
-        // Give
+        // Given
         Racer testRacer = new Racer("testRacer");
         StateMaker.getGoOrStop(testRacer);
 
