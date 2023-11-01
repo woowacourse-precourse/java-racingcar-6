@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RacingMemoryRepository implements RacingRepository {
-    private final RacingMemoryRepository instance = new RacingMemoryRepository();
+    private RacingMemoryRepository instance = new RacingMemoryRepository();
 
     public static RacingMemoryRepository getInstance() {
         return instance;
