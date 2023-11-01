@@ -4,16 +4,17 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class GameView {
     public String requestCarInputRequest() {
-        System.out.println(OuputMessage.CAR_INPUT_REQUEST.getMessage());
+        System.out.println(OuputMessage.CAR_INPUT_REQUEST.message);
         return Console.readLine();
     }
 
     public String requestAttemptsNum() {
-        System.out.println(OuputMessage.ATTEMPTS_NUM_INPUT_REQUEST.getMessage());
+        System.out.println(OuputMessage.ATTEMPTS_NUM_INPUT_REQUEST.message);
         return Console.readLine();
     }
+
     public void printPreResultMessage() {
-        System.out.println(OuputMessage.PRE_RESULT_MESSAGE.getMessage());
+        System.out.println(OuputMessage.PRE_RESULT_MESSAGE.message);
         return;
     }
 
@@ -23,7 +24,7 @@ public class GameView {
     }
 
     public void printWinner(String winner) {
-        System.out.println(OuputMessage.WINNER.getMessage() + winner);
+        System.out.println(OuputMessage.WINNER.message + winner);
         return;
     }
 
@@ -37,10 +38,6 @@ public class GameView {
 
         OuputMessage(String message) {
             this.message = message;
-        }
-
-        public String getMessage() {
-            return message;
         }
     }
 }

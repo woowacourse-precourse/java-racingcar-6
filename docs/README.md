@@ -5,7 +5,6 @@
 각 자동차에 부여된 이름
 랜덤한 수 만큼 전진
 자신의 이름을 출력하는 visualize를 가진다.
-
 ## Race
 각 자동차의 위치를 관리
 Map<String,Integer> CarDistance를 가진다.

@@ -12,9 +12,20 @@ public record Car(
     }
 
     public int move() {
-        if(Randoms.pickNumberInRange(0,9) >= 4){
+        if(Randoms.pickNumberInRange(Num.ZERO.value,Num.NINE.value) >= Num.FOUR.value){
             return 1;
         };
         return 0;
+    }
+    enum Num {
+        ZERO(0),
+        FOUR(4),
+        NINE(9);
+
+        private final int value;
+
+        Num(int value) {
+            this.value = value;
+        }
     }
 }

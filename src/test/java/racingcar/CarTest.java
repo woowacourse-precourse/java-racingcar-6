@@ -10,7 +10,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CarTest {
 
     @Test
-    @DisplayName("5글자 이내라면 객체생성을 성공한다..")
+    @DisplayName("5글자 이내라면 객체생성을 성공한다.")
     void givenWithin5Chars_whenCreateCar_thenSuccess() {
         // given
         String name = "yoon";
@@ -30,6 +30,7 @@ public class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
     }
+
     @Test
     @DisplayName("move()의 결과로 1 또는 0이 오는지 확인한다.")
     void givenMove_whenMove_thenSuccess() {

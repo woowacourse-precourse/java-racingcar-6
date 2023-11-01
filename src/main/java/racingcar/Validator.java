@@ -2,15 +2,26 @@ package racingcar;
 
 public class Validator {
     public static boolean validateCarName(String carName) {
-        if(carName.length() <= 5) return true;
-        throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        if ( Constant.MIN_CAR_LENGTH.value < carName.length()  && carName.length() <= Constant.MAX_CAR_LENGTH.value) return true;
+        throw new IllegalArgumentException();
     }
+
     public static boolean validateNumber(String input) {
         try {
             Integer.parseInt(input);
             return true;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+            throw new IllegalArgumentException();
+        }
+    }
+
+    enum Constant {
+        MAX_CAR_LENGTH(5),
+        MIN_CAR_LENGTH(1);
+        private final int value;
+
+        Constant(int value) {
+            this.value = value;
         }
     }
 }
