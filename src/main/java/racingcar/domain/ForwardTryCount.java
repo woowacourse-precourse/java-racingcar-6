@@ -20,7 +20,7 @@ public class ForwardTryCount {
 
     private void checkNaturalNumber(String countString) {
         int count = Integer.parseInt(countString);
-        if (count < 0) {
+        if (count <= 0) {
             throw new ForwardTryCountFormatException();
         }
     }
