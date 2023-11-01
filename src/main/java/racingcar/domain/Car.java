@@ -23,9 +23,11 @@ public class Car {
         return new Car(carName);
     }
 
-    public void moveOrStay() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+    public static int makeRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
 
+    public void moveOrStay(int randomNumber) {
         if (randomNumber >= CRITICAL_OF_MOVING) {
             this.distance++;
             renewMaxDistance(this.distance);
