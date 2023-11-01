@@ -1,10 +1,10 @@
-package racingcar.controller;
+package racingcar.domain.controller;
 
-import racingcar.model.Car;
-import racingcar.service.GameService;
-import racingcar.util.Validator;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.domain.model.Car;
+import racingcar.domain.service.GameService;
+import racingcar.global.util.Validator;
+import racingcar.domain.view.InputView;
+import racingcar.domain.view.OutputView;
 
 public class MainController {
     private final InputView inputView;
@@ -21,9 +21,9 @@ public class MainController {
 
     public void startGame() {
         outputView.printCarsName();
-        String carNames = inputView.readInputData();
+        String carsName = inputView.readInputData();
         // TODO 자동차 이름 검증
-        Car car = Car.of(carNames);
+        Car car = Car.of(carsName);
         outputView.printNumberOfAttempts();
         String numberOfAttempts = inputView.readInputData();
         // TODO 시도할 회수 검증

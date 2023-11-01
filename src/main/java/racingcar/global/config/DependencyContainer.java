@@ -1,10 +1,10 @@
-package racingcar.config;
+package racingcar.global.config;
 
-import racingcar.controller.MainController;
-import racingcar.service.GameService;
-import racingcar.util.Validator;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.domain.controller.MainController;
+import racingcar.domain.service.GameService;
+import racingcar.global.util.Validator;
+import racingcar.domain.view.InputView;
+import racingcar.domain.view.OutputView;
 
 public class DependencyContainer {
     private final MainController mainController;
