@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public class InputToCarList {
     private static final String NO_UNIQUE_NAME = "중복되는 이름이 있습니다.";
-    private static final String NO_PLAYERS_PARTICIPATE = "문장의 마지막 문자는 컴마(',') 를 허용하지 않습니다.";
-    private static final String END_OF_SENTENCE_CHARACTER = "모집 된 선수가 없습니다.";
+    private static final String END_OF_SENTENCE_CHARACTER = "문장의 마지막 문자는 컴마(',') 를 허용하지 않습니다.";
+    private static final String NO_PLAYERS_PARTICIPATE = "모집 된 선수가 없습니다.";
     private static final String USER_DEFAULT_DELIMITER = ",";
 
     private static class SingletonHelper {
