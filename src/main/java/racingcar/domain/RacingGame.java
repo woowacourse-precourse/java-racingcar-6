@@ -5,6 +5,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.dto.RaceStatus;
+import racingcar.dto.RacingGameResult;
 import racingcar.dto.RacingGameStatus;
 import racingcar.dto.WinnerNames;
 import racingcar.exception.RaceCountLessThanOneException;
@@ -19,13 +20,16 @@ public class RacingGame {
         this.cars = cars;
     }
 
-    public RacingGameStatus race(int raceCount) {
+    public RacingGameResult race(int raceCount) {
         verifyRaceCount(raceCount);
         List<RaceStatus> raceStatuses = IntStream.range(0, raceCount)
                 .mapToObj(cnt -> cars.driveCarsByRule(RacingGame::raceRule))
                 .toList();
 
-        return new RacingGameStatus(raceStatuses);
+        RacingGameStatus racingGameStatus = new RacingGameStatus(raceStatuses);
+        WinnerNames winnerNames = cars.getWinnerNames();
+
+        return new RacingGameResult(racingGameStatus, winnerNames);
     }
 
     private void verifyRaceCount(int raceCount) {
@@ -37,9 +41,5 @@ public class RacingGame {
     private static boolean raceRule() {
         int randomNumber = pickNumberInRange(START_NUMBER, END_NUMBER);
         return DRIVE_MIN_NUMBER <= randomNumber;
-    }
-
-    public WinnerNames getWinnerNames() {
-        return cars.getWinnerNames();
     }
 }

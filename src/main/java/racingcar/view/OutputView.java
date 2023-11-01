@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import racingcar.dto.RacingGameResult;
 import racingcar.dto.RacingGameStatus;
 import racingcar.dto.WinnerNames;
 
@@ -8,7 +9,5 @@ public interface OutputView {
 
     void requestRaceCount();
 
-    void printRacingGameStatus(RacingGameStatus racingGameStatus);
-
-    void printWinnerNames(WinnerNames winnerNames);
+    void printRacingGameResult(RacingGameResult racingGameResult);
 }

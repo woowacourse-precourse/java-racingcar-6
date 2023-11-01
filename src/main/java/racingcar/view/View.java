@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.dto.RacingGameStatus;
+import racingcar.dto.RacingGameResult;
 import racingcar.dto.WinnerNames;
 
 public class View {
@@ -23,11 +23,7 @@ public class View {
         return inputView.enterRaceCount();
     }
 
-    public void showRacingGameStatus(RacingGameStatus racingGameStatus) {
-        outputView.printRacingGameStatus(racingGameStatus);
-    }
-
-    public void showWinnerNames(WinnerNames winnerNames) {
-        outputView.printWinnerNames(winnerNames);
+    public void showRacingGameResult(RacingGameResult racingGameResult) {
+        outputView.printRacingGameResult(racingGameResult);
     }
 }

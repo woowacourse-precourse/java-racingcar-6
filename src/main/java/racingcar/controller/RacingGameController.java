@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Cars;
+import racingcar.dto.RacingGameResult;
 import racingcar.dto.RacingGameStatus;
 import racingcar.domain.RacingGame;
 import racingcar.dto.WinnerNames;
@@ -20,10 +21,8 @@ public class RacingGameController {
         RacingGame racingGame = new RacingGame(cars);
 
         int raceCount = view.getRaceCount();
-        RacingGameStatus racingGameStatus = racingGame.race(raceCount);
+        RacingGameResult raceGameResult = racingGame.race(raceCount);
 
-        view.showRacingGameStatus(racingGameStatus);
-        WinnerNames winnerNames = racingGame.getWinnerNames();
-        view.showWinnerNames(winnerNames);
+        view.showRacingGameResult(raceGameResult);
     }
 }
