@@ -13,6 +13,11 @@ public class InputValidator {
         }
     }
 
+    public void validateTrialNumber(String number) {
+        isNumberOnly(number);
+        isPositiveOnly(number);
+    }
+
     public void isNumberOnly(String number) {
         if (!number.matches(NUMBER_REGX)) {
             throw new IllegalArgumentException("숫자만 입력 가능합니다.");
