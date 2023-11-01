@@ -67,4 +67,9 @@ public class Cars {
         moveCountList = moveCountList.subList(0,carNames.length);   //나온 차수만큼 나누기
         CarNameList = CarNameList.subList(0, carNames.length);
     }
+
+    public void winnerCar() {
+        int maxDistance = -1; // 현재 최대 이동 거리
+        //전역변수로 설정한 winners에 승자 이름 저장
+    }
 }
