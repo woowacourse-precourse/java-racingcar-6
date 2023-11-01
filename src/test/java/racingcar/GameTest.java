@@ -26,9 +26,9 @@ public class GameTest {
         ArrayList<Integer> testRaceResult = new ArrayList<>();
         testRaceResult.add(2);
         testRaceResult.add(4);
+
         Player player = new Player();
         ArrayList<String> testCars = player.createPlayerCarList("pobi, jun");
-
         testRace.printTotalLapResult(testRaceResult, testCars);
 
         Referee referee = new Referee();

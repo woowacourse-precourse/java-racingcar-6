@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Referee {
-    public ArrayList<String> compare(ArrayList<Integer> lastGameResult, ArrayList<String> carList) {
+    public ArrayList<String> compare(ArrayList<Integer> lastGameResult, ArrayList<String> playerList) {
         int maxScore = Collections.max(lastGameResult);
         ArrayList<String> winners = new ArrayList<>();
 
-        for (int i = 0; i < carList.size(); i++) {
+        for (int i = 0; i < playerList.size(); i++) {
             if (lastGameResult.get(i) >= maxScore) {
-
-                winners.add(carList.get(i));
+                winners.add(playerList.get(i));
             }
         }
         return winners;
