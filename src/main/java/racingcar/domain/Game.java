@@ -57,6 +57,7 @@ public class Game {
             makeCarMove();
             view.printCurrentStatus(cars);
         }
+        view.printWinners(selectWinners());
     }
 
     private void makeCarMove() {
