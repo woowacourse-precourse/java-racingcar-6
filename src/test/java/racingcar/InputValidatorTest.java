@@ -1,6 +1,6 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.*;
 import org.junit.jupiter.api.DisplayName;
@@ -14,10 +14,8 @@ class InputValidatorTest {
         //given
         List<String> input = Arrays.asList("names", "over", "number");
         //when,then
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateName(input);
-        });
-
+        assertThatThrownBy(()-> {InputValidator.validateName(input);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -26,9 +24,8 @@ class InputValidatorTest {
         //given
         List<String> input = Arrays.asList("name", "pobi", "name");
         //when
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateName(input);
-        });
+        assertThatThrownBy(()-> {InputValidator.validateName(input);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -37,9 +34,8 @@ class InputValidatorTest {
         //given
         String input = "";
         //when,then
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateTryNumber(input);
-        });
+        assertThatThrownBy(()-> {InputValidator.validateTryNumber(input);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -47,9 +43,8 @@ class InputValidatorTest {
         //given
         String input = "한번";
         //when,then
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateTryNumber(input);
-        });
+        assertThatThrownBy(()-> {InputValidator.validateTryNumber(input);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -57,9 +52,8 @@ class InputValidatorTest {
         //given
         String input ="3.7";
         //when,then
-        assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateTryNumber(input);
-        });
+        assertThatThrownBy(()-> {InputValidator.validateTryNumber(input);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 
 
