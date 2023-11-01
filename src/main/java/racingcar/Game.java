@@ -20,8 +20,8 @@ public class Game {
         String[] carNames = carInput.split(",");
 
         // 최소 자동차 2대 에러처리
-        if (carNames.length<1){
-            throw new IllegalArgumentException("자동차가 필요합니다.");
+        if (carNames.length<2){
+            throw new IllegalArgumentException("자동차는 2대이상.");
         }
         for(String name : carNames){
             Car car = new Car(name.trim());
