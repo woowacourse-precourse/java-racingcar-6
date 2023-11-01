@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.service.generator;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 

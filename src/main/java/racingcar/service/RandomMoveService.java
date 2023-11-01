@@ -1,15 +1,17 @@
 package racingcar.service;
 
+import racingcar.service.generator.RandomGenerator;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static racingcar.global.GameIntConstant.MAGIC_NUMBER;
+import static racingcar.global.GameConfig.MAGIC_NUMBER;
 
-public class RandomMoveStrategy implements MoveStrategy {
+public class RandomMoveService implements MoveService {
     private final RandomGenerator randomGenerator;
 
-    public RandomMoveStrategy(RandomGenerator randomGenerator) {
+    public RandomMoveService(RandomGenerator randomGenerator) {
         this.randomGenerator = randomGenerator;
     }
 

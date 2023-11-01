@@ -5,7 +5,7 @@ import racingcar.vo.Car;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.global.GameStrConstant.*;
+import static racingcar.global.GameSymbols.*;
 import static racingcar.view.ConstantView.*;
 
 public class OutputView {

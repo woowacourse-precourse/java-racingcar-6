@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.service.MoveStrategy;
+import racingcar.service.MoveService;
 import racingcar.service.RacingGameService;
 import racingcar.service.WinnerService;
 import racingcar.validator.CarNameValidator;
@@ -17,11 +17,11 @@ public class RacingGameController {
     private final TriesCountValidator triesCountValidator;
     private final RacingGameService racingGameService;
 
-    public RacingGameController(MoveStrategy moveStrategy, CarNameValidator carNameValidator,
+    public RacingGameController(MoveService moveService, CarNameValidator carNameValidator,
                                 TriesCountValidator triesCountValidator, WinnerService winnerService) {
         this.carNameValidator = carNameValidator;
         this.triesCountValidator = triesCountValidator;
-        this.racingGameService = new RacingGameService(moveStrategy, winnerService);
+        this.racingGameService = new RacingGameService(moveService, winnerService);
     }
 
     public void startRacingGame() {

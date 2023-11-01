@@ -2,8 +2,8 @@ package racingcar.validator;
 
 import java.util.List;
 
-import static racingcar.global.GameStrConstant.*;
-import static racingcar.global.GameIntConstant.*;
+import static racingcar.global.GameSymbols.*;
+import static racingcar.global.GameConfig.*;
 import static racingcar.validator.ErrorMessage.*;
 
 public class CarNameValidator {

@@ -1,11 +1,11 @@
 package racingcar.global;
 
-public enum GameIntConstant {
+public enum GameConfig {
     CAR_NAME_LIMIT(5),
     MAGIC_NUMBER(4);
     private final Integer value;
 
-    GameIntConstant(Integer value) {
+    GameConfig(Integer value) {
         this.value = value;
     }
 
