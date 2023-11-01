@@ -21,7 +21,12 @@ public class RacingGameController {
 
         List<Car> cars = initializeCars(carNames);
         RacingGame racingGame = new RacingGame(cars, totalAttempts);
-        racingGame.startRace();
+
+        for (int i = 0; i < totalAttempts; i++) {
+            RacingGameView.printRaceResult(generateRaceResultStrings(cars));
+            racingGame.startRace();
+            System.out.println();
+        }
 
         RaceResult result = racingGame.calculateResult();
         RacingGameView.printRaceResult(generateRaceResultStrings(cars));
