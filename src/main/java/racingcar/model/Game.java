@@ -16,7 +16,7 @@ public class Game {
     }
 
     public void executeSingleCycleCarMove() {
-        for(Car car : cars) {
+        for (Car car : cars) {
             car.action();
         }
     }

@@ -16,16 +16,17 @@ public class CarNamesInputValidator {
     }
 
     private static void inputNotEmptyValidate(String input) {
-        if(input.trim().isEmpty()) {
+        if (input.trim().isEmpty()) {
             throw new IllegalArgumentException(CarNamesExceptionMessage.EMPTY_INPUT.getMessage());
         }
     }
+
     private static void carNameValidate(String carName) {
         carNameLengthValidate(carName);
     }
 
     private static void carNameLengthValidate(String carName) {
-        if(carName.trim().isEmpty()) {
+        if (carName.trim().isEmpty()) {
             throw new IllegalArgumentException(CarNamesExceptionMessage.EMPTY_CAR_NAME.getMessage());
         }
 

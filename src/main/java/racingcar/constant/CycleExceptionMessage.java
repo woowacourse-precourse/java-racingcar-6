@@ -5,6 +5,7 @@ public enum CycleExceptionMessage {
     NOT_NATURAL_NUMBER("자연수가 아닙니다.");
 
     private final String message;
+
     CycleExceptionMessage(String message) {
         this.message = message;
     }

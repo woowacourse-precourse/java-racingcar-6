@@ -23,7 +23,7 @@ public class GameController {
 
         Game game = new Game(cars);
         OutputView.printRaceResultHeader();
-        for(int i=0; i<cycle; i++) {
+        for (int i = 0; i < cycle; i++) {
             game.executeSingleCycleCarMove();
             printCurrentResult(game.getCurrentGameResult());
         }
@@ -39,7 +39,7 @@ public class GameController {
 
         List<Car> carList = new ArrayList<>();
 
-        for(String carName :carNameArray) {
+        for (String carName : carNameArray) {
             Car car = new Car(carName);
             carList.add(car);
         }

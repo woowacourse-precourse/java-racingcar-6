@@ -14,6 +14,7 @@ public class CycleInputValidatorTest {
     void validate_자연수는_예외_미발생(String input) {
         assertDoesNotThrow(() -> CycleInputValidator.validate(input));
     }
+
     @ParameterizedTest
     @ValueSource(strings = {"", " "})
     void validate_빈_문자열은_예외_발생(String input) {
