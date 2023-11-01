@@ -43,7 +43,7 @@ public class RacingGame {
         OutputPrinter.printMoveResultPrintMessage();
         for (int currentMoveNum = 0; moveNum.isInRange(currentMoveNum); currentMoveNum++) {
             moveCars();
-            printMovingResult();
+            OutputPrinter.printMovingResult(carList);
         }
     }
 
@@ -55,13 +55,6 @@ public class RacingGame {
 
     private int isMoveSpeed() {
         return (Randoms.pickNumberInRange(0,9));
-    }
-
-    private void printMovingResult() {
-        for (Car currentCar: carList) {
-            currentCar.printInformation();
-        }
-        System.out.println();
     }
 
     private Map<Integer, List<String>> checkScore() {

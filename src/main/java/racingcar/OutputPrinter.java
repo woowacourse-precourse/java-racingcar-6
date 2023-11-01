@@ -25,6 +25,13 @@ public class OutputPrinter {
         System.out.println(MOVE_RESULT_PRINT_MESSAGE);
     }
 
+    static void printMovingResult(List<Car> carList) {
+        for (Car currentCar: carList) {
+            currentCar.printInformation();
+        }
+        System.out.println();
+    }
+
     static void printWinner(List<String> winnerNames) {
         OutputPrinter.printFinalWinnerPrintMessage();
         for (String currentName: winnerNames) {
