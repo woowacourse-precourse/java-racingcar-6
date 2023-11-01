@@ -51,7 +51,7 @@
 - [x] 자동차를 한 칸 전진시키는 기능 - moveForward()
 
 ### 자동차 컬렉션 Cars
-- [ ] 주어진 시점에 최종 우승자를 정하는 기능 - getFinalWinner()
+- [x] 현재 시점의 최종 우승자를 확인하는 기능 - getFinalWinner()
 
 ### 레이싱 게임 RacingGame
 - [ ] 게임을 시작시키는 기능 - play()
