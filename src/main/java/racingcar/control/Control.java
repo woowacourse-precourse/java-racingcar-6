@@ -34,7 +34,7 @@ public class Control {
     }
 
     private static void raceProcess() {
-        Cars.putObject();
+        Cars.makeCarList();
         System.out.print("\n실행 결과");
         for (int i = 1; i <= rounds; i++) {
             System.out.println();
