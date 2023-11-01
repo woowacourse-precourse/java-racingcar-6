@@ -18,6 +18,32 @@ public class RacingCarGame {
         this.numOfPlaying = 0;
     }
 
+
+    private void play(){
+        decideToGoOrStop();
+
+    }
+    private void decideToGoOrStop(){
+        for(RacingCar racingCar:racingCars){
+            boolean goOrNot = checkNum(randomNumGenerator.generateNum());
+            go(racingCar, goOrNot);
+        }
+    }
+
+    private boolean checkNum(int num){
+        if(num<4){
+            return false;
+        }
+        return true;
+    }
+
+    private void go(RacingCar racingCar,boolean goOrNot){
+        if(goOrNot){
+            racingCar.plusDistance();
+        }
+    }
+
+
     private void init(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
