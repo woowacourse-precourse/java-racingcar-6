@@ -8,15 +8,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarsTest {
+
     Cars carsDomain = new Cars();
-    String[] drivers = {"iii","zzz","eee"};
-    String[] tmp = {"iii","zzz","eee","www","eeee"};
-
-    @BeforeEach
-    public void setting(){
-
-    }
-
+    String[] drivers = {"iii", "zzz", "eee"};
+    String[] tmp = {"iii", "zzz", "eee", "www", "eeee"};
 
     @Test
     @BeforeEach
@@ -34,9 +29,9 @@ class CarsTest {
         carsDomain.createCars(drivers);
 
         assertRandomNumberInRangeTest(
-            () ->{
+            () -> {
                 carsDomain.moveCars();
-                for (int i = 0; i < carsDomain.getCars().length;i++) {
+                for (int i = 0; i < carsDomain.getCars().length; i++) {
                     assertThat(carsDomain.getCars()[i].getMileage()).isEqualTo(1);
                 }
             },

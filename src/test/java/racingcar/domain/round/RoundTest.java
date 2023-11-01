@@ -9,9 +9,10 @@ import racingcar.error.Roud.InvalidNumberFormatException;
 import racingcar.error.Roud.InputUnderOneException;
 
 class RoundTest {
+
     String number = "12345";
-    String notNumber ="raeㄷㄷ";
-    String zero ="0";
+    String notNumber = "raeㄷㄷ";
+    String zero = "0";
 
     @Test
     @DisplayName("라운드 카운드 출력 TEST")
@@ -24,7 +25,7 @@ class RoundTest {
     @Test
     @DisplayName("0 이하의 수가 입력된 오류 TEST")
     void validateRoundNumberCaseUnderOne() {
-        assertThatThrownBy(()-> new Round(zero))
+        assertThatThrownBy(() -> new Round(zero))
             .isInstanceOf(InputUnderOneException.class)
             .hasMessage(ErrorMessage.INPUT_UNDER_ONE_EXCEPTION.getMessage());
     }
@@ -32,7 +33,7 @@ class RoundTest {
     @Test
     @DisplayName("숫자가 아닌 입력된 오류 TEST")
     void validateRoundNumberCaseNotNumber() {
-        assertThatThrownBy(()-> new Round(notNumber))
+        assertThatThrownBy(() -> new Round(notNumber))
             .isInstanceOf(InvalidNumberFormatException.class)
             .hasMessage(ErrorMessage.INVALID_NUMBER_FORMAT_EXCEPTION.getMessage());
     }

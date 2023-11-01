@@ -8,7 +8,7 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class CarTest{
+public class CarTest {
 
     @Test
     @DisplayName("Car 객체 생성 TEST")
@@ -27,7 +27,7 @@ public class CarTest{
         Car car = new Car("TestCar");
 
         assertRandomNumberInRangeTest(
-            () ->{
+            () -> {
                 car.recordDistance();
                 assertThat(car.getMileage()).isEqualTo(1);
             },
@@ -41,7 +41,7 @@ public class CarTest{
         Car car = new Car("TestCar");
 
         assertRandomNumberInRangeTest(
-            () ->{
+            () -> {
                 car.recordDistance();
                 assertThat(car.getMileage()).isEqualTo(0);
             },

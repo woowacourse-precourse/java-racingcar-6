@@ -14,20 +14,20 @@ import racingcar.error.Roud.InvalidNumberFormatException;
 class RacingCarDriversTest {
 
     String racingCarDriversName = "ha, kim, zin";
-    String sizeOverName ="testName";
+    String sizeOverName = "testName";
 
     @Test
     @DisplayName("RacingCarDrivers 배열 출력 TEST")
     void getRacingCarDriversArray() {
         RacingCarDrivers racingCarDrivers = new RacingCarDrivers(racingCarDriversName);
 
-       assertThat(racingCarDrivers.getRacingCarDriversArray().length).isEqualTo(3);
+        assertThat(racingCarDrivers.getRacingCarDriversArray().length).isEqualTo(3);
     }
 
     @Test
     @DisplayName("입력 이름이 5자리 이상 입력된 에러 TEST")
     void validateDriverNameCaseOverNameSize() {
-        assertThatThrownBy(()-> new RacingCarDrivers(sizeOverName))
+        assertThatThrownBy(() -> new RacingCarDrivers(sizeOverName))
             .isInstanceOf(NameLengthExceededException.class)
             .hasMessage(ErrorMessage.NAME_LENGTH_EXCEEDED_EXCEPTION.getMessage());
     }
