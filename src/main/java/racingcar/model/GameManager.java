@@ -27,4 +27,12 @@ public class GameManager {
             controlManager.moveFowardCar(car);
         }
     }
+
+    public List<String> getCarNames() {
+        List<String> carNames = new ArrayList<>();
+        for (Car car : cars) {
+            carNames.add(car.getCarName());
+        }
+        return carNames;
+    }
 }
