@@ -1,8 +1,6 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.util.StringParser;
 import racingcar.view.ConsolePrinter;
@@ -11,9 +9,6 @@ import racingcar.view.ConsoleScanner;
 public class RacingGame {
     private Cars cars;
     private Integer round;
-
-    public RacingGame() {
-    }
 
     public void play() {
         initiate();
