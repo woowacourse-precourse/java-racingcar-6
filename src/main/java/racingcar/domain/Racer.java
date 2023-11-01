@@ -21,8 +21,6 @@ public class Racer {
 
     public void move() {
         int moveDistance = Randoms.pickNumberInRange(0, 9);
-
-        // 이동 거리가 4 이상인 경우만 위치를 증가시킴
         if (moveDistance >= 4) {
             position++;
         }
