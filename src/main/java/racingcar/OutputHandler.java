@@ -5,6 +5,7 @@ import java.util.List;
 public class OutputHandler {
     private final static String LINK = " : ";
     private final static String DISTANCE_UNIT = "-";
+
     public static void printEachResult(List<Car> carList) {
         for (Car car : carList) {
             System.out.println(car.getName() + LINK + DISTANCE_UNIT.repeat(car.getDistance()));
