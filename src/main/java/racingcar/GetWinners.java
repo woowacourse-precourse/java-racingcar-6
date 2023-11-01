@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class GetWinners {
-    public static void getWinners(List<String> cars, List<Integer> carsPositions) {
+    public static List<String> getWinners(List<String> cars, List<Integer> carsPositions) {
         List<String> winners = new ArrayList<>();
         int maxCount = Collections.max(carsPositions);
 
@@ -14,5 +14,7 @@ public class GetWinners {
                 winners.add(cars.get(i));
             }
         }
+
+        return winners;
     }
 }
