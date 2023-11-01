@@ -142,3 +142,39 @@
 </br></br>
 - Service에서 게임 진행을 처리하고 View를 호출하는 과정에서 Controller를 통해 View를 호출하는 것으로 바꿈
   - CarsDTO 생성으로 인해 내부 로직을 처리하는 Service와 View와의 의존성을 감소시키도록 Contorller를 중간 게층으로 두게 바꿈
+
+## ✅ Test
+### Domian
+- InputCarsTest
+  - public void 자동차_입력_테스트() 
+    - 자동차가 순차적으로 저장이 되는지 검증
+  - public void 자동차_공백_테스트() 
+    - 자동차 리스트에 공백이 존재하는지 검증
+  - public void 자동차_이름_초과_테스트()
+    - 리스트에 5글자를 넘어가는 자동차가 존재하는지 검증
+  - public void 자동차_중복_테스트()
+    - 자동차 리스트에 중복이 존재하는지 검증
+</br></br>
+- InputProgressCountTest
+  - public void 입력_횟수_스트링_숫자_변환_테스트()
+    - 문자열으로 입력된 입력 횟수가 숫자로 변환이 되었는 지 검증
+  - public void 문자열_입력_예외_테스트()
+    - 입력이 정수가 아닌 경우 예외 발생 검증
+  - public void 범위를_초과하는_입력_예외_테스트()
+    - 0보다 작은 입력이 들어오는 경우 예외 발생 검증
+</br></br>
+- CarsTest
+  - public void 최대_거리_확인_테스트() 
+    - 최대 거리가 정상적으로 반환되는지 검증
+  -  public void 최대_거리_자동차_반환_테스트()
+     - 우승자가 복수일 경우 반환되는지 검증
+</br></br>
+- MovableTest  
+  - public void 전진_테스트()
+    -  4 이상에서 전진하는지 검증
+  - public void 정지_테스트()
+    - 3 이하에서 정지하는지 검증
+</br></br>
+- RandomNumberGeneratorTest
+  -  void 범위_숫자_확인_테스트()
+     - 0부터 9까지 숫자가 발생하는 지 검증
