@@ -2,6 +2,8 @@ package racingcar;
 
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.input.InputCarInfo;
+import racingcar.input.InputTryNumber;
 
 public class RacingGame implements Game{
 

@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.input;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.Car;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
