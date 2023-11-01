@@ -3,6 +3,7 @@ package racingcar;
 public class PrintResult {
 
     public void printWinner(int[] locations, String[] names){
+        System.out.print("최종 우승자 : ");
         String winnerIdx = findWinnerIdx(locations);
         String[] idxs = splitIdx(winnerIdx);
         for(int i = 0; i < idxs.length; i++){
