@@ -5,8 +5,11 @@ import java.util.stream.Collectors;
 
 public class Referee {
 
-    public int getFurthestDistance(List<Car> cars) {
-        return cars.stream().mapToInt(Car::getDistance).max().orElseThrow(IllegalArgumentException::new);
+    private int getFurthestDistance(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     public List<Car> getFurthestCar(List<Car> cars) {
