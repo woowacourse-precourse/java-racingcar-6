@@ -16,7 +16,7 @@ public class ActionCars {
         change += "-";
         countResult.set(carNum, change); 
     }
-    
+
     public void resetCountResult(){
         int num = racinggame.getCarNumbers();
         List<String> countResult = new ArrayList<String>();
@@ -26,5 +26,15 @@ public class ActionCars {
         }
 
         racinggame.setCountResult(countResult);
+    }
+
+    public int winnerGoCount(int carNumbers){
+        int maxlength = 0;
+        for(int i = 0 ; i < carNumbers ; i++){
+            if(racinggame.getCountResult().get(i).length() > maxlength){
+                maxlength = racinggame.getCountResult().get(i).length();
+            }
+        }
+        return maxlength;
     }
 }
