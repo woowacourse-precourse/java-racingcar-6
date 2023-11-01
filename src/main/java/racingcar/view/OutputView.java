@@ -14,4 +14,12 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public static String createDistanceString(int distance) {
+        StringBuilder distanceString = new StringBuilder();
+        for (int i = 0; i < distance; i++) {
+            distanceString.append("-");
+        }
+        return distanceString.toString();
+    }
 }
