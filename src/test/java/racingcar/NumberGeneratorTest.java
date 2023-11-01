@@ -1,15 +1,10 @@
-package racingcar;
+package util;
 
-import Util.Converter;
-import Util.NumberGenerator;
-import camp.nextstep.edu.missionutils.Randoms;
+import util.NumberGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
