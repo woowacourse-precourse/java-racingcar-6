@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Controller {
+public class Race {
     private static final String DELIMITER = ",";
 
     private static Message message;
 
-    public Controller() {
+    public Race() {
         message = new Message();
     }
 
-    public void game() {
+    public void play() {
         List<Car> carList;
         int cnt;
 
         carList = generateCarList();
         cnt = inputCount();
-        race(carList, cnt);
+        startRace(carList, cnt);
         printWinners(carList);
     }
 
@@ -69,7 +69,7 @@ public class Controller {
         return false;
     }
 
-    private void race(List<Car> carList, int cnt) {
+    private void startRace(List<Car> carList, int cnt) {
         message.printResultMessage();
         for (int i = 0; i < cnt; i++) {
             moveList(carList);
