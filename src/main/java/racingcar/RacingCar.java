@@ -11,7 +11,7 @@ public class RacingCar {
     }
 
     public boolean moveBy(int random) {
-        if (random > 4) {
+        if (random >= 4) {
             position++;
             return true;
         }
