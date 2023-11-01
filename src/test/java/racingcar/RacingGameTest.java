@@ -2,6 +2,7 @@ package racingcar;
 
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 class RacingGameTest {
@@ -29,6 +30,16 @@ class RacingGameTest {
             System.setIn(new ByteArrayInputStream("-1".getBytes()));
             game.inputTryNum();
         }, "시도횟수 입력 예외가 발생하지 않았습니다");
+    }
+
+    @RepeatedTest(30)
+    void 전진조건확인() {
+        Car test = new Car("test");
+        int i = test.move();
+        Assertions.assertTrue(i >= 0 && i <= 9);
+        if (i >= 4) {
+            Assertions.assertEquals(test.getLocation(), 1);
+        }
     }
 
 }

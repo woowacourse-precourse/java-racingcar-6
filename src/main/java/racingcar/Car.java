@@ -18,10 +18,12 @@ public class Car {
         return location;
     }
 
-    public void move() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+    public int move() {
+        int random = Randoms.pickNumberInRange(0, 9);
+        if (random >= 4) {
             location++;
         }
+        return random;
     }
 
     public void status() {
