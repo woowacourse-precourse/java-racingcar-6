@@ -21,10 +21,10 @@ class RacingCarServiceTest {
         //when
         CarGroup carGroup = racingCarService.createCarGroup(carNames, delimiter);
         //then
-        assertEquals(carGroup.getCars().size(), 3);
-        assertThat(carGroup.getCars().get(0).getName()).isEqualTo("test1");
-        assertThat(carGroup.getCars().get(1).getName()).isEqualTo("test2");
-        assertThat(carGroup.getCars().get(2).getPosition()).isEqualTo(0);
+        assertEquals(carGroup.getCarList().size(), 3);
+        assertThat(carGroup.getCarList().get(0).getName()).isEqualTo("test1");
+        assertThat(carGroup.getCarList().get(1).getName()).isEqualTo("test2");
+        assertThat(carGroup.getCarList().get(2).getPosition()).isEqualTo(0);
     }
 
     @Test
@@ -43,7 +43,7 @@ class RacingCarServiceTest {
     void getWinners() {
         // given
         CarGroup carGroup = racingCarService.createCarGroup("test1,test2", ",");
-        carGroup.getCars().get(0).move();
+        carGroup.getCarList().get(0).move();
         // when
         List<String> winners = racingCarService.getWinners(carGroup);
         // then

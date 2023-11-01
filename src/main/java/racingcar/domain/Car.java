@@ -8,7 +8,7 @@ public class Car {
     private int position;
 
     private Car(String name) {
-        Validation.validateName(name);
+        Validation.validateCarName(name);
         this.name = name;
         this.position = 0;
     }

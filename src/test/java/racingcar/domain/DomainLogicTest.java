@@ -34,7 +34,7 @@ class DomainLogicTest {
                 Car.from("test2")
             )
         );
-        carGroup.getCars().get(0).move();
+        carGroup.getCarList().get(0).move();
         // when
         int maxPosition = carGroup.getMaxPosition();
         // then

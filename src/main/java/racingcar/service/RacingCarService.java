@@ -31,14 +31,14 @@ public class RacingCarService {
     }
 
     public void moveCarGroup(CarGroup carGroup) {
-        carGroup.getCars()
+        carGroup.getCarList()
             .stream()
             .filter(car -> Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE) >= MIN_NUMBER)
             .forEach(Car::move);
     }
 
     public List<String> getWinners(CarGroup carGroup) {
-         return carGroup.getCars().stream()
+         return carGroup.getCarList().stream()
             .filter(car -> car.getPosition() == carGroup.getMaxPosition())
             .map(Car::getName)
             .collect(Collectors.toList());

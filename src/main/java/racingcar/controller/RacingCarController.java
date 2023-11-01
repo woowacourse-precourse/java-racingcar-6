@@ -48,7 +48,7 @@ public class RacingCarController {
     private CarGroupDto moveCarGroup(CarGroup carGroup) {
         racingCarService.moveCarGroup(carGroup);
 
-        return new CarGroupDto(carGroup.getCars());
+        return new CarGroupDto(carGroup.getCarList());
     }
 
     public WinnersDto getWinners(CarGroup carGroup) {

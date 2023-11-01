@@ -13,8 +13,6 @@ public class CarGroup {
     public static CarGroup from(List<Car> carGroup) {
         return new CarGroup(carGroup);
     }
-
-
     public int getMaxPosition() {
         return carGroup.stream()
             .mapToInt(Car::getPosition)
@@ -22,7 +20,7 @@ public class CarGroup {
             .orElse(0);
     }
 
-    public List<Car> getCars() {
+    public List<Car> getCarList() {
         return carGroup;
     }
 }
