@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import java.util.Stack;
-import racingcar.controller.MessageDto;
+import racingcar.controller.dto.MessageDto;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;

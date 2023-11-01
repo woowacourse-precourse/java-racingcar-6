@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import racingcar.controller.MessageDto;
+import racingcar.controller.dto.MessageDto;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
 import racingcar.domain.wrapper.RaceRound;

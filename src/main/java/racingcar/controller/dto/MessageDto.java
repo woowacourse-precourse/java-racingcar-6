@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.controller.dto;
 
 public class MessageDto {
     private String message;
