@@ -18,4 +18,12 @@ public class Racing {
     public int getDistance() {
         return distance;
     }
+
+    public void moveCar() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            distance++;
+        }
+    }
+
 }
