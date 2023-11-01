@@ -9,4 +9,5 @@ public class ErrorMessage {
     public static final String CASE_INSENSITIVE_DUPLICATE_ERROR_MESSAGE = "대소문자를 구분하지 않고 중복된 자동차 이름은 허용되지 않습니다.";
     public static final String INVALID_CHARACTERS_ERROR_MESSAGE = "자동차 이름은 영어만 입력해야 합니다.";
     public static final String RACE_ALREADY_FINISHED_ERROR_MESSAGE = "이미 종료된 경주입니다.";
+    public static final String LESS_THAN_MINIMUM_MOVE_COUNTS_ERROR_MESSAGE = "이동 횟수는 최소 횟수 이상이어야 합니다.";
 }
