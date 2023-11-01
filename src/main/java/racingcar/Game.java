@@ -31,8 +31,8 @@ public class Game {
     private void raceStart(List<Car> carEntry) {
         for (int i = 0; i < round; i++) {
             for (int j = 0; j < carEntry.size(); j++) {
-                carEntry.get(i).onceRoundStart();
-                carEntry.get(i).printCarState();
+                carEntry.get(j).onceRoundStart();
+                carEntry.get(j).printCarState();
             }
             System.out.println();
         }
@@ -56,7 +56,7 @@ public class Game {
             }
         }
 
-        System.out.println("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
             if (i < winners.size() - 1) {
