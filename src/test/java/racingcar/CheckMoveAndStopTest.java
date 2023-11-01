@@ -11,7 +11,7 @@ import racingcar.output.OutputCarRaceTest.OutputCarRace;
 
 public class CheckMoveAndStopTest {
     private static List<Car> 우승자들 = new ArrayList<>();
-    private static int 사용자_이동_횟수 = 2;
+    private static int 경주_횟수 = 2;
 
     public void 차량이름을_입력하라(){
         우승자들.add(Car.inputCarname("pobi1"));
@@ -70,7 +70,7 @@ public class CheckMoveAndStopTest {
     void 차량_이동(){
         차량이름을_입력하라();
 
-        CheckMoveAndStop.run(우승자들, 사용자_이동_횟수);
+        CheckMoveAndStop.run(우승자들, 경주_횟수);
     }
 
 }
