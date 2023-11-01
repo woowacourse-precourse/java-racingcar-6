@@ -3,6 +3,7 @@ package racingcar.domain.game;
 import racingcar.enums.GameStatus;
 
 public class Game {
+
     private final int tryNumber;
     private int currentTryNumber;
     private GameStatus gameStatus;

@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.car.Car;
 
 public class OutputView {
+
     public static void informCarMoveDistance(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getCarName() + " : ");
