@@ -36,4 +36,18 @@ public class GameInitializer {
 
         return carList;
     }
+
+    public Integer inputNumbersOfMatch() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String inputNumbersOfMatch = Console.readLine();
+        int NumbersOfMatch;
+
+        try {
+            NumbersOfMatch = Integer.parseInt(inputNumbersOfMatch);
+        } catch(Exception exception) {
+            throw new IllegalArgumentException();
+        }
+
+        return NumbersOfMatch;
+    }
 }
