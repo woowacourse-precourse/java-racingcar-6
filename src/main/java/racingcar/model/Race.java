@@ -54,7 +54,7 @@ public class Race {
     }
 
 
-    public List<Car> initCarList(List<String> carNameList) {
+    private List<Car> initCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
         Car car;
         for (String carName : carNameList) {
