@@ -1,7 +1,13 @@
 package racingcar;
 
+import racingcar.control.ControlGame;
+
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        ControlGame game = new ControlGame();
+        game.StartGame();
+        game.PlayGame();
+        game.EndGame();
     }
 }
