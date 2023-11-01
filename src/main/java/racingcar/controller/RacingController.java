@@ -36,7 +36,7 @@ public class RacingController {
         String inputCarNames = racingView.readInput();
         return parseCarNames(inputCarNames);
     }
-    private String[] parseCarNames(String inputCarNames) {
+    public String[] parseCarNames(String inputCarNames) {
         validNameFormat(inputCarNames);
         validSingleName(inputCarNames);
         return Arrays.stream(inputCarNames.split(NAME_SEPARATOR))
@@ -51,7 +51,7 @@ public class RacingController {
         String inputRoundNumber = racingView.readInput();
         return parseRoundNumber(inputRoundNumber);
     }
-    private int parseRoundNumber(String inputNumber) {
+    public int parseRoundNumber(String inputNumber) {
         validIsNumber(inputNumber);
         validNotZero(inputNumber);
         return Integer.parseInt(inputNumber);
