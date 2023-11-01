@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.RoundCount;
 import racingcar.domain.car.Car;
@@ -21,7 +20,7 @@ public class RacingGameService {
 
     public GameResultDto run(List<CarName> carNames, RoundCount roundCount) {
         List<Car> participants = carFactoryService.prepareRacingCars(carNames);
-        List<RoundResultDto> roundHistories = executeAllRounds(participants, roundCount);
+        List<RoundResultDto> roundHistories = refereeService.executeAllRounds(participants, roundCount);
         List<CarStatusDto> carsStatusAtRaceEnd = getRaceEndStatus(participants);
         return refereeService.publishGameResult(roundHistories, carsStatusAtRaceEnd);
     }
@@ -32,14 +31,5 @@ public class RacingGameService {
                 .toList();
     }
 
-    private List<RoundResultDto> executeAllRounds(List<Car> participants, RoundCount roundCount) {
-        List<RoundResultDto> roundHistories = new ArrayList<>();
-        while (roundCount.hasNextRound()) {
-            RoundResultDto roundResultDto = refereeService.executeRound(participants);
-            roundHistories.add(roundResultDto);
-            roundCount.consumeRound();
-        }
-        return roundHistories;
-    }
 
 }

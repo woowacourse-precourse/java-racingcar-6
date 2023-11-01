@@ -1,8 +1,10 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
+import racingcar.domain.RoundCount;
 import racingcar.domain.car.Car;
 import racingcar.domain.position.Position;
 import racingcar.dto.CarStatusDto;
@@ -17,9 +19,19 @@ public class RefereeService {
         return GameResultDto.of(winners, roundHistories);
     }
 
-    public RoundResultDto executeRound(List<Car> cars) {
+    private RoundResultDto executeRound(List<Car> cars) {
         cars.forEach(Car::tryDrive);
         return RoundResultDto.createFrom(cars);
+    }
+
+    public List<RoundResultDto> executeAllRounds(List<Car> participants, RoundCount roundCount) {
+        List<RoundResultDto> roundHistories = new ArrayList<>();
+        while (roundCount.hasNextRound()) {
+            RoundResultDto roundResultDto = executeRound(participants);
+            roundHistories.add(roundResultDto);
+            roundCount.consumeRound();
+        }
+        return roundHistories;
     }
 
     private List<CarStatusDto> selectWinners(List<CarStatusDto> carsStatusAtRaceEnd) {
