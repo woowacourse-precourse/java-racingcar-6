@@ -20,3 +20,4 @@
 6. MaxIndexFinderTester를 생성하여 MaxIndexFinder가 올바른 최대값 인덱스를 return하는지 테스트함
 7. ReaderTester를 생성하여 Reader가 올바른 값을 읽어드리는지 테스트함
 8. ResultPrinterTester를 생성하여 ResultPrint가 올바른 결과를 출력하는지 테스트함
+9. WinnerCheckerTester를 생성하여 WinnerChecker가 올바른 최종 승리자를 출력하는지 테스트함
