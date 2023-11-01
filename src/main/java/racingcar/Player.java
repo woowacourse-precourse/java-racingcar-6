@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Player {
     public ArrayList<String> createPlayerCarList(String inputCars) {
         String[] commaSeperatedInputCars = inputCars.replace(" ", "").split(",");
-        ArrayList<String> playerCarList = new ArrayList<String>(Arrays.asList(commaSeperatedInputCars));
+        ArrayList<String> playerCarList = new ArrayList<>(Arrays.asList(commaSeperatedInputCars));
 
         return playerCarList;
     }

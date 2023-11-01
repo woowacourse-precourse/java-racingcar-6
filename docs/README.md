@@ -4,7 +4,7 @@
 
 # 테스트 코드가 존재하는 기능에 대한 테스트 동작 확인 여부 [complete]
 
-- [x]사용자가 입력한 총 게임 회수와 자동차 이름을 배열로 반환한다. - Player#createPlayerCarList, Player#setLapsOfRace
+- [x][complete] 사용자가 입력한 총 게임 회수와 자동차 이름을 배열로 반환한다. - Player#createPlayerCarList, Player#setLapsOfRace
 - 입력 값이 올바른지 검사한다.
   - [x][complete] 입력한 자동차 이름이 5자 이하인지 검사한다. - Validators#isListElementOverFive
   - [x][complete] 입력한 게임 회수가 정수로 변환 가능한지 검사한다. - Validators#isInteger
