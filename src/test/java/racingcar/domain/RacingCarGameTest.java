@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.customCollection.CustomArrayList;
 
 class RacingCarGameTest {
 
@@ -18,8 +19,15 @@ class RacingCarGameTest {
     }
 
     @Test
-    void readNumberOfRace() {
+    @DisplayName("각각의_이름으로_자동차_객체_생성")
+    void test_generateCarList() {
+        String[] arrayOfCarName = {"blue", "red", "green", "white"};
+        CustomArrayList<Car> carList = new CustomArrayList<>();
 
+        rg.generateCarList(arrayOfCarName, carList);
+
+        assertThat(carList.size()).isEqualTo(4);
+        assertThat(carList.get(1).getName()).isEqualTo("red");
     }
 
 }
