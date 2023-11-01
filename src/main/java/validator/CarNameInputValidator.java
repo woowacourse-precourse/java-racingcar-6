@@ -4,6 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CarNameInputValidator {
+    public String[] validCarNames(String[] carNames) {
+        vaildCarNameLength(carNames);
+        vaildCarNameDuplication(carNames);
+        return carNames;
+    }
+
     public void vaildCarNameLength(String[] carNames) {
         for (String name: carNames) {
             if (name.length() > 5) {
