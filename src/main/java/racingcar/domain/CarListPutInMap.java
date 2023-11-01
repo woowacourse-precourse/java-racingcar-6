@@ -10,7 +10,8 @@ public class CarListPutInMap {
 
     public void carListPutInMap(List<String> carList) {
         carList.forEach((car) -> {
-            exception.IllegalArgumentException(car);
+            exception.checkExcessCarName(car);
+            exception.checkOverlapCarName(car);
             carMap.put(car, 0);
         });
         RacingValue allValue = new RacingValue();
