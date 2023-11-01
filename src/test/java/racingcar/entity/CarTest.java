@@ -14,9 +14,19 @@ class CarTest {
     }
 
     @Test
-    void 이름_길이_유효성_테스트() {
+    void 자동차_이름_길이_유효성_테스트() {
         String longName = "abcdef";
         assertThrows(IllegalArgumentException.class, () -> new Car(longName));
+    }
+
+    @Test
+    void 자동차_이름_null_테스트() {
+        assertThrows(IllegalArgumentException.class, () -> new Car(null));
+    }
+
+    @Test
+    void 자동차_이름_빈문자열_테스트() {
+        assertThrows(IllegalArgumentException.class, () -> new Car(""));
     }
 
     @Test
