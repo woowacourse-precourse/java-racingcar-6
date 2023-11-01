@@ -1,26 +1,23 @@
 package racingcar.model;
 
 import racingcar.util.generator.NumberGenerator;
-import racingcar.util.validator.CarNameValidator;
-import racingcar.util.validator.Validator;
 
 public class Car {
     private static final int MOVEMENT_THRESHOLD = 4;
     private final NumberGenerator numberGenerator;
-    private final String name;
-    private int position = 0;
+    private final CarName name;
+    private final CarPosition position;
 
     public Car(final String name, final NumberGenerator numberGenerator) {
-        final Validator validator = CarNameValidator.getInstance();
-        validator.validate(name);
-        this.name = name;
+        this.name = new CarName(name);
+        this.position = new CarPosition(0);
         this.numberGenerator = numberGenerator;
     }
 
     public void moveForward() {
         final int randomNumber = numberGenerator.generate();
         if (isMoveForward(randomNumber)) {
-            position++;
+            position.increase();
         }
     }
 
@@ -29,14 +26,14 @@ public class Car {
     }
 
     public boolean isWinner(final int winnerPosition) {
-        return position == winnerPosition;
+        return position.getPosition() == winnerPosition;
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     public int getPosition() {
-        return position;
+        return position.getPosition();
     }
 }
