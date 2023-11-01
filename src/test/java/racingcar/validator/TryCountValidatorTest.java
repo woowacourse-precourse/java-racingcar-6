@@ -36,9 +36,9 @@ class TryCountValidatorTest {
     }
 
     @Test
-    void 입력값이_0인_경우() {
+    void 입력값이_0보다_작은_경우() {
         //given
-        String tryCount = "0";
+        String tryCount = "-1";
 
         //when, then
         assertThatThrownBy(() -> tryCountValidator.isZero(tryCount))
@@ -47,7 +47,7 @@ class TryCountValidatorTest {
     }
 
     @Test
-    void 입력값이_0이_아닌_경우() {
+    void 입력값이_0보다_큰_경우() {
         //given
         String tryCount = "1";
 
