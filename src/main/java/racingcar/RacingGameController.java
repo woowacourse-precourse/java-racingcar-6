@@ -39,5 +39,13 @@ public class RacingGameController {
             }
         }
     }
+    // 최고로 많이 전진한 Position 찾은 후 maxPosition Car 객체의 List 반환
+    private List<Car> findWinners() {
+        //스트림으로 Car 객체들을 스트림으로 변환 후 각 스트림에 대해 getPosition 메서드를 호출하여 Position 매핑
+        // 그 후 매핑 된 값들 중 최대값 출력
+        int maxPosition = cars.stream().mapToInt(Car::getPosition).max().getAsInt();
+        //filter 통과한 객체들만 return
+        return cars.stream().filter(car -> car.getPosition() == maxPosition).collect(Collectors.toList());
+    }
 
 }
