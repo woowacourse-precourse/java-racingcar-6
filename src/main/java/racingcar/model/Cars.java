@@ -21,14 +21,17 @@ public class Cars {
     }
 
     public List<Car> getMaxPositionCars() {
-        int maxPosition = carList.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElseThrow(() -> new IllegalStateException(NO_CAR_AVAILABLE));
-
+        int maxPosition = getMaxPosition();
         return carList.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(() -> new IllegalStateException(NO_CAR_AVAILABLE));
     }
 
     public List<Car> getCarList() {
