@@ -38,4 +38,14 @@ class ValidatorTest {
         //when, then
         assertThatIllegalArgumentException().isThrownBy(() -> validator.playTimes(playTimes));
     }
+
+    @Test
+    @DisplayName("예외 - 시도 횟수를 숫자가 아닌 다른 문자열을 입력한다.")
+    void test4() {
+        //given
+        final String playTimes = "a";
+
+        //when, then
+        assertThatIllegalArgumentException().isThrownBy(() -> validator.playTimes(playTimes));
+    }
 }
