@@ -9,8 +9,12 @@ public class OutputView {
     public static final String WINNER_GUIDE_MESSAGE = "최종 우승자 : ";
     public static final String GAME_RESULT_MESSAGE = "실행 결과";
 
-    public static void printCarsResult(Cars cars){
-        for (Car car : cars.getCarList()){
+    public static void printGameResultMessage(){
+        System.out.println(GAME_RESULT_MESSAGE);
+    }
+
+    public static void printCarsResult(Cars cars) {
+        for (Car car : cars.getCarList()) {
             String name = car.getName();
             int position = car.genPosition();
             printCarResult(name, position);
