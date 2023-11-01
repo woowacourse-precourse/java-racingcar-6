@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import static racingcar.Validation.*;
 
 public class GetInput {
     public static String getCarNames() {
@@ -8,7 +9,9 @@ public class GetInput {
     }
 
     public static int getCounts() {
-        return Integer.parseInt(Console.readLine());
+        int input =  Integer.parseInt(Console.readLine());
+//        validateCounts(input);
+        return 1;
     }
 
 }
