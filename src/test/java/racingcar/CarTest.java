@@ -77,7 +77,7 @@ public class CarTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,chan", "1");
-                    assertThat(output()).contains("pobi : -", "woni : ", "chan : -", "최종 우승자 : pobi,chan");
+                    assertThat(output()).contains("pobi : -", "woni : ", "chan : -", "최종 우승자 : pobi, chan");
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD
         );
