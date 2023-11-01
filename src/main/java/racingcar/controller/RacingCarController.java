@@ -12,22 +12,19 @@ public class RacingCarController {
 
     public void run() {
         Output.inputCarName();
+        cars = new Cars(Input.getCarName());
 
-        cars = new Cars(Input.getCarName()); // pobi,woni,jun
-
-        Output.printNumber_of_attempts(); // 시도할 횟수는 몇회?
+        Output.printNumber_of_attempts();
         tryCount = new TryCount(Input.getNumber_of_attemps());
 
-        //경주 실행
         race();
 
-        //경주 끝 최종 우승자
         theEnd();
     }
 
     private void race() {
 
-        Output.printExecutionResult(); // 실행 결과
+        Output.printExecutionResult();
 
         int nowTrialCnt = 0;
         while(!tryCount.isSame(nowTrialCnt++)){

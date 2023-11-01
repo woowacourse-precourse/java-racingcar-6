@@ -11,6 +11,10 @@ public class Name {
         this.name = name;
     }
 
+    public static Name from(String name) {
+        return new Name(name);
+    }
+
     @Override
     public String toString() {
         return this.name;

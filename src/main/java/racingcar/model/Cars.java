@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.util.StringUtils;
 import racingcar.validator.Validator;
 
 import java.util.ArrayList;
@@ -12,9 +11,8 @@ import static racingcar.util.StringUtils.splitByComma;
 public class Cars {
     private static final int START_INCLUSIVE = 0;
     private static final int END_INCLUSIVE = 9;
-    private final String CAR_NAME_SPLIT = ",";
+    private static final String CAR_NAME_SPLIT = ",";
 
-    private static Validator validator;
 
     private final List<Car> cars = new ArrayList<>();
 

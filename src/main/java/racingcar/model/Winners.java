@@ -14,13 +14,13 @@ public class Winners {
                 .collect(Collectors.toList());
     }
 
-    private List<String> getNames() {
+    public List<String> getWinnerNames() {
         return winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
-    private int getMaxPosition(List<Car> cars) {
+    public int getMaxPosition(List<Car> cars) {
         int max = Integer.MIN_VALUE;
         for (Car car : cars) {
             if (max < car.getPosition()) {

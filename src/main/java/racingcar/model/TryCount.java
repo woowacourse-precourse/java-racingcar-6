@@ -11,7 +11,6 @@ public class TryCount {
 
     }
 
-    // 입력한 숫자와 현재 진행 중인 시도 횟수가 같아지면 끝냄
     public boolean isSame(int tryCount) {
         return this.tryCount == tryCount;
     }

@@ -8,8 +8,9 @@ public class Car {
     private final Name name;
     private final Position position;
 
+
     public Car(String name) {
-        this.name = new Name(name);
+        this.name = Name.from(name);
         this.position = new Position();
     }
 

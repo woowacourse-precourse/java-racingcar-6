@@ -3,10 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
-import racingcar.model.Cars;
-import racingcar.model.TryCount;
 import racingcar.model.Winners;
-import racingcar.validator.Validator;
 
 
 import java.util.ArrayList;

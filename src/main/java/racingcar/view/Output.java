@@ -29,7 +29,7 @@ public class Output {
 
     public static void printCarScore(List<Car> cars) {
         for (Car car : cars) {
-            System.out.print(car.getName() + " : "); // 차 이름
+            System.out.print(car.getName() + " : ");
             printPosition(car);
         }
         System.out.println();
@@ -45,8 +45,6 @@ public class Output {
 
     public static void printWinner(Winners winners) {
         System.out.print("최종 우승자 : ");
-        // 우승자 이름 출력
-//        System.out.println(winners.getWinnerNames()); // List로 출력
         String lastWinners = String.join(comma, winners.getWinnerNames());
         System.out.println(lastWinners);
     }
