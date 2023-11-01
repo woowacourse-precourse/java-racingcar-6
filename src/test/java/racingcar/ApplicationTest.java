@@ -39,6 +39,18 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    public void 자동차_전진() throws Exception {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi", "10");
+                    assertThat(output()).contains("pobi : ------", "최종 우승자 : pobi");
+                },
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+        );
+
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
