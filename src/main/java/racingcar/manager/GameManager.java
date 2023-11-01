@@ -1,7 +1,5 @@
 package racingcar.manager;
 
-import static racingcar.model.RandomNumberGenerator.isRacingCarProceed;
-
 public class GameManager {
 
     private final IOManager ioManager;

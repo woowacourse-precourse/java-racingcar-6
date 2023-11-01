@@ -11,7 +11,7 @@ import racingcar.constant.InputStringConstant;
 public class InputValidator {
 
     public static void validateName(String[] nameArr) {
-        for (String name: nameArr) {
+        for (String name : nameArr) {
             if (!checkNameLengthInRange(name) && !checkContainBlank(name)) {
                 throw new IllegalArgumentException(NAME_LENGTH_NOT_IN_RANGE.getMessage());
             }
@@ -26,7 +26,7 @@ public class InputValidator {
         if (!checkNumPositive(roundNum)) {
             throw new IllegalArgumentException(ROUND_MUST_BE_POSITIVE.getMessage());
         }
-     }
+    }
 
     private static boolean checkNameLengthInRange(String name) {
         return name.length() >= MIN_NAME_LENGTH.getValue() && name.length() <= MAX_NAME_LENGTH.getValue();
