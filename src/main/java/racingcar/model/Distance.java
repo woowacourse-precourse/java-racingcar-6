@@ -38,4 +38,12 @@ public class Distance implements Comparable<Distance>{
     public int compareTo(Distance o) {
         return this.distance - o.distance;
     }
+
+    /**
+     * @return ex. "-----"
+     */
+    @Override
+    public String toString() {
+        return "-".repeat(distance);
+    }
 }
