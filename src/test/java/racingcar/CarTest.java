@@ -22,4 +22,12 @@ class CarTest {
         int movingCount = car.updateMovingCountOrNot(randomNumber);
         assertThat(movingCount).isEqualTo(2);
     }
+
+    @Test
+    void 이름과_전진횟수만큼_하이픈_출력() {
+        Car car = new Car("honi", 5);
+        String movingWay = car.getResult();
+        String resultWay = "honi : -----";
+        assertThat(movingWay).isEqualTo(resultWay);
+    }
 }
