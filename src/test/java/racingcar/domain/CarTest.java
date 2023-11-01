@@ -9,7 +9,7 @@ class CarTest {
 
     @Test
     @DisplayName("자동차 개별의 실행 결과 출력 메시지 테스트")
-    void createRoundRaceResult() {
+    void createRoundRaceResultTest() {
         // given
         Car pobi = new Car("pobi");
 
