@@ -23,16 +23,20 @@ public class GameService {
         tracks.setCars(InputUtil.inputNames(str));
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int count = Integer.parseInt(Console.readLine());
+        try {
+            int count = Integer.parseInt(Console.readLine());
 
-        System.out.println("\n실행 결과");
+            System.out.println("\n실행 결과");
 
-        for (int i = 0; i < count; i++) {
-            tracks.runCars();
-            tracks.printCars();
+            for (int i = 0; i < count; i++) {
+                tracks.runCars();
+                tracks.printCars();
+            }
+
+            tracks.print1st();
+        }catch(NumberFormatException e){
+            throw new IllegalArgumentException("숫자로 횟수를 입력해야 합니다.");
         }
-
-        tracks.print1st();
     }
 
 
