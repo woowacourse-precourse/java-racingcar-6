@@ -10,11 +10,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import racingcar.common.exception.RacingGameException;
+import racingcar.util.RandomUtil;
 import racingcar.util.StringUtil;
 
 public class RacingGame {
 
     private static final String DELIMITER = ",";
+    private static final int MIN_RANDOM_VALUE = 0;
+    private static final int MAX_RANDOM_VALUE = 9;
     private final List<Car> racingCarList;
 
     private RacingGame(final String inputNameString) {
@@ -33,7 +36,7 @@ public class RacingGame {
 
     public List<Result> play() {
         return racingCarList.stream()
-                .map(Car::move)
+                .map(car -> car.moveOrStop(RandomUtil.generateRandomValue(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE)))
                 .toList();
     }
 
