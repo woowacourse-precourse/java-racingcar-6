@@ -26,7 +26,6 @@ class TotalTurnInputTest {
             //when
             TotalTurnInput totalTurnInput = new TotalTurnInput(input);
             //then
-            assertThat(totalTurnInput).isNotNull();
             assertThat(totalTurnInput.input()).isEqualTo(input);
         }
 

@@ -15,7 +15,6 @@ import racingcar.game.RacingGameScreen;
 import racingcar.game.vo.RacerPosition;
 import racingcar.game.vo.RacingCarNamesInput;
 import racingcar.game.vo.TotalTurnInput;
-import racingcar.game.vo.TurnResult;
 import racingcar.io.reader.Reader;
 import racingcar.io.writer.Writer;
 
@@ -116,9 +115,8 @@ class RacingGameScreenTest {
         result.add(new RacerPosition("name1", 1));
         result.add(new RacerPosition("name2", 2));
 
-        TurnResult turnResult = new TurnResult(result);
         //when
-        racingGameScreen.showTurnResult(turnResult);
+        racingGameScreen.showTurnResult(result);
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("""

@@ -26,7 +26,6 @@ class RacingCarNamesInputTest {
             //when
             RacingCarNamesInput racingCarNamesInput = new RacingCarNamesInput(input);
             //then
-            assertThat(racingCarNamesInput).isNotNull();
             assertThat(racingCarNamesInput.input()).isEqualTo(input);
         }
 

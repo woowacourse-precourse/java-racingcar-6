@@ -3,7 +3,6 @@ package racingcar.game;
 import java.util.List;
 import racingcar.game.vo.RacingCarNamesInput;
 import racingcar.game.vo.TotalTurnInput;
-import racingcar.game.vo.TurnResult;
 import racingcar.race.Racer;
 import racingcar.race.RacerRegistry;
 import racingcar.race.RacingTurn;
@@ -46,9 +45,7 @@ public class RacingGameManager {
         RacingTurnProcessor<Racer> racingTurnProcessor = new RacingTurnProcessor<>(racerRegistry);
         for (int i = 0; i < totalTurn.getCount(); i++) {
             racingTurnProcessor.progressTurn();
-
-            TurnResult turnResult = new TurnResult(racingTurnProcessor.getTurnResult());
-            racingGameScreen.showTurnResult(turnResult);
+            racingGameScreen.showTurnResult(racingTurnProcessor.getTurnResult());
         }
 
         return racingTurnProcessor.getWinners();

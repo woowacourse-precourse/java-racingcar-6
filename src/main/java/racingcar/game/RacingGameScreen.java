@@ -1,12 +1,11 @@
 package racingcar.game;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.common.config.RacingCarRule;
+import racingcar.game.vo.RacerPosition;
 import racingcar.game.vo.RacingCarNamesInput;
 import racingcar.game.vo.TotalTurnInput;
-import racingcar.game.vo.TurnResult;
 import racingcar.io.reader.Reader;
 import racingcar.io.writer.Writer;
 
@@ -18,7 +17,7 @@ public class RacingGameScreen {
     private static final String FINAL_WINNER = "최종 우승자 : %s";
 
     private static final String TURN_RESULT_FORMAT = "%s : %s";
-    private static final char DISTANCE_CHARACTER = '-';
+    private static final String DISTANCE_MARKER = "-";
 
     private static final String ERROR_MESSAGE_PREFIX = "[ERROR]: ";
 
@@ -46,20 +45,13 @@ public class RacingGameScreen {
         writer.writeLine(LINE_SEPARATOR + START_SHOW_GAME_RESULT);
     }
 
-    public void showTurnResult(TurnResult turnResult) {
-        String resultMessage = turnResult.result().stream()
+    public void showTurnResult(List<RacerPosition> turnResult) {
+        String resultMessage = turnResult.stream()
                 .map(racerPosition -> String.format(TURN_RESULT_FORMAT, racerPosition.name(),
-                        repeatChar(racerPosition.position())))
+                        DISTANCE_MARKER.repeat(racerPosition.position())))
                 .collect(Collectors.joining(LINE_SEPARATOR));
 
         writer.writeLine(resultMessage + LINE_SEPARATOR);
-    }
-
-    private String repeatChar(int count) {
-        char[] chars = new char[count];
-        Arrays.fill(chars, DISTANCE_CHARACTER);
-
-        return String.valueOf(chars);
     }
 
     public void showFinalWinner(List<String> winnerNames) {
