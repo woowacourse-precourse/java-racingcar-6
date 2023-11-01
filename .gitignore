@@ -21,7 +21,6 @@ build/
 *.ipr
 *.class
 .gitignore
-git rebase -i HEAD~4
 out/
 
 ### NetBeans ###
