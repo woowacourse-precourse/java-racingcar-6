@@ -23,7 +23,10 @@ public class Game {
 
     // 게임 시작 전 설정
     public void setUp() {
+        System.out.println(Message.INPUT_CAR_NAMES);
         setCarNames(player.inputCarNames());
+
+        System.out.println(Message.INPUT_MOVE_COUNT);
         setMoveCnt(player.inputMoveCnt());
         System.out.println();
     }
@@ -31,7 +34,6 @@ public class Game {
     // 게임 시작
     public void start() {
         System.out.println(Message.GAME_START);
-
         while (moveCnt > 0) {
             play();
             printCarMoveResult();
@@ -40,12 +42,9 @@ public class Game {
     }
 
     public void setMoveCnt(String inputMoveCnt) {
-        System.out.println(Message.INPUT_MOVE_COUNT);
-
         if (!Validator.validateMoveCnt(inputMoveCnt)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MOVE_CNT.getMessage());
         }
-
         moveCnt = Integer.parseInt(inputMoveCnt);
     }
 
@@ -63,8 +62,6 @@ public class Game {
 
 
     private void setCarNames(String[] carNames) {
-        System.out.println(Message.INPUT_CAR_NAMES);
-
         if (!Validator.validateCarNames(carNames)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAMES.getMessage());
         }
