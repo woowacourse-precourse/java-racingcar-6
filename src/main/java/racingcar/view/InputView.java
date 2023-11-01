@@ -12,8 +12,8 @@ public class InputView {
         return Console.readLine().split(NAME_CLASSIFICATION_CRITERIA);
     }
 
-    public static int inputRaceRounds() {
+    public static String inputRaceRounds() {
         System.out.println(REQUEST_INPUT_NUMBER_OF_ROUNDS);
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }
