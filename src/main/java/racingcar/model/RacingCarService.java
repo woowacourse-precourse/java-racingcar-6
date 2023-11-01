@@ -1,9 +1,9 @@
 package racingcar.model;
 
-import racingcar.util.RandomNum;
-
 import java.util.List;
 import java.util.Map;
+
+import static racingcar.util.RandomNum.getRandomNum;
 
 public class RacingCarService {
     Cars cars = new Cars();
@@ -28,7 +28,7 @@ public class RacingCarService {
 
     private static void execute(Map<String, Integer> carsData) {
         for (String carName : carsData.keySet()) {
-            int getrandomNum = RandomNum.getrandomNum();
+            int getrandomNum = getRandomNum();
             if (getrandomNum >= 4) {
                 int moveCnt = carsData.get(carName);
                 carsData.replace(carName, ++moveCnt);
