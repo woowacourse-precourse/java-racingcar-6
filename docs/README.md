@@ -31,3 +31,4 @@
 - [O] CarTest 작성
 - [O] GameTest 작성
 - [O] ResultByRaceTest 작성
+- [O] CarsTest 작성
