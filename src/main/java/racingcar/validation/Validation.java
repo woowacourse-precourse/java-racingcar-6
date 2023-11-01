@@ -53,11 +53,10 @@ public final class Validation {
         }
     }
 
-    public static void validateTryNumber(String inputString){
+    public static void validateTryNumber(String inputString) {
         if (stringToInt(inputString) < 0) {
             ErrorMessage.tryNumberError();
             throw new IllegalArgumentException();
         }
     }
-
 }
