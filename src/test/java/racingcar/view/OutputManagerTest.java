@@ -1,17 +1,14 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-class OutputManagerTest {
-
+public class OutputManagerTest {
     ByteArrayOutputStream outputStream;
     OutputManager outputManager;
 
@@ -23,18 +20,23 @@ class OutputManagerTest {
     }
 
     @Test
-    void printCarStatus() {
-        //given
+    void printCarStatus_success() {
+        // Given
         Map<String, Integer> carStatus = new LinkedHashMap<>();
         carStatus.put("pobi", 2);
         carStatus.put("woni", 4);
         carStatus.put("jun", 3);
-        String expectedOutput = "pobi : --\n woni : ----\njun : ---\n";
-        //when
+
+        // When
         outputManager.printCarStatus(carStatus);
         System.setOut(System.out);
+
+        // Then
         String actualOutput = outputStream.toString().trim();
-        //then
+        String expectedOutput = "pobi : --\n" +
+                "woni : ----\n" +
+                "jun : ---";
+        expectedOutput = expectedOutput.replace("\n", System.lineSeparator());
         assertThat(actualOutput).isEqualTo(expectedOutput);
     }
 }
