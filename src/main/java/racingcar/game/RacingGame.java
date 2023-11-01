@@ -31,7 +31,7 @@ public class RacingGame {
         while (gameRounds-- > 0) {
             cars.forEach(car -> {
                 movement.moveCar(car);
-                Console.move(car.getName(), car.toString());
+                Console.showCarStatus(car.getName(), car.toString());
             });
 
             Console.newLine();

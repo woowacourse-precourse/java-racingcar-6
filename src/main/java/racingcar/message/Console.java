@@ -14,7 +14,7 @@ public class Console {
         System.out.printf("최종 우승자 : %s", name);
     }
 
-    public static void move(String name, String movement) {
+    public static void showCarStatus(String name, String movement) {
         System.out.printf("%s : %s%n", name, movement);
     }
 
