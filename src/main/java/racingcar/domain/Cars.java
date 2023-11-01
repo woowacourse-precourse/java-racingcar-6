@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.RacingCarRandomMoveUtils;
+import racingcar.util.RandomUtils;
 
 public class Cars {
 
@@ -38,9 +39,9 @@ public class Cars {
         }
     }
 
-    public void moveAll(final RacingCarRandomMoveUtils racingCarRandomMoveUtils) {
+    public void moveAll(final RandomUtils randomUtils) {
         for (final Car car : cars) {
-            int engine = racingCarRandomMoveUtils.generateRandomNumber();
+            int engine = randomUtils.generateRandomNumber();
             car.move(engine);
         }
     }

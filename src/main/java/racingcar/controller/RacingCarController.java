@@ -4,6 +4,7 @@ import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
 import racingcar.util.CarFactory;
 import racingcar.util.RacingCarRandomMoveUtils;
+import racingcar.util.RandomUtils;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -11,7 +12,7 @@ public class RacingCarController {
 
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
-    private final RacingCarRandomMoveUtils racingCarRandomMoveUtils = new RacingCarRandomMoveUtils();
+    private final RandomUtils racingCarRandomMoveUtils = new RacingCarRandomMoveUtils();
 
     public void startGame() {
         Cars racingCars = createRacingCars();
