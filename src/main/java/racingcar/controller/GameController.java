@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Cars;
+import racingcar.domain.game.ProgressCount;
 import racingcar.domain.game.RacingGame;
 import racingcar.domain.generator.RacingRandomNumberGenerator;
 import racingcar.view.InputView;
@@ -23,9 +24,14 @@ public class GameController {
 
     private RacingGame createRacingGame() {
         Cars cars = createCars();
-        int maxProgressCount = InputView.askMaxProgressCount();
+        ProgressCount progressCount = createProgressCount();
         return RacingGame.createRacingGame(cars,
-                maxProgressCount);
+                progressCount);
+    }
+
+    private ProgressCount createProgressCount() {
+        int maxProgressCount = InputView.askMaxProgressCount();
+        return new ProgressCount(maxProgressCount, 0);
     }
 
     private Cars createCars() {

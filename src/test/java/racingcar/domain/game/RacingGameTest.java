@@ -22,7 +22,7 @@ class RacingGameTest {
     void init() {
         List<String> carNames = List.of("test", "test2","test3");
         cars = Cars.createCars(carNames, new SequentialNumberGeneratorStub(List.of(4,4,3)));
-        racingGame = RacingGame.createRacingGame(cars,5);
+        racingGame = RacingGame.createRacingGame(cars,new ProgressCount(5,0));
     }
 
 

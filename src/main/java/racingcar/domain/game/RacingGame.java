@@ -7,19 +7,18 @@ import racingcar.domain.car.Cars;
 public class RacingGame {
 
     private final Cars cars;
-    private final int maxProgressCount;
-    private int currentProgressCount;
+
+    private ProgressCount progressCount;
 
     public static RacingGame createRacingGame(
-            Cars cars, int maxProgressCount) {
-        return new RacingGame(cars, maxProgressCount);
+            Cars cars, ProgressCount progressCount) {
+        return new RacingGame(cars, progressCount);
     }
 
     private RacingGame(Cars cars,
-            int maxProgressCount) {
+            ProgressCount progressCount) {
         this.cars = cars;
-        this.currentProgressCount = 0;
-        this.maxProgressCount = maxProgressCount;
+        this.progressCount = progressCount;
     }
 
     public void progress() {
@@ -28,7 +27,7 @@ public class RacingGame {
     }
 
     private void increaseProgressCount() {
-        currentProgressCount++;
+        progressCount.increase();
     }
 
     public List<Car> getWinner() {
@@ -36,7 +35,7 @@ public class RacingGame {
     }
 
     public boolean isRun() {
-        return this.currentProgressCount < maxProgressCount;
+        return progressCount.isUnderLimit();
     }
 
     public List<Car> getCars() {
@@ -44,6 +43,6 @@ public class RacingGame {
     }
 
     public int getCurrentProgressCount() {
-        return currentProgressCount;
+        return progressCount.getCurrentProgressCount();
     }
 }
