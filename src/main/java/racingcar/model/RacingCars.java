@@ -4,9 +4,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.IntStream;
-import racingcar.constant.NumberLimits;
 
 public class RacingCars {
+    private static final int MIN_RACINGCARS_SIZE = 2;
     private static final String DUPLICATE_CAR_NAME_ERROR = "[ERROR] : 중복되지 않은 자동차 이름을 입력해주세요.";
     private static final String MINIMUM_CAR_COUNT_ERROR = "[ERROR] : 두 개 이상의 자동차를 입력해주세요";
     private final List<Car> racingCars;
@@ -24,7 +24,7 @@ public class RacingCars {
     }
 
     private void checkCarCountValidity(List<String> carNames) {
-        if (carNames.size() < NumberLimits.MIN_RACINGCARS_SIZE) {
+        if (carNames.size() < MIN_RACINGCARS_SIZE) {
             throw new IllegalArgumentException(MINIMUM_CAR_COUNT_ERROR);
         }
     }
