@@ -49,7 +49,50 @@ public class RacingCarGameTest extends NsTest {
     }
 
     @Test
-    @Order(3)
+    @Order(4)
+    void 게임_한_회분_테스트(){
+        assertRandomNumberInRangeTest(
+                ()->{
+                    RacingCarGame game = new RacingCarGame();
+                    System.setIn(createTestingInput("aa,bb,cc"));
+                    String[] names = game.splitInputNames();
+                    game.inputNames(names);
+                    Console.close();
+
+                    System.setIn(createTestingInput("1"));
+                    game.inputTryLimit();
+
+                    assertThat(game.raceForOneTry()).contains("aa : -\nbb : \ncc : -");
+
+                },
+                6,2,6
+        );
+    }
+
+    @Test
+    @Order(5)
+    void 게임_2회분_테스트(){
+        assertRandomNumberInRangeTest(
+                ()->{
+                    RacingCarGame game = new RacingCarGame();
+                    System.setIn(createTestingInput("aa,bb,cc"));
+                    String[] names = game.splitInputNames();
+                    game.inputNames(names);
+                    Console.close();
+
+                    System.setIn(createTestingInput("2"));
+                    game.inputTryLimit();
+
+                    assertThat(game.race()).isEqualTo("aa : -\nbb : \ncc : -\n\naa : --\nbb : \ncc : -\n\n");
+
+                },
+                6,2,6
+                ,6, 2, 2
+        );
+    }
+
+    @Test
+    @Order(6)
     void 게임_3명_5회() {
         assertRandomNumberInRangeTest(
                 ()->{
