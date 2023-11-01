@@ -33,6 +33,7 @@ public class CarTest {
     public void testCarToString() {
         String carName = "absy";
         Car car = new Car(carName);
+
         while (car.getMoveCount() == 0) {
             car.attemptMove();
         }

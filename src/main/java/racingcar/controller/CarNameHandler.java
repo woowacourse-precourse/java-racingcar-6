@@ -7,6 +7,7 @@ public class CarNameHandler implements UserInputHandler<Iterator<String>> {
     static private final String DELIMITER = ",";
     static private final int MAX_CAR_NAME_LENGTH = 5;
     static private final int MIN_CAR_COUNT = 2;
+
     ArrayList<String> carNameList;
 
 

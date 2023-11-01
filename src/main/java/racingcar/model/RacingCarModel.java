@@ -35,9 +35,11 @@ public class RacingCarModel {
 
     public Iterator<String> getRoundResultIterator() {
         ArrayList<String> roundResults = new ArrayList<>(carList.size());
+
         for (Car car : carList) {
             roundResults.add(car.toString());
         }
+
         return roundResults.iterator();
     }
 
