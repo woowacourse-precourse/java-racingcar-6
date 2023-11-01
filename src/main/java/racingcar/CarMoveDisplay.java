@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class CarMoveDisplay {
 
 
-    public static void carRace(RaceInfo raceInfo) {
+    public static void carMove(RaceInfo raceInfo) {
         System.out.println("실행 결과");
         int i = 1;
         while (i <= raceInfo.getAttemptCount()) {
@@ -13,8 +13,10 @@ public class CarMoveDisplay {
                 if (decideCarMovement()) {
                     car.increaseCarDistance();
                 }
-                racePrint(car);
+
+                carMovePrint(car);
             }
+
             System.out.println();
             i++;
         }
@@ -25,11 +27,13 @@ public class CarMoveDisplay {
         return randomNum >= Constants.RANDOM_NUMBER_LIMIT;
     }
 
-    public static void racePrint(Car car) {
+    public static void carMovePrint(Car car) {
         System.out.print(car.getName() + " : ");
+
         for (int i = 0; i < car.getCarDistance(); i++) {
             System.out.print("-");
         }
+
         System.out.println();
     }
 

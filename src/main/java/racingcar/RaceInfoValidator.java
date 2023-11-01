@@ -16,7 +16,7 @@ public class RaceInfoValidator {
 
     }
 
-    public static void isNameEmpty(String[] carNames) throws  IllegalArgumentException{
+    public static void isNameEmpty(String[] carNames) throws IllegalArgumentException {
         for (String carName : carNames) {
             if (carName.isBlank()) {
                 throw new IllegalArgumentException(Constants.EMPTY_CAR_NAME);
@@ -26,7 +26,7 @@ public class RaceInfoValidator {
 
     public static void hasUniqueName(String[] carNames) throws IllegalArgumentException {
         Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
-        if (uniqueNames.size() != carNames.length){
+        if (uniqueNames.size() != carNames.length) {
             throw new IllegalArgumentException(Constants.DUPLICATE_CAR_NAME);
         }
     }
@@ -37,7 +37,6 @@ public class RaceInfoValidator {
             throw new IllegalArgumentException(Constants.CAR_COUNT_INSUFFICIENT);
         }
     }
-
 
 
     public static void checkAttemptCount(String attemptCount) throws IllegalArgumentException {

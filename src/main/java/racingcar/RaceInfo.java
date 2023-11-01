@@ -9,6 +9,7 @@ public class RaceInfo {
 
     public RaceInfo(String[] carNames, String attemptCount) {
         validateInput(carNames, attemptCount);
+
         for (String carName : carNames) {
             Car car = new Car(carName);
             this.carList.add(car);

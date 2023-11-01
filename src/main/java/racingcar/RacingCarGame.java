@@ -2,11 +2,12 @@ package racingcar;
 
 public class RacingCarGame {
 
-    public void play() {
-        RaceInfo raceInfo = getRaceInfo();
-        CarMoveDisplay.carRace(raceInfo);
-        WinnerDisplay.winnerPrint(WinnerDisplay.verifyWinner(raceInfo));
 
+    public void play() {
+
+        RaceInfo raceInfo = getRaceInfo();
+        CarMoveDisplay.carMove(raceInfo);
+        WinnerVerifyDisplay.winnerPrint(WinnerVerifyDisplay.verifyWinner(raceInfo));
 
     }
 
@@ -17,4 +18,6 @@ public class RacingCarGame {
         return new RaceInfo(carNames, attemptCount);
 
     }
+
+
 }
