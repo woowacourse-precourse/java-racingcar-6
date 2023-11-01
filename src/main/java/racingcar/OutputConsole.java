@@ -22,10 +22,11 @@ public class OutputConsole {
         for (Status status : statuses) {
             sb.append(status.getName())
                     .append(PARTITION)
-            .append(DISTANCE.repeat(Math.max(0, status.getDistance())));
-            System.out.println(sb);
-            sb.setLength(0);
+                    .append(DISTANCE.repeat(Math.max(0, status.getDistance())))
+                    .append(NEWLINE_CHARACTER);
         }
+        System.out.println(sb);
+        sb.setLength(0);
     }
 
     static public void printWinners(List<Car> winners) {
