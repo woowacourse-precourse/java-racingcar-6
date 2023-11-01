@@ -6,25 +6,25 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.*;
 
 public class Application {
+    static Map<String, Integer> map = new LinkedHashMap<>();
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         String[] inputs = inputCarName();
-        Map<String, Integer> map = new LinkedHashMap<>();
 
         int count = inputCount();
 
         int i = 0;
 
         while (i < count) {
-            map = getMap(inputs);
+            getMap(inputs);
             print(map);
             i++;
         }
         output(map);
     }
 
-    public static Map<String, Integer> getMap(String[] inputs){
-        Map<String, Integer> map = new LinkedHashMap<>();
+    public static void getMap(String[] inputs) {
         for (String input : inputs) {
             map.put(input, map.getOrDefault(input, Number.MIN.getValue()));
             int num = createRandom();
@@ -35,8 +35,6 @@ public class Application {
                 }
             }
         }
-
-        return map;
     }
 
     public static String[] inputCarName() {
@@ -188,8 +186,11 @@ public class Application {
         System.out.print("최종 우승자 : ");
 
         if (list.size() >= Number.TWO.getValue()) {
-            for (String s : list) {
-                System.out.print(s + ", ");
+            for (int i = 0; i < list.size(); i++) {
+                System.out.print(list.get(i));
+                if (i < list.size() - 1) {
+                    System.out.print(", ");
+                }
             }
             System.out.println();
         } else if (list.size() == 1) {
