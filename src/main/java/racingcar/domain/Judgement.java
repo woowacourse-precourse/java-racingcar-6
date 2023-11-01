@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Judgement {
-    public void whoisWinner(String[] cars, Integer[] progress){
+    public void whoisWinner(ArrayList<String> cars, ArrayList<Integer> progress){
         int maxPoint = 0;
-        for(int i=0; i<cars.length; i++){
-            maxPoint = Math.max(maxPoint, progress[i]);
+        for(int i=0; i<cars.size(); i++){
+            maxPoint = Math.max(maxPoint, progress.get(i));
         }
         ArrayList<String> winners = new ArrayList<>(Arrays.asList());
 
-        for(int i=0; i<progress.length; i++){
-            if(progress[i] == maxPoint){
-                winners.add(cars[i]);
+        for(int i=0; i<progress.size(); i++){
+            if(progress.get(i) == maxPoint){
+                winners.add(cars.get(i));
             }
         }
         String result = String.join(", ", winners);
