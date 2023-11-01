@@ -37,4 +37,8 @@ public class CarName {
             throw new IllegalArgumentException("특수문자가 포함되어있음");
         }
     }
+
+    public String getName(){
+        return name;
+    }
 }

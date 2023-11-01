@@ -1,8 +1,11 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class NumberGenerator {
 
-    public int generateRandomNumber(){
-        return -1;
+
+    public static int generateRandomNumber(int startNum, int endNum) {
+        return Randoms.pickNumberInRange(startNum, endNum);
     }
 }
