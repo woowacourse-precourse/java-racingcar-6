@@ -24,7 +24,7 @@ public class Car {
         this.location += 1;
     }
 
-    public int getLastLocation() {
+    public int getLocation() {
         return location;
     }
 

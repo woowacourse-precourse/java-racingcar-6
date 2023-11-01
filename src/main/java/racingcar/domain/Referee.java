@@ -9,7 +9,7 @@ public class Referee {
 
         int locationOfWinner = findLocationOfWinner(cars);
         for (Car car : cars) {
-            if (car.getLastLocation() == locationOfWinner) {
+            if (car.getLocation() == locationOfWinner) {
                 car.addToWinner(winners);
             }
         }
@@ -20,7 +20,7 @@ public class Referee {
         int maxArrivalPoint = 0;
 
         for (Car car : cars) {
-            maxArrivalPoint = Math.max(maxArrivalPoint, car.getLastLocation());
+            maxArrivalPoint = Math.max(maxArrivalPoint, car.getLocation());
         }
 
         return maxArrivalPoint;
