@@ -15,6 +15,7 @@ public class InputView {
 
     public static TryCount inputTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
+
         System.out.println("\n");
 
         return new TryCount(Console.readLine());
