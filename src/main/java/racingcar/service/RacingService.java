@@ -7,22 +7,15 @@ import racingcar.domain.RacingCar;
 import racingcar.io.IOHandler;
 
 public class RacingService {
-    private final List<RacingCar> racingCars;
-    private final int rounds;
     private final IOHandler ioHandler = new IOHandler();
 
-    public RacingService(List<RacingCar> cars, int count) {
-        racingCars = cars;
-        rounds = count;
-    }
-
-    public void startRace() {
-        for (int round = 0; round < rounds; round++) {
-            executeRound();
+    public void startRace(int count, List<RacingCar> racingCars) {
+        for (int round = 0; round < count; round++) {
+            executeRound(racingCars);
         }
     }
 
-    private void executeRound() {
+    private void executeRound(List<RacingCar> racingCars) {
         for (RacingCar racingCar : racingCars) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             racingCar.move(randomNumber);
@@ -31,9 +24,9 @@ public class RacingService {
         ioHandler.printComment("");
     }
 
-    public List<String> getWinnerNames() {
+    public List<String> getWinnerNames(List<RacingCar> racingCars) {
         List<String> winners = new ArrayList<>();
-        int maxCount = getMaxCount();
+        int maxCount = getMaxCount(racingCars);
 
         for (RacingCar car : racingCars) {
             if (car.count == maxCount) {
@@ -44,7 +37,7 @@ public class RacingService {
         return winners;
     }
 
-    private int getMaxCount() {
+    private int getMaxCount(List<RacingCar> racingCars) {
         int maxCount = 0;
         for (RacingCar car : racingCars) {
             maxCount = Math.max(maxCount, car.count);

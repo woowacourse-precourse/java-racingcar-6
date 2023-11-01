@@ -34,14 +34,14 @@ public class Racing {
     }
 
     private void startRace() {
-        racingService = new RacingService(racingCars, Execution.count);
+        racingService = new RacingService();
         ioHandler.printComment("\n" + "실행결과");
 
-        racingService.startRace();
+        racingService.startRace(Execution.count, racingCars);
     }
 
     private void printResult() {
-        List<String> winners = racingService.getWinnerNames();
+        List<String> winners = racingService.getWinnerNames(racingCars);
         String output = String.join(", ", winners);
         ioHandler.printComment("최종 우승자 : " + output);
     }
