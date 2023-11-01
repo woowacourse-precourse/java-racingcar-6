@@ -25,7 +25,6 @@ class ControllerTest {
         System.setIn(in);
 
         acutalResult = controller.createScoreBoard();
-
         assertEquals(expectedResult, acutalResult);
     }
 }
