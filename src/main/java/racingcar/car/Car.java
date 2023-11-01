@@ -21,7 +21,7 @@ public class Car {
     }
 
     public void move() {
-        int moveNumber = Randoms.pickNumberInRange(0,9);
+        int moveNumber = Randoms.pickNumberInRange(0, 9);
         if (moveNumber >= MOVE_CONDITION_NUMBER) {
             moveCount++;
         }
