@@ -16,11 +16,11 @@ public class Cars {
     }
 
     private void isDifferentCarName(List<Car> cars) {
-        List<CarName> carName = cars.stream()
+        List<String> carName = cars.stream()
                 .map(idx -> idx.getCarName())
                 .collect(Collectors.toList());
 
-        HashSet<CarName> carNameDuplicateSet = new HashSet<>(carName);
+        HashSet<String> carNameDuplicateSet = new HashSet<>(carName);
 
         if (carNameDuplicateSet.size() != carName.size()){
             throw new IllegalArgumentException("자동차 이름은 중복으로 사용될 수 없습니다.");
