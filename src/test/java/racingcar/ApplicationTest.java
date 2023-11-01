@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.MockedStatic;
+import racingcar.model.Car;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
