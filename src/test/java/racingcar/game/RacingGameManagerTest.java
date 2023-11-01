@@ -1,5 +1,6 @@
 package racingcar.game;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.game.components.Car;
 import racingcar.game.components.GameSetting;
@@ -16,6 +17,7 @@ class RacingGameManagerTest {
     private final RacingGameManager gameManager = new RacingGameManager();
 
     @Test
+    @DisplayName("자동차_입력_및_시도_횟수를_GameSetting_객체로_변환한다.")
     void setting() {
         String carNames = "enzo,na,kim,park";
         String attemptCount = "5";
