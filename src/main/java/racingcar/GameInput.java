@@ -5,11 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GameInput {
-
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final String MOVING_NUMBER_PATTERN = "^[1-9][0-9]*$";
     private static final String DELIMITER = ",";
-
 
     public String readInput() {
         return Console.readLine();

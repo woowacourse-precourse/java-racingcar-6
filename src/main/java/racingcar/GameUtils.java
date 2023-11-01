@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameUtils {
 
-
     public static String numToHyphen(int num) {
         return "-".repeat(num);
     }

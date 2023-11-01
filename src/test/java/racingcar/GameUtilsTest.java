@@ -12,6 +12,5 @@ class GameUtilsTest {
         String result = GameUtils.numToHyphen(input);
 
         assertThat(result).isEqualTo("-----");
-
     }
 }

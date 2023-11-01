@@ -9,7 +9,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class GameInputTest {
-
     public GameInput gameInput = new GameInput();
 
     @Test
@@ -49,7 +48,6 @@ class GameInputTest {
                 .hasMessageContaining("Input number is not valid");
     }
 
-
     @Test
     public void convertToCarNameList_메서드로_입력받은_문자열을_구분자로_나눠_리스트로_반환() {
         String input = "pobi,woni,jun";
@@ -75,6 +73,4 @@ class GameInputTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Car name length must be <= " + 5);
     }
-
-
 }

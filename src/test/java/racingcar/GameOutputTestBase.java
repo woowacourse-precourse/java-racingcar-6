@@ -45,7 +45,5 @@ class GameOutputTestBase extends TestBase {
         String expectedOutput = "최종 우승자 : car1, car2, car3";
         assertThat(output())
                 .isEqualTo(expectedOutput);
-
     }
-
 }

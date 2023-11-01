@@ -7,7 +7,6 @@ public class Game {
     public GameInput gameInput = new GameInput();
     public GameOutput gameOutput = new GameOutput();
 
-
     public void run() {
 
         List<String> carNames;
@@ -27,11 +26,8 @@ public class Game {
             roundStart(carList);
             gameOutput.printRoundResult(carList);
         }
-
         winnerList = getWinners(carList);
         gameOutput.printWinners(winnerList);
-
-
     }
 
     public void roundStart(List<Car> carList) {
@@ -67,6 +63,4 @@ public class Game {
                 .filter(car -> car.getMovingCount() == maxMovingNumber)
                 .toList();
     }
-
-
 }

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
-
     private PrintStream standardOut;
     private OutputStream captor;
 
@@ -27,5 +26,4 @@ public class TestBase {
     protected final String output() {
         return captor.toString().trim();
     }
-
 }
