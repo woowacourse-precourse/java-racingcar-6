@@ -5,19 +5,12 @@ import camp.nextstep.edu.missionutils.Console;
 public class InputTryNumber {
 
     public static int inputTryNumber(){
+
         System.out.println("시도할 회수는 몇회인가요?");
+        String tryNumber = Console.readLine();
+        int number = isValidNumber(tryNumber);
 
-        while (true) {
-            try {
-                String tryNumber = Console.readLine();
-                int number = isValidNumber(tryNumber);
-
-                return number;
-
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        return number;
     }
 
     public static int isValidNumber(String tryNumber){
@@ -28,13 +21,13 @@ public class InputTryNumber {
             return number;
 
         } catch (NumberFormatException e) {
-            throw new NumberFormatException("숫자 외의 형식을 입력했습니다.");
+            throw new IllegalArgumentException("숫자 외의 형식을 입력했습니다.");
         }
     }
 
     private static void validatePositiveNumber(int number) {
         if (number <= 0) {
-            throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+            throw new IllegalArgumentException("회수를 양수로 입력해주세요.");
         }
     }
 }
