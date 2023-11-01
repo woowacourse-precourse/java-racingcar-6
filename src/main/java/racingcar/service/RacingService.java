@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -38,9 +37,9 @@ public class RacingService {
         return cars;
     }
 
-    private static List<String> winnerCheck(HashMap<String, String> game) {
+    private static String winnerCheck(HashMap<String, String> game) {
         String maxKey = null;
-        List<String> winner = new ArrayList<>();
+        String winner = null;
 
         for (String key : game.keySet()) {
             if (maxKey == null || game.get(key).length() >= game.get(maxKey).length()) {
@@ -50,10 +49,13 @@ public class RacingService {
 
         for (String key : game.keySet()) {
             if (game.get(maxKey).length() == game.get(key).length()) {
-                winner.add(key);
+                if (winner == null) {
+                    winner = key;
+                } else
+                    winner = winner + ", " + key;
             }
         }
-
+        System.out.println(winner);
         return winner;
     }
 
