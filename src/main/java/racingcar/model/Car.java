@@ -23,7 +23,7 @@ public class Car {
     }
 
     private void moveForward() {
-        this.carDistance.setDistance(carDistance.getDistance() + Constants.FORWARD.getNumber());
+        this.carDistance.updateDistance(carDistance.getDistance() + Constants.FORWARD.getNumber());
     }
 
     @Override
