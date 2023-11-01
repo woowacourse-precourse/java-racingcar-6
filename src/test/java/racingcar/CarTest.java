@@ -30,4 +30,22 @@ class CarTest {
         String resultWay = "honi : -----";
         assertThat(movingWay).isEqualTo(resultWay);
     }
+
+    @Test
+    void 우승자에_포함() {
+        Car car = new Car("honi", 5);
+        int maxCount = 5;
+        boolean winnerCheck = car.isWinner(maxCount);
+
+        assertThat(winnerCheck).isEqualTo(true);
+    }
+
+    @Test
+    void 우승자에_포함_안됨() {
+        Car car = new Car("honi", 3);
+        int maxCount = 5;
+        boolean winnerCheck = car.isWinner(maxCount);
+
+        assertThat(winnerCheck).isEqualTo(false);
+    }
 }
