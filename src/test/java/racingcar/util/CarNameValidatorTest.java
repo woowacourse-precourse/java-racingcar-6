@@ -33,4 +33,12 @@ class CarNameValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("중복된 이름이 존재합니다.");
     }
+
+    @Test
+    void 중복된_이름이_존재할수_없다_빈_리스트를_받았을경우_예외_발생() {
+        List<String> carNames = List.of();
+        assertThatThrownBy(() -> CarNameValidator.validateUniqueNameCheck(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름이 존재하지 않습니다.");
+    }
 }
