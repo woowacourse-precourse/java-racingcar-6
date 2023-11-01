@@ -7,4 +7,8 @@ public class OutputView {
         String winnerNames = String.join(", ", winners);
         System.out.println("최종 우승자 : " + winnerNames);
     }
+
+    public void printGameStatus(String raceStatus){
+        System.out.println(raceStatus);
+    }
 }
