@@ -93,4 +93,12 @@ public class GameTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void roundNumberDecimal() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,dong", "12.468"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
