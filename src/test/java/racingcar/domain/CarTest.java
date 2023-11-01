@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CarTest {
     private Car car1;
@@ -49,14 +50,11 @@ public class CarTest {
     @Test
     @DisplayName("Car의 전진 횟수 증가 함수 동작 테스트")
     void 자동차_객체_전진_증가_테스트() {
-        Car car = new Car("robin");
-        Car car2 = new Car("nope");
         assertSimpleTest(() -> {
-            assertThat(car.getForwardNum()).isEqualTo(0);
-            car.increaseForwardNum();
+            assertThat(car1.getForwardNum()).isEqualTo(0);
+            car1.increaseForwardNum();
             car2.increaseForwardNum();
-            assertThat(car.getForwardNum()).isEqualTo(1);
+            assertThat(car2.getForwardNum()).isEqualTo(1);
         });
-
     }
 }
