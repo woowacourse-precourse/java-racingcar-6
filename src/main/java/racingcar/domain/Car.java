@@ -21,15 +21,15 @@ public class Car {
     }
 
     public void updatePosition(int number) {
-        if(number>=FORWARD_BOUND_NUMBER){
+        if (number >= FORWARD_BOUND_NUMBER) {
             position++;
         }
     }
 
-    public String getFormattedPosition(){
+    public String getFormattedPosition() {
         StringBuilder positionString = new StringBuilder();
-        positionString.append(carName.getName()+" : ");
-        for(int i=0;i<position;i++){
+        positionString.append(carName.getName() + " : ");
+        for (int i = 0; i < position; i++) {
             positionString.append("-");
         }
         return positionString.toString();
@@ -38,7 +38,8 @@ public class Car {
     public int getPosition() {
         return position;
     }
-    public String getCarName(){
+
+    public String getCarName() {
         return carName.getName();
     }
 }

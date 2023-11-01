@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class CarFactory {
-    
-    public List<Car> createCar(){
+
+    public List<Car> createCar() {
         IoManager.printEnterCarName();
         String nameString = IoManager.readLine();
         List<String> nameList = stringtoListByComma(nameString);
@@ -26,18 +26,18 @@ public class CarFactory {
         return cars;
     }
 
-    public List<String> stringtoListByComma(String name){
+    public List<String> stringtoListByComma(String name) {
         return Arrays.stream(name.split(","))
                 .collect(Collectors.toList());
     }
 
-    public void checkDuplicatedName(List<String> names){
-        if(countDistinctListSize(names)!=names.size()){
+    public void checkDuplicatedName(List<String> names) {
+        if (countDistinctListSize(names) != names.size()) {
             throw new IllegalArgumentException("중복된 이름");
         }
     }
 
-    public Long countDistinctListSize(List<String> list){
+    public Long countDistinctListSize(List<String> list) {
         return list.stream().distinct().count();
     }
 }
