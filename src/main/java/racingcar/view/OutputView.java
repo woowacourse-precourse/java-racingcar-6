@@ -16,11 +16,11 @@ public class OutputView {
     }
 
     public void printRaceGameResults(final List<RaceGameResult> raceResults) {
-        raceResults.forEach(this::printRaceGameResult);
+        raceResults.forEach(this::printEachRaceGameResult);
         System.out.println();
     }
 
-    private void printRaceGameResult(final RaceGameResult raceResult) {
+    private void printEachRaceGameResult(final RaceGameResult raceResult) {
         System.out.println(raceResult.carName() + CAR_POSITION_DELIMITER + mark(raceResult.position()));
     }
 
