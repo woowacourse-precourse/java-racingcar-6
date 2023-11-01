@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Validator {
+    private static final int CAR_NAME_LENGTH_LIMIT = 5;
+
     public static void carNamesValidation(String carNames) {
         List<String> carNameList = getCarNamesUnderFiveChar(carNames);
 
@@ -14,7 +16,7 @@ public class Validator {
 
     private static List<String> getCarNamesUnderFiveChar(String carNames) {
         return Arrays.stream(carNames.split(","))
-                .filter(name -> name.length() <= 5)
+                .filter(name -> name.length() <= CAR_NAME_LENGTH_LIMIT)
                 .collect(Collectors.toList());
     }
 
