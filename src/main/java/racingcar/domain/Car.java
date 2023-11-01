@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.Sentence;
 
 import java.math.BigInteger;
 
@@ -56,7 +57,7 @@ public class Car {
         @Override
         public String toString() {
             StringBuilder resultExpression = new StringBuilder(name);
-            resultExpression.append(" : ");
+            resultExpression.append(Sentence.COLON_FOR_LIST.getMessage());
             for (long i = 0; i < distance; i++) {
                 resultExpression.append("-");
             }
