@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CarManager {
     private Cars cars;
-    private RandomNumberGenerator randomNumberGenerator;
+    private final RandomNumberGenerator randomNumberGenerator;
 
     public CarManager(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
