@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Application {
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MIN_ROUND = 0;
+    private static final int MIN_DISTANCE = 0;
     private static final int MAX_DISTANCE = 0;
     private static final int MIN_MOVE_DISTANCE = 4;
 
@@ -57,6 +58,7 @@ public class Application {
             if (distance >= MIN_MOVE_DISTANCE) {
                 car.move(distance);
             }
+            car.printDistance();
         }
         System.out.println();
     }
