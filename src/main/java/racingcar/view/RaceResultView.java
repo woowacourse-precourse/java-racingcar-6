@@ -5,7 +5,7 @@ import racingcar.model.Car;
 
 public class RaceResultView {
 
-    public static void printRaceResult(String result) {
+    public void printRaceResult(String result) {
         System.out.println(result);
     }
 }
