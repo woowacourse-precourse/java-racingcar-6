@@ -10,10 +10,11 @@ public class OutputView {
     private static final String RACE_RESULT_MESSAGE = "실행 결과";
     private static final String CAR_NAME_TAG = " : ";
     private static final String PROGRESS_BAR = "-";
-    private static final String WINNER_NAME_DELIMITER = ",";
+    private static final String WINNER_NAME_DELIMITER = ", ";
     private static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
 
     public void printRaceResultMessage() {
+        System.out.println();
         System.out.println(RACE_RESULT_MESSAGE);
     }
 
