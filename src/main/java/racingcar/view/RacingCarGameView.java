@@ -47,7 +47,7 @@ public class RacingCarGameView implements RepeatingGameView {
     @Override
     public void showResultOf(Game game) {
         System.out.println(messageProperties.get("winners")
-                + String.join(",", ((RacingCarGame) game).getWinners()));
+                + String.join(", ", ((RacingCarGame) game).getWinners()));
     }
 
     public void showResultMessage() {
