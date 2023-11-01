@@ -11,4 +11,6 @@ public class RacingConfig {
     public static final String MOVED_HISTORY_MARK = "-";
     public static final int MIN_NUMBER = 0;
     public static final int MAX_NUMBER = 9;
+    public static final String OUTPUT_PATTERN = "%s : %s";
+    public static final String WINNER_OUTPUT_PATTERN = "최종 우승자 : %s";
 }
