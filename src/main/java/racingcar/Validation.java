@@ -19,4 +19,10 @@ public class Validation {
             throw new IllegalArgumentException("입력 값이 숫자가 아닙니다.");
         }
     }
+
+    public static void validateNaturalNumber(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("입력 값은 양수여야 합니다.");
+        }
+    }
 }
