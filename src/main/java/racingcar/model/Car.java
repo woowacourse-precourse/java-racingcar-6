@@ -13,10 +13,14 @@ public class Car {
     }
 
     public void move() {
-        int randomNumber = Randoms.pickNumberInRange(0,9);
+        int randomNumber = generateRandomNumber();
         if (randomNumber >= MOVE_STANDARD) {
             position++;
         }
+    }
+
+    private static int generateRandomNumber() {
+        return Randoms.pickNumberInRange(0,9);
     }
 
     public String getName() {
