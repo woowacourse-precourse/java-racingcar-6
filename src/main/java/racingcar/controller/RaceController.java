@@ -5,6 +5,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.util.UserInput;
 import racingcar.view.OutputView;
@@ -24,8 +25,8 @@ public class RaceController {
             doRound(cars);
             round++;
         }
-        List<Car> winnerList = getWinners(cars);
-        OutputView.printWinner(winnerList);
+        List<String> winnerNames = getWinnerNames(cars);
+        OutputView.printWinner(winnerNames);
     }
 
     public static List<Car> setCars() {
@@ -55,19 +56,20 @@ public class RaceController {
         }
     }
 
-    public static List<Car> getWinners(List<Car> cars) {
-        List<Car> winners = new ArrayList<>();
+    public static List<String> getWinnerNames(List<Car> cars) {
         int winnerLocation = findWinnerLocation(cars);
-        for (Car car : cars) {
-            if (car.location == winnerLocation) {
-                winners.add(car);
-            }
-        }
-        return winners;
+        return cars.stream()
+                .filter(car -> isWinner(car, winnerLocation))
+                .map(car -> car.name)
+                .collect(Collectors.toList());
     }
 
     public static int findWinnerLocation(List<Car> cars) {
         Collections.sort(cars);
         return cars.get(0).location;
+    }
+
+    public static boolean isWinner(Car car, int winnerLocation) {
+        return car.location == winnerLocation;
     }
 }
