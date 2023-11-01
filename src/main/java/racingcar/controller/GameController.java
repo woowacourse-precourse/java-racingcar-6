@@ -1,53 +1,71 @@
 package racingcar.controller;
 
-import static racingcar.view.GameView.inputCarName;
-import static racingcar.view.GameView.inputTrialNumber;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import racingcar.controller.utils.Parser;
+import java.util.stream.Collectors;
+import racingcar.controller.utils.CarNameValidator;
+import racingcar.controller.utils.StringParser;
+import racingcar.controller.utils.TrialNumberValidator;
 import racingcar.model.Car;
-import racingcar.model.Game;
+import racingcar.model.CarCollection;
+import racingcar.model.CarService;
 import racingcar.view.GameView;
 
 public class GameController {
-    private Game model;
-    private GameView view;
-    private final Parser parser = new Parser();
 
-    public GameController(Game model, GameView view) {
+    private final CarService model;
+    private final GameView view;
+    private final StringParser stringParser = new StringParser();
+    private final CarNameValidator carNameValidator = new CarNameValidator();
+    private final TrialNumberValidator trialNumberValidator = new TrialNumberValidator();
+
+    public GameController(CarService model, GameView view) {
         this.model = model;
         this.view = view;
     }
 
     public void run() {
-        List<String> carNames = parser.splitCarNames(inputCarName());
-        System.out.println(carNames);
+        List<String> carNames = getCarNames(view.inputCarName());
+        CarCollection cars = createCarCollection(carNames);
+        model.saveAllCars(cars);
 
-        List<Car> cars = createCarObject(carNames);
-        model.setCars(cars);
+        int trialNumber = getTrialNumber(view.inputTrialNumber());
+        gameStart(trialNumber);
 
-        int trialNumber = parser.parseInteger(inputTrialNumber());
-        System.out.println(trialNumber);
-
-        gameStart(trialNumber, cars);
+        List<String> winnerNames = model.getCarNameHasLongestDistance();
+        view.printWinner(winnerNames);
     }
 
-    private List<Car> createCarObject(List<String> carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            Car car = new Car(carName, 0);
-            cars.add(car);
-        }
-        return cars;
+    public List<String> getCarNames(String input) {
+        carNameValidator.validateCarNameInput(input);
+        return stringParser.splitCarNames(input);
     }
 
-    private void gameStart(int trialNumber, List<Car> cars) {
+    public CarCollection createCarCollection(List<String> carNames) {
+        List<Car> cars = carNames.stream()
+                .map(name -> new Car(name, 0))
+                .collect(Collectors.toList());
+        return new CarCollection(cars);
+    }
+
+    public int getTrialNumber(String input) {
+        trialNumberValidator.validateTrialNumberInput(input);
+        return Integer.parseInt(input);
+    }
+
+    public void gameStart(int trialNumber) {
+        CarCollection cars = model.getAllCars();
+
+        view.printResultMessage();
         for (int i = 0; i < trialNumber; i++) {
-            for (Car car : cars){
-                System.out.println(car.getName());
-            }
+            model.moveCars();
+            printEachCarCurrentStatus(cars);
+            view.printEnter();
+        }
+    }
+
+    public void printEachCarCurrentStatus(CarCollection cars) {
+        for (Car car : cars.getCars()) {
+            view.printCarCurrentStatus(car.getName(), car.getCurrentLocation());
         }
     }
 
