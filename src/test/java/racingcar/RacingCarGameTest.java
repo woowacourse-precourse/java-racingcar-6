@@ -142,8 +142,8 @@ public class RacingCarGameTest extends NsTest {
     }
 
     @Test
-    @Order(6)
-    void 게임_3명_5회() {
+    @Order(7)
+    void 완전한_게임_3명_5회() {
         assertRandomNumberInRangeTest(
                 ()->{
                     run("pobi,woni,jun", "5");
