@@ -18,16 +18,16 @@ public class RacingCarController {
     }
 
     public void run() {
-        int gamePlayCount = startGame();
+        startGame();
+        int gamePlayCount = getGamePlayCount();
         playGame(gamePlayCount);
         endGame();
     }
 
-    private int startGame() {
+    private void startGame() {
         outputView.printGameStartMessage();
         List<String> carNames = inputView.inputCarNames();
         racingCarService.save(carNames);
-        return getGamePlayCount();
     }
 
     private int getGamePlayCount() {
