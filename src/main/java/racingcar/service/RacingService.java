@@ -2,7 +2,6 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 import racingcar.exception.Exception;
@@ -13,9 +12,9 @@ public class RacingService {
     private static final String STRING_REGEX = "^([A-Za-z]+(,[A-Za-z]+)+)$";
     private static final String INTEGER_REGEX = "^[0-9]+$";
 
-    public static void racingGame(HashMap<String, String> cars, Integer round) {
+    public static String racingGame(HashMap<String, String> cars, Integer round) {
         HashMap<String, String> game = forwardStopVehicle(cars, round);
-        winnerCheck(game);
+        return winnerCheck(game);
     }
 
     private static HashMap<String, String> forwardStopVehicle(HashMap<String, String> cars, Integer endRound) {
@@ -55,7 +54,6 @@ public class RacingService {
                     winner = winner + ", " + key;
             }
         }
-        System.out.println(winner);
         return winner;
     }
 

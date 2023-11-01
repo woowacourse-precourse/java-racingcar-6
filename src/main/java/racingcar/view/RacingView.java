@@ -21,4 +21,8 @@ public class RacingView {
     public static void roundTrackStatus(String key, String value) {
         System.out.println(key + " : " + value);
     }
+
+    public static void gameWinnerMessage(String args) {
+        System.out.println("최종 우승자 : " + args);
+    }
 }

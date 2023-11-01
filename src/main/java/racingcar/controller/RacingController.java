@@ -12,6 +12,7 @@ public class RacingController {
         RacingView.enterRoundMessage();
         Integer round = RacingService.enterRoundNumber(Console.readLine());
         RacingView.startRoundMessage();
-        RacingService.racingGame(car, round);
+        String winner = RacingService.racingGame(car, round);
+        RacingView.gameWinnerMessage(winner);
     }
 }
