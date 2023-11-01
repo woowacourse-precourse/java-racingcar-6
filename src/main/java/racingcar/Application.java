@@ -1,16 +1,23 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MIN_ROUND = 0;
+    private static final int MAX_DISTANCE = 0;
+    private static final int MIN_MOVE_DISTANCE = 4;
 
     public static void main(String[] args) {
         String[] carNames = readCarNames();
         validateCarName(carNames);
         Car[] cars = initializeCars(carNames);
         int round = readRoundNumber();
+        System.out.println("실행 결과");
+        for (int i = 0; i < round; i++) {
+            playOneRound(cars);
+        }
     }
 
     private static String[] readCarNames() {
@@ -42,5 +49,15 @@ public class Application {
             throw new IllegalArgumentException();
         }
         return round;
+    }
+
+    private static void playOneRound(Car[] cars) {
+        for (Car car : cars) {
+            int distance = Randoms.pickNumberInRange(MIN_DISTANCE, MAX_DISTANCE);
+            if (distance >= MIN_MOVE_DISTANCE) {
+                car.move(distance);
+            }
+        }
+        System.out.println();
     }
 }
