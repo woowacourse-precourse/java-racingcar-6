@@ -13,38 +13,38 @@
 
 `Game` 인터페이스를 구현한 자동차 경주 게임 클래스이다.
 
-| 구현                   | 메서드                | 기능                                                        |
-|----------------------|--------------------|-----------------------------------------------------------|
-| :white_large_square: | `validateAttempts` | player가 입력한 횟수를 검증한다.                                     |
-| :white_large_square: | `validateCarName`  | player가 설정한 자동차 이름을 검사한다.                                 |
-| :white_large_square: | `goAhead`          | 조건에 맞는 경우 해당하는 차를 전진시킨다.                                  |
-| :white_large_square: | `play`             | player의 입력과 설정을 검증하고 게임을 실행해 그 결과를 저장한다.                  |
-| :white_large_square: | `makeCars`         | player가 입력한 자동차 이름을 검증하고 `,`를 기준으로 분리해 `List<Car>`로 저장한다. |
-| :white_large_square: | `saveSettings`     | player가 입력한 자동차 이름을 저장한다.                                 |
-| :white_large_square: | `continues`        | game이 진행중인지를 확인한다.                                        |
-| :white_large_square: | `checkWinners`     | game 우승자를 알아낸다.                                           |
-| :white_large_square: | `getWinners`       | Getter of `winners`.                                      |
-| :white_large_square: | `getCarList`       | Getter of `carList`.                                      |
+| 구현                 | 메서드                | 기능                                                        |
+|--------------------|--------------------|-----------------------------------------------------------|
+| :white_check_mark: | `validateAttempts` | player가 입력한 횟수를 검증한다.                                     |
+| :white_check_mark: | `validateCarName`  | player가 설정한 자동차 이름을 검사한다.                                 |
+| :white_check_mark: | `goAhead`          | 조건에 맞는 경우 해당하는 차를 전진시킨다.                                  |
+| :white_check_mark: | `play`             | player의 입력과 설정을 검증하고 게임을 실행해 그 결과를 저장한다.                  |
+| :white_check_mark: | `makeCars`         | player가 입력한 자동차 이름을 검증하고 `,`를 기준으로 분리해 `List<Car>`로 저장한다. |
+| :white_check_mark: | `saveSettings`     | player가 입력한 자동차 이름을 저장한다.                                 |
+| :white_check_mark: | `continues`        | game이 진행중인지를 확인한다.                                        |
+| :white_check_mark: | `checkWinners`     | game 우승자를 알아낸다.                                           |
+| :white_check_mark: | `getWinners`       | Getter of `winners`.                                      |
+| :white_check_mark: | `getCarList`       | Getter of `carList`.                                      |
 
 ## Car
 
-| 구현                   | 메서드           | 기능                        |
-|----------------------|---------------|---------------------------|
-| :white_large_square: | `move`        | `Car`의 position을 1 증가시킨다. |
-| :white_large_square: | `getName`     | Getter of `name`.         |
-| :white_large_square: | `getPosition` | Getter of `position`.     |
+| 구현                 | 메서드           | 기능                        |
+|--------------------|---------------|---------------------------|
+| :white_check_mark: | `move`        | `Car`의 position을 1 증가시킨다. |
+| :white_check_mark: | `getName`     | Getter of `name`.         |
+| :white_check_mark: | `getPosition` | Getter of `position`.     |
 
 ## RacingCarGameView
 
 생성 시 인자로 받은 메시지 파일 경로를 통해 메시지를 Properties로 로드한다.
 
-| 구현                   | 메서드                                  | 기능                   |
-|----------------------|--------------------------------------|----------------------|
-| :white_large_square: | `showInputRequiredMessage`           | 입력이 필요하다고 메시지를 출력한다. |
-| :white_large_square: | `showRepeatingNumberRequiredMessage` | 횟수를 입력하라고 메시지를 출력한다. |
-| :white_large_square: | `showProgressOf`                     | 게임의 진행상황을 출력한다.      |
-| :white_large_square: | `showResultOf`                       | 게임의 결과를 출력한다.        |
-| :white_large_square: | `showResultMessage`                  | `실행 결과`를 출력한다.       |
+| 구현                 | 메서드                                  | 기능                   |
+|--------------------|--------------------------------------|----------------------|
+| :white_check_mark: | `showInputRequiredMessage`           | 입력이 필요하다고 메시지를 출력한다. |
+| :white_check_mark: | `showRepeatingNumberRequiredMessage` | 횟수를 입력하라고 메시지를 출력한다. |
+| :white_check_mark: | `showProgressOf`                     | 게임의 진행상황을 출력한다.      |
+| :white_check_mark: | `showResultOf`                       | 게임의 결과를 출력한다.        |
+| :white_check_mark: | `showResultMessage`                  | `실행 결과`를 출력한다.       |
 
 ## RacingCarGameController
 
