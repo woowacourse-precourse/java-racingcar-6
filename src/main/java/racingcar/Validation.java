@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class Validation {
 //    자동차 이름 검증 메서드
     public static boolean carValid(String name) throws IllegalArgumentException{
