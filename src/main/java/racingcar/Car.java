@@ -17,7 +17,7 @@ public class Car {
         move(getMovable());
     }
 
-    private void move(boolean movable) {
+    public void move(boolean movable) {
 
         if (movable) {
             this.location += 1;
