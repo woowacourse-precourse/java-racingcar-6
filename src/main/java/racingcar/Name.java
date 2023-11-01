@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.utils.ErrorMessage;
+
 public class Name {
     private String value;
 
@@ -10,7 +12,7 @@ public class Name {
 
     private void validateName(String value) {
         if (value == null || value.trim().isEmpty()) {
-            throw new IllegalArgumentException("이름은 비어있을 수 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_BLANK_ERROR_MESSAGE);
         }
     }
 
