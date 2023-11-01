@@ -21,7 +21,7 @@ public class Application {
 
         for (int i = 0; i < trys; i++) {
             Move.moveForward(carQuantity, positions);
-            printRoundResults(cars, positions);
+            Race.excute(cars, positions);
         }
 
         printWinners(cars, positions);
@@ -31,16 +31,7 @@ public class Application {
 
 
 
-    private static void printRoundResults(String[] carNames, int[] positions) {
-        for (int i = 0; i < carNames.length; i++) {
-            System.out.print(carNames[i] + " : ");
-            for (int j = 0; j < positions[i]; j++) {
-                System.out.print("-");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
+
 
     private static void printWinners(String[] carNames, int[] positions) {
         int maxPosition = 0;
