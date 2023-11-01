@@ -2,7 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car>{
 
     private Name name;
     private Distance distance;
@@ -43,5 +43,14 @@ public class Car {
             return distance.increaseByOne();
         }
         return false;
+    }
+
+    public boolean isNotLoseTo(Car car) {
+        return this.compareTo(car) >= 0;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return this.distance.compareTo(car.distance);
     }
 }
