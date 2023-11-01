@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class InputViewTest {
 
     @Test
-    void getCarNames() {
+    void 자동차_이름이_구분자를_통해_구분되는지_테스트() {
         String inputCarNames = "abc,def,ghi";
         String[] carNames = inputCarNames.split(",");
 
@@ -16,7 +16,7 @@ class InputViewTest {
     }
 
     @Test
-    void getTryCount() {
+    void 시도횟수가_올바르게_저장되는지_테스트() {
         String tryCount = "5";
 
         assertThat(tryCount).isEqualTo("5");

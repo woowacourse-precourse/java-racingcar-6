@@ -5,7 +5,7 @@ import message.ErrorMessages;
 
 public class CarNameValidator {
 
-    public void validateCarNameLength(String[] carNames) {
+    public static void validateCarNameLength(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException(ErrorMessages.NAME_LENGTH_ERROR);
@@ -13,9 +13,10 @@ public class CarNameValidator {
         }
     }
 
-    public void validateCarNameDuplicate(String[] carNames) {
-        Set<String> carNameSet = Set.of(carNames);
-        if (carNames.length != carNameSet.size()) {
+    public static void validateCarNameDuplicate(String[] carNames) {
+        try {
+            Set.of(carNames);
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(ErrorMessages.NAME_DUPLICATE_ERROR);
         }
     }
