@@ -12,6 +12,8 @@ class CarTest {
     void newCar(){
         Car car = new Car("car1");
         assertThat(car.getName()).isEqualTo("car1");
-
+        assertThat(car.getPosition()).isEqualTo(0);
     }
+
+
 }
