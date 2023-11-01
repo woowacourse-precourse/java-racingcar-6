@@ -39,4 +39,15 @@ class InputViewTest {
                 .hasMessageContaining("[ERROR] : 숫자를 입력해주세요.");
     }
 
+    @Test
+    @DisplayName("시도 횟수가 1 미만일 때 예외 처리")
+    void inputAttemptCountLessThanONE() {
+        provideInput("0");
+
+        assertThatThrownBy(() -> {
+            int attemptCount = InputView.inputAttemptCount();
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] : 1 이상의 숫자를 입력해주세요.");
+    }
+
 }
