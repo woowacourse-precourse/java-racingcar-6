@@ -4,10 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class CarRacingGame {
     static final int Go = 1;
@@ -40,6 +37,16 @@ public class CarRacingGame {
             OutputView.printLineBreaking();
         }
 
+        int max = Collections.max(carGoNumberList);
+        ArrayList<Integer> maxIndexList = new ArrayList<>();
 
+        for (int i = 0; i < carGoNumberList.size(); i++) {
+            int currentNumber = carGoNumberList.get(i);
+            if (currentNumber == max) { // 현재 숫자가 최댓값과 같은 경우, 인덱스 리스트에 추가합니다.
+                maxIndexList.add(i);
+            }
+        }
+
+        OutputView.printWinner(maxIndexList, carNameList);
     }
 }
