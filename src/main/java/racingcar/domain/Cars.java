@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.validation.InputFormatValidator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Cars {
     }
 
     public void addCar(Car car) {
+        InputFormatValidator.validateDuplicateCarName(cars, car);
         cars.add(car);
     }
 
