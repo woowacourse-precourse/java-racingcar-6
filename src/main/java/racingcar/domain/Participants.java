@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.constant.InputDelimiter;
 import racingcar.util.InputUtil;
+import racingcar.util.message.RacingMessage;
+import racingcar.util.message.SystemMessage;
 
 public class Participants {
 
@@ -11,6 +13,7 @@ public class Participants {
     private final InputUtil inputUtil = new InputUtil();
 
     public void registerParticipant() {
+        SystemMessage.INPUT_CAR_NAME_MESSAGE.printMessage();
         this.cars = setParticipant();
     }
 
@@ -40,7 +43,8 @@ public class Participants {
     }
 
     private String generateRaceInfoMessage(Car car) {
-        return "";
+        return String.format(RacingMessage.TRIAL_INFO_MESSAGE.getRacingTrialMessage(), car.getName(),
+                car.getMovedDistanceDisplay());
     }
 
     public List<Car> getCars() {

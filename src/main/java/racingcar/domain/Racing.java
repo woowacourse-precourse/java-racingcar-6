@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.List;
 import racingcar.util.InputUtil;
+import racingcar.util.message.RacingMessage;
+import racingcar.util.message.SystemMessage;
 
 public class Racing {
 
@@ -10,6 +12,7 @@ public class Racing {
     private final InputUtil inputUtil = new InputUtil();
 
     public void prepareRacing() {
+        SystemMessage.INPUT_TRIAL_MESSAGE.printMessage();
         this.racingTrial = setRacingTrial();
     }
 
@@ -23,6 +26,7 @@ public class Racing {
 
     public void race(Participants participants) {
         this.participants = participants;
+        SystemMessage.RESULT_HEADER_MESSAGE.printMessage();
         for (int i = 0; i < racingTrial; i++) {
             participants.race();
         }
@@ -30,7 +34,7 @@ public class Racing {
 
     public String judge() {
         List<Car> winner = judgeWinner();
-        return "";
+        return RacingMessage.RESULT_WINNER_MESSAGE.getRacingWinnerMessage(winner);
     }
 
     public List<Car> judgeWinner() {
