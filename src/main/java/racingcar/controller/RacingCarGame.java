@@ -12,15 +12,27 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarGame {
-    private OutputView outputView = new OutputView();
+    private OutputView outputView;
     private int roundNumber;
     private UserCar userCar;
     private Map<String, Integer> car;
-    private InputView inputView = new InputView();
+    private InputView inputView;
     private List<String> winner;
-    private UserCarService userCarService = new UserCarService();
+    private UserCarService userCarService;
+    public RacingCarGame(){
+        winner = new ArrayList<>();
+        userCarService = new UserCarService();
+        inputView = new InputView();
+        outputView = new OutputView();
+    }
+    public List<String> getWinner(){
+        return this.winner;
+    }
+    public void setCar(Map<String, Integer> car) {
+        this.car = car;
+    }
 
-    private void generateCarNumber() {
+    public void generateCarNumber() {
         int number;
         for (String key : car.keySet()) {
             number = Randoms.pickNumberInRange(0, 9);
@@ -28,14 +40,13 @@ public class RacingCarGame {
         }
     }
 
-    private void decideForward(int number, String key) {
+    public void decideForward(int number, String key) {
         if (number >= 4) {
             car.put(key, car.get(key) + 1);
         }
     }
 
-    private void gameResult() {
-        winner = new ArrayList<>();
+    public void gameResult() {
         int maxDistance = Collections.max(car.values());
 
         for (Entry<String, Integer> m : car.entrySet()) {
@@ -43,7 +54,7 @@ public class RacingCarGame {
         }
     }
 
-    private void calculate(Entry<String, Integer> m, int maxDistance) {
+    public void calculate(Entry<String, Integer> m, int maxDistance) {
         if (m.getValue() == maxDistance) {
             winner.add(m.getKey());
         }
