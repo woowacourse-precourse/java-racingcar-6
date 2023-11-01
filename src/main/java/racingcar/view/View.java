@@ -1,26 +1,36 @@
 package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.constants.Constants;
 
 public class View {
     public static String[] getCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Constants.CAR_NAME_PROMPT);
         return Console.readLine().split(",");
     }
 
     public static int getRounds() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Constants.ROUND_COUNT_PROMPT);
         try {
             return Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("양의 정수값만 입력해주세요.");
+            throw new IllegalArgumentException(Constants.INVALID_INPUT_MSG);
         }
     }
 
-    public static void displayResults(String result) {
-        System.out.println(result);
+    public static void displayExecutionResult() {
+        System.out.println(Constants.EXECUTION_RESULT);
+    }
+
+    public static void displayLabTimeNotice(int labNumber) {
+        System.out.printf(Constants.LAB_MSG + "%d\n", labNumber);
+    }
+
+    public static void displayCarPosition(String carName, int position) {
+        System.out.println(carName + " : " + "-".repeat(position));
     }
 
     public static void displayWinners(String winners) {
-        System.out.println("\n최종 우승자 : " + winners);
+        System.out.println(Constants.WINNERS_MSG + winners);
     }
 }
+

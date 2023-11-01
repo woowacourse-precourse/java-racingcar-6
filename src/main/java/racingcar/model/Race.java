@@ -1,6 +1,9 @@
 package racingcar.model;
 import java.util.List;
 import java.util.ArrayList;
+import racingcar.constants.Constants;
+import racingcar.view.View;
+
 public class Race {
     private final List<Car> cars;
     private final int rounds;
@@ -11,10 +14,10 @@ public class Race {
     }
 
     public void run(){
-        System.out.println("\n실행 결과");
+        System.out.println(Constants.EXECUTION_RESULT);
         for(int i =0; i <rounds; i++){
             cars.forEach(Car::move);
-            System.out.printf("# LAB %d\n", i+1);
+            View.displayLabTimeNotice(i + 1);
             showLabTime();
             System.out.println();
         }
@@ -22,7 +25,7 @@ public class Race {
 
     private void showLabTime(){
         for(Car car : cars){
-            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+            View.displayCarPosition(car.getName(), car.getPosition());
         }
     }
     public List<Car> getWinners() {

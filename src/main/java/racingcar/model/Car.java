@@ -1,6 +1,6 @@
 package racingcar.model;
+import racingcar.constants.Constants;
 import camp.nextstep.edu.missionutils.Randoms;
-
 
 
 public class Car {
@@ -8,13 +8,13 @@ public class Car {
     private int position = 0;
 
     public Car(String name){
-        if (name==null || name.length() > 5){
-            throw new IllegalArgumentException("이름은 5글자를 초과할 수 없습니다.");
+        if (name==null || name.length() > Constants.CAR_MAX_NAME_LENGTH){
+            throw new IllegalArgumentException(Constants.CAR_NAME_EXCEED_ERROR_MSG);
         }
         this.name = name;
     }
     public void move(){
-        if (Randoms.pickNumberInRange(0,9) >= 4){
+        if (Randoms.pickNumberInRange(Constants.RANDOM_START, Constants.RANDOM_END) >= Constants.MOVE_THRESHOLD){
             position ++;
         }
     }
