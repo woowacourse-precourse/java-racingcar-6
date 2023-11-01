@@ -51,7 +51,7 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    private void setCars(List<Car> cars) {
+    public void setCars(List<Car> cars) {
         this.cars = cars;
     }
 }
