@@ -73,8 +73,8 @@ public class RacingGame {
 
     public void startGame() {
         List<Car> cars = createCars();
-        int attempt = getAttempts();
 
+        int attempt = getAttempts();
         System.out.println("\n실행 결과");
         for (int i = 0; i < attempt; i++) {
             race(cars);
