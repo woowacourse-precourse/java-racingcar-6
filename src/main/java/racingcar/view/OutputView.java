@@ -2,18 +2,21 @@ package racingcar.view;
 
 import java.util.List;
 
+import static racingcar.constant.message.OutputMessage.*;
+
 public class OutputView {
+    static final String WINNER_SEPERATOR = ",";
 
     public static void printCarNameInputMessage(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CAR_NAME_INPUT_MESSAGE);
     }
 
     public static void printRacingCountInputMessage(){
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(RACING_COUNT_INPUT_MESSAGE);
     }
 
     public static void printRacingResultStartMessage(){
-        System.out.println("\n실행 결과");
+        System.out.println(RACING_RESULT_START_MESSAGE);
     }
 
     public static void printAllCarNowDistance(List<String> carDistanceStringList){
@@ -25,8 +28,8 @@ public class OutputView {
     }
 
     public static void printWinnerMessage(List<String> winnerList){
-        String winners = String.join(",", winnerList);
-        System.out.printf("최종 우승자 : %s", winners);
+        String winners = String.join(WINNER_SEPERATOR, winnerList);
+        System.out.printf(WINNER_MESSAGE + winners);
     }
 
 

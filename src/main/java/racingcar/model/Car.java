@@ -1,6 +1,10 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.CarConstant;
+
+import static racingcar.constant.message.ExceptionMessage.INVALID_CAR_NAME_LENGTH_EXCEPTION_MESSAGE;
+
 public class Car {
 
     private String name;
@@ -13,8 +17,8 @@ public class Car {
     }
 
     private Boolean isCorrectCarName(String name){
-        if(name.length()>5){
-            throw new IllegalArgumentException("자동차 이름이 5자를 초과했습니다.");
+        if(name.length()> CarConstant.NAME_LENGTH){
+            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
         }
         return true;
     }
@@ -26,7 +30,8 @@ public class Car {
     }
 
     private Boolean isMoveForward(){
-        if(Randoms.pickNumberInRange(0,9)<4){
+        if(Randoms
+                .pickNumberInRange(CarConstant.STOP_OR_MOVE_RANDOM_START_RANGE,CarConstant.STOP_OR_MOVE_RANDOM_END_RANGE) <CarConstant.STOP_OR_MOVE_STANDARD_NUMBER){
             return false;
         }
         return true;
@@ -37,8 +42,7 @@ public class Car {
     }
 
     public String distanceConvertString(){
-        String printDistanceUnit = "-";
-        return String.format("%s : ",this.name) + printDistanceUnit.repeat(this.distance);
+        return String.format("%s : ",this.name) + CarConstant.DISTANCE_PRINT_UNIT.repeat(this.distance);
     }
 
     public Integer measureDistance(){
