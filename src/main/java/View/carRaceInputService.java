@@ -17,11 +17,13 @@ public class carRaceInputService {
 
 
     public String[] askUserCarNames() {
+        carRaceOutputService.getInstance().askCarNames();
         String input = Console.readLine();
         return StringModifier.getInstance().separateCarNamesBySeparator(input, carRaceInputService.SEPARATOR);
     }
 
     public int askUserGameRound() {
+        carRaceOutputService.getInstance().askGameRound();
         String input = Console.readLine();
         return GameRoundValidator.getInstance().validateGameRoundAndReturn(input);
     }
