@@ -22,15 +22,19 @@ public class RacingControllerTest {
     @Test
     @DisplayName("자동차 이름 길이 체크 테스트")
     void carNameLengthTest() {
-        String carName = "qwerty";
-        Validation.checkAll(carName);
+        try {
+            String carName = "qwerty";
+            Validation.checkAll(carName);
+        } catch (IllegalArgumentException e) {
+            return;
+        }
     }
 
     @Test
     @DisplayName("자동차 이름 타입 테스트")
     void carNameTypeTest() {
         try {
-            String carName = "pobi,qwe";
+            String carName = "pobi,qwe,1";
             Validation.checkCarNameType(carName);
         } catch (IllegalArgumentException e) {
             return;

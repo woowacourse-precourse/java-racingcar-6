@@ -38,7 +38,7 @@ public class Validation {
         String regex = "[a-zA-Z]+";
         String[] cars = carName.split(COMMA);
         for (String car : cars) {
-            if (car.matches(regex)) {
+            if (!car.matches(regex)) {
                 throw new IllegalArgumentException(INVALID_NAME_TYPE);
             }
         }
