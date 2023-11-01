@@ -6,6 +6,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class RacingGameResultReport {
+    public void printResultTitle() {
+        System.out.println("실행 결과");
+    }
+
     public void printCarPositionWithName(Map<String, Integer> racingStateMap) {
         for (Map.Entry<String, Integer> entry : racingStateMap.entrySet()) {
             String carName = entry.getKey();
