@@ -12,7 +12,7 @@ public class RunCountTest {
     @DisplayName("시도 횟수 생성 성공")
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "99", "100"})
-    public void create(String inputRunCount) {
+    void create(String inputRunCount) {
         //when
         RunCount runCount = new RunCount(inputRunCount);
 
@@ -23,7 +23,7 @@ public class RunCountTest {
     @DisplayName("시도 횟수 생성 실패")
     @ParameterizedTest
     @ValueSource(strings = {"-1", "1.99", "0", "string"})
-    public void createFaile(String inputRunCount) {
+    void createFail(String inputRunCount) {
         //then
         assertThatThrownBy(() -> new RunCount(inputRunCount)).isInstanceOf(IllegalArgumentException.class);
     }

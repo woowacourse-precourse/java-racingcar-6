@@ -13,7 +13,7 @@ public class CarTest {
     @DisplayName("자동차 생성 성공")
     @ParameterizedTest
     @ValueSource(strings = {"test1", "test2", " test"})
-    public void create(String carName) {
+    void create(String carName) {
         // when
         Car car = new Car(carName);
 
@@ -24,14 +24,14 @@ public class CarTest {
     @DisplayName("자동차 생성 실패")
     @ParameterizedTest
     @ValueSource(strings = {"", " ", "123456"})
-    public void createFail(String carName) {
+    void createFail(String carName) {
         //then
         assertThatThrownBy(() -> new Car(carName)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("자동차 전진 못했을 경우 상태 가져오기")
     @Test
-    public void getPositionStatus() {
+    void getPositionStatus() {
         //given
         String carName = "test1";
 
