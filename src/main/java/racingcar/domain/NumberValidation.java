@@ -10,7 +10,6 @@ public class NumberValidation {
 
     public NumberValidation(String attemptNumber) {
         this.ATTEMPT_NUMBER = attemptNumber;
-        isCorrectPattern();
     }
 
     public void isCorrectPattern() {

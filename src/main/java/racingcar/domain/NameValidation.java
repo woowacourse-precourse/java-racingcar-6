@@ -15,7 +15,10 @@ public class NameValidation {
 
     public NameValidation(String names) {
         this.NAMES = names;
-        this.NAME_LIST = Util.toList(NAMES);
+        this.NAME_LIST = Util.toArrayList(NAMES);
+    }
+
+    public void validation() {
         isCorrectPattern();
         isCorrectLength();
         isDuplicate();

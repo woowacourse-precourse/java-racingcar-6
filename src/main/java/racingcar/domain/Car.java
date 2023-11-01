@@ -1,14 +1,13 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.Util;
 
 public class Car {
     private final String NAME;
     private int position = 0;
 
-    public Car(String name, int position) {
+    public Car(String name) {
         this.NAME = name;
-        this.position = position;
     }
 
     public String getName() {
@@ -19,11 +18,13 @@ public class Car {
         return position;
     }
 
-    public int move() {
-        int randomNumber = Randoms.pickNumberInRange(1, 9);
-        if (randomNumber >= 4) {
+    public void move() {
+        if (Util.getRandomNumber() >= 4) {
             position++;
         }
-        return position;
+    }
+
+    public boolean winOrFail(int winDistance) {
+        return position == winDistance;
     }
 }

@@ -10,8 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CarTest {
     @Test
     void 자동차_객체를_생성한다() {
-        Car car = new Car("Jason", 1);
+        Car car = new Car("Jason");
         assertThat(car.getName()).isEqualTo("Jason");
-        assertThat(car.getPosition()).isEqualTo(1);
     }
 }

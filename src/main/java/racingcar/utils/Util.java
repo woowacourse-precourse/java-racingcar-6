@@ -2,6 +2,7 @@ package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -18,9 +19,9 @@ public class Util {
     }
 
     // 배열에 이름 담기
-    public static List<String> toList(String carNames) {
+    public static ArrayList<String> toArrayList(String carNames) {
         String[] names = trim(carNames).split(",");
-        return Arrays.asList(names);
+        return new ArrayList<>(Arrays.asList(names));
     }
 
     // 1에서 9사이의 랜덤 숫자 뽑기
@@ -33,5 +34,12 @@ public class Util {
         return namelist.stream()
                 .filter(name -> Collections.frequency(namelist, name) > 1)
                 .count();
+    }
+
+    // 최대값 구하기
+    public static int getMaxValue(ArrayList<Integer> integers) {
+        return integers.stream()
+                .max(Integer::compare)
+                .orElse(-1);
     }
 }
