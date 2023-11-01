@@ -27,4 +27,12 @@ class ConverterTest {
                 () -> assertThat(result).contains("jun : ")
         );
     }
+
+    @Test
+    void 자동차_경주_우승자를_변환한다() {
+        List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
+        Cars winners = new Cars(carList);
+        String result = Converter.formatWinnersResult(winners);
+        assertThat(result).isEqualTo("pobi, woni, jun");
+    }
 }
