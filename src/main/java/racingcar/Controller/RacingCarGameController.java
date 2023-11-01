@@ -2,9 +2,7 @@ package racingcar.Controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import racingcar.Model.Car;
 import racingcar.View.InputView;
 import racingcar.View.OutView;
@@ -20,14 +18,14 @@ public class RacingCarGameController {
         startGame(carList, racingRoundTimes);
     }
 
-    public void startGame(List<Car> carList, String racingRoundTimes) { // 이것도 분리..?
+    public void startGame(List<Car> carList, String racingRoundTimes) {
         roundProgress(carList, Integer.parseInt(racingRoundTimes));
         List<String> winnerList = caculateGameWinner(carList);
         printGameResult(winnerList);
     }
 
-    public void printGameResult(List<String> winnerList){
-        if(winnerList.size() != 1) {
+    public void printGameResult(List<String> winnerList) {
+        if (winnerList.size() != 1) {
             OutView.printWinnerCarList(String.join(", ", winnerList));
         }
         OutView.printWinnerCar(winnerList.get(0));
@@ -35,14 +33,14 @@ public class RacingCarGameController {
 
     public List<String> caculateGameWinner(List<Car> carList) {
         List<String> winnerList = new ArrayList<>();
-        int max=0;
+        int max = 0;
 
         for (Car car : carList) {
             if (car.getMoveCount() > max) {
                 max = car.getMoveCount();
                 winnerList.clear();
                 winnerList.add(car.getName());
-            }else if (car.getMoveCount() == max) {
+            } else if (car.getMoveCount() == max) {
                 winnerList.add(car.getName());
             }
         }
@@ -58,9 +56,9 @@ public class RacingCarGameController {
         return carList;
     }
 
-    public void roundProgress(List<Car> carList, int racingRoundTimes){
+    public void roundProgress(List<Car> carList, int racingRoundTimes) {
         System.out.println("실행결과");
-        for(int i=0; i<racingRoundTimes; i++){
+        for (int i = 0; i < racingRoundTimes; i++) {
             decideGoOrStop(carList);
             totalCurrentRoundResult(carList);
         }
@@ -68,15 +66,15 @@ public class RacingCarGameController {
 
     public void totalCurrentRoundResult(List<Car> carList) {
         List<String> roundResult = new ArrayList<>();
-        for(Car car: carList){
+        for (Car car : carList) {
             roundResult.add(car.getCurrentState());
         }
         OutView.printCurrentRoundResult(roundResult);
     }
 
-    public void decideGoOrStop(List<Car> carList){
+    public void decideGoOrStop(List<Car> carList) {
         for (Car car : carList) {
-            if(isMove()){
+            if (isMove()) {
                 car.accel();
             }
         }

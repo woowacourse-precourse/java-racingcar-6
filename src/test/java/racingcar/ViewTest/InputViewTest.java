@@ -26,7 +26,7 @@ class InputViewTest {
         System.setIn(createUserInput(" abc,  ssaf , ssa   , ss"));
 
         // when, then
-        Assertions.assertThat(InputView.inputRacingCarName()).isEqualTo(List.of("abc","ssaf","ssa","ss"));
+        Assertions.assertThat(InputView.inputRacingCarName()).isEqualTo(List.of("abc", "ssaf", "ssa", "ss"));
     }
 
     @ParameterizedTest
