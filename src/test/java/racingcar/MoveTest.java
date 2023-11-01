@@ -64,7 +64,40 @@ public class MoveTest {
     }
 
     @Test
-    void 이동_결과_출력문() {
+    void 이동_거리_출력문() {
+
+        // given
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        // moveRandomly()
+        for (int i = 0; i < car.movedDistances.size(); i++) {
+
+            if (Randoms.pickNumberInRange(4, 9) >= 4) {
+                car.movedDistances.set(i, car.movedDistances.get(i) + "-");
+            }
+
+        }
+
+        // when - printDistances()
+        for (int k = 0; k < car.names.size(); k++) {
+            System.out.println(car.names.get(k) + " : " + car.movedDistances.get(k));
+        }
+
+        System.out.println();
+
+        // then
+        assertThat(out.toString())
+                .contains("pobi : -")
+                .contains("woni : -")
+                .contains("jun : -");
+
+    }
+
+    @Test
+    void 이동_출력문() {
 
         // given
         Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
