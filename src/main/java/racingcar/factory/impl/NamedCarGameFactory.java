@@ -13,11 +13,15 @@ public class NamedCarGameFactory implements GameFactory {
     private final String input;
     private final int iterNumber;
 
-    public NamedCarGameFactory(String input, int iterNumber) {
+    public NamedCarGameFactory(String input, String iterNumber) {
         this.input = input;
-        this.iterNumber = iterNumber;
-        String[] split = input.split(",");
-        validate(split);
+        try {
+            this.iterNumber = Integer.parseInt(iterNumber);
+            String[] split = input.split(",");
+            validate(split);
+        }catch (NumberFormatException exception) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static void validate(String[] split) throws IllegalArgumentException {
