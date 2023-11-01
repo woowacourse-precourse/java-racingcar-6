@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import racingcar.domain.dto.CarDTO;
 
 public class Cars {
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
