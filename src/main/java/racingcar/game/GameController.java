@@ -36,19 +36,15 @@ public class GameController {
 
     public void start() {
         String carNameContext = inputCarName();
+        carNameValidator.validate(carNameContext);
         String attemptCount = inputAttemptCount();
-        validateInputs(carNameContext, attemptCount);
+        attemptCountValidator.validate(attemptCount);
         List<String> carNames = makeCarNames(carNameContext);
         racingCarGame.play(carNames, Integer.parseInt(attemptCount));
     }
 
     private static List<String> makeCarNames(String carNameContext) {
         return new ArrayList<>(Arrays.asList(carNameContext.split(COMMA_DELIMITER)));
-    }
-
-    private void validateInputs(String carNameContext, String attemptCount) {
-        carNameValidator.validate(carNameContext);
-        attemptCountValidator.validate(attemptCount);
     }
 
     private String inputAttemptCount() {
