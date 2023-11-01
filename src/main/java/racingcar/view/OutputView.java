@@ -10,7 +10,6 @@ public class OutputView {
     private static final String DELIMITER = ", ";
     private static final String RACING_ROAD = "-";
     private static int maxPosition;
-
     private static List<String> winners;
 
     public static void printRacingProcess(String carName, int position) {
