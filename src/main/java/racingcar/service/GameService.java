@@ -34,16 +34,18 @@ public class GameService {
                 .toList();
     }
 
-    public List<Car> determineWinner(Game game) {
+    public List<String> determineWinner(Game game) {
         game.determineTopDistance();
         return determineTopCar(game);
     }
 
-    private List<Car> determineTopCar(Game game) {
+    private List<String> determineTopCar(Game game) {
         return game.getCarList().stream()
                 .filter(car ->
                         car.getDistances() == game.getTopDistance()
-                ).toList();
+                )
+                .map(car -> car.getName())
+                .toList();
     }
 
 }

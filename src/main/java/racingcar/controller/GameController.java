@@ -24,20 +24,25 @@ public class GameController {
     public void game(){
         List<String> carNames = inputResolver.preprocessCarName();
         int count = inputResolver.preprocessCount();
-
         Game game = gameService.settingGame(carNames,count);
 
-        outputView.outputResultString();
         racingGame(game);
 
-        List<Car> winnerCarList = gameService.determineWinner(game);
+        finishGame(game);
 
     }
 
     private void racingGame(Game game) {
+        outputView.outputResultString();
+
         for (int i = 0; i < game.getCount(); i++) {
             List<GameResult> gameResults = gameService.startGame(game);
             outputView.outputGameResult(gameResults);
         }
+    }
+
+    private void finishGame(Game game) {
+        List<String> winnerCarNameList = gameService.determineWinner(game);
+        outputView.outputGameWinner(winnerCarNameList);
     }
 }

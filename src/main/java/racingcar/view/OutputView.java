@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.domain.Car;
 import racingcar.domain.dto.GameResult;
 
 public class OutputView {
@@ -17,4 +19,7 @@ public class OutputView {
         System.out.println();
     }
 
+    public void outputGameWinner(List<String> winnerCarNameList) {
+        System.out.println("최종 우승자 : " + String.join(", ", winnerCarNameList));
+    }
 }
