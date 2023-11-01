@@ -41,7 +41,7 @@ public class InputHandler {
         int endInclusive = 5;
         for (String carName : carNames) {
             if (carName.length() > endInclusive) {
-                throw new IllegalArgumentException("자동차 이름이 5자 이상입니다. 5자리 이하로 입력해주세요.");
+                throw new IllegalArgumentException("자동차 이름이 5자 보다 큽니다. 5자리 이하로 입력해주세요.");
             }
         }
     }
