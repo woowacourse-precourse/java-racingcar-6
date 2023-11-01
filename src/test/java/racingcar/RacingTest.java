@@ -83,4 +83,16 @@ public class RacingTest {
             assertThat(car.toString()).contains(carNames[i]);
         }
     }
+
+    
+    
+    @Test
+    @DisplayName("initPlayCount 부족 실패 테스트")
+    void initParticipants_lack_fail() {
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> racing.initPlayCount(0))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
