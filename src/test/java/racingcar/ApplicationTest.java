@@ -3,6 +3,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,6 +34,44 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 자동차_생성() {
+        String[] input = {"pobi", "woni", "jun"};
+        LinkedHashMap<String, String> ex = new LinkedHashMap<>();
+        ex.put("pobi", "");
+        ex.put("woni", "");
+        ex.put("jun", "");
+        LinkedHashMap<String, String> result = Application.generateCar(input);
+
+        assertThat(result).isEqualTo(ex);
+    }
+
+    @Test
+    void 전진_거리() {
+        List<String> input = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
+        LinkedHashMap<String, String> ex = new LinkedHashMap<>();
+        ex.put("pobi", "");
+        ex.put("woni", "");
+        ex.put("jun", "");
+        LinkedHashMap<String, String> result = Application.goStop(ex, input);
+
+        assertThat(result.containsKey("pobi"));
+        assertThat(result.containsKey("woni"));
+        assertThat(result.containsKey("jun"));
+    }
+
+    @Test
+    void 최대_전진_자동차() {
+        List<String> input = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
+        LinkedHashMap<String, String> ex = new LinkedHashMap<>();
+        ex.put("pobi", "----");
+        ex.put("woni", "--");
+        ex.put("jun", "----");
+        List<String> result = Application.findMaxValueCar(ex, input);
+
+        assertThat(result).contains("pobi", "jun");
     }
 
     @Override
