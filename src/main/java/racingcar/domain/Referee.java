@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,12 +12,10 @@ public class Referee {
     }
 
     public List<String> judgeWinner(List<Car> carList) {
-        int max = carList.stream()
-                .mapToInt(Car::getLocation)
-                .max()
-                .orElse(0);
+        Car winner = Collections.max(carList);
+        int maxLocation = winner.getLocation();
         return carList.stream()
-                .filter(car -> car.getLocation() == max)
+                .filter(car -> car.getLocation() == maxLocation)
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
