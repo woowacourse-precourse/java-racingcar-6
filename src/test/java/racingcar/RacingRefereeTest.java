@@ -39,7 +39,7 @@ public class RacingRefereeTest {
         List<RacingCar> racingCars = List.of(winner, racingCar0, racingCar1);
         RacingReferee.printWinnersName(racingCars);
 
-        assertThat(output.toString().trim()).isEqualTo("winner");
+        assertThat(output.toString().trim()).isEqualTo("최종 우승자 : winner");
     }
 
     @Test
@@ -54,6 +54,6 @@ public class RacingRefereeTest {
         List<RacingCar> racingCars = List.of(winner0, racingCar0, winner1);
         RacingReferee.printWinnersName(racingCars);
 
-        assertThat(output.toString().trim()).isEqualTo("winner0, winner1");
+        assertThat(output.toString().trim()).isEqualTo("최종 우승자 : winner0, winner1");
     }
 }

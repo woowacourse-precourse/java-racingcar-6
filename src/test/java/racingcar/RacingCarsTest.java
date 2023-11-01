@@ -37,8 +37,8 @@ public class RacingCarsTest {
         racingCars.printCarsPosition();
 
         String expectedCarPositions = """
-            racingCar0 : -\r
-            racingCar1 : -\r
+            racingCar0 : -
+            racingCar1 : -
             racingCar2 :""";
         assertThat(output.toString().trim()).isEqualTo(expectedCarPositions);
     }
@@ -57,8 +57,8 @@ public class RacingCarsTest {
         racingCars.printCarsPosition();
 
         String expectedCarPositions = """
-            racingCar0 : --\r
-            racingCar1 : -\r
+            racingCar0 : --
+            racingCar1 : -
             racingCar2 :""";
         assertThat(output.toString().trim()).contains(expectedCarPositions);
     }
@@ -75,6 +75,6 @@ public class RacingCarsTest {
         RacingCars racingCars = new RacingCars(List.of(winner0, racingCar0, winner1));
         racingCars.printWinnersName();
 
-        assertThat(output.toString().trim()).isEqualTo("winner0, winner1");
+        assertThat(output.toString().trim()).isEqualTo("최종 우승자 : winner0, winner1");
     }
 }
