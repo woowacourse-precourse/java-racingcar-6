@@ -77,8 +77,6 @@ class RacingCarGameTest {
         });
     }
 
-
-
     @DisplayName("0 이하의 정수가 입력되면 에러 발생하는 테스트")
     @Test
     void validateTrialNumberRange() {
