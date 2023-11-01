@@ -30,4 +30,19 @@ public class Cars {
         }
         return result.toString();
     }
+
+    public String getWinner() {
+        List<String> winner = new ArrayList<>();
+        int maxDistance = 0;
+        for(Car car : carList){
+            if(maxDistance == car.getDistance()){
+                winner.add(car.getName());
+            } else if (maxDistance < car.getDistance()) {
+                winner.clear();
+                winner.add(car.getName());
+                maxDistance = car.getDistance();
+            }
+        }
+        return String.join(",", winner);
+    }
 }
