@@ -17,4 +17,13 @@ public class Car {
             position += 1;
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        return sb.append(name)
+                .append(" : ")
+                .append("-".repeat(position))
+                .toString();
+    }
 }
