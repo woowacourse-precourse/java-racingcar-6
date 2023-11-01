@@ -11,4 +11,8 @@ public class Announcement {
     public static String currentState(Car car) {
         return String.join(" : ", car.getName(), car.getState());
     }
+
+    public static String finalResult(String winners) {
+        return "최종 우승자 : " + winners;
+    }
 }

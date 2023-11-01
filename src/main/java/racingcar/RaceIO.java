@@ -39,4 +39,8 @@ public class RaceIO {
         });
         System.out.println("");
     }
+
+    public static void printWinners(String winners) {
+        System.out.println(Announcement.finalResult(winners));
+    }
 }

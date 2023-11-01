@@ -35,6 +35,7 @@ public class Race {
 
     public void printFinalResult() {
         String winners = RaceHelper.getWinners(cars);
+        RaceIO.printWinners(winners);
     }
 
     private void randomMove() {
