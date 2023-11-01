@@ -14,10 +14,6 @@ public class GameUtil {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public void formatWinners() {
-
-    }
-
     public boolean judgeGo(int number) {
         if (number >= 4) {
             return true;
