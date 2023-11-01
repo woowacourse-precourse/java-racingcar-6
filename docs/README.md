@@ -1,4 +1,4 @@
-### **🌟 기능 목록**
+## **🌟 기능 목록**
 
 1. 📥 **사용자(User) 입력 처리 기능:**
    - [x] 사용자로부터 각 자동차의 이름을 입력받는 기능.
@@ -34,104 +34,270 @@
      - [x] `최종 우승자 : pobi, jun`처럼 `최종우승자 : 이름, 이름`으로 `,`, `콜론(:)` 사이 공백 존재 주의
 
 8. ⚠️ **예외 처리 기능:**
-   - [ ] 사용자의 잘못된 입력에 대해 적절한 예외를 처리하고 프로그램을 종료하는 기능.(필수기능)
+   - [x] 사용자의 잘못된 입력에 대해 적절한 예외를 처리하고 프로그램을 종료하는 기능.(필수기능)
      - [x] 쉼표(,)를 기준으로 입력 확인 → 공백 및  특수문자 불허로 공백 존재시 에러 발생
      - [x] 입력시 공백 확인 → 공백 및  특수문자 불허로 공백 존재시 에러 발생
      - [x] 이름은 최소 1자에서 최대 5자 이하(대문자, 소문자, 숫자 허용 | 특수문자, 공백 불허)
      - [x] 중복된 이름이 있는지 확인
      - [x] 입력된 값이 숫자인지 확인
-     - [ ] 너무 큰 값 입력 OOM 발생 확인
 ---
-### **🌟 클래스 목록**
+## **🌟 클래스 목록**
 
-### 🏃‍♂️ Class: Player
+## 🧑‍💻 User 클래스
 
-#### Properties:
-- `int distance`: 플레이어의 이동 거리를 나타내는 변수
-- `String playerName`: 플레이어의 이름을 저장하는 변수
+`User` 클래스는 사용자로부터 플레이어 이름과 이동 횟수를 입력받는 역할을 담당하는 클래스.
 
-#### Constructor:
-- `Player(String playerName)`: 주어진 이름으로 플레이어 객체를 생성합니다.
+### 메서드
 
-#### Methods:
-1. `public String getPlayerName()`: 플레이어의 이름을 반환합니다.
-2. `public int getDistance()`: 현재 플레이어의 이동 거리를 반환합니다.
-3. `public void move(int randomNumber)`: 주어진 랜덤 숫자에 따라 플레이어를 이동시킵니다. 숫자가 4 이상일 경우에만 플레이어의 이동 거리를 증가시킵니다.
+#### `public static List<String> inputPlayerName()`
 
-### 🏎️ Class: Game
+- 사용자로부터 플레이어 이름을 입력받아 리스트로 반환하는 메서드. 입력받은 이름은 쉼표로 구분.
 
-#### Properties:
-- `List<String> players`: 게임 플레이어들의 리스트
+#### `public static String inputTryNumber()`
 
-#### Constructor:
-- `Game()`: 게임 시작 메시지를 출력하고 플레이어 이름을 입력받아 리스트에 저장합니다.
+- 사용자로부터 이동 횟수를 입력받아 문자열로 반환하는 메서드.
 
-#### Methods:
-1. `public void play()`: 게임을 실행하는 메소드입니다.
-2. `private void playRounds(List<Player> playerObjects, int tryNumber)`: 라운드를 실행하는 메소드입니다.
-3. `private void raceCars(List<Player> playerObjects)`: 한 라운드에서 자동차 경주를 진행하는 메소드입니다.
-4. `private int getMaxDistance(Map<String, Integer> playerDistanceMap)`: 최대 이동 거리를 찾는 메소드입니다.
-5. `private List<String> findFindWinner(Map<String, Integer> playerDistanceMap, int maxDistance)`: 우승자를 찾는 메소드입니다.
+## 👨‍👨‍👧‍👦 Player 클래스
 
-### 📜 Enum: GameMessage
+`Player` 클래스는 유저(User)클래스에 의해 생성된 게임 참여자를 나타내는 클래스로, 플레이어의 이름과 차량을 관리.
 
-#### Constants:
-1. `GAME_START`: 게임 시작 시 출력할 메시지를 저장합니다.
-2. `TRY_COUNT`: 시도할 회수를 묻는 메시지를 저장합니다.
-3. `FINAL_WINNER`: 최종 우승자를 알리는 메시지를 저장합니다.
+### 속성
 
-#### Properties:
-- `String message`: 각각의 상수에 해당하는 메시지를 저장합니다.
+- `name` : 플레이어의 이름을 나타내는 문자열.
+- `car` : 플레이어의 차량을 나타내는 `Car` 클래스의 인스턴스.
 
-#### Constructor:
-- `GameMessage(final String message)`: 주어진 메시지로 각 상수의 메시지를 설정합니다.
+### 메서드
 
-### 🖨️ Class: Output
+#### `public Player(String playerName)`
 
-#### Constructors:
-- `private Output()`: 외부에서 인스턴스화를 방지하기 위한 private 생성자
+- 생성자 메서드로, 플레이어의 이름을 인자로 받아 초기화.
 
-#### Static Methods:
-1. `static void printGameStartMessage()`: 게임 시작 메시지를 출력합니다.
-2. `static void printPlayersName(List<String> players)`: 플레이어 이름을 출력합니다.
-3. `static void printTryCountMessage()`: 시도할 회수를 묻는 메시지를 출력합니다.
-4. `static void printTryCount(String moveNumber)`: 시도 횟수를 출력합니다.
-5. `static void printRaceCar(String playerName, int distance)`: 각 플레이어의 경주 상황을 출력합니다.
-6. `static void printFinalWinner(List<String> winners)`: 최종 우승자를 출력합니다.
+#### `public String getPlayerName()`
 
-### 🚨 Class: ExceptionHandler
+- 플레이어의 이름 반환하는 메서드.
 
-#### Constants:
-- `private static final int maxValidLength`: 플레이어 이름의 최대 길이를 제한하는 상수
+#### `public int getDistance()`
 
-#### Static Methods:
-1. `public static boolean isValidLength(String playerName)`: 주어진 이름이 유효한 길이인지 확인합니다.
-2. `public static boolean isValidPlayerName(String playName)`: 주어진 이름이 허용된 문자만으로 구성되어 있는지 확인합니다.
-3. `public static boolean isNameAlreadyExists(List<String> playerArray)`: 주어진 플레이어 리스트에 중복된 이름이 있는지 확인합니다.
-4. `public static void raisePlayerInputException(List<String> playerArray)`: 플레이어 이름 입력에 대한 예외를 처리합니다.
-5. `public static boolean isValidMoveNumber(String moveNumber)`: 주어진 숫자가 유효한 이동 횟수인지 확인합니다.
-6. `public static void rasieMoveNumberInputException(String str)`: 이동 횟수 입력에 대한 예외를 처리합니다.
+- 플레이어의 차량이 이동한 거리를 반환하는 메서드.
 
-### 🙋‍♂️ Class: User
+#### `public void selectNewCar()`
 
-#### Methods:
-1. `public static List<String> playerNameInput()`: 플레이어 이름을 입력받아 리스트로 반환합니다. 입력된 이름들을 쉼표(,)로 분리하여 리스트로 변환하고, 입력 예외를 처리합니다.
-2. `public static String tryNumberInput()`: 시도할 회수를 입력받아 문자열로 반환합니다. 입력된 숫자의 유효성을 확인하고, 입력 예외를 처리합니다.
+- 새로운 차량을 선택하여 현재 차량을 업데이트하는 메서드.
+- 단발성 게임이 아니라 반복 게임일 경우 새로운 게임이 시작될 때마다 새로운 차량을 선택할 수 있도록 하기 위해서 도입
 
-### 🛠️ Class: Create
+#### `public void play()`
 
-#### Methods:
-1. `public static int randomNumber()`: 0부터 9 사이의 랜덤 숫자를 반환합니다.
-2. `public static List<Player> playerObjectArray(List<String> players)`: 주어진 플레이어 이름들로부터 플레이어 객체 배열을 생성하여 반환합니다.
-3. `public static Map<String, Integer> playerDistanceMapping(List<Player> playerObjectArray)`: 플레이어 객체 배열로부터 플레이어 이름과 이동 거리를 매핑한 맵을 생성하여 반환합니다.
+- 현재 차량이 존재하는 경우 차량을 이동시키는 `tryMove()` 메서드를 호출하여 플레이어가 플레이를 진행.
 
-### 🤝 Class: JoinComma
+## 🚗 Car 클래스
 
-#### Methods:
-1. `public static String playerInput(List<String> players)`: 주어진 플레이어 리스트를 쉼표(,)로 연결하여 문자열로 반환합니다.
-2. `public static String winnerOutput(List<String> winners)`: 주어진 우승자 리스트를 쉼표와 공백으로 연결하여 문자열로 반환합니다.
+`Car` 클래스는 주어진 조건에 따라 움직이는 자동차를 나타내는 클래스.
+
+### 속성
+
+- `distance` : 자동차가 이동한 거리를 나타내는 정수 값.
+- `threshold` : 자동차가 이동할지 여부를 결정하는 임계값으로, 4로 설정.
+
+### 메서드
+
+#### `Car()`
+
+- 생성자 메서드로, `Car` 클래스의 새 인스턴스를 초기화.
+
+#### `int getDistance()`
+
+- 현재까지 이동한 거리를 반환하는 메서드.
+
+#### `void tryMove()`
+
+- 자동차를 움직이게 하는 메서드로, `Factory.createRandomDigit()`을 이용하여 생성된 임의의 숫자가 `threshold`보다 크거나 같으면 `distance`를 1 증가.
+
+
+## 🏎️ Game 클래스
+
+`Game` 클래스는 레이싱 게임을 관리하는 클래스로, 플레이어들을 초기화하고 게임을 진행하며 결과를 출력.
+
+### 속성
+
+- `players` : 게임에 참여하는 플레이어들의 목록을 나타내는 `List<Player>`.
+
+### 메서드
+
+#### `public Game()`
+
+- 생성자 메서드로, 새로운 `Game` 인스턴스를 초기화.
+
+#### `public void start()`
+
+- 게임을 시작하는 메서드로, 게임을 초기화하고 플레이어들의 이름을 입력하고 차량을 할당.
+
+#### `public void play()`
+
+- 게임을 플레이하는 메서드로, 게임 라운드의 수를 입력하고 라운드를 실행.
+
+#### `public void end()`
+
+- 게임이 종료될 때 호출되는 메서드로, 최종 승자를 찾아 출력.
+
+#### `private void assignNewCarToEachPlayer()`
+
+- 각 플레이어에게 새로운 차량을 할당하는 메서드.
+
+#### `private void playRounds(int tryNumber)`
+
+- 주어진 횟수만큼 라운드를 실행하는 메서드.
+
+#### `private void playRound()`
+
+- 각 플레이어의 라운드를 실행하는 메서드.
+
+#### `private List<String> findFinalWinner()`
+
+- 최종 승자를 찾는 메서드로, 플레이어들 중 가장 멀리 간 플레이어를 반환.
+
+### 📜 GameMessage 열거형
+
+`GameMessage` 열거형은 레이싱 게임에서 사용되는 메시지.
+
+### 속성
+
+- `message` : 각 게임 메시지에 대한 설명을 포함하는 문자열입니다.
+
+### 상수
+
+#### `GAME_START`
+
+- 게임 시작 시 플레이어들의 이름을 입력하라는 메시지를 의미.
+
+#### `TRY_NUMBER`
+
+- 시도할 회수를 입력하라는 메시지를 의미.
+
+#### `FINAL_WINNER`
+
+- 최종 우승자를 알리는 메시지를 의미.
+
+### 생성자
+
+#### `GameMessage(final String message)`
+
+- 각 게임 메시지에 대한 설명을 초기화하는 생성자.
+
+## 🖨️ Output 클래스
+
+`Output` 클래스는 레이싱 게임에서의 출력을 관리하는 유틸리티 클래스
+
+### 메서드
+
+#### `static void printGameStartMessage()`
+
+- 게임 시작 메시지를 출력하는 메서드.
+
+#### `static void printPlayersName(List<String> players)`
+
+- 플레이어들의 이름을 출력하는 메서드.
+
+#### `static void printTryNumberMessage()`
+
+- 시도할 회수를 입력하라는 메시지를 출력하는 메서드.
+
+#### `static void printTryCount(String moveNumber)`
+
+- 시도한 횟수를 출력하는 메서드.
+
+#### `static void printPlayerStatus(String playerName, int distance)`
+
+- 플레이어의 상태를 출력하는 메서드.
+
+#### `static void printPlayersStatus(List<Player> players)`
+
+- 플레이어들의 상태를 출력하는 메서드.
+
+#### `static void printFinalWinner(List<String> winners)`
+
+- 최종 승자를 출력하는 메서드.
+
+## ⚠️ ExceptionHandler 클래스
+
+`ExceptionHandler` 클래스는 플레이어 이름과 이동 횟수에 대한 유효성을 확인하는 유틸리티 메서드를 제공하는 클래스
+
+### 상수
+
+- `maxValidLength` : 플레이어 이름의 최대 길이를 나타내는 정수 상수.
+
+### 메서드
+
+#### `public static boolean isValidLength(String playerName)`
+
+- 주어진 플레이어 이름이 유효한 길이인지 확인하는 메서드.
+
+#### `public static boolean isValidPlayerName(String playName)`
+
+- 주어진 문자열이 유효한 플레이어 이름인지 확인하는 메서드.
+
+#### `public static boolean isNameAlreadyExists(List<String> playerArray)`
+
+- 주어진 플레이어 이름 목록에서 중복된 이름이 있는지 확인하는 메서드.
+
+#### `public static void raisePlayerInputException(List<String> playerArray)`
+
+- 플레이어 이름에 대한 예외를 처리하는 메서드.
+
+#### `public static boolean isValidMoveNumber(String moveNumber)`
+
+- 주어진 문자열이 유효한 이동 횟수인지 확인하는 메서드.
+
+#### `public static void rasieMoveNumberInputException(String str)`
+
+- 이동 횟수에 대한 예외를 처리하는 메서드.
+
+## 🛠️ Factory 클래스
+
+`Factory` 클래스는 유틸리티 메서드를 제공하여 객체 및 데이터 구조를 생성하는데 사용.
+
+### 메서드
+
+#### `public static int createRandomDigit()`
+
+- 0부터 9 사이의 임의의 숫자를 생성하여 반환하는 메서드.
+
+#### `public static List<Player> createPlayersArray(List<String> playersName)`
+
+- 주어진 플레이어 이름 목록을 기반으로 플레이어 객체의 리스트를 생성하여 반환하는 메서드.
+
+#### `public static Map<String, Integer> createPlayerDistanceMap(List<Player> playersArray)`
+
+- 주어진 플레이어 리스트를 기반으로 플레이어의 이름과 이동 거리를 매핑한 맵을 생성하여 반환하는 메서드.
+
+## 🛠️ StringUtils 클래스
+
+`StringUtils` 클래스는 문자열과 관련된 유틸리티 메서드를 제공하는 클래스.
+
+### 메서드
+
+#### `public static String joinWithoutBlank(List<String> stringList)`
+
+- 주어진 문자열 리스트를 쉼표로 구분하여 하나의 문자열로 결합하는 메서드(공백은 제외).
+
+#### `public static String joinWithBlank(List<String> stringList)`
+
+- 주어진 문자열 리스트를 쉼표와 공백으로 구분하여 하나의 문자열로 결합하는 메서드.
+
+## 🛠️ MapUtils 클래스
+
+`MapUtils` 클래스는 맵과 관련된 유틸리티 메서드를 제공하는 클래스.
+
+### 메서드
+
+#### `public static <K, V extends Comparable<? super V>> V getMaxValue(Map<K, V> map)`
+
+- 주어진 맵에서 값이 가장 큰 요소의 값을 반환하는 메서드.
+
+#### `public static <K, V> List<K> getKeysForValue(Map<K, V> map, V value)`
+
+- 주어진 맵에서 특정 값에 대한 모든 키를 반환하는 메서드.
 ---
-### **🌟 테스트 목록**
+## **🌟 테스트 목록**
 1. Application Test
 - [x] 이름에 대한 판단
   - [x] 이름은 최소 1자에서 최대 5자 이하 판단
