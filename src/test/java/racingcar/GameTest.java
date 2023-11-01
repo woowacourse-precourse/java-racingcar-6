@@ -35,6 +35,18 @@ public class GameTest extends NsTest {
     }
 
     @Test
+    @DisplayName("입력한 게임 라운드 수에 따른 진행 상황 중계")
+    void broadCastGameBoard() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("ye,seul", "3");
+                    assertThat(output()).contains("ye : -", "ye : --", "ye : ---");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
     @DisplayName("승자가 한 명일 때")
     void makeWinner() {
         assertRandomNumberInRangeTest(
@@ -55,18 +67,6 @@ public class GameTest extends NsTest {
                     assertThat(output()).contains("최종 우승자 : ye, seul");
                 },
                 MOVING_FORWARD, MOVING_FORWARD
-        );
-    }
-
-    @Test
-    @DisplayName("입력한 게임 라운드 수에 따른 진행 상황 중계")
-    void broadCastGameBoard() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("ye,seul", "3");
-                    assertThat(output()).contains("ye : -", "ye : --", "ye : ---");
-                },
-                MOVING_FORWARD, STOP, MOVING_FORWARD
         );
     }
 
