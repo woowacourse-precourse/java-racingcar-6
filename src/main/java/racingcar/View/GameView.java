@@ -1,5 +1,8 @@
 package racingcar.View;
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
+
+import java.util.Arrays;
 
 public class GameView {
     public String inputCarNames(){
@@ -12,4 +15,10 @@ public class GameView {
         int trialNum = Integer.parseInt(trialNumStr);
         return trialNum;
     }
+
+    public void printResultHead(){
+        System.out.println();
+        System.out.println("실행결과");
+    }
+
 }
