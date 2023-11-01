@@ -8,21 +8,22 @@ public class Validator {
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
 
     public static void carNamesValidation(String carNames) {
-        List<String> carNameList = getCarNamesUnderFiveChar(carNames);
+        List<String> carNameList = getCarNamesByCondition(carNames);
 
-        checkHasOverFiveChar(carNames, carNameList);
+        checkHasOverFiveCharOrSpace(carNames, carNameList);
         checkHasEmptyName(carNames, carNameList);
     }
 
-    private static List<String> getCarNamesUnderFiveChar(String carNames) {
+    private static List<String> getCarNamesByCondition(String carNames) {
         return Arrays.stream(carNames.split(","))
                 .filter(name -> name.length() <= CAR_NAME_LENGTH_LIMIT)
+                .filter(name -> !name.contains(" "))
                 .collect(Collectors.toList());
     }
 
-    private static void checkHasOverFiveChar(String carNames, List<String> carNameList) {
+    private static void checkHasOverFiveCharOrSpace(String carNames, List<String> carNameList) {
         if (carNameList.size() != carNames.split(",").length) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException("자동차 이름은 공백이 아닌 5자 이하만 가능합니다.");
         }
     }
 
