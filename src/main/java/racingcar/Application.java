@@ -11,5 +11,11 @@ public class Application {
         input = input.trim();
 
         String[] values = input.split(",");
+
+        for (String value : values) {
+            if (value.trim().length() > 5) {
+                throw new IllegalArgumentException("길이가 5 이상인 값이 감지되었습니다: " + value);
+            }
+        }
     }
 }
