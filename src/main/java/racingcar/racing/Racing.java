@@ -16,6 +16,7 @@ public class Racing {
         String roundNumber = view.roundInjectionView();
         gameInfo = new GameInfo(driverNames, roundNumber);
         racingCarService.createCars(gameInfo.getRacingCarDrivers());
+        view.roundResultTitleView();
     }
 
     public void startRacing() {

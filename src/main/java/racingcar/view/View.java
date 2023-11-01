@@ -19,8 +19,11 @@ public class View {
         return readLine();
     }
 
+    public void roundResultTitleView() {
+        System.out.println("\n" + GAME_RESULT_TEXT);
+    }
+
     public void roundResultView(String roundResult) {
-        System.out.println(GAME_RESULT_TEXT);
         System.out.println(roundResult);
     }
 
