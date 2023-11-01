@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
 import java.util.List;
 
 public class OutputView {
@@ -13,8 +15,8 @@ public class OutputView {
         System.out.println(CAR_RESULT_MESSAGE);
     }
 
-    public void printCarPositionMessage(String name, int number) {
-        System.out.println(name + CAR_NAME_MESSAGE + CAR_POSITION_MESSAGE.repeat(number));
+    public void printCarPositionMessage(Car car) {
+        System.out.println(car.getCarName() + CAR_NAME_MESSAGE + CAR_POSITION_MESSAGE.repeat(car.getPosition()));
     }
 
     public void printLineChange(){

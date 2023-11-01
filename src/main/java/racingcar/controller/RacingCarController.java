@@ -45,7 +45,7 @@ public class RacingCarController {
     private void showMovingCars() {
         for (Car car : cars) {
             car.moveForward(computer.getRandomNumber());
-            outputView.printCarPositionMessage(car.getCarName(), car.getPosition());
+            outputView.printCarPositionMessage(car);
         }
     }
 }
