@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class InputParser {
-    InputValidator inputValidator = new InputValidator();
+    private final InputValidator inputValidator = new InputValidator();
 
     public List<Car> parseCarName(String playerInput) {
         playerInput = removeSpaces(playerInput);

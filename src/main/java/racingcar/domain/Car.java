@@ -7,7 +7,7 @@ import static racingcar.consts.ViewConstant.DIVISION_MESSAGE;
 import racingcar.util.RandomGenerator;
 
 public class Car {
-    private String name;
+    private final String name;
     private int totalDistance;
 
     public Car(String name) {
