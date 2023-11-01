@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.collaborator.race.Racer;
@@ -45,6 +46,17 @@ class RaceViewTest {
                 .map(Racer::getName)
                 .collect(Collectors.joining(","));
         assertThat(actualCollect).isEqualTo(expectedCollect);
+    }
+
+    @Test
+    void askRacersNames로_중복된레이서리스트를입력하면_예외처리() {
+        String testInput = "김홍삼,   김홍삼, 김홍삼";
+
+        String input = enterInput(testInput);
+        customSetIn(input);
+
+        Assertions.assertThatThrownBy(() -> new RaceView().askRacersNames())
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
