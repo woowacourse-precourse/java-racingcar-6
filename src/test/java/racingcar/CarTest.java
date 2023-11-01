@@ -14,6 +14,7 @@ public class CarTest {
 
     private static final int MINIMUM_NAME_LENGTH = 1;
     private static final int MAXIMUM_NAME_LENGTH = 5;
+    private static final String POSITION_STAMP = "-";
 
     @ParameterizedTest
     @DisplayName("구분자로 분리한 이름의 길이가 1 이상 5 이하가 아닌 경우 예외 테스트")
@@ -49,5 +50,14 @@ public class CarTest {
         car.moveForward(5);
         car.moveForward(5);
         assertThat(car.findFasterPosition(1)).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("자동차 이름과 경주 진행 결과 반환 테스트")
+    void checkMakePositionString() {
+        Car car = new Car("mason");
+        car.moveForward(5);
+        car.moveForward(5);
+        assertThat(car.makePositionString(POSITION_STAMP)).isEqualTo("mason : --");
     }
 }
