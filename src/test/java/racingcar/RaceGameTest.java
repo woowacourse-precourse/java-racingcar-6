@@ -63,4 +63,14 @@ public class RaceGameTest {
                 .hasMessageContaining("공백이 아닌 자동차 이름을 입력해주세요.");
     }
 
+    @Test
+    void 자동차_이름아_5이하인지_확인() {
+
+        List<String> inputCarName = new ArrayList<>(Arrays.asList("carName", "jun"));
+
+        assertThatThrownBy(() -> carNameValidator.toValidateCarName(inputCarName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("5 이하의 자동차 이름을 입력해주세요.");
+    }
+
 }
