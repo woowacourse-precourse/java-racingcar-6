@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,11 +13,7 @@ class CarNameTest {
         String inputNames = "david";
 
         assertThatThrownBy(() -> {
-            List<CarName> carNameList = Arrays.stream(inputNames.split(","))
-                    .map(CarName::new)
-                    .toList();
-
-            new Cars(carNameList, new RandomNumberGenerator());
+            new CarName(inputNames);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -26,11 +22,16 @@ class CarNameTest {
         String inputNames = "";
 
         assertThatThrownBy(() -> {
-            List<CarName> carNameList = Arrays.stream(inputNames.split(","))
-                    .map(CarName::new)
-                    .toList();
-
-            new Cars(carNameList, new RandomNumberGenerator());
+            new CarName(inputNames);
         }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 이름_입력_성공_테스트() {
+        String inputNames = "pobi";
+
+        CarName carName = new CarName(inputNames);
+
+        assertThat(carName.value()).isEqualTo("pobi");
     }
 }
