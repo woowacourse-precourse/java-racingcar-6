@@ -11,15 +11,18 @@ public class Application {
         String inputCarName = InputProcessor.readLine();
         String[] carName = inputCarName.split(",");
 
-        validateContainsCommaAndBlank(inputCarName);
-        validateContainsCommaSeparator(inputCarName);
-        validateStringLengthInArray(carName);
+        validateInputCarName(inputCarName);
 
         getInputNumberOfAttemptsMessage();
         String countNumber = InputProcessor.readLine();
         System.out.println();
 
-        validateNonPositiveOrNonInteger(countNumber);
+        try {
+            validateInput(countNumber);
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            return;
+        }
 
         int inputCount = Integer.parseInt(countNumber);
 

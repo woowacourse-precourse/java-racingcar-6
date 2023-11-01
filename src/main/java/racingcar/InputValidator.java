@@ -5,17 +5,36 @@ import static racingcar.MessageManager.*;
 public class InputValidator {
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
-    //input에 정수로 파싱할 수 없는 문자가 들어와 NumberFormatExeption이 발생하면 IllegalArgumentException으로 처리 하도록 함
-    public static void validateNonPositiveOrNonInteger(String input) {
+    public static void validateInputCarName(String inputCarName) {
+        String[] carName = inputCarName.split(",");
+
+        validateContainsCommaAndBlank(inputCarName);
+        validateContainsCommaSeparator(inputCarName);
+        validateStringLengthInArray(carName);
+    }
+
+    public static void validateInput(String countNumber) throws IllegalArgumentException {
+        validateNonInteger(countNumber);
+        validateNonPositive(countNumber);
+    }
+
+    public static void validateNonInteger(String input) {
         try {
             int number = Integer.parseInt(input);
-            if (number <= 0) {
-                throw new IllegalArgumentException(getNonPositiveNumberMessage());
-            }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(getNonPositiveNumberMessage());
+            throw new IllegalArgumentException(getNonIntegerNumberMessage());
         }
     }
+
+    public static void validateNonPositive(String input) {
+        int number = Integer.parseInt(input);
+
+        if (number <= 0) {
+            throw new IllegalArgumentException(getNonPositiveNumberMessage());
+            }
+    }
+
+
 
     public static void validateContainsCommaSeparator(String input) {
         if (!containsCommaSeparator(input)) {

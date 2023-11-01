@@ -33,4 +33,8 @@ public class MessageManager {
     public static String getNonPositiveNumberMessage() {
         return exceptionMessages.getString("nonPositiveNumber.message");
     }
+
+    public static String getNonIntegerNumberMessage() {
+        return exceptionMessages.getString("nonIntegerNumber.message");
+    }
 }

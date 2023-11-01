@@ -33,20 +33,47 @@ public class InputValidatorTest {
     }
 
     @Test
-    public void testInputZeroOrNegativeCase1() {
-        String input = "-10";
+    public void testInputZeroOrNegative() {
+        String input = "0";
 
         assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateNonPositiveOrNonInteger(input);
+            InputValidator.validateNonPositive(input);
         });
     }
 
     @Test
-    public void testInputZeroOrNegativeCase2() {
-        String input = "abc";
+    public void testInputNegative() {
+        String input = "-12752";
 
         assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateNonPositiveOrNonInteger(input);
+            InputValidator.validateNonPositive(input);
+        });
+    }
+
+    @Test
+    public void testInputMaximumOver() {
+        String input = "2147483648";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateNonInteger(input);
+        });
+    }
+
+    @Test
+    public void testInputCharacters() {
+        String input = "abcde";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateNonInteger(input);
+        });
+    }
+
+    @Test
+    public void testInputSymbol() {
+        String input = "!@#$%";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateNonInteger(input);
         });
     }
 }
