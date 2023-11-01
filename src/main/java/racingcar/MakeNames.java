@@ -9,8 +9,12 @@ public class MakeNames {
         List<String> names;
         Utils utils = new Utils();
         String originalStr;
+        IntegrityCheck integrityCheck = new IntegrityCheck();
 
         originalStr = utils.inputStr();
+        if (integrityCheck.originalNameIntegrityCheck(originalStr)){
+            throw new IllegalArgumentException();
+        }
         names = commaSplit(originalStr);
         return names;
     }
