@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car
 {
 	// 이름은 한번 생성자가 생성 될 때 한번 입력 받고 변경하지 않아 상수로 둠
@@ -15,6 +13,10 @@ public class Car
 
 	public int getScore() {
 		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 
 	public boolean canMove(int number) {
