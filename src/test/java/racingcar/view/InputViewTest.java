@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class InputViewTest {
     InputView inputView;
+
     @BeforeEach
     public void setUp() {
         inputView = new InputView();
@@ -22,7 +23,14 @@ class InputViewTest {
     }
 
     @Test
-    public void 횟수_검증_예외_테스트() {
+    public void 횟수_검증_예외_테스트1() {
+        String numericInput = "";
+        assertThatThrownBy(() -> inputView.validateAttempts(numericInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void 횟수_검증_예외_테스트2() {
         String numericInput = "d";
         assertThatThrownBy(() -> inputView.validateAttempts(numericInput))
                 .isInstanceOf(IllegalArgumentException.class);
