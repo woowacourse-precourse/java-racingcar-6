@@ -4,6 +4,15 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class Printer {
+
+    private static class SingletonPrinter{
+        private static final Printer PRINTER = new Printer();
+    }
+    public static Printer getInstance(){
+        return SingletonPrinter.PRINTER;
+    }
+    private Printer(){
+    }
     public void printInputCarNamesMessage() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
