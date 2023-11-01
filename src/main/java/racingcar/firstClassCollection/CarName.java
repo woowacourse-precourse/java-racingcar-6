@@ -34,7 +34,7 @@ public class CarName {
         Pattern pattern = Pattern.compile("[^가-힣a-zA-Z0-9]");
         Matcher matcher = pattern.matcher(name);
         if (matcher.find()) {
-            throw new IllegalArgumentException("특수문자가 포함되어있음");
+            throw new IllegalArgumentException("한글, 영어, 숫자를 제외한 문자가 포함되어있음");
         }
     }
 
