@@ -7,7 +7,8 @@ public class Car {
 
     public Car(String name) {
 //        validateNull(name);
-        validateLengthZero(name);
+//        validateLengthZero(name);
+        validateLengthUnderFive(name);
         this.name = name;
     }
 
@@ -26,6 +27,11 @@ public class Car {
     public void validateLengthZero(String str) {
         if (str.length() == 0) {
             throw new IllegalArgumentException("길이를 0보다 크게 입력하셔야 합니다.");
+        }
+    }
+    public void validateLengthUnderFive(String str){
+        if(str.length() > 5) {
+            throw new IllegalArgumentException("길이를 5이하로 입력해주세요.");
         }
     }
 }
