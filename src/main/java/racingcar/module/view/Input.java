@@ -4,17 +4,24 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.global.utils.Validator;
 
 public class Input {
 
+    private static final String SEPARATOR = ",";
+
     public static List<String> readCarNames() {
-        String names = readLine();
-        return separateNames(names);
+        String input = readLine();
+        List<String> nameList = separateNames(input);
+
+        Validator.validateCarName(nameList);
+
+        return nameList;
     }
 
-    private static List<String> separateNames(String names) {
+    private static List<String> separateNames(String input) {
         List<String> nameList = new ArrayList<>();
-        String[] arr = names.split(",");
+        String[] arr = input.split(SEPARATOR);
         nameList.addAll(List.of(arr));
         return nameList;
     }
