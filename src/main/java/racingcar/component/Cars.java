@@ -8,13 +8,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Cars {
-    List<Car> cars;
+    private List<Car> cars;
 
     public Cars() {
         cars = new LinkedList<>();
     }
 
-    public List<String> inputNewCarNames() {
+    private List<String> inputNewCarNames() {
         List<String> nameList = new LinkedList<>();
 
         String names = Console.readLine();
@@ -25,7 +25,7 @@ public class Cars {
     }
 
 
-    public void addCarsByNames(List<String> names) {
+    private void addCarsByNames(List<String> names) {
         for (String name : names) {
             cars.add(new Car(name));
         }
