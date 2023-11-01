@@ -28,7 +28,7 @@
   - 자동차 이름은 쉼표(,)를 기준으로 구분
   - 이름은 5자 이하만 가능
   ```
-  pobi,woni,jun
+  pobiwoni,jun
   ```
   
 - [예외] 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료
