@@ -49,4 +49,25 @@ public class Validator {
             throw new IllegalArgumentException(Message.MINIMUM_NUMBER_INPUTS_MESSAGE);
         }
     }
+
+    public static void checkAttemptsCount(String attemptsInput) {
+        checkNull(attemptsInput);
+        checkIsNumber(attemptsInput);
+        checkPositiveNumber(attemptsInput);
+    }
+
+    private static void checkIsNumber(String attemptsInput) {
+        try {
+            Integer.parseInt(attemptsInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Message.NOT_NUMBER_ERROR_MESSAGE);
+        }
+    }
+
+    private static void checkPositiveNumber(String attemptsInput) {
+        int attempts = Integer.parseInt(attemptsInput);
+        if (attempts < 1) {
+            throw new IllegalArgumentException(Message.NOT_POSITIVE_NUMBER_ERROR_MESSAGE);
+        }
+    }
 }
