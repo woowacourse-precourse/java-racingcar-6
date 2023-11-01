@@ -34,7 +34,7 @@ public class Validator {
                 .toList();
         if(distinctInput.size() < input.size()) {
             throw new IllegalArgumentException("자동차의 이름은 중복되어서는 안 됩니다.");
-        };
+        }
     }
 
     private void validateNumeric(String input) {
