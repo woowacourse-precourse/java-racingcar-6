@@ -10,36 +10,36 @@ class GameManagerTest {
     private static final List<String> EMPTY_STRING_LIST = List.of("", " ", "   ", "    ");
 
     @Test
-    void validateRacingcarName_메서드로_Racingcar_Name_검증() {
+    void validateRacingCarName_메서드로_RacingCar_Name_검증() {
         // given
-        String racingcarName = "abcde";
+        String racingCarName = "abcde";
         // when
         // then
-        assertThat(GameManager.validateRacingcarName(racingcarName)).isTrue();
+        assertThat(GameManager.validateRacingCarName(racingCarName)).isTrue();
     }
 
 
     @Test
-    void validateRacingcarName_메서드_사용시_Racingcar_Name이_공백이거나_null이면_예외_발생() {
+    void validateRacingCarName_메서드_사용시_RacingCar_Name이_공백이거나_null이면_예외_발생() {
         // given
         // EMPTY_STRING_LIST
         // when
         // then
         assertThatThrownBy(() -> {
-            for (String racingcarName : EMPTY_STRING_LIST) {
-                GameManager.validateRacingcarName(racingcarName);
+            for (String racingCarName : EMPTY_STRING_LIST) {
+                GameManager.validateRacingCarName(racingCarName);
             }
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("racingcar 이름이 null이거나 비어있습니다.");
     }
 
     @Test
-    void validateRacingcarName_메서드_사용시_Racingcar_Name이_5자_초과하면_예외_발생() {
+    void validateRacingCarName_메서드_사용시_RacingCar_Name이_5자_초과하면_예외_발생() {
         // given
-        String racingcarName = "abcdef";
+        String racingCarName = "abcdef";
         // when
         // then
-        assertThatThrownBy(() -> GameManager.validateRacingcarName(racingcarName)).isInstanceOf(
+        assertThatThrownBy(() -> GameManager.validateRacingCarName(racingCarName)).isInstanceOf(
                         IllegalArgumentException.class)
                 .hasMessageContaining("racingcar 이름이 5자를 초과합니다.");
     }
@@ -68,7 +68,7 @@ class GameManagerTest {
     }
 
     @Test
-    void validateUserInput_메서드_사용시_User_Input이_중복된_Racingcar_Name이_있으면_예외_발생() {
+    void validateUserInput_메서드_사용시_User_Input이_중복된_RacingCar_Name이_있으면_예외_발생() {
         // given
         String userInput = "pobi,woni,crong,pobi";
         // when
@@ -79,7 +79,7 @@ class GameManagerTest {
     }
 
     @Test
-    void validateUserInput_메서드_사용시_User_Input에_5자_초과하는_Racingcar_Name이_있으면_예외_발생() {
+    void validateUserInput_메서드_사용시_User_Input에_5자_초과하는_RacingCar_Name이_있으면_예외_발생() {
         // given
         String userInput = "pobi,woni,crong,honux,abcdef";
         // when

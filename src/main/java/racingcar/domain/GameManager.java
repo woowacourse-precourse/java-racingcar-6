@@ -24,11 +24,11 @@ public class GameManager {
         return Console.readLine();
     }
 
-    public static boolean validateRacingcarName(String racingcarName) {
-        if (racingcarName == null || racingcarName.isEmpty()) {
+    public static boolean validateRacingCarName(String racingCarName) {
+        if (racingCarName == null || racingCarName.isEmpty()) {
             throw new IllegalArgumentException("racingcar 이름이 null이거나 비어있습니다.");
         }
-        if (racingcarName.length() > 5) {
+        if (racingCarName.length() > 5) {
             throw new IllegalArgumentException("racingcar 이름이 5자를 초과합니다.");
         }
 
@@ -39,14 +39,14 @@ public class GameManager {
         if (userInput == null || userInput.isEmpty()) {
             throw new IllegalArgumentException("유저 입력값이 null이거나 비어있습니다.");
         }
-        List<String> racingcarNames = List.of(userInput.split(","));
+        List<String> racingCarNames = List.of(userInput.split(","));
         // if there is the same racingcar name, throw exception
-        if (racingcarNames.stream().distinct().count() != racingcarNames.size()) {
+        if (racingCarNames.stream().distinct().count() != racingCarNames.size()) {
             throw new IllegalArgumentException("중복된 racingcar 이름이 있습니다.");
         }
 
-        for (String racingcarName : racingcarNames) {
-            validateRacingcarName(racingcarName);
+        for (String racingcarName : racingCarNames) {
+            validateRacingCarName(racingcarName);
         }
         return true;
     }
@@ -76,6 +76,5 @@ public class GameManager {
         printGameTryCountMessage();
         userInput = readUserInput();
         validateUserInputForTryCount(userInput);
-
     }
 }

@@ -2,7 +2,7 @@
 
 초간단 자동차 경주 게임을 구현한다.
 
-- [] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
+- [x] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다. - RacingCar#move()
 - [] 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
 - [x] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다. - GameManager#validateUserInput()
 - [x] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. - GameManager#readUserInput()
@@ -19,8 +19,8 @@
 - [x] 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분) - GameManager#readUserInput()
     - [x] 이름은 5자 이하만 가능하다. - GameManager#validateRacingCarName()
     - [x] 이름은 쉼표(,)를 기준으로 구분한다. - GameManager#validateUserInput()
-        - [x] 구분된 이름이 `null`인 경우 `IllegalArgumentException`을 발생시킨다. - GameManager#validateRacingcarName()
-        - [x] 구분된 이름이 빈 문자열인 경우 `IllegalArgumentException`을 발생시킨다. - GameManager#validateRacingcarName()
+        - [x] 구분된 이름이 `null`인 경우 `IllegalArgumentException`을 발생시킨다. - GameManager#validateRacingCarName()
+        - [x] 구분된 이름이 빈 문자열인 경우 `IllegalArgumentException`을 발생시킨다. - GameManager#validateRacingCarName()
     - [x] 이름이 중복되는 경우 `IllegalArgumentException`을 발생시킨다. - GameManager#validateUserInput()
     - [x] 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨다.
         - [x] 잘못된 값이 `null`인 경우 `IllegalArgumentException`을 발생시킨다. - GameManager#validateUserInput()
