@@ -1,51 +1,41 @@
 package racingcar.domain;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class RacingTest {
     @Test
-    public void startRacing_turn만큼_이동하기() throws Exception {
+    public void start_횟수_곱하기_자동차수_만큼의_경주기록_생성() throws Exception {
         //given
+        List<String> carNames = List.of("car1", "car2", "car3");
+        RacingInfo racingInfo = new RacingInfo(carNames, 5);
+        Racing racing = Racing.create(racingInfo);
+        int numOfCar = 3;
+        int turn = 5;
 
         //when
+        racing.start();
 
         //then
+        Assertions.assertThat(racing.getDistanceRecord().size())
+                .isEqualTo(turn * numOfCar);
     }
+
     @Test
-    public void getWinner_한명의_우승자() throws Exception {
+    public void start_자동차수_이하의_우승자_생성() throws Exception {
         //given
+        List<String> carNames = List.of("car1", "car2", "car3");
+        RacingInfo racingInfo = new RacingInfo(carNames, 5);
+        Racing racing = Racing.create(racingInfo);
+        int numOfCar = 3;
 
         //when
+        racing.start();
 
         //then
-    }
-    @Test
-    public void getWinner_여러명의_우승자() throws Exception {
-        //given
-
-        //when
-
-        //then
-    }
-    @Test
-    public void validateCarInputs_이름이_5자_이하_체크() throws Exception {
-        //given
-        List<Car> carList = new ArrayList<>();
-        carList.add(new Car("7figure"));
-
-        //when
-
-        //then
-    }
-    @Test
-    public void validateCarInputs_중복_이름_체크() throws Exception {
-        //given
-
-        //when
-
-        //then
+        Assertions.assertThat(racing.getWinners().size())
+                .isLessThanOrEqualTo(numOfCar);
     }
 }

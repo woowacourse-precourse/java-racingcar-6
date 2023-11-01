@@ -8,6 +8,15 @@ public class Racing {
     private List<Car> cars;
     private int turn;
     private List<Integer> distanceRecord;
+
+    public List<Integer> getDistanceRecord() {
+        return distanceRecord;
+    }
+
+    public List<Car> getWinners() {
+        return winners;
+    }
+
     private List<Car> winners;
 
     public Racing(List<Car> cars, int turn) {
