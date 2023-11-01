@@ -30,7 +30,7 @@ public class Game {
         while (gameRound-->0) {
             for(Car car : cars) {
                 car.move();
-                car.printMove();
+                car.showMove();
             }
             System.out.println();
         }

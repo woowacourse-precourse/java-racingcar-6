@@ -1,7 +1,7 @@
 package racingcar.view;
 
 public class ResultView {
-
+    private static final String DASH = "-";
     private static final String PLAY_RESULT = "실행 결과";
     private static final String FINAL_WINNER = "최종 우승자 : ";
 
@@ -11,5 +11,10 @@ public class ResultView {
 
     public static void printWinners() {
         System.out.print(FINAL_WINNER);
+    }
+
+    public static void printMove(int distance, String name) {
+        String dash = DASH.repeat(distance);
+        System.out.println(name + " : " + dash);
     }
 }
