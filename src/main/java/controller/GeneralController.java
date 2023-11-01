@@ -23,8 +23,7 @@ public class GeneralController {
         carService.saveCars(InputView.splitNames(inputCarName()));
         int numOfTry = InputView.numberOfTry(inputTryValue());
 
-        System.out.println();
-        System.out.println(OutputView.RESULT_START_MESSAGE);
+        System.out.println("\n" + OutputView.RESULT_START_MESSAGE);
 
         racing(numOfTry);
 
@@ -35,13 +34,17 @@ public class GeneralController {
 
     private void outputWinner() {
         carService.updateWinner();
-        for(int i=0; i< carService.getWinner().size(); i++){
-            if(i==0)
-                System.out.print(" "+carService.getWinner().get(i).getName());
 
-            else
-                System.out.print(", "+carService.getWinner().get(i).getName());
+        boolean first = true;
+        for(Car winner : carService.getWinner()){
+          String addBlankOrComma= ", ";
+          if(first){
+              addBlankOrComma = " ";
+              first = false;
+          }
+            System.out.println(addBlankOrComma+winner.getName());
         }
+
     }
 
     public String inputCarName(){
