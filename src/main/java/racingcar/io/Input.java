@@ -22,4 +22,8 @@ public class Input {
         int rounds = Integer.parseInt(userInput);
         return rounds;
     }
+
+    public static void consoleClose() {
+        Console.close();
+    }
 }
