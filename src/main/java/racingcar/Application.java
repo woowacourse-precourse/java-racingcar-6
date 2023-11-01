@@ -1,8 +1,6 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -18,19 +16,27 @@ public class Application {
         outFunc(cars, tryNum);
     }
     public static int tryNumInput(){
-        int numInput = Integer.parseInt(Console.readLine());
-        return numInput;
+        return Integer.parseInt(Console.readLine());
     }
     public static void nameInput(List<String> cars){
         String userInput=Console.readLine();
         String[] car =userInput.split(",");
         for (String name : car){
             cars.add(name.trim());
-            if (name.length() > 5) {
+            if ((name.length() > 5)||(same(car))) {
                 throw new IllegalArgumentException();
             }
         }
+    }
 
+    public static boolean same (String[] car){
+        Set<String> set = new HashSet<>();
+        for(String element : car){
+            if(!set.add(element)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void outFunc(List<String> cars, int tryNum){
