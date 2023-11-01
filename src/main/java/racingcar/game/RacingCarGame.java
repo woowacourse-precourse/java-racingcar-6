@@ -6,12 +6,12 @@ import racingcar.utils.InputUtils;
 import racingcar.utils.RandomUtils;
 import racingcar.view.GameView;
 
-public class RaceGame {
+public class RacingCarGame {
     private final GameView gameView;
     private List<Car> cars;
     private int round;
 
-    public RaceGame() {
+    public RacingCarGame() {
         this.gameView = new GameView();
     }
 
