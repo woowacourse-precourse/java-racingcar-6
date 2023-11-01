@@ -4,6 +4,7 @@ import racingcar.util.MoveCar;
 import racingcar.util.ValidateCarName;
 import racingcar.util.ValidateTryCount;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 import racingcar.model.Car;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,7 @@ public class Game {
 
         for (int i = 0; i < tryCount; i++) {
             moveCar();
+            printResult();
         }
 
     }
@@ -56,6 +58,10 @@ public class Game {
             MoveCar.moveCar(car);
         }
 
+    }
+
+    public void printResult() {
+        OutputView.printResult(carList);
     }
 
 }
