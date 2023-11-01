@@ -22,9 +22,13 @@ public class Car {
         return "";
     }
 
-    public int run(){
+    public boolean isMove(){
         final int randomInt = Randoms.pickNumberInRange(0,9);
-        if(randomInt >= 4){
+        return randomInt >= 4;
+    }
+
+    public int run(){
+        if(isMove()){
             this.score ++;
         }
         final String printFormat = String.format("%s : %s",this.name,"-".repeat(this.score));
