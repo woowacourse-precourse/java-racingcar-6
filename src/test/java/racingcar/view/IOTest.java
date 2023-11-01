@@ -17,13 +17,13 @@ public abstract class IOTest {
         System.setOut(printStream);
     }
 
-    void allocateSystemIn(String input) {
+    protected void allocateSystemIn(String input) {
         byte[] bytesInput = input.getBytes(StandardCharsets.UTF_8);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(bytesInput);
         System.setIn(inputStream);
     }
 
-    String getSystemOut() {
+    protected String getSystemOut() {
         return outputStreamCaptor.toString();
     }
 }
