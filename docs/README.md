@@ -71,7 +71,8 @@
   - 경주 진행 상황 출력 함수(outputRaceProgress)
   - 우승자 출력 함수(outputWinners)
 ### 유틸 (Util)
-- 랜덤 횟수 뽑기 함수(selectRandomNumber)
+- #### NumberSelector 
+  - 랜덤 횟수 뽑기 함수(selectRandomNumber)
 ### 예외 처리 클래스 (Exception)
 - 잘못된 이름 예외(InvalidNameException)
 - 잘못된 횟수 예외(InvalidCountException)
