@@ -26,10 +26,11 @@ public class RacingRuleMaker {
         return cars;
     }
 
-    public void inputRacingRound(String inputRacingRound) {
+    public int inputRacingRound(String inputRacingRound) {
 
         errorCheck.inputNumberCheck(inputRacingRound);
         allRoundCount = Integer.parseInt(inputRacingRound);
+        return allRoundCount;
     }
 
     public List<String> getCars() {
