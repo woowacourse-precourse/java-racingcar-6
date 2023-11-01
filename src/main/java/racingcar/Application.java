@@ -25,6 +25,9 @@ public class Application {
         // TODO: 시도할 회수 입력 받기
         System.out.println("시도할 회수는 몇회인가요?");
         int gameCount = Integer.parseInt(Console.readLine());
+        System.out.println();
+
+        System.out.println("실행 결과");
 
         // TODO: 전진 및 멈춤 로직
         for (int i = 0; i < gameCount; i++) {
@@ -44,29 +47,29 @@ public class Application {
                     forwardCountInt[k]++;
                 }
             }
+
+            // TODO: 실행 결과
+            for (int f = 0; f < carsNum; f++) {
+                System.out.print(cars[f]);
+                System.out.print(" : ");
+                System.out.println(forwardCount[f]);
+            }
+            System.out.println();
         }
 
         // TODO: 전진 "-" 개수 비교
         int maxCount = 0;
         List<String> maxCountCars = new ArrayList<>();
 
-        for (int i = 0; i < forwardCountInt.length; i++) {
-            if (forwardCountInt[i] > maxCount) {
-                maxCount = forwardCountInt[i];
+        for (int o = 0; o < forwardCountInt.length; o++) {
+            if (forwardCountInt[o] > maxCount) {
+                maxCount = forwardCountInt[o];
                 maxCountCars.clear();
-                maxCountCars.add(cars[i]);
+                maxCountCars.add(cars[o]);
             }
-            else if (forwardCountInt[i] == maxCount) {
-                maxCountCars.add(cars[i]);
+            else if (forwardCountInt[o] == maxCount) {
+                maxCountCars.add(cars[o]);
             }
-        }
-
-        // TODO: 실행 결과
-        System.out.println("실행 결과");
-        for (int f = 0; f < carsNum; f++) {
-            System.out.print(cars[f]);
-            System.out.print(" : ");
-            System.out.println(forwardCount[f]);
         }
 
         // TODO: 우승자 출력
