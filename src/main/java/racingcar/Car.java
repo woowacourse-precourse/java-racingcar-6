@@ -22,9 +22,18 @@ public class Car {
         if (isMovable()) {
             position += 1;
         }
+        showRoad();
     }
 
     private boolean isMovable() {
         return Randoms.pickNumberInRange(MIN_MOVABLE_RANGE, MAX_MOVABLE_RANGE) >= MIN_MOVABLE;
+    }
+
+    private void showRoad() {
+        String load = "";
+        for (int i = 0; i < position; i++) {
+            load += "-";
+        }
+        System.out.println(name + " : " + load);
     }
 }
