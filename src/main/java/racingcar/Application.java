@@ -10,8 +10,13 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         RacingGameStartManager racingGameStartManager = new RacingGameStartManager();
+
+        // 자동차 경주에 참여할 자동차 세팅
         String[] inputRacingCarNames = inputRacingCarNames();
         Set<RacingCar> racingCarSet = racingGameStartManager.createRacingCarSet(inputRacingCarNames);
+
+        // 경주 진행 시 이동 시도 횟수 세팅
+        String inputRacingCarMoveNum = inputRacingCarMoveNum();
     }
 
     private static String[] inputRacingCarNames() {
@@ -19,6 +24,12 @@ public class Application {
         String inputRacingCarName = readLine();
 
         return inputRacingCarName.split(",");
+    }
+
+    private static String inputRacingCarMoveNum() {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        return readLine();
     }
 
 }
