@@ -10,8 +10,7 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        Validator carValidator = appConfig.carValidator();
-        carValidator.validate(name);
+        validateCarName(name);
         this.name = name;
         this.position = DomainConstant.INITIAL_POSITION;
     }
@@ -26,6 +25,11 @@ public class Car {
 
     public void move(int drivingSkill) {
         position += calculateMoveDistance(drivingSkill);
+    }
+
+    private void validateCarName(String name) {
+        Validator carValidator = appConfig.carValidator();
+        carValidator.validate(name);
     }
 
     private int calculateMoveDistance(int drivingSkill) {
