@@ -66,8 +66,8 @@ public class RacingCarGame {
     }
 
     void printResult() {
-        for (RacingCar player : racingCars) {
-            System.out.println(printPlayerScore(player));;
+        for (RacingCar racingCar : racingCars) {
+            System.out.println(printPlayerScore(racingCar));;
         }
     }
 
