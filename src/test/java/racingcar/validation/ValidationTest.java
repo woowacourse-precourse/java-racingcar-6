@@ -27,4 +27,19 @@ public class ValidationTest {
         assertThat(Validation.containDuplicateCarName(validCarNames)).isEqualTo(false);
     }
 
+    @Test
+    void 시도_회수_입력_범위() {
+        Integer inputZero = 0;
+        Integer inputNegativeSmall = -1;
+        Integer inputPositiveSmall = 1;
+        Integer inputNegativeLarge = Integer.MIN_VALUE;
+        Integer inputPositiveLarge = Integer.MAX_VALUE;
+
+        assertThatThrownBy(() -> Validation.isValidRange(inputZero));
+        assertThatThrownBy(() -> Validation.isValidRange(inputNegativeSmall));
+        assertThatThrownBy(() -> Validation.isValidRange(inputNegativeLarge));
+        assertThat(true).isEqualTo(Validation.isValidRange(inputPositiveSmall));
+        assertThat(true).isEqualTo(Validation.isValidRange(inputPositiveLarge));
+    }
+
 }
