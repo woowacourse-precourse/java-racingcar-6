@@ -11,7 +11,7 @@ public class Game {
 
     private int count;
 
-    private final GameReferee gameReferee = new GameReferee();
+    private final GameReferee gameReferee = new GameReferee(new DefaultRandomGenerator());
 
     public Game(List<Car> carList, int count) {
         this.carList = carList;
