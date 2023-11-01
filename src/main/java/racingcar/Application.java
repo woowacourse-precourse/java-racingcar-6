@@ -8,7 +8,7 @@ public class Application {
         // TODO: 프로그램 구현
         /*
           car class (완료)
-          round class
+          round class (완료)
           mainGame class
           customException class
           customInput class
