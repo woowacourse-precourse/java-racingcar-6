@@ -12,7 +12,7 @@ public class MessageResolver {
 
     public String resolveWinnerMessage(List<CarStatusDto> winners) {
         String winnerNames = winners.stream()
-                .map(carStatusDto -> carStatusDto.getCarName().getValue())
+                .map(carStatusDto -> carStatusDto.getCarName().toString())
                 .collect(Collectors.joining(","));
         return WINNER_MESSAGE_PREFIX + winnerNames;
     }
@@ -20,7 +20,7 @@ public class MessageResolver {
     public String resolveRoundResultMessage(RoundResultDto roundResultDto) {
         List<CarStatusDto> carStatusDtos = roundResultDto.getRoundResult();
         return carStatusDtos.stream()
-                .map(dto -> dto.getCarName().getValue() + SEPARATOR + dto.getCarPosition().draw())
+                .map(dto -> dto.getCarName().toString() + SEPARATOR + dto.getCarPosition().draw())
                 .collect(Collectors.joining("\n")) + "\n";
     }
 }

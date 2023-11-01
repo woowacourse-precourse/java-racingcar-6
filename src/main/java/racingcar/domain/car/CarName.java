@@ -13,7 +13,7 @@ public class CarName {
         this.value = value;
     }
 
-    public String getValue() {
+    private String getValue() {
         return value;
     }
 

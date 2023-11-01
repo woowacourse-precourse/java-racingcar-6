@@ -34,9 +34,9 @@ class InputViewTest {
         System.setIn(inputStream);
 
         List<CarName> carNames = inputView.readCarNames();
-        assertEquals("pobi", carNames.get(0).getValue());
-        assertEquals("jun", carNames.get(1).getValue());
-        assertEquals("woni", carNames.get(2).getValue());
+        assertEquals("pobi", carNames.get(0).toString());
+        assertEquals("jun", carNames.get(1).toString());
+        assertEquals("woni", carNames.get(2).toString());
     }
 
     @DisplayName("라운드 횟수 입력을 올바르게 처리한다")
