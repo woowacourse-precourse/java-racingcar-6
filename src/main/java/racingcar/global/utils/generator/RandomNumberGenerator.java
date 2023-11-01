@@ -11,14 +11,22 @@ public class RandomNumberGenerator implements NumberGenerator {
     private static final int MAX_RANGE_OF_DIGITS = 9;
 
     @Override
-    public List<Integer> generate(Integer numberOfGames) {
-
-        List<Integer> numbers = new ArrayList<>();
-        while (numbers.size() < numberOfGames) {
-            int randomNumber = getRandomNumber();
-            numbers.add(randomNumber);
+    public List<List<Integer>> generate(Integer numberOfGames, Integer nameCount) {
+        List<List<Integer>> numbers = new ArrayList<>();
+        for (int index = 0; index < nameCount; index++) {
+            List<Integer> innerNumbers = innerGenerate(numberOfGames);
+            numbers.add(innerNumbers);
         }
         return numbers;
+    }
+
+    private List<Integer> innerGenerate(Integer numberOfGames) {
+        List<Integer> innerNumbers = new ArrayList<>();
+        while (innerNumbers.size() < numberOfGames) {
+            int randomNumber = getRandomNumber();
+            innerNumbers.add(randomNumber);
+        }
+        return innerNumbers;
     }
 
     private int getRandomNumber() {

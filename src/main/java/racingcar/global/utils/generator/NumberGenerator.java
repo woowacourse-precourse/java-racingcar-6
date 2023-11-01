@@ -5,5 +5,6 @@ import java.util.List;
 @FunctionalInterface
 public interface NumberGenerator {
 
-    List<Integer> generate(Integer numberOfGames);
+    List<List<Integer>> generate(Integer numberOfGames, Integer nameCount);
+
 }
