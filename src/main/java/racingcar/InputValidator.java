@@ -11,18 +11,18 @@ public class InputValidator {
         return;
     }
 
+    private static void isBlankSpace(String names) throws IllegalArgumentException {
+        if (names.contains(" ")) {
+            throw new IllegalArgumentException();
+        }
+        return;
+    }
+
     private static void isValidNameLength(String[] names) throws IllegalArgumentException {
         for (String name : names) {
             if (name.length() == 0 || name.length() >= 6) {
                 throw new IllegalArgumentException();
             }
-        }
-        return;
-    }
-
-    private static void isBlankSpace(String names) throws IllegalArgumentException {
-        if (names.contains(" ")) {
-            throw new IllegalArgumentException();
         }
         return;
     }

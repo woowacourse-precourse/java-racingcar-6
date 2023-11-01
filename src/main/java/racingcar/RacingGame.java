@@ -23,6 +23,7 @@ public class RacingGame {
             GameOutput.printRaceProgress(racingCarList);
         }
         GameOutput.printWinners(racingCarList);
+        return;
     }
 
     private void oneTimeRace(CarList racingCarList) {

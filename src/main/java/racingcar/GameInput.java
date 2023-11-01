@@ -15,12 +15,10 @@ public class GameInput {
         return names.split(",");
     }
 
-
     public static int raceTime() {
         String raceTimeString = Console.readLine();
         InputValidator.isStringConvertToInteger(raceTimeString);
         return Integer.valueOf(raceTimeString);
     }
-
 
 }

@@ -32,7 +32,6 @@ public class GameOutput {
 
     }
 
-
     private static int[] findMaxCarPositionIndex(CarList carList) {
         int carPosition;
         int maxCarPosition = -1;
@@ -58,4 +57,5 @@ public class GameOutput {
         }
         return intArray;
     }
+    
 }
