@@ -13,6 +13,7 @@ public enum Constants {
     MOVE("-"),
     SEPARATOR(" : "),
     LINE_CHANGER("\n"),
+    COMMA(","),
     ;
 
     private int number;
