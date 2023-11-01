@@ -52,4 +52,24 @@ class RaceViewTest {
             RaceView.getCarNames();
         });
     }
+
+    @Test
+    void getTotalRound_유효한_입력_테스트() {
+        InputStream input = System.in;
+        String content = "5";
+        ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes());
+        System.setIn(in);
+        assertEquals(6, RaceView.getTotalRound() + 1);
+    }
+
+    @Test
+    void getTotalRound_숫자_이외의_다른_문자를_포함한_입력은_실패() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputStream input = System.in;
+            String content = "50,000";
+            ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes());
+            System.setIn(in);
+            RaceView.getTotalRound();
+        });
+    }
 }
