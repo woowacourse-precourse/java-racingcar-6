@@ -22,17 +22,17 @@ public class Game {
         System.out.println();
     }
 
-    public CarGroup initCarGroup() {
+    private CarGroup initCarGroup() {
         System.out.println(INIT_CARGROUP_TEXT);
         return new CarGroup(InputHandler.getCarListFromInput());
     }
 
-    public int initTrialCount() {
+    private int initTrialCount() {
         System.out.println(INIT_TRIALNUMBER_TEXT);
         return InputHandler.getTrialNumberFromInput();
     }
 
-    public void run(List<Car> carList, int trialNumber) {
+    private void run(List<Car> carList, int trialNumber) {
         System.out.println(TRIAL_RESULT);
         while (trialNumber > 0) {
             doTrial(carList);
@@ -41,14 +41,14 @@ public class Game {
         }
     }
 
-    public void doTrial(List<Car> carList) {
+    private void doTrial(List<Car> carList) {
         for (Car car : carList) {
             int RandomNumber = getNumber();
             car.move(RandomNumber);
         }
     }
 
-    public int getNumber() {
+    private int getNumber() {
         return Randoms.pickNumberInRange(0,9);
     }
 }
