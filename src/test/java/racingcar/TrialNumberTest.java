@@ -24,6 +24,14 @@ public class TrialNumberTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {"0"})
+    @DisplayName("시도회수 0 입력 테스트")
+    void 시도회수_0_입력(String string) {
+        Assertions.assertThatThrownBy(() -> new TrialNumber(string))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = {"a", " ", ","})
     @DisplayName("시도회수 문자 입력 테스트")
     void 시도회수_문자_입력(String string) {
