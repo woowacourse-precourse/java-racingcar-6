@@ -75,13 +75,10 @@ public class RacingGame {
 	private List<Car> getWinners(List<Car> cars) {
 		List<Car> winners = new ArrayList<>();
 
-		int maxPosition = 0;
+		int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(0);
+
 		for (Car car : cars) {
-			if (car.getPosition() > maxPosition) {
-				maxPosition = car.getPosition();
-				winners.clear();
-				winners.add(car);
-			} else if (car.getPosition() == maxPosition) {
+			if (car.getPosition() == maxPosition) {
 				winners.add(car);
 			}
 		}
