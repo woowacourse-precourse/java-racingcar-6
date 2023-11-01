@@ -1,20 +1,21 @@
 package racingcar;
 
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.view.InputView;
+import racingcar.view.CarNameInput;
 
-public class InputViewTest {
+public class CarNameInputTest {
 
-    private InputView inputView;
+    private CarNameInput carNameInput;
 
     @BeforeEach
     void setUp() {
-        inputView = new InputView();
+        carNameInput = new CarNameInput();
     }
 
     @Test
@@ -23,7 +24,7 @@ public class InputViewTest {
         String namesString = "pobi,woni,jun";
 
         // when
-        List<String> parsedNames = inputView.parseCarNames(namesString);
+        List<String> parsedNames = carNameInput.parseCarNames(namesString);
 
         // then
         assertEquals(3, parsedNames.size());
@@ -38,7 +39,7 @@ public class InputViewTest {
         String namesString = " po bi , woni ,jun";
 
         // when
-        List<String> parsedNames = inputView.parseCarNames(namesString);
+        List<String> parsedNames = carNameInput.parseCarNames(namesString);
 
         // then
         assertEquals(3, parsedNames.size());

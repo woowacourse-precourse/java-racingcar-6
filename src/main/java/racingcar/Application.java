@@ -1,12 +1,12 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
-import racingcar.view.InputView;
+import racingcar.view.CarNameInput;
 
 public class Application {
     public static void main(String[] args) {
-        InputView inputView = new InputView();
-        RacingController controller = new RacingController(inputView);
+        CarNameInput carNameInput = new CarNameInput();
+        RacingController controller = new RacingController(carNameInput);
         controller.playRacingGame();
     }
 }

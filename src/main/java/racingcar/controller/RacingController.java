@@ -6,23 +6,23 @@ import racingcar.domain.RacingGame;
 import racingcar.model.AttemptCountValidator;
 import racingcar.model.CarNameValidator;
 import racingcar.model.RealRandomGenerator;
-import racingcar.view.InputView;
+import racingcar.view.CarNameInput;
 import racingcar.view.RacingAttemptInput;
 
 public class RacingController {
 
-    private InputView inputView;
+    private CarNameInput carNameInput;
     private RacingGame racingGame;
 
-    public RacingController(InputView inputView) {
-        this.inputView = inputView;
+    public RacingController(CarNameInput carNameInput) {
+        this.carNameInput = carNameInput;
     }
 
     public void playRacingGame() {
         // 사용자로부터 자동차 이름을 받기
-        inputView.requestCarNames();
-        String carNamesInput = inputView.getUserCarNames();
-        List<String> carNames = inputView.parseCarNames(carNamesInput);
+        carNameInput.requestCarNames();
+        String carNamesInput = carNameInput.getUserCarNames();
+        List<String> carNames = carNameInput.parseCarNames(carNamesInput);
         CarNameValidator.validateCarNames(carNames);
 
         // 사용자로부터 시도할 횟수 받기
