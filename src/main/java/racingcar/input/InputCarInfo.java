@@ -10,22 +10,16 @@ import java.util.List;
 public class InputCarInfo {
 
     public static List<Car> inputCarName(){
+
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String[] carNames = Console.readLine().split(",");
+        isValidName(carNames);
 
-        while (true) {
-            try {
-                String[] carNames = Console.readLine().split(",");
-                isValidName(carNames);
-
-                return createCars(carNames);
-
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        return createCars(carNames);
     }
 
     public static List<Car> createCars(String[] carNames) {
+
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
