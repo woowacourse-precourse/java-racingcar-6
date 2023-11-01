@@ -13,19 +13,23 @@ public class RacingGameService {
     private final GameResultPublishService gameResultPublishService;
     private final CarFactoryService carFactoryService;
     private final RoundExecutionService roundExecutionService;
+    private final WinnerSelectionService winnerSelectionService;
 
     public RacingGameService(GameResultPublishService gameResultPublishService,
                              CarFactoryService carFactoryService,
-                             RoundExecutionService roundExecutionService) {
+                             RoundExecutionService roundExecutionService,
+                             WinnerSelectionService winnerSelectionService) {
         this.gameResultPublishService = gameResultPublishService;
         this.carFactoryService = carFactoryService;
         this.roundExecutionService = roundExecutionService;
+        this.winnerSelectionService = winnerSelectionService;
     }
 
     public GameResultDto run(List<CarName> carNames, RoundCount roundCount) {
         List<Car> participants = carFactoryService.prepareRacingCars(carNames);
         List<RoundResultDto> roundHistories = roundExecutionService.executeAllRounds(participants, roundCount);
         List<CarStatusDto> carsStatusAtRaceEnd = getRaceEndStatus(participants);
+        List<CarStatusDto> winners = winnerSelectionService.selectWinners(carsStatusAtRaceEnd);
         return gameResultPublishService.publishGameResult(roundHistories, carsStatusAtRaceEnd);
     }
 

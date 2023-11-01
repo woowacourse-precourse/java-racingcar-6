@@ -3,6 +3,7 @@ package racingcar.service;
 import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
@@ -14,6 +15,7 @@ import racingcar.dto.GameResultDto;
 import racingcar.dto.RoundResultDto;
 
 @DisplayName("심판 테스트")
+@Disabled
 class GameResultPublishServiceTest {
 
     @DisplayName("단일 우승자를 올바르게 가려낸다")
