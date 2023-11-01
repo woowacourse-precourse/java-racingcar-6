@@ -12,11 +12,6 @@ public class Cars {
         this.cars = cars;
     }
 
-    //==비즈니스 로직==//
-    public void move() {
-        cars.forEach(CarController::move);
-    }
-
     public String getWinnersString() {
         int winnerPoint = getWinnerPoint();
 
@@ -36,6 +31,10 @@ public class Cars {
 
     private boolean isWinner(int carPoint, int winnerPoint) {
         return carPoint == winnerPoint;
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 
     //==출력==//

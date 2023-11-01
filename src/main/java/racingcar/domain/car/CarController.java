@@ -6,12 +6,16 @@ import static racingcar.Constant.*;
 
 public class CarController {
 
-    private static boolean canForward() {
+    public void moveCars(Cars cars) {
+        cars.getCars().forEach(this::move);
+    }
+
+    private boolean canForward() {
         int randomNumber = Randoms.pickNumberInRange(START, END);
         return randomNumber >= MOVING_FORWARD;
     }
 
-    public static void move(Car car) {
+    private void move(Car car) {
         if (canForward())
             car.forward();
     }
