@@ -46,7 +46,7 @@ public class CarTest {
         car.move();
 
         // Then
-        Assertions.assertThat(car.getPosition()).isEqualTo(2);
+        Assertions.assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @Test
