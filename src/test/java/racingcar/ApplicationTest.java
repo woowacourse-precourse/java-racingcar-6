@@ -50,7 +50,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 게임횟수_입력이_0인_경우_예외처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,woni", "0"))
+                assertThatThrownBy(() -> runException("pobi,woni", "er1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
