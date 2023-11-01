@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.utils.Constants;
+import racingcar.utils.ErrorMessage;
 import racingcar.validation.ParticipatingCarsValidation;
 
 public class Race {
@@ -52,7 +53,7 @@ public class Race {
 
     private void validateRaceNotOver() {
         if (isRaceOver()) {
-            throw new IllegalArgumentException("경기가 종료되었습니다.");
+            throw new IllegalArgumentException(ErrorMessage.RACE_ALREADY_FINISHED_ERROR_MESSAGE);
         }
     }
 
