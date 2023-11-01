@@ -47,4 +47,17 @@ public class Car {
         return maxPosition == position;
     }
 
+    public int getCarCount() {
+        return car.size();
+    }
+
+    public ArrayList<String> getCarName() {
+        return new ArrayList<>(car.keySet());
+    }
+
+    public ArrayList<Integer> getCarPosition() {
+        return new ArrayList<>(car.values());
+    }
+
+
 }
