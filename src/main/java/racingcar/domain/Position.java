@@ -11,11 +11,11 @@ public class Position {
         position++;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public int compareTo(Position other) {
         return this.position - other.position;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }

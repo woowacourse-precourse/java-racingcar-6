@@ -37,20 +37,20 @@ public class Car implements Comparable<Car> {
         return Randoms.pickNumberInRange(MIN_MOVE_SIZE, MAX_MOVE_SIZE) >= POSSIBLE_MOVE_STANDARD_SIZE;
     }
 
-    public String getName() {
-        return name.getName();
-    }
-
-    public int getPosition() {
-        return position.getPosition();
+    @Override
+    public int compareTo(Car other) {
+        return position.compareTo(other.position);
     }
 
     public boolean isEqualPosition(Car other) {
         return this.position.getPosition() == other.getPosition();
     }
 
-    @Override
-    public int compareTo(Car other) {
-        return position.compareTo(other.position);
+    public String getName() {
+        return name.getName();
+    }
+
+    public int getPosition() {
+        return position.getPosition();
     }
 }
