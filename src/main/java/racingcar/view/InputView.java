@@ -10,7 +10,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public String readTrailNumber() {
+    public String readTrialNumber() {
         return Console.readLine();
     }
 }
