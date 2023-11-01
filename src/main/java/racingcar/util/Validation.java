@@ -4,7 +4,6 @@ import java.util.List;
 import racingcar.model.Cars;
 
 public class Validation {
-    
     private static final String ERROR_NULL = "빈칸입니다.";
     private static final String ERROR_NAME_LENGTH =  "5자 이하의 이름만 입력 가능합니다.";
     private static final String ERROR_NAME_DUPLICATE = "이름이 중복되었습니다.";
@@ -38,13 +37,11 @@ public class Validation {
         }
     }
 
-    // 숫자(rounds) 입력 검증
     public static void validateNumberInput(String input) {
         validateNumberNull(input);
-        validateNumberRange(input); //이거 여기서 integer로 바꿔줘도 됨
+        validateNumberRange(input);
         validateNumberFormat(input);
     }
-
 
     private static void validateNumberNull(String input) {
         if (input.isBlank()) {
@@ -52,17 +49,15 @@ public class Validation {
         }
     }
 
-    private static void validateNumberFormat(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_NUMBER_FORMAT);
-        }
-    }
-
     private static void validateNumberRange(String input) {
         if (Integer.parseInt(input) < 0) {
             throw new IllegalArgumentException(ERROR_NUMBER_RANGE);
+        }
+    }
+
+    private static void validateNumberFormat(String input) {
+        if(!input.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException(ERROR_NUMBER_FORMAT);
         }
     }
 }
