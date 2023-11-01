@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import racingcar.domain.Car;
-import racingcar.domain.Cars;
 
 /* readLine() String > Car 객체
 *  1. String , 기준으로 쪼개기
@@ -21,7 +20,7 @@ public class InputParser {
                 .collect(Collectors.toList());
     }
 
-    public int parseTrialNumber(String number) {
+    public int convertTrialNumber(String number) {
         return Integer.parseInt(number);
     }
 }

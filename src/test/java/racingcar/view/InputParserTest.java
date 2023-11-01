@@ -10,6 +10,6 @@ public class InputParserTest {
     void inputString_exception() {
        String input = "BMW, Audi, Tesla";
         InputParser inputParser = new InputParser();
-        inputParser.parseCarString(input);
+        inputParser.convertCarList(input);
     }
 }
