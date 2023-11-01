@@ -20,4 +20,16 @@ public class InputConsole {
         return carNames;
     }
 
+    public static int enterRound() {
+        OutputConsole.print(OutputConsole.ROUND_MESSAGE);
+        String input = Console.readLine();
+        int round;
+        try {
+            round = Integer.parseInt(input);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("올바르지 않은 입력입니다.");
+        }
+        return round;
+    }
+
 }
