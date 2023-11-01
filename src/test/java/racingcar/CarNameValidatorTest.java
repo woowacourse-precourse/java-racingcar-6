@@ -9,6 +9,14 @@ import org.junit.jupiter.api.Test;
 public class CarNameValidatorTest extends NsTest {
 
     @Test
+    void 입력한_자동차_구분자인_콤마_사이에_공백이_존재할때_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi, woni, jun", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 입력한_자동차_이름에_스페이스가_존재할때_예외_처리(){
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni,j un", "3"))
