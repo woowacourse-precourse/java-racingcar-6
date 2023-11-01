@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.utils.Validator;
 
 public class InputView {
@@ -16,8 +17,11 @@ public class InputView {
     }
 
     private List<String> splitCarNames(String input) {
-        return Arrays.asList(input.split(","));
+        return Arrays.stream(input.split(","))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
+
 
     public int inputAttemptsNumber() {
         String input = Console.readLine();
