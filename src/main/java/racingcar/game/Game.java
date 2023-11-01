@@ -81,15 +81,22 @@ public class Game {
                 .mapToInt(c -> c.getPosition())
                 .max().getAsInt();
 
-        String winner = carList.stream()
+        String winner = getWinner(max);
+        System.out.println("최종 우승자 : " + winner);
+    }
+
+    public String getWinner(int max) {
+        return carList.stream()
                 .filter(c -> c.getPosition() == max)
                 .map(c -> c.getName())
                 .collect(Collectors.joining(", "));
-
-        System.out.println("최종 우승자 : " + winner);
     }
 
     public int getMoveCnt() {
         return moveCnt;
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 }
