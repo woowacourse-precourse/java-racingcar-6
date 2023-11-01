@@ -4,19 +4,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
+import racingcar.domain.IntegerConstant;
+import racingcar.domain.StringConstant;
 import racingcar.exception.CarNameDuplicateException;
 import racingcar.exception.CarNameInvalidException;
 import racingcar.exception.NumberOfCarInvalidException;
 import racingcar.exception.TrialNumberInvalidException;
 
 public class DataValidator {
-
-    private static final int MAX_LENGTH = 5;
-    private static final String TRIAL_NUMBER_RANGE = "^[0-9]*$";
-
-    private static final String NONE_TRY = "0";
-
-    private static final int MIN_CAR_NUMBER = 1;
 
     public void validateCarName(String[] carNames) {
         for (String car : carNames) {
@@ -27,16 +22,16 @@ public class DataValidator {
     }
 
     public void validateTrialNumber(String trialNumber) {
-        if (!Pattern.matches(TRIAL_NUMBER_RANGE, trialNumber)) {
+        if (!Pattern.matches(StringConstant.TRIAL_NUMBER_RANGE.getMessage(), trialNumber)) {
             throw new TrialNumberInvalidException();
         }
-        if (trialNumber.equals(NONE_TRY)) {
+        if (trialNumber.equals(StringConstant.NONE_TRY.getMessage())) {
             throw new TrialNumberInvalidException();
         }
     }
 
     private void validateCarName(String carName) {
-        if (carName.length() > MAX_LENGTH) {
+        if (carName.length() > IntegerConstant.CAR_NAME_MAX_LENGTH.getValue()) {
             throw new CarNameInvalidException();
         }
     }
@@ -51,7 +46,7 @@ public class DataValidator {
     }
 
     private void validateInputCarsIsOne(String[] carNames) {
-        if (carNames.length == MIN_CAR_NUMBER) {
+        if (carNames.length == IntegerConstant.MIN_CAR_NUMBER.getValue()) {
             throw new NumberOfCarInvalidException();
         }
     }

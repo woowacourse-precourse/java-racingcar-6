@@ -5,18 +5,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.IntegerConstant;
+import racingcar.domain.StringConstant;
 import racingcar.dto.WinnerCarResponse;
 
 public class Referee {
 
-    private static final int MAX_VALUE = 0;
-    private static final String MULTI_WINNER_DELIMITER = ", ";
 
     public String getWinnersCarName(Cars generatedCars) {
         WinnerCarResponse winner = judgeWinner(generatedCars);
         return winner.cars().stream()
                 .map(Car::getCarName)
-                .collect(Collectors.joining(MULTI_WINNER_DELIMITER));
+                .collect(Collectors.joining(StringConstant.MULTI_WINNER_DELIMITER.getMessage()));
     }
 
     private WinnerCarResponse judgeWinner(Cars generatedCars) {
@@ -35,6 +35,6 @@ public class Referee {
                 .sorted(Comparator.reverseOrder())
                 .toList();
 
-        return list.get(MAX_VALUE);
+        return list.get(IntegerConstant.MAX_CAR_POSITION.getValue());
     }
 }

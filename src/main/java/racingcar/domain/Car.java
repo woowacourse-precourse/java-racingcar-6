@@ -4,14 +4,12 @@ import racingcar.service.BasicMovementRule;
 
 public class Car {
 
-    private static final int INITIAL_POSITION = 0;
-
     private final String carName;
     private final Position position;
 
     public Car(final String carName) {
         this.carName = carName;
-        this.position = new Position(INITIAL_POSITION);
+        this.position = new Position(IntegerConstant.INITIAL_POSITION.getValue());
     }
 
     public String getCarName() {

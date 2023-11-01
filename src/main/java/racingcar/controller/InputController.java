@@ -1,12 +1,12 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.StringConstant;
 import racingcar.service.DataValidator;
 import racingcar.view.InputView;
 
 public class InputController {
 
-    private static final String COMMA_DELIMITER = ",";
     private final DataValidator dataValidator;
     private final InputView inputView;
 
@@ -17,7 +17,7 @@ public class InputController {
 
     public String[] inputCarNames() {
         inputView.showGameStartMessage();
-        String[] carNames = readData().split(COMMA_DELIMITER);
+        String[] carNames = readData().split(StringConstant.CAR_NAME_SPLIT_DELIMITER.getMessage());
         dataValidator.validateCarName(carNames);
         return carNames;
     }
