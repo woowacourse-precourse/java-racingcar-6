@@ -80,4 +80,17 @@ class CarControllerTest {
         });
     }
 
+    @Test
+    @DisplayName("입력값 테스트 6 - 시도하는 횟수가 int형보다 클 때")
+    void inputTest6() {
+        //given
+        String userCars = "boot, jpa, sql";
+        String userCount = "2147483648";
+
+        // when & then
+        assertThrows(IllegalArgumentException.class, () -> {
+            carController.createRacingGame(userCars, userCount);
+        });
+    }
+
 }
