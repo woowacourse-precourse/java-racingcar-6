@@ -72,8 +72,10 @@ class CarsTest {
     }
 
     @Test
-    void 리스트_얻기(){
-
+    void 리스트_얻기() {
+        assertEquals(cars.getCars().size(), 3);
+        assertNotNull(cars.getCars());
     }
+
 
 }
