@@ -2,7 +2,12 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.model.MovableNumberGenerator;
 
 public class ViewTest {
     @Test
@@ -16,7 +21,37 @@ public class ViewTest {
     }
 
     @Test
-    public void OutputView_실행_결과_출력_화면_테스트() {
+    public void OutputView_실행_결과_화면_테스트() {
         assertThat(OutputView.resultHeaderMessage()).isEqualTo("실행 결과");
+    }
+
+    @Test
+    public void OutputView_현재_자동차들의_전진_상태_화면_테스트() {
+        List<Car> carList = new ArrayList<>() {{
+            add(new Car("car1"));
+            add(new Car("car2"));
+            add(new Car("car3"));
+        }};
+        Cars cars = new Cars(carList);
+        // car1: 1칸 전진, car2: 2칸 전진
+        cars.get(0).tryToMove(new MovableNumberGenerator());
+        cars.get(1).tryToMove(new MovableNumberGenerator());
+        cars.get(1).tryToMove(new MovableNumberGenerator());
+
+        String resultMessage = OutputView.currentForwardStateMessage(cars);
+        System.out.println(resultMessage);
+        assertThat(resultMessage).contains("car1 : -", "car2 : --");
+    }
+
+    @Test
+    public void OutputView_최종_우승자_화면_테스트() {
+        List<Car> carList = new ArrayList<>() {{
+            add(new Car("car1"));
+            add(new Car("car2"));
+            add(new Car("car3"));
+        }};
+        String resultMessage = OutputView.winnersMessage(new Cars(carList));
+
+        assertThat(resultMessage).contains("최종 우승자 : ", "car1", "car2", "car3");
     }
 }
