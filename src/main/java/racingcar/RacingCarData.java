@@ -8,6 +8,9 @@ public class RacingCarData {
         LinkedHashMap<String, Integer> racingCarMap = new LinkedHashMap<>(); // 순서를 보장하기 위해 LinkedHashMap 타입 해시테이블 생성
         String[] splitCarNames = racingCarNames.split(","); // 입력값을 쉼표를 기준으로 String 배열에 담는다
         for(String CarName : splitCarNames){ // String 배열에 담는 자동차 이름을 순서대로 해시테이블에 담는다
+            if(CarName.equals("")){ // 자동차 이름이 없다면 예외 발생
+                throw new IllegalArgumentException();
+            }
             racingCarMap.put(CarName, 0); // Key는 자동차 이름이고 Value는 0으로 초기화
         }
         return racingCarMap;
