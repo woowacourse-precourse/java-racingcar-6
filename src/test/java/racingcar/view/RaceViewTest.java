@@ -12,7 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 class RaceViewTest {
-    private RaceView raceView = new RaceView();
+    private final RaceView raceView = new RaceView();
 
     @AfterEach
     void closeConsole() {
