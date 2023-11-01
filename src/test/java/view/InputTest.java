@@ -18,12 +18,11 @@ public class InputTest {
         Input inputView = new Input();
         String equalCars = "a,b,c";
         InputStream tempCars = new ByteArrayInputStream(equalCars.getBytes());
-        String inputCars = null;
 
         // 자동차 이름을 a,b,c 입력
         try {
             System.setIn(tempCars);
-            inputCars = inputView.promptForCarNames();
+            String inputCars = inputView.promptForCarNames();
 
             // 입력한 값과 a,b,c와 같은지 확인
             assertThat(inputCars).isEqualTo(equalCars);
@@ -37,12 +36,11 @@ public class InputTest {
         Input inputView = new Input();
         String equalAttempt = "3";
         InputStream tempAttempt = new ByteArrayInputStream(equalAttempt.getBytes());
-        String inputAttempt = null;
 
         try {
             // 시도 횟수를 3 입력
             System.setIn(tempAttempt);
-            inputAttempt = inputView.promptForAttempts();
+            String inputAttempt = inputView.promptForAttempts();
 
             // 입력한 값과 3이 같은지 확인
             assertThat(inputAttempt).isEqualTo(equalAttempt);
