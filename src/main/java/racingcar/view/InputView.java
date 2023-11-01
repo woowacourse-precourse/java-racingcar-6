@@ -6,9 +6,8 @@ import java.util.List;
 
 public class InputView {
 
-    public static ArrayList<String> inputCarName() {
-        String input = Console.readLine();
-        return new ArrayList<>(List.of(input.split(",")));
+    public static String inputCarName() {
+        return Console.readLine();
     }
     public static Integer inputRacingCount() {
         String input = Console.readLine();
