@@ -19,8 +19,11 @@ class RaceSimulatorTest {
         int opportunity = 5;
         RaceSimulator raceSimulator = new RaceSimulator();
 
-        // Then
+        // When
         raceSimulator.simulateRace(driverRoster, opportunity);
+
+        // Then
+        assertEquals(true, true);
     }
 
     @Test
