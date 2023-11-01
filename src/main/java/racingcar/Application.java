@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class Application {
 
         public static void main(String[] args) {
@@ -30,7 +29,6 @@ class RacingController {
                         validateName(participants, name);
                         participants.add(new Car(name, 0));
                 }
-
                 String participant = String.join(", ", names);
                 System.out.println(participant);
                 return participants;
@@ -51,12 +49,16 @@ class RacingController {
 
         public static void attemptInput(List<Car> participants, String inputMoves) {
                 System.out.println("실행 결과");
-                int intMove = Integer.parseInt(inputMoves);
-                for (int i = 0; i < intMove; i++) {
-                        for (Car car : participants) {
-                                car.move();
-                                System.out.println(car.getName() + " : " + car.getMoveStatus());
+                try {
+                        int intMove = Integer.parseInt(inputMoves);
+                        for (int i = 0; i < intMove; i++) {
+                                for (Car car : participants) {
+                                        car.move();
+                                        System.out.println(car.getName() + " : " + car.getMoveStatus());
+                                }
                         }
+                } catch (IllegalArgumentException e) {
+                        System.out.println("올바른 숫자를 입력하세요.");
                 }
         }
 
@@ -77,7 +79,6 @@ class RacingController {
         }
 }
 
-// Ming,Seo,Park,Bin,Seong
 class Car {
         private String name;
         private int move;
