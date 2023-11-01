@@ -73,4 +73,14 @@ public class GameServiceTest {
         String winner = game.checkFinalScores(newCarList);
         assertThat(winner).isEqualTo("1번차");
     }
+    @Test
+    void 중복_우승자_확인(){
+        carList.add("1번차");
+        carList.add("2번차");
+        List<CarPlayer> newCarList = game.saveCarNames(carList);
+        newCarList.get(0).setScore();
+        newCarList.get(1).setScore();
+        String winner = game.checkFinalScores(newCarList);
+        assertThat(winner).isEqualTo("1번차, 2번차");
+    }
 }
