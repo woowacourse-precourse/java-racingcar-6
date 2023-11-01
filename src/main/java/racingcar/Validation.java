@@ -49,7 +49,7 @@ public class Validation {
 
     public static void validateRound(String round){
         if (round.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("시도할 회수를 입력해주세요.");
         }
     }
 
