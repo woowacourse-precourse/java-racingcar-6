@@ -28,7 +28,13 @@ public class RacingCarGame {
     }
 
     void setPlayers(String items) {
-        for (String item : items.split(",")) {
+        if (items.length() == 0) {
+            throw new IllegalArgumentException();
+        }
+        for (String item : items.split(",| ")) {
+            if (item.length() == 0) {
+                continue;
+            }
             if (item.length() > 5) {
                 throw new IllegalArgumentException();
             }
