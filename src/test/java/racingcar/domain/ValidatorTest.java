@@ -67,4 +67,24 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.DUPLICATE_ERROR);
     }
+
+    @Test
+    void 숫자가_아닌_경우() {
+        // given
+        String tryNumber = "a";
+
+        assertThatThrownBy(() -> Validator.validateTryNumber(tryNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.NOT_NUMBER_ERROR);
+    }
+
+    @Test
+    void 양수가_아닌_경우() {
+        // given
+        String tryNumber = "-1";
+
+        assertThatThrownBy(() -> Validator.validateTryNumber(tryNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.NEGATIVE_NUMBER_ERROR);
+    }
 }
