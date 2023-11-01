@@ -16,7 +16,7 @@ public class CarService {
         getCarList();
         getRound();
         playRound();
-        findWinner();
+        findWinners();
     }
 
     private void getCarList() {
@@ -37,7 +37,7 @@ public class CarService {
         }
     }
 
-    private void findWinner() {
-        carRepository.findWinners();
+    private void findWinners() {
+        CarOutput.printWinner(carRepository.findWinners());
     }
 }

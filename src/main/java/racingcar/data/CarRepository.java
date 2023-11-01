@@ -25,14 +25,14 @@ public class CarRepository {
         });
     }
 
-    public void findWinners() {
+    public String findWinners() {
         List<String> winnerList = getWinnerList();
         StringBuilder winnerNames = new StringBuilder(winnerList.get(0));
         for (int i = 1; i < winnerList.size(); i++) {
             winnerNames.append(CarUtil.WINNER_SEPARATOR).append(winnerList.get(i));
         }
 
-        CarOutput.printWinner(winnerNames.toString());
+        return winnerNames.toString();
     }
 
     private List<String> getWinnerList() {
