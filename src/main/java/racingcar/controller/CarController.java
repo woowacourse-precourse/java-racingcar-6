@@ -86,7 +86,7 @@ public class CarController {
         return new Cars(cars);
     }
 
-    // 시도횟수 console 출력 및 유효성 검사
+    // 시도횟수 console 입력 및 유효성 검사
     private String inputForForwardAndReturnStringType() {
         String attemptsForward = input.promptForAttempts();
 
