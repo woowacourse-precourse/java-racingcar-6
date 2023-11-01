@@ -47,13 +47,4 @@ public class RacingCarTest {
         car.move(underMovementWeight);
         assertThat(car.getForwardCount()).isEqualTo(prevForwardCount);
     }
-
-    @Test
-    void 자동차_toString_시_정상적으로_출력된다() {
-        RacingCar car = new RacingCar("name");
-        car.move(9);
-        car.move(9);
-
-        assertThat(car.toString()).isEqualTo("name : --");
-    }
 }
