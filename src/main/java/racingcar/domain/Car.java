@@ -1,6 +1,6 @@
-package domain;
+package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static racingcar.utils.Calculation.createRandomNum;
 
 public class Car {
     private final String name;
@@ -11,12 +11,8 @@ public class Car {
         this.step = 0;
     }
 
-    static int getRandomNum() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
     public void run() {
-        if (getRandomNum() >= 4) {
+        if (createRandomNum() >= 4) {
             goOneStep();
         }
     }

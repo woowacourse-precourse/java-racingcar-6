@@ -1,20 +1,16 @@
-package domain;
-
-import static constants.SystemMessage.PLEASE_INPUT_ATTEMPT_NUMBER;
-import static constants.SystemMessage.PLEASE_INPUT_CAR_NAME;
-import static constants.SystemMessage.RACING_RESULT;
-import static constants.SystemMessage.RACING_WINNER;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import validation.CheckingInput;
+import racingcar.constants.SystemMessage;
+import racingcar.validation.CheckingInput;
 
-public class CarRacing {
+public class Racing {
     int attemptCount;
     List<Car> cars;
 
-    public CarRacing() {
+    public Racing() {
         this.attemptCount = 0;
         this.cars = new ArrayList<Car>();
     }
@@ -72,21 +68,21 @@ public class CarRacing {
     }
 
     public void execute() {
-        System.out.println(PLEASE_INPUT_CAR_NAME);
+        System.out.println(SystemMessage.PLEASE_INPUT_CAR_NAME);
 
         String[] carNames = (Console.readLine()).split(",");
-        CheckingInput.validateCarNames(carNames);
+        CheckingInput.validateInputNames(carNames);
         setCars(carNames);
 
-        System.out.println(PLEASE_INPUT_ATTEMPT_NUMBER);
+        System.out.println(SystemMessage.PLEASE_INPUT_ATTEMPT_NUMBER);
 
         String count = Console.readLine();
-        CheckingInput.validateAttemptCount((count));
+        CheckingInput.validateInputCount((count));
         setAttemptCount(count);
 
-        System.out.println("\n" + RACING_RESULT);
+        System.out.println("\n" + SystemMessage.RACING_RESULT);
         printStepResults();
 
-        System.out.println(RACING_WINNER + " : " + getWinner());
+        System.out.println(SystemMessage.RACING_WINNER + " : " + getWinner());
     }
 }

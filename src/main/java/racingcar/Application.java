@@ -1,8 +1,10 @@
-import domain.CarRacing;
+package racingcar;
+
+import racingcar.domain.Racing;
 
 public class Application {
     public static void main(String[] args) {
-        CarRacing carRacing = new CarRacing();
+        Racing carRacing = new Racing();
         carRacing.execute();
     }
 }
