@@ -15,8 +15,8 @@ class RacingTest {
     void racing_run_round_that_given() {
         Car winner = new Car("win", () -> true);
         Racing racing = new Racing(List.of(winner), 5);
-        List<RacingRoundResult> racingResult = racing.race();
-        assertThat(racingResult).hasSize(5);
+        RacingResult racingResult = racing.race();
+        assertThat(racingResult.racingRoundResults()).hasSize(5);
     }
 
     @Test
@@ -36,15 +36,40 @@ class RacingTest {
         Car winner = new Car(winnerName, () -> true);
         Car loser = new Car(loserName, () -> false);
         Racing racing = new Racing(List.of(winner, loser), 5);
-        List<RacingRoundResult> racingResult = racing.race();
+        RacingResult racingResult = racing.race();
 
         CarStatus loserStatus = new CarStatus(loserName, 0);
-        assertThat(racingResult).isEqualTo(List.of(
+        assertThat(racingResult.racingRoundResults()).isEqualTo(List.of(
                 new RacingRoundResult(List.of(new CarStatus(winnerName, 1), loserStatus)),
                 new RacingRoundResult(List.of(new CarStatus(winnerName, 2), loserStatus)),
                 new RacingRoundResult(List.of(new CarStatus(winnerName, 3), loserStatus)),
                 new RacingRoundResult(List.of(new CarStatus(winnerName, 4), loserStatus)),
                 new RacingRoundResult(List.of(new CarStatus(winnerName, 5), loserStatus))
         ));
+    }
+
+    @Test
+    @DisplayName("레이싱이 끝난 후 가장 앞선 사람이 우승자다")
+    void racing_winner() {
+        String winnerName = "win";
+        Car winner = new Car(winnerName, () -> true);
+        Car loser = new Car("lose", () -> false);
+        Racing racing = new Racing(List.of(winner, loser), 5);
+        RacingResult racingResult = racing.race();
+
+        assertThat(racingResult.winnerNames()).isEqualTo(List.of(winnerName));
+    }
+
+    @Test
+    @DisplayName("레이싱이 끝난 후 가장 앞선 사람이 여러명이면 모두 우승자다")
+    void racing_multiple_winners() {
+        String winnerName = "win";
+        String anotherWinnerName = "win2";
+        Car winner = new Car(winnerName, () -> true);
+        Car anotherWinner = new Car(anotherWinnerName, () -> true);
+        Racing racing = new Racing(List.of(winner, anotherWinner), 5);
+        RacingResult racingResult = racing.race();
+
+        assertThat(racingResult.winnerNames()).isEqualTo(List.of(winnerName, anotherWinnerName));
     }
 }
