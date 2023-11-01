@@ -24,7 +24,7 @@ public class InputViewTest {
     }
 
     @Test
-    public void requestInputCarNames_사용자_입력을_받아서_String_반환() throws Exception {
+    public void requestInputCarNames_사용자_입력을_받아서_String_반환(){
         //given
         String input = "pobi,woni";
 
@@ -37,7 +37,7 @@ public class InputViewTest {
     }
 
     @Test
-    public void requestInputCarNames_사용자_입력이_없을_경우_예외_발생() throws Exception {
+    public void requestInputCarNames_사용자_입력이_없을_경우_예외_발생(){
         //given
         String input = "\n";
 
@@ -49,7 +49,7 @@ public class InputViewTest {
     }
 
     @Test
-    public void requestInputTryCount_사용자_입력을_받아서_String_반환() throws Exception {
+    public void requestInputTryCount_사용자_입력을_받아서_String_반환(){
         //given
         String input = "5";
 
@@ -61,7 +61,7 @@ public class InputViewTest {
     }
 
     @Test
-    public void requestInputTryCount_사용자_입력이_없을_경우_예외_발생() throws Exception {
+    public void requestInputTryCount_사용자_입력이_없을_경우_예외_발생(){
         //given
         String input = "\n";
 
