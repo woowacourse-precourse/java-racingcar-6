@@ -6,29 +6,32 @@ import java.util.List;
 import java.util.Map;
 
 public class GameService {
-    UserInput userInput = new UserInput();
-    MoveContainer moveContainer = new MoveContainer();
+    private final UserInput userInput;
+    private final ContainerSetting containerSetting;
+    private final SystemOutput systemOutput;
 
-    SystemOutput systemOutput = new SystemOutput();
+    public GameService(UserInput userInput, ContainerSetting containerSetting, SystemOutput systemOutput) {
+        this.userInput = userInput;
+        this.containerSetting = containerSetting;
+        this.systemOutput = systemOutput;
+    }
 
     public void run(String input, String gameNum) {
-
         System.out.println(Constants.RESULT_OF_GAME);
 
         List<String> carList = userInput.askCarList(input);
-        Map<String, Integer> numMoveMap = moveContainer.initMap(carList);
+        Map<String, Integer> numMoveMap = containerSetting.initMap(carList);
 
         printMoveGameNumber(userInput.askNumberGame(gameNum), carList, numMoveMap);
 
         List<String> winnerList = getWinner(numMoveMap);
-        systemOutput.printOverallResult(winnerList);
-
+        systemOutput.printOverallResult(new WinnerList(winnerList));
     }
 
-    private void printMoveGameNumber(int gameNumber, List<String> carList, Map<String, Integer> numMoveMap){
+    private void printMoveGameNumber(int gameNumber, List<String> carList, Map<String, Integer> numMoveMap) {
         for (int i = 0; i < gameNumber; i++) {
-            numMoveMap = moveContainer.decideIncMove(carList, numMoveMap);
-            systemOutput.printMoveResult(numMoveMap);
+            numMoveMap = containerSetting.decideIncMove(carList, numMoveMap);
+            systemOutput.printMoveResult(new MoveContainer(numMoveMap));
         }
     }
 
@@ -42,6 +45,5 @@ public class GameService {
             }
         }
         return maxValueKeys;
-
     }
 }
