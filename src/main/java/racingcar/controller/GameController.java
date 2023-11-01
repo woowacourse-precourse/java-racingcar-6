@@ -17,8 +17,8 @@ public class GameController {
     }
 
     public void play() {
-        Cars cars = inputView.inputCarName();
-        int count = inputView.inputCount();
+        Cars cars = inputView.readCarName();
+        int count = inputView.readCount();
 
         outputView.printResultGuide();
         for (int i = 0; i < count; i++) {

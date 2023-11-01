@@ -11,7 +11,7 @@ public class InputView {
     private static final String INPUT_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String DELIMITER = ",";
 
-    public Cars inputCarName() {
+    public Cars readCarName() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String input = Console.readLine();
         List<Car> cars = parseCarList(input);
@@ -24,7 +24,7 @@ public class InputView {
                 .toList();
     }
 
-    public int inputCount() {
+    public int readCount() {
         System.out.println(INPUT_COUNT_MESSAGE);
         String input = Console.readLine();
         System.out.println();
