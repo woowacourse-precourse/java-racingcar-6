@@ -1,6 +1,6 @@
 package racingcar.model.service;
 
-import static racingcar.messages.ViewMessage.INPUT_SEPARATOR;
+import static racingcar.messages.ViewMessage.SEPARATOR;
 
 import java.util.List;
 import racingcar.dto.Car;
@@ -29,7 +29,7 @@ public class CarServiceImpl implements CarService {
         validator.validateNameDuplication(carNames);
         validator.validateNameLengthRange(carNames);
 
-        String[] names = carNames.split(INPUT_SEPARATOR);
+        String[] names = carNames.split(SEPARATOR);
         for (String name : names) {
             carDao.insertCar(new Car(name.strip()));
         }
@@ -53,5 +53,16 @@ public class CarServiceImpl implements CarService {
                 carDao.increaseMoveCount(car.getName());
             }
         }
+        carDao.decreaseTryCount();
+    }
+
+    @Override
+    public List<Car> showCarLineupInfo() {
+        return carDao.selectAllCars();
+    }
+
+    @Override
+    public boolean isRacingcarStop() {
+        return carDao.getTryCount() < 1;
     }
 }
