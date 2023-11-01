@@ -31,8 +31,8 @@
 - [x] 자동차 이름들에 대한 문자열을 List 형태로 변환하여 반환한다.
     - [x] 문자열에 대해 (,)를 기준으로 파싱한다.
     - [x] 자동차 이름이 빈 문자열이거나 5글자가 넘는 문자열일 경우 IllegalArgumentException을 발생시킨다.
-- [ ] 자동차가 몇 번 이동할 지에 대한 문자열 입력을 int 형태로 변환하여 반환한다.
-    - [ ] 음수의 입력에 대해 IllegalArgumentException을 발생시킨다.
+- [x] 자동차가 몇 번 이동할 지에 대한 문자열 입력을 int 형태로 변환하여 반환한다.
+    - [x] 음수의 입력에 대해 IllegalArgumentException을 발생시킨다.
     - [x] Integer.parseInt 메서드를 통해 변환한다
         - [x] 숫자가 아닌 입력에 대해 NumberFormatExeption을 catch 해서 IllegalArgumentException을 발생시킨다.
 
