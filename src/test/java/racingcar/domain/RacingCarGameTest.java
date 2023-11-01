@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.NameLocationPair;
 import racingcar.dto.PlayResultDTO;
@@ -12,6 +13,16 @@ import racingcar.dto.ResultEachTry;
 import racingcar.dto.WinnersDTO;
 
 class RacingCarGameTest {
+    @Test
+    void 자동차_생성() {
+        RacingCarGame racingCarGame = new RacingCarGame("pobi,woni,jun", 5);
+
+        Cars cars = racingCarGame.getCars();
+
+        assertEquals("pobi", cars.getCars().get(0).getCarNameValue());
+        assertEquals("jun", cars.getCars().get(2).getCarNameValue());
+    }
+
     @Test
     void 시도횟수만큼_전진멈춤_계산후_결과반환() {
         final int GO_ALWAYS = 5;
