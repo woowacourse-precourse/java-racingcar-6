@@ -12,18 +12,20 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         CarsInputView carsInputView = new CarsInputView();
-        RoundInputView roundInputView = new RoundInputView();
-
         List<Car> carList = carsInputView.generateInputList();
         Cars cars = new Cars(carList);
 
+        RoundInputView roundInputView = new RoundInputView();
         int totalRoundNumber = roundInputView.generateRoundNumber();
-
-        RacingCarGameController racingCarGameController = new RacingCarGameController();
 
         OutputView outputView = new OutputView();
         outputView.printStartMessage();
-        racingCarGameController.gameStart(totalRoundNumber,cars);
+
+        RacingCarGameController racingCarGameController = new RacingCarGameController();
+        for(int i=0;i<totalRoundNumber;++i){
+            racingCarGameController.fowardCars(cars);
+            outputView.printRoundResult(cars);
+        }
 
         int maxStepValue = racingCarGameController.getMaxStep(cars);
         outputView.printFinalResult(cars,maxStepValue);

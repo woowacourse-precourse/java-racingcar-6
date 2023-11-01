@@ -13,7 +13,7 @@ public class CarsInputView {
     public List<Car> generateInputList() {
         System.out.print(INPUT_MESSAGE);
         String names = Console.readLine();
-        validateInputNoName(names);
+        validateEmptyName(names);
         validateInputNameCount(names);
         return StringInput(names);
     }
@@ -27,7 +27,7 @@ public class CarsInputView {
         return list;
     }
 
-    private void validateInputNoName(String names) {
+    private void validateEmptyName(String names) {
         String[] result = names.split(",");
         for (int i = 0; i < result.length; ++i) {
             if (result[i].equals("")) {

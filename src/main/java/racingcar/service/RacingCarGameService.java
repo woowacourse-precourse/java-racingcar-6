@@ -9,12 +9,6 @@ import java.util.List;
 
 public class RacingCarGameService {
 
-    OutputView outputView;
-
-    public RacingCarGameService() {
-        outputView = new OutputView();
-    }
-
     public int generateRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
     }
@@ -25,13 +19,6 @@ public class RacingCarGameService {
             int number = generateRandomNumber();
             int originStep = carsList.get(i).getStep();
             if(number>=4) carsList.get(i).setStep(originStep+1);
-        }
-    }
-
-    public void gameRun(int totalRoundNumber, Cars cars){
-        for(int i=0;i<totalRoundNumber;++i){
-            fowardCars(cars);
-            outputView.printRoundResult(cars);
         }
     }
 
