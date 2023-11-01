@@ -3,7 +3,6 @@ package racingcar.domain;
 import static racingcar.view.Messages.REGISTER_CAR_MESSAGE;
 import static racingcar.view.Messages.RESULT_MESSAGE;
 import static racingcar.view.Messages.TRIAL_NUMBER_MESSAGE;
-import static racingcar.view.Messages.WINNER_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import racingcar.view.OutputView;
 public class Game {
 
     private final List<Car> cars;
-    private final Winners winners;
+    private final Referee referee;
     private int trialNumber;
     private static final int MOVE_FORWARD_CONDITION_OF_CAR = 4;
     private static final int LOWER_BOUND_OF_RANDOM_NUMBER = 1;
@@ -24,23 +23,22 @@ public class Game {
 
     public Game() {
         cars = new ArrayList<>();
-        winners = new Winners();
+        referee = new Referee();
     }
 
     public void run() {
         readNamesOfCars();
         readTrialNumber();
-        moveCarsAndShowResults();
-        findWinners();
-        showWinners();
+        moveCarsRepeatedly();
+        Winners winners = referee.findWinners(cars);
+        showWinners(winners);
     }
 
-    private void showWinners() {
-        OutputView.print(WINNER_MESSAGE);
+    private void showWinners(Winners winners) {
         OutputView.print(winners.toString());
     }
 
-    private void moveCarsAndShowResults() {
+    private void moveCarsRepeatedly() {
         OutputView.println(RESULT_MESSAGE);
         for (int i = 0; i < trialNumber; i++) {
             moveCars();
@@ -58,25 +56,6 @@ public class Game {
         for (Car car : cars) {
             OutputView.println(car.toString());
         }
-    }
-
-    private void findWinners() {
-        int locationOfWinner = findLocationOfWinner();
-        for (Car car : cars) {
-            if (car.getLastLocation() == locationOfWinner) {
-                car.addToWinner(winners);
-            }
-        }
-    }
-
-    private int findLocationOfWinner() {
-        int maxArrivalPoint = 0;
-
-        for (Car car : cars) {
-            maxArrivalPoint = Math.max(maxArrivalPoint, car.getLastLocation());
-        }
-
-        return maxArrivalPoint;
     }
 
     private void readNamesOfCars() {
