@@ -48,6 +48,22 @@ public class RacingCarFeatureTest extends NsTest {
         );
     }
 
+    @Test
+    void 사용자가_입력한_시도_횟수가_숫자가_아닐_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 사용자가_입력한_시도_횟수가_0일_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
