@@ -4,6 +4,7 @@ import racingcar.utils.Message;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGame {
     private List<Car> cars;
@@ -37,6 +38,22 @@ public class RacingGame {
         for (int i=0; i<number; i++){
             playRacingRound();
         }
+        System.out.print(Message.winner);
+        System.out.println(winnerMaxDistance());
+    }
+    public String winnerMaxDistance(){
+        int maxDistance = getMaxDistance();
+        return this.cars
+                .stream()
+                .filter(car-> car.getPosition() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+    public int getMaxDistance(){
+        return this.cars.stream()
+                .mapToInt(car -> car.getPosition())
+                .max()
+                .orElse(0);
     }
 
 }
