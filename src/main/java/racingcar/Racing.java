@@ -36,12 +36,12 @@ public class Racing {
                 .toList();
     }
 
-    public void tryOnce() {
+    private void tryOnce() {
         playerList.stream()
                 .forEach(car -> car.move());
     }
 
-    public void printResult() {
+    private void printResult() {
         playerList.stream()
                 .forEach(car -> System.out.println(car.getCarName() + " : " + "-".repeat(car.getPosition())));
         System.out.println("");
