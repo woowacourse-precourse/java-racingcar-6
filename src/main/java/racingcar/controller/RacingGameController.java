@@ -23,7 +23,7 @@ public class RacingGameController {
         outputView.printGameResult(resultList, new Referee());
     }
 
-    public StringBuilder getGameResult(List<Car> carNameList, Referee referee) {
+    public void getGameResult(List<Car> carNameList, Referee referee) {
         StringBuilder gameResult = getInstance().getGameResult();
         boolean anyCarMove = false;
 
@@ -47,7 +47,5 @@ public class RacingGameController {
         if (!anyCarMove) {
             gameResult.append(OutputView.redLight()).append('\n').append('\n');
         }
-
-        return gameResult;
     }
 }
