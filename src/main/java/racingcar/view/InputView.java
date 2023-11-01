@@ -67,4 +67,11 @@ public class InputView {
         }
     }
 
+    private void validateFormat(String carName) {
+        if (!carName.matches("[a-zA-Z0-9가-힣]+")) {
+            throw new IllegalArgumentException("자동차 이름은 알파벳, 숫자, 한글만 사용 가능합니다.");
+        }
+    }
+
+
 }
