@@ -52,4 +52,26 @@ public class Entry {
         }
         return null;
     }
+
+    /**
+     * @return
+     * ex.<br>
+     * <p>
+     *     "pobi : ---"<br>
+     *     "woni : --"<br>
+     *     "jun : ---"<br>
+     *                       <- 빈 줄도 포함!
+     * </p>
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        cars.forEach(car -> {
+            sb.append(car.toString());
+            sb.append("\n");
+        });
+
+        return sb.toString();
+    }
 }
