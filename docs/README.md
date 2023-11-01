@@ -54,7 +54,7 @@
 
 ## 의존성 그래프
 
-![DependencyGrpah](./image/DepencyGraph.png)
+![DependencyGrpah](./image/DependencyGraph.png)
 
 ### 각 함수의 기능목록
 | 클래스                   | 접근자     | 함수                        | 책임                                                                                        |
