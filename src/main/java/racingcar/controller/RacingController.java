@@ -30,7 +30,7 @@ public class RacingController {
 
     public void start() {
         cars.generateCars(inputCars());
-        int times = inputTimes();
+        long times = inputTimes();
         race = new Race(cars, times);
         while (race.run()) {
             printCurrentStatus();
@@ -43,9 +43,9 @@ public class RacingController {
 
     public void printCurrentStatus() {
         List<Car> carList = cars.getCars();
-        StringBuilder process = new StringBuilder();
-        carList.forEach(car -> process.append(car.info()));
-        outputView.printProcess(process.toString());
+        StringBuilder currentStatus = new StringBuilder();
+        carList.forEach(car -> currentStatus.append(car.info()));
+        outputView.printProcess(currentStatus.toString());
     }
 
     public String inputCars() {
@@ -55,10 +55,10 @@ public class RacingController {
         return carsInput;
     }
 
-    public int inputTimes() {
+    public long inputTimes() {
         outputView.printInputTimes();
         String timesInput = inputView.inputTimes();
         validator.validateTimes(timesInput);
-        return Integer.parseInt(timesInput);
+        return Long.parseLong(timesInput);
     }
 }
