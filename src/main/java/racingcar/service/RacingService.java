@@ -3,6 +3,7 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 
 public class RacingService {
@@ -21,4 +22,12 @@ public class RacingService {
 		return winners;
 	}
 
+	public void racing(List<Car> cars) {
+		cars.forEach((car) -> {
+			if (Randoms.pickNumberInRange(0, 9) >= 4) {
+				car.move();
+			}
+		});
+	}
+	
 }
