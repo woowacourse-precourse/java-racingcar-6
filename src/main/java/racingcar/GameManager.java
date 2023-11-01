@@ -48,16 +48,16 @@ public class GameManager {
     }
 
     public void printResult() {
-        List<Car> winners = getMaxDistanceCars();
+        List<Car> winners = getMaxDistanceCars(this.cars);
         outputView.printWinners(winners);
     }
 
-    protected List<Car> getMaxDistanceCars() {
-        int maxDistance = 0;
+    public List<Car> getMaxDistanceCars(List<Car> cars) {
+        int maxDistance = 1;
         List<Car> maxCars = new ArrayList<>();
 
-        for (Car car : this.cars) {
-            if (maxDistance == car.getDistance()) {
+        for (Car car : cars) {
+            if (car.getDistance() != 0 && maxDistance == car.getDistance()) {
                 maxCars.add(car);
             } else if (maxDistance < car.getDistance()) {
                 maxCars.clear();
