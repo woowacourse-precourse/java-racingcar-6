@@ -13,6 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GameServiceTest extends NsTest {
 
     private GameService gameService;
+    private int forward = 5;
+    private int stop = 3;
 
     @BeforeEach()
     void initGameService(){
@@ -29,7 +31,7 @@ public class GameServiceTest extends NsTest {
     }
 
     @Test
-    @DisplayName("정상 로직 수행")
+    @DisplayName("정상 로직 수행 - 단독 우승자")
     public void 정상_로직_수행(){
         assertRandomNumberInRangeTest(
                 () -> {
@@ -41,9 +43,15 @@ public class GameServiceTest extends NsTest {
     }
 
     @Test
-    @DisplayName("단독 우승자 확인")
-    public void 단독_우승자_확인(){
-
+    @DisplayName("정상 로직 수행 - 공동 우승자")
+    public void 공동_우승자_확인(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("toto, hodu, dudu", "2");
+                    assertThat(output()).contains("toto : --", "hodu : --", "dudu : ", "최종 우승자 : toto, hodu");
+                },
+                forward,forward,stop,forward,forward,stop
+        );
     }
 
     @Override
