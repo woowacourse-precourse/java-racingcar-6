@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import static racingcar.view.ExceptionMessage.NOT_NULL;
-import static racingcar.view.ExceptionMessage.NOT_OVER_FIVE;
+import static racingcar.view.ExceptionMessage.NOT_OVER_FIVE_OR_LESS_ZERO;
 import static racingcar.view.ExceptionMessage.NOT_KOREAN_OR_ENGLISH;
 import static racingcar.view.OutputView.LOCATION_AND_NAME_DELIMITER;
 
@@ -30,7 +30,8 @@ public class Car {
 
     private static void validateName(String name) {
         checkConditionAndThrow(name == null, NOT_NULL);
-        checkConditionAndThrow(name.length() > NAME_MAX_LENGTH || name.length() < NAME_MIN_LENGTH, NOT_OVER_FIVE);
+        checkConditionAndThrow(name.length() > NAME_MAX_LENGTH || name.length() < NAME_MIN_LENGTH,
+                NOT_OVER_FIVE_OR_LESS_ZERO);
         checkConditionAndThrow(!name.matches("^[a-zA-Z가-힣]*$"), NOT_KOREAN_OR_ENGLISH);
     }
 
