@@ -20,10 +20,9 @@ public class RacingGame {
 
     }
 
-    public List<String> initResultList() {
-        List<String> cars = inputDesk.getCars();
+    public List<String> initResultList(int numOfCars) {
         List<String> initList = new ArrayList<>();
-        for (int i = 0; i < cars.size(); i++) {
+        for (int i = 0; i < numOfCars; i++) {
             initList.add("");
         }
         return initList;
@@ -74,7 +73,7 @@ public class RacingGame {
         try {
             inputDesk.inputCars();
             inputDesk.inputCounts();
-            resultList = initResultList();
+            resultList = initResultList(inputDesk.getCars().size());
             repeatOneSetGameUntilCount(inputDesk.getCount());
             chooseWinners(winner,resultList);
             announcer.winner(winner);
