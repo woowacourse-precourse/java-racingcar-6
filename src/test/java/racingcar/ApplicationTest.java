@@ -34,16 +34,15 @@ class ApplicationTest extends NsTest {
     @Test
     void 비어있는_이름_입력시_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> new CarList(""))
+                assertThatThrownBy(() -> InputValidator.carsName("", new String[]{""}))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
     void 자동차_이름_공백_예외_처리() {
-        String carName = "a b c";
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> new CarList(carName))
+                assertThatThrownBy(() -> runException("a b"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -51,7 +50,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차_이름_중복_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> new CarList("abc,abc"))
+                assertThatThrownBy(() -> runException("abc,abc"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
