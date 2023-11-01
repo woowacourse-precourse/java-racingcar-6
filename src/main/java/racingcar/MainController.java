@@ -23,5 +23,8 @@ public class MainController {
             outputView.printRoundResult(roundResult);
             trialNumber.subtractOne();
         } while (!trialNumber.isZero());
+
+        List<CarDto> winners = game.getWinners();
+        outputView.printWinners(winners);
     }
 }
