@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class InputTest {
 
-    @Test
+    @Test //1번 기능 테스트
     void getCarNames() {
         // 정상 입력
         assertDoesNotThrow(() -> Input.getCarNames("Car1,Car2,Car3"));
@@ -30,7 +30,7 @@ class InputTest {
         assertEquals(expectedCarNames, carNames);
     }
 
-    @Test
+    @Test //2번 기능 테스트
     void getTryCount() {
         // 정상 입력
         assertDoesNotThrow(() -> Input.getTryCount("123"));

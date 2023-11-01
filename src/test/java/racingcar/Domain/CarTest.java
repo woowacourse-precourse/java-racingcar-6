@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
-    @Test
+    @Test //3번 기능 테스트
     void move() {
         Car car = new Car("pobi");
         car.move(4);
