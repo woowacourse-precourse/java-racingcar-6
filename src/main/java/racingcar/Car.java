@@ -28,12 +28,6 @@ public class Car {
     }
 
     public String makeMoveResult() {
-        StringBuilder result = new StringBuilder();
-
-        result.append(this.name + " : ");
-        for (int round = 0; round < this.position; round++) {
-            result.append("-");
-        }
-        return result.toString();
+        return this.name + " : " + "-".repeat(this.position);
     }
 }
