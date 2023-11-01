@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.controller.Validation;
 import racingcar.model.Car;
 
-public class ForTest {
+public class InputTest {
     @Test
     void 이름_입력안한_경우_처리() {
         Car car = new Car(Collections.emptyList());
