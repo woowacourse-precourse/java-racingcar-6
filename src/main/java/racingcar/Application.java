@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Application {
     public static void main(String[] args) {
@@ -30,6 +31,21 @@ public class Application {
             }
             System.out.println();
         }
+        int max = 0;
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
+        List<Car> winnerCars = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == max) {
+                winnerCars.add(car);
+            }
+        }
+        StringJoiner joiner = new StringJoiner(", ");
+        for (Car car : winnerCars) {
+            joiner.add(car.getName());
+        }
+        System.out.println("최종 우승자는 " + joiner.toString() + " 입니다.");
     }
 
     private static int getTryNumber() {
