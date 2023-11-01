@@ -24,11 +24,14 @@
 ### 3. 게임에 필요한 도구 (GameUtil)
 
 - [X] 자동차 이름을 쉼표로 구분 (splitNamesByComma)
-- [X] 0에서 9 사이에서 무작위 값을 구하기 (generateRandomNumber)
 - [X] 우승자 여러 명인 경우, 출력 포맷팅 (formatWinners) → Game.printWinners에서 진행
+
+### 4. 자동차 메소드에 필요한 도구 (CarUtil)
+
+- [X] 0에서 9 사이에서 무작위 값을 구하기 (generateRandomNumber)
 - [X] 값이 4 이상인지(전진인지) 판단 (judgeGo)
 
-### 4. 입력값을 판단하는 도구 (ValidationUtil)
+### 5. 입력값을 판단하는 도구 (ValidationUtil)
 
 - [X] 이름 5자 이하인지 확인 (validateCarName)
 - [X] 숫자 입력인지 확인 (validateIsNumber)
