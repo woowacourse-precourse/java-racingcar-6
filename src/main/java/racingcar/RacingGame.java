@@ -18,8 +18,6 @@ public class RacingGame {
             playRound();
             OutputView.printCars(cars);
         }
-        List<Car> winners = findWinners();
-        OutputView.printWinners(winners);
     }
 
     private void playRound() {

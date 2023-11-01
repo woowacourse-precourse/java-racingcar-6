@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
@@ -10,6 +11,8 @@ public class Application {
         int rounds = InputView.inputRounds();
         RacingGame racingGame = new RacingGame(cars, rounds);
         racingGame.start();
+        List<Car> winners = racingGame.findWinners();
+        OutputView.printWinners(winners);
 
     }
 }
