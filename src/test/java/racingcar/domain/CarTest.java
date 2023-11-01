@@ -12,7 +12,7 @@ class CarTest {
     @Test
     @DisplayName("자동차를 이름과 함께 생성한다")
     void create_car_with_name() {
-        String carName = "";
+        String carName = "kkk";
         Car car = new Car(carName);
         assertThat(car.getName()).isEqualTo(carName);
     }

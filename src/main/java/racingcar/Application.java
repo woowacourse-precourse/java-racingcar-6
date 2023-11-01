@@ -33,8 +33,13 @@ public class Application {
         List<String> nameList = List.of(name);
         List<Car> carList = new ArrayList<>();
 
-        for (String s : nameList) {
-            carList.add(new Car(s));
+        for (String carName : nameList) {
+            if(carList.stream().anyMatch(car -> car.getName().equals(carName))){
+                throw new IllegalArgumentException("중복된 이름을 입력하셨습니다. : " + carName);
+            }else{
+                carList.add(new Car(carName));
+            }
+
         }
 
         return carList;

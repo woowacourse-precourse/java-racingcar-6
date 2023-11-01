@@ -56,10 +56,11 @@ public class Race {
     }
 
     private static void isPositiveNumber(int trial) {
-        if (trial < MIN_TRIAL_VALUE) {
+        if (trial <= MIN_TRIAL_VALUE) {
             throw new IllegalArgumentException("양수만 입력하세요.");
         }
     }
+
 
 
 }
