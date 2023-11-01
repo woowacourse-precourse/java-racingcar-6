@@ -6,6 +6,11 @@ public class User {
     private String[] racingCarNames;
     private String inputRacingRound;
 
+    public User() {
+        this.racingCarNames = new String[0];
+        this.inputRacingRound = "0";
+    };
+
     public void settingRacingCarNames() {
         this.racingCarNames = Console.readLine().split(",");
     }
@@ -20,4 +25,5 @@ public class User {
     public int getInputRacingRound() {
         return Integer.parseInt(inputRacingRound);
     }
+
 }
