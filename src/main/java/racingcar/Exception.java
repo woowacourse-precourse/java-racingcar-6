@@ -1,5 +1,6 @@
 package racingcar;
 
+import static java.util.Objects.isNull;
 import static racingcar.Constants.CAR_NAME_MAX;
 
 import java.util.Arrays;
@@ -19,14 +20,16 @@ public class Exception {
                 .ifPresent(name -> throwIllegalArgumentException());
     }
 
-    public static void checkPositiveNumber(Integer number) {
-        if (number <= 0) {
+    public static void checkIntegerNumber(Integer integer) {
+        if (isNull(integer)) {
             throwIllegalArgumentException();
         }
     }
 
-    public static void checkIntegerType() {
-        throwIllegalArgumentException();
+    public static void checkPositiveNumber(Integer number) {
+        if (number <= 0) {
+            throwIllegalArgumentException();
+        }
     }
 
     private static void throwIllegalArgumentException() {

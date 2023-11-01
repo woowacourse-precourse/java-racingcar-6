@@ -1,10 +1,9 @@
 package racingcar;
 
-import static java.util.Objects.isNull;
 import static racingcar.Constants.*;
 import static racingcar.Exception.checkCarNameLengthOver;
 import static racingcar.Exception.checkEmptyCarName;
-import static racingcar.Exception.checkIntegerType;
+import static racingcar.Exception.checkIntegerNumber;
 import static racingcar.Exception.checkPositiveNumber;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -41,13 +40,13 @@ public class Game {
     }
 
     private void saveCarName() {
-        String names = Console.readLine();
-        String[] nameArray = names.split(CAR_DIVISION);
+        String readLine = Console.readLine();
+        String[] names = readLine.split(CAR_DIVISION);
 
-        checkEmptyCarName(nameArray);
-        checkCarNameLengthOver(nameArray);
+        checkEmptyCarName(names);
+        checkCarNameLengthOver(names);
 
-        carList = addCar(nameArray);
+        carList = addCar(names);
     }
 
     private void alertEnterMoveNumber() {
@@ -58,9 +57,7 @@ public class Game {
         String readLine = Console.readLine();
         moveNumber = convertStringToInteger(readLine);
 
-        if (isNull(moveNumber)) {
-            checkIntegerType();
-        }
+        checkIntegerNumber(moveNumber);
         checkPositiveNumber(moveNumber);
     }
 
@@ -122,7 +119,6 @@ public class Game {
     }
 
     private String writeWinner(List<String> winnerNames) {
-        return winnerNames.stream()
-                .collect(Collectors.joining(WINNER_DIVISION));
+        return String.join(WINNER_DIVISION, winnerNames);
     }
 }
