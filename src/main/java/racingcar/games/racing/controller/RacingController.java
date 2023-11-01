@@ -11,11 +11,13 @@ import racingcar.games.racing.view.RacingOutputView;
 public class RacingController implements Game {
 
     private final RacingInputView racingInputView;
+    private final RacingOutputView racingOutputView;
     private final RacingFormatter racingFormatter;
     private final RacingService racingService;
 
     public RacingController() {
         this.racingInputView = new RacingInputView();
+        this.racingOutputView = new RacingOutputView();
         this.racingFormatter = new RacingFormatter();
         this.racingService = new RacingService(new DefaultProcessor());
     }
@@ -26,6 +28,16 @@ public class RacingController implements Game {
         List<String> carNames = getValidatedCarNames();
         racingService.registerCars(carNames);
         int attemptNumber = getValidatedAttemptNumber();
+        raceWhile(attemptNumber);
+    }
+
+    private void raceWhile(int attemptNumber) {
+        racingOutputView.printMessage("실행 결과");
+        for (int i = 0; i < attemptNumber; i++) {
+            racingService.move();
+            List<String> results = racingService.makePlayResult();
+            racingOutputView.printPlayResult(results);
+        }
     }
 
     private List<String> getValidatedCarNames() {
