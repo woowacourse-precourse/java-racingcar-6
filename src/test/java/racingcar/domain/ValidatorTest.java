@@ -11,6 +11,15 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class ValidatorTest {
 
     @Test
+    void 이름을_입력하지_않은_경우_예외_발생() {
+        List<String> input = new ArrayList<>();
+
+        assertThatThrownBy(() -> Validator.validateCarsName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 이름을 제대로 입력해주세요.");
+    }
+
+    @Test
     void 길이가_5보다_큰_문자열이_존재하는_경우_예외_발생() {
         List<String> input = new ArrayList<>();
         input.add("hello");
