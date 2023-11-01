@@ -2,12 +2,12 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.Message.ErrorMessage.CAR_NAME_HAVE_WHITE_CHAR;
-import static racingcar.Message.ErrorMessage.CAR_NAME_IS_BIGGER_THAN_5CHAR;
-import static racingcar.Message.ErrorMessage.CAR_NAME_IS_DUPLICATED;
-import static racingcar.Message.ErrorMessage.CAR_NAME_IS_EMPTY;
-import static racingcar.Message.ErrorMessage.MOVE_COUNT_IS_NOT_NUM;
-import static racingcar.Message.ErrorMessage.MOVE_COUNT_IS_NOT_POSITIVE_NUM;
+import static racingcar.message.ErrorMessage.CAR_NAME_HAVE_WHITE_CHAR;
+import static racingcar.message.ErrorMessage.CAR_NAME_IS_BIGGER_THAN_5CHAR;
+import static racingcar.message.ErrorMessage.CAR_NAME_IS_DUPLICATED;
+import static racingcar.message.ErrorMessage.CAR_NAME_IS_EMPTY;
+import static racingcar.message.ErrorMessage.MOVE_COUNT_IS_NOT_NUM;
+import static racingcar.message.ErrorMessage.MOVE_COUNT_IS_NOT_POSITIVE_NUM;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

@@ -1,8 +1,8 @@
 package racingcar;
 
-import static racingcar.Message.AlarmMessage.BEFORE_GAME_PROGRESS_MESSAGE;
-import static racingcar.Message.AlarmMessage.CAR_NAME_INPUT_MESSAGE;
-import static racingcar.Message.AlarmMessage.MOVE_COUNT_INPUT_MESSAGE;
+import static racingcar.message.AlarmMessage.BEFORE_GAME_PROGRESS_MESSAGE;
+import static racingcar.message.AlarmMessage.CAR_NAME_INPUT_MESSAGE;
+import static racingcar.message.AlarmMessage.MOVE_COUNT_INPUT_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;

@@ -1,4 +1,4 @@
-package racingcar.Message;
+package racingcar.message;
 
 public enum ErrorMessage {
     CAR_NAME_IS_BIGGER_THAN_5CHAR("[ERROR] 자동차 이름은 5자 이하만 가능합니다."),

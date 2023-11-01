@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.Message.AlarmMessage.RESULT_HEADER_MESSAGE;
+import static racingcar.message.AlarmMessage.RESULT_HEADER_MESSAGE;
 
 import java.util.List;
 import racingcar.dto.RacingCar;
