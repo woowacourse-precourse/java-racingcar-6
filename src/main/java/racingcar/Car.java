@@ -21,6 +21,10 @@ public class Car {
         return "-".repeat(getForwardCount());
     }
 
+    /**
+     * 자동차의 전진 상태를 출력
+     *
+     */
     public void showStatus(){
         System.out.println(name+" : "+getProgress());
     }

@@ -19,15 +19,15 @@ public class Judge {
         this.upperBoundRandomNumber = upperBoundRandomNumber;
     }
 
-    public boolean canMove(){
+    public boolean canMove(int randonNumber){
         boolean move = false;
-        if(pickRandomNumber() >= forwardCriterion){
+        if(randonNumber >= forwardCriterion){
             move = true;
         };
         return move;
     }
 
-    private Integer pickRandomNumber(){
+    public Integer pickRandomNumber(){
         return Randoms.pickNumberInRange(lowerBoundRandomNumber, upperBoundRandomNumber);
     }
 
@@ -45,10 +45,10 @@ public class Judge {
         return true;
     }
 
-    public boolean isEffectiveInputTurn(Optional<String> input){
+    public void isEffectiveInputTurn(Optional<String> input){
         String inputTurn = input.orElse("null");
         checkTypeIsInteger(inputTurn);
-        return checkExistBetweenLowerBoundAndUpperBound(inputTurn);
+        checkRangeIfIsNegative(inputTurn);
     }
 
 
@@ -60,13 +60,10 @@ public class Judge {
         }
     }
 
-    private boolean checkExistBetweenLowerBoundAndUpperBound(String inputTurn) {
-        boolean between = false;
-        Integer input = Integer.parseInt(inputTurn);
-
-        if(lowerBoundRandomNumber <= input && upperBoundRandomNumber >= input){
-            between = true;
+    private void checkRangeIfIsNegative(String inputTurn) {
+        Integer inputNumber = Integer.parseInt(inputTurn);
+        if(inputNumber<= 0){
+            throw new IllegalArgumentException("시도 횟수는 양의 정수여야합니다.");
         }
-        return between;
     }
 }
