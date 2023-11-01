@@ -2,37 +2,43 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import camp.nextstep.edu.missionutils.Randoms;
-import static racingcar.Vars.MIN_RANDOM_NUMBER;
-import static racingcar.Vars.MAX_RANDOM_NUMBER;
-
+import static racingcar.manager.RandomNumberGenerator.generate;
+import static racingcar.manager.Validator.validateNoDuplicateNames;
 
 public class RacingGame {
     private final List<Car> cars;
     private final int rounds;
 
     public RacingGame(String[] carNames, int rounds) {
+        validateNoDuplicateNames(carNames);
         this.rounds = rounds;
-        this.cars = new ArrayList<>();
+        this.cars = initializeCars(carNames);
+    }
 
+    private List<Car> initializeCars(String[] carNames) {
+        List<Car> carsList = new ArrayList<>();
         for (String carName : carNames) {
-            cars.add(new Car(carName.trim()));
+            carsList.add(new Car(carName.trim()));
         }
+        return carsList;
     }
 
     public List<Car> playRound() {
         for (Car car : cars) {
-            car.move(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER));
+            car.move(generate());
         }
-        return cars;
+        return new ArrayList<>(cars);
     }
 
     public List<String> getWinners() {
         int maxPosition = getMaxPosition();
-        List<String> winners = new ArrayList<>();
+        return filterCarsByPosition(maxPosition);
+    }
 
+    private List<String> filterCarsByPosition(int position) {
+        List<String> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
+            if (car.getPosition() == position) {
                 winners.add(car.getName());
             }
         }
