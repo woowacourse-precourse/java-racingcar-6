@@ -45,8 +45,7 @@ public class RaceProgress {
     }
 
     private int getLongestDistance() {
-        return progress.entrySet().stream()
-                .map(Entry::getValue)
+        return progress.values().stream()
                 .max(Integer::compareTo)
                 .orElse(0);
     }
