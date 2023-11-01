@@ -12,7 +12,7 @@ public class Application {
     private List<Car> cars = new ArrayList<>();
     private int attempts;
 
-    //자동차 경주 게임 시작
+    //자동차 경주 시작
     public void start() {
         initCars();
         initAttempts();
