@@ -18,4 +18,9 @@ public class Validation {
                 .filter(carName -> carName.length() >= NAME_MIN_SIZE && carName.length() <= NAME_MAX_SIZE)
                 .count() == carNameList.size();
     }
+    public static boolean checkDuplicateName(List<String> carNameList) {
+        return carNameList.stream()
+                .distinct()
+                .count() == carNameList.size();
+    }
 }
