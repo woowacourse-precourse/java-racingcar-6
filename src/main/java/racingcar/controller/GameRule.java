@@ -1,6 +1,6 @@
-package controller;
+package racingcar.controller;
 
-import model.Car;
+import racingcar.model.Car;
 
 public interface GameRule {
     void playRound();

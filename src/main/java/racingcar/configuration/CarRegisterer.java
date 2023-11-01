@@ -1,8 +1,8 @@
-package configuration;
+package racingcar.configuration;
 
-import model.Car;
-import model.CarList;
-import view.UserView;
+import racingcar.model.Car;
+import racingcar.model.CarList;
+import racingcar.view.UserView;
 
 public class CarRegisterer {
     static final int NAME_LENGTH_LIMIT = 5;

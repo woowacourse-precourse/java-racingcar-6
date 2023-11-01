@@ -1,8 +1,8 @@
-package controller;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import model.Car;
-import model.CarList;
+import racingcar.model.Car;
+import racingcar.model.CarList;
 
 public class RandomGameRuleImpl implements GameRule {
     static final String IDENTIFIER = ", ";

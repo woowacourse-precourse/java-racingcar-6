@@ -1,7 +1,7 @@
-package configuration;
+package racingcar.configuration;
 
-import model.CarList;
-import view.UserView;
+import racingcar.model.CarList;
+import racingcar.view.UserView;
 
 public class GameSetter {
     private final CarList carList;

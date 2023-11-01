@@ -1,10 +1,10 @@
 package racingcar;
 
-import controller.GameController;
-import controller.GameRule;
-import configuration.GameSetter;
-import controller.RandomGameRuleImpl;
-import model.CarList;
+import racingcar.controller.GameController;
+import racingcar.controller.GameRule;
+import racingcar.configuration.GameSetter;
+import racingcar.controller.RandomGameRuleImpl;
+import racingcar.model.CarList;
 
 public class Application {
     public static void main(String[] args) {
