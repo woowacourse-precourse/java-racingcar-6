@@ -7,7 +7,6 @@ public class RacingGame {
 
     String[] names;
     int num;
-    private int carnum;
     private ArrayList<Car> cars, winners;
 
     public RacingGame() {
@@ -26,6 +25,8 @@ public class RacingGame {
         System.out.println("\n실행 결과");
 
         runGame();
+
+        findGamewinner();
     }
 
     private void inputName() {
@@ -34,7 +35,7 @@ public class RacingGame {
         if (names.length <= 1) {
             throw new IllegalArgumentException();
         }
-        this.carnum = names.length; //
+
         this.names = names;
     }
 
@@ -76,6 +77,30 @@ public class RacingGame {
             car.move();
         }
     }
+
+    private void findGamewinner() {
+
+        winners = new ArrayList<>();
+        int maxPos = 0;
+        int carPos = 0;
+
+        for (Car car : cars) {
+            carPos = car.getPosition();
+            if (carPos > maxPos) {
+                maxPos = carPos;
+            }
+        }
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPos) {
+                winners.add(car);
+            }
+        }
+
+        printGameWinner();
+
+    }
+
     private void printGameWinner() {
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
