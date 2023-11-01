@@ -3,15 +3,11 @@ package racingcar.provider;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 
 public class RacingOutputProvider {
 
-	private final Console console;
-
-	public RacingOutputProvider(Console console) {
-		this.console = console;
+	public RacingOutputProvider() {
 	}
 
 	public void printRacingStart() {

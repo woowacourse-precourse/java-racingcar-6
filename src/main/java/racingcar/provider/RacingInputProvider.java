@@ -9,10 +9,7 @@ import racingcar.domain.Car;
 
 public class RacingInputProvider {
 
-	private final Console console;
-
-	public RacingInputProvider(Console console) {
-		this.console = console;
+	public RacingInputProvider() {
 	}
 
 	public List<Car> getRacingCars() {
