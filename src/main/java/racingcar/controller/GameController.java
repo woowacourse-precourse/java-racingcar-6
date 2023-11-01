@@ -21,6 +21,7 @@ public class GameController {
 
     private void gameSetInput() {
         List<String> carNames = InputView.inputCarNames();
+        GameService.createCar(carNames);
         TryCount tryCount = InputView.inputTryCount();
     }
 
