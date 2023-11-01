@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameService {
@@ -13,10 +14,16 @@ public class GameService {
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int MIN_RANDOM_NUMBER = 0;
 
+    public List<Car> getCars() {
+        return cars;
+    }
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
     public void initGame(Set<String> carNames) {
-        for(String carName : carNames) {
-            cars.add(new Car(carName));
-        }
+        cars.clear();
+        setCars(carNames.stream().map(name -> new Car(name)).collect(Collectors.toList()));
     }
 
     public void playGame() {
@@ -78,9 +85,5 @@ public class GameService {
         }
 
         return winners;
-    }
-
-    public List<Car> getCars() {
-        return cars;
     }
 }
