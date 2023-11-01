@@ -41,6 +41,14 @@ ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이름에_대한_공백_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi, ,woni", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 횟수에_대한_문자_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "a"))
