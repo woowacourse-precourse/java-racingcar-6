@@ -6,7 +6,7 @@ import java.util.List;
 public class Game {
     static void play (Car[] car, int times) {
         OutputView.outputResult();
-        for (int i = 0; i < times; i++) { // 횟수만큼 반복
+        for (int i = 0; i < times; i++) {
             Game.playOnce(car);
         }
     }
