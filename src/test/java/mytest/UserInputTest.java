@@ -25,7 +25,7 @@ public class UserInputTest {
         String[] carNames = {"Car1", "Car2", "Car3456"};
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
                 UserInput.checkNameLength(carNames));
-        assertEquals(String.format("자동차의 이름을 %s자 이내로 입력해주세요.", NAME_LENGTH), exception.getMessage());
+        assertEquals(String.format("이름을 %s자 이내로 입력해주세요.", NAME_LENGTH), exception.getMessage());
     }
 
     @DisplayName("차 이름 중 중복된 값이 있는지 확인")
@@ -34,7 +34,7 @@ public class UserInputTest {
         String[] carNames = {"Car1", "Car2", "Car1"};
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
                 UserInput.checkDuplicates(carNames));
-        assertEquals("자동차의 이름을 중복되지 않게 입력해주세요.", exception.getMessage());
+        assertEquals("이름을 중복되지 않게 입력해주세요.", exception.getMessage());
     }
 
     @DisplayName("진행할 라운드 값을 입력 받고 유효한지 확인")

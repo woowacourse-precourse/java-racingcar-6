@@ -37,7 +37,7 @@ public class UserInput {
         HashSet<String> uniqueNames = new HashSet<>();
         for (String name : nameList) {
             if (!uniqueNames.add(name)) {
-                throw new IllegalArgumentException("자동차의 이름을 중복되지 않게 입력해주세요.");
+                throw new IllegalArgumentException("이름을 중복되지 않게 입력해주세요.");
             }
         }
     }
