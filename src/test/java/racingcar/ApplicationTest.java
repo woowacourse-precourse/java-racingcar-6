@@ -55,7 +55,7 @@ class ApplicationTest extends NsTest {
     }
     
     @Test @DisplayName("이름을_구분자로_구분하나_makeCars()")
-    void testMakeCars() {
+    void testMakeCar1() {
         
         String input = "이름1,이름2";
         List<Car> cars = inputManager.makeCars(input);
@@ -68,8 +68,21 @@ class ApplicationTest extends NsTest {
         assertThat(output).containsExactly("이름1", "이름2");
         
     }
-    
-    
+
+    @Test @DisplayName("구분자_없이_입력된_경우_그대로_반환하나_makeCars()")
+    void testMakeCars2() {
+
+        String input = "이름";
+        List<Car> cars = inputManager.makeCars(input);
+        List<String> output = new ArrayList<>();
+
+        cars.forEach(
+                car -> output.add(car.getName())
+        );
+        
+        assertThat(output).contains("이름");
+
+    }
     
     
 
