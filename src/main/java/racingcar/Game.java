@@ -46,7 +46,7 @@ public class Game {
     }
 
     public String printHowManyCounts() {
-        return "";
+        return "시도할 회수는 몇회인가요?" + "\n";
     }
     public void inputCounts() {
         counts = Integer.parseInt(Console.readLine());
