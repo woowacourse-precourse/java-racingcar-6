@@ -7,6 +7,13 @@ public class RacingcarGame {
 
     private List<Car> racingcars = new ArrayList<>();
     private List<String> winners = new ArrayList<>();
+    private int tryCount;
+
+    private void getTryCount() {
+        String tryCountString = InputOutput.getTryCount();
+        tryCount = Validator.tryCountInput(tryCountString);
+        InputOutput.printEmptyLine();
+    }
 
     private void makeCars(String[] carNames) {
         for (String carName : carNames) {
