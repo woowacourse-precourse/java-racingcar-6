@@ -3,7 +3,6 @@ package racingcar.validator;
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.RacingConstant;
 import racingcar.constant.SeparatorConstant;
-import racingcar.constant.ValidatorConstant;
 
 import java.util.Arrays;
 import java.util.Set;
