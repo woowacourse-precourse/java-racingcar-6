@@ -38,11 +38,11 @@ public class RacingGameService {
         doGame(user.getTotalGameCount(), racingGame);
     }
 
-    private boolean validateCount(int count) {
+    public boolean validateCount(int count) {
         return count > 0;
     }
 
-    private boolean validateCarName(String carNameString) {
+    public boolean validateCarName(String carNameString) {
         String[] carNames = parseCarName(carNameString);
         return Arrays.stream(carNames)
                 .allMatch(name -> name.length() <= 5 && !name.isEmpty() && name.matches(VALID_CAR_NAME_REGEX));
@@ -60,7 +60,7 @@ public class RacingGameService {
         messageWithWinners(winners);
     }
 
-    private void moveCars(List<Car> cars) {
+    public void moveCars(List<Car> cars) {
         for (Car car : cars) {
             int num = Randoms.pickNumberInRange(0, 9);
             if(num >= 4){
@@ -69,7 +69,7 @@ public class RacingGameService {
         }
     }
 
-    private void printCurrentResult(List<Car> cars) {
+    public void printCurrentResult(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getName() + " : ");
             int distance = car.getDistance();
@@ -81,7 +81,7 @@ public class RacingGameService {
         System.out.println();
     }
 
-    private void messageWithWinners(List<Car> winners) {
+    public void messageWithWinners(List<Car> winners) {
         StringBuilder outputMessage = new StringBuilder();
         if (!winners.isEmpty()) {
             Iterator<Car> iterator = winners.iterator();
@@ -91,7 +91,7 @@ public class RacingGameService {
         System.out.println(FINAL_WINNER_MESSAGE + outputMessage);
     }
 
-    private void printResultMessage(Iterator<Car> iterator, StringBuilder outputMessage) {
+    public void printResultMessage(Iterator<Car> iterator, StringBuilder outputMessage) {
         while (iterator.hasNext()) {
             Car winner = iterator.next();
             outputMessage.append(winner.getName());
@@ -101,7 +101,7 @@ public class RacingGameService {
         }
     }
 
-    private List<Car> findWinners(RacingGame racingGame) {
+    public List<Car> findWinners(RacingGame racingGame) {
         List<Car> cars = racingGame.getCars();
         int maxDistance = cars.stream()
                 .mapToInt(Car::getDistance)
@@ -113,11 +113,11 @@ public class RacingGameService {
                 .toList();
     }
 
-    private String[] parseCarName(String carNameString) {
+    public String[] parseCarName(String carNameString) {
         return carNameString.split(",");
     }
 
-    private void setCarsInRacingGame(String[] carNames, RacingGame racingGame){
+    public void setCarsInRacingGame(String[] carNames, RacingGame racingGame){
         for (String carName : carNames) {
             Car car = new Car(carName, 0);
             racingGame.addCar(car);
