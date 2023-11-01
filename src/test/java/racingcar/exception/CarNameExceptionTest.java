@@ -39,6 +39,18 @@ class CarNameExceptionTest extends NsTest {
 
     @Test
     void 자동차이름공백확인() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("july ,april,march", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("july,a  il,march", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("july ,april, ", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Override

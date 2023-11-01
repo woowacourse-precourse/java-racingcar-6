@@ -30,6 +30,6 @@
 
 [o] 자동차 이름이 각각 다른 이름인지 중복 확인 -CarNameExceptionTest / 자동차이름중복확인()
 
-[-] 자동차 이름에 공백이 들어있는지 확인 -CarNameExceptionTest / 자동차이름공백확인()
+[o] 자동차 이름에 공백이 들어있는지 확인 -CarNameExceptionTest / 자동차이름공백확인()
 
 [o] 라운드 수가 정수로 입력되었는지 확인 -RoundExceptionTest / 정수로입력된라운드수()
