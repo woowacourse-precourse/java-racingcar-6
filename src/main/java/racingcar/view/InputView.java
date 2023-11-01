@@ -45,6 +45,7 @@ public class InputView {
     }
 
     private int parseInt(String count) {
+        validateNotNull(count);
         validateNumberInput(count);
         int parsedCount;
         message = String.format(ErrorMessage.INVALID_CAR_NAME.getMessage(), GameCondition.MIN_COUNT);
