@@ -60,3 +60,26 @@
   - [x] 자동차 이름, 라운드 횟수
 - [x] 라운드를 감소시키는 기능 - decreaseRound()
 
+### 
+
+---
+
+# 전체 패키지 구조
+
+    └── racingcar
+        ├── Application
+        ├── constant
+        │   ├── ConsoleMessages
+        │   ├── ExceptionMessages
+        │   └── GameOptions
+        ├── controller
+        │   └── RacingGame
+        ├── domain
+        │   ├── Car
+        │   └── Cars
+        ├── util
+        │   ├── StringParser
+        │   └── Validator
+        └── view
+            ├── ConsolePrinter
+            └── ConsoleScanner
