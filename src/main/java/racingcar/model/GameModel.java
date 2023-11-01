@@ -10,7 +10,6 @@ public class GameModel {
     public List<String> generateCarName(String carNames) {
 
         List<String> carNameList = Arrays.asList(carNames.split(","));
-        HashMap<String, String> carHashMap = new HashMap<>();
 
         return carNameList;
     }
