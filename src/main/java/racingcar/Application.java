@@ -4,11 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int MIN_ROUND = 0;
 
     public static void main(String[] args) {
         String[] carNames = readCarNames();
         validateCarName(carNames);
         Car[] cars = initializeCars(carNames);
+        int round = readRoundNumber();
     }
 
     private static String[] readCarNames() {
@@ -31,5 +33,14 @@ public class Application {
             cars[i] = new Car(carNames[i]);
         }
         return cars;
+    }
+
+    private static int readRoundNumber() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        int round = Integer.parseInt(Console.readLine());
+        if (round < MIN_ROUND) {
+            throw new IllegalArgumentException();
+        }
+        return round;
     }
 }
