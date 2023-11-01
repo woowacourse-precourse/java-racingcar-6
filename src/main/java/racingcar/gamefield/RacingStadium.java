@@ -15,6 +15,7 @@ public class RacingStadium {
     private final OutputView outputView;
     private final NumberComparator numberComparator;
     private final DisplayBoard displayBoard;
+    private final CarFactory carFactory;
 
 
     public RacingStadium() {
@@ -22,11 +23,12 @@ public class RacingStadium {
         outputView = new OutputView();
         numberComparator = new NumberComparator();
         displayBoard = new DisplayBoard();
+        carFactory = new CarFactory();
     }
 
     public void run() {
         List<String> carNameList = inputView.requestCarNamesInput();
-        List<Car> carList = CarFactory.generateCarListWithName(carNameList);
+        List<Car> carList = carFactory.generateCarListWithName(carNameList);
         displayBoard.initCarPosition(carNameList);
         startRacing(carList);
         outputView.responseRaceWinner(displayBoard);
