@@ -3,6 +3,8 @@ package racingcar.domain;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class RaceTest {
     Race race = new Race();
@@ -17,40 +19,20 @@ class RaceTest {
         }).doesNotThrowAnyException();
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"", "   "})
     @DisplayName("If Attempt Is Blank, Throw Exception")
-    void 시도_회수가_공백일_경우_예외_발생() {
-        String attemptCount1 = "";
-        Assertions.assertThatThrownBy(() -> race.initializeRace(attemptCount1, carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도 회수는 공백일 수 없습니다.");
-
-        String attemptCount2 = "   ";
-        Assertions.assertThatThrownBy(() -> race.initializeRace(attemptCount2, carNames))
+    void 시도_회수가_공백일_경우_예외_발생(String attemptCount) {
+        Assertions.assertThatThrownBy(() -> race.initializeRace(attemptCount, carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 회수는 공백일 수 없습니다.");
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"-12", "1.2", "1a2", "0"})
     @DisplayName("If Not Positive Integer, Throw Exception")
-    void 시도_회수가_양의_정수가_아닐_경우_예외_발생() {
-        String attemptCount1 = "-12";
-        Assertions.assertThatThrownBy(() -> race.initializeRace(attemptCount1, carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도 회수는 양의 정수만 가능합니다.");
-
-        String attemptCount2 = "1.2";
-        Assertions.assertThatThrownBy(() -> race.initializeRace(attemptCount2, carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도 회수는 양의 정수만 가능합니다.");
-
-        String attemptCount3 = "1a2";
-        Assertions.assertThatThrownBy(() -> race.initializeRace(attemptCount3, carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도 회수는 양의 정수만 가능합니다.");
-
-        String attemptCount4 = "0";
-        Assertions.assertThatThrownBy(() -> race.initializeRace(attemptCount4, carNames))
+    void 시도_회수가_양의_정수가_아닐_경우_예외_발생(String attemptCount) {
+        Assertions.assertThatThrownBy(() -> race.initializeRace(attemptCount, carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 회수는 양의 정수만 가능합니다.");
     }
