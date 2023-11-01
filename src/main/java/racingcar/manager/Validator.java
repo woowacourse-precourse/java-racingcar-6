@@ -36,9 +36,13 @@ public class Validator {
     public void validateCarNamesDuplicated(String[] cars) {
         Set<String> uniqueCars = new HashSet<>();
         for (String car: cars){
-            if (!uniqueCars.add(car)) {
+            if (isCarNameExist(car, uniqueCars)) {
                 throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다: " + car);
             }
         }
+    }
+
+    private boolean isCarNameExist(String car, Set<String> uniqueCars) {
+        return !uniqueCars.add(car);
     }
 }
