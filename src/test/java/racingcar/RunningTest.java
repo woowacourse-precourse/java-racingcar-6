@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class RunningTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -37,95 +38,66 @@ class RunningTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
-        assertSimpleTest(
-                () -> {
-                    runException("pobi,javaji");
-                    String output = output();
-                    System.out.println(output);
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
+    void 이름에_대한_예외_처리1() {
+        assertThatThrownBy(() -> runException("pobi,javaji"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
     }
 
     @Test
     void 이름에_대한_예외_처리2() {
-        assertSimpleTest(
-                () -> {
-                    runException("pobi,");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
+        assertThatThrownBy(() -> runException("pobi,"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
     }
 
     @Test
     void 이름에_대한_예외_처리3() {
-        assertSimpleTest(
-                () -> {
-                    runException("-");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
+        assertThatThrownBy(() -> runException("-"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
     }
 
     @Test
     void 이름에_대한_예외_처리4() {
-        assertSimpleTest(
-                () -> {
-                    runException("pobi,pobi");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
+        assertThatThrownBy(() -> runException("pobi,pobi"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
+    }
+
+    @Test
+    void 이름에_대한_예외_처리5() {
+        assertThatThrownBy(() -> runException("\n"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
     }
 
     @Test
     void 이름에_대한_예외_처리6() {
-        assertSimpleTest(
-                () -> {
-                    runException("/n");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
-    }
-
-    @Test
-    void 이름에_대한_예외_처리7() {
-        assertSimpleTest(
-                () -> {
-                    runException("a,b,c,,d");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
+        assertThatThrownBy(() -> runException("a,b,c,,d"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
     }
 
     @Test
     void 이름에_대한_예외_처리8() {
-        assertSimpleTest(
-                () -> {
-                    runException(",a,b");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
+        assertThatThrownBy(() -> runException(",a,b"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
     }
 
     @Test
     void 숫자에_대한_예외_처리() {
-        assertSimpleTest(
-                () -> {
-                    runException("a,b", "0");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
+        assertThatThrownBy(() -> runException("a,b", "0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
     }
 
     @Test
     void 숫자에_대한_예외_처리2() {
-        assertSimpleTest(
-                () -> {
-                    runException("a,b", "01");
-                    assertThat(output()).contains(ERROR_MESSAGE);
-                }
-        );
+        assertThatThrownBy(() -> runException("a,b", "01"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
     }
 
     @Test
