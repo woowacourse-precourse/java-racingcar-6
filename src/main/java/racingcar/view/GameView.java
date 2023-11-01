@@ -1,29 +1,34 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.constant.GameViewConstant;
 import racingcar.model.CarDto;
-import racingcar.model.GameDto;
-
-import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameView {
-    public static void printRaceResult(GameDto gameDto) {
-        Map<String, CarDto> cars = gameDto.getCars();
-        for (String carName : cars.keySet()) {
-            System.out.print(carName + " : ");
-            printPosition(cars.get(carName).getPosition());
-        }
+    public static String carNameView() {
+        System.out.println(GameViewConstant.CAR_NAME_INPUT_MESSAGE);
+        return Console.readLine();
+    }
+
+    public static int gameCountView() {
+        System.out.println(GameViewConstant.GAME_COUNT_MESSAGE);
+        return Integer.parseInt(Console.readLine());
+    }
+
+    public static void resultView(List<CarDto> cars) {
+        cars.forEach(car -> {
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getDistance(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        });
         System.out.println();
     }
 
-    private static void printPosition(int position) {//현재 간 위치를 표시하는 메서드
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
-    }
-
-    public static void printWinner(String winner) {//최종 우승자를 출력하는 메소드
-        System.out.println(GameViewConstant.FINAL_WINNER + winner);
+    public static void printWinners(List<CarDto> winners) {
+        System.out.println(GameViewConstant.FINAL_WINNER + winners.stream().map(CarDto::getName).collect(Collectors.joining(", ")));
     }
 }
