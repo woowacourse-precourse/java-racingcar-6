@@ -10,7 +10,6 @@ public class ResultByRace {
     private int finalRound = 0;
     private int currentRound = 0;
 
-
     public void askPlayTime() {
         System.out.println(INPUT_TRY_TIMES);
         try {
@@ -38,5 +37,9 @@ public class ResultByRace {
 
     public void showWinner(Cars cars) {
         cars.determineWinners();
+    }
+
+    public int getFinalRound() {
+        return finalRound;
     }
 }

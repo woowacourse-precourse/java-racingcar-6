@@ -30,3 +30,4 @@
 ### 5. 테스트 코드
 - [O] CarTest 작성
 - [O] GameTest 작성
+- [O] ResultByRaceTest 작성
