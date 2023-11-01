@@ -17,7 +17,7 @@ public class GameController {
 
         for (int i = 0; i < tryCount; i++) {
             game.playRound();
-            outputView.printResult(game.getCars());
+            outputView.printRoundResult(game.getCars());
         }
         outputView.printFinalResult(game.findWinners());
     }

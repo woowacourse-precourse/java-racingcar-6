@@ -3,14 +3,15 @@ package racingcar;
 import java.util.List;
 
 public class OutputView {
-    private void printCar(Car car) {
+    private void printCarStatus(Car car) {
         System.out.println(car.getName() + Constant.COLON + Constant.HYPHEN.repeat(car.getPosition()));
     }
 
-    public void printResult(Cars cars) {
+    public void printRoundResult(Cars cars) {
         for (Car car : cars.toList()) {
-            printCar(car);
+            printCarStatus(car);
         }
+        System.out.println();
     }
 
     public void printFinalResult(List<String> winners) {
