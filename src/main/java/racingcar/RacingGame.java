@@ -9,6 +9,21 @@ public class RacingGame {
 
 	private static final int MAX_CAR_NAME_LENGTH = 5;
 
+	public void start() {
+		List<Car> racingCars = getRacingCars();
+		int tryCount = getInputTryCount();
+
+		for (int i = 0; i < tryCount; i++) {
+			for (Car racingCar : racingCars) {
+				racingCar.move();
+			}
+			printRacing(racingCars);
+		}
+
+		List<Car> winners = getWinners(racingCars);
+		printWinners(winners);
+	}
+
 	private List<Car> getRacingCars() {
 		List<Car> racingCarList = new ArrayList<>();
 
@@ -38,9 +53,11 @@ public class RacingGame {
 	private void printRacing(List<Car> cars) {
 		StringBuffer stringBuffer = new StringBuffer();
 
+		System.out.println("실행 결과");
 		for (Car car : cars) {
 			System.out.println(car.getName() + " : " + carProgress(stringBuffer, car.getPosition()));
 		}
+		System.out.println();
 	}
 
 	private String carProgress(StringBuffer stringBuffer, int position) {
@@ -49,7 +66,7 @@ public class RacingGame {
 		}
 
 		String carProgress = stringBuffer.toString();
-		stringBuffer.delete(0,stringBuffer.length());
+		stringBuffer.delete(0, stringBuffer.length());
 
 		return carProgress;
 	}
