@@ -43,17 +43,21 @@ public class Application {
 
     }
 
-    // 난수 생성
-    public String randomNum() {
+    // 난수 생성 및 게임 진행
+    public void randomNum() {
         carScore = new ArrayList<>(carList.size());
         for (int i = 0; i < carList.size(); i++) {
             int num = Randoms.pickNumberInRange(0, 9);
             if (num >= 4) {
                 carScore.set(i, carScore.get(i) + num);
             }
-            System.out.println();
+            // 레이싱 진행상황
+            String progress = "";
+            for (int j = 0; j < carScore.get(i); j++) {
+                progress += "-";
+            }
+            System.out.println(carList.get(i) + " : " + progress);
         }
-        return "";
     }
 
     // 우승자 출력
