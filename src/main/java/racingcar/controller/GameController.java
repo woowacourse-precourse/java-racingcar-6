@@ -16,13 +16,10 @@ public class GameController {
     private final static InputView inputView = new InputView();
     private final static OutputView outputView = new OutputView();
     private final static TransferUtil transferUtil = new TransferUtil();
-    private final static NumberGenrator randomNUmberGenerator = new RandomNumberGenrator();
 
     public void start() {
-        printInputCarNamesMessage();
-        Cars cars = new Cars(transferUtil.transferStringToListString(inputView.readCarNames()));
-        printInputTryCountMessage();
-        int tryCount = inputView.readTryCount();
+        Cars cars = new Cars(transferUtil.transferStringToListString(printInputCarNames()));
+        int tryCount = printInputTryCount();
         printEmptyLine();
 
         playingGame(cars, tryCount);
@@ -46,12 +43,14 @@ public class GameController {
         printWinner(gameResult.printWinCarsStatus());
     }
 
-    private void printInputCarNamesMessage() {
+    private String printInputCarNames() {
         outputView.printCarNameInputMessage();
+        return inputView.readCarNames();
     }
 
-    private void printInputTryCountMessage() {
+    private int printInputTryCount() {
         outputView.printTryCountInputMessage();
+        return inputView.readTryCount();
     }
 
     private void printEmptyLine() {
