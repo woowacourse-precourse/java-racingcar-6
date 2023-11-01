@@ -61,6 +61,15 @@ public class Application {
                 carsMap.put(key, value + 1);
         });
     }
+    private static void racing(){
+        System.out.println("실행 결과");
+        while (count>0)
+        {
+            moveCars();
+
+            count--;
+        }
+    }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
