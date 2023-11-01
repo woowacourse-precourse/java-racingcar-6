@@ -18,6 +18,8 @@ public class Application {
             System.out.println("");
         }
 
+        String winnerName = checkWinnerName(carNames, carProgress);
+        System.out.println("최종 우승자: " + winnerName);
     }
 
 
@@ -55,5 +57,20 @@ public class Application {
         for (int t = 0; t < carNames.length; t++) {
             System.out.println(carNames[t] + " : " + "-".repeat(carProgress[t]));
         }
+    }
+
+    private static String checkWinnerName(String[] carNames, int[] carProgress) {
+        int winner = 0;
+        StringBuilder winnerName = new StringBuilder();
+        for (int i = 0; i < carNames.length; i++) {
+            if (carProgress[i] > winner) {
+                winner = carProgress[i];
+                winnerName.setLength(0);
+                winnerName.append(carNames[i]);
+            } else if (carProgress[i] == winner) {
+                winnerName.append(carNames[i]);
+            }
+        }
+        return winnerName.toString();
     }
 }
