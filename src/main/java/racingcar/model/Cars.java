@@ -21,4 +21,10 @@ public class Cars {
             throw new IllegalArgumentException();
         }
     }
+
+    public void run() {
+        carList.forEach(car -> {
+            car.move();
+        });
+    }
 }

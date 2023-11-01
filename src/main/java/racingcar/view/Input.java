@@ -9,8 +9,8 @@ public class Input {
         return Console.readLine();
     }
 
-    public static String inputTryCount() {
-        System.out.println(Message.INPUT_CAR_NAMES);
+    public static String inputRunCount() {
+        System.out.println(Message.INPUT_RUN_COUNT);
         return Console.readLine();
     }
 }
