@@ -5,16 +5,21 @@ import java.util.stream.Collectors;
 import racingcar.domain.Movable;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
+import racingcar.domain.dto.CarsDTO;
 import racingcar.domain.gameInfo.InputManager;
-import racingcar.view.OutputView;
 
 public class GameService {
     private static Cars cars;
 
-    public static void racingStart(InputManager inputManager) {
+    public static int racingStart(InputManager inputManager) {
         int round = inputProcessing(inputManager);
-        progressRound(round);
-        OutputView.gameStartMessage();
+        return round;
+    }
+
+    public static CarsDTO transferCarsDTO(){
+        CarsDTO carsDTO = new CarsDTO();
+        carsDTO.toDTO(cars);
+        return carsDTO;
     }
 
     private static int inputProcessing(InputManager inputManager) {
@@ -23,11 +28,8 @@ public class GameService {
         return inputManager.getGameProcessCount();
     }
 
-    private static void progressRound(int round) {
-        for (int i = 0; i < round; i++) {
-            cars.oneRoundProgress(new Movable());
-            OutputView.oneTurnResult(cars);
-        }
+    public static void progressRound() {
+        cars.oneRoundProgress(new Movable());
     }
 
     public static String chooseWinner() {
