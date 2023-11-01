@@ -17,6 +17,26 @@ public class RacingGame {
         this.movingCount = movingCount;
     }
 
+    public void playRacingGame(List<String> carList, String attempt) {
+        int attemptCount = Integer.parseInt(attempt);
+        int size = carList.size();
+        movingCount.initMovingCount(size);
+        System.out.println("\n실행 결과");
+        for(int i = 0; i < attemptCount; i++) {
+            extractRandomNumber(carList);
+        }
+    }
+
+    public List<Integer> extractRandomNumber(List<String> carList) {
+        List<Integer> numberList = new ArrayList<>();
+        int size = carList.size();
+        for (int i = 0; i < size; i++) {
+            numberList.add(Randoms.pickNumberInRange(START_NUMBER, END_NUMBER));
+        }
+        moveCars(carList, numberList);
+        return numberList;
+    }
+
     public void moveCars(List<String> carList, List<Integer> numberList) {
         int size = numberList.size();
         for (int i = 0; i < size; i++) {
