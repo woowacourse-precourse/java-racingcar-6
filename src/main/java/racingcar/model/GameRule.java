@@ -10,6 +10,5 @@ public class GameRule {
     public static final int CAR_NAME_LENGTH_LOWER_LIMIT = 1;
 
     public static final int GAME_COUNT_LOWER_LIMIT = 1;
-    public static final String SEPARATOR = "-";
 
 }

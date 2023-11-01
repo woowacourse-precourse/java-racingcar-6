@@ -1,16 +1,18 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
 
     private final List<Car> carList;
+    private static String DUPLICATE_NAME_ERROR = "중복된 이름이 입력되었습니다.";
 
-
-    public Cars(List<String> cars) {
-        this.carList = InputsToCars(cars);
+    public Cars(List<String> inputs) {
+        this.carList = InputsToCars(inputs);
     }
 
     private List<Car> InputsToCars(List<String> inputs) {
@@ -18,6 +20,14 @@ public class Cars {
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
+
+    private void validateSameName(List<String> inputs) {
+        Set<String> uniqueNames = new HashSet<>(inputs);
+        if (inputs.size() != uniqueNames.size()) {
+            throw new IllegalArgumentException(DUPLICATE_NAME_ERROR);
+        }
+    }
+
 
     public void moveCars() {
         for (Car car : carList) {
