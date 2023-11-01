@@ -1,27 +1,27 @@
-package racingcar.v4;
+package racingcar.v5;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.*;
 
 
-public class CreateCar {
+public class CreateCarV5 {
     public String inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputCarNames = Console.readLine();
         return inputCarNames;
     }
 
-    public void validateCarNameNotEmpty(String inputCarNames) {
-        if (inputCarNames == null || inputCarNames.trim().isEmpty()) {
+    public void validateCarNameNotEmpty(String carNames) {
+        if (carNames == null || carNames.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 1자 이상이어야 합니다.");
         }
     }
 
-    public List<String> splitCarNames(String inputCarNames) {
-        if (!inputCarNames.contains(",")) {
+    public List<String> splitCarNames(String carNames) {
+        if (!carNames.contains(",")) {
             throw new IllegalArgumentException("자동차 이름을 쉼표로 구분해주세요.");
         }
-        return new ArrayList<>(Arrays.asList(inputCarNames.split(",")));
+        return new ArrayList<>(Arrays.asList(carNames.split(",")));
     }
     public List<String> trimCarNames(List<String> carNames) {
         List<String> trimmedCarNames = new ArrayList<>();

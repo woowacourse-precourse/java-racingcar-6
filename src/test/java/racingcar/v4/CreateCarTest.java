@@ -10,6 +10,8 @@ import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class CreateCarTest {
@@ -76,6 +78,19 @@ class CreateCarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
     }
+
+    @Test
+    void 자동차_이름이_5자_초과인_경우_예외를_던진다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("pobi", "javaji");
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            createCar.validateCarNameLength(carNames);
+        });
+
+        assertEquals("자동차 이름은 5자 이하만 가능합니다.", exception.getMessage());
+    }
+
 
     @Test
     void 자동차_이름이_중복되지_않은_경우_예외가_발생하지_않는다() {

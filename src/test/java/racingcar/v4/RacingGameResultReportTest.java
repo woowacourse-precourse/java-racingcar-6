@@ -54,7 +54,7 @@ class RacingGameResultReportTest {
 
         report.announceWinners(racingStateMap);
 
-        String expectedOutput = "최종 우승자: 레드불" + System.lineSeparator();
+        String expectedOutput = "최종 우승자 : 레드불" + System.lineSeparator();
 
         assertThat(outContent.toString()).isEqualTo(expectedOutput);
     }
@@ -69,7 +69,7 @@ class RacingGameResultReportTest {
 
         report.announceWinners(racingStateMap);
 
-        String expectedOutput = "최종 우승자: ";
+        String expectedOutput = "최종 우승자 : ";
 
         assertThat(outContent.toString()).contains(expectedOutput);
 

@@ -1,11 +1,11 @@
-package racingcar.v4;
+package racingcar.v5;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class RacingGameResultReport {
+public class RacingGameResultReportV5 {
     public void printResultTitle() {
         System.out.println("실행 결과");
     }

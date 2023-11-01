@@ -1,10 +1,10 @@
-package racingcar.v4;
+package racingcar.v5;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Map;
 
-public class Forward {
+public class ForwardV5 {
     public int randomNums() {
         return Randoms.pickNumberInRange(0, 9);
     }
