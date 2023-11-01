@@ -93,4 +93,18 @@ class CarControllerTest {
         });
     }
 
+    @Test
+    @DisplayName("입력값 테스트 7 - 자동차에 중복된 이름이 있을 때")
+    void inputTest7() {
+        //given
+        String userCars = "boot, jpa, jpa";
+        String userCount = "5";
+
+        // when & then
+        assertThrows(IllegalArgumentException.class, () -> {
+            carController.createRacingGame(userCars, userCount);
+        });
+    }
+
+
 }
