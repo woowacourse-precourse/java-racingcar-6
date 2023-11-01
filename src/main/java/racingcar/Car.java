@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Car {
     private static final int MAX_CAR_NAME_LENGTH = 5;
-    private String name;
+    private final String name;
     private int moveCount;
 
     public Car(String name, int moveCount) {
@@ -26,7 +26,7 @@ public class Car {
     }
 
     public static List<Car> initialize() {
-        List<String> carNames = User.splitInput(User.input());
+        List<String> carNames = User.inputCarNames();
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             Car car = new Car(carName, 0);

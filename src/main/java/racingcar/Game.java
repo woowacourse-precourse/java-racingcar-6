@@ -12,7 +12,7 @@ public class Game {
 
     public static void run() {
         racingCar = Car.initialize();
-        int iterationNumber = User.stringToInteger();
+        int iterationNumber = User.inputMoveCount();
         Car.checkLength(racingCar);
 
         for (int i = 0; i < iterationNumber; i++) {
