@@ -20,4 +20,17 @@ public class PlayerTest {
         Player player = new Player();
         assertDoesNotThrow(() -> player.setCarName("pobi,jun"));
     }
+
+    @Test
+    void 시도회수에_오류가_존재하면_예외_처리(){
+        Player player = new Player();
+        assertThatThrownBy(() -> player.setAttemptNumber("가나다"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도회수에_오류가_존재하지_않는다면_저장(){
+        Player player = new Player();
+        assertDoesNotThrow(() -> player.setAttemptNumber("3"));
+    }
 }
