@@ -22,7 +22,7 @@ public class GameController {
 
     // 0에서 9 사이의 무작위 값 생성. 4 이상이면 이동.
     public void moveCars() {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
             for (Car car : cars) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
