@@ -39,6 +39,7 @@ public class RaceManager {
     }
 
     private void race() {
+
         for (Car car : cars) {
             carService.ForwardOrStop(car);
         }

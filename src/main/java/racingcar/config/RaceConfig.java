@@ -12,8 +12,10 @@ public class RaceConfig {
 
     public RaceManager getRaceManager() {
 
+        final int FORWARD_COUNT = 4;
+
         List<Car> cars = getCars();
-        CarService carService = new CarService(4);
+        CarService carService = new CarService(FORWARD_COUNT);
         InputManager inputManager = new InputManager();
         OutputManager outputManager = new OutputManager(cars);
 

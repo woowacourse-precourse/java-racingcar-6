@@ -14,6 +14,7 @@ public class CarValidator {
     }
 
     public static void validateDuplicatedCarName(List<String> carNames) {
+
         long uniqueCount = getUniqueCount(carNames);
 
         if (isDuplicated(carNames, uniqueCount)) {
