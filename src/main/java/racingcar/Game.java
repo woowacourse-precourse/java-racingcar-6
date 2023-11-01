@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.ui.OutputView;
 
-public class GamePlayer {
+public class Game {
     private final List<Car> cars;
-    private final int attempts;
+    private final int round;
 
-    public GamePlayer(List<Car> cars, int attempts) {
+    public Game(List<Car> cars, int round) {
         this.cars = cars;
-        this.attempts = attempts;
+        this.round = round;
     }
 
     public void play() {
-        for (int i = 0; i < attempts; i++) {
+        for (int i = 0; i < round; i++) {
             System.out.print(OutputView.ENTER);
             for (int j = 0; j < cars.size(); j++) {
                 int number = NumberGenerator.generate();

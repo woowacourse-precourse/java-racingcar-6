@@ -11,9 +11,9 @@ public class Application {
         for (int i = 0; i < delimitedCarNames.size(); i++) {
             cars.add(new Car(delimitedCarNames.get(i)));
         }
-        int attempts = Converter.convertAttempts(InputView.inputAttempts());
+        int round = Converter.convertRound(InputView.inputRound());
 
-        GamePlayer gamePlayer = new GamePlayer(cars, attempts);
-        gamePlayer.play();
+        Game game = new Game(cars, round);
+        game.play();
     }
 }

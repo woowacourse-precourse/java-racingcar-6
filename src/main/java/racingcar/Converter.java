@@ -13,10 +13,10 @@ public class Converter {
         return new ArrayList<>(Arrays.asList(delimitedCarNames));
     }
 
-    public static int convertAttempts(String attempts) {
-        Validator.validateAttemptsNumber(attempts);
-        Validator.validateAttemptsRange(attempts);
-        return Integer.parseInt(attempts);
+    public static int convertRound(String round) {
+        Validator.validateRoundNumber(round);
+        Validator.validateRoundRange(round);
+        return Integer.parseInt(round);
     }
 
     public static String convertDistance(int distance) {

@@ -23,21 +23,21 @@ public class Validator {
     }
 
 
-    public static void validateAttemptsNumber(String attempts) {
+    public static void validateRoundNumber(String round) {
         try {
-            Integer.parseInt(attempts);
+            Integer.parseInt(round);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
     }
 
-    public static void validateAttemptsRange(String attempts) {
-        if (isAttemptsOutOfRange(attempts)) {
+    public static void validateRoundRange(String round) {
+        if (isRoundOutOfRange(round)) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static boolean isAttemptsOutOfRange(String attempts) {
-        return Integer.parseInt(attempts) < 1;
+    private static boolean isRoundOutOfRange(String round) {
+        return Integer.parseInt(round) < 1;
     }
 }

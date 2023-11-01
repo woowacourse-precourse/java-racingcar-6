@@ -27,7 +27,7 @@ class ConverterTest {
     @Test
     void convertAttempts_메서드로_주어진_값_변환() {
         String input = "10";
-        int result = Converter.convertAttempts(input);
+        int result = Converter.convertRound(input);
 
         assertThat(result).isEqualTo(10);
     }

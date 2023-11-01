@@ -18,7 +18,7 @@ class ValidatorTest {
     void validateAttemptsNumber_메서드에_숫자로_변환_불가능한_값_입력시_예외_발생() {
         String input = "13aa";
 
-        assertThatThrownBy(() -> Validator.validateAttemptsNumber(input))
+        assertThatThrownBy(() -> Validator.validateRoundNumber(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -26,7 +26,7 @@ class ValidatorTest {
     void validateAttemptsRange_메서드에_범위_미만의_값_입력시_예외_발생() {
         String input = "-1";
 
-        assertThatThrownBy(() -> Validator.validateAttemptsRange(input))
+        assertThatThrownBy(() -> Validator.validateRoundRange(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
