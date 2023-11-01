@@ -11,6 +11,7 @@ public class PlayingService {
 
     private final String START_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private final String NUMBER_MSG = "시도할 회수는 몇회인가요?";
+    private final String ROUND_MSG = "실행 결과";
 
     public PlayingService() {
         System.out.println(START_MSG);
@@ -21,6 +22,7 @@ public class PlayingService {
         String num = Console.readLine();
         number = new Number(num);
 
+        System.out.println(ROUND_MSG);
         for (int i = 0; i < number.number; i++) {
             cars = master.playRound(cars);
         }
