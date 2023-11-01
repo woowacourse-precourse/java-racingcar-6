@@ -13,6 +13,8 @@ public class Game {
     int maxForwards = 0;
     ArrayList<String> winnerName = new ArrayList<>();
     ArrayList<Car> cars = new ArrayList<>();
+    final static int START_NUMBER = 0;
+    final static int END_NUMBER = 9;
 
     void getCarsNames() {
         int nameIndex = 0;
@@ -37,7 +39,8 @@ public class Game {
 
     void callCarGoForward() {
         for (Car car : cars) {
-            car.goForward();
+            int randomNumber = Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
+            car.goForward(randomNumber);
         }
         System.out.printf("%n");
     }

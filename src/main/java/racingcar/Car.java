@@ -12,9 +12,7 @@ public class Car {
         this.carState = name + " : ";
     }
 
-    public void goForward() {
-        int randomNumber;
-        randomNumber = Randoms.pickNumberInRange(0, 9);
+    public void goForward(int randomNumber) {
         isGreaterThan4(randomNumber);
         Message.makeResultMessage(this.carState);
     }
