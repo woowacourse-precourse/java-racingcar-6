@@ -20,7 +20,6 @@ public class RaceOfficial {
     public void showScore(Driver driver) {
         String carName = driver.sayCarName();
         int movedDistance = driver.sayMovedDistance();
-
         OutputViewer.printMovedDistanceOfCar(carName, movedDistance);
     }
 

@@ -8,27 +8,37 @@ import racingcar.views.InputViewer;
 public class User {
     public List<String> inputCarName() {
         String userInput = InputViewer.requestCarNameInput();
-        return requestValidateCarNames(userInput);
+        return userInputToCarNames(userInput);
     }
 
     public int inputNumberOfTry() {
         String userInput = InputViewer.requestNumberOfTry();
-        return requestValidateTryInput(userInput);
+        return userInputToNumberOfTry(userInput);
     }
 
-    private List<String> requestValidateCarNames(String userInput) {
+    private List<String> userInputToCarNames(String userInput) {
         List<String> carNameList = requestStringToList(userInput);
+        requestValidateCarNames(carNameList);
+        return carNameList;
+    }
+
+    private int userInputToNumberOfTry(String userInput) {
+        int numberOfTry;
+        userInput = requestStringTrimmed(userInput);
+        numberOfTry = requestValidateTryInput(userInput);
+        return numberOfTry;
+    }
+
+    private void requestValidateCarNames(List<String> carNameList) {
         InputValidator.validateNumberOfCars(carNameList.size());
         InputValidator.validateIsNamesDistinct(carNameList);
         for (String carName : carNameList) {
             InputValidator.validateNameLength(carName.length());
         }
-        return carNameList;
     }
 
     private int requestValidateTryInput(String userInput) {
         int numberOfTry;
-        userInput = requestStringTrimmed(userInput);
         InputValidator.validateIsInputNumber(userInput);
         numberOfTry = requestStringToInteger(userInput);
         InputValidator.validateIsNaturalNumber(numberOfTry);
