@@ -9,7 +9,7 @@ public class Car {
     public void drive() {
         int randomNumber = createRandomNumber();
         judgeRandomNumber(randomNumber);
-        printCarStatus();
+        System.out.println(printCarStatus());
     }
 
     public int createRandomNumber() {
@@ -22,8 +22,7 @@ public class Car {
         }
     }
 
-    public void printCarStatus() {
-        System.out.println(carName + " : " + status);
+    public String printCarStatus() {
+        return carName + " : " + status;
     }
-
 }
