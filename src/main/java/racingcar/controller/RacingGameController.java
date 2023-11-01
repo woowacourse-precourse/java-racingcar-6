@@ -1,37 +1,30 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.controller.mapper.CarNameMapper;
 import racingcar.model.RacingGame;
 import racingcar.model.vo.Attempt;
-import racingcar.model.vo.CarName;
-import racingcar.validation.NameValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
 
-    private NameValidator nameValidator;
-    private CarNameMapper carNameMapper;
     private InputView inputView;
     private OutputView outputView;
 
     public RacingGameController() {
-        this.nameValidator = new NameValidator();
-        this.carNameMapper = new CarNameMapper();
         this.inputView = new InputView();
         this.outputView = new OutputView();
     }
 
     public void run() {
-        // input car name event
+        // input car name
         String carNames = inputView.inputCarNames();
-        RacingGame game = makeCar(carNames);
+        hasComma(carNames);
+        RacingGame game = RacingGame.from(carNames);
 
-        // input attempt event
+        // input attempt
         Attempt attempt = Attempt.from(inputView.inputAttempts());
 
-        // start event
+        // start game
         outputView.printResultMessage();
         String result = game.playGame(attempt);
         outputView.printGameResult(result);
@@ -41,17 +34,10 @@ public class RacingGameController {
         outputView.printGameWinner(winner);
     }
 
-    public RacingGame makeCar(String carNames) {
-        // validate has comma
-        nameValidator.validate(carNames);
-        // convert String to CarName
-        List<CarName> carNameGroup = carNameMapper.toCarName(carNames);
-        // validate
-        nameValidator.validate(carNameGroup);
-        // init game (make cars)
-        RacingGame game = new RacingGame();
-        game.init(carNameGroup);
-        return game;
+    private void hasComma(String carNames) {
+        if (!carNames.contains(",")) {
+            throw new IllegalArgumentException("사용자는 최대 2명 이상입니다.");
+        }
     }
 
     public String determineWinner(RacingGame game) {

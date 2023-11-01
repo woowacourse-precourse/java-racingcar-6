@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.vo.Attempt;
@@ -9,9 +9,17 @@ import racingcar.model.vo.CarName;
 public class RacingGame {
     private List<Car> carGroup;
 
-    public void init(List<CarName> carNames) {
-        carGroup = new ArrayList<>();
-        carNames.forEach((name) -> carGroup.add(new Car(name)));
+    private RacingGame(List<CarName> carNameGroup) {
+        this.carGroup = carNameGroup.stream()
+                .map(Car::new)
+                .toList();
+    }
+
+    public static RacingGame from(String carNames) {
+        List<CarName> list = Arrays.stream(carNames.split(","))
+                .map(CarName::new)
+                .toList();
+        return new RacingGame(list);
     }
 
     public String playGame(Attempt attempt) {
