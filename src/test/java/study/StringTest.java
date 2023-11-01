@@ -48,4 +48,25 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void length_메서드로_문자열의_길이가_특정숫자보다_긴_지_여부반환() {
+        String input = "develop";
+
+        assertThat(input.length() > 5).isTrue();
+    }
+
+    @Test
+    void length_메서드로_문자열이_빈_값인지_확인() {
+        String input = "";
+
+        assertThat(input.length() == 0).isTrue();
+    }
+
+    @Test
+    void parseInt_메소드로_문자열이_숫자로_변환_시_예외_발생() {
+        String input = "삼";
+
+        assertThatThrownBy(() -> Integer.parseInt(input))
+                .isInstanceOf(NumberFormatException.class);
+    }
 }
