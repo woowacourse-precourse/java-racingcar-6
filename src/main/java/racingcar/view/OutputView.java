@@ -12,6 +12,8 @@ public class OutputView {
     private static final String DELIMITER = " : ";
     private static final String WINNERS_DELIMITER = ", ";
     private static final String NEW_LINE = System.lineSeparator();
+    private static final int INIT_POSITION = 0;
+
 
     public static void printNewLine() {
         System.out.print(NEW_LINE);
@@ -52,6 +54,6 @@ public class OutputView {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compare)
-                .orElse(0);
+                .orElse(INIT_POSITION);
     }
 }
