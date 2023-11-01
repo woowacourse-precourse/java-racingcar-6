@@ -47,10 +47,14 @@ class CarsTest {
     @Test
     @DisplayName("우승자 리스트 테스트")
     void winnerListTest() {
-        List<String> nameList = new ArrayList<>();
         String nameKim = "kim";
         String nameLee = "lee";
         String namePark = "park";
+
+        List<String> nameList = new ArrayList<>();
+        nameList.add(nameKim);
+        nameList.add(nameLee);
+        nameList.add(namePark);
 
         Cars cars = Cars.of(nameList);
         for (int i = 0; i < 100; i++) {
