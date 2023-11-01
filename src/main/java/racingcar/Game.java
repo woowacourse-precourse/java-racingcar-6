@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Game {
+public abstract class Game {
     abstract void initGame();
 
     abstract void playGame();
