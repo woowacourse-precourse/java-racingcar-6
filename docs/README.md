@@ -25,7 +25,7 @@
   - [X] 무작위 값이 4 이상이면 전진한다. - Car#moveForward()
   - [X] 자동차의 이름과 현재 위치를 나타내는 문자열을 생성한다. - MessageContainer#showCarResult()
   - [X] 한 라운드 실행 결과를 출력한다. - Application#main()
-  - [ ] 사용자가 입력한 시도 횟수만큼 반복한다. - Application#main()
+  - [X] 사용자가 입력한 시도 횟수만큼 반복한다. - Application#main()
 
 
 ## 게임 종료 후 자동차들의 위치를 비교한다.
