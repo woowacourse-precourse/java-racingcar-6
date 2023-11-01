@@ -11,8 +11,8 @@ public class InputValidator {
     public static final String WRONG_INPUT_COMMA_MESSAGE = "자동차 이름은 ','로 구분되게 입력해주세요.";
     public static final String WRONG_INPUT_CAR_NAME_COUNT = "자동차의 이름을 2개 이상으로 입력해주세요.";
     public static final String WRONG_INPUT_CAR_NAME_DUPLICATION_MESSAGE = "자동차 이름이 중복되지 않게 입력해주세요.";
-    public static final String WRONG_INPUT_TRY_COUNT_CHARACTER_MESSAGE = "시도 횟수는 숫자로 입력해주세요.";
-    public static final String WRONG_INPUT_TRY_COUNT_ZERO_MESSAGE = "시도 횟수는 0이 아닌 다른 숫자로 입력해주세요.";
+    public static final String WRONG_INPUT_ROUND_CHARACTER_MESSAGE = "시도 횟수는 숫자로 입력해주세요.";
+    public static final String WRONG_INPUT_ROUND_ZERO_MESSAGE = "시도 횟수는 0이 아닌 다른 숫자로 입력해주세요.";
 
     public static void validateNotInputComma(final String input) {
         if (input.length() > MAX_CAR_NAME_LENGTH) {
@@ -83,17 +83,17 @@ public class InputValidator {
         return false;
     }
 
-    public static void validateInputTryCountCharacter(final String input) {
+    public static void validateInputRoundCharacter(final String input) {
         try {
             Integer.parseInt(input);
         } catch (Exception e) {
-            throw new IllegalArgumentException(WRONG_INPUT_TRY_COUNT_CHARACTER_MESSAGE);
+            throw new IllegalArgumentException(WRONG_INPUT_ROUND_CHARACTER_MESSAGE);
         }
     }
 
-    public static void validateInputTryCountZero(final String input) {
+    public static void validateInputRoundZero(final String input) {
         if ("0".equals(input)) {
-            throw new IllegalArgumentException(WRONG_INPUT_TRY_COUNT_ZERO_MESSAGE);
+            throw new IllegalArgumentException(WRONG_INPUT_ROUND_ZERO_MESSAGE);
         }
     }
 }

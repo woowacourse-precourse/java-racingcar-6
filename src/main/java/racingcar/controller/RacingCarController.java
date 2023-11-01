@@ -23,9 +23,9 @@ public class RacingCarController {
     }
 
     private void race(final Cars cars) {
-        int tryCount = inputView.inputTryCount();
+        int round = inputView.inputRound();
 
-        raceRecursive(cars, tryCount);
+        raceRecursive(cars, round);
     }
 
     private void raceRecursive(final Cars cars, final int remainedTryCount) {

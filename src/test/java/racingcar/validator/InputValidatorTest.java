@@ -76,8 +76,8 @@ class InputValidatorTest {
 
         // when
         // then
-        assertThatThrownBy(() -> InputValidator.validateInputTryCountCharacter(input)).isInstanceOf(
-                IllegalArgumentException.class).hasMessage(InputValidator.WRONG_INPUT_TRY_COUNT_CHARACTER_MESSAGE);
+        assertThatThrownBy(() -> InputValidator.validateInputRoundCharacter(input)).isInstanceOf(
+                IllegalArgumentException.class).hasMessage(InputValidator.WRONG_INPUT_ROUND_CHARACTER_MESSAGE);
     }
 
     @DisplayName("시도 횟수를 0으로 입력하면 오류 발생")
@@ -88,7 +88,7 @@ class InputValidatorTest {
 
         // when
         // then
-        assertThatThrownBy(() -> InputValidator.validateInputTryCountZero(input)).isInstanceOf(
-                IllegalArgumentException.class).hasMessage(InputValidator.WRONG_INPUT_TRY_COUNT_ZERO_MESSAGE);
+        assertThatThrownBy(() -> InputValidator.validateInputRoundZero(input)).isInstanceOf(
+                IllegalArgumentException.class).hasMessage(InputValidator.WRONG_INPUT_ROUND_ZERO_MESSAGE);
     }
 }
