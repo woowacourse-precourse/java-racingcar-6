@@ -9,7 +9,7 @@ public record RaceGameResult(boolean isCompleted, List<TrackPerResult> trackPerR
         return new RaceGameResult(true, List.of());
     }
 
-    public static RaceGameResult processGameResult(List<TrackPerResult> trackPerResults) {
+    public static RaceGameResult createGameResult(List<TrackPerResult> trackPerResults) {
         return new RaceGameResult(false, trackPerResults);
     }
 

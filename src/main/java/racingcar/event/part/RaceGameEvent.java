@@ -32,6 +32,6 @@ public record RaceGameEvent(
         racingCarRepository.save(movedParticipants);
         racingCarRepository.save(extractTrack.consumerCount());
 
-        return RaceGameResult.processGameResult(movedParticipants.convert(TrackPerResult::from));
+        return RaceGameResult.createGameResult(movedParticipants.convert(TrackPerResult::from));
     }
 }

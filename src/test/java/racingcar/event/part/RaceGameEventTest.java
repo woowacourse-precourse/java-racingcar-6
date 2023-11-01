@@ -35,7 +35,7 @@ class RaceGameEventTest {
         final var fakeRacingCarMoveStrategy = new FakeRacingCarMoveStrategy(true, true);
         final var track = new ExtractTrack(2);
 
-        final var expected = RaceGameResult.processGameResult(List.of(
+        final var expected = RaceGameResult.createGameResult(List.of(
                 new TrackPerResult("테스트1", 1),
                 new TrackPerResult("테스트2", 1)
         ));
