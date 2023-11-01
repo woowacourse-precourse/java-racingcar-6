@@ -13,22 +13,22 @@ public class RacingCars {
 
     private static final Integer MINIMUM_NUMBER_OF_CAR_NAMES = 2;
 
-    private List<RacingCar> racingCars;
+    private final List<RacingCar> racingCars;
 
-    public RacingCars(String carNamesBeforeSeparation) {
-        String[] carNames = carNamesBeforeSeparation.split(RACING_CAR_NAME_SEPARATOR);
+    public RacingCars(final String carNamesBeforeSeparation) {
+        final String[] carNames = carNamesBeforeSeparation.split(RACING_CAR_NAME_SEPARATOR);
         validateCarNameDuplicate(carNames);
         validateNumberOfCarNames(carNames);
         this.racingCars = Arrays.stream(carNames).map(RacingCar::new).toList();
     }
 
-    private void validateCarNameDuplicate(String[] carNames) {
+    private void validateCarNameDuplicate(final String[] carNames) {
         if (Arrays.stream(carNames).distinct().count() != carNames.length) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATED);
         }
     }
 
-    private void validateNumberOfCarNames(String[] carNames) {
+    private void validateNumberOfCarNames(final String[] carNames) {
         if (carNames.length < MINIMUM_NUMBER_OF_CAR_NAMES) {
             throw new IllegalArgumentException(NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS);
         }
@@ -43,7 +43,7 @@ public class RacingCars {
     }
 
     public List<String> getWinnerNames() {
-        Integer maxLocation = findMaxLocation();
+        final Integer maxLocation = findMaxLocation();
         return racingCars.stream()
                 .filter(racingCar -> racingCar.getLocation() == maxLocation)
                 .map(RacingCar::getName)

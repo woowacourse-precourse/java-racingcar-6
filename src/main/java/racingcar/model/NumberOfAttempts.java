@@ -9,19 +9,19 @@ public class NumberOfAttempts {
 
     private final int numberOfAttempts;
 
-    public NumberOfAttempts(String numberOfAttemptsBeforeConverting) {
+    public NumberOfAttempts(final String numberOfAttemptsBeforeConverting) {
         Integer numberOfAttempts = convertInputToInteger(numberOfAttemptsBeforeConverting);
         validateNumberOfAttemptsIsOneOrLess(numberOfAttempts);
         this.numberOfAttempts = numberOfAttempts;
     }
 
-    private void validateNumberOfAttemptsIsOneOrLess(Integer numberOfAttempts) {
+    private void validateNumberOfAttemptsIsOneOrLess(final Integer numberOfAttempts) {
         if (numberOfAttempts < MINIMUM_NUMBER_OF_ATTEMPTS) {
             throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS);
         }
     }
 
-    private int convertInputToInteger(String input) {
+    private int convertInputToInteger(final String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {

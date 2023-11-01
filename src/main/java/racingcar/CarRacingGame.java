@@ -4,7 +4,6 @@ import racingcar.model.NumberOfAttempts;
 import racingcar.model.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
 import java.util.List;
 
 public class CarRacingGame {
@@ -18,21 +17,21 @@ public class CarRacingGame {
     }
 
     public void run(){
-        String carNames = inputView.readCarNames();
-        RacingCars racingCars = new RacingCars(carNames);
-        String inputNumberOfAttempts = inputView.readNumberOfAttempts();
-        NumberOfAttempts numberOfAttempts = new NumberOfAttempts(inputNumberOfAttempts);
+        final String carNames = inputView.readCarNames();
+        final RacingCars racingCars = new RacingCars(carNames);
+        final String inputNumberOfAttempts = inputView.readNumberOfAttempts();
+        final NumberOfAttempts numberOfAttempts = new NumberOfAttempts(inputNumberOfAttempts);
         play(racingCars, numberOfAttempts.getNumberOfAttempts());
     }
 
-    private void play(RacingCars racingCars, Integer numberOfAttempts) {
+    private void play(final RacingCars racingCars, final Integer numberOfAttempts) {
         StringBuilder resultBuilder = new StringBuilder();
         for (int i = 0; i < numberOfAttempts; i++) {
             racingCars.race();
             resultBuilder.append(racingCars).append(System.lineSeparator()).append(System.lineSeparator());
         }
         outputView.printResult(resultBuilder);
-        List<String> winnerNames = racingCars.getWinnerNames();
+        final List<String> winnerNames = racingCars.getWinnerNames();
         outputView.printWinners(winnerNames);
     }
 

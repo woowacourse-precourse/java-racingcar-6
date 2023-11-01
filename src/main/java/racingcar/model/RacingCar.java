@@ -13,10 +13,10 @@ public class RacingCar {
     private static final Integer CONDITION_OF_MOVING_FORWARD = 4;
     private static final Integer NAME_MAX_LENGTH = 5;
 
-    private String name;
-    private Integer location;
+    private final String name;
+    private int location;
 
-    public RacingCar(String name) {
+    public RacingCar(final String name) {
         validateCarNameLength(name);
         this.name = name;
         location = 0;
@@ -36,7 +36,7 @@ public class RacingCar {
         return Randoms.pickNumberInRange(PICK_NUMBER_START_RANGE, PICK_NUMBER_END_RANGE);
     }
 
-    private void validateCarNameLength(String carName) {
+    private void validateCarNameLength(final String carName) {
         if(carName.length() > NAME_MAX_LENGTH){
             throw new IllegalArgumentException(CAR_NAME_OVER_MAX_LENGTH);
         }
