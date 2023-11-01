@@ -2,9 +2,9 @@ package racingcar.util.validate;
 
 import java.util.Arrays;
 import java.util.Optional;
+import racingcar.message.ErrorMessages;
 
-public class CarsValidateImpl implements CarsValidate {
-
+public final class CarsValidateImpl implements CarsValidate {
     private CarsValidateImpl(String[] input) {
         validateDuplicatedName(input);
     }
@@ -21,7 +21,7 @@ public class CarsValidateImpl implements CarsValidate {
         Optional.of(input)
                 .filter(names -> distinctSize != names.length)
                 .ifPresent(names -> {
-                    throw new IllegalArgumentException("중복!");
+                    throw new IllegalArgumentException(ErrorMessages.DUPLICATED_NAME.getMessage());
                 });
         return true;
     }

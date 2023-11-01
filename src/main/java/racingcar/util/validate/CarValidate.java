@@ -1,8 +1,7 @@
 package racingcar.util.validate;
 
-public interface CarValidate {
+public sealed interface CarValidate permits CarValidateImpl {
     void blankValidator(String input);
     void nullValidator(String input);
     void MaxLengthValidator(String input);
-
 }

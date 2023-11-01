@@ -1,14 +1,14 @@
 package racingcar.util.validate;
 import racingcar.exception.CustomException;
 
-public class CarValidateImpl implements CarValidate {
-    public CarValidateImpl(String input) {
+public final class CarValidateImpl implements CarValidate {
+    private CarValidateImpl(String input) {
         blankValidator(input);
         nullValidator(input);
         MaxLengthValidator(input);
     }
 
-    public static void createVaule(String input) {
+    public static void createValue(String input) {
         new CarValidateImpl(input);
     }
 
@@ -26,6 +26,4 @@ public class CarValidateImpl implements CarValidate {
     public void MaxLengthValidator(String input) {
         CustomException.MaxLengthValidator(input);
     }
-
-
 }

@@ -10,14 +10,17 @@ public class CarDto {
         this.name = name;
         this.position = position;
     }
+
+    public static CarDto convertToDto(Car car) {
+        return new CarDto(car.getName(), car.getPosition());
+    }
+
     public String getName() {
         return this.name;
     }
+
     public int getPosition() {
         return this.position;
-    }
-    public static CarDto convertToDto(Car car) {
-        return new CarDto(car.getName(), car.getPosition());
     }
 
 }

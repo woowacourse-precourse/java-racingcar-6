@@ -1,5 +1,6 @@
 package racingcar.util.validate;
 
-public interface CarsValidate {
+public sealed interface CarsValidate permits CarsValidateImpl {
     boolean validateDuplicatedName(String[] input);
 }
+

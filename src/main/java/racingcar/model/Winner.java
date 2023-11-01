@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.util.Constants.ZERO;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +18,7 @@ public class Winner {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElse(0);
+                .orElse(ZERO);
     }
 
     private List<Car> filterWinners(List<Car> cars, int maxPosition) {

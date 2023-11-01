@@ -11,10 +11,9 @@ import racingcar.util.validate.CarValidateImpl;
 public class Car {
     private String name;
     private int position;
-    private Car car;
 
     public Car(String name) {
-        CarValidateImpl.createVaule(name);
+        CarValidateImpl.createValue(name);
         this.name = name;
         this.position = ZERO;
     }
