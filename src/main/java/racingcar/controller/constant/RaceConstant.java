@@ -5,5 +5,4 @@ public class RaceConstant {
     public static final String NUMBER_OF_ROUND_INPUT_MESSAGE = "시도할 회수는 몇회인가요?\n";
     public static final String ROUND_RESULT_MESSAGE = "\n실행 결과\n";
     public static final String RACE_RESULT_MESSAGE = "최종 우승자 : ";
-
 }

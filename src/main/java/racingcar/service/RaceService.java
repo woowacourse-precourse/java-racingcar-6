@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.controller.MessageDto;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
 import racingcar.domain.wrapper.RaceRound;
@@ -23,13 +24,13 @@ public class RaceService {
         return Race.create(cars, raceRound);
     }
 
-    public String proceedRace(Race race) {
+    public MessageDto proceedRace(Race race) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < race.getRaceRound().getNumberOfRound(); ++i) {
             race.roundStart();
             String roundResult = refereeService.getRoundResult(race.getCars());
             builder.append(roundResult);
         }
-        return builder.toString();
+        return new MessageDto(builder.toString());
     }
 }

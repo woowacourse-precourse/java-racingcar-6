@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.Stack;
+import racingcar.controller.MessageDto;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
@@ -17,14 +18,14 @@ public class RefereeService {
         return builder.toString();
     }
 
-    public String announceWinners(Race race) {
+    public MessageDto announceWinners(Race race) {
         Stack<Car> winners = pickWinners(race.getCars());
         StringBuilder builder = new StringBuilder();
         builder.append(winners.get(0).getName());
         for (int i = 1; i < winners.size(); ++i) {
             builder.append(RACE_RESULT_DELIMITER).append(winners.get(i).getName());
         }
-        return builder.toString();
+        return new MessageDto(builder.toString());
     }
 
     public Stack<Car> pickWinners(Cars cars) {

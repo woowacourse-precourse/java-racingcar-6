@@ -34,9 +34,9 @@ public class RaceController {
 
         Race race = raceService.createRace(cars, raceRound);
 
-        String raceResult = raceService.proceedRace(race);
+        MessageDto raceResult = raceService.proceedRace(race);
         printRoundResult(raceResult);
-        String winnerResult = refereeService.announceWinners(race);
+        MessageDto winnerResult = refereeService.announceWinners(race);
         printWinners(winnerResult);
     }
 
@@ -50,11 +50,11 @@ public class RaceController {
         return inputView.readUserInput();
     }
 
-    private void printRoundResult(String raceResult) {
-        outputView.printMessage(ROUND_RESULT_MESSAGE + raceResult);
+    private void printRoundResult(MessageDto raceResult) {
+        outputView.printMessage(ROUND_RESULT_MESSAGE + raceResult.getMessage());
     }
 
-    private void printWinners(String winnerResult) {
-        outputView.printMessage(RACE_RESULT_MESSAGE + winnerResult);
+    private void printWinners(MessageDto winnerResult) {
+        outputView.printMessage(RACE_RESULT_MESSAGE + winnerResult.getMessage());
     }
 }
