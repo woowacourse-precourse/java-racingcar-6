@@ -7,8 +7,7 @@ import static racingcar.utils.GameMessage.RUN;
 public class CarRacing {
     private CarAndDistance carAndDistance = new CarAndDistance();
 
-    public void racingController(String[] carsName, int numberTry) {
-        CarRankingCalculator carRankingCalculator = new CarRankingCalculator();
+    public CarAndDistance racingController(String[] carsName, int numberTry) {
 
         DistanceCounting[] distanceCountingArray = new DistanceCounting[carsName.length];
 
@@ -24,7 +23,7 @@ public class CarRacing {
             if(j == 0) System.out.println(RUN);
             intermediateResults(carsName.length);
         }
-        carRankingCalculator.rankingCheck(carAndDistance.getCarAndDistance());
+        return carAndDistance;
     }
 
     public void intermediateResults(int j) {
