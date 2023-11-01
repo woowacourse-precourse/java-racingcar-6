@@ -24,7 +24,7 @@ public class CarRacingGame {
         String[] carNames = inputView.readCarNames();
         validateCarNameDuplicate(carNames);
         validateNumberOfCarNames(carNames);
-        RacingCars racingCars = RacingCars.from(carNames);
+        RacingCars racingCars = new RacingCars(carNames);
         Integer numberOfAttempts = inputView.readNumberOfAttempts();
         validateNumberOfAttemptsIsOneOrLess(numberOfAttempts);
         play(racingCars, numberOfAttempts);

@@ -9,12 +9,8 @@ public class RacingCars {
 
     private List<RacingCar> racingCars = new ArrayList<>();
 
-    public RacingCars(List<RacingCar> racingCars) {
-        this.racingCars = racingCars;
-    }
-
-    public static RacingCars from(String[] carNames) {
-        return new RacingCars(Arrays.stream(carNames).map(RacingCar::new).toList());
+    public RacingCars(String[] carNames) {
+        this.racingCars = Arrays.stream(carNames).map(RacingCar::new).toList();
     }
 
     public void race() {
