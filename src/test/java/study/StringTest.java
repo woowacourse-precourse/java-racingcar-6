@@ -61,4 +61,12 @@ public class StringTest {
 
         assertThat(input.length() == 0).isTrue();
     }
+
+    @Test
+    void parseInt_메소드로_문자열이_숫자로_변환_시_예외_발생() {
+        String input = "삼";
+
+        assertThatThrownBy(() -> Integer.parseInt(input))
+                .isInstanceOf(NumberFormatException.class);
+    }
 }
