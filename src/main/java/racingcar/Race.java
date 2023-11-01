@@ -17,16 +17,26 @@ public class Race {
     private String userInput;
     public static List<String> players;
 
+    private HashMap<String, Integer> playingStatus = new HashMap<>();
+
     public void run() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         userInput = Console.readLine();
         separatePlayers(userInput);
+        initHashmap();
     }
 
     public void separatePlayers(String userInput) {
         players = List.of(userInput.replaceAll("\\s+", "").split(","));
         for (String player : players) {
             checkLength(player);
+        }
+    }
+
+    public void initHashmap() {
+        for (String player : players) {
+            checkUnique(player, playingStatus);
+            playingStatus.put(player, 0);
         }
     }
 }
