@@ -5,6 +5,12 @@ build/
 !**/src/main/**
 !**/src/test/**
 
+# .class 파일 무시
+*.class
+
+# .DS_Store 파일 무시
+*.DS_Store
+
 ### STS ###
 .apt_generated
 .classpath
