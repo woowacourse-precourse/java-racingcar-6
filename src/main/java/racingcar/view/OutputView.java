@@ -20,6 +20,7 @@ public class OutputView {
     }
 
     public static void printResultMsg(){
+        System.out.println("");
         System.out.println(ROUND_RESULT_MSG);
     }
     public static void printRoundResultMsg(List<Car> cars){
