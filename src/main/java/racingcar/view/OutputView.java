@@ -16,7 +16,7 @@ public class OutputView {
 	}
 	
 	public void printExecutionResult() {
-		PRINTER.printLine(ProgressMessage.EXECUTION_RESULT.getMessage());
+		PRINTER.printLine("\n" + ProgressMessage.EXECUTION_RESULT.getMessage());
 	}
 	
 	public void printCurrentSituationOfCarLocation(String result) {
