@@ -18,25 +18,27 @@ public class RacingController {
     }
 
     public void start() {
-        RaceParticipants raceParticipants = settingParticipants();
-        Round round = settingRound();
+        String carNamesInput = inputReader.readLine();
+        RaceParticipants raceParticipants = settingParticipants(carNamesInput);
+
+        String roundInput = inputReader.readLine();
+        Round round = settingRound(roundInput);
+
         racingService.startRound(raceParticipants, round);
         finishAndGetWinner(raceParticipants);
     }
 
-    private Round settingRound() {
-        PrintUtils.printInputRacingNumber();
-        return new Round(inputReader.readLine());
+    public Round settingRound(String roundInput) {
+        return new Round(roundInput);
     }
 
-    private RaceParticipants settingParticipants() {
-        PrintUtils.printInputCarName();
-        List<String> inputCarNames = Arrays.stream(inputReader.readLine().split(","))
+    public RaceParticipants settingParticipants(String carNamesInput) {
+        List<String> inputCarNames = Arrays.stream(carNamesInput.split(","))
                 .map(String::trim).toList();
         return new RaceParticipants(inputCarNames);
     }
 
-    private void finishAndGetWinner(RaceParticipants raceParticipants){
+    public void finishAndGetWinner(RaceParticipants raceParticipants){
         List<String> winnerList = racingService.getWinner(raceParticipants);
         PrintUtils.printOutputWinner(winnerList);
     }
