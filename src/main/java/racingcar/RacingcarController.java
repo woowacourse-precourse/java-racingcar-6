@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class RacingcarController {
     Input input = new Input();
     Cars cars = new Cars();
@@ -12,6 +14,7 @@ public class RacingcarController {
         exception.validateDuplicateCarName(splitCarName);
         addCars(splitCarName);
         int number = inputNumber();
+        playGame(number);
     }
 
     public String inputCarsName() {
@@ -31,5 +34,22 @@ public class RacingcarController {
 
     public int inputNumber() {
         return input.inputNumber();
+    }
+
+    public void playGame(int number) {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < number; i++) {
+            getRandom();
+        }
+    }
+
+    public void getRandom() {
+        for (Car car : cars.cars) {
+            if (Randoms.pickNumberInRange(0,9) >= 4) {
+                car.incrementNumber();
+            }
+            System.out.println(car.toString());
+        }
+        System.out.println();
     }
 }
