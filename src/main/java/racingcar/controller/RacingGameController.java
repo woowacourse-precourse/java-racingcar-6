@@ -1,10 +1,10 @@
 package racingcar.controller;
 
-import racingcar.CarSpeedGenerator;
-import racingcar.Cars;
-import racingcar.RacingResult;
-import racingcar.RandomSpeedGenerator;
-import racingcar.Winners;
+import racingcar.model.CarSpeedGenerator;
+import racingcar.model.Cars;
+import racingcar.model.RacingResult;
+import racingcar.model.RandomSpeedGenerator;
+import racingcar.model.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

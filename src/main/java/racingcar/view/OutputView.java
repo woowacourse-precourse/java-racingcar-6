@@ -1,8 +1,8 @@
 package racingcar.view;
 
-import racingcar.RaceScore;
-import racingcar.RacingResult;
-import racingcar.Winners;
+import racingcar.model.RaceScore;
+import racingcar.model.RacingResult;
+import racingcar.model.Winners;
 
 public class OutputView {
 
