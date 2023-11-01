@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Constant.RANDOM_NUMBER_THRESHOLD;
+
 public class Car {
     private final String name;
     private int position;
@@ -18,7 +20,7 @@ public class Car {
     }
 
     public void moveOrNot(int randomNumber) {
-        if (randomNumber >= Constant.RANDOM_NUMBER_THRESHOLD) {
+        if (randomNumber >= RANDOM_NUMBER_THRESHOLD) {
             moveForward();
         }
     }

@@ -1,6 +1,11 @@
 package racingcar;
 
 import static racingcar.Constant.CAR_NAMES_DELIMITER;
+import static racingcar.Constant.MAXIMUM_CAR_NAME_LENGTH;
+import static racingcar.Constant.MAXIMUM_TRY_COUNT;
+import static racingcar.Constant.MINIMUM_CAR_COUNT;
+import static racingcar.Constant.MINIMUM_CAR_NAME_LENGTH;
+import static racingcar.Constant.MINIMUM_TRY_COUNT;
 import static racingcar.Constant.WHITESPACE_PATTERN;
 import static racingcar.ErrorMessage.BLANK_ERROR_MESSAGE;
 import static racingcar.ErrorMessage.CAR_COUNT_ERROR_MESSAGE;
@@ -64,7 +69,7 @@ public class InputView {
     }
 
     private void validateMinimumCount(List<String> inputList) {
-        if (inputList.size() < Constant.MINIMUM_CAR_COUNT) {
+        if (inputList.size() < MINIMUM_CAR_COUNT) {
             throw new IllegalArgumentException(CAR_COUNT_ERROR_MESSAGE);
         }
     }
@@ -75,7 +80,7 @@ public class InputView {
     }
 
     private void validateLength(String input) {
-        if (input.length() < Constant.MINIMUM_CAR_NAME_LENGTH || input.length() > Constant.MAXIMUM_CAR_NAME_LENGTH) {
+        if (input.length() < MINIMUM_CAR_NAME_LENGTH || input.length() > MAXIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
         }
     }
@@ -96,7 +101,7 @@ public class InputView {
 
     private void validateInputInRange(String input) {
         int tryCount = Integer.parseInt(input);
-        if (tryCount < Constant.MINIMUM_TRY_COUNT || tryCount > Constant.MAXIMUM_TRY_COUNT) {
+        if (tryCount < MINIMUM_TRY_COUNT || tryCount > MAXIMUM_TRY_COUNT) {
             throw new IllegalArgumentException(TRY_COUNT_RANGE_ERROR_MESSAGE);
         }
     }

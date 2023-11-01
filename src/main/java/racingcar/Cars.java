@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Constant.CAR_NAMES_DELIMITER;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class Cars {
     }
 
     private void makeCars(String carNames) {
-        for (String carName : carNames.split(Constant.CAR_NAMES_DELIMITER)) {
+        for (String carName : carNames.split(CAR_NAMES_DELIMITER)) {
             carList.add(new Car(carName));
         }
     }

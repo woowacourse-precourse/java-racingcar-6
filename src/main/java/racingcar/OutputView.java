@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.Constant.COLON;
+import static racingcar.Constant.HYPHEN;
+
 import java.util.List;
 
 public class OutputView {
@@ -15,7 +18,7 @@ public class OutputView {
     }
 
     private void printCarStatus(Car car) {
-        System.out.println(car.getName() + Constant.COLON + Constant.HYPHEN.repeat(car.getPosition()));
+        System.out.println(car.getName() + COLON + HYPHEN.repeat(car.getPosition()));
     }
 
     public void printFinalResult(List<String> winners) {

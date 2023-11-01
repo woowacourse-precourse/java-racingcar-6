@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.Constant.MAXIMUM_RANDOM_NUMBER;
+import static racingcar.Constant.MINIMUM_RANDOM_NUMBER;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
@@ -27,6 +30,6 @@ public class Game {
     }
 
     private int pickNumberInRange() {
-        return Randoms.pickNumberInRange(Constant.MINIMUM_RANDOM_NUMBER, Constant.MAXIMUM_RANDOM_NUMBER);
+        return Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
     }
 }
