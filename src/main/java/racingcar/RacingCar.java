@@ -4,8 +4,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingCar {
 
+    public static final String DISTANCE = "-";
+    private static final int MIN_NUM = 0;
+    private static final int MAX_NUM = 9;
+    private static final int MOVEMENT_THRESHOLD = 4;
     private final String name;
     private String movement;
+
 
     public RacingCar(String name) {
         this.name = name;
@@ -25,10 +30,10 @@ public class RacingCar {
     }
 
     public boolean move() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
 
-        if (randomNumber >= 4) {
-            setMovement(getMovement() + "-");
+        if (randomNumber >= MOVEMENT_THRESHOLD) {
+            setMovement(getMovement() + DISTANCE);
             return true;
         }
 
