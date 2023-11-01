@@ -56,4 +56,14 @@ class CarsTest {
         assertThat(e.getMessage()).isEqualTo(ErrorMessage.CAR_NAME_BLANK);
     }
 
+    @ParameterizedTest(name = "[특수문자 입력 예외 발생 : {0}")
+    @ValueSource(strings = {"ca!", "%", "5g_"})
+    void 특수문자_입력_예외_발생(String value) {
+        // when
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Cars(value));
+
+        // then
+        assertThat(e.getMessage()).isEqualTo(ErrorMessage.CAR_NAME_SPECIAL_SYMBOL);
+    }
+
 }
