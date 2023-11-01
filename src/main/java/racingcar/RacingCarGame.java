@@ -19,11 +19,14 @@ public class RacingCarGame {
         System.out.println("시도할 회수는 몇회인가요?");
         int movingCount = InputOutputInterface.listenMovingCount();
 
+        System.out.println();
+        System.out.println("실행 결과");
         for (int i = 0; i < movingCount; i++) {
             for (RacingCar rc : racingCarList) {
                 RacingCarController.updateRacingCar(rc);
                 InputOutputInterface.printRacingCarInfo(rc);
             }
+            System.out.println();
         }
 
         List<RacingCar> winners = RacingCarController.findWinner();
