@@ -7,6 +7,7 @@ import java.util.List;
 public class RacingGame {
 
     ArrayList<Car> carList;
+    UserInputValidator validator;
 
     public RacingGame() {
         carList = new ArrayList<>();
@@ -16,7 +17,8 @@ public class RacingGame {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String userCarName = Console.readLine();
-        settingCar(userCarName);
+        String[] carArr = validator.validateCarName(userCarName);
+        settingCar(carArr);
 
         System.out.println("시도할 횟수는 몇회인가요?");
         String userGameNumber = Console.readLine();
@@ -24,10 +26,9 @@ public class RacingGame {
         progressCarGame(Integer.parseInt(userGameNumber));
     }
 
-    public void settingCar(String userCarName) {
-        String[] elements = userCarName.split(",");
+    public void settingCar(String[] carArray) {
 
-        for (String element : elements) {
+        for (String element : carArray) {
             Car car = new Car(element);
             carList.add(car);
         }
