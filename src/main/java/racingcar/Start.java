@@ -2,7 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.List;
+import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Start {
     private int attempts;
@@ -12,8 +16,12 @@ public class Start {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String car = Console.readLine();
         carList = new ArrayList<>();
-        String[] inputList = car.split(",");
-        for (String o : inputList) {
+        List<String> inputList = Arrays.asList(car.split(","));
+        Set<String> inputSet = new HashSet<>(inputList);
+        if (inputList.size() != inputSet.size()) {
+            throw new IllegalArgumentException("입력된 자동차 이름에 중복이 포함되어 있습니다.");
+        }
+        for (String c : inputList) {
             if (o.length() >= 6) {
                 throw new IllegalArgumentException("입력된 자동차 이름이 6자리 이상입니다.");
             }
