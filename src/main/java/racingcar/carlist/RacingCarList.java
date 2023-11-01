@@ -1,7 +1,6 @@
 package racingcar.carlist;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import racingcar.car.Car;
 import racingcar.user.User;
@@ -13,7 +12,7 @@ public class RacingCarList {
         this.user = user;
         racingCarList = new ArrayList<>();
     }
-    public void addNewRacingCar(Car car) {
+    public void addNewRacingCar() {
         String[] carNames = user.getRacingCarNames();
 
         for (String carName : carNames) {
@@ -23,4 +22,5 @@ public class RacingCarList {
     public List<Car> getRacingCarList() {
         return racingCarList;
     }
+
 }

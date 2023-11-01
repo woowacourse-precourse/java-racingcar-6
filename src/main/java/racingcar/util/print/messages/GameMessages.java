@@ -8,7 +8,8 @@ public abstract class GameMessages {
     private GameMessages() {
     }
 
-    private static void printer(String message) {System.out.println(message);}
+    private static void printer(String message)
+    {System.out.println(message);}
 
     public static void printRequestForCarNames() {
         printer(REQUEST_FOR_CAR_NAMES_MESSAGE);

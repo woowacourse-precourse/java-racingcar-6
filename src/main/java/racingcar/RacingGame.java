@@ -13,9 +13,9 @@ public class RacingGame {
     private final RacingCarList racingCarList;
     private RacingGameManager gameManager;
 
-    public RacingGame(User user, Validator validator, RacingCarList racingCarList) {
+    public RacingGame(User user, RacingCarList racingCarList) {
         this.user = user;
-        this.validator = validator;
+        this.validator = new Validator(user);
         this.racingCarList = racingCarList;
     }
 

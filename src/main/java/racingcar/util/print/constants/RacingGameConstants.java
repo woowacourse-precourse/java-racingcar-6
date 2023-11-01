@@ -4,6 +4,8 @@ public abstract class RacingGameConstants {
 
     private RacingGameConstants() {
     }
+    public static final int MIN_ADD_CAR = 1;
+    public static final int MIN_CAR_NAME_LENGTH = 5;
 
     public static final int FROM_MIN_VALUE = 0;
     public static final int TO_MAX_VALUE = 9;
