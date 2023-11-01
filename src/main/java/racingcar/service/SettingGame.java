@@ -21,6 +21,7 @@ public class SettingGame {
         for (String carName : carNameList) {
             ValidCheck.duplicate_check(cars.keySet(), carName);
             ValidCheck.nameSize_check(carName);
+            ValidCheck.nameSpace_check(carName);
             cars.put(carName, 0);
         }
 

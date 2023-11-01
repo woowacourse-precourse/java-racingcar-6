@@ -1,6 +1,10 @@
 package racingcar.service;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ValidCheck {
     public static void duplicate_check(Set<String> carList, String car) {
@@ -20,6 +24,22 @@ public class ValidCheck {
         }
 
         if (car_name.contains(",,")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void nameSpace_check(String car_name) {
+        char[] splitCarName = car_name.toCharArray();
+        Set<Character> spaceCheck = new HashSet<>();
+
+        for (char c : splitCarName) {
+            spaceCheck.add(c);
+        }
+        String name = spaceCheck.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining());
+
+        if (name.equals(" ")) {
             throw new IllegalArgumentException();
         }
     }
