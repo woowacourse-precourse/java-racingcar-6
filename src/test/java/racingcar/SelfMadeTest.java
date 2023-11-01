@@ -43,7 +43,7 @@ public class SelfMadeTest {
     @DisplayName("입력된 자동차 이름이 올바르게 리스트로 변환되는지에 대한 테스트")
     void 자동차_이름_입력() {
         when(Console.readLine()).thenReturn("wj,pobi,jun,nick");
-        List<String> returns = inputter.getNameInput();
+        List<String> returns = inputter.getNames();
         assertThat(returns)
                 .isNotNull()
                 .contains("wj")

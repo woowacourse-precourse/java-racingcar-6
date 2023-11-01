@@ -34,7 +34,7 @@ public class GameController {
     }
 
     private void initGame() {
-        this.carList = new CarList(inputter.getNameInput().stream().map(Car::new)
+        this.carList = new CarList(inputter.getNames().stream().map(Car::new)
                 .collect(Collectors.toList()));
         this.duration = inputter.getDuration();
     }
