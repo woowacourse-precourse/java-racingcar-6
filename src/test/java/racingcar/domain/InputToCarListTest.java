@@ -91,4 +91,16 @@ class InputToCarListTest {
 
     }
 
+    @DisplayName("이름 입력시 중복을 허용하지 않는다.")
+    @Test
+    void permitOnlyUniqueName() {
+        //given
+        InputToCarList instance = InputToCarList.getInstance();
+        String input = "김민수,홍길동,김민수";
+
+        //then
+        Assertions.assertThatThrownBy(() -> instance.askCarNameToCarList(input)).isInstanceOf(
+                IllegalArgumentException.class);
+
+    }
 }
