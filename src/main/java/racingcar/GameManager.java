@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class GameManager {
 
     private Player player;
@@ -27,12 +29,22 @@ public class GameManager {
         outputView.printResultMessage();
 
         while (true) {
+            List<Car> carList = racingCarGame.getCarList();
+
+            for (int i = 0; i < carList.size(); i++) {
+                Car car = carList.get(i);
+                car.raiseMovingCount();
+            }
+
+            racingCarGame.saveCarMovingCount();
+
+            outputView.printRacingCarGameResult(racingCarGame.getCarNameList(), racingCarGame.getCarMovingCountList());
+
             if (racingCarGame.isGameOver()) {
                 outputView.printWinnerMessage();
                 System.out.println(racingCarGame.getWinnerName());
                 break;
             }
-            outputView.printRacingCarGameResult(racingCarGame.getCarNameList(), racingCarGame.getCarMovingCountList());
         }
 
     }
