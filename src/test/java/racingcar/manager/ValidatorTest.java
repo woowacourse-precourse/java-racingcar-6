@@ -15,4 +15,12 @@ public class ValidatorTest {
                 .hasMessageContaining(LENGTH_CAR_NAME + "자 이하만 가능합니다.");
     }
 
+    @Test
+    void 이름이_공백인_경우_예외_처리() {
+        String longName = " ";
+        assertThatThrownBy(() -> Validator.validateCarNameLength(longName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름의 길이는 1~" + LENGTH_CAR_NAME + "자만 가능합니다.");
+    }
+
 }
