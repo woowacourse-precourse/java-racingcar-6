@@ -2,6 +2,7 @@ package racingcar.collaborator.race;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.collaborator.race.enums.RaceMessage;
 import racingcar.generic.LapProgress;
 import racingcar.generic.RaceTotalProgress;
 
@@ -23,7 +24,7 @@ public class Race {
 
     private void validateRegisterRacerRule(List<Racer> racers) {
         if (racers.size() < MIN_PARTICIPANTS) {
-            throw new IllegalArgumentException("최소 참가인원은 2인입니다.");
+            throw new IllegalArgumentException(RaceMessage.EXCEPTION_MIN_PARTICIPANTS.get());
         }
     }
 
