@@ -1,28 +1,24 @@
 package racingcar.view;
+
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.controller.InputException;
 import racingcar.model.Car;
-import racingcar.model.GameState;
-import racingcar.model.GameViewMessage;
+import racingcar.view.Message.GameViewMessage;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-//Randoms.pickNumberInRange(RANDOM_MIN_INT,RANDOM_MAX_INT);
 public class InputUser {
     private String carNameString;
     private String inputRoundLength;
     private ArrayList<String> carNameArray;
-    private static final String SEPARATOR = ",";
-    private InputException inputException;
+    private static final String SEPARATOR = GameViewMessage.COMMA.getMessage();
+    private final InputException inputException;
 
-
-    public InputUser(){
-        this.carNameString="";
-        this.inputRoundLength="";
-        this.carNameArray=null;
+    public InputUser() {
+        this.carNameString = "";
+        this.inputRoundLength = "";
+        this.carNameArray = null;
         this.inputException = new InputException();
     }
 
@@ -32,38 +28,38 @@ public class InputUser {
         inputException.checkInputCarNameArrayError(carNameArray);
     }
 
-    public void inputUserCarNameString(){
-        displaywriteCarNameMessage();
+    public void inputUserCarNameString() {
+        displayWriteCarNameMessage();
         carNameString = Console.readLine();
     }
 
 
     public ArrayList<Car> returnCar() {
         ArrayList<Car> carArrayList = new ArrayList<>();
-        for (String carName : carNameArray){
+        for (String carName : carNameArray) {
             carArrayList.add(new Car(carName));
         }
         return carArrayList;
     }
 
-    private ArrayList<String> splitToArray(String carNameString){
+    private ArrayList<String> splitToArray(String carNameString) {
         return new ArrayList<>(Arrays.asList(carNameString.split(SEPARATOR)));
     }
 
-    public int inputRoundLength(){
-        displaywriteRaceLengthMessage();
-        inputRoundLength=Console.readLine();
+    public int inputRoundLength() {
+        displayWriteRaceLengthMessage();
+        inputRoundLength = Console.readLine();
 
         inputException.checkInputRoundError(inputRoundLength);
         return Integer.parseInt(inputRoundLength);
     }
 
-    private void displaywriteCarNameMessage(){
-        System.out.println(GameViewMessage.writeCarNameMessage.getMessage());
+    private void displayWriteCarNameMessage() {
+        System.out.println(GameViewMessage.WRITE_CAR_NAME_MESSAGE.getMessage());
     }
 
-    private void displaywriteRaceLengthMessage(){
-        System.out.println(GameViewMessage.writeRaceLengthMessage.getMessage());
+    private void displayWriteRaceLengthMessage() {
+        System.out.println(GameViewMessage.WRITE_RACE_LENGTH_MESSAGE.getMessage());
     }
 
 }

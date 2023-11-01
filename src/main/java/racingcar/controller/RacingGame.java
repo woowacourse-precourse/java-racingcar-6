@@ -1,26 +1,29 @@
 package racingcar.controller;
+
 import racingcar.model.Car;
 import racingcar.view.InputUser;
-
 
 import java.util.ArrayList;
 
 public class RacingGame {
+    private final InputUser inputUser;
+    private ArrayList<Car> carList;
     private int roundLength;
 
-    public RacingGame(){
-        roundLength=0;
+    public RacingGame() {
+        roundLength = 0;
+        inputUser = new InputUser();
+        carList = null;
     }
 
-    public void gamePlay(){
-        InputUser inputUser = new InputUser();
+    public void gamePlay() {
         inputUser.inputCarNameString();
-        ArrayList<Car> carList = inputUser.returnCar();
+        carList = inputUser.returnCar();
 
-        roundLength=inputUser.inputRoundLength();
+        roundLength = inputUser.inputRoundLength();
 
         Round round = new Round(roundLength);
-        round.playRound(carList);
+        round.playAllRound(carList);
     }
 
 }

@@ -12,7 +12,7 @@ class InputUserTest extends NsTest {
     @Test
     void 자동차_개수_1개() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("abc","1"))
+                assertThatThrownBy(() -> runException("abc", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage(ExceptionMessage.LESS_TWO_CAR_COUNT_ERROR_MESSAGE.getMessage())
         );
@@ -23,7 +23,16 @@ class InputUserTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("abc,,123", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage(ExceptionMessage.BLINK_OR_NULL_CAR_NAME_ERROR_MESSAGE.getMessage())
+                        .hasMessage(ExceptionMessage.BLANK_OR_NULL_CAR_NAME_ERROR_MESSAGE.getMessage())
+        );
+    }
+
+    @Test
+    void 자동차_이름_빈칸() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("abc,   ,123", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage(ExceptionMessage.BLANK_OR_NULL_CAR_NAME_ERROR_MESSAGE.getMessage())
         );
     }
 
@@ -49,7 +58,7 @@ class InputUserTest extends NsTest {
     @Test
     void 자동차_이름_길이_초과_AND_자동차_개수_1개_경우_자동차_개수_오류_우선_출력() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("abc123","1"))
+                assertThatThrownBy(() -> runException("abc123", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage(ExceptionMessage.LESS_TWO_CAR_COUNT_ERROR_MESSAGE.getMessage())
         );
