@@ -26,23 +26,6 @@ public class InvalidAttemptCountException extends IllegalArgumentException {
     }
 
     /**
-     * <p>문자열 형태의 시도 횟수를 정수로 변환합니다.</p>
-     *
-     * <p>변환 과정에서 실패할 경우 {@link InvalidAttemptCountException}을 발생시킵니다.</p>
-     *
-     * @param attemptCount 문자열 형태의 시도 횟수
-     * @return 변환된 정수 값
-     * @throws InvalidAttemptCountException 문자열이 올바른 정수 형태가 아닐 경우 발생
-     */
-    public static int parseAttemptCount(String attemptCount) {
-        try {
-            return Integer.parseInt(attemptCount);
-        } catch (NumberFormatException e) {
-            throw new InvalidAttemptCountException();
-        }
-    }
-
-    /**
      * <p>시도 횟수가 유효한 값인지 검증합니다.</p>
      *
      * <p>시도 횟수가 0 이하일 경우 {@link InvalidAttemptCountException}을 발생시킵니다.</p>
