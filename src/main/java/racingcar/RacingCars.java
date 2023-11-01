@@ -7,7 +7,9 @@ import java.util.List;
 public class RacingCars {
     private final List<RacingCar> racingCars = new ArrayList<>();
 
-    public RacingCars(String[] carNames) {
+    public RacingCars(String nameInput) {
+        String[] carNames = nameInput.split(",", -1);
+
         for (String carName : carNames) {
             racingCars.add(new RacingCar(carName));
         }

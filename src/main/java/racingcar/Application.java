@@ -5,8 +5,8 @@ public class Application {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
 
-        String[] carNames = inputView.readCarNames();
-        RacingCars racingCars = new RacingCars(carNames);
+        String nameInput = inputView.readCarNames();
+        RacingCars racingCars = new RacingCars(nameInput);
 
         int count = inputView.readCount();
         RacingGame racingGame = new RacingGame(racingCars);
