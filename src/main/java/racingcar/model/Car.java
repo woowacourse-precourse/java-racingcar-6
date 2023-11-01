@@ -9,7 +9,7 @@ import static racingcar.validator.Constants.*;
 public class Car implements Comparable<Car> {
     @Override
     public int compareTo(Car o) {
-        return o.getPosition() - this.getPosition();
+        return Integer.compare(o.getPosition(), this.getPosition());
     }
     private final String NAME;
     private int position =0;
