@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Converter {
     public static final String DELIMITER = ",";
+    public static final String ONE_STEP = "-";
 
     public static List<String> delimitCarNames(String carNames) {
         String[] delimitedCarNames = carNames.split(DELIMITER);
@@ -20,11 +21,7 @@ public class Converter {
     }
 
     public static String convertDistance(int distance) {
-        StringBuilder convertedDistance = new StringBuilder();
-        for (int i = 0; i < distance; i++) {
-            convertedDistance.append("-");
-        }
-        return convertedDistance.toString();
+        return ONE_STEP.repeat(Math.max(0, distance));
     }
 
     public static List<String> convertWinners(List<Car> winners) {

@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Car {
-    public static final String ONE_STEP = "-";
     public static final int REFERENCE_NUMBER_VALUE = 4;
 
     private final String name;
