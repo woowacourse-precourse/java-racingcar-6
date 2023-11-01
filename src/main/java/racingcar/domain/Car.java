@@ -23,10 +23,6 @@ public class Car {
         return progress;
     }
 
-    public boolean isMoreProgress(int maxProgress) {
-        return maxProgress < progress;
-    }
-
     public boolean isMaxProgress(int maxProgress) {
         return maxProgress == progress;
     }

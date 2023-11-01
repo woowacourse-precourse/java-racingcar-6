@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.constants.NumberConstants;
 
 public class Race {
@@ -29,24 +30,18 @@ public class Race {
         return cars;
     }
 
-    public List<String> getWinners() {
-        List<String> winners = new ArrayList<>();
-        int maxProgress = getMaxProgress();
-        for (Car car : cars) {
-            if (car.isMaxProgress(maxProgress)) {
-                winners.add(car.getName());
-            }
-        }
-        return winners;
+    private int getMaxProgress() {
+        return cars.stream()
+                .mapToInt(Car::getProgress)
+                .max()
+                .orElse(0);
     }
 
-    private int getMaxProgress() {
-        int maxProgress = 0;
-        for (Car car : cars) {
-            if (car.isMoreProgress(maxProgress)) {
-                maxProgress = car.getProgress();
-            }
-        }
-        return maxProgress;
+    public List<String> getWinners() {
+        int maxProgress = getMaxProgress();
+        return cars.stream()
+                .filter(car -> car.isMaxProgress(maxProgress))
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }
