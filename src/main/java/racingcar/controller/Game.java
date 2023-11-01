@@ -1,7 +1,9 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.InputView;
 import racingcar.OutputView;
+import racingcar.domain.Car;
 import racingcar.service.CarService;
 
 public class Game {
@@ -16,11 +18,20 @@ public class Game {
     }
 
     public void ready() {
+        outputView.naming();
+        for (String ownerName : inputView.carNameList()) {
+            carService.carGenerate(ownerName);
+        }
     }
 
     public void start(int count) {
     }
+
+    public void running(List<Car> cars) {
+    }
+
     public void end() {
+
     }
 
     public void racing() {
