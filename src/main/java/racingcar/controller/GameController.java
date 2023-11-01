@@ -12,11 +12,19 @@ public class GameController {
     Cars cars;
 
     public void gameStart() {
-        OutputView.printInputCarNameMessage();
-        cars = gameManager.createCars(inputView.getCarsName());
-        OutputView.printInputMovingTryCountMessage();
-        runRacing(inputView.getMovingTryCount(), cars);
+        cars = createPlayerCars();
+        runRacing(askPlayerMovingTryCount(), cars);
         OutputView.printGameRoundResultMessage(cars.getWinnerNameList());
+    }
+
+    public Cars createPlayerCars() {
+        OutputView.printInputCarNameMessage();
+        return gameManager.createCars(inputView.getCarsName());
+    }
+
+    public int askPlayerMovingTryCount() {
+        OutputView.printInputMovingTryCountMessage();
+        return inputView.getMovingTryCount();
     }
 
     public void runRacing(int round, Cars cars) {
