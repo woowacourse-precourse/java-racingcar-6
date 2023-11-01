@@ -16,7 +16,6 @@ public class RacingProgram {
         int count;
         carName = readLine();
         String[] carNameList = carName.split(",");
-        //System.out.println(Arrays.toString(carNameList));
 
         CarRepository carRepository = new CarRepository();
 
@@ -35,6 +34,6 @@ public class RacingProgram {
             System.out.println();
         }
 
-        System.out.println("최종 우승자 : ");
+        carRepository.getWinner();
     }
 }

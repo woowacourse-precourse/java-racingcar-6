@@ -7,6 +7,7 @@ public class CarRepository {
 
     private List<Car> cars = new ArrayList<>();
 
+
     public void add(Car car) {
         this.cars.add(car);
     }
@@ -25,5 +26,29 @@ public class CarRepository {
         }
     }
 
+    public void getWinner() {
+        List<String> winners = new ArrayList<>();
+        System.out.print("최종 우승자 : ");
+        int max = getMaxForwardLength();
+        for (Car car : this.cars) {
+            if (car.getForward().length() >= max) {
+                winners.add(car.getName());
+            }
+        }
+        String winnerList = String.join(", ", winners);
+        System.out.println(winnerList);
+
+    }
+
+
+    public int getMaxForwardLength() {
+        int max = 0;
+        for (Car car : this.cars) {
+            if (max < car.getForward().length()) {
+                max = car.getForward().length();
+            }
+        }
+        return max;
+    }
 
 }
