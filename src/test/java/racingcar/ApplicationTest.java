@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Leaderboard;
 import racingcar.domain.NamesManager;
-import racingcar.domain.RoundNumberManager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,27 +41,6 @@ class ApplicationTest extends NsTest {
         NamesManager manager = new NamesManager();
         List<String> nameList = manager.separateNamesString("pobi,woni,jun");
         assertThat(nameList).isEqualTo(Arrays.asList("pobi","woni","jun"));
-    }
-
-    @Test
-    void 이름_길이_검사(){
-        NamesManager manager = new NamesManager();
-        boolean result = manager.wrongNameLength("javaji");
-        assertThat(result).isEqualTo(true);
-    }
-
-    @Test
-    void 이름_중복_검사(){
-        NamesManager manager = new NamesManager();
-        boolean result = manager.duplicateName(Arrays.asList("pobi","pobi"));
-        assertThat(result).isEqualTo(true);
-    }
-
-    @Test
-    void 이름_종합_검사(){
-        NamesManager manager = new NamesManager();
-        boolean result = manager.checkNamesException(Arrays.asList("pobi","pobiiii"));
-        assertThat(result).isEqualTo(true);
     }
 
     @Test

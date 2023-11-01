@@ -7,39 +7,30 @@ import java.util.Set;
 
 public class NamesManager {
 
+    private static final int MAX_NAME_LENGTH = 5;
+
     public List<String> separateNamesString(String namesString) {
         return Arrays.asList(namesString.split(","));
     }
 
-    public boolean checkNamesException(List<String> names) {
+    public void checkNamesException(List<String> names) {
         for (String name : names) {
-            if (wrongNameLength(name)) {
-                return true;
-            }
+            wrongNameLength(name);
         }
-
-        if (duplicateName(names)) {
-            return true;
-        }
-
-        return false;
+        duplicateName(names);
     }
 
-    public boolean wrongNameLength(String name) {
-        if (name.length() > 5) {
-            return true;
+    private void wrongNameLength(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("6 글자 이상인 이름이 있는지 확인해주세요.");
         }
-
-        return false;
     }
 
-    public boolean duplicateName(List<String> names) {
+    private void duplicateName(List<String> names) {
         Set<String> nameSet = new HashSet<>(names);
         if (nameSet.size() != names.size()) {
-            return true;
+            throw new IllegalArgumentException("중복되는 이름이 있는지 확인해주세요.");
         }
-
-        return false;
     }
 
 }

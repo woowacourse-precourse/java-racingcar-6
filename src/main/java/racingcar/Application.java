@@ -15,9 +15,7 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         List<String> namesList = namesManager.separateNamesString(Console.readLine());
-        if (namesManager.checkNamesException(namesList)) {
-            throw new IllegalArgumentException("중복되는 이름이나 5 글자 이상의 이름이 있는지 확인해주세요.");
-        }
+        namesManager.checkNamesException(namesList);
 
         Leaderboard leaderboard = new Leaderboard(namesList);
 
