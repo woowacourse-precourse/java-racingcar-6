@@ -96,4 +96,17 @@ public class RaceGameTest {
         assertThat(randomNubmer >= RACECAR_ADVENCE_NUMBER);
     }
 
+    @Test
+    void 자동차_별_전진_횟수_저장하는_모델_초기화_확인() {
+
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun");
+        raceGame.setCarNames(carNames);
+
+        carRacingController.playGame(raceGame);
+        List<String> result = raceGame.getCarMoveCounts();
+        List<String> expect = Arrays.asList("", "", "");
+
+        assertEquals(result, expect);
+    }
+
 }
