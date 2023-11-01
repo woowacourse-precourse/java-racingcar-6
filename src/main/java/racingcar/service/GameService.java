@@ -10,22 +10,14 @@ public class GameService {
     public GameService() {
     }
 
-    public void start(String carNameInput, String tryCountInput) {
-        setCars(carNameInput);
+    public void start(List<String> carNames, String tryCountInput) {
+        setCars(carNames);
     }
 
-    private void setCars(String carNameInput) {
-        List<String> carNames = getCarNames(carNameInput);
+    private void setCars(List<String> carNames) {
         carNames.forEach(carName ->
-            cars.add(new Car(carName))
+                cars.add(new Car(carName))
         );
     }
-
-    private List<String> getCarNames(String carNameInput) {
-        //TODO: carNameInput 입력 형식 체크
-        String[] split = carNameInput.split(",");
-        return List.of(split);
-    }
-
 
 }
