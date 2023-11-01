@@ -38,4 +38,43 @@
 - 게임 종료 및 재시작에 관한 안내문 출력 
 
 <hr>
-# 태
+
+# 구현한 메서드
+- `getNewRandomNumber()` : 1 ~ 9 사이의 난수 1개를 반환해주는 메서드
+
+<br>
+
+- `run()` : 자동차 경주 게임을 시작하는 메서드, `gameStart()`, `printWinnerCars()` 호출
+
+<br>
+
+- `printStart()` : 자동차 이름을 입력하라는 출력문
+- `printCurrentStatus(String)` : 현재 전진한 자동차의 상태 출력
+- `printWinnerCars()` : 우승한 자동자의 이름 출력, 공동 우승할 경우 두 개의 이름을 ','로 구분해 출력
+
+<br>
+
+- `gameStart()` : 입력 받은 횟수 만큼 경주 시작, `checkOneLab()` 호출
+- `checkOneLab()` : 하나의 회차 동안 이루어질 전진 여부 `getNewRandomNumber()` 호출
+
+<br>
+
+- `setCarsName()` : 경기에 참가하는 자동차들을 입력받아 저장하는 함수
+- `setCircuitLength()` : 입력값을 시도할 횟수로 초기화
+
+<br>
+
+- `validityCheckByCircuitLength(String totalLength)` : 시도할 횟수 입력값에 대한 예외처리
+- `validityCheckByCarsName(String)` : 입력한 자동차 이름에 대한 예외처리
+- `isNumeric(String str)` : 정규 표현식을 사용해 숫자로만 구성되어 있는지 확인
+
+<hr>
+
+# 테스트 도구 구현 
+
+1. `전진_정지()`: 전반적인 기능 테스트
+2. `회차_동안의_자동차의_전진_상태()` : 한 회차동안 출력되는 출력문 테스트
+3. `이름에_대한_예외_처리_4자리초과()` : 4자리가 초과되는 자동차 이름 입력 테스트
+4. `이름에_대한_예외_처리_중복()` : 중복된 자동차 이름 입력 테스트
+5. `이름에_대한_예외_처리_공백()` : 자동차 이름 입력에 대한 공백 테스트
+6. `입력_횟수에_대한_예외_처리()` : 잘못된 실행 횟수 입력에 대한 테스트

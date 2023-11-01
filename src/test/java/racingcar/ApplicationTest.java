@@ -23,6 +23,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
+
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
@@ -31,8 +32,10 @@ class ApplicationTest extends NsTest {
         );
     }
 
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
     }
 }
+
