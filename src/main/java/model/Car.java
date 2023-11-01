@@ -33,4 +33,11 @@ public class Car {
         return carInfo;
     }
 
+    public int getLocation() {
+        return location;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
