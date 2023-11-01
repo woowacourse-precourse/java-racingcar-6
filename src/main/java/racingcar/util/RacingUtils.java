@@ -28,9 +28,10 @@ public class RacingUtils {
         return false;
     }
 
-    public boolean isNumericOrNonNegative(String cnt) {
+    public boolean isNonNumericAndNegative(String cnt) {
         if(!(cnt.matches(NUM_REG) && Integer.parseInt(cnt) > 0)) {
             return true;
+
         }
         return false;
     }

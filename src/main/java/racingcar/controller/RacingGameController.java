@@ -80,7 +80,7 @@ public class RacingGameController {
 
     public int getInputGameCntAndCheck() {
         String gameCnt = racingUtils.getInputAnswerAndShowMessage(inputGameCntMsg);
-        boolean isGameCountValid = racingUtils.isNumericOrNonNegative(gameCnt);
+        boolean isGameCountValid = racingUtils.isNonNumericAndNegative(gameCnt);
         if(isGameCountValid) {
             throw new IllegalArgumentException();
         }
