@@ -18,7 +18,7 @@ public class RacingCar {
 
         Output.printResultmessage();
 
-        for(int i = 0; i <= gameTryCount; i++){
+        for(int i = 0; i <= gameTryCount - 1; i++){
             cars.forEach(CarState::move);
             Output.printRacingState(cars);
         }
