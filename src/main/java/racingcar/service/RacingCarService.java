@@ -3,7 +3,6 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.constant.Symbols;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.model.ScoreDto;
@@ -13,7 +12,7 @@ public class RacingCarService {
     private final RacingCars racingCars;
 
     public RacingCarService(String carNames) {
-        this.racingCars = new RacingCars(Arrays.asList(carNames.split(Symbols.COMMA)));
+        this.racingCars = new RacingCars(Arrays.asList(carNames.split(",")));
     }
 
     public void moveRacingCars() {

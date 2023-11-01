@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.Objects;
-import racingcar.constant.Symbols;
 
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
@@ -36,7 +35,7 @@ public class Car {
     }
 
     private void checkNameForWhitespace(String name) {
-        if (name.contains(Symbols.SPACE)) {
+        if (name.contains(" ")) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_ERROR);
         }
     }
