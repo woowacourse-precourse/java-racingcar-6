@@ -36,6 +36,17 @@ class CarNameValidatorTest {
     }
 
     @Test
+    void 이름이_공백으로만_이루어져_있는_경우_예외_발생() {
+        String inputCarName = "  ";
+        CarNameValidator carNameValidator = new CarNameValidator();
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> carNameValidator.checkCarName(inputCarName))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("Car name cannot be blank")
+        );
+    }
+
+    @Test
     void 자동차_이름이_중복일_경우_예외_발생() {
         List<Car> carList = Arrays.asList(
                 mock(Car.class),
