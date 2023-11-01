@@ -47,4 +47,8 @@ public class Race {
                         LinkedHashMap::new
                 ));
     }
+
+    public List<Car> getCars(){
+        return cars;
+    }
 }
