@@ -140,5 +140,17 @@ class InputViewTest {
             //then
             Assertions.assertThat(inputView.inputHowManyTry()).isEqualTo(1);
         }
+
+        @DisplayName("0001과 같이 앞에 0이 있더라도 정수 1로 입력 받습니다.")
+        @Test
+        void parseInt() {
+
+            //given
+            inputView();
+            systemIn("000000000001");
+
+            //then
+            Assertions.assertThat(inputView.inputHowManyTry()).isEqualTo(1);
+        }
     }
 }
