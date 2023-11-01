@@ -30,6 +30,9 @@ public class Game {
             if (carName.length() > 5 || carName.length() < 1) {
                 throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
             }
+            if (carName.isBlank()) {
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
+            }
             Car car = new Car(carName);
             cars.add(car);
         }
