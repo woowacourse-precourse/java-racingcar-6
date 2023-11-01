@@ -16,7 +16,7 @@ public class RacingPlayController {
     }
 
     public void play() {
-        List<String> racingCarNames = input.getInputRacingCarNames();
+        String racingCarNames = input.getInputRacingCarNames();
         int tryTimes = input.getInputTryTimes();
         playing = new Playing(racingCarNames, tryTimes);
 
