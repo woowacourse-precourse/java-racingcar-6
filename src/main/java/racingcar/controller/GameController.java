@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.util.NumberGenerator;
 import racingcar.view.GameInputView;
 import racingcar.view.GameOutputView;
 
@@ -13,7 +14,7 @@ public class GameController {
 
         GameOutputView.printResultsHeader();
         for (int i=0; i<totalRoundNumber; i++) {
-            cars.race();
+            cars.race(NumberGenerator.generateRandomNumbers(cars.size()));
             GameOutputView.printCarPositions(cars.getPositions());
         }
 

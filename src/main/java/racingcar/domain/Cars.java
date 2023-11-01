@@ -20,10 +20,11 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public void race() {
-        cars.forEach(car -> car.goForwardByNumber(Randoms.pickNumberInRange(1, 9)));
+    public void race(int[] numbers) {
+        for (int i = 0; i < cars.size(); i++) {
+            cars.get(i).goForwardByNumber(numbers[i]);
+        }
     }
-
     public String getPositions() {
         StringBuilder positions = new StringBuilder();
         cars.forEach(car -> positions.append(car.toString()).append("\n"));
