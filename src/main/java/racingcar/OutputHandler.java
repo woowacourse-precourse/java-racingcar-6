@@ -8,10 +8,12 @@ public class OutputHandler {
 
     public void printSubResult(Car car) {
         System.out.println(car);
+        System.out.println();
     }
 
     public void printFinalResult(List<String> finalWinners) {
         StringJoiner finalWinnersWithDelimiter = getFinalWinnerStringJoiner(finalWinners);
+        System.out.print("최종우승자 : ");
         System.out.println(finalWinnersWithDelimiter);
     }
 
