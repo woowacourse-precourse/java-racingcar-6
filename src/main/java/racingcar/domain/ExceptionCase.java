@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 enum ExceptionCase {
     INPUT_UNGIVEN("입력이 주어지지 않음"),

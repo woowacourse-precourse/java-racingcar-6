@@ -1,10 +1,10 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingCarGameConsole {
+public class GameConsole {
     private static final String INT_TYPE = "^[0-9]*$";
     private static final int MOVE_JUDGE_INTEGER = 4;
     private final Car car;
@@ -14,7 +14,7 @@ public class RacingCarGameConsole {
     private int carIndex = 0;
     private int winnerMovedAmount = 0;
 
-    public RacingCarGameConsole(Car car, String timesToTry) {
+    public GameConsole(Car car, String timesToTry) {
         this.car = car;
         numberOfCars = car.numberOf();
         isCorrectTimesToTry(timesToTry);
