@@ -1,16 +1,16 @@
 package racingcar.strategy;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class RandomRacingCarMoveStrategy implements RacingCarMoveStrategy {
 
-    private static final int MIN_NUMBER = 0;
-    private static final int MAX_NUMBER = 9;
     private static final int DELIMITER_NUMBER = 4;
+    private final RandomNumberGenerator randomNumberGenerator;
 
+    public RandomRacingCarMoveStrategy(RandomNumberGenerator randomNumberGenerator) {
+        this.randomNumberGenerator = randomNumberGenerator;
+    }
 
     @Override
     public boolean isMovable() {
-        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER) <= DELIMITER_NUMBER;
+        return randomNumberGenerator.generate() >= DELIMITER_NUMBER;
     }
 }
