@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Exception {
     public void validateInputNotStartWithComma(String input) {
         if (input.startsWith(","))
@@ -20,6 +23,16 @@ public class Exception {
         for (String carName : splitCarName) {
             if (carName.length() > 5)
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    public void validateDuplicateCarName(String[] splitCarName) {
+        Set<String> carNameSet = new HashSet<>();
+
+        for (String carName : splitCarName) {
+            if (!carNameSet.add(carName)) {
+                throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+            }
         }
     }
 }

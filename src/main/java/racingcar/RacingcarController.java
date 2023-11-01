@@ -9,6 +9,7 @@ public class RacingcarController {
         String carsName = inputCarsName();
         String[] splitCarName = splitCarsName(carsName);
         exception.validateNumberOfCarName(splitCarName);
+        exception.validateDuplicateCarName(splitCarName);
         addCars(splitCarName);
     }
 
