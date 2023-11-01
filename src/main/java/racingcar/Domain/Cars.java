@@ -31,7 +31,7 @@ public class Cars {
         int fastestPosition = findFastestPosition();
 
         return cars.stream()
-                .filter(car -> car.isWinnerPosition(fastestPosition))
+                .filter(car -> car.isSamePosition(fastestPosition))
                 .collect(Collectors.toList());
     }
 
