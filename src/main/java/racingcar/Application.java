@@ -32,5 +32,6 @@ public class Application {
 
         Winner w = new Winner();
         w.findWinner(car);
+        w.printWinner();
     }
 }

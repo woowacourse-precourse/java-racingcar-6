@@ -21,4 +21,12 @@ public class Winner {
 			}
 		}
 	}
+    public void printWinner() {
+		System.out.print("최종 우승자 : ");
+		for(int i = 0; i < getWinner().size(); i ++) {
+			if(i > 0)
+				System.out.print(", ");
+			System.out.print(getWinner().get(i));
+		}
+	}
 }
