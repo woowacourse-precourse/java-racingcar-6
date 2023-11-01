@@ -4,7 +4,7 @@ public enum GameStrConstant {
     CAR_NAME_SEPARATOR(","),
     CAR_MOVEMENT("-"),
     GAME_RESULT_SEPARATOR(" : "),
-    WHITE_SPACE(" ");
+    SPACE(" ");
     private final String value;
 
     GameStrConstant(String value) {
