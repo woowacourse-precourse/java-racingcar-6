@@ -1,27 +1,30 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.utils.RacingGameMessage;
+import racingcar.utils.ErrorMessage;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class RacingGame {
     private final int MIN_NUMBER = 0;
     private final int MAX_NUMBER = 9;
-    private final ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
     private List<RacingCar> racingCars;
     private int raceCount;
 
     public void createCarsAfterValidation(final String carNamesInputLine) {
-        final List<String> carNames = validatePlayerInput.validateCarNames(carNamesInputLine);
+        this.validateContainSpace(carNamesInputLine);
+        this.validateDuplicateCarNames(carNamesInputLine);
 
+        final List<String> carNames = this.convertStringToListCarNames(carNamesInputLine);
         this.racingCars = carNames.stream().map(RacingCar::new).toList();
     }
 
     public void setRaceCountAfterValidation(final String raceCountInputLine) {
-        final int raceCount = validatePlayerInput.validateRaceCount(raceCountInputLine);
+        this.validateDigitRaceCount(raceCountInputLine);
+        this.validateEmptyRaceCount(raceCountInputLine);
+
+        final int raceCount = this.convertStringToIntRaceCount(raceCountInputLine);
 
         this.raceCount = raceCount;
     }
@@ -34,22 +37,18 @@ public class RacingGame {
         }
     }
 
-    public String race() {
-        StringBuilder result = new StringBuilder();
+    public List<List<Score>> race() {
+        List<List<Score>> result = new ArrayList<>();
 
         for (int i = 0; i < this.raceCount; i++) {
             this.round();
-            result.append(this.racingCars.stream().map(RacingCar::toString)
-                            .collect(Collectors.joining()))
-                            .append(RacingGameMessage.NEWLINE.getNewLine());
+            result.add(this.racingCars.stream().map(RacingCar::getScore).toList());
         }
 
-        result.setLength(result.length() - 1);
-
-        return result.toString();
+        return result;
     }
 
-    public List<String> findWinners() {
+    public List<String> getWinners() {
         final List<Integer> carsMoveCounts = this.racingCars.stream()
                 .map(RacingCar::getMoveCount).toList();
 
@@ -66,14 +65,51 @@ public class RacingGame {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
-    public String getWinners() {
-        final List<String> winners = this.findWinners();
-        final String result = String.join(", ", winners);
-
-        return result;
-    }
-
     public List<RacingCar> getRacingCars() {
         return this.racingCars;
+    }
+
+    public void validateContainSpace(final String carNameInputLine) {
+        if (carNameInputLine.contains(" ")) {
+            throw new IllegalArgumentException(ErrorMessage.SPACE_ERROR.getDelimiterError());
+        }
+    }
+
+    public void validateDuplicateCarNames(final String carNameInputLine) {
+        final String[] carNames = carNameInputLine.split("," , -1);
+        Set<String> dulplicateSet = Arrays.stream(carNames).collect(Collectors.toSet());
+
+        if (dulplicateSet.size() != carNames.length) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATED_NAME_ERROR.getDuplicatedCarNamesError());
+        }
+    }
+
+    public List<String> convertStringToListCarNames(final String carNameInputLine) {
+        final String[] carNames = carNameInputLine.split("," , -1);
+        final List<String> convertedValues = Arrays.stream(carNames).toList();
+
+        return convertedValues;
+    }
+
+    public void validateDigitRaceCount(final String raceCountInput) {
+        if (raceCountInput.chars().anyMatch(c -> !Character.isDigit((char) c))) {
+            throw new IllegalArgumentException(ErrorMessage.DIGIT_RACE_COUNT_ERROR.getDigitRaceCountError());
+        }
+    }
+
+    public void validateEmptyRaceCount(final String raceCountInput) {
+        if (raceCountInput.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.EMPTY_RACE_COUNT_ERROR.getEmptyRaceCountError());
+        }
+    }
+
+    public int convertStringToIntRaceCount(final String raceCountInput) {
+        if (raceCountInput.equals("0")) {
+            throw new IllegalArgumentException(ErrorMessage.ZERO_RACE_COUNT_ERROR.getZeroRaceCountError());
+        }
+
+        final int raceCount = Integer.parseInt(raceCountInput);
+
+        return raceCount;
     }
 }

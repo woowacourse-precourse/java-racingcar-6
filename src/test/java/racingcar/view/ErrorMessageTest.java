@@ -12,10 +12,10 @@ public class ErrorMessageTest {
     @Test
     void delimiterErrorTest() {
         //given
-        String delimiterError = "자동차 이름 구분은 ','로 하셔야합니다";
+        String delimiterError = "공백 없이 입력해주시길 바랍니다";
 
         //then
-        assertThat(ErrorMessage.DELIMITER_ERROR.getDelimiterError()).isEqualTo(delimiterError);
+        assertThat(ErrorMessage.SPACE_ERROR.getDelimiterError()).isEqualTo(delimiterError);
     }
 
     @DisplayName("자동차 이름이 없는 오류 문구에 대한 테스트")

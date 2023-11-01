@@ -1,8 +1,9 @@
 package racingcar.model;
 
-import racingcar.utils.RacingGameMessage;
+import racingcar.utils.ErrorMessage;
 
-import java.util.stream.IntStream;
+import java.util.List;
+import java.util.regex.Pattern;
 
 public class RacingCar {
     private final int MOVE_LIMITS = 3;
@@ -10,6 +11,10 @@ public class RacingCar {
     private int moveCount;
 
     public RacingCar(final String carName) {
+        this.validateNotContainCarName(carName);
+        this.validateAlphaCarName(carName);
+        this.validateCarNameLength(carName);
+
         this.racingCarName = carName;
         this.moveCount = 0;
     }
@@ -20,13 +25,6 @@ public class RacingCar {
         }
     }
 
-    public String getRaceResult() {
-        StringBuilder raceResult = new StringBuilder();
-        IntStream.range(0, moveCount).forEach(i -> raceResult.append(RacingGameMessage.MOVE.getMoveMessage()));
-
-        return raceResult.toString();
-    }
-
     public String getRacingCarName() {
         return this.racingCarName;
     }
@@ -35,10 +33,28 @@ public class RacingCar {
         return this.moveCount;
     }
 
-    @Override
-    public String toString() {
-        final String gameResult = getRaceResult();
+    public Score getScore() {
+        final Score score = new Score(this.racingCarName, this.moveCount);
 
-        return this.racingCarName + " : " + gameResult + "\n";
+        return score;
     }
+
+    public void validateNotContainCarName(final String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.NO_NAME_ERROR.getNoCarsNameError());
+        }
+    }
+
+    public void validateAlphaCarName(final String name) {
+        if (!Pattern.matches("^[a-zA-Z]*$", name)) {
+            throw new IllegalArgumentException(ErrorMessage.ALPHA_NAME_ERROR.getAlphaCarNameError());
+        }
+    }
+
+    public void validateCarNameLength(final String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_ERROR.getCarNameLengthError());
+        }
+    }
+
 }

@@ -55,7 +55,7 @@ public class StringTest {
         String[] splitInput = input.split(",", -1);
 
         //given
-        String[] expectSplit = {"pobi", "suhwpa"};
+        String[] expectSplit = {"pobi", "suhwpa", "", ""};
 
         //then
         assertThat(splitInput).isEqualTo(expectSplit);

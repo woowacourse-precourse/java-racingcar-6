@@ -1,7 +1,7 @@
 package racingcar.utils;
 
 public enum ErrorMessage {
-    DELIMITER_ERROR("자동차 이름 구분은 ','로 하셔야합니다"),
+    SPACE_ERROR("공백 없이 입력해주시길 바랍니다"),
 
     NO_NAME_ERROR("레이싱 자동차 이름이 없습니다"),
 
@@ -24,7 +24,7 @@ public enum ErrorMessage {
     }
 
     public String getDelimiterError() {
-        return DELIMITER_ERROR.error;
+        return SPACE_ERROR.error;
     }
 
     public String getNoCarsNameError() {

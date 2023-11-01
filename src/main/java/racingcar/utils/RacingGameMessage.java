@@ -9,8 +9,6 @@ public enum RacingGameMessage {
 
     WINNER_MESSAGE("최종 우승자 : "),
 
-    NEWLINE("\n"),
-
     MOVE("-");
 
     private String name;
@@ -27,16 +25,12 @@ public enum RacingGameMessage {
         return REQUEST_RACE_COUNT_MESSAGE.name;
     }
 
-    public String getRaceResultMessage(final String raceResult) {
-        return NEWLINE.name + GAME_RESULT_MESSAGE.name + NEWLINE.name + raceResult;
+    public String getRaceResultMessage() {
+        return GAME_RESULT_MESSAGE.name;
     }
 
     public String getWinnerMessage(final String winners) {
         return WINNER_MESSAGE.name + winners;
-    }
-
-    public String getNewLine() {
-        return NEWLINE.name;
     }
 
     public String getMoveMessage() {

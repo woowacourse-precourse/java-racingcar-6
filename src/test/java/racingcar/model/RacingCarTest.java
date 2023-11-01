@@ -5,18 +5,55 @@ import org.junit.jupiter.api.Test;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class RacingCarTest {
 
-    @DisplayName("레이싱 자동차를 생성하는 생성자 테스트")
+    @DisplayName("레이싱 자동차 이름이 올바를 때 생성하는 생성자 테스트")
     @Test
     void racingCarConstructorTest() {
-        //given
+        //when
         String carName = "pobi";
+
+        //given
         RacingCar racingCar = new RacingCar(carName);
 
         //then
         assertThat(racingCar.getRacingCarName()).isEqualTo(carName);
+    }
+
+    @DisplayName("레이싱 자동차 이름이 없을 경우의 테스트")
+    @Test
+    void containSpaceInCarNameTest() {
+        //given
+        String carName = "";
+
+        //then
+        assertThatThrownBy(() -> new RacingCar(carName)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("레이싱 자동차 이름이 없습니다");
+    }
+
+
+    @DisplayName("레이싱 자동차 이름이 영어로 구성되지 않았을 경우의 테스트")
+    @Test
+    void alphaCarNameTest() {
+        //given
+        String numberCarName = "pobi1";
+        String koreanCarName = "pobiㄴ";
+        String specialSignCarName = "pobi^";
+
+        //then
+        assertThatThrownBy(() -> new RacingCar(numberCarName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
+
+        assertThatThrownBy(() -> new RacingCar(koreanCarName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
+
+        assertThatThrownBy(() -> new RacingCar(specialSignCarName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
     }
 
     @DisplayName("랜던한 숫자가 4이상 일때, 레이싱 자동차가 전진하는지에 대한 테스트")
@@ -51,54 +88,4 @@ public class RacingCarTest {
         assertThat(racingCarMove).isEqualTo(0);
     }
 
-    @DisplayName("레이싱 자동차의 게임 결과를 string으로 반환해주는 테스트")
-    @Test
-    void racingCarGameResultTest() {
-        //when
-        String carName = "pobi";
-        RacingCar racingCar = new RacingCar(carName);
-
-        //given
-        for (int randomNumber = 3; randomNumber < 8; randomNumber++) {
-            racingCar.move(randomNumber);
-        }
-
-        //then
-        String gameResult = racingCar.getRaceResult();
-        assertThat(gameResult).isEqualTo("----");
-    }
-
-    @DisplayName("레이싱 자동차의 게임 결과, 전진하지 못한 경우에 대한 테스트")
-    @Test
-    void racingCarGameNonMoveResultTest() {
-        //when
-        String carName = "pobi";
-        RacingCar racingCar = new RacingCar(carName);
-
-        //given
-        for (int randomNumber = 0; randomNumber < 4; randomNumber++) {
-            racingCar.move(randomNumber);
-        }
-
-        //then
-        String gameResult = racingCar.getRaceResult();
-        assertThat(gameResult).isEqualTo("");
-    }
-
-    @DisplayName("레이싱 자동차의 toString 오버라이딩 메서드 test")
-    @Test
-    void toStringTest() {
-        //when
-        String carName = "pobi";
-        RacingCar racingCar = new RacingCar(carName);
-
-        //given
-        for (int randomNumber = 3; randomNumber < 8; randomNumber++) {
-            racingCar.move(randomNumber);
-        }
-
-        //then
-        String racingCartoString = "pobi : ----\n";
-        assertThat(racingCar.toString()).isEqualTo(racingCartoString);
-    }
 }
