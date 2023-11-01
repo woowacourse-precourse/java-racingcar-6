@@ -4,8 +4,6 @@ import java.util.List;
 import racingcar.dto.CarDto;
 
 public class OutputView {
-
-    //실행 결과 출력 (컨트롤러로부터 데이터 받음)
     public void printSingleRound(List<CarDto> carDistanceList) {
         StringBuilder result = new StringBuilder();
 
@@ -26,7 +24,6 @@ public class OutputView {
         result.append("\n");
     }
 
-    //최종 우승자 출력(중복가능)
     public String printWinner(List<String> winners) {
         StringBuilder result = new StringBuilder();
         result.append("최종 우승자 : ");

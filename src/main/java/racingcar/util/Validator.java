@@ -6,7 +6,6 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 
 public class Validator {
-    //carDtoList로 변환하는 로직
     public static void validateCars(Cars cars) {
         checkSizeOne(cars);
         checkNamesLengthOverFive(cars);

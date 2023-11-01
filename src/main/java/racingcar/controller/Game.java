@@ -34,6 +34,7 @@ public class Game {
 
     public List<String> findWinners(Cars cars) {
         List<String> winners = new ArrayList<>();
+
         int max = findTopDistance(cars);
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
@@ -41,7 +42,6 @@ public class Game {
                 winners.add(car.getCarName());
             }
         }
-
         return winners;
     }
 
