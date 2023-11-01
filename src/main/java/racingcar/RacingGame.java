@@ -17,10 +17,8 @@ public class RacingGame {
     }
 
     private void printWinners(List<Car> cars) {
-        StringBuilder result = new StringBuilder();
-        result.append("최종 우승자 : ");
-        result.append(String.join(", ", getWinnersName(cars)));
-        System.out.println(result);
+        List<String> winners = getWinnersName(cars);
+        System.out.println("최종 우승자: " + String.join(", ", winners));
     }
 
     private void proceedRound(List<Car> cars) {
