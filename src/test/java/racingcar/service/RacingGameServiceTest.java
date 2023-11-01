@@ -32,4 +32,18 @@ class RacingGameServiceTest {
             assertThat(cars.get(i)).isEqualTo(carList.getCarList().get(i).getCarName());
         }
     }
+
+    @Test
+    void splitStringToList_메서드로_구분자를_기준으로_문자열을_리스트로_split() {
+        //given
+        String input = "abc,def,gh";
+
+        //when
+        List<String> result = racingGameService.splitStringToList(input);
+
+        //then
+        List<String> expected = List.of("abc", "def", "gh");
+        assertThat(result).isEqualTo(expected);
+
+    }
 }
