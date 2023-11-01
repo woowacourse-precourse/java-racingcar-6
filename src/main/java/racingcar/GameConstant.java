@@ -1,8 +1,9 @@
 package racingcar;
 
 public class GameConstant {
-  public static final String colon = " : ";
-  public static final String dash = "-";
+  public static final String COLON = " : ";
+  public static final String DASH = "-";
+  public static final Integer STARTPOSITION = 0;
 
   public static enum Output {
     INPUTCARNAME("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
