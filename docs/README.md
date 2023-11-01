@@ -17,6 +17,7 @@
 - [ ] 시도 횟수 입력 (inputTrialCount)
 - [ ] 각 차수 실행 (attemptTrial)
 - [ ] 실행 결과 출력 (printTrialResult)
+- [ ] 우승자의 위치 찾기 (findMaxPosition)
 - [ ] 우승자 판단 (judgeWinner)
 - [ ] 우승자 출력 (printWinner)
 
