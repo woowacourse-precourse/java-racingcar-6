@@ -14,6 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.RacingGameView.FORMAT_PRINT_ROUND;
+import static racingcar.RacingGameView.FORMAT_PRINT_WINNERS;
 
 class RacingGameViewTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -94,6 +95,27 @@ class RacingGameViewTest {
         String result = s1 + s2 + "\n";
         racingGameView.printRoundResult(cars);
         String actualOutput = outContent.toString().replaceAll("\r", "");
+
+        //then
+        assertEquals(result, actualOutput);
+    }
+
+    @Test
+    @DisplayName("우승자 결과 출력을 테스트한다")
+    void testPrintWinnerResult() {
+        //given
+        RacingGameView racingGameView = new RacingGameView();
+        List<RacingCar> winners = new ArrayList<>();
+        winners.add(new RacingCar("페라리"));
+        winners.add(new RacingCar("벤츠"));
+
+        //when
+        String result = String.format(
+                FORMAT_PRINT_WINNERS,
+                winners.get(0).getName() + ", " + winners.get(1).getName()
+        );
+        racingGameView.printWinners(winners);
+        String actualOutput = outContent.toString();
 
         //then
         assertEquals(result, actualOutput);
