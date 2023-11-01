@@ -21,20 +21,32 @@ public class GameController {
     }
 
     public void play() {
-        outputView.askCarNames();
-        Cars playCars = Cars.from(inputView.readLine());
+        Cars playCars = createPlayCars();
+        PlayCount playCount = createPlayCount();
 
-        outputView.askPlayCount();
-        PlayCount playCount = PlayCount.createDefault(inputView.readLine());
+        playGameUntilEnd(playCars, playCount);
 
+        printWinners(playCars);
+    }
+
+    private void playGameUntilEnd(final Cars playCars, final PlayCount playCount) {
         outputView.printResult();
+
         while (!playCount.isGameEnd()) {
             playCars.race(randomNumber);
             printEachStatus(playCars);
             playCount.endOneRound();
         }
+    }
 
-        printWinners(playCars);
+    private Cars createPlayCars() {
+        outputView.askCarNames();
+        return Cars.from(inputView.readLine());
+    }
+
+    private PlayCount createPlayCount() {
+        outputView.askPlayCount();
+        return PlayCount.createDefault(inputView.readLine());
     }
 
     private void printEachStatus(final Cars cars) {
