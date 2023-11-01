@@ -1,6 +1,4 @@
-package racingcar.domain;
-
-import static org.assertj.core.api.Assertions.assertThat;
+package racingcar.util;
 
 import domain.Car;
 import domain.Cars;
@@ -8,7 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class CarNameTest {
+public class NameValidatorTest {
 
     @Test
     @DisplayName("자동차 이름 길이가 5보다 클 경우")
@@ -29,14 +27,5 @@ public class CarNameTest {
     void car_name_duplicate_check() {
         Assertions.assertThatThrownBy(() -> new Cars("ab,cd,ab"))
                 .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    @DisplayName("자동차 이름 일치 확인")
-    void car_name_match_check() {
-        String expectedName = "test";
-        Car car = new Car(expectedName);
-
-        assertThat(car.getCarName()).isEqualTo(expectedName);
     }
 }
