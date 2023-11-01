@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import racingcar.model.Car;
 
 public class OutputManagerTest {
     ByteArrayOutputStream outputStream;
@@ -25,13 +26,13 @@ public class OutputManagerTest {
     @Test
     void printCarStatus_success() {
         // Given
-        Map<String, Integer> carStatus = new LinkedHashMap<>();
-        carStatus.put("pobi", 2);
-        carStatus.put("woni", 4);
-        carStatus.put("jun", 3);
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("pobi",2));
+        cars.add(new Car("woni",4));
+        cars.add(new Car("jun",3));
 
         // When
-        outputManager.printCarStatus(carStatus);
+        outputManager.printCarStatus(cars);
         System.setOut(System.out);
 
         // Then
