@@ -53,6 +53,7 @@ public class Cars {
                 .max()
                 .orElse(0);
     }
+
     public List<Car> getCarsByPosition(int winnerPosition) {
         return cars.stream()
                 .filter(car -> car.getPosition() == winnerPosition)

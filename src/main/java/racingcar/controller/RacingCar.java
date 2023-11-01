@@ -16,7 +16,7 @@ public class RacingCar {
     private final TrialValidationService trialValidationService;
     private final WinnerCheckService winnerCheckService;
 
-    public RacingCar(){
+    public RacingCar() {
         inputView = new InputView();
         outputView = new OutputView();
         trialValidationService = new TrialValidationService();
@@ -24,7 +24,7 @@ public class RacingCar {
         racingService = new RacingService();
     }
 
-    public void startRacing(){
+    public void startRacing() {
         Cars cars = getCars();
         String trial = getTrial();
         for (int i = 0; i < Integer.parseInt(trial); i++) {
@@ -35,12 +35,12 @@ public class RacingCar {
         outputView.printWinners(winners);
     }
 
-    private Cars getCars(){
+    private Cars getCars() {
         String carNames = inputView.getCarNames();
         return Cars.from(carNames);
     }
 
-    private String getTrial(){
+    private String getTrial() {
         String trial = inputView.getTrial();
         trialValidationService.validateTrial(trial);
         return trial;

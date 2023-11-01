@@ -5,7 +5,8 @@ public class TrialValidationService {
         isBlank(input);
         isPositiveInteger(input);
     }
-    private void isBlank(String input){
+
+    private void isBlank(String input) {
         if (input.trim().isEmpty()) {
             throw new IllegalArgumentException("공백은 입력 불가");
         }
