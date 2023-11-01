@@ -1,20 +1,21 @@
 package racingcar;
 
-import racingcar.util.Range;
 import racingcar.util.RangedRandomNumberPicker;
 
 public class RandomRacingCarMovingStrategy implements RacingCarMovingStrategy {
 
-    private final int movingStandard;
+    private static final int MOVING_STANDARD = 4;
+    private static final int RANDOM_RANGE_START = 0;
+    private static final int RANDOM_RANGE_END = 9;
+
     private final RangedRandomNumberPicker rangedRandomNumberPicker;
 
-    public RandomRacingCarMovingStrategy(int movingStandard, Range randomNumberRange) {
-        this.movingStandard = movingStandard;
-        this.rangedRandomNumberPicker = new RangedRandomNumberPicker(randomNumberRange);
+    public RandomRacingCarMovingStrategy() {
+        this.rangedRandomNumberPicker = new RangedRandomNumberPicker(new Range(RANDOM_RANGE_START, RANDOM_RANGE_END));
     }
 
     @Override
     public boolean canMoveForward() {
-        return rangedRandomNumberPicker.pickNumber() >= movingStandard;
+        return rangedRandomNumberPicker.pickNumber() >= MOVING_STANDARD;
     }
 }
