@@ -24,11 +24,15 @@ public class OutputView {
 
     public static void printResult(List<Car> carList) {
         for (Car car : carList) {
-            System.out.print(car.getName() + " : ");
-            for (int i = 0; i < car.getPosition(); i++) {
-                System.out.print(ONE_STEP);
-            }
-            System.out.println();
+            printPosition(car);
+        }
+        System.out.println();
+    }
+
+    public static void printPosition(Car car) {
+        System.out.print(car.getName() + " : ");
+        for (int i = 0; i < car.getPosition(); i++) {
+            System.out.print(ONE_STEP);
         }
         System.out.println();
     }
