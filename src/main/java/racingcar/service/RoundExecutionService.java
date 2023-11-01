@@ -3,20 +3,19 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.RoundCount;
-import racingcar.domain.car.Car;
+import racingcar.domain.car.Cars;
 import racingcar.dto.RoundResultDto;
 
 public class RoundExecutionService {
-    private RoundResultDto executeRound(List<Car> cars) {
-        cars.forEach(Car::tryDrive);
-        return RoundResultDto.createFrom(cars);
+    private void executeRound(Cars cars) {
+        cars.tryDriveAll();
     }
 
-    public List<RoundResultDto> executeAllRounds(List<Car> participants, RoundCount roundCount) {
+    public List<RoundResultDto> executeAllRounds(Cars participants, RoundCount roundCount) {
         List<RoundResultDto> roundHistories = new ArrayList<>();
         while (roundCount.hasNextRound()) {
-            RoundResultDto roundResultDto = executeRound(participants);
-            roundHistories.add(roundResultDto);
+            executeRound(participants);
+            roundHistories.add(new RoundResultDto(participants.getStatusSnapShot()));
             roundCount.consumeRound();
         }
         return roundHistories;

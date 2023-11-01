@@ -8,7 +8,7 @@ public class RoundResultDto {
 
     private final List<CarStatusDto> roundResult;
 
-    private RoundResultDto(List<CarStatusDto> roundResult) {
+    public RoundResultDto(List<CarStatusDto> roundResult) {
         this.roundResult = roundResult;
     }
 
