@@ -23,8 +23,8 @@ public class ValidationTest {
         List<String> carNames = List.of(input.split(","));
         List<String> validCarNames = List.of(validInput.split(","));
 
-        assertThatThrownBy(() -> Validation.isDuplicateCarName(carNames));
-        assertThat(Validation.isDuplicateCarName(validCarNames)).isEqualTo(false);
+        assertThatThrownBy(() -> Validation.containDuplicateCarName(carNames));
+        assertThat(Validation.containDuplicateCarName(validCarNames)).isEqualTo(false);
     }
 
 }

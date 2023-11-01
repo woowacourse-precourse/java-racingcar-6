@@ -15,7 +15,7 @@ public class Validation {
         return true;
     }
 
-    public static boolean isDuplicateCarName(List<String> carNames) throws IllegalArgumentException {
+    public static boolean containDuplicateCarName(List<String> carNames) throws IllegalArgumentException {
         Set<String> carNameSet = new HashSet<>(carNames);
 
         if (carNameSet.size() != carNames.size()) {
