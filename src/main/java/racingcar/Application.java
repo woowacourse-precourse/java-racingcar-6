@@ -26,5 +26,14 @@ public class Application {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+
+        System.out.println("실행 결과");
+        for (int i = 0; i < numberofRepeat; i++) {
+            for (RacingCar car : racingCars) {
+                car.move(car.rollDice());
+                System.out.println(car.name + " : " + car.showMoveCount());
+            }
+            System.out.println();
+        }
     }
 }
