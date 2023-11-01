@@ -29,7 +29,7 @@ public class Car implements Comparable<Car> {
         return name + " : " + "-".repeat(progress);
     }
 
-    @Overridefeat
+    @Override
     public int compareTo(Car other) {
         return this.progress - other.progress;
     }
