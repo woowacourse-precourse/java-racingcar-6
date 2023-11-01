@@ -16,4 +16,30 @@ class InputHandlerTest {
         assertThat(result).extracting(Racer::getName).containsExactly("pobi", "woni", "jun");
     }
 
+    @Test
+    void validateInputForRacerCreation_ValidInput() {
+        InputHandler inputHandler = new InputHandler();
+        String[] names = {"pobi", "woni", "jun"};
+        assertThat(inputHandler.validateInputForRacerCreation(names)).isTrue();
+    }
+    @Test
+    void validateInputForRacerCreation_InvalidInput_OverLength() {
+        InputHandler inputHandler = new InputHandler();
+        String[] names = {"pobi", "wo", "javaji"};
+
+        assertThatThrownBy(() -> inputHandler.validateInputForRacerCreation(names))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름은 5자 이하만 가능합니다.");
+    }
+    @Test
+    void validateInputForRacerCreation_InvalidInput_InvalidChar() {
+        InputHandler inputHandler = new InputHandler();
+        String[] names = {"pobi", "w:o", "j6n"};
+
+        assertThatThrownBy(() -> inputHandler.validateInputForRacerCreation(names))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력은 한글, 알파벳, 쉼표만 포함해야 합니다.");
+    }
+
+
 }
