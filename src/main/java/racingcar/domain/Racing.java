@@ -15,15 +15,19 @@ public class Racing {
     }
 
     public void start() {
+        iterateEachTurn();
+        printEachTurn();
+        selectWinners();
+        printWinners();
+    }
+
+    private void iterateEachTurn() {
         for (int i = 0; i < turn; i++) {
             for (Car car : cars) {
                 car.move();
                 distanceRecord.add(car.getMovedDist());
             }
         }
-        printEachTurn();
-        selectWinners();
-        printWinners();
     }
 
     private void selectWinners() {
