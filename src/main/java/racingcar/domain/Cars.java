@@ -1,8 +1,6 @@
 package racingcar.domain;
 
 import racingcar.controller.dto.Result;
-import racingcar.policy.MovingPolicy;
-import racingcar.policy.NumberGeneratePolicy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +13,8 @@ public class Cars {
         this.cars = new ArrayList<>(cars);
     }
 
-    public Cars playGame(MovingPolicy movingPolicy, NumberGeneratePolicy numberGeneratePolicy) {
-        return new Cars(cars.stream().map(car -> car.move(movingPolicy, numberGeneratePolicy))
+    public Cars playGame(Rule rule) {
+        return new Cars(cars.stream().map(car -> car.move(rule))
                 .toList());
     }
 

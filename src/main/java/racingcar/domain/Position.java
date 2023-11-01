@@ -21,6 +21,10 @@ public class Position {
         return new Position(this.position + 1);
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
@@ -32,10 +36,6 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(position);
-    }
-
-    public int getPosition() {
-        return position;
     }
 
 }
