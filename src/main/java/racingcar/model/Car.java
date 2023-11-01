@@ -11,6 +11,9 @@ public class Car {
     private final String MIN_NAME_ERROR_MESSAGE = "자동차의 이름은 1글자 이상입니다.";
     private final String WHITESPACE_ERROR_MESSAGE = "이름에 공백없이 입력해주세요";
     public Car(String name) {
+        checkMaxNameLength(name);
+        checkMinNameLength(name);
+        checkWhitespace(name);
         this.name = name;
         this.distance = 0;
     }
