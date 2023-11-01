@@ -19,7 +19,8 @@
     - 사용자 입력 값에 대한 결과 출력
 - 상수 문자열 처리를 위한 *Constant.class* 를 생성한다.
 - 상수 문자열 파싱을 위한 *Parsing.class* 를 생성한다.
-
+- 크게 *Model*, *View*, *Controller*로 3개로 나누어 *MVC* 패턴으로 기능을 구현한다.
+  - *util*, *service* 등 *MVC*로 분류하기 어렵다면 디렉토리 경로를 분리한다.
 ## 📌 예외처리 목록
 
 #### 모든 예외는 IllegalArgumentException으로 처리한 후 Application을 종료한다.
