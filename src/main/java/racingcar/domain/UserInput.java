@@ -9,11 +9,11 @@ public class UserInput {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNameString = Console.readLine();
 
-        // 자동차 이름이 5자 이상일 경우 IllegalArgumentException
+        // 자동차 이름이 5자 이상 OR 빈 값 일 경우 IllegalArgumentException
         String[] carNameArray = carNameString.split(",");
         for (String carName : carNameArray) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
+            if (carName.length() > 5 || carName.isEmpty()) {
+                throw new IllegalArgumentException("자동차의 이름은 1자 이상, 5자 이하여야 합니다.");
             }
         }
 

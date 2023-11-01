@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 class ApplicationTest extends NsTest {
-    private static final String inputCarNameString = "car1,car2,car3";
+
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
@@ -62,6 +62,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 입력한_자동차_이름_저장() {
+        String inputCarNameString = "car1,car2,car3";
         Map<String, String> carMap = race.saveCarMap(inputCarNameString);
 
         Assertions.assertEquals(3, carMap.size());
