@@ -15,11 +15,11 @@ public class RacingGameController {
     }
 
     public void play() {
-        List<String> carNames = view.getCarNames();
+        List<String> carNames = view.insertCarNames();
         Cars cars = Cars.createCarsUsingCarNames(carNames);
         RacingGame racingGame = new RacingGame(cars);
 
-        int raceCount = view.getRaceCount();
+        int raceCount = view.insertRaceCount();
         RacingGameStatus racingGameStatus = racingGame.race(raceCount);
 
         view.showRacingGameStatus(racingGameStatus);

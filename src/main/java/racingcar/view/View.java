@@ -13,12 +13,12 @@ public class View {
         this.outputView = outputView;
     }
 
-    public List<String> getCarNames() {
+    public List<String> insertCarNames() {
         outputView.requestCarNames(inputView.getDelimiterDescription(), inputView.getDelimiter());
         return inputView.enterCarNames();
     }
 
-    public int getRaceCount() {
+    public int insertRaceCount() {
         outputView.requestRaceCount();
         return inputView.enterRaceCount();
     }
