@@ -122,4 +122,16 @@ public class InputTest {
             assertEquals(INVALID_TRY_NUMBER_RANGE_MESSAGE, illegalArgumentException.getMessage());
         }
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"car1, car2, car2, car3"})
+    void canProcessDuplicateCarName(String userInput) {
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getCarName();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            assertEquals(INVALID_DUPLICATE_CAR_NAME_RANGE_MESSAGE, illegalArgumentException.getMessage());
+        }
+    }
 }
