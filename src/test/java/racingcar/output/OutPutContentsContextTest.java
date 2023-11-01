@@ -28,7 +28,7 @@ class OutPutContentsContextTest {
     assertThat(outPutContents.getRoundContents().getContents().get(0)).isEqualTo("a : -\nb : -\nc : -");
     assertThat(outPutContents.getRoundContents().getContents().get(1)).isEqualTo("a : -\nb : -\nc : --");
     assertThat(outPutContents.getRoundContents().getContents().get(2)).isEqualTo("a : -\nb : -\nc : --");
-    assertThat(outPutContents.getFinalWinnerContents().getFinalWinnerContents()).isEqualTo("최종 우승자: c");
+    assertThat(outPutContents.getFinalWinnerContents().getFinalWinnerContents()).isEqualTo("최종 우승자 : c");
   }
 
   @DisplayName("우승자가 한 명 이상일 때")

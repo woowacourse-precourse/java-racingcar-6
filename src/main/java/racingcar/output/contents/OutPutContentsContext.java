@@ -21,7 +21,7 @@ public class OutPutContentsContext {
     List<String> carNames = totalRoundRecord.getCarNames();
     List<String> list = new ArrayList<>();
     RoundContents roundContents = createRoundContents(eachRoundRecord, carNames, list);
-    FinalWinnerContents finalWinnerContents = creteWinnerContents(winners, "최종 우승자: ");
+    FinalWinnerContents finalWinnerContents = creteWinnerContents(winners, "최종 우승자 : ");
 
     return OutPutContents.of(roundContents, finalWinnerContents);
   }
