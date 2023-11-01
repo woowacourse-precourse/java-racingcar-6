@@ -8,7 +8,7 @@ public class RacingGame {
     String[] names;
     int num;
     private int carnum;
-    private ArrayList<Car> cars;
+    private ArrayList<Car> cars, winners;
 
     public RacingGame() {
         progress();
@@ -74,6 +74,15 @@ public class RacingGame {
     private void moveCar() {
         for (Car car : cars) {
             car.move();
+        }
+    }
+    private void printGameWinner() {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i).getName());
+            if (i != winners.size() - 1) {
+                System.out.print(", ");
+            }
         }
     }
 }
