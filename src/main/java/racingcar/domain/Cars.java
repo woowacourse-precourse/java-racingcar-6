@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import racingcar.util.ExceptionMessage;
 
@@ -25,5 +26,9 @@ public class Cars {
 
     public void move() {
         cars.forEach(Car::tryMove);
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 }

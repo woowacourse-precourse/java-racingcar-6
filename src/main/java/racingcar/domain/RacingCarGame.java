@@ -3,60 +3,56 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
+import racingcar.dto.CarPositionResponse;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.util.CarFactory;
 
 public class RacingCarGame {
 
-    private List<Car> cars = new ArrayList<>();
+    private static OutputView outputView;
+
+    public RacingCarGame() {
+        outputView = new OutputView();
+    }
 
     public void play() {
-        this.cars = CarFactory.generate(InputView.inputCarNames());
+        Cars cars = CarFactory.generate(InputView.inputCarNames());
         TryCount tryCount = InputView.inputTryCount();
-
         OutputView.printExecutionResultMessage();
 
+        List<List<CarPositionResponse>> executionResults = new ArrayList<>();
+
         for (int i = 0; i < tryCount.getTryCount(); i++) {
-            moveRacingCar();
-            printExecutionResult();
+            cars.move();
+
+            List<CarPositionResponse> executionResult = cars.getCars().stream()
+                    .map(CarPositionResponse::create)
+                    .collect(Collectors.toList());
+            executionResults.add(executionResult);
         }
-
-        printFinalResult();
+        outputView.printExecutionResults(executionResults);
+        printFinalResult(cars.getCars());
     }
 
-    private void moveRacingCar() {
-        for (Car car : this.cars) {
-            car.tryMove();
-        }
-    }
-
-    private void printExecutionResult() {
-        Map<String, Integer> executionResultMap = cars.stream()
-                .collect(Collectors.toMap(Car::getName, Car::getPosition));
-
-        OutputView.printExecutionResult(executionResultMap);
-    }
-
-    private void printFinalResult() {
+    private void printFinalResult(List<Car> cars) {
 
         List<String> winnerNames = new ArrayList<>();
 
-        this.cars = this.cars.stream()
+        cars = cars.stream()
                 .sorted(Comparator.comparing(Car::getPosition).reversed())
                 .collect(Collectors.toList());
 
-        int maxMoveCounts = this.cars.get(0).getPosition();
+        int maxMoveCounts = cars.get(0).getPosition();
 
-        for(Car car : this.cars) {
+        for(Car car : cars) {
             if (car.getPosition() == maxMoveCounts) {
                 winnerNames.add(car.getName());
                 continue;
             }
             break;
         }
-        OutputView.printFinalResult(winnerNames);
+        outputView.printFinalResult(winnerNames);
     }
 }
