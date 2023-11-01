@@ -5,5 +5,6 @@ public class Application {
         RacingGame racingGame = new RacingGame();
         racingGame.race();
         racingGame.result();
+        racingGame.close();
     }
 }

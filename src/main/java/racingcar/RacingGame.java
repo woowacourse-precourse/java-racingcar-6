@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,6 @@ public class RacingGame {
 
     public void race() {
         int roundNumber = 0;
-
         view.showRaceResultHeader();
 
         while (roundNumber < raceCount) {
@@ -57,5 +57,9 @@ public class RacingGame {
     private List<String> acceptApplicants() {
         String carNames = view.showApplicantView();
         return List.of(carNames.split(","));
+    }
+
+    public void close() {
+        Console.close();
     }
 }
