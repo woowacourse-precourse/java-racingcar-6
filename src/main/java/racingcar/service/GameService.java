@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Racing;
 import racingcar.view.OutputView;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public class GameService {
 
     private static List<String> carNameList;
     private static int numberOfTry;
-
+    private static Racing racing = new Racing();
 
     public static void startGame(){
         OutputView.printStartCarNameMessage();
@@ -22,7 +23,13 @@ public class GameService {
     }
 
     public static void playGame(){
+        OutputView.printGameResultMessage();
+        racing.updateCarList(carNameList);
 
+        for (int i = 0; i < numberOfTry; i++) {
+            racing.executingGame(racing.carList);
+            OutputView.printExecutionMessage(racing.carList);
+        }
     }
 
     public static void endGmae(){
