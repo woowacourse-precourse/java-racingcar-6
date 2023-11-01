@@ -8,8 +8,8 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 class Game {
-    private static final int MAX_RANDOM_NUMBER = 0;
-    private static final int MIN_RANDOM_NUMBER = 9;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
     private static final int MORE_THAN_FOUR = 4;
     static ArrayList<String> carsNames = new ArrayList<String>();
     private static final String GET_CARS_NAMES_MESSAGE = "경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)";
