@@ -36,10 +36,10 @@
   - 0 이상의 정수
 
 ### 2) 값 검증 Validator
-- [ ] 자동차 이름 값을 검증하는 기능 - validateCarName(String carName)
-  - [ ] 빈 문자열이 아니어야 함
-  - [ ] 길이가 5 이하여야 함
-  - [ ] 앞 뒤에 공백이 없어야 함
+- [x] 자동차 이름 값을 검증하는 기능 - validateCarName(String carName)
+  - [x] 빈 문자열이 아니어야 함
+  - [x] 앞 뒤에 공백이 없어야 함
+  - [x] 길이가 5 이하여야 함
 - [ ] 자동차 이름 배열을 검증하는 기능 - validateCarNames(List<String> carNames)
   - [ ] 중복 이름이 없어야 함
 - [ ] 횟수 값을 검증하는 기능 - validateRound(Integer round)
