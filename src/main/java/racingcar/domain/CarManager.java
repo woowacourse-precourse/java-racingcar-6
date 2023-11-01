@@ -19,7 +19,7 @@ public class CarManager {
     }
 
     public void orderCarsMoveForward() {
-
+        cars.forEach(Car::moveForward);
     }
 
 }
