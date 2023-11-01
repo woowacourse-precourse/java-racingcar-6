@@ -30,4 +30,9 @@ public class Car {
     public int getPosition() {
         return carPosition.getPosition();
     }
+
+    @Override
+    public String toString() {
+        return carName.getName() + " : " + "-".repeat(carPosition.getPosition());
+    }
 }

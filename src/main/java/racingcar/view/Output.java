@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import racingcar.domain.Cars;
 import racingcar.domain.Winner;
 
 public class Output {
@@ -10,6 +11,10 @@ public class Output {
 
     public static void printRoundInputMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    public static void printCars(final Cars cars) {
+        System.out.println(cars);
     }
 
     public static void printWinners(final Winner winner) {

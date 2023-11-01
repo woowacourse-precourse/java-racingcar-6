@@ -18,6 +18,7 @@ public class Game {
     public void play(final MovingStrategy movingStrategy) {
         while (round.canPlay()) {
             cars.moveAll(movingStrategy);
+            Output.printCars(cars);
             round.nextRound();
         }
         Output.printWinners(Winner.createFrom(cars));
