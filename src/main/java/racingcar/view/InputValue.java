@@ -2,11 +2,14 @@ package racingcar.view;
 
 import racingcar.exception.Validator;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputValue {
 
-    public static String[] getRacingCarsNames() {
+    public static List<String> getRacingCarsNames() {
 
         String input = getInputValue();
 
@@ -14,7 +17,7 @@ public class InputValue {
 
         Validator.character_check(input);
 
-        String[] names = stringToStringArr(input);
+        List<String> names = stringToStringArr(input);
 
         Validator.name_size_check(names);
 
@@ -39,7 +42,7 @@ public class InputValue {
         return input.replaceAll(" ", "");
     }
 
-    private static String[] stringToStringArr(String input) {
-        return input.split(",");
+    private static List<String> stringToStringArr(String input) {
+        return Arrays.stream(input.split(",")).toList();
     }
 }

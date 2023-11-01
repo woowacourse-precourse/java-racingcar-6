@@ -5,6 +5,8 @@ import racingcar.service.GameService;
 import racingcar.view.InputValue;
 import racingcar.view.OutputValue;
 
+import java.util.List;
+
 
 public class GameController {
 
@@ -24,7 +26,7 @@ public class GameController {
 
         OutputValue.getNamesMessage();
 
-        String[] result = InputValue.getRacingCarsNames();
+        List<String> result = InputValue.getRacingCarsNames();
 
         racingCars.setCars(result);
 

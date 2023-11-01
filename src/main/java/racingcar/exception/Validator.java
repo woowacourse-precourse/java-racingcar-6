@@ -1,25 +1,26 @@
 package racingcar.exception;
 
 import java.util.HashSet;
+import java.util.List;
 
 public class Validator {
 
     Validator() {};
 
-    public static void name_size_check(String[] names) {
-        for(int i = 0; i < names.length; i++) {
-            name_size_over(names[i]);
+    public static void name_size_check(List<String> names) {
+        for(int i = 0; i < names.size(); i++) {
+            name_size_over(names.get(i));
         }
     }
 
-    public static void name_duplication_check(String[] names) {
+    public static void name_duplication_check(List<String> names) {
         HashSet<String> set = new HashSet<>();
 
-        for(int i = 0; i < names.length; i++) {
-            set.add(names[i]);
+        for(int i = 0; i < names.size(); i++) {
+            set.add(names.get(i));
         }
 
-        if(names.length != set.size()) throw new IllegalArgumentException(ErrorCode.DUPLICATION_NAME.getMessage());
+        if(names.size() != set.size()) throw new IllegalArgumentException(ErrorCode.DUPLICATION_NAME.getMessage());
     }
 
     public static void name_null_check(String input) {

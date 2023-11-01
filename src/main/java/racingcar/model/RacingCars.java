@@ -13,7 +13,7 @@ public class RacingCars {
     public RacingCars() {}
 
 
-    public void setCars(String[] names) {
+    public void setCars(List<String> names) {
         for(String name : names)
             cars.add(new Car(name));
     }

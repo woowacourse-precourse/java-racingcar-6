@@ -2,20 +2,24 @@ package racingcar.exception;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ValidatorTest {
 
     @Test
     void 자동차_이름이_5자리를_초과하면_예외발생() {
-        assertThatThrownBy(() -> Validator.name_size_check(new String[]{"abcdef"}))
+        assertThatThrownBy(() -> Validator.name_size_check(new ArrayList<String>(Arrays.asList("abcdef"))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorCode.OVER_NAME_SIZE.getMessage());
     }
 
     @Test
     void 자동차_이름이_중복되면_예외발생() {
-        assertThatThrownBy(() -> Validator.name_duplication_check(new String[]{"hello", "hello"}))
+        assertThatThrownBy(() -> Validator.name_duplication_check(new ArrayList<String>(Arrays.asList("abc", "abc"))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorCode.DUPLICATION_NAME.getMessage());
     }
