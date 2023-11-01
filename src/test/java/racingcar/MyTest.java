@@ -62,7 +62,7 @@ class MyTest extends NsTest {
              MockedStatic<Randoms> random = mockStatic(Randoms.class)) {
             when(Console.readLine()).thenReturn("방장,유저1,유저2", "3");
             when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(4, 4, 3, 4, 4, 3, 4, 3, 4);
-            Game game = new Game();
+            Application game = new Application();
             game.gameStart();
         }
         assertThat(output()).contains("방장 : -", "유저1 : -", "유저2 : ", "방장 : --", "유저1 : --", "유저2 : ", "방장 : ---",
@@ -76,7 +76,7 @@ class MyTest extends NsTest {
              MockedStatic<Randoms> random = mockStatic(Randoms.class)) {
             when(Console.readLine()).thenReturn("유저1,유저2,유저3", "3");
             when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(4);
-            Game game = new Game();
+            Application game = new Application();
             game.gameStart();
         }
         assertThat(output()).contains("유저1 : -", "유저2 : -", "유저3 : -", "유저1 : --", "유저2 : --", "유저3 : --", "유저1 : ---",
@@ -89,7 +89,7 @@ class MyTest extends NsTest {
         assertThatThrownBy(() -> {
             try (MockedStatic<Console> console = mockStatic(Console.class)) {
                 when(Console.readLine()).thenReturn("이름1,이름2,이름3", "숫자가아닙니다.");
-                Game game = new Game();
+                Application game = new Application();
             }
         })
                 .isInstanceOf(IllegalArgumentException.class)
@@ -101,7 +101,7 @@ class MyTest extends NsTest {
         assertThatThrownBy(() -> {
             try (MockedStatic<Console> console = mockStatic(Console.class)) {
                 when(Console.readLine()).thenReturn("중복,중복,중복", "3");
-                Game game = new Game();
+                Application game = new Application();
             }
         })
                 .isInstanceOf(IllegalArgumentException.class)
