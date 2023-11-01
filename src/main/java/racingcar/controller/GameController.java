@@ -22,7 +22,7 @@ public class GameController {
         while (tryCount-- > 0) {
             for (Car car: carsList) {
                 GameNumber gameNumber = new GameNumber();
-                int length = car.checkProcess(gameNumber.getRandomNumber());
+                int length = car.checkProcess(gameNumber.generateRandomNumber());
                 String process = makeProcessBar(length);
                 System.out.println(car.getName() + " : " + process);
             }
