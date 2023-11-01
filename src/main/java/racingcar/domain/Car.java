@@ -2,44 +2,47 @@ package racingcar.domain;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
+import racingcar.domain.wrapper.CarDistance;
 import racingcar.domain.wrapper.CarName;
 
 public class Car {
+    private static final int MIN_RANDOM_NUMBER = 1;
+    private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int MIN_MOVE_NUMBER = 4;
     private final CarName name;
-    private int movedDistance;
-    private Car(CarName name) {
-        this.name = name;
-        this.movedDistance = 0;
+    private final CarDistance movedDistance;
+    private Car(String name) {
+        this.name = CarName.create(name);
+        this.movedDistance = CarDistance.create();
     }
     public static Car create(String name) {
-        CarName carName = CarName.create(name);
-        return new Car(carName);
+        return new Car(name);
     }
 
     public int getMovedDistance() {
-        return movedDistance;
+        return movedDistance.getCarDistance();
     }
 
     public void tryMove() {
-        if (pickNumberInRange(1, 9) >= 4) {
-            move();
+        if (pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= MIN_MOVE_NUMBER) {
+            moveForward();
         }
     }
 
-    public CarName getName() {
-        return name;
+    public String getName() {
+        return name.getCarName();
     }
 
     public String getCarInfo() {
         StringBuilder builder = new StringBuilder();
         builder.append(this.name.getCarName());
         builder.append(" : ");
-        builder.append("-".repeat(Math.max(0, this.movedDistance)));
+        builder.append("-".repeat(Math.max(0, getMovedDistance())));
         return builder.toString();
     }
 
-    private void move() {
-        ++this.movedDistance;
+    private void moveForward() {
+        movedDistance.increment();
     }
 
 }
