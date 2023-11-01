@@ -27,27 +27,18 @@ public class OutputView {
     }
 
     //최종 우승자 출력(중복가능)
-    public String printWinner(List<CarDto> carDistanceList) {
-        StringBuilder winner = new StringBuilder();
-        winner.append("최종 우승자 : ");
-        int max = 0;
-        int tieWinnerCount = 0;
-        for (CarDto carDto : carDistanceList) {
-            if (max < carDto.getMovedDistance()) {
-                max = carDto.getMovedDistance();
-                tieWinnerCount++;
-            }
-        }
-
-        for (CarDto carDto : carDistanceList) {
-            if (max == carDto.getMovedDistance()) {
-                winner.append(carDto.getCarName()+", ");
-            }
-        }
-        winner.substring(0,winner.length());
-
-        System.out.println(winner.substring(0,winner.length()-2));
-        return winner.toString().substring(0,winner.length()-2);
+    public String printWinner(List<String> winners) {
+        StringBuilder result = new StringBuilder();
+        result.append("최종 우승자 : ");
+        appendWinner(result, winners);
+        String formattedResult = result.substring(0,result.length()-2);
+        System.out.println(formattedResult);
+        return formattedResult;
     }
 
+    private void appendWinner(StringBuilder result, List<String> winners) {
+        for (String winner : winners) {
+            result.append(winner+", ");
+        }
+    }
 }
