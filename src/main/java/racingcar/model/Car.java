@@ -39,7 +39,7 @@ public class Car {
         }
     }
 
-    public CarState summarizeCurrentState() {
+    public CarState summarizeState() {
         return new CarState(this.name, this.forwardCount);
     }
 }

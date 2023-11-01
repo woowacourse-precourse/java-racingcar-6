@@ -27,7 +27,7 @@ public class CarsTest {
 
         cars.move();
 
-        assertThat(cars.collectAllCurrentState())
+        assertThat(cars.collectAllState())
                 .allMatch(state -> state.forwardCount() == expectedForwardCount);
     }
 }

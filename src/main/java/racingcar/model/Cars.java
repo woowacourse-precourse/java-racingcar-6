@@ -22,9 +22,9 @@ public class Cars {
                 .toList();
     }
 
-    public List<CarState> collectAllCurrentState() {
+    public List<CarState> collectAllState() {
         return cars.stream()
-                .map(Car::summarizeCurrentState)
+                .map(Car::summarizeState)
                 .toList();
     }
 

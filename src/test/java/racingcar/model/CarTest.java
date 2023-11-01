@@ -22,7 +22,7 @@ public class CarTest {
     void 전진횟수의_기본값은_0이다() {
         Car car = new Car("test");
 
-        CarState state = car.summarizeCurrentState();
+        CarState state = car.summarizeState();
 
         assertThat(state.forwardCount()).isEqualTo(0);
     }
@@ -33,7 +33,7 @@ public class CarTest {
         Car car = new Car("test", new CustomIntGenerator(pickedNumber));
 
         car.tryForward();
-        CarState state = car.summarizeCurrentState();
+        CarState state = car.summarizeState();
 
         assertThat(state.forwardCount()).isEqualTo(expectedForwardCount);
     }
@@ -43,7 +43,7 @@ public class CarTest {
         Car car = new Car("test");
         CarState expectedState = new CarState("test", 0);
 
-        CarState actualState = car.summarizeCurrentState();
+        CarState actualState = car.summarizeState();
 
         assertThat(actualState).isEqualTo(expectedState);
     }
