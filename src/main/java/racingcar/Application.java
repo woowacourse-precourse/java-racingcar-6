@@ -8,7 +8,7 @@ import java.util.Map;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println(getCar().toString());
+        race();
     }
 
     public static String[] getCar() {
@@ -38,14 +38,32 @@ public class Application {
         }
 
         int count = getCount();
+        System.out.println();
+        System.out.println("실행 결과");
         for (int i = 0; i < count; i++) {
             //TODO: 들여쓰기!!!!
             for (int j = 0; j < cars.size(); j++) {
                 if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                    //TODO: Integer형 말고 Stringbuilder로 해보기 - for문을 줄일 수 있을듯!
                     cars.put(carNames[j], cars.get(carNames[j]) + 1);
                 }
             }
+            printCarRacing();
         }
+    }
+
+    public static void printCarRacing() {
+        int size = cars.size();
+        String[] carName = cars.keySet().toArray(new String[size]);
+        for (int i = 0; i < size; i++) {
+            System.out.print(carName[i] + " : ");
+            //TODO: 들여쓰기!!!!
+            for (int j = 0; j < cars.get(carName[i]); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
 }
