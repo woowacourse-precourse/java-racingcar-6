@@ -1,5 +1,6 @@
 package racingcar.Domain;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
@@ -29,6 +30,19 @@ public class Racing {
                 System.out.print("-");
             }
             System.out.println("\n");
+        }
+    }
+
+    public void attemptsNumberInput() {
+        System.out.print("시도할 회수는 몇회인가요?\n");
+        String attemptsNumber = Console.readLine().trim();
+
+        validateFormat(attemptsNumber);
+    }
+
+    private void validateFormat(String attemptsNumber) {
+        if (!attemptsNumber.matches("^[1-9]\\d*$")) {
+            throw new IllegalArgumentException();
         }
     }
 }
