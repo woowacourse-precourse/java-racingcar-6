@@ -15,4 +15,12 @@ public class CarDistanceMessage {
         return message;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof  CarDistanceMessage carDistanceMessage) {
+            return message.equals(carDistanceMessage.message);
+        }
+        return false;
+    }
+
 }
