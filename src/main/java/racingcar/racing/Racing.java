@@ -11,11 +11,14 @@ import java.util.Set;
 public class Racing {
 
     private static final String ERROR_DUPLICATE_CAR_NAME_EXIST = "중복된 이름이 존재합니다.";
+    private static final String ERROR_ROUND_NUMBER_MUST_POSITIVE = "라운드수는 양수여야 합니다.";
+
     private final List<Car> cars;
     private final int roundNumber;
 
     public Racing(List<Car> cars, int roundNumber) {
         validateIsDuplicateCarNameExist(cars);
+        validateIsPositive(roundNumber);
         this.cars = cars;
         this.roundNumber = roundNumber;
     }
@@ -81,6 +84,12 @@ public class Racing {
         Set<String> carNames = getCarNames(cars);
         if (carNames.size() != cars.size()) {
             throw new IllegalArgumentException(ERROR_DUPLICATE_CAR_NAME_EXIST);
+        }
+    }
+
+    private void validateIsPositive(int roundNumber) {
+        if (roundNumber <= 0) {
+            throw new IllegalArgumentException(ERROR_ROUND_NUMBER_MUST_POSITIVE);
         }
     }
 

@@ -12,7 +12,6 @@ public class InputView {
     private static final String ASK_ROUND_NUMBER = "시도할 회수는 몇회인가요?";
     private static final String COMMA = ",";
     private static final String ERROR_INPUT_MUST_NUMBER = "입력값은 숫자여야 합니다.";
-    private static final String ERROR_INPUT_MUST_POSITIVE = "입력값은 양수여야 합니다.";
 
 
     private final Supplier<String> inputReader;
@@ -35,9 +34,7 @@ public class InputView {
     public int askRoundNumber() {
         println(ASK_ROUND_NUMBER);
         String roundNumberInput = inputReader.get();
-        int roundNumber = toInteger(roundNumberInput);
-        validateIsPositive(roundNumber);
-        return roundNumber;
+        return toInteger(roundNumberInput);
     }
 
     private int toInteger(String string) {
@@ -48,11 +45,6 @@ public class InputView {
         }
     }
 
-    private void validateIsPositive(int roundNumber) {
-        if (roundNumber <= ZERO) {
-            throw new IllegalArgumentException(ERROR_INPUT_MUST_POSITIVE);
-        }
-    }
 
     private void println(String message) {
         System.out.println(message);

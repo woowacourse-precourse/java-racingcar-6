@@ -82,4 +82,11 @@ class RacingTest {
         assertThatThrownBy(() -> new Racing(List.of(car, duplicateNameCar), 5))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("레이싱은 라운드가 0 이하인 경우 예외를 던진다")
+    void racing_throw_exception_when_round_number_is_zero_or_negative() {
+        assertThatThrownBy(() -> new Racing(List.of(moveEveryTimeCar, stoppedCar), 0))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
