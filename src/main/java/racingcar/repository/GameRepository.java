@@ -14,10 +14,9 @@ public class GameRepository {
 
 
     public Long save(Game game){
-        Long Id = id;
         games.put(id,game);
         id += 1;
-        return Id;
+        return id;
     }
 
     public Game findById(Long id){
