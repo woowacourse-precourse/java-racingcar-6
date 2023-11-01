@@ -15,6 +15,7 @@ public class RacingController {
 
     int attempts = 0;
     int maxPosition = 0;
+    public static final String PRINT_COMMA = ",";
 
     List<String> carNames = new ArrayList<>();
     List<String> winners = new ArrayList<>();
@@ -28,13 +29,14 @@ public class RacingController {
             PrintRacingCar();
             System.out.println();
         }
+
         PrintWinners();
     }
 
     public void InputCarsByUser() {
         InputView.inputCars();
         String inputCars = Console.readLine();
-        carNames = List.of(inputCars.split(","));
+        carNames = List.of(inputCars.split(PRINT_COMMA));
         exception.CarNameException(carNames);
 
         racingCars = new RacingCars(carNames);
@@ -64,7 +66,7 @@ public class RacingController {
         JudgeWinners();
 
         OutputView.printWinners();
-        System.out.println(String.join(", ", winners));
+        System.out.println(String.join(PRINT_COMMA + " ", winners));
     }
 
     public void FindMaxPosition() {
