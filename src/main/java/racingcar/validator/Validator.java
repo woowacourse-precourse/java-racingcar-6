@@ -18,6 +18,10 @@ public class Validator {
         }
     }
 
+    public static boolean isNumberic(String input){
+        return input.chars().allMatch(Character::isDigit);
+    }
+
     public static boolean isFiveOrLessCharacter(List<String> names) {
         return names.stream().allMatch(name -> name.length() <= 5);
     }
