@@ -17,7 +17,7 @@ public class GameInputView {
     public static List<String> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
         String[] carNames = Console.readLine().split(CAR_NAME_DELIMITER);
-        validateAllStringsFiveOrLess(carNames);
+        validateAllCarNamesFiveOrLess(carNames);
         return Arrays
                 .stream(carNames)
                 .toList();
@@ -27,9 +27,9 @@ public class GameInputView {
         return -1;
     }
 
-    private static void validateAllStringsFiveOrLess(String... strings) {
+    private static void validateAllCarNamesFiveOrLess(String... carNames) {
         boolean existsOverFive = Arrays
-                .stream(strings)
+                .stream(carNames)
                 .anyMatch(s -> s.length() > 5);
         if (existsOverFive) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH.getMessage());
