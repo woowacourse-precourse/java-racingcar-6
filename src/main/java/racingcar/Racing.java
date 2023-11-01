@@ -8,10 +8,10 @@ import java.util.StringTokenizer;
 
 public class Racing {
     private int tryNumber;
-    private List<Car> car;
+    private List<Car> cars;
 
     public Racing() {
-        this.car = new ArrayList<>();
+        this.cars = new ArrayList<>();
     }
 
     public int getTryNumber() {
@@ -21,6 +21,20 @@ public class Racing {
     public void start() {
         carSetting();
         setTryNumber();
+        playing();
+    }
+
+    private void playing() {
+        while (this.tryNumber > 0) {
+            carMove();
+            this.tryNumber--;
+        }
+    }
+
+    private void carMove() {
+        for (Car car : cars) {
+            car.move();
+        }
     }
 
     private void setTryNumber() {
@@ -38,7 +52,7 @@ public class Racing {
         StringTokenizer stringTokenizer = new StringTokenizer(Console.readLine(), ",");
 
         while (stringTokenizer.hasMoreTokens()) {
-            car.add(new Car(stringTokenizer.nextToken()));
+            cars.add(new Car(stringTokenizer.nextToken()));
         }
     }
 }
