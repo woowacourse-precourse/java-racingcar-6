@@ -1,12 +1,15 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.NumberGenerator;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -29,6 +32,24 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 랜덤_숫자_추출() {
+        int minNum = 0;
+        int maxNum = 9;
+        boolean checkRandomNumFlag;
+
+        int randomNumberInRange = NumberGenerator.getRandomNumberInRange(minNum, maxNum);
+
+        if (randomNumberInRange >= minNum && randomNumberInRange <= maxNum) {
+            checkRandomNumFlag = true;
+        } else {
+            checkRandomNumFlag = false;
+        }
+
+        // 범위 내에 있는 숫자이면 통과
+        Assertions.assertTrue(checkRandomNumFlag);
     }
 
     @Override
