@@ -17,7 +17,7 @@ class RandomMovingCarsTest {
 
         assertThatThrownBy(() -> new Cars(Cars))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(IllegalArgumentExceptionType.EMPTY_CARS_ERROR_MESSAGE.getMessage());
+                .hasMessage(IllegalArgumentExceptionType.EMPTY_CARS_ERROR.getMessage());
     }
 
     @DisplayName("중복_차량_이름으로_객체_생성_실패_테스트")
@@ -30,7 +30,7 @@ class RandomMovingCarsTest {
 
         assertThatThrownBy(() -> new Cars(Cars))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(IllegalArgumentExceptionType.DUPLICATED_CARS_ERROR_MESSAGE.getMessage());
+                .hasMessage(IllegalArgumentExceptionType.DUPLICATED_CARS_ERROR.getMessage());
 
     }
 

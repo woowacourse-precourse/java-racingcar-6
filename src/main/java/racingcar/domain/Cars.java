@@ -26,14 +26,14 @@ public final class Cars {
 
     private void validateCarsAmount() {
         if (cars.isEmpty()) {
-            throw IllegalArgumentExceptionType.EMPTY_CARS_ERROR_MESSAGE.getException();
+            throw IllegalArgumentExceptionType.EMPTY_CARS_ERROR.getException();
         }
     }
 
     private void validateDuplicatedCarNames() {
         Set<String> carNameSet = getCarNameSet();
         if (carNameSet.size() != cars.size()) {
-            throw IllegalArgumentExceptionType.DUPLICATED_CARS_ERROR_MESSAGE.getException();
+            throw IllegalArgumentExceptionType.DUPLICATED_CARS_ERROR.getException();
         }
     }
 

@@ -55,12 +55,9 @@ class InputViewTest {
     void tryAmountInputFailTest() {
         String koreanThree = "삼";
         setUp(new String[]{koreanThree});
-        IllegalArgumentException exception = IllegalArgumentExceptionType
-                .PARSE_INT_ERROR_MESSAGE
-                .getException();
 
         assertThatThrownBy(() -> inputView.readAttemptCount())
-                .isInstanceOf(exception.getClass())
-                .hasMessage(exception.getMessage());
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(IllegalArgumentExceptionType.PARSE_INT_ERROR.getMessage());
     }
 }

@@ -34,7 +34,7 @@ public class RacingGameState {
 
     private void validateIsGameEnd() {
         if (!isEnd) {
-            throw IllegalStateExceptionType.GAME_NOT_ENDED_MESSAGE.getException();
+            throw IllegalStateExceptionType.GAME_NOT_ENDED.getException();
         }
     }
 

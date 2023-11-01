@@ -71,12 +71,8 @@ class OutputViewTest {
     @DisplayName("최종_우승자_출력_실패_테스트")
     @Test
     void finalWinnerOutputFailTest() {
-        IllegalStateException exception = IllegalStateExceptionType
-                .GAME_NOT_ENDED_MESSAGE
-                .getException();
-
         assertThatThrownBy(() -> outputView.printWinners(playingRacingGameState))
-                .isInstanceOf(exception.getClass())
-                .hasMessage(exception.getMessage());
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage(IllegalStateExceptionType.GAME_NOT_ENDED.getMessage());
     }
 }

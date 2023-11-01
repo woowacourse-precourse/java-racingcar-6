@@ -32,7 +32,7 @@ class RacingGameTest {
     void minimumAttemptFailTest() {
         assertThatThrownBy(() -> new RacingGame(cars, ZERO_ATTEMPT))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(IllegalArgumentExceptionType.ATTEMPT_COUNT_INIT_ERROR_MESSAGE.getMessage());
+                .hasMessage(IllegalArgumentExceptionType.ATTEMPT_COUNT_INIT_ERROR.getMessage());
     }
 
     @DisplayName("게임_진행_성공_테스트")
@@ -54,15 +54,10 @@ class RacingGameTest {
         RacingGame racingGame = new RacingGame(cars, ONE_ATTEMPT);
         racingGame.proceed();
 
-        IllegalStateException noMoreAttemptException = IllegalStateExceptionType
-                .NO_MORE_ATTEMPT_MESSAGE
-                .getException();
-
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThatThrownBy(racingGame::proceed)
-                .isInstanceOf(noMoreAttemptException.getClass())
-                .hasMessage(noMoreAttemptException.getMessage());
-
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage(IllegalStateExceptionType.NO_MORE_ATTEMPT.getMessage());
         softAssertions.assertAll();
     }
 

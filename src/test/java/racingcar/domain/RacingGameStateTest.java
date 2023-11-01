@@ -1,8 +1,5 @@
 package racingcar.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,12 +40,11 @@ class RacingGameStateTest {
     @DisplayName("진행중_게임_승자_조회_실패_테스트")
     @Test
     void playingGamesWinnerCheckFailTest() {
-        IllegalStateException gameNotEndedException = IllegalStateExceptionType.GAME_NOT_ENDED_MESSAGE
-                .getException();
-
-        assertThat(playingRacingGameState.isEnd()).isEqualTo(false);
-        assertThatThrownBy(playingRacingGameState::getWinnersName)
-                .isInstanceOf(gameNotEndedException.getClass())
-                .hasMessage(gameNotEndedException.getMessage());
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(playingRacingGameState.isEnd()).isEqualTo(false);
+        softAssertions.assertThatThrownBy(playingRacingGameState::getWinnersName)
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage(IllegalStateExceptionType.GAME_NOT_ENDED.getMessage());
+        softAssertions.assertAll();
     }
 }

@@ -17,7 +17,7 @@ public class RacingGame {
 
     private void validateMinAttemptCount() {
         if (isEnd()) {
-            throw IllegalArgumentExceptionType.ATTEMPT_COUNT_INIT_ERROR_MESSAGE.getException();
+            throw IllegalArgumentExceptionType.ATTEMPT_COUNT_INIT_ERROR.getException();
         }
     }
 
@@ -25,7 +25,7 @@ public class RacingGame {
 
     public void proceed() {
         if (isEnd()) {
-            throw IllegalStateExceptionType.NO_MORE_ATTEMPT_MESSAGE.getException();
+            throw IllegalStateExceptionType.NO_MORE_ATTEMPT.getException();
         }
         cars.moveCars();
         attemptCount--;
