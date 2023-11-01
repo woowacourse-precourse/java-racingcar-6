@@ -31,6 +31,7 @@ public class Validator {
             throw new IllegalArgumentException(SPACE_ERROR_MESSAGE);
         }
     }
+
     private void isNotDuplicate(List<String> carNames) {
         if (carNames.size() != carNames.stream().distinct().count()) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATE_ERROR);
