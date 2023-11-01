@@ -33,7 +33,6 @@ public class Race {
             proceedRound();
             OutputConsole.printStatus(getCurrentStatus());
         }
-        System.out.println();
     }
 
     public List<Status> getCurrentStatus() {
