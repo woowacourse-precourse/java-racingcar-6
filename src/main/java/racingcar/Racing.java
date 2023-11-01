@@ -7,6 +7,7 @@ public class Racing {
     Car[] cars;
     int raceCount;
     ArrayList<String> winnerList = new ArrayList<String>();
+
     public Racing(String[] carList, int raceCount) {
         this.raceCount = raceCount;
         cars = new Car[carList.length];
@@ -35,12 +36,18 @@ public class Racing {
                 winnerList.add(i.name);
             }
         }
+        outputWinner();
     }
 
     public void outputRaceProcess() {
         for (Car i : cars) {
             System.out.println(i.name + " : " + "-".repeat(i.position));
         }
+        System.out.println();
+    }
+
+    public void outputWinner() {
+        System.out.println("\n최종 우승자 : " + String.join(", ", winnerList));
     }
 
 }
