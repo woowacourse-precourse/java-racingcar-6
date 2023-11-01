@@ -13,9 +13,10 @@ public class InputView {
 
         List<String> car_name = List.of(Console.readLine().split(","));
 
-        if (car_name.size() < 2) {
-            throw new IllegalArgumentException("자동차 이름을 두 개 이상 입력하세요.");
-        }
+        // 자동차 이름 갯수가 1개 이하인지 확인
+        Validator.carNameNumber(car_name);
+        // 자동차 이름이 중복되었는지 확인
+        Validator.carNameDuplicateCheck(car_name);
 
         car_name.stream().forEach(name -> cars.add(new Car(name)));
     }
