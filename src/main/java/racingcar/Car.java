@@ -6,6 +6,7 @@ public class Car {
 
 
     public Car(String name) {
+        validateNull(name);
         this.name = name;
     }
 
@@ -14,5 +15,11 @@ public class Car {
     }
     public int getPosition() {
         return position;
+    }
+
+    public void validateNull(String str){
+        if(str == null) {
+            throw new IllegalArgumentException("null을 입력하지 마세요.");
+        }
     }
 }
