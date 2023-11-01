@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 
 public class RacingGame {
 
