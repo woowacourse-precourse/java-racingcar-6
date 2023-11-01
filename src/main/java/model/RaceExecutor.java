@@ -8,17 +8,17 @@ import view.OutputView;
 
 public class RaceExecutor {
 
-    private final MovementDecider movementDecider = new MovementDecider();
+    private final AdvanceDecider advanceDecider = new AdvanceDecider();
     private final OutputView outputView = new OutputView();
     private final RaceDto raceDto;
-    private List<String> names;
+    private final List<String> carNames;
 
     RaceExecutor(RaceDto raceDto) {
         this.raceDto = raceDto;
-        this.names = raceDto.getCars().keySet().stream().toList();
+        this.carNames = raceDto.getCarNameToAdvanceMap().keySet().stream().toList();
     }
 
-    public void execute(){
+    public void execute() {
         for (int i = 0; i < raceDto.getAttemptTimes(); i++) {
             singleAttempt();
             printAttemptResult();
@@ -26,29 +26,29 @@ public class RaceExecutor {
     }
 
     private void singleAttempt() {
-        for (String name : names) {
-            moveCarAtIfPossible(name);
+        for (String carName : carNames) {
+            moveCarAtIfPossible(carName);
         }
     }
 
     private void moveCarAtIfPossible(String name) {
-        if (movementDecider.decide()) {
+        if (advanceDecider.isPossibleToAdvance()) {
             moveCarByName(name);
         }
     }
 
     private void moveCarByName(String name) {
         String originalValue = getMovementString(name);
-        raceDto.getCars().put(name, originalValue + "-");
+        raceDto.getCarNameToAdvanceMap().put(name, originalValue + "-");
     }
 
-    private void printAttemptResult(){
-        for (String name : names) {
-            outputView.printAttemptResult(name, getMovementString(name));
+    private void printAttemptResult() {
+        for (String carName : carNames) {
+            outputView.printAttemptResult(carName, getMovementString(carName));
         }
     }
 
-    private String getMovementString(String name){
-        return raceDto.getCars().get(name);
+    private String getMovementString(String name) {
+        return raceDto.getCarNameToAdvanceMap().get(name);
     }
 }
