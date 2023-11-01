@@ -41,5 +41,30 @@ public class Racing {
             + car.movementHistory().substring(1,stepLength - 1)); //지금까지의 step 출력
         }
     }
+    private String getWinner() {
+        int maxLength = 0;
+        List<Car> winners = new ArrayList<>();
+        // 제일 긴 step 찾기
+        for (Car car : cars) {
+            if (car.movementHistory().length() >= maxLength){
+                maxLength = car.movementHistory().length();
+            }
+        }
+        // 제일 긴 step과 자동차의 step이 같다면, winner List에 add
+        for (Car car : cars) {
+            if(car.movementHistory().length() == maxLength){
+                winners.add(car);
+            }
+        }
 
+        StringBuilder result = new StringBuilder("최종 우승자 : ");
+
+        for (int i = 0; i < winners.size(); i++) {
+            result.append(winners.get(i).name());
+            if(i != winners.size() - 1) {
+                result.append(", ");
+            } 
+        }
+        return result.toString();
+    }
 }
