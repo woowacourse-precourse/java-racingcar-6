@@ -59,6 +59,10 @@ public class Cars {
         return cars;
     }
 
+    public Integer size() {
+        return this.carListSize;
+    }
+
     @Override
     public String toString() {
         String delimiter = GameConstant.DELIMITER.getContent();

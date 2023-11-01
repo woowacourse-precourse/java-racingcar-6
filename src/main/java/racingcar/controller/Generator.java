@@ -10,11 +10,11 @@ import racingcar.enums.GameConstant;
 
 public class Generator {
     public List<String> convertStringToStringList(String origin) {
-        String divider = GameConstant.DELIMITER.getContent();
+        String delimiter = GameConstant.DELIMITER.getContent();
 
         List<String> result = new ArrayList<>();
 
-        for (String originItem : origin.split(divider)) {
+        for (String originItem : origin.split(delimiter)) {
             result.add(originItem);
         }
 
