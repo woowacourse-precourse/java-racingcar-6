@@ -71,5 +71,8 @@ public class Cars {
     public void winnerCar() {
         int maxDistance = -1; // 현재 최대 이동 거리
         //전역변수로 설정한 winners에 승자 이름 저장
+        for(int i = 0; i < carNames.length; i++) {
+            int moveDistance = moveCountList.get(i);
+        }
     }
 }
