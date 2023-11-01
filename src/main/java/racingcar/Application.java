@@ -13,6 +13,5 @@ public class Application {
         car.move(CarRace.createRound(getInput(INPUT_RACING_ROUND.getMessage())));
 
         CarRace.printWinner(CarRace.findWinner(car, CarRace.findBest(car.movedDistances)));
-
     }
 }
