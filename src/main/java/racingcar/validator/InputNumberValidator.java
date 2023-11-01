@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.validator;
 
 public class InputNumberValidator {
     public static void validateInputNumber(Integer inputNumber) {

@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.domain;
 
-import static racingcar.RandomNumberRange.*;
+import static racingcar.constant.RandomNumberRange.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
 

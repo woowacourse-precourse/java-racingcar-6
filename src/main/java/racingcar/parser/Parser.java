@@ -1,8 +1,9 @@
-package racingcar;
+package racingcar.parser;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import racingcar.domain.CarName;
 
 public class Parser {
     private static final String COMMA = ", ";

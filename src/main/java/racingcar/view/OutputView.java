@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
 import java.util.Map;
+import racingcar.domain.CarName;
+import racingcar.parser.Parser;
 
 public class OutputView {
     private static final String RUNNING_RESULT = "\n실행 결과";

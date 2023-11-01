@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public enum RandomNumberRange {
     MINIMUM_RANGE_VALUE(0),
