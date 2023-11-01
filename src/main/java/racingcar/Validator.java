@@ -19,7 +19,6 @@ public class Validator {
         return false;
     }
 
-
     public static void validateRoundNumber(String round) {
         try {
             Integer.parseInt(round);
