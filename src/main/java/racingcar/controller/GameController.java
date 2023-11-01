@@ -19,6 +19,7 @@ public class GameController {
 
         String carNameInput = readLine();
         InputValidator.checkHasComma(carNameInput);
+        InputValidator.checkEndsWithComma(carNameInput);
 
         List<String> carNames = getCarNames(carNameInput);
 
