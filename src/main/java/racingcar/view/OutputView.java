@@ -20,7 +20,7 @@ public class OutputView {
         for(String carDistanceString : carDistanceStringList){
             System.out.println(carDistanceString);
         }
-        System.out.println("\n");
+        System.out.println();
 
     }
 
