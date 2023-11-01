@@ -28,4 +28,12 @@ public class RacingService {
                 .map(Car::getMoveResult)
                 .collect(Collectors.toList());
     }
+
+    private int getMaxPositionLength() {
+        int maxLength = 0;
+        for (Car car : cars) {
+            maxLength = Math.max(maxLength, car.getPositionLength());
+        }
+        return maxLength;
+    }
 }
