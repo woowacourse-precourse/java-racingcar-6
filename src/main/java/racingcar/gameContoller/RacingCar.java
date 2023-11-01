@@ -9,9 +9,9 @@ import racingcar.domain.Result;
 import java.util.List;
 
 public class RacingCar {
-    int leftRound;
-    int leaderDistance;
-    List<Car> carList;
+    private int leftRound;
+    private int leaderDistance;
+    private List<Car> carList;
 
     public RacingCar() {
     }
