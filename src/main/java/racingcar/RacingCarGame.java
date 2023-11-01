@@ -17,6 +17,7 @@ public class RacingCarGame {
     }
 
     public void setMoveCnt(String line) {
+        inputValidator.setMoveNum(line);
         moveCnt = Integer.parseInt(line);
     }
 

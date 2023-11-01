@@ -60,7 +60,8 @@ class RacingCarGameTest {
 
         Assertions.assertThatThrownBy(() -> {
             racingCarGame.setMoveCnt(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("하나의 자연수를 입력하십시오.");
+        ;
     }
 
     @Test
