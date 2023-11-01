@@ -12,7 +12,7 @@ public class Car {
     }
 
     public void move(int value) {
-        if (value > Constant.MIN_CAN_MOVE_VALUE) {
+        if (value >= Constant.MIN_CAN_MOVE_VALUE) {
             this.moving += 1;
         }
     }
