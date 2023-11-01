@@ -22,4 +22,8 @@ public class Driver {
         this.moveCount += 1;
     }
 
+    @Override
+    public String toString() {
+        return name + " : " +  "-".repeat(moveCount);
+    }
 }
