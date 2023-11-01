@@ -54,26 +54,26 @@ public class RacingController {
     }
 
     private void printWinnerCar(List<Car> winnerCars) {
-        StringBuilder winnerCarsName = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         if (racingCars.isCoFastestCars()) {
-            String createdCoWinnerCarsName = createCoWinnerCarsName(winnerCars, winnerCarsName);
-            winnerCarsName.append(createdCoWinnerCarsName);
+            String createdCoWinnerCarsName = createCoWinnerCarsName(winnerCars, sb);
+            sb.append(createdCoWinnerCarsName);
         }
-        winnerCarsName.append(winnerCars.get(0).provideCarStatus().get("name"));
-        outputView.printWinnerCars(winnerCarsName.toString());
+        sb.append(winnerCars.get(0).provideCarStatus().get("name"));
+        outputView.printWinnerCars(sb.toString());
     }
 
-    private String createCoWinnerCarsName(List<Car> winnerCars, StringBuilder winnerCarsName) {
+    private String createCoWinnerCarsName(List<Car> winnerCars, StringBuilder sb) {
         for (int i = 0; i < winnerCars.size(); i++) {
-            addSeperator(winnerCarsName, i);
-            winnerCarsName.append(winnerCars.get(0).provideCarStatus().get("name"));
+            addSeperator(sb, i);
+            sb.append(winnerCars.get(0).provideCarStatus().get("name"));
         }
-        return winnerCarsName.toString();
+        return sb.toString();
     }
 
-    private void addSeperator(StringBuilder winnerCarsName, int i) {
+    private void addSeperator(StringBuilder sb, int i) {
         if (i != 0) {
-            winnerCarsName.append(", ");
+            sb.append(", ");
         }
     }
 
