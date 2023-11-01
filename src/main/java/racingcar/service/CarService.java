@@ -1,11 +1,12 @@
 package racingcar.service;
 
+import racingcar.util.constant.message.ErrorMessage;
 import racingcar.domain.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.constant.Number.*;
+import static racingcar.util.constant.Number.*;
 
 public class CarService {
 
@@ -23,7 +24,7 @@ public class CarService {
     }
     private void checkName(String name){
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("이름은 5글자 이하여야 합니다.");
+            throw new IllegalArgumentException(ErrorMessage.TOO_LONG.getMessage());
         }
     }
 }

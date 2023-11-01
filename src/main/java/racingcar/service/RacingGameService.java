@@ -9,8 +9,8 @@ import racingcar.view.OutputView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.constant.Number.NUMBER_RANGE_END;
-import static racingcar.constant.Number.NUMBER_RANGE_START;
+import static racingcar.util.constant.Number.NUMBER_RANGE_END;
+import static racingcar.util.constant.Number.NUMBER_RANGE_START;
 
 public class RacingGameService {
     private final InputView inputView = new InputView();
@@ -20,7 +20,16 @@ public class RacingGameService {
 
     public int getPlayCount(){
         outputView.countMessage();
-        return inputView.playCount();
+        int count = inputView.playCount();
+        checkValidPlayCount(count);
+        return count;
+
+    }
+
+    private void checkValidPlayCount(int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException("[ERROR] Play count should be more than 0.");
+        }
     }
 
     public List<String> getCarNameList(){
