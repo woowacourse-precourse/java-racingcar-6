@@ -18,8 +18,16 @@ public class UserInput {
         return carArray;
     }
 
+    public void setCarArray(String[] carArray) {
+        this.carArray = carArray;
+    }
+
     public void setAttemptsNumber(String attemptsNumber) {
         this.attemptsNumber = attemptsNumber;
+    }
+
+    public HashSet<String> getCarHashSet() {
+        return carHashSet;
     }
 
     public void checkNameOfCarsValidity() {
