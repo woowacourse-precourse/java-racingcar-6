@@ -1,5 +1,12 @@
 ## 🚗 자동차 게임 기능명세서
 
+### 클래스 다이어그램
+
+
+<img src="racingcar-diagram.png">
+
+---
+
 - ### ⌨️ Input 관련 - Class : InputView, Validator 에서 예외 처리! 
   - [X] 1 자동차 이름들에 대한 입력을 받는 부분이 있어야 한다! -  InputView - inputCarName
     - 자동차 이름 입력 생각해볼 것!
