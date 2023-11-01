@@ -13,18 +13,14 @@ public class MoveController {
 
     public void tryMove(List<StringBuilder> moves) {
         for (StringBuilder move : moves) {
-            moveCar(move);
+            moveCar(move, createRandomNumber());
         }
     }
 
-    public void moveCar(StringBuilder mark) {
-        int move = createRandomNumber();
-
-        if (move < 4) {
-            return;
+    public void moveCar(StringBuilder mark, int randomNumber) {
+        if (randomNumber >= 4) {
+            mark.append('-');
         }
-
-        mark.append('-');
     }
 
     private int findMaxMove(List<StringBuilder> moves) {
