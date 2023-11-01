@@ -20,12 +20,20 @@ public class RacerValidator implements Validator {
     @Override
     public void validate(Object target) {
         validateSize((String) target);
+        validateSeparator((String) target);
         validateUnique((String) target);
     }
 
     private void validateSize(String value) {
         if (value == null || value.split(Message.NAME_SEPARATOR).length < Rule.MIN_PARTICIPANT) {
             throw new IllegalArgumentException(ErrorMessage.NO_PARTICIPANT);
+        }
+    }
+
+    private void validateSeparator(String value) {
+        String doubleNameSeparator = Message.NAME_SEPARATOR.repeat(2);
+        if (value.contains(doubleNameSeparator)) {
+            throw new IllegalArgumentException();
         }
     }
 

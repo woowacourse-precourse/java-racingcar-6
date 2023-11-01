@@ -23,7 +23,7 @@ class RacerTest {
     @DisplayName("잘못된 참가자 입력 체크")
     @ParameterizedTest(name = "{displayName}: {0}")
     @NullSource
-    @ValueSource(strings = {"", ",", ",car", ",,,,,", ",,dk"})
+    @ValueSource(strings = {"", ",", ",car", ",,,,,", ",,dk", "a,b,c,,", "ㄱ,ㄴ,,,"})
     void checkRacer(String value) {
         assertThatThrownBy(() -> Racer.of(value))
                 .isInstanceOf(IllegalArgumentException.class);
