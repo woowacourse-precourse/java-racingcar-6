@@ -65,7 +65,7 @@ public class Validator {
     }
 
     private static void checkNotNumber(String tryNumber) {
-        if (tryNumber == null || !tryNumber.matches("\\d+")) {
+        if (tryNumber == null || !tryNumber.matches("-?\\d+")) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_NUMBER_ERROR);
         }
     }
