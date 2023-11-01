@@ -25,11 +25,23 @@ public class OutputView {
         int progress = raceResult.progress();
         String name = raceResult.name();
 
-        System.out.print(name + " : ");
-        for (int i = 0; i < progress; i++) {
-            System.out.print("-");
-        }
+        printRaceCarName(name);
+        printRaceCarProgresses(progress);
         printEnter();
+    }
+
+    private static void printRaceCarProgresses(int progress) {
+        for (int i = 0; i < progress; i++) {
+            printProgressSignal();
+        }
+    }
+
+    private static void printProgressSignal() {
+        System.out.print("-");
+    }
+
+    private static void printRaceCarName(String name) {
+        System.out.print(name + " : ");
     }
 
     public static void printWinnerIntroduction() {
