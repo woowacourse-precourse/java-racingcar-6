@@ -61,6 +61,43 @@ class ApplicationTest extends NsTest {
         rg.playGame(1);
         assertThat(output()).contains("Kim : ", "최종 우승자 : Kim");
     }
+
+    @Test
+    void 이름_중복_예외() {
+        String name = "Kim,Lee,Kim";
+        assertThatThrownBy(() -> {RacingGame rg = new RacingGame(name);})
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputException.SAME_NAME);
+    }
+
+    @Test
+    void 횟수_입력_글자_예외() {
+        String name = "Kim,Park,Lee";
+        RacingGame rg = new RacingGame(name);
+        String str = new String("예와");
+        assertThatThrownBy(() -> {rg.playGame(Integer.valueOf(str));})
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputException.NEGATIVE_OR_ZERO);
+    }
+
+    @Test
+    void 횟수_입력_0_예외() {
+        String name = "Kim,Park,Lee";
+        RacingGame rg = new RacingGame(name);
+        assertThatThrownBy(() -> {rg.playGame(0);})
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputException.NEGATIVE_OR_ZERO);
+    }
+
+    @Test
+    void 횟수_입력_음수_예외() {
+        String name = "Kim,Park,Lee";
+        RacingGame rg = new RacingGame(name);
+        assertThatThrownBy(() -> {rg.playGame(-1);})
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputException.NEGATIVE_OR_ZERO);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
