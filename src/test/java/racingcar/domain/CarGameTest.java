@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.presentation.CarDTO;
@@ -83,7 +82,7 @@ class CarGameTest {
     private List<Integer> getExpectedNumbers(List<String> names, int gameSize) {
         List<Integer> expectedNumbers = new ArrayList<>();
         for (int i = 0; i < names.size() * gameSize; i++) {
-            expectedNumbers.add(Randoms.pickNumberInRange(0, 9));
+            expectedNumbers.add(i % 10);
         }
         return expectedNumbers;
     }

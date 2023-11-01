@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.mock.MockNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,14 @@ class CarsTest {
         assertThrows(IllegalArgumentException.class, () -> Cars.createByNames(carNames));
     }
 
+    private List<Integer> getExpectedNumbers(int nameSize, int gameSize) {
+        List<Integer> expectedNumbers = new ArrayList<>();
+        for (int i = 0; i < nameSize * gameSize; i++) {
+            expectedNumbers.add(i % 10);
+        }
+        return expectedNumbers;
+    }
+
     @DisplayName("Cars goForward 테스트")
     @Test
     void carsGoForwardTest() {
@@ -60,18 +69,28 @@ class CarsTest {
         List<String> names = List.of("a", "b", "c");
         List<CarName> carNames = names.stream().map(CarName::new).toList();
 
+        int gameSize = 1;
+
         Cars cars = Cars.createByNames(carNames);
-        cars.moveAll(() -> Randoms.pickNumberInRange(0, 9));
+        List<Integer> expectedNumbers = getExpectedNumbers(names.size(), gameSize);
+        MockNumberGenerator mockNumberGenerator = new MockNumberGenerator(expectedNumbers);
+        cars.moveAll(mockNumberGenerator);
+        List<Integer> expectedStatusValues = new ArrayList<>();
+        for (Integer expectedNumber : expectedNumbers) {
+            if (expectedNumber >= 4) {
+                expectedStatusValues.add(1);
+                continue;
+            }
+            expectedStatusValues.add(0);
+        }
+
 
         // when
         Map<String, Integer> status = cars.getStatus();
-
+        List<Integer> values = List.of(status.values().toArray(new Integer[0]));
         // then
-        assertThat(status.keySet().containsAll(names)).isTrue();
-        for (String key : status.keySet()) {
-            Integer position = status.get(key);
-
-            assertThat(position).isGreaterThanOrEqualTo(0);
+        for (int i = 0; i < values.size(); i++) {
+            assertThat(values.get(i)).isEqualTo(expectedStatusValues.get(i));
         }
     }
 
