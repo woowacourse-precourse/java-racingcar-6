@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -18,8 +19,23 @@ public class Cars {
     }
 
     private void validate(final List<Car> cars) {
+        validateSize(cars);
+        validateDuplicate(cars);
+    }
+
+    private void validateSize(final List<Car> cars) {
         if (cars.isEmpty()) {
             throw new IllegalArgumentException("자동차는 최소 한 개 이상 존재해야 합니다.");
+        }
+    }
+
+    private void validateDuplicate(final List<Car> cars) {
+        List<Car> carList = new ArrayList<>();
+        for (Car car : cars) {
+            if (carList.contains(car)) {
+                throw new IllegalArgumentException("이미 존재하는 자동차입니다.");
+            }
+            carList.add(car);
         }
     }
 

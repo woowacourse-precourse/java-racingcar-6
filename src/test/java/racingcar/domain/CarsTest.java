@@ -20,6 +20,19 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("동일한 자동차가  존재하는 경우 예외 발생")
+    void duplicateCarsExceptionTest() {
+        // given
+        List<Car> cars = List.of(
+                Car.zeroPositionFrom("a"),
+                Car.zeroPositionFrom("bb"),
+                Car.zeroPositionFrom("a"));
+
+        // expected
+        assertThrows(IllegalArgumentException.class, () -> Cars.from(cars));
+    }
+
+    @Test
     @DisplayName("올바른 자동차들 생성 테스트")
     void validCarsTest() {
         List<Car> cars = List.of(
