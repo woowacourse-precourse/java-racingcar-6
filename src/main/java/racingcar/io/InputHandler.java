@@ -24,7 +24,7 @@ public class InputHandler {
         }
     }
 
-    public static int getRaceCount() {
+    public static int getTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
             return Integer.parseInt(Console.readLine());
