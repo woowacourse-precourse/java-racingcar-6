@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
-import racingcar.exception.car_racing_manager.NotExistCarException;
-import racingcar.exception.car_racing_manager.NotUniqueCarNameException;
+import racingcar.exception.cars.NotExistCarException;
+import racingcar.exception.cars.NotUniqueCarNameException;
 import racingcar.helper.TestNumberGenerator;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)

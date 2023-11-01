@@ -2,8 +2,8 @@ package racingcar.model;
 
 import java.util.Collections;
 import java.util.List;
-import racingcar.exception.car_racing_manager.NotExistCarException;
-import racingcar.exception.car_racing_manager.NotUniqueCarNameException;
+import racingcar.exception.cars.NotExistCarException;
+import racingcar.exception.cars.NotUniqueCarNameException;
 import racingcar.util.NumberGenerator;
 
 public class Cars implements Vehicles {

@@ -1,4 +1,4 @@
-package racingcar.exception.car_racing_manager;
+package racingcar.exception.cars;
 
 public class NotExistCarException extends IllegalArgumentException {
 
