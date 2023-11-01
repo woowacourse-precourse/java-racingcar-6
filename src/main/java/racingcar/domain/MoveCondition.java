@@ -7,7 +7,7 @@ public enum MoveCondition {
 
     public final int distance;
 
-    MoveCondition(int distance) {
+    MoveCondition(final int distance) {
         this.distance = distance;
     }
 
@@ -15,7 +15,7 @@ public enum MoveCondition {
         return this.equals(MOVE);
     }
 
-    public static MoveCondition determineMoveCondition(Integer randomNumber) {
+    public static MoveCondition determineMoveCondition(final Integer randomNumber) {
         if (randomNumber >= CRITICAL_POINT) {
             return MOVE;
         }

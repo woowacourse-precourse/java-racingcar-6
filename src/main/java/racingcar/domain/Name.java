@@ -9,23 +9,23 @@ public class Name {
 
     private final String name;
 
-    public Name(String name) {
+    public Name(final String name) {
         validateCarName(name);
         this.name = name;
     }
 
-    private void validateCarName(String name) {
+    private void validateCarName(final String name) {
         checkEmpty(name);
         checkLength(name);
     }
 
-    private void checkEmpty(String name) {
+    private void checkEmpty(final String name) {
         if (name.trim().isEmpty()) {
             throw new IllegalArgumentException(CHECK_NAME_EMPTY.getMessage());
         }
     }
 
-    private static void checkLength(String name) {
+    private static void checkLength(final String name) {
         if (name.length() > NAME_LENGTH) {
             throw new IllegalArgumentException(CHECK_NAME_LENGTH.getMessage());
         }

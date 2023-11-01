@@ -13,12 +13,12 @@ public class TypeConvertor {
     private TypeConvertor() {
     }
 
-    public static List<String> stringToStringList(String input) {
+    public static List<String> stringToStringList(final String input) {
         return Arrays.stream(input.split(REGEX))
                 .collect(Collectors.toList());
     }
 
-    public static Integer stringToInt(String input) {
+    public static Integer stringToInt(final String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {

@@ -14,7 +14,7 @@ public class RandomNumbersGenerator {
     private RandomNumbersGenerator() {
     }
 
-    public static List<Integer> generate(int limitSize) {
+    public static List<Integer> generate(final int limitSize) {
         return IntStream.range(0, limitSize)
                 .map(i -> Randoms.pickNumberInRange(MIN, MAX))
                 .boxed()

@@ -6,16 +6,16 @@ public class TryCount {
 
     private final int count;
 
-    private TryCount(int count) {
+    private TryCount(final int count) {
         this.count = count;
     }
 
-    public static TryCount of(int count) {
+    public static TryCount of(final int count) {
         checkPositive(count);
         return new TryCount(count);
     }
 
-    private static void checkPositive(int count) {
+    private static void checkPositive(final int count) {
         if (count <= 0) {
             throw new IllegalArgumentException(NOT_NUMERIC.getMessage());
         }

@@ -20,25 +20,25 @@ public class RacingService {
     private RacingService() {
     }
 
-    public List<RacingResult> race(Circuit circuit) {
+    public List<RacingResult> race(final Circuit circuit) {
         List<MoveCondition> moveConditions = generateMoveConditions(circuit.getCircuitSize());
         List<Car> racedCars = circuit.raceCars(moveConditions);
         return convertToRacingResults(racedCars);
     }
 
-    private List<MoveCondition> generateMoveConditions(int size) {
+    private List<MoveCondition> generateMoveConditions(final int size) {
         return RandomNumbersGenerator.generate(size).stream()
                 .map(MoveCondition::determineMoveCondition)
                 .toList();
     }
 
-    private List<RacingResult> convertToRacingResults(List<Car> racedCars) {
+    private List<RacingResult> convertToRacingResults(final List<Car> racedCars) {
         return racedCars.stream()
                 .map(RacingResult::new)
                 .toList();
     }
 
-    public Winners findWinners(Circuit circuit) {
+    public Winners findWinners(final Circuit circuit) {
         List<String> winnerNames = circuit.findTopPositionCarNames();
         return new Winners(winnerNames);
     }
