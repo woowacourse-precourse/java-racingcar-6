@@ -3,29 +3,29 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 
 public class RacingGame {
-    List<Car> racingCars = new ArrayList<Car>();
+    public ArrayList<Car> racingCars;
+    String carNames;
+    RacingGame(String carNames) {
+        this.carNames = carNames;
+        splitCarNames(carNames);
+    }
 
-    RacingGame(String cars) {
+    void splitCarNames(String cars) {
+        this.racingCars = new ArrayList<Car>();
+        String[] names = cars.split(",");
         try {
-            splitNames(cars);
+            Arrays.stream(names).forEach(name -> {
+                ExceptionString.exceptionCheckName(name);
+                name = name.trim();
+                racingCars.add(new Car(name));
+            });
         } catch (IllegalArgumentException e) {
             System.out.println(e.toString());
             throw e;
         }
     }
-
-    void splitNames(String cars) {
-        String[] names = cars.split(",");
-        Arrays.stream(names).forEach(name -> {
-            ExceptionString.exceptionCheckName(name);
-            name = name.trim();
-            racingCars.add(new Car(name));
-        });
-    }
-
     void printStep() {
         racingCars.stream().forEach(car -> System.out.println(car));
         System.out.println();

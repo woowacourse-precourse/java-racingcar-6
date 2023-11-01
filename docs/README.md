@@ -39,7 +39,7 @@
         2. executeStep() : 각 Car 객체에 대하여 moveRandom()을 실행한다.
         3. printStep() : 하나의 실행에 대하여 결과를 출력한다.
         4. printResult() : 레이싱 결과를 출력한다.
-        5. splitNames(String names) : 문자열을 입력받아서 Car 객체를 생성, racingCar에 저장한다.
+        5. splitCarNames(String names) : 문자열을 입력받아서 Car 객체를 생성, racingCar에 저장한다.
 
 3. **ApplicationTest** : 각종 예외에 대하여 테스트 코드를 추가한다.
    1. _이름_정상_분리_ : 정상일 경우 이름이 정상적으로 분리되는지 확인
