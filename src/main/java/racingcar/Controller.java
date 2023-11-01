@@ -35,15 +35,15 @@ class Game {
         int playCount = playNumber;
         while(playCount != 0) {
             for(String car : carsNames){
+                System.out.print(car + " : ");
                 int randomNumber = getRandomNumber();
                 if(randomNumber >= MORE_THAN_FOUR){
                     int index = carsNames.indexOf(car);
                     countCarsMove.set(index, countCarsMove.get(index) + 1);
                     playCount--;
-                    System.out.print(car + " : ");
-                    System.out.println("-".repeat(countCarsMove.get(index)));
-                    System.out.println();
+                    System.out.print("-".repeat(countCarsMove.get(index)));
                 }
+                System.out.println();
             }
         }
         printWinner(countCarsMove, playNumber);
