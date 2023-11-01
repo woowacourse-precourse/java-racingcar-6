@@ -26,11 +26,11 @@ public class InputView {
                 .toList();
     }
 
-    public String inputGameCount(){
+    public String inputTrialCount(){
         System.out.println(InformationResponse.INPUT_TRIAL_COUNT.getMessage());
-        String gameCount = Console.readLine();
-        validateNullAndBlank(gameCount, ExceptionResponse.INPUT_TRIAL_COUNT);
-        return gameCount;
+        String trialCount = Console.readLine();
+        validateNullAndBlank(trialCount, ExceptionResponse.INPUT_TRIAL_COUNT);
+        return trialCount;
     }
 
 }
