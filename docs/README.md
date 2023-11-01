@@ -1,11 +1,11 @@
 ## 기능 명세
 
 ### Game
-- [ ]  게임을 시작합니다. - startGame()
+- [x]  게임을 시작합니다. - startGame()
 ### GameManager
 - [x]  시도할 횟수를 입력 받습니다. - receiveRoundTryCount()
 - [x]  라운드를 진행합니다. - proceedRound()
-- [x]  우승자를 출력합니다 - printWinner() → GameManager
+- [x]  우승자를 출력합니다 - printWinner()
 ### CarFactory
 - [x]  경주 자동차를 N개 생성합니다. - createCar()
     - [x]  자동차 이름 문자열을 리스트로 변환합니다. - stringToListByComma()

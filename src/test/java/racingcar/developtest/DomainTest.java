@@ -19,7 +19,7 @@ public class DomainTest {
     @ValueSource(strings = {"pobi,crong"})
     void stringToListByComma_콤마를_기준으로_문자열을_리스트로_변환(String string) {
         CarFactory carFactory = new CarFactory();
-        List<String> result = carFactory.stringtoListByComma(string);
+        List<String> result = carFactory.stringToListByComma(string);
         assertThat(result.toString()).isEqualTo(Arrays.asList("pobi", "crong").toString());
     }
 
