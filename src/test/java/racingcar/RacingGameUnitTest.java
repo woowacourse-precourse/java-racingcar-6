@@ -51,7 +51,7 @@ public class RacingGameUnitTest {
     }
 
     @Test
-    void getResult_최종_결과_반환() {
+    void getResult_중복된_우승자에_대한_최종_결과_반환() {
         RacingGame testGame = new RacingGame(2);
         Car testCar1 = new Car("test1");
         Car testCar2 = new Car("test2");
@@ -66,5 +66,23 @@ public class RacingGameUnitTest {
         String testResult = testGame.getResult();
 
         assertThat(testResult).isEqualTo("최종 우승자 : test1, test3");
+    }
+
+    @Test
+    void getResult_단일_우승자에_대한_최종_결과_반환() {
+        RacingGame testGame = new RacingGame(2);
+        Car testCar1 = new Car("test1");
+        Car testCar2 = new Car("test2");
+        Car testCar3 = new Car("test3");
+        testGame.addParticipant(testCar1);
+        testGame.addParticipant(testCar2);
+        testGame.addParticipant(testCar3);
+
+        testCar1.setCurrentLocation(2);
+        testCar2.setCurrentLocation(3);
+        testCar3.setCurrentLocation(5);
+        String testResult = testGame.getResult();
+
+        assertThat(testResult).isEqualTo("최종 우승자 : test3");
     }
 }
