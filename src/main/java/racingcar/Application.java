@@ -15,6 +15,9 @@ public class Application {
         List<Car> cars = createCars(carNames);
 
         startRacing(attempts, cars);
+
+        List<String> winners = determineWinners(cars);
+
     }
 
     private static List<Car> createCars(List<String> carNames) {
@@ -39,5 +42,16 @@ public class Application {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
         System.out.println();
+    }
+
+    private static List<String> determineWinners(List<Car> cars) {
+        int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(0);
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
     }
 }
