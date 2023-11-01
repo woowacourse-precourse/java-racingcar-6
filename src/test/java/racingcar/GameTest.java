@@ -46,6 +46,18 @@ public class GameTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("입력한 게임 라운드 수에 따른 진행 상황 중계")
+    void broadCastGameBoard() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("ye,seul", "3");
+                    assertThat(output()).contains("ye : -", "ye : --", "ye : ---");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
