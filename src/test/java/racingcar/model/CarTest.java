@@ -28,4 +28,11 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 공백일 수 없습니다.");
     }
+
+    @Test
+    void validateCarNames_should_throw_exception_when_name_is_not_alphabet() {
+        assertThatThrownBy(() -> CarNameValidator.validateCarNames(List.of("pob1", "123")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 알파벳만 가능합니다.");
+    }
 }
