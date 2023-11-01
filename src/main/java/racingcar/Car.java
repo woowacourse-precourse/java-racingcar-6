@@ -1,17 +1,17 @@
 package racingcar;
 
-import static racingcar.Output.RACING_RESULT;
-
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Car {
-    private Output output;
+    private static final String RACING_RESULT = "실행 결과";
+
+    private Result result;
 
     Car() {
-        output = new Output();
+        result = new Result();
     }
 
     public void move(List<String> carNames, int movingNumber) {
@@ -19,10 +19,10 @@ public class Car {
         System.out.println(RACING_RESULT);
         while (movingNumber > 0) {
             moveCars(carNameAndMoving);
-            output.printRacingProcess(carNameAndMoving);
+            result.printRacingProcess(carNameAndMoving);
             movingNumber--;
         }
-        output.printRacingWinner(carNameAndMoving);
+        result.printRacingWinner(carNameAndMoving);
     }
 
     private Map<String, Integer> listToMap(List<String> carNames) {
@@ -48,7 +48,6 @@ public class Car {
             carNameAndMoving.put(carName, carNameAndMoving.get(carName) + 1);
         }
     }
-
 
     private boolean isMovable() {
         int random = Randoms.pickNumberInRange(0, 9);
