@@ -12,7 +12,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static String requestRunningCount() {
+    public static String requestUserRound() {
         System.out.println(RUNNING_COUNT_REQUEST_MESSAGE);
 
         return Console.readLine();

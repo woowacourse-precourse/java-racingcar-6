@@ -15,12 +15,12 @@ public class Cars {
     }
 
     public static Cars createCarList(String userInput) {
-        List<Car> carList = putCarIntoList(extractNamesList(userInput));
+        List<Car> carList = parseCarList(extractNamesList(userInput));
 
         return new Cars(carList);
     }
 
-    private static List<Car> putCarIntoList(List<String> names) {
+    private static List<Car> parseCarList(List<String> names) {
         List<Car> cars = names.stream()
                 .map(name -> Car.createCar(new CarName(name), 0))
                 .collect(Collectors.toList());

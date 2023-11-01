@@ -14,20 +14,20 @@ public class RacingGame {
 
         Cars cars = Cars.createCarList(userInput);
 
-        String runningNumber = InputView.requestRunningCount();
+        String roundCount = InputView.requestUserRound();
 
-        progressRound(cars, runningNumber);
+        progressRounds(cars, roundCount);
 
         announceFinalResult(cars);
     }
 
-    private void progressRound(Cars cars, String runningNumber) {
+    private void progressRounds(Cars cars, String roundCount) {
         try {
-            Integer runningCount = parseInputToInt(runningNumber);
+            Integer runningCount = parseInputToInt(roundCount);
 
             InputNumberValidator.validateInputNumber(runningCount);
 
-            OutputView.noticeRunningResult();
+            OutputView.noticeRoundHeader();
 
             IntStream.range(0, runningCount).forEach(i -> progressOneRound(cars));
         } catch (NumberFormatException e) {
@@ -42,7 +42,7 @@ public class RacingGame {
 
     private void announceFinalResult(Cars cars) {
 
-        OutputView.noticeFinalWinner();
+        OutputView.noticeFinalHeader();
         OutputView.printWinnerNames(cars.findWinnerCars());
     }
 

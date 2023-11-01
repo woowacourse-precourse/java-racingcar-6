@@ -6,11 +6,11 @@ import racingcar.domain.CarName;
 import racingcar.parser.Parser;
 
 public class OutputView {
-    private static final String RUNNING_RESULT = "\n실행 결과";
+    private static final String ROUND_RESULT = "\n실행 결과";
     private static final String FINAL_WINNER = "최종 우승자 : ";
 
-    public static void noticeRunningResult() {
-        System.out.println(RUNNING_RESULT);
+    public static void noticeRoundHeader() {
+        System.out.println(ROUND_RESULT);
     }
 
     public static void printCarStatus(Map<CarName, Integer> carResult) {
@@ -19,7 +19,7 @@ public class OutputView {
         System.out.println(carStatus);
     }
 
-    public static void noticeFinalWinner() {
+    public static void noticeFinalHeader() {
         System.out.print(FINAL_WINNER);
     }
 
