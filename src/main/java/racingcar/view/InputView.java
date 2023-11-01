@@ -9,4 +9,8 @@ public class InputView {
         String carNames = Console.readLine();
         return SplitCarName.splitCarNames(carNames);
     }
+
+    public String inputTryCount(){
+        return Console.readLine();
+    }
 }
