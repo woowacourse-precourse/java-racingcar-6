@@ -1,5 +1,10 @@
 package domain;
 
+import static constants.SystemMessage.PLEASE_INPUT_ATTEMPT_NUMBER;
+import static constants.SystemMessage.PLEASE_INPUT_CAR_NAME;
+import static constants.SystemMessage.RACING_RESULT;
+import static constants.SystemMessage.RACING_WINNER;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -105,23 +110,23 @@ public class CarRacing {
     }
 
     public void execute() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(PLEASE_INPUT_CAR_NAME);
 
         String[] carNames = (Console.readLine()).split(",");
         if (isValidCarNames(carNames)) {
             setCars(carNames);
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(PLEASE_INPUT_ATTEMPT_NUMBER);
 
         String count = Console.readLine();
         if (isValidAttemptCount(count)) {
             setAttemptCount(count);
         }
 
-        System.out.println("\n실행 결과");
+        System.out.println("\n" + RACING_RESULT);
         printStepResults();
 
-        System.out.println("최종 우승자 : " + getWinner());
+        System.out.println(RACING_WINNER + " : " + getWinner());
     }
 }
