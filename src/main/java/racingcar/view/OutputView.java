@@ -10,7 +10,7 @@ public class OutputView {
     private static final String RUN_RESULT = "실행 결과";
     private static final String COLON_SPACE = " : ";
     private static final String DASH = "-";
-    private static final String FINAL_WINNER = "최종 우승자: ";
+    private static final String FINAL_WINNER = "최종 우승자 : ";
     private static final String COMMA_SPACE = ", ";
 
     public void printInputRacingCarNames() {
@@ -22,6 +22,7 @@ public class OutputView {
     }
 
     public void printRunResult() {
+        printNewLine();
         System.out.println(RUN_RESULT);
     }
 
@@ -29,11 +30,11 @@ public class OutputView {
         racingCarList.forEach(racingCar -> {
             String progressString = toProgressString(racingCar);
             System.out.println(progressString);
-            printNewLine();
         });
+        printNewLine();
     }
 
-    public void printFinalWinner(List<String> winners) {
+    public void printWinners(List<String> winners) {
         System.out.println(FINAL_WINNER + String.join(COMMA_SPACE, winners));
     }
 
