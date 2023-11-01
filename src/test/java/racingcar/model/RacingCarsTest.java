@@ -45,14 +45,6 @@ public class RacingCarsTest {
     }
 
     @Test
-    @DisplayName("차량들을 입력한만큼 이동시킨다.")
-    void moveCarsByGivenNumberTest() {
-        int round = 5;
-        List<List<Integer>> carsPosition = nCars.moveCarsRepeatedByRound(round);
-        assertThat(carsPosition.size()).isEqualTo(round);
-    }
-
-    @Test
     @DisplayName("차량들 개별 이동 후 출력")
     void showCarsPositionAndNameAfterEachRoundTest() {
         List<Car> carList = initializeCarListWithPositions("cho", "sung");

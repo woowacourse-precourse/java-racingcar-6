@@ -7,8 +7,6 @@ public sealed interface Cars permits RacingCars {
 
     List<Integer> moveCars();
 
-    List<List<Integer>> moveCarsRepeatedByRound(Integer round);
-
     List<String> getSingleRoundResult();
 
     List<String> getNamesForTest();
