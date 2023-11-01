@@ -28,25 +28,37 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 객체_전진_테스트() {
+    void 이름에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 객체_전진() {
         Car car = new Car("test");
         car.tryMove(4);
         assertThat(car.getMoveCount()).isEqualTo(1);
     }
 
     @Test
-    void 객체_멈춤_테스트() {
+    void 객체_멈춤() {
         Car car = new Car("test");
         car.tryMove(3);
         assertThat(car.getMoveCount()).isEqualTo(0);
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+    void getMoveDistance_테스트() {
+        Car car = new Car("test");
+        car.tryMove(4); // 자동차를 한 번 전진시킵니다.
+        assertThat(car.getMoveDistance()).isEqualTo("-");
+
+        car.tryMove(4); // 자동차를 다시 한 번 전진시킵니다.
+        assertThat(car.getMoveDistance()).isEqualTo("--");
+
+        car.tryMove(3); // 자동차를 정지시킵니다. 이동 거리는 변하지 않습니다.
+        assertThat(car.getMoveDistance()).isEqualTo("--");
     }
 
     @Test
@@ -62,13 +74,7 @@ class ApplicationTest extends NsTest {
         System.out.println("예외가 발생해서 테스트가 성공했습니다.");
     }
 
-    @Test
-    public void tryMove_메서드_이동횟수_증가_유지() {
-        Car car = new Car("test");
-        int initialMoveCount = car.getMoveCount();
-        car.tryMove(Randoms.pickNumberInRange(0, 9));
-        assertTrue(car.getMoveCount() >= initialMoveCount);
-    }
+
 
     @Override
     public void runMain() {
