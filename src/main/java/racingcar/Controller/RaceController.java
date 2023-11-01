@@ -31,9 +31,16 @@ public class RaceController {
         }
     }
 
+    private void isValidEntryCount(String[] entries) {
+        if (entries.length < MINIMUM_ENTRY_COUNT) {
+            throw new IllegalArgumentException("최소 " + MINIMUM_ENTRY_COUNT + "명의 참가자가 필요합니다.");
+        }
+    }
+
     private Cars makeCars(String carNames) {
         String[] entries = carNames.split(SEPARATOR);
 
+        isValidEntryCount(entries);
         for (String name : entries) {
             isValidName(name);
         }
