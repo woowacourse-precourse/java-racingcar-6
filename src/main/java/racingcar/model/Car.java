@@ -21,10 +21,6 @@ public class Car {
         distance += 1;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int findMaxDistance(int max) {
         if (distance > max) {
             max = distance;
@@ -37,6 +33,10 @@ public class Car {
             return true;
         }
         return false;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getDistance() {
