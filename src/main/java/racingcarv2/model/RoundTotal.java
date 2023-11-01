@@ -2,7 +2,7 @@ package racingcarv2.model;
 
 import racingcarv2.exception.ErrorException;
 
-public class RoundTotal { ;
+public class RoundTotal {
     private final int roundTotalValue;
 
     public RoundTotal(int roundTotal) {

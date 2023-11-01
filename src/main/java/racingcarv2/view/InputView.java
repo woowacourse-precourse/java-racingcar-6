@@ -12,9 +12,9 @@ public class InputView {
     public static final int FIRST_DIGIT = 0;
     private static final Pattern NAME_PATTERN = Pattern.compile("^([a-zA-Z]+,?)+$");
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]+$");
-    public static final String WHITE_SPACE = " ";
-    public static final String NONE = "";
-    public static final char ZERO = '0';
+    private static final String WHITE_SPACE = " ";
+    private static final String NONE = "";
+    private static final char ZERO = '0';
 
 
     public static String inputCarNames() {

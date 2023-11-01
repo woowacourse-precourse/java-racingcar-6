@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import racingcarv2.util.RandomGenerator;
 
 public class RacingCars {
-    public static final int END_INCLUSIVE = 9;
-    public static final int START_INCLUSIVE = 0;
+    private static final int END_INCLUSIVE = 9;
+    private static final int START_INCLUSIVE = 0;
     private final List<Car> racingCars;
 
     public RacingCars(List<Car> racingCars) {

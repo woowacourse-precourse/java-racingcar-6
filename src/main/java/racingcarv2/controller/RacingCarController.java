@@ -9,6 +9,8 @@ import racingcarv2.view.InputView;
 import racingcarv2.view.OutputView;
 
 public class RacingCarController {
+    private static final int START_INCLUSIVE = 0;
+
     public void run() {
         RacingCars racingCars = registerRacingCars();
         RoundTotal roundTotal = registerRoundTotal();
@@ -28,7 +30,7 @@ public class RacingCarController {
 
     private void displayRacingStatus(RoundTotal roundTotal, RacingCars racingCars) {
         OutputView.printRoundStatus();
-        IntStream.range(0, roundTotal.getRoundTotalValue())
+        IntStream.range(START_INCLUSIVE, roundTotal.getRoundTotalValue())
                 .forEach((num) -> OutputView.printEachRound(racingCars.moveAllCars()));
     }
 
