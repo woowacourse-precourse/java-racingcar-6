@@ -31,6 +31,7 @@ public class RacingCar {
 
         for (int i = 0; i < tryCount; i++) {
             cars.move();
+            racingCarView.printMoveResult(cars.getCars());
         }
     }
 

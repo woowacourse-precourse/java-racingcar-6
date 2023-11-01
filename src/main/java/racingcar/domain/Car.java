@@ -12,6 +12,14 @@ public class Car {
         count = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) {
