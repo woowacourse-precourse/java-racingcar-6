@@ -2,9 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.service.GameService;
@@ -14,7 +12,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
-    private Map<Car, List<Integer>> positionHistory = new HashMap<>();
+    private final List<Car> cars = new ArrayList<>();
     private final Validator validator = new Validator();
     private final Parser parser = new Parser();
     private final GameService gameService = new GameService();
@@ -25,8 +23,7 @@ public class Controller {
     }
 
     private Game createGame() {
-        Game game = new Game(getCars(), getNumberOfTrial());
-        return game;
+        return new Game(getCars(), getNumberOfTrial());
     }
 
     private void play(Game game) {
@@ -36,16 +33,7 @@ public class Controller {
         OutputView.showWinners(gameService.findWinners(game));
     }
 
-
-    Map<Car, List<Integer>> getPositionHistory() {
-        return positionHistory;
-    }
-
     private List<Car> getCars() {
-        List<Car> cars = new ArrayList<>();
-        for (Car car : positionHistory.keySet()) {
-            cars.add(car);
-        }
         return cars;
     }
 
@@ -55,7 +43,7 @@ public class Controller {
 
     private void saveCars(List<String> carNames) {
         for (String carName : carNames) {
-            positionHistory.put(new Car(carName), new ArrayList<>());
+            cars.add(new Car(carName));
         }
     }
 
