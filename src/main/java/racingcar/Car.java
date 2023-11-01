@@ -9,6 +9,11 @@ public class Car implements Comparable<Car>{
         this.movingCnt = 0;
     }
 
+    public Car(String name, int movingCnt) {
+        this.name = name;
+        this.movingCnt = movingCnt;
+    }
+
     public void moveForward() {
         movingCnt++;
     }
@@ -21,9 +26,7 @@ public class Car implements Comparable<Car>{
 
     public void printResult() {
         StringBuilder movingResult = new StringBuilder();
-        for (int i = 0; i < this.movingCnt; i++) {
-            movingResult.append("-");
-        }
+        movingResult.append("-".repeat(Math.max(0, this.movingCnt)));
         System.out.println(this.name + " : " + movingResult);
     }
 

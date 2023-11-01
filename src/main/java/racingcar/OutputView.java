@@ -5,25 +5,26 @@ import java.util.List;
 
 public class OutputView {
 
-    public void printRound(List<Car> cars){
+    public void printRound(List<Car> cars) {
         for (Car car : cars) {
             car.printResult();
         }
         System.out.println();
     }
 
-    public void getWinner(List<Car> cars){
+    public String getWinner(List<Car> cars) {
         List<String> winners = new ArrayList<>();
         int maxMovingCnt = getMaxMovingCnt(cars);
-        for(Car car : cars){
-            if(car.getMovingCnt() == maxMovingCnt){
+        for (Car car : cars) {
+            if (car.getMovingCnt() == maxMovingCnt) {
                 winners.add(car.getName());
             }
         }
-        System.out.println("최종 우승자 : " +String.join(",",winners));
+        return String.join(",", winners);
+
     }
 
-    public int getMaxMovingCnt(List<Car> cars){
+    public int getMaxMovingCnt(List<Car> cars) {
         return cars.stream()
                 .max(Car::compareTo)
                 .get().getMovingCnt();

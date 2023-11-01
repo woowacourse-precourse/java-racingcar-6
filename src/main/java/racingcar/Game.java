@@ -8,7 +8,7 @@ public class Game {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public Game(){
+    public Game() {
         inputView = new InputView();
         outputView = new OutputView();
     }
@@ -20,7 +20,7 @@ public class Game {
             judgeMoving(cars);
             outputView.printRound(cars);
         }
-        outputView.getWinner(cars);
+        System.out.println("최종 우승자 : " + outputView.getWinner(cars));
     }
 
     public void judgeMoving(List<Car> cars) {
