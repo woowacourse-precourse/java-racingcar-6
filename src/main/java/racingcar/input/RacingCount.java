@@ -6,19 +6,19 @@ import racingcar.output.OutputCarRace;
 public class RacingCount {
     private int raceCount;
 
-    public static RacingCount inputRaceCount(String stringMoveCount) {
-        return new RacingCount(stringMoveCount);
+    public static RacingCount inputRaceCount(final String stringRaceCount) {
+        return new RacingCount(stringRaceCount);
+    }
+
+    private RacingCount(final String stringRaceCount) {
+        OutputCarRace.printf(MessageType.INPUT_CAR_RACING_COUNT_PRINT);
+        InputValidator.validateRaceCount(stringRaceCount);
+
+        raceCount = Integer.parseInt(stringRaceCount);
+        OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, stringRaceCount);
     }
 
     public int getRaceCount() {
         return raceCount;
-    }
-
-    private RacingCount(String stringMoveCount) {
-        OutputCarRace.printf(MessageType.INPUT_CAR_RACING_COUNT_PRINT);
-        InputValidator.validateRaceCount(stringMoveCount);
-
-        raceCount = Integer.parseInt(stringMoveCount);
-        OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, stringMoveCount);
     }
 }

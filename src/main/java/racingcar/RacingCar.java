@@ -6,7 +6,7 @@ import java.util.List;
 import racingcar.input.Car;
 import racingcar.input.CarList;
 import racingcar.input.RacingCount;
-import racingcar.output.Winner;
+import racingcar.input.Winner;
 
 public class RacingCar {
     public static void play(){

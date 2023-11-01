@@ -1,18 +1,19 @@
-package racingcar.output;
+package racingcar.input;
 
 import java.util.List;
 import java.util.StringJoiner;
-import racingcar.input.Car;
+import racingcar.output.MessageType;
+import racingcar.output.OutputCarRace;
 
 public class Winner {
     private List<Car> cars;
     private int maxDistance;
 
-    public static Winner inputWinner(List<Car> cars, int maxDistance){
+    public static Winner inputWinner(final List<Car> cars, final int maxDistance){
         return new Winner(cars, maxDistance);
     }
 
-    private Winner(List<Car> cars, int maxDistance){
+    private Winner(final List<Car> cars, final int maxDistance){
         this.cars = cars;
         this.maxDistance = maxDistance;
     }
