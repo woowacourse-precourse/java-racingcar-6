@@ -66,9 +66,19 @@ public class Application {
         while (count>0)
         {
             moveCars();
-
+            showLocation();
             count--;
         }
+    }
+    private static void showLocation(){
+        carsMap.forEach((key, value) -> {
+            System.out.print(key + " : ");
+            for (int i = 0; i < value; i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        });
+        System.out.println();
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
