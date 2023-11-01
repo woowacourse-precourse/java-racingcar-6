@@ -1,6 +1,9 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.List;
+import racingcar.utils.Util;
+import racingcar.utils.Validator;
+import racingcar.view.InputView;
 
 public class InputController {
 

@@ -1,6 +1,10 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.List;
+import racingcar.Game;
+import racingcar.RoundResult;
+import racingcar.domain.TrialNumber;
+import racingcar.view.OutputView;
 
 public class MainController {
 

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public class TrialNumber {
     private static final int MINIMUM_NUMBER = 1;

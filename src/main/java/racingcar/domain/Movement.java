@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public enum Movement {
     FORWARD(1), STOP(0);

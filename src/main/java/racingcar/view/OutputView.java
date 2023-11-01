@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.CarDto;
+import racingcar.RoundResult;
 
 public class OutputView {
 
