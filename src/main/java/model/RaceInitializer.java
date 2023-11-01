@@ -31,14 +31,12 @@ public class RaceInitializer {
     private List<String> getAndValidateNames(){
         outputView.requestCarNames();
         String carNamesInput = inputView.getUserInput();
-        nameListValidator.validate(carNamesInput);
-        return nameListValidator.splitAndTrim(carNamesInput, Constants.NAME_DELIMITER);
+        return nameListValidator.getValidatedValue(carNamesInput);
     }
 
     private int getAndValidateAttempts(){
         outputView.requestAttemptTimes();
         String attemptTimesInput = inputView.getUserInput();
-        attemptTimesValidator.validate(attemptTimesInput);
-        return Integer.parseInt(attemptTimesInput);
+        return attemptTimesValidator.getValidatedValue(attemptTimesInput);
     }
 }
