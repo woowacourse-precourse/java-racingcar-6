@@ -10,16 +10,23 @@ public class Car implements Comparable<Car> {
         this.forwardDistance = new ForwardDistance();
     }
 
-    public void forward() {
+    public void runRound(NumberGenerator numberGenerator, ForwardChecker forwardChecker) {
+        int number = numberGenerator.createNumber();
+        if (forwardChecker.checkIfForward(number)) {
+            forward();
+        }
+    }
+
+    private void forward() {
         forwardDistance.increase();
     }
 
-    public CarName getName() {
-        return name;
+    public String getName() {
+        return name.getValue();
     }
 
-    public ForwardDistance getForwardDistance() {
-        return forwardDistance;
+    public int getForwardDistance() {
+        return forwardDistance.getValue();
     }
 
     @Override

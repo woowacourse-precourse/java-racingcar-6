@@ -21,9 +21,9 @@ class CarNamesTest {
         List<CarName> result = carNames.getCarNames();
         assertThat(result.size()).isEqualTo(3);
 
-        assertThat(result.get(0).getName()).isEqualTo("pobi");
-        assertThat(result.get(1).getName()).isEqualTo("woni");
-        assertThat(result.get(2).getName()).isEqualTo("jun");
+        assertThat(result.get(0).getValue()).isEqualTo("pobi");
+        assertThat(result.get(1).getValue()).isEqualTo("woni");
+        assertThat(result.get(2).getValue()).isEqualTo("jun");
 
     }
     @Test

@@ -6,13 +6,12 @@ import java.util.stream.Collectors;
 
 public class WinnerPicker {
 
-    //TODO 이 부분 수정이 필요해보임. 디미터 법칙 위반
     public Winners pickWinner(Cars cars) {
-        ForwardDistance winnerDistance = cars.getMaxForwardDistance();
+        int winnerDistance = cars.getMaxForwardDistance();
 
         List<String> winnerNames = cars.getCars().stream()
-                .filter(racingCar -> racingCar.getForwardDistance().equals(winnerDistance))
-                .map(car -> car.getName().getName())
+                .filter(racingCar -> racingCar.getForwardDistance() == winnerDistance)
+                .map(car -> car.getName())
                 .collect(Collectors.toList());
 
         CarNames winnersName = new CarNames(winnerNames);

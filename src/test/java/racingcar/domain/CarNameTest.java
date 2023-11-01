@@ -14,7 +14,7 @@ class CarNameTest {
     @Test
     void 유효한_자동차_이름_생성_성공() {
         CarName carName = new CarName(VALID_CAR_NAME);
-        assertThat(carName.getName()).isEqualTo(VALID_CAR_NAME);
+        assertThat(carName.getValue()).isEqualTo(VALID_CAR_NAME);
     }
 
     @Test
