@@ -39,7 +39,28 @@ public class RacingGetWinnerNamesTest extends NsTest {
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
                 STOP, STOP, MOVING_FORWARD
         );
+    }
 
+    @Test
+    @DisplayName("getWinnerNames 복수 우승자 테스트")
+    void getWinnerNames_plural_winner() {
+
+        String[] carNames = {"레오", "딘", "푸주"};
+        int playCount = 3;
+
+        racing.initParticipants(carNames);
+        racing.initPlayCount(playCount);
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run();
+                    assertThat(racing.getWinnerNames()).contains("푸주", "레오");
+                    assertThat(racing.getWinnerNames().size()).isEqualTo(2);
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
     }
 
     @Override
