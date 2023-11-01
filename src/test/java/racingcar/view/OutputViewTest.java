@@ -70,4 +70,33 @@ class OutputViewTest {
             outputView.printExecutionResultsOrder(cars.getCarList());
         }
     }
+
+    @Nested
+    @DisplayName("최종 우승자 출력 테스트")
+    class FinalWinnerTest extends NsTest {
+        @Test
+        @DisplayName("정상 작동")
+        void test() {
+            String finalWinners = getFinalWinners();
+
+            assertSimpleTest(
+                    () -> {
+                        run();
+                        assertThat(output()).contains(finalWinners);
+                    }
+            );
+        }
+
+        private String getFinalWinners() {
+            String finalWinners = cars.getMostForwardedCars().toString();
+            finalWinners = finalWinners.substring(1, finalWinners.length() - 1);
+
+            return finalWinners;
+        }
+
+        @Override
+        protected void runMain() {
+            outputView.printFinalWinners(cars.getMostForwardedCars());
+        }
+    }
 }
