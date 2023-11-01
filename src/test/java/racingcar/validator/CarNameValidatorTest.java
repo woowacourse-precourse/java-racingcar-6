@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-class CarTest {
+class CarNameValidatorTest {
     @Test
     void validateCarNames_should_throw_exception_when_name_length_exceeds_maximum() {
         assertThatThrownBy(() -> CarNameValidator.validateCarNames(List.of("pobi", "woni", "seobin")))
