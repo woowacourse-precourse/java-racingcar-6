@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class Validators {
-    public void isCarNameOverFive(String playerName) {
+    public static void isCarNameOverFive(String playerName) {
         if (playerName.length() > 5) {
             System.out.println("잘못된 값을 입력하였습니다.");
             throw new IllegalArgumentException("잘못된 값을 입력하였습니다.");
         }
     }
 
-    public void isListElementOverFive(ArrayList<String> playerList) {
+    public static void isListElementOverFive(ArrayList<String> playerList) {
         for (String player : playerList) {
             isCarNameOverFive(player);
         }

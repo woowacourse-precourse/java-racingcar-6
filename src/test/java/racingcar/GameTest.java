@@ -3,7 +3,6 @@ package racingcar;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ public class GameTest {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
-
     @BeforeEach
     public void setUpForTest() {
         System.setOut(new PrintStream(outputStreamCaptor));
@@ -22,14 +20,13 @@ public class GameTest {
 
     @Test
     void testPrintRaceResultAndWinners() {
-        Game testRace = new Game();
         ArrayList<Integer> testRaceResult = new ArrayList<>();
         testRaceResult.add(2);
         testRaceResult.add(4);
 
         Player player = new Player();
         ArrayList<String> testCars = player.createPlayerCarList("pobi, jun");
-        testRace.printTotalLapResult(testRaceResult, testCars);
+        Game.printTotalLapResult(testRaceResult, testCars);
 
         Referee referee = new Referee();
         ArrayList<String> winners = referee.compare(testRaceResult, testCars);

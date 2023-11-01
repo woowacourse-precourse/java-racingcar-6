@@ -2,11 +2,9 @@ package racingcar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class PlayerTest {
     @Test
@@ -14,8 +12,8 @@ public class PlayerTest {
     void testSplitCarNames() {
         Player cars = new Player();
         String testInput = "Tom, tyla, Judy";
-
         ArrayList<String> userInputCarList = cars.createPlayerCarList(testInput);
+
         assertThat(userInputCarList).contains("Tom", "tyla", "Judy");
     }
 }
