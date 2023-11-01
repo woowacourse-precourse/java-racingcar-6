@@ -3,7 +3,11 @@ package racingcar.constants;
 public class AppConstants {
     // 시스템 상수
     public static final int NAME_LENGTH_LIMIT = 5;
+    public static final int RANDOM_BEGIN_RANGE = 0;
+    public static final int RANDOM_END_RANGE = 9;
+    public static final int FORWARD_CONDITION = 4;
     public static final String INPUT_DELIMITER = ",";
+    public static final String POSITION_PROGRESS_BAR = "-";
     // 게임 출력 메시지
     public static final String MSG_INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String MSG_INPUT_GAME_ROUND = "시도할 회수는 몇회인가요?";
