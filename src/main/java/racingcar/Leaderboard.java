@@ -44,4 +44,8 @@ public class Leaderboard {
         }
         System.out.println("최종 우승자 : " + String.join(", ", Winner));
     }
+
+    public static Map<Car, String> getMap() {
+        return map;
+    }
 }
