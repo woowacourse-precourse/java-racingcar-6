@@ -19,24 +19,4 @@ class NumberGeneratorTest {
 
         assertThat(result).isBetween(0, 9);
     }
-
-    @Test
-    void judge_메서드로_기준점_이상의_수_이면_참_반환() {
-        boolean result = numberGenerator.judge(7);
-
-        assertThat(result).isTrue();
-    }
-
-    @Test
-    void judge_메서드에_generate_메서드로_값_입력시_적합한_결과_반환() {
-        int input = numberGenerator.generate();
-        boolean result = numberGenerator.judge(input);
-
-        if (input < 4) {
-            assertThat(result).isFalse();
-        }
-        if (input >= 4) {
-            assertThat(result).isTrue();
-        }
-    }
 }
