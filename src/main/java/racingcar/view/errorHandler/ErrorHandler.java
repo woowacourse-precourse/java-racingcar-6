@@ -20,14 +20,8 @@ public class ErrorHandler {
         if (numString.equals("")) {
             throw new IllegalArgumentException("플레이 횟수를 기입하지 않았습니다.");
         }
-        if (numString.matches("[0-9.]+")){
+        if(numString.matches("[^0-9]")){
             throw new IllegalArgumentException("플레이 횟수는 정수만 가능합니다.");
-        }
-
-        try{
-            int num = Integer.parseInt(numString);
-        }catch (NumberFormatException e){
-            throw new IllegalArgumentException("문자열은 플레이 횟수가 될 수 없습니다.");
         }
     }
 }
