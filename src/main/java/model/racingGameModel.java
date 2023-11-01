@@ -27,7 +27,7 @@ public class racingGameModel {
             }
         }
     }
-    public List<String> findWinners(){
+    public List<String> getWinnerNames(){
         int max = findMaxCountOfCarInfos();
 
         List<String> winnerNames = new ArrayList<>();
@@ -38,7 +38,6 @@ public class racingGameModel {
         }
         return winnerNames;
     }
-
     private int findMaxCountOfCarInfos(){
         int max = 0;
         for(racingCarInfo carInfo : racingCarInfos){
