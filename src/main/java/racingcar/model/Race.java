@@ -4,17 +4,28 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
+import org.assertj.core.util.Sets;
 
 public class Race {
     private final List<String> carNames;
     private final Map<String, Car> cars = new HashMap<>();
 
     public Race(List<String> carNames) {
+        validateCarNames(carNames);
+
         this.carNames = carNames;
         for (String name : carNames) {
             cars.put(name, new Car(name));
+        }
+    }
+
+    private void validateCarNames(List<String> carNames) {
+        Set<String> carNamesSet = Sets.newHashSet(carNames);
+        if (carNamesSet.size() != carNames.size()) {
+            throw new IllegalArgumentException("Duplicated names");
         }
     }
 
