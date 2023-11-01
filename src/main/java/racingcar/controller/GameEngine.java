@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.enums.ErrorMessage;
 import racingcar.enums.GameConstant;
 import racingcar.model.Cars;
 import racingcar.model.GameState;
@@ -51,17 +52,44 @@ public class GameEngine {
 
     private void initGame() {
         generateCars();
+        validateDuplicateCarName();
+
         generateAttempsNumber();
     }
 
     private void generateCars() {
         String carNameString = InputView.inputCarName();
         List<String> carNameList = generator.convertStringToStringList(carNameString);
+
+        validateCountOfCar(carNameList.size());
+
         this.cars = new Cars(carNameList);
     }
 
-    public void generateAttempsNumber() {
+    private void generateAttempsNumber() {
         String attempsNumberString = InputView.inputAttemptsNumber();
         this.gameState.updateAttempsCount(attempsNumberString);
+    }
+
+    private void validateCountOfCar(Integer countOfCar) {
+        Integer minimumCountOfCar = GameConstant.MINIMUM_COUNT_OF_CAR.getContentToInteger();
+
+        if (minimumCountOfCar > countOfCar) {
+            throw new IllegalArgumentException(ErrorMessage.MINIMUM_COUNT_OF_CAR.getMessage());
+        }
+    }
+
+    private void validateDuplicateCarName() {
+        String carListString = this.cars.toString();
+        String delimiter = GameConstant.DELIMITER.getContent();
+        List<String> carList = new ArrayList<>();
+
+        for (String carName : carListString.split(delimiter)) {
+            if (carList.contains(carName)) {
+                throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME.getMessage());
+            }
+
+            carList.add(carName);
+        }
     }
 }

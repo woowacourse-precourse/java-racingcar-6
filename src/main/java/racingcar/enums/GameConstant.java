@@ -7,13 +7,15 @@ public enum GameConstant {
     TRUE("true"),
     FALSE("false"),
     MAXIMUM_LENGTH_OF_CAR_NAME("5"),
+    MINIMUM_COUNT_OF_CAR("2"),
     DELIMITER(",");
 
     private final String content;
     public static final Pattern NUMBER_PATTERN = Pattern.compile("(\\+|-)?[0-9]+");
-    public static final Pattern POSITIVE_NUMBER_PATTERN = Pattern.compile("\\+?[0-9]+");
+    public static final Pattern POSITIVE_NUMBER_PATTERN = Pattern.compile("\\+?[1-9][0-9]*");
     public static final Pattern TRUE_PATTERN = Pattern.compile("true");
     public static final Pattern FALSE_PATTERN = Pattern.compile("false");
+    public static final Pattern NAME_PATTERN = Pattern.compile("[a-zA-Z]([0-9]|[a-zA-Z]|_)*");
 
     GameConstant(String content) {
         this.content = content;
