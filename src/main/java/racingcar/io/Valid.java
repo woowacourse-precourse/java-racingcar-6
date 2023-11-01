@@ -14,4 +14,19 @@ public class Valid {
             }
         }
     }
+
+    public static void checkNaturalNumber(String input) {
+        if (!isNaturalNumber(input)) {
+            throw new IllegalArgumentException("입력값은 자연수이어야 합니다.");
+        }
+    }
+
+    public static boolean isNaturalNumber(String value) {
+        try {
+            int number = Integer.parseInt(value);
+            return number >= 0;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 }
