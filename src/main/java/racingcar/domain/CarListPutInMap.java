@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -14,7 +13,6 @@ public class CarListPutInMap {
             exception.checkOverlapCarName(car);
             carMap.put(car, 0);
         });
-        RacingValue allValue = new RacingValue();
-        allValue.racingStatus = carMap;
+        RacingValue.racingStatus = carMap;
     }
 }

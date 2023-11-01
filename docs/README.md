@@ -3,7 +3,8 @@
 ## 기능 목록
 
 - [x] **각 자동차에 이름을 부여한다. (자동차 이름은 쉼표(,)를 기준으로 구분한다.)** -`InputRacingCarName #inputRacingCarName`
-  - [x] **예외처리 : 이름은 5자 이하만 가능하다.** -`Exception #IllegalArgumentException`
+  - [x] **예외처리 : 이름은 5자 이하만 가능하다.** -`Exception #checkExcessCarName`
+  - [x] **예외처리 : 이름은 중복될 수 없다.** -`Exception #checkOverlapCarName`
 - [x] **사용자는 몇 번의 이동을 할 것인지 입력한다.** -`InputRacingCount #inputRacingCount`
 
 
@@ -47,6 +48,8 @@
 
 
 ## 테스트 할 기능
-- [ ] 경주를 반복할 때마다 각 자동차의 이동횟수를 알맞게 출력하는가?
+- [x] 중복값이 예외처리 되는가?
+- [x] 다섯 자 이상인 이름은 예외 처리 되는가?
+- [x] 각 자동차의 이동횟수를 알맞게 출력하는가?
 - [x] 이동 여부를 결정하는 숫자가 4 이상일 때만 전진하는가?
-- [x] 우승자가 여러 명일 때 쉼표(,)를 이용하여 구분 후 출력하는가?
+- [x] 우승자가 여러 명일 때 우승자 모두를 출력하는가?
