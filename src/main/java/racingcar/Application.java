@@ -1,11 +1,19 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import net.bytebuddy.pool.TypePool;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+class Car{
+    private String name;
+    public int position =0;
+
+    public Car(String name){
+        this.name=name;
+    }
+}
 
 public class Application {
     public static void main(String[] args) {
@@ -13,14 +21,15 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input= Console.readLine();
         String[] carNames=input.split(",");
-        List<String> cars=new ArrayList<>();
-        for (String car: cars){
-            if(car.isEmpty()){
+        List<Car> cars=new ArrayList<>();
+        for (String carName: carNames){
+            if(carName.isEmpty()){
                 throw new IllegalArgumentException();
             }
-            if(car.length()>5){
+            if(carName.length()>5){
                 throw new IllegalArgumentException();
             }
+            cars.add(new Car(carName));
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -36,12 +45,14 @@ public class Application {
         }
 
         for (int i=1;i<tryCount+1;i++){
-            for (String car : cars){
-                // 자동차 생성
+            for (Car car : cars){
                 // 자동차 이동
+                int randomNumber= Randoms.pickNumberInRange(0,9);
+                if(randomNumber>=4){
+                    car.position++;
+                }
             }
         }
-
 
 
 
