@@ -78,17 +78,17 @@ public class RacingGame {
 
     private void racingResult(LinkedHashMap<String, String> racingProgress, Integer gameTimes) {
         int winnerLength = 0;
-        ArrayList<String> test = new ArrayList<>();
+        ArrayList<String> tempWinner = new ArrayList<>();
         for (String carName : racingProgress.keySet()) {
             if (winnerLength < racingProgress.get(carName).length()) {
-                test.clear();
-                test.add(carName);
+                tempWinner.clear();
+                tempWinner.add(carName);
                 winnerLength += 1;
             } else if (winnerLength == racingProgress.get(carName).length()) {
-                test.add(carName);
+                tempWinner.add(carName);
             }
         }
-        String result = String.join(",", test);
+        String result = String.join(",", tempWinner);
         System.out.println("최종 우승자 : " + result);
     }
 }
