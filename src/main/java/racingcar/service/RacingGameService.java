@@ -38,7 +38,7 @@ public class RacingGameService {
     }
 
     //input에서 사용자 이름 파싱
-    private String[] inputParser(String inputString) throws IllegalArgumentException{
+    public String[] inputParser(String inputString) throws IllegalArgumentException{
         String[] tokens = inputString.split(",");
         for (String token: tokens){
             //Validation
