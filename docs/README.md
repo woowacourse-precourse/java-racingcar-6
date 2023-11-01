@@ -55,7 +55,7 @@
 - [x] 한 라운드 진행시키는 기능 - playOneRound()
 
 ### 레이싱 게임 RacingGame
-- [ ] 게임을 시작시키는 기능 - play()
+- [x] 게임을 시작시키는 기능 - play()
 - [x] 게임을 초기 설정하는 기능 - initiate()
   - [x] 자동차 이름, 라운드 횟수
 - [x] 라운드를 감소시키는 기능 - decreaseRound()
