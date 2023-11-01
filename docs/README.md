@@ -12,7 +12,7 @@
   - [x] 레이스 횟수를 입력받는다 - Input#receiveInteger
   - [x] 레이스를 수행한다. - Race#startRound
 - [x] 자동차 경주의 우승자 목록을 획득한다. - Race#getWinnersList
-  - [ ] 1명 이상인 경우 ,(쉼표)를 이용하여 이름을 구분하여 문자열을 생성한다. - Output#commaJoinedString
+  - [x] 1명 이상인 경우 ,(쉼표)를 이용하여 이름을 구분하여 문자열을 생성한다. - Output#commaJoinedString
 
 ## 🚀 기능 요구 사항
 
