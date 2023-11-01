@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import racingcar.constant.RacingConstant;
 import racingcar.util.RandomNumbersGenerator;
 import racingcar.validation.InputValidation;
 
