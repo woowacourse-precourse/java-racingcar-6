@@ -7,7 +7,6 @@ import racingcar.view.Input;
 import racingcar.view.Output;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -28,9 +27,12 @@ public class GameService {
     public void start() {
         output.printMessage(AnnouncerScript.START_MENTION);
         carList = new Car(setCarName());
+        output.printMessage(AnnouncerScript.CREATE_CAR_NAME);
 
         output.printMessage(AnnouncerScript.ASK_NUMBER_OF_ATTEMPTS);
         setTryNumber();
+        String formattingType = String.format(AnnouncerScript.DECIDE_NUMBER_OF_ATTEMPT, attemp);
+        output.printMessage(formattingType);
 
         racing.play(carList, attemp);
     }
@@ -50,7 +52,7 @@ public class GameService {
             nameList.add(carName);
         }
 
-        //exceptionHandler.isDuplicationName(nameList);
+        exceptionHandler.isDuplicationName(nameList);
 
         return nameList;
     }
