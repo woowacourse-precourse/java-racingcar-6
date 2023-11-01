@@ -18,6 +18,7 @@ public class Cars {
 
     public Cars(List<String> carNames) {
         validateCanRace(carNames);
+
         for (String name : carNames) {
             cars.add(new Car(name));
         }
@@ -47,17 +48,16 @@ public class Cars {
     }
 
     public void randomCarMove(RandomGenerator randomGenerator) {
-        ;
-        for (Car car : cars) {
-            if (randomGenerator.isCanMove()) {
-                car.moveCar();
-            }
-        }
+        cars.stream()
+                .filter(car -> randomGenerator.isCanMove())
+                .forEach(Car::moveCar);
     }
 
     public Map<String, String> generateCarStatus() {
         Map<String, String> carStatusMap = new HashMap<>();
-        cars.forEach(car -> carStatusMap.put(car.getCarName(), generateStatusString(car.getDistance())));
+
+        cars.forEach(car ->
+                carStatusMap.put(car.getCarName(), generateStatusString(car.getDistance())));
 
         return carStatusMap;
     }
