@@ -10,7 +10,7 @@ public enum GameDefaultMessage {
 
     private final String message;
 
-    GameDefaultMessage(String message) {
+    GameDefaultMessage(final String message) {
         this.message = message;
     }
 

@@ -5,7 +5,7 @@ public record UserInput(
         String[] nameArr,
         int frequency
 ) {
-    public UserInput(String[] nameArr, int frequency) {
+    public UserInput(final String[] nameArr, final int frequency) {
         this.nameArr = nameArr;
         this.frequency = frequency;
     }

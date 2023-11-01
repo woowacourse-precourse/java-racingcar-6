@@ -7,7 +7,7 @@ public class Car {
     private String carName; // 자동차 이름
     private int location; // 자동차의 위치
 
-    public Car(String carName) {
+    public Car(final String carName) {
         this.carName = carName;
         this.location = 0;
     }
@@ -24,7 +24,7 @@ public class Car {
     }
 
     // 특정 조건에 부합하는 경우 전진, 그렇지 않을 경우에는 현재 위치 유지
-    public void moveForward(int resultCount) {
+    public void moveForward(final int resultCount) {
         if(resultCount >= LOCATION_CONSTRAINT) {
             this.location++;
         }

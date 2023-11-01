@@ -14,7 +14,7 @@ import static racingcar.util.GameDefaultMessage.*;
 public class GameService {
     private final StringBuilder sb = new StringBuilder();
 
-    public String processGame(UserInput userInput) {
+    public String processGame(final UserInput userInput) {
         List<Car> carList = getCarList(userInput);
 
         for(int i = 0; i < userInput.frequency(); i++) {
@@ -31,7 +31,7 @@ public class GameService {
     }
 
     // 사용자가 입력한 값을 토대로 Car Entity List를 생성
-    private List<Car> getCarList(UserInput userInput) {
+    private List<Car> getCarList(final UserInput userInput) {
         List<Car> carList = new ArrayList<>(userInput.frequency());
         String[] carNameArr = userInput.nameArr();
 
@@ -43,7 +43,7 @@ public class GameService {
     }
 
     // 임의의 값이 특정 조건을 만족하는 경우, 자동차의 위치를 이동
-    private void moveForward(List<Car> carList) {
+    private void moveForward(final List<Car> carList) {
         for(Car car : carList) {
             int randomNumber = NumberFactory.getRandomNumber();
             car.moveForward(randomNumber);
@@ -51,7 +51,7 @@ public class GameService {
     }
 
     // 게임을 진행 결과를 출력
-    private void printGameResult(List<Car> carList) {
+    private void printGameResult(final List<Car> carList) {
         sb.append(MESSAGE_GAME_RESULT).append("\n");
 
         for(Car car : carList) {
@@ -62,14 +62,14 @@ public class GameService {
     }
 
     // 가장 멀리 간 자동차의 위치를 반환
-    private int getMaxValue(List<Car> carList) {
+    private int getMaxValue(final List<Car> carList) {
         return carList.stream()
                 .map(Car::getLocation)
                 .max(Integer::compare).get();
     }
 
     // 우승한 자동차의 이름을 반환, 우승한 자동차가 여러 대 존재하는 경우 ','를 통해 여러 대의 자동차 이름을 반환
-    private String getWinnerName(List<Car> carList, int maxValue) {
+    private String getWinnerName(final List<Car> carList, final int maxValue) {
         return carList.stream().filter(car -> car.getLocation() == maxValue)
                 .map(Car::getCarName)
                 .collect(Collectors.joining(", "));

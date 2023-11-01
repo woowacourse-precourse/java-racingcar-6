@@ -10,7 +10,7 @@ public enum GameExceptionMessage {
 
     private final String message;
 
-    GameExceptionMessage(String message) {
+    GameExceptionMessage(final String message) {
         this.message = message;
     }
 
