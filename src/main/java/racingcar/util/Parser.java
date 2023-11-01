@@ -10,4 +10,9 @@ public class Parser {
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
 
+    public int parseNumberOfPlaycount(String input) {
+        return Integer.parseInt(input);
+    }
+
+
 }
