@@ -12,7 +12,7 @@ public class RangedRandomNumberPickerTest {
         int rangeStart = 0;
         int rangeEnd = 100;
         RangedRandomNumberPicker rangedRandomNumberPicker
-            = new RangedRandomNumberPicker(new Range(rangeStart, rangeEnd));
+            = new RangedRandomNumberPicker(rangeStart, rangeEnd);
 
         assertThat(rangedRandomNumberPicker.pickNumber()).isGreaterThanOrEqualTo(rangeStart);
         assertThat(rangedRandomNumberPicker.pickNumber()).isLessThanOrEqualTo(rangeEnd);
