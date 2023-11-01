@@ -69,8 +69,7 @@ public class Application {
 
         for (int i = 0; i < tryCount; i++) {
             for (int j = 0; j < car.size(); j++) {
-                int forwardRandomValue = Randoms.pickNumberInRange(0, 9);
-                if (forwardRandomValue >= 4) {
+                if (canMoveForward()) {
                     position.set(j, position.get(j) + 1);
                 }
             }
@@ -84,6 +83,11 @@ public class Application {
             }
             System.out.println();
         }
+    }
+
+    private static boolean canMoveForward() {
+        int forwardRandomValue = Randoms.pickNumberInRange(0, 9);
+        return forwardRandomValue >= 4;
     }
 
     private static String getInput(String message) {
