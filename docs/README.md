@@ -31,7 +31,7 @@ RacingCarGame을 실행시킴
       - decideToGoOrStop() : 리스트에서 자동차를 꺼내서 전진할지말지
         - 1회마다 RandomNumGenerator의 generateNum() 이용해 랜덤 수 생성
         - checkNum() : 랜덤수를 확인해서 전진할지 말지를 결정
-        - Go() : checkNum이 true라면 해당 자동차의 이동량을 1 증가
+        - go() : checkNum이 true라면 해당 자동차의 이동량을 1 증가
       - printCurrentResult() : 1회마다 현재의 이동량을 바꿔서을 이름과 함께 출력
   - printWinner() : 시도횟수가 종료되었을 시 
     - whoIsWinner() : 우승자 조회 (각각 이동량 비교)
