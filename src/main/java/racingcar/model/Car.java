@@ -6,7 +6,9 @@ public class Car {
     private String name;
     private int distance;
     private final int MAX_NAME_LENGTH = 5;
+    private final int MIN_NAME_LENGTH = 1;
     private final String MAX_NAME_ERROR_MESSAGE = "자동차의 이름은 최대 5글자 입니다.";
+    private final String MIN_NAME_ERROR_MESSAGE = "자동차의 이름은 1글자 이상입니다.";
     public Car(String name) {
         this.name = name;
         this.distance = 0;
@@ -36,6 +38,11 @@ public class Car {
     private void checkMaxNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(MAX_NAME_ERROR_MESSAGE);
+        }
+    }
+    private void checkMinNameLength(String name) {
+        if (name.length() < MIN_NAME_LENGTH) {
+            throw new IllegalArgumentException(MIN_NAME_ERROR_MESSAGE);
         }
     }
 
