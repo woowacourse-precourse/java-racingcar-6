@@ -4,7 +4,6 @@ public class Application {
     public static void main(String[] args) {
 
         UserInputManager inputManager = new UserInputManager();
-
         String[] carNameList = inputManager.inputCarName();
         int attempts = inputManager.inputAttempts();
 
@@ -23,12 +22,6 @@ public class Application {
             attempts--;
         }
 
-//        for (int k = 0; k < carNameList.length; k++) {
-//            System.out.println(car[k].carName + "의 전진횟수: " + car[k].forwardCount);
-//        }
-
         raceGameManager.noticeWinner();
-
-
     }
 }
