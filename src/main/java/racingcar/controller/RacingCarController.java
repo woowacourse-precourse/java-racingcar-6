@@ -42,13 +42,13 @@ public class RacingCarController {
             printRaceResult(racingCars.getCars());
         }
 
-        List<String> winners = getWinners(racingCars.getCars());
+        List<String> winners = RacingCars.getWinners(racingCars.getCars());
         outputView.printWinner(winners);
     }
 
     private void printRaceResult(List<Car> cars) {
         for (Car car : cars) {
-            outputView.printCarResult(car.getName(), car.getPosition());
+            car.printCarResult();
         }
         println();
         close();
@@ -70,13 +70,5 @@ public class RacingCarController {
         if (randomNumber >= GameCondition.FORWARD_CONDITION.getValue()) {
             car.moveForward();
         }
-    }
-
-    private List<String> getWinners(List<Car> cars) {
-        int maxPosition = RacingCars.getMaxPosition(cars);
-        return cars.stream()
-                .filter(car -> car.isMaxPosition(maxPosition))
-                .map(Car::getName)
-                .toList();
     }
 }

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
-
+@SuppressWarnings("NonAsciiCharacters")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class RacingCarsTest {
     @Test
@@ -48,6 +48,15 @@ class RacingCarsTest {
         });
         assertThrows(IllegalArgumentException.class, () -> {
             RacingCars racingCars = new RacingCars(carNames4);
+        });
+    }
+    @Test
+    void 자동차_이름에_중복이_존재하면_예외를_발생하라 () {
+        //given
+        List<String> carNames1 = Arrays.asList("jun", "jun", "rao");
+        //when, then
+        assertThrows(IllegalArgumentException.class, () -> {
+            RacingCars racingCars = new RacingCars(carNames1);
         });
     }
 }
