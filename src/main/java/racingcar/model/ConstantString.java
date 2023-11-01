@@ -6,7 +6,7 @@ public enum ConstantString {
 
     private final String string;
 
-    ConstantString(String string) {
+    ConstantString(final String string) {
         this.string = string;
     }
 
