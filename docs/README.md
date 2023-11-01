@@ -35,6 +35,9 @@
 - [x] 자동차 경주 과정(자동차 생성부터, 결과 출력 등)을 관리한다. RacingGameProcessManager
   - [x] 자동차 경주 게임을 시작한다. RacingGameProcessManager#start()
 
+[version_history](https://fabulous-butterkase-809.notion.site/Package-Version-History-Precouse-Week2-986f0952e8904c6ba7af2b0ec1f9a2a2?pvs=4)
+
+
 ## 기능 요구 사항
 
 초간단 자동차 경주 게임을 구현한다.
