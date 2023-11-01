@@ -18,4 +18,10 @@ public class Car {
     public int getScore() {
         return score;
     }
+
+    @Override
+    public String toString() {
+        return name + " : " +
+                "-".repeat(score);
+    }
 }

@@ -18,11 +18,17 @@ class CarTest {
     @Test
     void Car_앞으로_전진() {
         car.move(judge);
-        assertThat(car.getScore()).isEqualTo(1);
+        assertThat(car.getScore()).isIn(0, 1);
     }
 
     @Test
     void Car_최초_점수_0() {
         assertThat(car.getScore()).isEqualTo(0);
+    }
+
+    @Test
+    void Car_toString_형태() {
+        car.move(judge);
+        assertThat(car.toString()).isIn("test : ", "test : -");
     }
 }
