@@ -20,7 +20,14 @@ public class PlayingService {
         String[] name = names.split(",");
         for (String s : name) {
             s = s.strip();
+            validateName(s);
             cars.put(s, 0);
+        }
+    }
+
+    private void validateName(String s) {
+        if (s.length() > 5) {
+            throw new IllegalArgumentException("이름은 5글자를 넘기면 안 됩니다!");
         }
     }
 }
