@@ -21,22 +21,24 @@ public class GameController {
 
     private void initGame() {
         OUTPUT_VIEW.printCarNamePrompt();
-        String carNamesInput = INPUT_VIEW.enterPlayerInput();
+        cars = new Cars(INPUT_PARSER.parseCarName(INPUT_VIEW.enterPlayerInput()));
         OUTPUT_VIEW.printNumberOfAttemptPrompt();
-        String attemptInput = INPUT_VIEW.enterPlayerInput();
-        numberOfAttempt = INPUT_PARSER.parseNumberOfAttempt(attemptInput);
-        cars = new Cars(INPUT_PARSER.parseCarName(carNamesInput));
+        numberOfAttempt = INPUT_PARSER.parseNumberOfAttempt(INPUT_VIEW.enterPlayerInput());
     }
 
     private void proceedGame() {
         OUTPUT_VIEW.printResultMessage();
-        for (int i = 0; i < numberOfAttempt; i++) {
-            cars.driveAll();
-            OUTPUT_VIEW.printResultRound(cars.getRoundResult());
-        }
+        printRoundResult();
     }
 
     private void endGame() {
         OUTPUT_VIEW.printWinner(cars.getWinnersName());
+    }
+
+    private void printRoundResult() {
+        for (int i = 0; i < numberOfAttempt; i++) {
+            cars.driveAll();
+            OUTPUT_VIEW.printResultRound(cars.getRoundResult());
+        }
     }
 }
