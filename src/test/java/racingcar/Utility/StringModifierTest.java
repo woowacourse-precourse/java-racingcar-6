@@ -18,7 +18,7 @@ class StringSeparatorTest {
 
         String input = "pobi,woni,jun";
 
-        String[] result = StringModifier.separateCarNamesBySeparator(input, ",");
+        String[] result = StringModifier.getInstance().separateCarNamesBySeparator(input, ",");
         assertThat(result).containsExactly("pobi", "woni", "jun");
     }
 
@@ -27,15 +27,8 @@ class StringSeparatorTest {
 
         String input = "pojun";
 
-        String[] result = StringModifier.separateCarNamesBySeparator(input, ",");
+        String[] result = StringModifier.getInstance().separateCarNamesBySeparator(input, ",");
         assertThat(result).containsExactly("pojun");
     }
 
-    @Test
-    void 입력한_대로_숫자로_변환(){
-        String number = "1234";
-
-        int result = StringModifier.
-
-    }
 }
