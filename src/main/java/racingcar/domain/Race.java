@@ -54,4 +54,19 @@ public class Race {
         }
         return sb.toString();
     }
+
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int max_moved = 0;
+        for (Car car : cars) {
+            if (max_moved < car.getMoved()) {
+                winners = new ArrayList<>();
+                winners.add(car.getName());
+                max_moved = car.getMoved();
+            } else if (max_moved == car.getMoved()) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 }

@@ -31,6 +31,7 @@ public class RaceController {
         Race race = startRace();
         logger.info("경주가 시작되었습니다: " + race.toString());
         execRace();
+        finishRace();
     }
 
     private Race startRace() {
@@ -47,5 +48,10 @@ public class RaceController {
         if (race != null) {
             raceView.execRace(race.showStatus());
         }
+    }
+
+    private void finishRace() {
+        List<String> winners = raceService.getWinners();
+        raceView.finishRace(winners);
     }
 }

@@ -25,6 +25,10 @@ public class Car {
         return name;
     }
 
+    public int getMoved() {
+        return moved;
+    }
+
     @Override
     public String toString() {
         return name + " : "

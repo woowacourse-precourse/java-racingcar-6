@@ -41,4 +41,9 @@ public class RaceService {
     public int getChance() {
         return raceRepository.findRace().getChance();
     }
+
+    public List<String> getWinners() {
+        Race race = raceRepository.findRace();
+        return race.getWinners();
+    }
 }

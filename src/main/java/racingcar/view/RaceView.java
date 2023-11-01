@@ -42,4 +42,14 @@ public class RaceView {
     public void execRace(String status) {
         System.out.println(status);
     }
+
+    public void finishRace(List<String> winners) {
+        StringBuilder sb = new StringBuilder("최종 우승자 : ");
+        for (String winner : winners) {
+            sb.append(winner).append(", ");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.deleteCharAt(sb.length() - 1);
+        System.out.println(sb);
+    }
 }
