@@ -5,9 +5,16 @@ import org.junit.jupiter.api.Test;
 import racingcar.Application;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ValidationTest extends NsTest {
+
+    @Test
+    void 자동차_이름과_시도_횟수_정상_입력() {
+        assertThatCode(() -> run("car1, car2, car3", "1"))
+                .doesNotThrowAnyException();
+    }
 
     @Test
     void 자동차_이름이_공백일_경우_예외_발생() {
