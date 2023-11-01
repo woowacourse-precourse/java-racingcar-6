@@ -33,7 +33,7 @@ public class StringConverter {
         return splittedNames;
     }
 
-    public List<Predicate<String>> integerIllegalcheckfilter(String inputLine) {
+    private List<Predicate<String>> integerIllegalcheckfilter(String inputLine) {
         List<Predicate<String>> filterList = new ArrayList<>();
 
         filterList.add((s) -> illegalCheck.blankCheck(inputLine));
@@ -44,7 +44,7 @@ public class StringConverter {
         return filterList.stream().collect(Collectors.toUnmodifiableList());
     }
 
-    public List<Predicate<String>> namesIllegalcheckfilter(List<String> splittedNames, String inputLine) {
+    private List<Predicate<String>> namesIllegalcheckfilter(List<String> splittedNames, String inputLine) {
         List<Predicate<String>> filterList = new ArrayList<>();
 
         filterList.add((s) -> illegalCheck.blankCheck(inputLine));
