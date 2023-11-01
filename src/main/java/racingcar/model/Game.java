@@ -5,13 +5,24 @@ import java.util.Comparator;
 
 public class Game {
     private final ArrayList<Car> cars;
-    private final Integer gameRound;
+    private Integer gameRound;
 
     public Game(ArrayList<String> carNames, int gameRound) {
         this.cars = createCars(carNames);
         this.gameRound = gameRound;
     }
 
+    public void play() {
+        for(Car car : cars) {
+            car.move();
+            car.showMove();
+        }
+        this.gameRound -= 1;
+    }
+
+    public boolean isGameOver() {
+        return this.gameRound == 0;
+    }
 
     private static ArrayList<Car> createCars(ArrayList<String> carNames) {
         ArrayList<Car> cars = new ArrayList<>();
