@@ -21,7 +21,7 @@ public class RacingCarGame {
 
     private void play(){
         decideToGoOrStop();
-
+        printCurrentResult();
     }
     private void decideToGoOrStop(){
         for(RacingCar racingCar:racingCars){
@@ -42,6 +42,18 @@ public class RacingCarGame {
             racingCar.plusDistance();
         }
     }
+
+    private void printCurrentResult(){
+        for(RacingCar racingCar:racingCars){
+            System.out.print(racingCar.getCarName()+" : ");
+            for(int i =0;i<racingCar.getDistance();i++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
 
 
     private void init(){
