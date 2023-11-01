@@ -31,6 +31,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 라운드_수_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("java1,java2", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
