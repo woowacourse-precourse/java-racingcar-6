@@ -28,4 +28,12 @@ public class NameInput {
         }
         return carArr;
     }
+
+    public static String[] getNameArr() {
+        return nameArr;
+    }
+
+    public static void setNameArr(String[] nameArr) {
+        NameInput.nameArr = nameArr;
+    }
 }
