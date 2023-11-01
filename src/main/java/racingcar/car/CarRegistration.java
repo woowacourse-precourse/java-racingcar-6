@@ -2,6 +2,7 @@ package racingcar.car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.car.model.Car;
 import racingcar.car.model.CarName;
 import racingcar.car.model.RacingCar;
@@ -41,11 +42,9 @@ public class CarRegistration {
 
     public CarRegistration(String inputCarNames) throws IllegalArgumentException {
         List<CarName> carNameList = nameRegistration(inputCarNames);
-
-        participantList = new ArrayList<>();
-        for (CarName carName : carNameList) {
-            participantList.add(new RacingCar(carName));
-        }
+        participantList = carNameList.stream()
+                .map(RacingCar::new)
+                .collect(Collectors.toList());
     }
 
     public List<Car> getList() {
