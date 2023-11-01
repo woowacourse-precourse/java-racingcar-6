@@ -25,9 +25,9 @@ public class InputReader {
         return carNameList;
     }
 
-    public static int inputTrialTimes() {
-        String inputTrialTimes = Console.readLine();
+    public static int inputRepetitions() {
+        String inputRepetitions = Console.readLine();
 
-        return checkIsPositiveInteger(inputTrialTimes);
+        return checkIsPositiveInteger(inputRepetitions);
     }
 }

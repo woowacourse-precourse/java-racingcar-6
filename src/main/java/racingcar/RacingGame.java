@@ -15,7 +15,7 @@ public class RacingGame {
 
     private List<String> carNameList;
     private List<Car> cars;
-    private int trialTimes;
+    private int repetitions;
 
 
     public void play() {
@@ -26,10 +26,10 @@ public class RacingGame {
             cars.add(new Car(car));
         }
         System.out.println("시도할 회수는 몇회인가요?");
-        trialTimes = inputTrialTimes();
+        repetitions = inputRepetitions();
 
         System.out.println("실행 결과");
-        for (int i = 0; i < trialTimes; i++) {
+        for (int i = 0; i < repetitions; i++) {
             moveForward();
             printCurrentPosition();
         }
