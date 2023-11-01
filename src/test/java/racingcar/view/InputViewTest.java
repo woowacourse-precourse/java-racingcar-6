@@ -2,7 +2,6 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.io.ByteArrayInputStream;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -27,7 +26,6 @@ class InputViewTest extends MyTest {
             a,' ',@
             """)
     void 시도_횟수가_숫자가_아니면_에러_발생(String arg) {
-        System.setIn(new ByteArrayInputStream(arg.getBytes()));
         InputView inputView = new InputView();
 
         assertThatIllegalArgumentException()
@@ -37,7 +35,6 @@ class InputViewTest extends MyTest {
     @ParameterizedTest
     @ValueSource(strings = {"-1", "0"})
     void 시도_횟수가_1_보다_작으면_에러_발생(String attemptCount) {
-        System.setIn(new ByteArrayInputStream(attemptCount.getBytes()));
         InputView inputView = new InputView();
 
         assertThatIllegalArgumentException()
