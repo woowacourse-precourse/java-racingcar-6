@@ -14,7 +14,7 @@ public class TryCountValidatorTest {
     @DisplayName("시도 횟수가 0일 때를 검증한다.")
     void validateInputTryCount() {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> TryCountValidator.validateInputTryCount("0"));
+                .isThrownBy(() -> TryCountValidator.validateInputTryCountZero("0"));
     }
 
     @Test

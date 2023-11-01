@@ -2,7 +2,7 @@ package racingcar.view;
 
 import static racingcar.util.vaildator.CarNameValidator.validateInputName;
 import static racingcar.util.vaildator.CarNameValidator.validateInputNameSize;
-import static racingcar.util.vaildator.TryCountValidator.validateInput;
+import static racingcar.util.vaildator.TryCountValidator.validateInputTryCount;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -41,7 +41,7 @@ public class InputView {
     public int inputTryCount() {
         System.out.println(INPUT_TRY_COUNT);
         String inputTryCount = readLine();
-        validateInput(inputTryCount);
+        validateInputTryCount(inputTryCount);
         System.out.println();
         return Integer.parseInt(inputTryCount);
     }
