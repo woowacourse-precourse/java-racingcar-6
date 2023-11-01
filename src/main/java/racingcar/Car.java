@@ -16,16 +16,12 @@ public class Car {
         }
     }
     public void giveNameOfCar(String carName) {
-        if(isCarNameLengthFive(carName)) {
             this.carName = carName;
-        }
     }
     public String printMovingCarWithCarName() {
-        return carName + " : " + result;
+        return carName + " : " + result + "\n";
     }
-    public boolean isCarNameLengthFive(String carName) {
-        return carName.length() <= 5;
-    }
+
     public boolean isMoveAble() {
         return generateRandomNumber() > 3;
     }
