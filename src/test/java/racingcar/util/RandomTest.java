@@ -51,4 +51,16 @@ class RandomTest {
         assertThat(b).isTrue();
     }
 
+    @Test
+    void 숫자_랜덤_생성_후_검증_실패(){
+        //given
+        int r = Random.make(0, 3);
+
+        //when
+        boolean b = Random.check(r);
+
+        //then
+        assertThat(b).isFalse();
+    }
+
 }
