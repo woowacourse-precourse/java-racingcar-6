@@ -1,15 +1,18 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class Game {
 
     private static final int DEFAULT_TOTAL_ATTEMPTS = 0;
+    public static final int DISTANCE_TO_MOVE = 1;
 
     private final int totalAttempts;
-    private final RacingCarList racingCarList;
+    private final RacingCars racingCars;
     private int attempts;
 
-    public Game(RacingCarList racingCarList, int totalAttempts) {
-        this.racingCarList = racingCarList;
+    public Game(RacingCars racingCars, int totalAttempts) {
+        this.racingCars = racingCars;
         this.totalAttempts = totalAttempts;
         this.attempts = DEFAULT_TOTAL_ATTEMPTS;
     }
@@ -18,16 +21,8 @@ public class Game {
         this.attempts += 1;
     }
 
-    public int getTotalAttempts() {
-        return totalAttempts;
-    }
-
-    public int getAttempts() {
-        return attempts;
-    }
-
-    public RacingCarList getRacingCarList() {
-        return racingCarList;
+    public List<RacingCar> getRacingCarList() {
+        return racingCars.getRacingCars();
     }
 
     public boolean isGameEnd() {
