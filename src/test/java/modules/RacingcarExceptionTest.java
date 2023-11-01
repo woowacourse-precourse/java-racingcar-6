@@ -25,6 +25,15 @@ public class RacingcarExceptionTest {
   }
 
   @Test
+  void car_이름에_중복이_있을_경우_예외_처리() {
+    String[] input = {"pobi", "woni", "pobi"};
+    assertSimpleTest(() ->
+            assertThatThrownBy(() -> RacingcarException.exception_same_name(input))
+                    .isInstanceOf(IllegalArgumentException.class)
+    );
+  }
+
+  @Test
   void 횟수로_받은_값이_int로_변환이_안될_경우_예외_처리() {
     String input = "string";
     assertSimpleTest(() ->
