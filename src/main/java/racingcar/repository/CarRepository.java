@@ -20,6 +20,10 @@ public class CarRepository {
         return cars.indexOf(car);
     }
 
+    public boolean findByName(String name) {
+        return findAll().stream().anyMatch(car -> car.getName().equals(name));
+    }
+
     public List<Car> findAll() {
         return cars;
     }
