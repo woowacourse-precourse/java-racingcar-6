@@ -24,7 +24,7 @@ public final class Validator {
 
     public static void validateNumeric(String input) {
         if (!NUMERIC_PATTERN.matcher(input).matches()) {
-            throw ErrorMessage.INVALID_NUMERIC_INPUT.getException();
+            throw ErrorMessage.INVALID_NUMERIC_INPUT.getException(input);
         }
     }
 }

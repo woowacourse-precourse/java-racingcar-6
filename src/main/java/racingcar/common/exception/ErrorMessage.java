@@ -23,4 +23,8 @@ public enum ErrorMessage {
     public RacingCarException getException() {
         return new RacingCarException(this.message);
     }
+
+    public RacingCarException getException(String invalidInput) {
+        return new RacingCarException(this.message + " : " + invalidInput);
+    }
 }
