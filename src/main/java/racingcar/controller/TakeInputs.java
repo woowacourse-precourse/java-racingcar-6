@@ -9,19 +9,20 @@ public class TakeInputs {
     Car car = Car.getInstance();
     RacingData racingData = RacingData.getInstance();
 
-    public void userInputString(){
+    public String userInputCarString(){
 
         String carNamesString = Console.readLine();
         car.setUserInputString(carNamesString);
 
+        return carNamesString;
     }
 
-    public void userInputLoopCount(){
+    public String userInputLoopCount(){
 
-       String loopTime =Console.readLine();
-       racingData.setUserInputLoopString(loopTime);
+        String loopTime =Console.readLine();
+        racingData.setUserInputLoopString(loopTime);
 
+        return loopTime;
     }
-
 
 }
