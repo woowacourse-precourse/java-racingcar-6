@@ -16,8 +16,8 @@ public class InputConverter {
     }
 
     public Cars toCars(String input) {
-        inputValidator.validateInputFormat(input);
         inputValidator.validateNonEmpty(input);
+        inputValidator.validateInputFormat(input);
 
         List<Car> cars = StringUtils.splitStringToList(input).stream()
                 .map(CarName::from)
@@ -28,6 +28,7 @@ public class InputConverter {
     }
 
     public TrialCount toTrialCount(String input) {
+        inputValidator.validateNonEmpty(input);
         inputValidator.validateNumericString(input);
         int trialCount = Integer.parseInt(input);
         return TrialCount.from(trialCount);
