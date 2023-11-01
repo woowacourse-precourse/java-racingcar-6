@@ -19,8 +19,28 @@ public class Game {
             for (Car car : cars) {
                 car.printResult();
             }
+            System.out.println();
         }
+        System.out.println("최종 우승자 : " + getWinner(cars));
 
+
+    }
+
+    public String getWinner(List<Car> cars){
+        List<String> winners = new ArrayList<>();
+        int maxMovingCnt = getMaxMovingCnt(cars);
+        for(Car car : cars){
+            if(car.getMovingCnt() == maxMovingCnt){
+                winners.add(car.getName());
+            }
+        }
+        return String.join(",",winners);
+    }
+
+    public int getMaxMovingCnt(List<Car> cars){
+        return cars.stream()
+                .max(Car::compareTo)
+                .get().getMovingCnt();
     }
 
 
