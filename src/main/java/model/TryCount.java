@@ -1,5 +1,8 @@
 package model;
 
+import static model.ErrorMessage.INVALID_RANGE;
+import static model.ErrorMessage.INVALID_TYPE;
+
 public class TryCount {
 
     private static final int MIN_TRY_COUNT = 1;
@@ -31,13 +34,13 @@ public class TryCount {
 
     private static void validateRange(final int intValue) {
         if (isInValidRange(intValue)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_RANGE.getMessage());
         }
     }
 
     private static void validateDigitValue(final String value) {
         if (!isDigit(value)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_TYPE.getMessage());
         }
     }
 
