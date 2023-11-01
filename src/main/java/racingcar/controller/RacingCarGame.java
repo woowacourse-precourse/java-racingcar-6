@@ -20,4 +20,11 @@ public class RacingCarGame {
         return RacingCarList.generateRacingCarList(carNames);
     }
 
+    private int getTryCountFromInput() {
+        String tryCountString = inputView.getTryCount();
+        InputValidator.validateTryCount(tryCountString);
+
+        return Integer.parseInt(tryCountString);
+    }
+
 }
