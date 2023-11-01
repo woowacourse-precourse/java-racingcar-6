@@ -17,4 +17,12 @@ public class Car {
             this.position += TICK;
         }
     }
+
+    public int findFasterPosition(int fastestPosition) {
+        return Math.max(this.position, fastestPosition);
+    }
+
+    public boolean isWinnerPosition(int winnerPosition) {
+        return this.position == winnerPosition;
+    }
 }
