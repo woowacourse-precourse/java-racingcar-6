@@ -14,7 +14,7 @@ import  racingcar.CarConstants;
 
 
 public class GameController {
-    List<CarDto> carList;
+    public List<CarDto> carList;
     public static int playNumberInput;
     public int maxScore;
     public List<CarDto> winnerList;
@@ -56,7 +56,7 @@ public class GameController {
 
     }
 
-    private void findWinner() {
+    public void findWinner() {
         winnerList=new LinkedList<>();
         for(CarDto car : carList){
             sameWinnerScore(car);
@@ -117,4 +117,19 @@ public class GameController {
         }
     }
 
+    public void setCarList(List<CarDto> carList) {
+        this.carList=carList;
+    }
+
+    public int getMaxScore() {
+        return maxScore;
+    }
+
+    public void setMaxScore(int i) {
+        maxScore=i;
+    }
+
+    public List<CarDto> getWinnerList() {
+        return winnerList;
+    }
 }
