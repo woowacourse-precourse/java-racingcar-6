@@ -25,13 +25,13 @@ public class RacingGameTest {
     @BeforeEach
     public void setUpStreams() {
         System.setOut((new PrintStream(output)));
+        Console.close();
     }
 
     @AfterEach
     public void restoreStreams() {
         System.setOut(System.out);
         output.reset();
-        Console.close();
     }
 
     @Test
