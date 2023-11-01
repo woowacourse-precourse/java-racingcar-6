@@ -10,14 +10,14 @@ import java.util.stream.Collectors;
 public class Utils {
 
     public static boolean nameIsValid(String name) throws IllegalArgumentException{
-        if(name.length()>5){
+        if(name.length()>5)
             throw new IllegalArgumentException();
-        }
         return true;
     }
 
-    public static boolean nameIsDuplicate(List<String> names){
-        if (names.stream().distinct().count() != names.size()) return true;
+    public static boolean nameIsDuplicate(List<String> names) throws IllegalArgumentException{
+        if (names.stream().distinct().count() != names.size())
+            throw new IllegalArgumentException();
         return false;
     }
 
