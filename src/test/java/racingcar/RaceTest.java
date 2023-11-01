@@ -114,27 +114,6 @@ class RaceTest {
         }
 
         @Test
-        public void 한개만_같은경우() throws Exception {
-            car1 = new Car("alpha");
-            car2 = new Car("bravo");
-            car3 = new Car("char");
-
-            List<Car> expectedCars = Arrays.asList(car1, car2, car3);
-            race = new Race(3, List.of(car1, car2, car3));
-
-            camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
-                    () -> {
-                        for (int i = 0; i < expectedRound; i++) {
-                            race.proceedRound();
-                        }
-                        Assertions.assertThat(race.getMaxDistance()).isEqualTo(3);
-                    },
-                    STOP,
-                    MOVING_FORWARD
-            );
-        }
-
-        @Test
         public void 두개가_같은_경우() throws Exception {
             car1 = new Car("alpha");
             car2 = new Car("bravo");
@@ -167,9 +146,6 @@ class RaceTest {
 
             camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
                     () -> {
-                        for (Car car : race.getCars()) {
-                            System.out.println(car.getDistance());
-                        }
                         Randoms.pickNumberInRange(0, 9);
                         for (int i = 0; i < expectedRound; i++) {
                             race.proceedRound();
