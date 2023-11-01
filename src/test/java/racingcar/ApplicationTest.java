@@ -1,4 +1,4 @@
 package racingcar;
 
-public class Application {
+public class ApplicationTest {
 }
