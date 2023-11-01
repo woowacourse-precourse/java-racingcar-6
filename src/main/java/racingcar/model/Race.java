@@ -1,4 +1,4 @@
-package racingcar.race;
+package racingcar.model;
 import java.util.List;
 import java.util.ArrayList;
 public class Race {
@@ -14,7 +14,7 @@ public class Race {
         System.out.println("\n실행 결과");
         for(int i =0; i <rounds; i++){
             cars.forEach(Car::move);
-            System.out.printf("# LAB %d1\n", i+1);
+            System.out.printf("# LAB %d\n", i+1);
             showLabTime();
             System.out.println();
         }
