@@ -1,7 +1,6 @@
 package racingcar;
 
 import racingcar.manager.controller.ManagerController;
-import racingcar.manager.model.Manager;
 
 public class Application {
     public static void main(String[] args) {
