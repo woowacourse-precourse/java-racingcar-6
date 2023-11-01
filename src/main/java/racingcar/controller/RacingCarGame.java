@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Cars;
 import racingcar.view.InputView;
 
 import static racingcar.util.GameReader.readAttemptCount;
@@ -9,7 +10,7 @@ public class RacingCarGame {
 
     public void play() {
         InputView.printDemandCarNames();
-        readCarNames();
+        Cars cars = new Cars(readCarNames());
 
         InputView.printDemandAttemptCount();
         readAttemptCount();

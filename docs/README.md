@@ -8,7 +8,9 @@
 - [x] GameReader 자동차 이름들과 시도 회수를 입력받는 기능 구현
   - 입력 값을 변환하는 InputConvertUtils 구현. 변환 로직에서 자동차의 각 이름 양끝 공백은 제거한다.
   - 입력 값의 빈 값 검사, int 범위 검사하는 InputValidationUtils 구현
-- [ ] Car, Cars 생성 및 검증 -> 5자 이하만 입력 가능, 공백 불가능으로 설정
+- [x] Car, Cars 생성 및 검증 기능 구현 
+  - Car 유효성 검사 : 이름을 5자 이하만 입력 가능, 이름에 공백 불가능
+  - Cars 유효성 검사 : 이름 중복 불가능
 - [ ] AttemptCount 생성 및 검증
 - [ ] 예외 메시지 정리하기
 
