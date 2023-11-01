@@ -12,7 +12,7 @@ public class Application {
         Cars cars = new Cars(InputView.getCarNames());
 
         OutputView.printAskCount();
-        MoveCount moveCnt = InputView.inputMoveCount();
+        MoveCount moveCnt = Race.inputMoveCount();
 
         Race race = new Race(cars, moveCnt);
         race.run();
