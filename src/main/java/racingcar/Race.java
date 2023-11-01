@@ -6,7 +6,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.validation.RaceValidation;
 import racingcar.view.RaceView;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -21,8 +20,9 @@ public class GamePlay {
     private RaceView raceView = new RaceView();
 
     public void start() {
-        raceView.printExecutionResult();
+        raceView.printInputCarName();
         generateCar();
+
         raceView.printInputTrialCount();
         moveTrialCount = getMoveTrialCount();
         raceView.printExecutionResult();
@@ -38,8 +38,8 @@ public class GamePlay {
 
     private void generateCar() {
         String input = Console.readLine();
-        raceValidation.validationSeparator(input);
         st = new StringTokenizer(input, ",");
+        raceValidation.validationSeparator(input);
         while (st.hasMoreTokens()) {
             String carName = st.nextToken();
             raceValidation.validationNameLength(carName);

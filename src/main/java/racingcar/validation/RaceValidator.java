@@ -1,6 +1,6 @@
 package racingcar.validation;
 
-public class RaceValidation {
+public class RaceValidatior {
     public void validationSeparator(String input) {
         if (!input.contains(",")) {
             throw new IllegalArgumentException("자동차 이름은 쉼표(,)로 구분해 주세요.");
@@ -23,5 +23,4 @@ public class RaceValidation {
             throw new IllegalArgumentException("숫자만 입력해주세요.");
         }
     }
-
 }
