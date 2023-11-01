@@ -21,7 +21,13 @@ public class GameManager {
     }
 
     public List<Car> listOfCars(List<String> carNames) {
+        List<Car> carList = new ArrayList<Car>();
 
+        for (String carName : carNames) {
+            carList.add(new Car(carName));
+        }
+
+        return carList;
     }
 
     public void move(List<Car> carList, List<Integer> randomNumbers) {
