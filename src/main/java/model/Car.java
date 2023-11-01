@@ -21,7 +21,7 @@ public class Car {
     }
 
     public void moveCar() {
-        if (Randoms.pickNumberInRange(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE) > FOR_MOVE_NUMBER) {
+        if (Randoms.pickNumberInRange(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE) >= FOR_MOVE_NUMBER) {
             this.location++;
         }
     }
