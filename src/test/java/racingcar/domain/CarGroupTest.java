@@ -30,12 +30,8 @@ class CarGroupTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"", " "})
-    void 자동차_생성시_빈값을_등록하면_예외_발생() {
-        //given
-        String blankName = "";
-
-        //when&then
-        assertThatThrownBy(() -> CarGroup.createNewCarGroupByNames((blankName)))
+    void 자동차_생성시_빈값을_등록하면_예외_발생(String carNames) {
+        assertThatThrownBy(() -> CarGroup.createNewCarGroupByNames((carNames)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
