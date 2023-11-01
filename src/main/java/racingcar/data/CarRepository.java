@@ -7,9 +7,18 @@ import racingcar.utils.CarUtil;
 import racingcar.validator.CarInputValidator;
 
 public class CarRepository {
-    private final List<Car> carList = new ArrayList<>();
+    private final List<Car> carList;
 
     public CarRepository() {
+        carList = new ArrayList<>();
+    }
+
+    public CarRepository(List<Car> carList) {
+        this.carList = carList;
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 
     public void setCarList(String[] carNames) {
