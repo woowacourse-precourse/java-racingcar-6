@@ -1,19 +1,30 @@
 package racingcar;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RacingCarGameTest {
 
     private RacingCarGame game;
+
+    final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    final PrintStream standardOut = System.out;
+
+    @BeforeEach
+    void setByteArrayOutputStream() {
+        System.setOut(new PrintStream(byteArrayOutputStream));
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.setOut(standardOut);
+    }
 
     @BeforeEach
     public void setUp() {
@@ -31,5 +42,22 @@ public class RacingCarGameTest {
     void setTryIteration_사용자는_몇_번의_이동을_할_것인지를_입력할_수_있어야_한다() {
         game.setTryIteration("5");
         assertEquals(5, game.tryIteration);
+    }
+
+    @Test
+    void printWinner_자동차_경주_게임을_완료한_후_누가_우승했는지를_알려준다() {
+        game.setRacingCarNames("car1,car2,car3");
+        game.racingCars.get(0).tryForward(4);
+        game.printWinner();
+        assertEquals("최종 우승자 : car1", byteArrayOutputStream.toString().trim());
+    }
+
+    @Test
+    void printWinner_우승자는_여러_명일_경우_쉼표를_이용하여_구분한다() {
+        game.setRacingCarNames("car1,car2,car3");
+        game.racingCars.get(0).tryForward(4);
+        game.racingCars.get(1).tryForward(4);
+        game.printWinner();
+        assertEquals("최종 우승자 : car1, car2", byteArrayOutputStream.toString().trim());
     }
 }
