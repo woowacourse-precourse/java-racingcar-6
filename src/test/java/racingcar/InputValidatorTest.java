@@ -18,13 +18,13 @@ public class InputValidatorTest {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> InputValidator.blank(input));
     }
-//
-//    @Test
-//    void 입력값이_빈_문자열인_경우_예외_발생() {
-//        String input = "";
-//
-//        Assertions.assertThrows(IllegalArgumentException.class, () -> InputValidator.blank(input));
-//    }
+
+    @Test
+    void 입력값이_빈_문자열인_경우_예외_발생() {
+        String input = "";
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> InputValidator.blank(input));
+    }
 //
 //    @Test
 //    void 시도_횟수가_최소_시도_횟수_이상인_경우() {
