@@ -32,7 +32,15 @@ public class Start {
         }
         System.out.println("시도할 회수는 몇회인가요?");
         String numberAttemptsStr = Console.readLine();
-        attempts = Integer.parseInt(numberAttemptsStr);
+        try {
+            attempts = Integer.parseInt(numberAttemptsStr);
+            if (attempts <= 0) {
+                throw new IllegalArgumentException("시도 횟수는 0보다 커야 합니다.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("올바른 정수를 입력하세요.");
+        }
+
     }
 
     public ArrayList<String> getCarList() {

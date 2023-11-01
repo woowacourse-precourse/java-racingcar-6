@@ -50,6 +50,16 @@ class MyTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 시도_횟수가_0보다_크지_않을_때에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,test", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
     public void runMain() {
         Application.main(new String[]{});
     }
