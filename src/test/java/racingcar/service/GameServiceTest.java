@@ -25,4 +25,10 @@ class GameServiceTest {
         int expectedResult = gameService.getRandomNumber();
         assertTrue(expectedResult >= 1 && expectedResult <= 9);
     }
+    @Test
+    @DisplayName("정확한 우승자의 이름을 return")
+    void test_Winner_Name_Return() {
+        List<String> expectedCarList = Arrays.asList("woni");
+        assertEquals(expectedCarList, gameService.calcWinner(testCarList));
+    }
 }
