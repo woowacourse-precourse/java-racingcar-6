@@ -4,20 +4,28 @@ import java.util.Objects;
 
 public class CarName {
 
-	String name;
+	private static final int MAX_LENGTH = 5;
+	private String name;
 
 	public CarName(String carName) {
 		validate(carName);
 		name = carName;
 	}
 
-	private static void validate(String carName) {
+	private void validate(String carName) {
 		checkBlank(carName);
+		checkLength(carName);
 	}
 
-	private static void checkBlank(String carName) {
+	private void checkBlank(String carName) {
 		if (carName.isBlank()) {
 			throw new IllegalArgumentException("이름을 입력해주세요.");
+		}
+	}
+
+	private void checkLength(String carName) {
+		if (carName.length() > MAX_LENGTH) {
+			throw new IllegalArgumentException("이름은 공백 포함 " + MAX_LENGTH+ "자 이하여야 합니다.");
 		}
 	}
 
