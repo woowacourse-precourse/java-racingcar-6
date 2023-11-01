@@ -62,4 +62,10 @@ public class RacingGame {
         }
         System.out.println();
     }
+
+    private void moveCar() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
