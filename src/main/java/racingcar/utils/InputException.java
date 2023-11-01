@@ -21,6 +21,7 @@ public class InputException {
     public void checkNumberOfTry(String input){
         checkEmpty(input);
         checkChar(input);
+        checkMinimum(input);
     }
 
     private void checkEmpty(String input) {
@@ -71,5 +72,12 @@ public class InputException {
         } catch (NumberFormatException e){
             throw new IllegalArgumentException("숫자를 옳바르게 입력해주세요");
         }
+    }
+
+    private void checkMinimum(String input){
+       int number = Integer.parseInt(input);
+       if (number < 1){
+           throw new IllegalArgumentException("최소 시도 횟수는 1이상입니다.");
+       }
     }
 }
