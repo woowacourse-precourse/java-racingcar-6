@@ -9,7 +9,11 @@ import java.util.List;
 
 public class RacingCarGameService {
 
-    OutputView outputView = new OutputView();
+    OutputView outputView;
+
+    public RacingCarGameService() {
+        outputView = new OutputView();
+    }
 
     public int generateRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
