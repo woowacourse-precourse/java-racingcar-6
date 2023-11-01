@@ -26,7 +26,7 @@ public class CarRankingCalculator {
         if(winners.size() == 1) {
             return winner;
         }else {
-            return String.join(",", winners);
+            return String.join(", ", winners);
         }
     }
 }
