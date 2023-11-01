@@ -6,7 +6,6 @@ import racingcar.domain.Round;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RoundTest {
-
     Round round;
 
     @Test

@@ -3,7 +3,6 @@ package racingcar.domain;
 import racingcar.utils.Validator;
 
 public class Round {
-
     private final int maxRound;
     private int currentRound = 0;
 

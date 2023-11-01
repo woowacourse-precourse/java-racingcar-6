@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Validator {
-
     public static final int MAX_CAR_NAME_LENGTH = 5;
     public static final int MAX_FREQUENCY = 1;
     public static final int MIN_TRY_NUMBER = 1;
