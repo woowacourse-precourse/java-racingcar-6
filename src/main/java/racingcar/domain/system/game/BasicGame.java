@@ -8,7 +8,7 @@ import racingcar.domain.core.car.BasicCar;
 import racingcar.domain.core.car.CarName;
 import racingcar.domain.core.car.OnRaceCars;
 import racingcar.domain.system.game.round.Round;
-import racingcar.domain.system.game.round.reuslt.RoundResult;
+import racingcar.domain.system.game.round.result.RoundResult;
 import racingcar.domain.system.host.Host;
 import racingcar.domain.system.manager.car.value.SavedCar;
 import racingcar.domain.system.manager.position.value.SavedCarPosition;
