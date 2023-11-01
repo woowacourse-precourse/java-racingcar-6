@@ -36,8 +36,7 @@ public final class InputValidator {
     }
 
     private static List<String> splitToListByDelimiter(String input) {
-        return Arrays
-                .stream(input.split(String.valueOf(DELIMITER)))
+        return Arrays.stream(input.split(String.valueOf(DELIMITER)))
                 .filter(e -> !e.isEmpty())
                 .toList();
     }
