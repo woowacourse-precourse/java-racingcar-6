@@ -1,11 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 import static racingcar.Exceptions.nameLengthException;
 
@@ -21,7 +18,6 @@ public class Controller {
         inGameMessage();
         gameResult();
         View.printResult(cars);
-        //printWinners();
     }
 
     public static void startMessage() throws IllegalArgumentException {
@@ -68,26 +64,6 @@ public class Controller {
         return cars;
     }
 
-//    public static void printWinners(){
-//        System.out.println("enter");
-//        if(cars.size() < 1) {
-//            System.out.println("why?");
-//            return;
-//        }
-//        List<String> winners = new ArrayList<String>();
-//        Integer winnerMileageSize = cars.get(0).getMileage().length() ;
-//        for(int i = 1 ; i < cars.size(); i++){
-//            Integer compareOtherSize = cars.get(i).getMileage().length();
-//            if(winnerMileageSize <= compareOtherSize){
-//                if(winnerMileageSize.equals(compareOtherSize)) {
-//                    System.out.println("zz");
-//                    winners.add(cars.get(i).getName());
-//                }
-//                else { winnerMileageSize = compareOtherSize; }
-//            }
-//        }
-//        System.out.println(String.join(", ", winners));
-//    }
 
 
 }
