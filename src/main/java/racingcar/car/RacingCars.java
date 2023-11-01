@@ -52,7 +52,7 @@ public class RacingCars {
         String executionResult = "";
 
         for(Car car : racingCars){
-            executionResult+= racingCars.toString()+"\n";
+            executionResult+= car+"\n";
         }
 
         return executionResult;
