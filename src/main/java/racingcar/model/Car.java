@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
@@ -48,13 +49,8 @@ public class Car {
     }
 
     private static boolean containsSpecialCharacters(String name) {
-        String specialCharacters = "!@#$%^&*()-_+=<>?{}[]|";
-        for (char c : specialCharacters.toCharArray()) {
-            if (name.contains(String.valueOf(c))) {
-                return true;
-            }
-        }
-        return false;
+        Pattern pattern = Pattern.compile("[^a-zA-Z0-9,가-힣]");
+        return pattern.matcher(name).find();
     }
 
     private static boolean isInvalidName(String name) {
