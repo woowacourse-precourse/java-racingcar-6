@@ -67,4 +67,8 @@ public class Race {
         List<Car> winners = findWinners.getWinners(cars);
         Computer.printWinners(winners);
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
