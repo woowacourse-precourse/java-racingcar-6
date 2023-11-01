@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import java.util.Arrays;
+
 public class Validator {
     private final static String SYMBOL = ",";
     private final static int MAXIMUM_NAME_LENGTH = 5;
@@ -20,5 +22,15 @@ public class Validator {
         if (carsName.startsWith(SYMBOL) || carsName.endsWith(SYMBOL)) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private void validateMaximumLength(String carsName) {
+        String[] names = carsName.split(SYMBOL);
+        Arrays.stream(names)
+                .forEach(name -> {
+                    if (name.length() > MAXIMUM_NAME_LENGTH) {
+                        throw new IllegalArgumentException();
+                    }
+                });
     }
 }
