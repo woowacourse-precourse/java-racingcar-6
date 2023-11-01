@@ -7,7 +7,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 
-public class ControllerTest extends NsTest {
+public class GameControllerTest extends NsTest {
     private static final int MOVE_FORWARD = 4;
 
     @Test

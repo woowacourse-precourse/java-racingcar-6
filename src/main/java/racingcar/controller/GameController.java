@@ -8,7 +8,7 @@ import racingcar.model.TryNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGame {
+public class GameController {
 
     private Cars cars;
     private TryNumber tryNumber;
