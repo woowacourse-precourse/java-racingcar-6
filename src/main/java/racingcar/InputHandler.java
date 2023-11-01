@@ -18,7 +18,7 @@ public class InputHandler {
         return racers;
     }
 
-    static void validateInputForRacerCreation(String[] names){
+    static boolean validateInputForRacerCreation(String[] names){
 
         String regex = "^[a-zA-Z가-힣]+$";
 
@@ -30,6 +30,8 @@ public class InputHandler {
                 throw new IllegalArgumentException("입력은 한글, 알파벳, 쉼표만 포함해야 합니다.");
             }
         }
+
+        return true;
     }
 
     static int setAttemptCountFromInput(){
