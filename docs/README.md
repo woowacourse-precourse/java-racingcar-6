@@ -3,7 +3,7 @@
 2. 이름 입력 함수 (NameReader)
 3. 시도할 횟수 입력 함수 (CountReader)
 4. 전진 (무작위 값이 4이상) 여부 (RacingCarController)
-5. 자동차 전진 count (DriverProgress)
+5. 자동차 전진 count (MovementStatus)
 6. 우승자 선정 (WinnerSelector)
 7. 이름 Validator (NameValidator)
 8. 횟수 Validator (CountValidator)
