@@ -10,13 +10,19 @@
     - split을 이용해 사용자가 입력하는 문자열을 쉼표를 기준으로 잘라서 저장하였다. Validation 클래스의 playerNameValidation() 을 보면 6자 이상의 
         자동차 이름이 입력되면 `IllegalArgumentException` 을 발생시키도록 구현하였다.
 [o]사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
-    - 사용자가 원하는 횟수를 입력할수 있도록 구현하였다.
+    - InputTrtCount 클래스에서 사용자가 원하는 횟수를 입력할수 있도록 구현하였다.
 [o]전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-    - RacingGameLogic 클래스의 forwardLogic() 을 보면 0,9 사이의 무작위의 수를 추출한후에 그 숫자가 4이상이면 1칸 전진하도록 구현하였다.
+    - RacingGameLogic 클래스의 forwardLogic() 을 보면 0,9 사이의 무작위의 수를 추출한 후에 그 숫자가 4이상이면 1칸 전진하도록 구현하였다.
 [o]자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
     - WinnerLogic 클래스의 finalWinner()를 보면 최고 높은 점수를 구한 다음에 그 점수를 가진 사람들의 이름을 list에 저장하고 그 저장된 list를 반환하도록
         구현 하였다.
 [o]우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
     - String.join을 사용하여 우승자들 이름이 들어있는 리스트를 출력하였다.
 [o]사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
-    - 사용자가 횟수를 입력할때 숫자가 아닌 다른 문자를 입력하면 `IllegalArgumentException`을 발생시키도록 구현하였다.
+    - InputTryCount 클래스에서 try/catch를 사용해서 사용자가 횟수를 입력할때 숫자가 아닌 다른 문자를 입력하면 `IllegalArgumentException`을 발생시키도록 구현하였다.
+
+
+테스트 코드 작성
+    - Validation 클래스의 6글자 이상의 문자열이 입력되었을 때 `IllegalArgumentException` 이 발생하는 것을 확인함.
+    - PlayerRepository 클래스의 save() 와 getPlayers() 가 예상한 결과가 나오는 것을 확인함.
+    - WinnerLogic 클래스의 테스트 코드를 작성하여 임의의 자료를 넣었을때 예상한 결과가 나오는 것을 확인함.
