@@ -1,6 +1,5 @@
 package racingcar.control;
 
-
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.util.Validation;
@@ -9,6 +8,9 @@ import racingcar.view.OutputView;
 
 public class Control {
     private static int rounds;
+    private static final Validation validation = new Validation();
+    private static final InputView inputView = new InputView();
+    private static final OutputView outputView = new OutputView();
 
     public void playGame() {
         startGame();
@@ -22,14 +24,14 @@ public class Control {
     }
 
     private static void readyCarName() {
-        String input = InputView.requestCarName();
-        Validation.validateNameInput(input);
+        String input = inputView.requestCarName();
+        validation.validateNameInput(input);
         Cars.carNames = Cars.convertStringToList(input);
     }
 
     private static void readyRound() {
-        String roundInput = InputView.requestRoundNumber();
-        Validation.validateNumberInput(roundInput);
+        String roundInput = inputView.requestRoundNumber();
+        validation.validateNumberInput(roundInput);
         rounds = Integer.parseInt(roundInput);
     }
 
@@ -44,7 +46,7 @@ public class Control {
     private static void movePosition() {
         for (Car car : Cars.cars) {
             car.move();
-            OutputView.printRacingProcess(car.getName(), car.getPosition());
+            outputView.printRacingProcess(car.getName(), car.getPosition());
         }
     }
 }
