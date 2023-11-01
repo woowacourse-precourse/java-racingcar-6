@@ -11,7 +11,7 @@ public class InputValidator {
     private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = "자동차 이름은 5자 이하만 가능합니다.";
     private static final String INVALID_CAR_NAME_MESSAGE = "자동차 이름은 null 또는 비어 있을 수 없습니다.";
     private static final String DUPLICATE_CAR_NAME_MESSAGE = "자동차 이름은 중복될 수 없습니다.";
-    private static final String NON_INTEGER_MESSAGE = "시도 횟수는 정수여야 합니다.";
+
     private static final String NON_POSITIVE_MESSAGE = "시도 횟수는 0보다 커야 합니다.";
 
 
@@ -43,14 +43,8 @@ public class InputValidator {
     }
 
 
-    public static int validateAttemptCount(String attemptCount) {
-        try {
-            int parsedCount = Integer.parseInt(attemptCount);
-            validatePositiveCount(parsedCount);
-            return parsedCount;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NON_INTEGER_MESSAGE, e);
-        }
+    public static void validateAttemptCount(int attemptCount) {
+        validatePositiveCount(attemptCount);
     }
 
 
