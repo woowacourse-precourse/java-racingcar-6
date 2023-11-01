@@ -11,7 +11,16 @@ public class Cars {
     }
 
     public static Cars createCars(List<Car> cars) {
+        validDuplicateNames(cars);
         return new Cars(cars);
+    }
+
+    private static void validDuplicateNames(List<Car> cars) {
+        List<String> names = cars.stream().map(Car::getName).toList();
+        long distinctCount = names.stream().distinct().count();
+        if (distinctCount < names.size()) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+        }
     }
 
     public List<Car> getCars() {
