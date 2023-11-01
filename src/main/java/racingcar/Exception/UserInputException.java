@@ -11,7 +11,8 @@ public class UserInputException {
 
     public void validateCarNameLength(List<String> carList) {
         for (String carName : carList) {
-            if(carName.length() > 5) {
+            int length = carName.length();
+            if(length > 5 || length == 0) {
                 throw new IllegalArgumentException();
             }
         }
