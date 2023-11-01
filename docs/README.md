@@ -32,8 +32,8 @@
     - [x] 우승자는 한 명 이상일 수 있다. 
     - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. 
 
-- [ ] 자동차 경주 과정(자동차 생성부터, 결과 출력 등)을 관리한다. RacingGameProcessManager
-  - [ ] 자동차 경주 게임을 시작한다. RacingGameProcessManager#start()
+- [x] 자동차 경주 과정(자동차 생성부터, 결과 출력 등)을 관리한다. RacingGameProcessManager
+  - [x] 자동차 경주 게임을 시작한다. RacingGameProcessManager#start()
 
 ## 기능 요구 사항
 
