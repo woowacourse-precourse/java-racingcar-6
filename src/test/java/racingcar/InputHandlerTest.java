@@ -13,5 +13,9 @@ class InputHandlerTest {
         assertThrows(IllegalArgumentException.class, () -> InputHandler.validateCarNames(input));
     }
 
-
+    @Test
+    void validRaceCount() {
+        String input = "5";
+        assertDoesNotThrow(() -> InputHandler.getRaceCount(input));
+    }
 }
