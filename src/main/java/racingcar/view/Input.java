@@ -1,7 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.message.SystemMessage;
+import racingcar.constant.ErrorMessage;
+import racingcar.constant.SystemMessage;
 
 public class Input {
     public static String carInputMessage() {
@@ -15,7 +16,7 @@ public class Input {
             return Integer.parseInt(Console.readLine());
         }
         catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.TRIAL_NOT_DIGIT_ERROR.getMessage());
         }
     }
 }
