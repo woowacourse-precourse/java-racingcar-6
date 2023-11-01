@@ -32,14 +32,14 @@ class Game {
     private static void gamePlay(ArrayList<String> carsNames, int playNumber) {
         System.out.println(PLAY_RESULT_MESSAGE);
         ArrayList<Integer> countCarsMove = new ArrayList<Integer>(Collections.nCopies(carsNames.size(), 0));
-        int endGameNumber = playNumber;
-        while(endGameNumber != 0) {
+        int playCount = playNumber;
+        while(playCount != 0) {
             for(String car : carsNames){
                 int randomNumber = getRandomNumber();
                 if(randomNumber >= MORE_THAN_FOUR){
                     int index = carsNames.indexOf(car);
                     countCarsMove.set(index, countCarsMove.get(index) + 1);
-                    endGameNumber--;
+                    playCount--;
                     System.out.print(car + " : ");
                     System.out.println("-".repeat(countCarsMove.get(index)));
                     System.out.println();
@@ -98,13 +98,16 @@ class Game {
     }
 
     private static ArrayList<String> stringToArrayList(String carStr) {
-        ArrayList<String> carNameLengthCheck = new ArrayList<>(Arrays.asList(carStr.split(",")));
-        for(String s : carNameLengthCheck){
+        ArrayList<String> carNameCheck = new ArrayList<>(Arrays.asList(carStr.split(",")));
+        for(String s : carNameCheck){
             if(s.length() > 5){
                 throw new IllegalArgumentException();
             }
+            if(s.contains(" ")){
+                throw new IllegalArgumentException();
+            }
         }
-        return carNameLengthCheck;
+        return carNameCheck;
     }
 
     static void checkException(final String str){
