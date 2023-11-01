@@ -15,7 +15,7 @@ public class CarName {
 
     public static void validateCarName(String carName) {
         if (carName.isBlank() || carName.length() > MAX_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차 이름은 1글자 이상, 5글자 이하만 가능합니다.");
         }
     }
 

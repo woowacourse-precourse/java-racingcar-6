@@ -12,9 +12,13 @@ public class RaceRound {
 
     public static RaceRound create(String numberOfRoundString) {
         if (!NUMBER_PATTERN.matcher(numberOfRoundString).matches()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
         }
-        return new RaceRound(Integer.parseInt(numberOfRoundString));
+        int numberOfRound = Integer.parseInt(numberOfRoundString);
+        if (numberOfRound <= 0) {
+            throw new IllegalArgumentException("1 이상의 숫자만 입력 가능합니다.");
+        }
+        return new RaceRound(numberOfRound);
     }
 
     public int getNumberOfRound() {
