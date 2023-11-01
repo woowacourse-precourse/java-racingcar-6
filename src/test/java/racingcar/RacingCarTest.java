@@ -30,4 +30,13 @@ class RacingCarTest {
 
         assertEquals(1, racingCar.getDistance());
     }
+
+    @CsvSource({"0", "1", "2", "3"})
+    @ParameterizedTest
+    void 랜덤값이_4미만이면_자동차_정지(int inputNumber) {
+        RacingCar racingCar = new RacingCar("jihun");
+        racingCar.move(inputNumber);
+
+        assertEquals(0, racingCar.getDistance());
+    }
 }
