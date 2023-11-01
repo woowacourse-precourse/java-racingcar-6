@@ -41,7 +41,7 @@ public class Car implements Comparable<Car> {
     }
 
     private void validateName(String name) {
-        if (name.length() > GameConfig.MAX_CAR_NAME.getValue()) {
+        if (name.length() > GameConfig.MAX_CAR_NAME.getValue() || name.length() < GameConfig.MIN_CAR_NAME.getValue()) {
             throw new IllegalArgumentException("잘못된 이름입니다.");
         }
     }
