@@ -10,6 +10,7 @@ public class Car {
     private final String MAX_NAME_ERROR_MESSAGE = "자동차의 이름은 최대 5글자 입니다.";
     private final String MIN_NAME_ERROR_MESSAGE = "자동차의 이름은 1글자 이상입니다.";
     private final String WHITESPACE_ERROR_MESSAGE = "이름에 공백없이 입력해주세요";
+
     public Car(String name) {
         checkMaxNameLength(name);
         checkMinNameLength(name);
@@ -17,6 +18,7 @@ public class Car {
         this.name = name;
         this.distance = 0;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -39,16 +41,19 @@ public class Car {
             distance++;
         }
     }
+
     private void checkMaxNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(MAX_NAME_ERROR_MESSAGE);
         }
     }
+
     private void checkMinNameLength(String name) {
         if (name.length() < MIN_NAME_LENGTH) {
             throw new IllegalArgumentException(MIN_NAME_ERROR_MESSAGE);
         }
     }
+
     private void checkWhitespace(String name) {
         if (name.contains(" ")) {
             throw new IllegalArgumentException(WHITESPACE_ERROR_MESSAGE);
