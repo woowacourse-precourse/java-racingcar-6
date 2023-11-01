@@ -23,7 +23,12 @@ public class Game {
     }
 
     private void playGame() {
-        // 각 턴 실행
+        Race race = new Race(cars);
+
+        System.out.println("실행 결과");
+        for (int turn = 0; turn < numberOfTurns; turn++) {
+            race.playRounds();
+        }
     }
 
     private void displayWinners() {
