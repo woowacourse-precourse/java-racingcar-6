@@ -27,6 +27,20 @@ class StringUtilTest {
         );
     }
 
+    @Test
+    @DisplayName("주어진 문자열에 공백이 있을 경우 공백을 삭제")
+    void removeStringBlank() {
+        // given
+        String inputString = " test, string , hello";
+        String expectedString = "test,string,hello";
+
+        // when
+        String result = StringUtil.removeWhitespace(inputString);
+
+        // then
+        assertThat(result).isEqualTo(expectedString);
+    }
+
 
     private static Stream<Arguments> inputStringProvider() {
         return Stream.of(
