@@ -16,4 +16,10 @@ public class Validator {
             throw new IllegalArgumentException("최소 2대의 자동차 이름이 필요합니다.");
         }
     }
+
+    public static void validateNumOfAttempts(int attempts) {
+        if (attempts < 1) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
+    }
 }
