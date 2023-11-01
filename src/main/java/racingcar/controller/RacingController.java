@@ -22,6 +22,7 @@ public class RacingController {
         CarList carList = makeCarList(inputView.inputCarNames());
         outputView.inputAttempts();
         int racingNumber = inputView.inputRacingNumber();
+        startRacing(carList, racingNumber);
     }
 
     private CarList makeCarList(List<String> names) {
@@ -31,5 +32,19 @@ public class RacingController {
             carList.addCar(car);
         }
         return carList;
+    }
+
+    private void startRacing(CarList carList, int racingNumber) {
+        outputView.printResultTitle();
+        for (int i = 0; i < racingNumber; i++) {
+            moveCars(carList);
+        }
+    }
+    private void moveCars(CarList carList) {
+        List<Car> cars = carList.getCarList();
+        for (Car car : cars) {
+            car.drive(RandomDrive.isDrive());
+        }
+        outputView.printResult(cars);
     }
 }
