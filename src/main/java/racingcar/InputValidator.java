@@ -11,7 +11,7 @@ public class InputValidator {
         String[] result = input.split(",");
 
         for (String name : result) {
-            if (name.isEmpty()) {
+            if (name.isEmpty() || name.isBlank()) {
                 throw new IllegalArgumentException(ERROR_EMPTY_NAME);
             }
             if (name.length() > MAX_NAME_LENGTH) {

@@ -24,7 +24,7 @@ class InputValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"a,sd,,abc"})
+    @ValueSource(strings = {"a,sd,,abc", " "})
     @DisplayName("입력받은 자동차의 이름 중 공백 이름이 있으면 에러를 발생시킨다.")
     void testValidateCarNamesEmpty(String value) {
         assertThrows(IllegalArgumentException.class, () -> InputValidator.validateCarNames(value));
