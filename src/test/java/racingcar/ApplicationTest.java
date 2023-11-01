@@ -60,7 +60,55 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining(ErrorMessage.GAME_NOT_FINISHED);
     }
 
+    // getWinner 테스트
+    // car의 값을 가지고 getWinner가 잘 동작하는지 확인
 
+    // getWinnerMessage 테스트
+    // car의 리스트를 가지고 getWinnerMessage가 잘 동작하는지 확인
+
+    // isMoveAble
+
+//    @Test
+//    // isGameOver
+//    void 게임_종료_확인() {
+//        // given
+//        CarInput carInput = CarInput.of("test1,test2");
+//        RacingGame racingGame = new RacingGame.Builder()
+//                .carInput(carInput)
+//                .tryCount(1)
+//                .build();
+//
+//        // when + then
+//        assertThat(racingGame.isGameOver()).isFalse();
+//        racingGame.play();
+//        assertThat(racingGame.isGameOver()).isTrue();
+//    }
+
+    @Test
+    void 랜덤수_기준이하_전진불가_확인() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                // given
+                CarInput carInput = CarInput.of("test1,test2,test3");
+                RacingGame racingGame = new RacingGame.Builder()
+                    .carInput(carInput)
+                    .tryCount(1)
+                    .build();
+
+                // when
+                racingGame.play();
+
+                // then
+                assertThat(output()).contains("test1 : ", "test2 : -", "test3 : -");
+            },
+            2, GameConfig.MOVE_CONDITION, 6
+        );
+    }
+
+    // moveIfAble
+    void 이동가능시_자동차_이동() {
+
+    }
 
     @Test
     // atPosition
