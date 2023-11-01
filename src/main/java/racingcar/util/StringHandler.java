@@ -7,14 +7,14 @@ import java.util.stream.Collectors;
 
 public class StringHandler {
 
-    public static List<String> stringToList(String input) {
-        return Arrays.stream(input.split(",")).toList();
+    public static List<String> separatedStringToList(String input, String splitter) {
+        return Arrays.stream(input.split(splitter)).toList();
     }
 
-    public static <T> String listToString(List<T> input) {
+    public static <T> String listToStringSplitBy(List<T> input, String splitter) {
         return input.stream()
                 .map(Object::toString)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(splitter));
     }
 
     public static int stringToInt(String input) {
