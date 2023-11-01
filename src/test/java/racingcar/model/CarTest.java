@@ -77,7 +77,7 @@ class CarTest {
     void 이름_길이가_5_초과할때_에러_발생() {
         assertThatThrownBy(() -> new Car("LongName", new TestNumberGenerator(5)))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.NAME_LENGTH_ERROR.getMessage());
+                .hasMessage("이름은 5자 이하여야 합니다.");
     }
 
 

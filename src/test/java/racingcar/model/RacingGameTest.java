@@ -11,7 +11,7 @@ import racingcar.model.car.CarDTO;
 
 class RacingGameTest {
     @Test
-    void 이동_테스트() {
+    void 전진_테스트() {
         // Arrange
         List<String> names = Arrays.asList("Car1", "Car2");
         RacingGame racingGame = new RacingGame(names, new JudgeWinnerImpl(), new TestNumberGenerator(5));
@@ -27,7 +27,7 @@ class RacingGameTest {
     }
 
     @Test
-    void 상태_테스트() {
+    void 차수별_결과_테스트() {
         // Arrange
         List<String> names = Arrays.asList("Car1", "Car2");
         RacingGame racingGame = new RacingGame(names, new JudgeWinnerImpl(), new TestNumberGenerator(5));

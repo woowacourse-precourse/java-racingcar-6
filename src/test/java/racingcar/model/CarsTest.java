@@ -19,11 +19,11 @@ class CarsTest {
         // then
         assertThatThrownBy(() -> new Cars(duplicateNames, new TestNumberGenerator(5)))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.CAR_NAME_DUPLICATE_ERROR.getMessage());
+                .hasMessage("중복된 차 이름이 있습니다. 각 차 이름은 고유해야 합니다.");
     }
 
     @Test
-    void 이동_테스트() {
+    void 전진_테스트() {
         // given
         List<String> names = Arrays.asList("Car1", "Car2", "Car3");
         Cars cars = new Cars(names, new TestNumberGenerator(5));
@@ -39,7 +39,7 @@ class CarsTest {
     }
 
     @Test
-    void 상태_테스트() {
+    void 차수별_결과_테스트() {
         // given
         List<String> names = Arrays.asList("Car1", "Car2", "Car3");
         Cars cars = new Cars(names, new TestNumberGenerator(5));
