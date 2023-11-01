@@ -30,9 +30,9 @@ public class RacingGame {
     private String[] checkValid(String carNames) {
         String[] names = carNames.split(",");
 
-        Exception.checkMinimumParticipants(names); // 2명 이상인지 확인
-
+        Exception.checkMinimumParticipants(names);
         trimSpaces(names); // 양끝 공백 제거
+        Exception.isNameDuplicate(names);
 
         for (String name : names) {
             Exception.isSpace(name); // 이름에 공백이 포함되어 있는지 확인

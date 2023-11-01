@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Exception {
     public static void checkNumber(String attemptCount) {
         try {
@@ -34,6 +37,15 @@ public class Exception {
     public static void checkMinimumParticipants(String[] names) {
         if (names.length < 2) {
             throw new IllegalArgumentException("참여자는 2명 이상이여야 합니다.");
+        }
+    }
+
+    public static void isNameDuplicate(String[] names) {
+        Set<String> uniqueNames = new HashSet<>();
+        for (String name : names) {
+            if (!uniqueNames.add(name)) {
+                throw new IllegalArgumentException("중복된 이름이 존재합니다: " + name);
+            }
         }
     }
 }
