@@ -7,17 +7,29 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Application {
     public static void main(String[] args) {
-
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String userInput = Console.readLine();
-        String[] car_name = userInput.split(",");
+        String[] car_name = Car.NameInput();
 
         System.out.println("시도할 회수는 몇회인가요?");
         String mn = Console.readLine();
         int move_num = Integer.parseInt(mn);
 
+        Game.startGame(move_num, car_name);
+    }
+}
+
+class Computer {
+    public static int getRandomNumber() {
+        return pickNumberInRange(0, 9);
+    }
+}
+
+class Car{
+    public static String[] NameInput(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String userInput = Console.readLine();
+        String[] car_name = userInput.split(",");
         SizeComparison(car_name);
-        GamePlay.startGame(move_num, car_name);
+        return car_name;
     }
 
     public static void SizeComparison(String[] car_name){ // 차 이름이 5자 이하가 아니면 예외
@@ -29,13 +41,7 @@ public class Application {
     }
 }
 
-class Computer {
-    public static int getRandomNumber() {
-        return pickNumberInRange(0, 9);
-    }
-}
-
-class GamePlay {
+class Game {
     public static void startGame(int mn, String[] car_name){
         String[] MoveCount = new String[car_name.length];
         Arrays.fill(MoveCount, "");
