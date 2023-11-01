@@ -20,4 +20,9 @@ public class RacingGameView {
     public void showTrialNumberInputMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    // "실행 결과"를 출력하는 메서드
+    public void printResultMessage(){
+        System.out.println("\n실행 결과");
+    }
 }
