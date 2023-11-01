@@ -17,12 +17,12 @@ public class ParsingCarName {
     }
 
     public void parsingInput(String inputCars) {
+        exception.duplicateCarNameException(inputCars);
         for (String carName : inputCars.split(",")) {
             exception.carNameLength(carName);
             exception.carNameIsDigit(carName);
-
-
-            Car car = new Car(carName);
+            exception.noInputCarNameException(carName);
+             Car car = new Car(carName);
             saveCarList.addCar(car);
         }
     }
