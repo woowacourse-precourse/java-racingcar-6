@@ -23,7 +23,7 @@ public class Car {
         }
     }
 
-    public static boolean isMovable() {
+    private boolean isMovable() {
         return RandomNumberGenerator.generateRandomNumber() >= 4;
     }
 }
