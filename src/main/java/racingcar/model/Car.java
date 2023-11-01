@@ -18,13 +18,17 @@ public class Car {
         }
     }
 
+    private boolean decideToGo() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber >= Constants.CAN_GO_NUMBER;
+    }
+
     private void go() {
         distance += Constants.ONE_TIME_DISTANCE;
     }
 
     public void runOneTime() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= Constants.CAN_GO_NUMBER) {
+        if (decideToGo()) {
             go();
         }
     }

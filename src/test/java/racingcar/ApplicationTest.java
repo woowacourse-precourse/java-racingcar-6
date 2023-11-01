@@ -1,7 +1,12 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.lang.reflect.Method;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.RacingCarController;
+import racingcar.model.Car;
+import racingcar.service.RacingCarService;
+import racingcar.util.Constants;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -47,6 +52,28 @@ class ApplicationTest extends NsTest {
         );
     }
 
+
+    @Test
+        //Car 초기화 + 아름 부여 + 우치 출력
+    void car_init() {
+        //given
+        String name = "abc";
+        //when
+        Car car = new Car(name);
+        //then
+        assertThat(car.toString()).isEqualTo(name);
+        assertThat(car.getDistance()).isEqualTo(0);
+    }
+
+    @Test
+        //Car 움직이기 + 위치 출력
+    void init_game() {
+        //given
+        String input = "a,b,c";
+
+        //when
+        RacingCarService racingCarService = new RacingCarService();
+    }
 
     @Override
     public void runMain() {
