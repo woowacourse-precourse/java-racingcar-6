@@ -9,11 +9,11 @@ public class Output {
     public static final String ROUND_MESSAGE = "실행 결과";
     public static final String RESULT_MESSAGE = "최종 우승자 :";
 
-    void printRoundResult() {
+    public void printRoundResult() {
         System.out.println(ROUND_MESSAGE);
     }
 
-    void printWinnerList(ArrayList<Car> carList) {
+    public void printWinnerList(ArrayList<Car> carList) {
         StringBuilder result = new StringBuilder();
         System.out.print(RESULT_MESSAGE);
 

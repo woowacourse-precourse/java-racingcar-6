@@ -16,14 +16,14 @@ public class Input {
         return input.split(",");
     }
 
-    ArrayList<String> receiveCommaSeparatedString() {
+    public ArrayList<String> receiveCommaSeparatedString() {
         String input = prompt(START_MESSAGE);
         String[] inputArray = splitByComma(input);
 
         return new ArrayList<>(Arrays.asList(inputArray));
     }
 
-    Integer receiveInteger() {
+    public Integer receiveInteger() {
         int number;
         String input = prompt(INPUT_MESSAGE);
 
@@ -35,7 +35,7 @@ public class Input {
         return number;
     }
 
-    String prompt(String greeting) {
+    public String prompt(String greeting) {
         String input;
         System.out.println(greeting);
 
