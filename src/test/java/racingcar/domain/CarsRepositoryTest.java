@@ -15,7 +15,7 @@ class CarsRepositoryTest {
     void save2() {
         // given
         List<String> carNames = List.of("aaa", "bbb", "ccc");
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.createFrom(carNames);
 
         // when
         repository.save(cars);

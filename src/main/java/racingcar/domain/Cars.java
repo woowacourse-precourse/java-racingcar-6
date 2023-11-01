@@ -9,7 +9,7 @@ public record Cars(List<Car> cars) {
 
     private static final int START_POSITION = 0;
 
-    public static Cars from(final List<String> carNames) {
+    public static Cars createFrom(final List<String> carNames) {
         RaceRuleValidator.validate(carNames);
         return new Cars(carNames.stream()
                 .map(name -> Car.of(name, START_POSITION))

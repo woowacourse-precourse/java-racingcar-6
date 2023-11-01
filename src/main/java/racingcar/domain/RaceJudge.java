@@ -10,7 +10,7 @@ public class RaceJudge {
     private final CarsRepository carsRepository = CarsRepository.getInstance();
 
     public void addCars(final List<String> carNames) {
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.createFrom(carNames);
         carsRepository.save(cars);
     }
 

@@ -18,7 +18,7 @@ class RaceJudgeTest {
     void addCars() {
         // given
         List<String> names = List.of("pobi", "jason");
-        Cars cars = Cars.from(names);
+        Cars cars = Cars.createFrom(names);
 
         // when
         raceJudge.addCars(names);

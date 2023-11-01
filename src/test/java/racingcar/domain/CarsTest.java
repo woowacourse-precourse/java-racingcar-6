@@ -16,7 +16,7 @@ class CarsTest {
     @Test
     void createCars_exception_hasBlankName() {
         // given & when & then
-        assertThatIllegalArgumentException().isThrownBy(() -> Cars.from(List.of(" ", "", "  ")))
+        assertThatIllegalArgumentException().isThrownBy(() -> Cars.createFrom(List.of(" ", "", "  ")))
                 .withMessageContaining("자동차의 이름은 반드시 존재해야 합니다.");
     }
 
@@ -24,7 +24,7 @@ class CarsTest {
     @Test
     void createCars_exception_hasDuplicatesName() {
         // given & when & then
-        assertThatIllegalArgumentException().isThrownBy(() -> Cars.from(List.of("aaa", "aaa", "bbb")))
+        assertThatIllegalArgumentException().isThrownBy(() -> Cars.createFrom(List.of("aaa", "aaa", "bbb")))
                 .withMessageContaining("자동차 이름은 중복될 수 없습니다.");
     }
 
@@ -32,7 +32,7 @@ class CarsTest {
     @Test
     void createCars_exception_notEnoughCars() {
         // given & when & then
-        assertThatIllegalArgumentException().isThrownBy(() -> Cars.from(List.of("aaa")))
+        assertThatIllegalArgumentException().isThrownBy(() -> Cars.createFrom(List.of("aaa")))
                 .withMessageContaining("자동차는 2대 이상 등록해야 합니다");
     }
 
@@ -45,7 +45,7 @@ class CarsTest {
         carNames.add("bbb");
 
         // when
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.createFrom(carNames);
         List<Car> carObjects = cars.cars();
 
         // then
@@ -58,7 +58,7 @@ class CarsTest {
     void moveAllForward() {
         // given
         List<String> carNames = List.of("aaa", "bbb");
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.createFrom(carNames);
         Supplier<Integer> moveNumberSupplier = ForwardCondition.MOVABLE_OFFSET::getValue;
 
         // when
@@ -76,7 +76,7 @@ class CarsTest {
     @Test
     void findAllWinnerNames() {
         // given
-        Cars cars = Cars.from(List.of("aaa", "bbb"));
+        Cars cars = Cars.createFrom(List.of("aaa", "bbb"));
         Supplier<Integer> moveNumberSupplier = ForwardCondition.MOVABLE_OFFSET::getValue;
 
         // when
