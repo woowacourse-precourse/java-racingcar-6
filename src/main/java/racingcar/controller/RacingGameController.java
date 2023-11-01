@@ -15,12 +15,12 @@ public class RacingGameController {
         // 사용자 이름 입력
         racingGameView.printInputPlayersMsg();
         String nameInput = Console.readLine();
+        //game 초기 세팅
+        racingGameService.initGame(nameInput);
         // 게임 회수 입력 및 설정
         racingGameView.printInputGameTurnMsg();
         String attempts = Console.readLine();
         setGameAttempts(racingGameService.attemptParseToInt(attempts));
-        //game 초기 세팅
-        racingGameService.initGame(nameInput);
     }
     public void gameStart(){
         // game attempt 만큼 진행

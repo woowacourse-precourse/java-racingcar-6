@@ -18,20 +18,23 @@ public class RacingGameService {
 
         //Player creation and add to repository
         for (String playerName:playerNames) {
-            carRepository.addPlayer(createPlayer(playerName));
+            if (carRepository.isCarIn(playerName)){
+                throw new IllegalArgumentException();
+            }
+            carRepository.addCar(createPlayer(playerName));
         }
     }
 
     public List<Car> playTurn(){
         // 각 차량에대해
-        for (Car car : carRepository.getPlayers()){
+        for (Car car : carRepository.getCars()){
             // 랜덤 넘버 생성
             if (getRandomOneDigitNum() >= forwardCondition){
                 // 전진 로직
                 movingForward(car);
             }
         }
-        return carRepository.getPlayers();
+        return carRepository.getCars();
     }
 
     //input에서 사용자 이름 파싱
@@ -47,9 +50,7 @@ public class RacingGameService {
     }
 
     // Player 생성 메서드
-    private Car createPlayer(String playerName){
-        return new Car(playerName);
-    }
+    private Car createPlayer(String carName){return new Car(carName);}
 
     // 시도회수 형 변환
     public int attemptParseToInt(String attempts) throws IllegalArgumentException{
@@ -75,7 +76,7 @@ public class RacingGameService {
     public ArrayList<Car> findWinners(){
         ArrayList<Car> winners = new ArrayList<>();
         int maxScore = findMaxScore();
-        for(Car car : carRepository.getPlayers()){
+        for(Car car : carRepository.getCars()){
             if(maxScore == car.getScore()){
                 winners.add(car);
             }
@@ -84,7 +85,7 @@ public class RacingGameService {
     }
     private int findMaxScore(){
         int maxScore = -1;
-        for(Car car : carRepository.getPlayers()){
+        for(Car car : carRepository.getCars()){
             if (maxScore < car.getScore()){
                 maxScore = car.getScore();
             }
