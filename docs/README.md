@@ -1,5 +1,5 @@
 # 구현 목록 Todos
-- [ ] Car 클래스 구현
+- [x] Car 클래스 구현
   - Car 클래스 생성  
     Car class private 멤버 변수 선언 (자동차 이름, 현재 위치)  
     생성자 정의  
