@@ -1,4 +1,4 @@
-package racingcar;
+package Service;
 
 import Service.GameService;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +12,6 @@ public class GameServiceTest {
 
     @BeforeEach
     void setUp() {
-        // Prepare a mock input stream with the desired input
         mockInput = new ByteArrayInputStream("pobi,woni,jun".getBytes());
     }
 
@@ -22,8 +21,7 @@ public class GameServiceTest {
 
         GameService gameService = new GameService();
         String[] carNames = gameService.getCarName();
-
-        // Perform assertions on carNames
+        
         assertEquals("pobi", carNames[0]);
         assertEquals("woni", carNames[1]);
         assertEquals("jun", carNames[2]);
