@@ -13,7 +13,8 @@ public class Application {
 
 class RacingCar {
     private String[] carNames;
-    private  Integer num;
+    private Integer numberOfTry;
+    private Integer randomNum;
     public RacingCar(){
         getCarNames();
     }
@@ -26,11 +27,11 @@ class RacingCar {
 
     private void getNumberOfMove(){
         System.out.println("시도할 회수는 몇회인가요?");
-        num = Integer.parseInt(Console.readLine());
+        numberOfTry = Integer.parseInt(Console.readLine());
     }
 
     private void generateRandomNumber(){
-
+        randomNum = Randoms.pickNumberInRange(0,9);
     }
 
     private void printWinner(){
