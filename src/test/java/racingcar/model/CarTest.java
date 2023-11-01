@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.ArgumentMatchers;
 import org.mockito.MockedStatic;
-import racingcar.model.Car;
+import racingcar.exception.ExceptionMessages;
 
 public class CarTest {
     private static Stream<Arguments> provideRandomNumbersForIsGreaterThanAndEqualFour() {
@@ -48,7 +48,8 @@ public class CarTest {
     @DisplayName("자동차 이름이 5자를 초과할 시 예외를 일으킨다.")
     void name_속성이_5글자를_초과하면_IllegalArgumentException_예외() {
         assertThatThrownBy(() -> new Car("abcdef"))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessages.LIMIT_CAR_NAME_SIZE.getMessage());
     }
 
     @ParameterizedTest
@@ -56,7 +57,7 @@ public class CarTest {
     void canMoveForward_메서드_무작위_값이_4이상인_경우에_전진이_가능(final int randomNumber, final boolean expected) {
         final Car car = new Car("jun");
 
-        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
                     .thenReturn(randomNumber);
             final boolean actual = car.canMoveForward();
@@ -70,7 +71,7 @@ public class CarTest {
     void canStop_메서드_무작위_값이_4미만인_경우에_정지(final int randomNumber, final boolean expected) {
         final Car car = new Car("jun");
 
-        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
                     .thenReturn(randomNumber);
             final boolean actual = car.canStop();
@@ -83,34 +84,15 @@ public class CarTest {
     void moveForward_메서드_무작위값이_4이상인_경우애_distance_하나_증가() {
         final Car car = new Car("jun");
         final int CONDITION_MOVING_FORWARD = 4;
-        final String expected = "-";
+        final int expected = 1;
 
-        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
                     .thenReturn(CONDITION_MOVING_FORWARD);
 
             car.moveForward();
 
-            final String actual = car.getDistanceString();
-            assertThat(actual).isEqualTo(expected);
-        }
-    }
-
-    @Test
-    @DisplayName("출력 시 자동차 이름을 같이 출력한다.")
-    void toString_메서드에_이름과_거리_문자열_출력() {
-        final Car car = new Car("jun");
-        final int CONDITION_MOVING_FORWARD = 4;
-        final String expected = "jun : --";
-
-        try (MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
-            mockRandoms.when(() -> Randoms.pickNumberInRange(ArgumentMatchers.anyInt(), ArgumentMatchers.anyInt()))
-                    .thenReturn(CONDITION_MOVING_FORWARD, CONDITION_MOVING_FORWARD);
-
-            car.moveForward();
-            car.moveForward();
-
-            final String actual = car.toString();
+            final int actual = car.getDistance();
             assertThat(actual).isEqualTo(expected);
         }
     }

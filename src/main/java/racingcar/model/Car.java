@@ -1,20 +1,25 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.stream.IntStream;
+import static racingcar.model.CarConstants.CONDITION_MOVING_FORWARD;
+import static racingcar.model.CarConstants.LIMIT_NAME_SIZE;
 
-public class Car {
-    private static final int LIMIT_NAME_SIZE = 5;
-    private static final int START_INCLUSIVE = 1;
-    private static final int END_INCLUSIVE = 9;
-    private static final int CONDITION_MOVING_FORWARD = 4;
-    private static final String STRING_ONE_DISTANCE = "-";
-    private static final String DELIMETER_BETWEEN_NAME_DISTANCE_STRING = " : ";
+import java.util.ArrayList;
+import java.util.List;
+import racingcar.exception.ExceptionMessages;
+import racingcar.exception.RacingCarException;
+import racingcar.util.generator.NumberGenerator;
+import racingcar.util.generator.RandomNumberGenerator;
+
+public class Car implements CarModel {
     private final String name;
+    private final List<Observer> observerList;
+    private final NumberGenerator numberGenerator;
     private int distance = 0;
 
     public Car(final String name) {
         this.name = name;
+        this.observerList = new ArrayList<>();
+        this.numberGenerator = new RandomNumberGenerator();
         validateNameSize();
     }
 
@@ -23,41 +28,37 @@ public class Car {
             return;
         }
 
-        throw new IllegalArgumentException("Car 객체의 name 속성은 " + LIMIT_NAME_SIZE + "자 이하만 가능합니다.");
+        throw RacingCarException.of(ExceptionMessages.LIMIT_CAR_NAME_SIZE);
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
     public boolean canMoveForward() {
-        final int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-        return randomNumber >= CONDITION_MOVING_FORWARD;
+        final int generatedNumber = numberGenerator.generate();
+        return generatedNumber >= CONDITION_MOVING_FORWARD;
     }
 
     public boolean canStop() {
         return !canMoveForward();
     }
 
+    @Override
     public void moveForward() {
         if (canStop()) {
+            notifyObservers();
             return;
         }
 
         distance++;
+        notifyObservers();
     }
 
+    @Override
     public int getDistance() {
         return distance;
-    }
-
-    public String getDistanceString() {
-        final StringBuilder builder = new StringBuilder(distance);
-
-        IntStream.rangeClosed(1, distance)
-                .forEach(value -> builder.append(STRING_ONE_DISTANCE));
-
-        return builder.toString();
     }
 
     @Override
@@ -79,7 +80,18 @@ public class Car {
     }
 
     @Override
-    public String toString() {
-        return name + DELIMETER_BETWEEN_NAME_DISTANCE_STRING + getDistanceString();
+    public void registerObserver(final Observer observer) {
+        observerList.add(observer);
+    }
+
+    @Override
+    public void removeObserver(final Observer observer) {
+        observerList.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        observerList.stream()
+                .forEach(Observer::update);
     }
 }
