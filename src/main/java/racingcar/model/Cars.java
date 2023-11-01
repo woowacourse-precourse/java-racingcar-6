@@ -2,6 +2,8 @@ package racingcar.model;
 
 import java.util.List;
 import racingcar.dto.RaceResultDTO;
+import racingcar.exception.ErrorMessage;
+import racingcar.exception.InvalidInputException;
 
 public class Cars {
 
@@ -18,8 +20,7 @@ public class Cars {
     }
 
     public List<RaceResultDTO> move() {
-        return cars.stream().map(Car::move)
-                .toList();
+        return cars.stream().map(Car::move).toList();
     }
 
     public List<String> getWinner() {
@@ -33,7 +34,7 @@ public class Cars {
         return cars.stream()
                 .mapToInt(Car::getLocation)
                 .max()
-                .orElseThrow(() -> new IllegalArgumentException());
+                .orElseThrow(() -> InvalidInputException.with(ErrorMessage.NO_CARS));
     }
 
     private static boolean isWinner(Car car, int farthestLocation) {
