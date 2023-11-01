@@ -1,6 +1,7 @@
 package view;
 
 import action.Car;
+
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -24,7 +25,7 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winners) {
-        StringJoiner delimiter = new StringJoiner(",");
+        StringJoiner delimiter = new StringJoiner(", ");
         for (String car : winners) {
             delimiter.add(car);
         }
