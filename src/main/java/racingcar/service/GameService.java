@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import racingcar.model.Car;
+import racingcar.utils.ErrorMessage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +30,7 @@ public class GameService {
                 sb.append(doTurnCars(cars)).append("\n");
             }
         } catch (OutOfMemoryError e) {
-            throw new IllegalArgumentException("Tries Input is too large at this system!");
+            throw new IllegalArgumentException(ErrorMessage.OUT_OF_MEMORY_OF_TRIES.getErrorMessage());
         }
 
         return sb.toString();
