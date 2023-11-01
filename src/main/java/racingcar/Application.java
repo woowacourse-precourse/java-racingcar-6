@@ -15,6 +15,8 @@ class Car{
     String name;
     int moveCount=0;
     StringBuffer moveCountToDash = new StringBuffer();
+
+    static int maxMoveCount=0;
     Car(String name) {
 
         this.name = name;
@@ -34,6 +36,48 @@ class Car{
         System.out.println(name+" : "+dashToString);
     }
 
+    static void startCarRacing(ArrayList<Car> carList){
+
+        for(int i=0;i<UserNameInput.CarRacingTotal;i++){
+
+            for(Car car : carList){
+
+                car.carMove();
+                car.printMoveResult();
+
+            }
+            System.out.println();
+
+        }
+    }
+
+    static void findMaxCarMoveCount(ArrayList<Car> carList){
+
+        for(Car car : carList){
+
+            if(car.moveCount>Car.maxMoveCount){
+
+                Car.maxMoveCount=car.moveCount;
+
+            }
+
+        }
+    }
+
+    static ArrayList<String> makeWinnerList(ArrayList<Car> carList){
+
+        ArrayList<String> winnerList = new ArrayList<>();
+        for(Car car : carList){
+
+            if(car.moveCount==Car.maxMoveCount){
+
+                winnerList.add(car.name);
+
+            }
+
+        }
+        return winnerList;
+    }
 
 }
 
@@ -41,10 +85,19 @@ class UserNameInput{
 
     static int CarTotal;
     static int CarRacingTotal;
+    static int maxMoveCount;
     static ArrayList<String> InputNameToList(){
 
         String inputName = Console.readLine();
         String[] nameArray= inputName.split(",");
+        for(String name : nameArray){
+
+            if(name.length()>5){
+                throw new IllegalArgumentException();
+            }
+
+        }
+        CarTotal = nameArray.length;
         return new ArrayList<>(Arrays.asList(nameArray));
 
     }
@@ -56,6 +109,34 @@ class UserNameInput{
 
     }
 
+    static ArrayList<Car> NameListToCarList(ArrayList<String> nameList){
+
+        ArrayList<Car> carList = new ArrayList<>();
+        for(int i=0;i<UserNameInput.CarTotal;i++){
+
+            String getName = nameList.get(i);
+            carList.add(new Car(getName));
+
+        }
+        return carList;
+
+    }
+
+    static void printWinner(ArrayList<String> winner){
+
+        StringBuilder result = new StringBuilder();
+        for (String name : winner) {
+
+            result.append(name).append(", ");
+
+        }
+
+        if (result.length() > 2) {
+            result.setLength(result.length() - 2);
+        }
+
+        System.out.print("최종 우승자 : "+result);
+    }
 
 
 }
@@ -87,76 +168,26 @@ class RacingCarTest extends NsTest{
 public class Application {
     public static void main(String[] args) {
 
-
-        ArrayList<Car> carList= new ArrayList<>();
-
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         ArrayList<String> nameList = UserNameInput.InputNameToList();
-
-
 
         System.out.println("시도할 회수는 몇회인가요?");
         UserNameInput.InputRacingCount();
 
-
-        for(int i=0;i<nameList.size();i++){
-
-            String getName=nameList.get(i);
-            carList.add(new Car(getName));
-        }
+        ArrayList<Car> carList= UserNameInput.NameListToCarList(nameList);
 
         System.out.println();
         System.out.println("실행 결과");
+        Car.startCarRacing(carList);
 
-        for(int j=0;j<UserNameInput.CarRacingTotal;j++){
+        Car.findMaxCarMoveCount(carList);
 
-            for(int k=0;k<carList.size();k++){
+        ArrayList<String> winner = Car.makeWinnerList(carList);
 
-                Car car = carList.get(k);
-                car.carMove();
-                car.printMoveResult();;
+        UserNameInput.printWinner(winner);
 
-            }
-            System.out.println();
 
-        }
 
-        int maxMoveCount=0;
-
-        for(int i=0;i<carList.size();i++){
-
-            Car car = carList.get(i);
-            if(car.moveCount>maxMoveCount){
-
-                maxMoveCount=car.moveCount;
-
-            }
-
-        }
-
-        ArrayList<String> winner = new ArrayList<>();
-
-        for(int j=0;j<carList.size();j++){
-
-            Car car = carList.get(j);
-            if(car.moveCount==maxMoveCount){
-
-                String name=car.name;
-                winner.add(name);
-            }
-        }
-        StringBuilder result = new StringBuilder();
-        for (String name : winner) {
-
-            result.append(name).append(", ");
-
-        }
-
-        if (result.length() > 2) {
-            result.setLength(result.length() - 2);
-        }
-
-        System.out.print("최종 우승자 : "+result);
     }
 
 }
