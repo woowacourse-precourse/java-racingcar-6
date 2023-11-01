@@ -9,12 +9,13 @@ public class RacingcarView {
         for ( String name : String.valueOf(Console.readLine()).split(",")) {
             DealWithExceptionCase.IsVoidInName(name);
             DealWithExceptionCase.IsNameAccurate(name);
-//            DealWithExceptionCase.IsNameDuplicate(name);
+            DealWithExceptionCase.IsNameDuplicate(name);
             RacingcarModel.members.put(name, 0);
         }
         System.out.println(RacingcarModel.INPUT_TURNS);
         DealWithExceptionCase.IsTurnTypeInteger(Console.readLine());
     }
+
     public void StartRacing() {
         System.out.println(RacingcarModel.RUN_RESULT);
         for (int i = 0; i < RacingcarModel.turn; i++) {
