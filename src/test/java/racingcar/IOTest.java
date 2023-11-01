@@ -15,7 +15,6 @@ public abstract class IOTest {
     protected final void systemInAndEnd(final String args) {
         try {
             systemIn(args);
-            //Application.main(new String[]{});
         } finally {
             Console.close();
         }
