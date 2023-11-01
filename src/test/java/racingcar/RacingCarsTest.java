@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.Car.MAX_NAME_LENGTH;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +16,7 @@ class RacingCarsTest {
         List<String> namesOfCars = List.of("jdj", "djsjs", "vdmmds");
         assertThatThrownBy(() -> new RacingCars(namesOfCars))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("car name length should be under " + RacingCars.MAX_NAME_LENGTH);
+                .hasMessageContaining("car name length should be under " + MAX_NAME_LENGTH);
 
     }
 }

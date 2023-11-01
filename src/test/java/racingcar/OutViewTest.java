@@ -1,7 +1,6 @@
 package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.internal.matchers.text.ValuePrinter.print;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
