@@ -13,4 +13,10 @@ public class RandomUtilsTest {
         int output = RandomUtils.createRandomNumber();
         assertTrue(output >= 0 && output <= 9);
     }
+
+    @ParameterizedTest
+    @CsvSource({"1", "2", "3","4"})
+    void isMoveTest_True(int input) {
+        assertTrue(RandomUtils.isMove(input));
+    }
 }
