@@ -1,11 +1,9 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class Input {
 
     static String[] getCarName() {
-        String carNameInput = InputUtils.readCarNameInput();
+        String carNameInput = InputUtils.readUserInput();
         carNameInput = carNameInput.replaceAll("^,+|,+$", "").replaceAll(",+", ",");
         InputUtils.checkEmptyOrBlankCarNames(carNameInput);
         String[] carNames = InputUtils.splitCarNameInput(carNameInput);
@@ -14,7 +12,8 @@ public class Input {
         }
 
     static int getTryNumber() {
-        String tryNumberInput = Console.readLine();
+        String tryNumberInput = null;
+        tryNumberInput = InputUtils.readUserInput();
         InputUtils.checkTryNumberInputLength(tryNumberInput);
         long tryNumber = 0;
         try {

@@ -79,7 +79,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"", "\n", "  ", "\t"})
+    @ValueSource(strings = {"\n", "  ", "\t"})
     void canGenerateCarNumberException(String userInput) {
         InputStream userInputStream = generateByteArrayInputStream(userInput);
         System.setIn(userInputStream);

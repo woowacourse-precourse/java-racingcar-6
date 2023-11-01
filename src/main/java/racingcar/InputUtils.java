@@ -45,14 +45,14 @@ public class InputUtils {
         }
     }
 
-    static String readCarNameInput() {
-        String carNameInput = null;
+    static String readUserInput() {
+        String userInput = null;
         try {
-            carNameInput = Console.readLine();
+            userInput = Console.readLine();
         } catch (NoSuchElementException noSuchElementException) {
             Exception.generateGeneralInputError();
         }
-        return carNameInput;
+        return userInput;
     }
 
     static String[] splitCarNameInput(String carNameInput) {
