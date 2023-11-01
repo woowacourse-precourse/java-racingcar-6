@@ -3,10 +3,7 @@ package racingcar.domain;
 public class Move {
     private static final int ADVANCE_NUMBER = 4;
 
-    public static boolean isMove() {
-        if (RandomNumber.generateNumber() >= ADVANCE_NUMBER) {
-            return true;
-        }
-        return false;
+    public static boolean isMove(int randomNumber) {
+        return randomNumber >= ADVANCE_NUMBER;
     }
 }

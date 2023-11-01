@@ -18,7 +18,7 @@ public class Car {
     }
 
     public void moveAdvance() {
-        if (Move.isMove()) {
+        if (Move.isMove(RandomNumber.generateNumber())) {
             position++;
         }
     }
