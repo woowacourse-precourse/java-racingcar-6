@@ -1,13 +1,13 @@
 package racingcar.util;
 
-import racingcar.Car;
-import racingcar.Cars;
+import racingcar.car.Car;
+import racingcar.car.Cars;
+import racingcar.car.Cars;
 
 import java.util.List;
 
 public class Output {
 
-    public static final String ERROR_PREFIX = "[ERROR]";
 
     public static void printWaitCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -22,8 +22,8 @@ public class Output {
     }
 
     public static void printResult(Cars cars) {
-        for(Car car : cars.getCars()) {
-            System.out.println(car.getName() + " : " + convertDash(car.getPosition()));
+        for (Car car : cars.getCars()) {
+            System.out.println(car.getName() + " : " + convertDash(car.getDistance()));
         }
     }
 
@@ -31,14 +31,11 @@ public class Output {
         System.out.println();
     }
 
-    public static void printError(String error) {
-        System.out.println(ERROR_PREFIX + error);
-    }
 
     private static String convertDash(int position) {
         StringBuilder sb = new StringBuilder();
 
-        for(int i = 0; i < position; i++) {
+        for (int i = 0; i < position; i++) {
             sb.append("-");
         }
 
