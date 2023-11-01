@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import static java.util.Collections.max;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.domain.RacingCarConst.AHEAD_LIMIT;
@@ -71,7 +72,7 @@ class RacingCarServiceTest {
 
     @Test
     void 전진_횟수_세기() {
-        Car car = new Car("one");
+        Car car = new Car("car");
         int[] randomList = {0, 8, 5, 3};
 
         for (int random:randomList){
@@ -85,12 +86,12 @@ class RacingCarServiceTest {
 
     @Test
     void 경주_완료_후_자동차별_전진_횟수_받기() {
-        Car one = new Car("one");
+        Car flower = new Car("flower");
         for (int i=0; i<2; i++) {
-            one.updateAheadCount();
+            flower.updateAheadCount();
         }
 
-        Racing racingGame = new Racing(Arrays.asList(one), 4);
+        Racing racingGame = new Racing(Arrays.asList(flower), 4);
         final HashMap<String, Integer> aheadCountList = new HashMap<>();
 
         for (Car car:racingGame.getRacingCarList()){
@@ -98,13 +99,36 @@ class RacingCarServiceTest {
         }
 
         aheadCountList.forEach((key, value) -> {
-            assertThat(key).isEqualTo("one");
+            assertThat(key).isEqualTo("flower");
             assertThat(value).isEqualTo(2);
         });
     }
 
     @Test
-    void updateWinnerList() {
+    void 우승자_명단_업데이트() {
+        Car sun = new Car("sun");
+        for (int i=0; i<2; i++) {
+            sun.updateAheadCount();
+        }
+        Car moon = new Car("moon");
+        for (int i=0; i<3; i++) {
+            moon.updateAheadCount();
+        }
 
+        Racing racingGame = new Racing(Arrays.asList(sun, moon), 4);
+        final HashMap<String, Integer> aheadCountList = new HashMap<>();
+
+        for (Car car:racingGame.getRacingCarList()){
+            aheadCountList.put(car.getName(), car.getAheadCount());
+        }
+
+        aheadCountList.forEach((key, value) -> {
+            if (value == max(aheadCountList.values())) {
+                racingGame.updateWinnerList(key);
+            }
+        });
+
+        List<String> result = new ArrayList<>(Arrays.asList("moon"));
+        assertThat(racingGame.getWinnerList()).isEqualTo(result);
     }
 }
