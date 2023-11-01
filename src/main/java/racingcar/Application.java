@@ -16,6 +16,14 @@ class Car {
     }
 }
 
+class Race {
+    List<Car> cars;
+
+    public Race(List<Car> cars) {
+        this.cars = cars;
+    }
+}
+
 class Utils {
     public static List<String> parseInput(String input) {
         String[] splitInput = input.split(",");
@@ -38,6 +46,17 @@ public class Application {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
+        }
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        String strTryCount = Console.readLine();
+
+        try{
+            int tryCount = Integer.parseInt(strTryCount);
+
+            Race race = new Race(cars);
+        } catch(IllegalArgumentException e){
+            throw new IllegalArgumentException();
         }
     }
 }
