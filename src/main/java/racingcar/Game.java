@@ -15,8 +15,8 @@ public class Game {
         for (int i = 0; i < round; i++) {
             for (Car car : cars) {
                 car.move();
-                displayResult();
             }
+            displayResult();
         }
     }
     // getMaximumPosition()을 이용해서 우승자 찾기
