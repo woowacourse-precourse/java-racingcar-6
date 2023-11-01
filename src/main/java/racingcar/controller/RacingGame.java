@@ -37,7 +37,7 @@ public class RacingGame {
         System.out.println();
     }
 
-    private List<String> getWinnerList(List<Car> carList) {
+    public List<String> getWinnerList(List<Car> carList) {
         List<String> winner = new ArrayList<>();
 
         for (Car car : carList){
