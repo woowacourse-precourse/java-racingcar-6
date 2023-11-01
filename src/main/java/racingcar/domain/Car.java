@@ -13,7 +13,7 @@ public class Car {
     private void validateSize(Map<String, Integer> name) {
         for (String key : name.keySet()) {
             if (key.length() > 5) {
-                throw new IllegalArgumentException("이름을 5자리 이하로 입력해주십시오.");
+                throw new IllegalArgumentException("5글자가 넘는 이름은 입력하실 수 없습니다!");
             }
         }
     }
