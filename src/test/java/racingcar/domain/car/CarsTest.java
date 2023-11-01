@@ -1,7 +1,9 @@
 package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.dto.CarMovementDto;
 import racingcar.domain.dto.CarsMovementDto;
 import racingcar.domain.dto.WinnersDto;
+import racingcar.util.Err;
 
 class CarsTest {
     private Cars cars;
@@ -27,6 +30,22 @@ class CarsTest {
     @Test
     void should_Create_Cars() {
         assertThat(cars).isNotNull();
+    }
+
+    @DisplayName("중복되는 자동자 이름이 있으면 예외 발생")
+    @Test
+    void should_Throw_Exception_For_Duplicate_CarNames() {
+        // given
+        List<Car> cars = new ArrayList<>();
+        cars.add(Car.from(CarName.from("audi")));
+        cars.add(Car.from(CarName.from("jeep")));
+        cars.add(Car.from(CarName.from("jeep")));
+
+        // when
+        // then
+        assertThatThrownBy(() -> Cars.from(cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(Err.DUPLICATE_CAR_NAME.getMessage());
     }
 
     @DisplayName("CarsMovementDto로 변환 시 유효한 데이터를 제공하는지 확인")
