@@ -23,19 +23,16 @@ public class RacingGame {
     }
 
     public String playGame(Attempt attempt) {
-        String result = "";
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < attempt.getIterateCount(); i++) {
-            result += playGameOneRound();
+            sb.append(playGameOneRound());
         }
-        return result;
+        return sb.toString();
     }
 
     private String playGameOneRound() {
         return carGroup.stream()
-                .map(car -> {
-                    car.playGameOneRound();
-                    return car.toString();
-                })
+                .map(Car::playGameOneRound)
                 .collect(Collectors.joining("\n", "", "\n\n"));
     }
 
@@ -47,17 +44,15 @@ public class RacingGame {
 
     private int findMaxDistance() {
         return carGroup.stream()
-                .mapToInt(car -> car.getCarLocationLength())
+                .mapToInt(Car::getCarLocationLength)
                 .max()
                 .orElse(0);
     }
 
     private List<String> findwinnerList(int max) {
-        // find winner with max distance
         return carGroup.stream()
                 .filter(car -> max == car.getCarLocationLength())
-                .map(car -> car.getCarName())
-                .map(carName -> carName.toString())
+                .map(Car::getCarName)
                 .collect(Collectors.toList());
     }
 
