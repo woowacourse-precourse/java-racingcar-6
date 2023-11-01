@@ -27,7 +27,7 @@ public class GameController {
 
 		// positionList에 0값 추가하기
 		data.setInitPositionList(data.getCarList());
-		
+
 		int i = 0;
 		while (i < gameCount) {
 
@@ -36,10 +36,9 @@ public class GameController {
 			printer.displayResult(data);
 			i++;
 		}
+		referee.getWinners(data);
+		printer.displayWinners(data.getWinnersList());
 
-		
 	}
-
-
 
 }
