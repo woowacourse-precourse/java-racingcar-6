@@ -6,8 +6,8 @@ import static racingcar.domain.game.CarStatus.STOP;
 public class GameStatus {
     private static final int ATTEMPT = 1;
 
-
     private int attemptCount;
+
     private CarStatus carStatus;
 
     public GameStatus(int attemptCount) {
@@ -20,6 +20,6 @@ public class GameStatus {
         if(this.attemptCount < 0) {
             carStatus = STOP;
         }
-        return carStatus.equals(RUN);
+        return carStatus.isRunning();
     }
 }

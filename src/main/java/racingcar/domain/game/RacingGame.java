@@ -7,33 +7,29 @@ public class RacingGame {
     private RandomUtil randomUtil;
     private Cars cars;
     private GameStatus gameStatus;
-    private ExecutionResultGenerator executionResultGenerator;
-    private WinningResultGenerator winningResultGenerator;
 
-    public RacingGame(RandomUtil randomUtil, ExecutionResultGenerator executionResultGenerator, WinningResultGenerator winningResultGenerator) {
+    public RacingGame(RandomUtil randomUtil) {
         this.randomUtil = randomUtil;
-        this.executionResultGenerator = executionResultGenerator;
-        this.winningResultGenerator = winningResultGenerator;
     }
 
     public void generateCars(String carNames) {
         cars = new Cars(randomUtil, carNames);
     }
 
-    public void runRace(int executionCnt) {
+    public void startRacingGame(int executionCnt) {
         gameStatus = new GameStatus(executionCnt);
-
-        while (gameStatus.isRunning()) {
-            cars.runRace();
-            executionResultGenerator.generateOneTurnExecutionResults(cars.getCars());
-        }
     }
 
-    public String generateExecutionResult() {
-        return executionResultGenerator.generateAllExecutionResults();
+    public boolean isRunning() {
+        return gameStatus.isRunning();
     }
 
-    public String selectWinners() {
-        return winningResultGenerator.generateWinners(cars.getCars());
+    public void runRace() {
+        cars.runRace();
     }
+
+    public Cars getCars() {
+        return cars;
+    }
+
 }

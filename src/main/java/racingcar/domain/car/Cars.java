@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+    private static final String SEPARATOR = ",";
+
     private List<Car> cars;
     private RandomUtil randomUtil;
 
@@ -14,7 +16,7 @@ public class Cars {
     }
 
     public void generateCars(String carNames) {
-        String[] carNamesArr = carNames.split(",");
+        String[] carNamesArr = carNames.split(SEPARATOR);
         for (String carName : carNamesArr) {
             Car car = new Car(carName, randomUtil);
             cars.add(car);

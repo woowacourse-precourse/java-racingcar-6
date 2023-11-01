@@ -2,7 +2,11 @@ package racingcar.domain.car;
 
 import java.nio.charset.StandardCharsets;
 
+import static racingcar.global.exception.ExceptionMessage.CAR_NAME_LESS_THAN_FIVE_LETTER;
+
 public class Car {
+    private static final int NAME_LENGTH_LIMIT = 5;
+
     private final String name;
     private int moveCount;
     private RandomUtil randomUtil;
@@ -33,8 +37,8 @@ public class Car {
     }
 
     private void validateCarNameLengthLessThanFive(String carName) {
-        if(carName.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름 길이는 5글자 이내");
+        if(carName.length() > NAME_LENGTH_LIMIT) {
+            throw new IllegalArgumentException(CAR_NAME_LESS_THAN_FIVE_LETTER.getMessage());
         }
     }
 

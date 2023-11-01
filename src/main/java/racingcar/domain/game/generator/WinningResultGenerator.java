@@ -1,4 +1,4 @@
-package racingcar.domain.game;
+package racingcar.domain.game.generator;
 
 import racingcar.domain.car.Car;
 
@@ -15,8 +15,7 @@ public class WinningResultGenerator {
 
     public List<String> chooseWinningCars(List<Car> cars) {
         Car maxMoveCar = cars.stream()
-                .max(Car::compareTo).orElseThrow(()
-                        -> new IllegalArgumentException("max 값이 존재하지 않음"));
+                .max(Car::compareTo).get();
 
         return cars.stream()
                 .filter(car -> car.isSameAs(maxMoveCar))

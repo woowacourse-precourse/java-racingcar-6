@@ -1,5 +1,7 @@
 package racingcar.domain.car.dto;
 
+import static racingcar.global.exception.ExceptionMessage.*;
+
 public record CarsNameDto(String names) {
     private static final String COMMA = ",";
 
@@ -13,7 +15,7 @@ public record CarsNameDto(String names) {
 
     private void validateNamesIsNull(String names) {
         if (names == null) {
-            throw new IllegalArgumentException("names cannot be null");
+            throw new IllegalArgumentException(NAMES_CANNOT_BE_NULL.getMessage());
         }
     }
     private void validateOneOfNameIsNull(String names) {
@@ -21,7 +23,7 @@ public record CarsNameDto(String names) {
         String last = names.substring(names.length()-1);
 
         if(first.equals(COMMA) || last.equals(COMMA)) {
-            throw new IllegalArgumentException("이름 입력시 처음과 끝이 , 로 끝나면 안됩니다.");
+            throw new IllegalArgumentException(NAMES_FIRST_END_MUST_NOT_COMMA.getMessage());
         }
     }
 
@@ -47,7 +49,7 @@ public record CarsNameDto(String names) {
 
     private void checkCommasCount(int commasCnt) {
         if(commasCnt > 1) {
-            throw new IllegalArgumentException("이름 입력시 처음과 끝이 , 로 끝나면 안됩니다.");
+            throw new IllegalArgumentException(CONTINUOUS_COMMA_INVALID.getMessage());
         }
     }
 

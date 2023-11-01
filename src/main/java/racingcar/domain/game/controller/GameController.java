@@ -3,12 +3,11 @@ package racingcar.domain.game.controller;
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.RandomUtil;
 import racingcar.domain.car.dto.CarsNameDto;
-import racingcar.domain.game.ExecutionResultGenerator;
+import racingcar.domain.game.generator.ExecutionResultGenerator;
 import racingcar.domain.game.RacingGame;
-import racingcar.domain.game.WinningResultGenerator;
+import racingcar.domain.game.generator.WinningResultGenerator;
 import racingcar.domain.game.dto.ExecutionCountDto;
 import racingcar.global.view.input.InputView;
-import racingcar.global.view.output.GameMessage;
 import racingcar.global.view.output.OutputView;
 
 import static racingcar.global.view.output.GameMessage.*;
@@ -23,7 +22,7 @@ public class GameController {
         this.randomUtil = randomUtil;
         this.executionResultGenerator = executionResultGenerator;
         this.winningResultGenerator = winningResultGenerator;
-        this.racingGame = new RacingGame(randomUtil, executionResultGenerator, winningResultGenerator);
+        this.racingGame = new RacingGame(randomUtil);
     }
 
     public void playGame() {
@@ -41,7 +40,19 @@ public class GameController {
 
     private void runRace() {
         int executionCount = setExecutionCount();
-        racingGame.runRace(executionCount);
+        racingGame.startRacingGame(executionCount);
+
+        while(racingGame.isRunning()) {
+            racingGame.runRace();
+            Cars cars = racingGame.getCars();
+            executionResultGenerator.generateOneTurnExecutionResults(cars.getCars());
+        }
+    }
+
+    public void printExecutionResults() {
+        OutputView.printMessageLine(EXECUTION_RESULT);
+        String result = executionResultGenerator.generateAllExecutionResults();
+        OutputView.printMessage(result);
     }
 
     private int setExecutionCount() {
@@ -51,14 +62,9 @@ public class GameController {
         return executionCountDto.number();
     }
 
-    private void printExecutionResults() {
-        String executionResults = racingGame.generateExecutionResult();
-        OutputView.printMessageLine(EXECUTION_RESULT);
-        OutputView.printMessageLine(executionResults);
-    }
-
     private void announceWinningCars() {
-        String winningCars = racingGame.selectWinners();
+        Cars cars = racingGame.getCars();
+        String winningCars = winningResultGenerator.generateWinners(cars.getCars());
         OutputView.printMessage(FINAL_WINNERS);
         OutputView.printMessageLine(winningCars);
     }
