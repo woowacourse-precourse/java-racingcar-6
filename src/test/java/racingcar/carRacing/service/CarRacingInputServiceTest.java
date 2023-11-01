@@ -2,13 +2,20 @@ package racingcar.carRacing.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.util.List;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class CarRacingInputServiceTest {
 
     private final CarRacingInputService carRacingInputService = new CarRacingInputService();
+
+    @AfterEach
+    public void closeConsoleEach() {
+        Console.close();
+    }
 
     @Test
     void 자동차_이름_목록_입력() {
