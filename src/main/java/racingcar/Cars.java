@@ -3,25 +3,24 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Cars {
-    public List<String> Name() {
-        String console = Console.readLine();
-        List<String> list = List.of(console.split(","));
 
-        for (String s : list) {
-            NameLengthCheck(s);
+    private final int maxNameLength = 5;
+    public List<String> name() {
+        String inputNames = Console.readLine();
+        List<String> names = List.of(inputNames.split(","));
+
+        for (String number : names) {
+            validNumber(number);
         }
-        return list;
+        return names;
     }
 
-    private void NameLengthCheck(String name) {
-        try {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
+    private void validNumber(String name) {
+        if (name.length() > maxNameLength) {
+            throw new IllegalArgumentException("이름의 길이나 너무 깁니다");
         }
     }
 }
