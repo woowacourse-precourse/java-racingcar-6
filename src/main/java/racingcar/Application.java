@@ -90,10 +90,7 @@ public class Application {
     private static void printResult(List<String> cars, List<Integer> position) {
         for (int j = 0; j < cars.size(); j++) {
             System.out.print(cars.get(j) + " : ");
-            for (int k = 0; k < position.get(j); k++) {
-                System.out.print("-");
-            }
-            System.out.println();
+            System.out.println("-".repeat(position.get(j)));
         }
         System.out.println();
     }
