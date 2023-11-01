@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.dto.InitDto;
 import racingcar.repository.Repository;
@@ -9,8 +8,6 @@ import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static racingcar.constant.NumberConstant.*;
 
 public class RacingServiceImpl implements RacingService {
     private final Repository repository;
@@ -41,8 +38,9 @@ public class RacingServiceImpl implements RacingService {
         OutputView.skipLine();
     }
 
+
     @Override
-    public void gameResult() {
+    public List chooseWinner() {
         int max = 0;
         List<String> winners = new ArrayList<>();
         for (Car car : cars) {
@@ -53,6 +51,11 @@ public class RacingServiceImpl implements RacingService {
             if (max == car.getCount())
                 winners.add(car.getName());
         }
+        return winners;
+    }
+
+    @Override
+    public void gameResult(List winners) {
         OutputView.gameResult(winners);
         Console.close();
     }

@@ -1,6 +1,9 @@
 package racingcar.service;
 
-public interface RacingService {
+import java.util.List;
+
+public interface RacingService<T> {
     void gameProgress();
-    void gameResult();
+    List<T> chooseWinner();
+    void gameResult(List<T> winners);
 }

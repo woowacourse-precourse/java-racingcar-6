@@ -2,6 +2,8 @@ package racingcar.controller;
 
 import racingcar.service.RacingService;
 
+import java.util.List;
+
 public class ProgressController {
     private final RacingService racingService;
 
@@ -11,6 +13,7 @@ public class ProgressController {
 
     public void gameProgress() {
         racingService.gameProgress();
-        racingService.gameResult();
+        List winners = racingService.chooseWinner();
+        racingService.gameResult(winners);
     }
 }
