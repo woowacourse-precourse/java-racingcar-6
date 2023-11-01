@@ -30,4 +30,18 @@ public class PlayController {
         }
     }
 
+    public String winPlayers(List<String> players, List<Integer> positions){
+        List<String> winnerPlayers = new ArrayList<>();
+        int winnerPosition = Collections.max(positions);
+
+        for(int i=0; i<positions.size(); i++){
+            if(winnerPosition == positions.get(i)){
+                winnerPlayers.add(players.get(i));
+            }
+        }
+
+        System.out.println(winnerPlayers.toString());
+        return winnerPlayers.toString();
+    }
+
 }
