@@ -24,7 +24,7 @@ public class CarTest {
         car.move(givenPower);
 
         // then
-        assertThat(car.getDistance().location()).isEqualTo(curLocation);
+        assertThat(car.getDistance()).isEqualTo(curLocation);
     }
 
 
