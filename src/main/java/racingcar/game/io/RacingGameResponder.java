@@ -10,7 +10,7 @@ public class RacingGameResponder {
 
     private boolean isInformingGameProcess = false;
 
-    public void informGameProcess(List<Car> cars) {
+    protected void informGameProcess(List<Car> cars) {
         StringBuilder sb = new StringBuilder();
         sb.append("\n");
         if (!isInformingGameProcess) {
@@ -28,7 +28,7 @@ public class RacingGameResponder {
                 .append("\n");
     }
 
-    public void informGameResult(List<String> names) {
+    protected void informGameResult(List<String> names) {
         StringBuilder sb = new StringBuilder(WINNER_INFORMING_LABEL);
         sb.append(String.join(", ", names));
         System.out.println(sb);
