@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Test;
 
 public class GameCountValidatorTest {
@@ -9,6 +11,14 @@ public class GameCountValidatorTest {
         String gameCount = "5";
 
         GameCountValidator.validateGameCount(gameCount);
+    }
+
+    @Test
+    void 횟수가_숫자가_아니라면_예외발생() {
+        String gameCount = "abc";
+
+        assertThrows(IllegalArgumentException.class,
+                () -> GameCountValidator.validateGameCount(gameCount));
     }
 
 }
