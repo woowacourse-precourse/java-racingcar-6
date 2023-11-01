@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.NumberGenerator;
 import racingcar.view.InputView;
@@ -26,6 +27,7 @@ public class CarRaceGame {
     public void run() {
         createCars(InputView.getCarNames());
         play(InputView.getRound());
+        OutputView.displayWinner(getWinner());
     }
 
     private void play(int round) {
@@ -52,5 +54,19 @@ public class CarRaceGame {
         for (String name : carNames) {
             cars.add(new Car(name));
         }
+    }
+
+    private List<String> getWinner() {
+        return cars.stream()
+                .filter(car -> car.getPosition() == getMaxPosition())
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(-1);
     }
 }
