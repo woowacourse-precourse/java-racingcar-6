@@ -35,4 +35,10 @@ public class Exception {
             }
         }
     }
+
+    public void validateNumber(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("시도할 회수는 1 이상의 값만 가능합니다.");
+        }
+    }
 }

@@ -21,6 +21,7 @@ public class Input {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         int number = Integer.parseInt(input);
+        exception.validateNumber(number);
         return number;
     }
 }
