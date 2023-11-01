@@ -59,5 +59,10 @@ public class Game {
         return winners;
     }
 
+    public static void printWinners(List<String> winners) {
+        String winnerNames = String.join(", ", winners);
+        System.out.println("최종 우승자: " + winnerNames);
+    }
+
 
 }
