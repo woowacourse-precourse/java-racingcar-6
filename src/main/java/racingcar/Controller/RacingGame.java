@@ -1,6 +1,7 @@
 package racingcar.Controller;
 
 import racingcar.domain.Cars;
+import racingcar.util.AttemptCount;
 import racingcar.util.RandomMoving;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import static racingcar.view.InputView.setCarNames;
 
 public class RacingGame {
     private Cars cars;
+    private AttemptCount gameAttemptCount;
     private RandomMoving movingStrategy = new RandomMoving();
 
     public void start() throws IllegalArgumentException {
@@ -21,5 +23,6 @@ public class RacingGame {
         cars = new Cars(carNames);
 
         String attempt = setAttempt();
+        gameAttemptCount = new AttemptCount(attempt);
     }
 }
