@@ -24,8 +24,8 @@ public class RacingCarGameController {
 
     public void run() {
         List<String> carNames = getCarNames();
-        LinkedHashMap<String, Integer> racingProgressStatus = racingCarGameService.initializeRacingProgressStatus(
-                carNames);
+        LinkedHashMap<String, Integer> racingProgressStatus = racingCarGameService
+                .initializeRacingProgressStatus(carNames);
         int attemptCount = getAttemptCount();
         playRacingCarGame(attemptCount, carNames, racingProgressStatus);
         announceWinners(racingProgressStatus);
