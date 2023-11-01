@@ -1,20 +1,21 @@
 package racingcar;
 
-import java.util.List;
-import racingcar.domain.CarCreate;
-import racingcar.domain.CarMovement;
-import racingcar.domain.TryNumber;
-
-public class Application {
+public class Application  {
     public static void main(String[] args) {
-        CarCreate carCreate = new CarCreate();
-        TryNumber tryNumber = new TryNumber();
-        CarMovement carMovement = new CarMovement();
-        String[] carNames = carCreate.inputCarNames();
-        int tryNumer = tryNumber.inputTryNubmers();
+        RacingGameService gameService = new RacingGameService();
 
-        List<Boolean> carMoveResult = carMovement.getCarMoveResult(carNames.length);
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        gameService.inputCarNames();
+
+        System.out.println("시도할 횟수는 몇회인가요?");
+        int numberOfAttempts = gameService.getInputAttempts();
+        System.out.println();
+
+        System.out.println("실행 결과");
+        for (int i = 0; i < numberOfAttempts; i++) {
+            gameService.playRound();
+        }
+
 
     }
 }
-
