@@ -22,7 +22,7 @@ public class Validation {
     }
 
     public static void isEmpty(String input) {
-        if (input.isBlank()) { // 입력된 문자열이 비어있을 경우
+        if (input.isBlank()) {
             throw new IllegalArgumentException("올바르지 않은 입력이에요.");
         }
     }

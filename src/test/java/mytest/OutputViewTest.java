@@ -1,4 +1,4 @@
-package study;
+package mytest;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

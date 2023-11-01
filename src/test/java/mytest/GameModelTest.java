@@ -1,4 +1,4 @@
-package study;
+package mytest;
 
 import java.util.ArrayList;
 import org.assertj.core.api.Assertions;
