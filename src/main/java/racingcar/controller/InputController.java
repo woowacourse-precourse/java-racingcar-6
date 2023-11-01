@@ -16,10 +16,11 @@ public class InputController {
         return nameList;
     }
 
-    public static void roundNumberInput(){
+    public static int roundNumberInput(){
         roundNumberInputPrint();
         String roundNumberString = Console.readLine();
-        roundNumberException(roundNumberString);
+        int roundnumber = roundNumberException(roundNumberString);
+        return roundnumber;
     }
 
 }
