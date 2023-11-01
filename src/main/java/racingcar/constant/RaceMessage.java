@@ -5,4 +5,7 @@ public class RaceMessage {
     public static final String INPUT_NUMBER_OF_ATTEMPTS = "시도할 회수는 몇회인가요?";
     public static final String EXECUTION_RESULT = "실행 결과";
     public static final String FINAL_WINNER = "최종 우승자 : ";
+    public static final String JOIN_INDICATOR = ", ";
+    public static final String NAME_INDICATOR = " : ";
+    public static final String POSITION_INDICATOR = "-";
 }
