@@ -31,3 +31,5 @@
     -IllegalArgumentException 예외 발생
 -[] 자동차의 이름 앞뒤에 공백이 있을 경우
     -String의 trim 메소드 사용해서 공백 제거
+-[] 중복된 자동차의 이름이 넘어왔을 경우
+    -IllegalArgumentException 예외 발생

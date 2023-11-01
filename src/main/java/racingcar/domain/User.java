@@ -3,6 +3,8 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class User {
 
@@ -16,11 +18,16 @@ public class User {
     }
 
     public List<String> separateNames(String names) {
-        String[] temp = names.split(",");
-        validateCarCount(names, temp);
-        validateGame(temp);
-        List<String> cars = new ArrayList<>(Arrays.asList(temp));
+        String[] carsArray = names.split(",");
+        validateAll(names, carsArray);
+        List<String> cars = new ArrayList<>(Arrays.asList(carsArray));
         return cars;
+    }
+
+    private void validateAll(String names, String[] cars) {
+        validateDuplication(cars);
+        validateCarCount(names, cars);
+        validateGame(cars);
     }
 
     private void validateGame(String[] cars) {
@@ -39,5 +46,14 @@ public class User {
         return names.chars()
                 .filter(c -> c == ',')
                 .count();
+    }
+
+    private void validateDuplication(String[] cars) {
+        Set<String> nonDuplicatedCar = Arrays.stream(cars)
+                .distinct()
+                .collect(Collectors.toSet());
+        if (nonDuplicatedCar.size() != cars.length) {
+            throw new IllegalArgumentException();
+        }
     }
 }
