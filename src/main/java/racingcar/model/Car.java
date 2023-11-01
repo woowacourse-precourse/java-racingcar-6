@@ -14,6 +14,7 @@ public class Car {
         if (carBoost >= 4) {
             this.carBoost++;
         }
+        return;
     }
 
     public String getCarName() {
