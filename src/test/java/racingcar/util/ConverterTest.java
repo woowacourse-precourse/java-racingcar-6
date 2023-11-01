@@ -12,23 +12,22 @@ import racingcar.model.Cars;
 class ConverterTest {
     @Test
     void 자동차_이름_문자열을_Cars_객체로_변환한다() {
-        String carNames = "pobi,woni,jun";
-        Cars cars = Converter.parseCarNames(carNames);
+        Cars cars = Converter.parseCarNames("pobi,woni,jun");
         assertThat(cars.getCars().size()).isEqualTo(3);
     }
 
     @Test
     void 자동차의_이름이_다섯_글자_초과인_경우_예외를_발생한다() {
-        String carNames = "pobiwoni";
-        assertThatThrownBy(() -> Converter.parseCarNames(carNames))
+        assertThatThrownBy(() -> Converter.parseCarNames("pobiwoni"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름은 5자 이하만 가능합니다");
     }
 
     @Test
     void 자동차_경주_단건_실행_결과를_변환한다() {
-        List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
-        Cars cars = new Cars(carList);
+        Cars cars = new Cars(
+                List.of(new Car("pobi"), new Car("woni"), new Car("jun"))
+        );
         String result = Converter.formatCarsResult(cars);
         assertAll(
                 () -> assertThat(result).contains("pobi : "),
@@ -39,8 +38,9 @@ class ConverterTest {
 
     @Test
     void 자동차_경주_우승자를_변환한다() {
-        List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
-        Cars winners = new Cars(carList);
+        Cars winners = new Cars(
+                List.of(new Car("pobi"), new Car("woni"), new Car("jun"))
+        );
         String result = Converter.formatWinnersResult(winners);
         assertThat(result).isEqualTo("pobi, woni, jun");
     }
