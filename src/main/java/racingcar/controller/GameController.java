@@ -65,20 +65,21 @@ public class GameController {
         OutputView.informFinalWinner(winnerCarNames);
     }
 
+    private List<Car> getSortedCars(List<Car> cars) {
+        return cars.stream()
+                .sorted(Comparator.comparingInt(Car::getCarLocation).reversed()).toList();
+    }
+
+    private List<Car> getFarthestCars(List<Car> sortedCars) {
+        int farthestLocation = sortedCars.get(0).getCarLocation();
+        return sortedCars.stream()
+                .filter(car -> car.getCarLocation() == farthestLocation).toList();
+    }
+
     private List<String> getWinnerCarNames(List<Car> farthestCars) {
         return farthestCars.stream()
                 .map(Car::getCarName)
                 .collect(Collectors.toList());
-    }
-
-    private List<Car> getFarthestCars(List<Car> sortedCars) {
-        return sortedCars.stream()
-                .filter(car -> car.getCarLocation() == sortedCars.get(0).getCarLocation()).toList();
-    }
-
-    private List<Car> getSortedCars(List<Car> cars) {
-        return cars.stream()
-                .sorted(Comparator.comparingInt(Car::getCarLocation).reversed()).toList();
     }
 
     private static List<String> splitCarNames(String carNames) {
