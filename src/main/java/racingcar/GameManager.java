@@ -21,4 +21,17 @@ public class GameManager {
         announcer.sayEnterAttempt();
         return user.inputAttempt();
     }
+
+    public static void play(List<Car> cars, int attempt) {
+        announcer.sayIntroPlayResult();
+        for (int i = 0; i < attempt; i++) {
+            cars.forEach(Car::run);
+            cars.forEach(announcer::sayCarPosition);
+            System.out.println();
+        }
+    }
+
+    public static void end(List<Car> cars) {
+        announcer.sayWinner(cars);
+    }
 }
