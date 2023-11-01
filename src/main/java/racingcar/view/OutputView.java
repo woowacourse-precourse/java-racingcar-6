@@ -11,4 +11,8 @@ public class OutputView {
         System.out.println("시도할 횟수는 몇회인가요?");
     }
 
+    public void printFirstResultMessage() {
+        System.out.println("\n실행 결과");
+    }
+
 }
