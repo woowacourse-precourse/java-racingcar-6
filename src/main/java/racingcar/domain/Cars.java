@@ -5,8 +5,6 @@ import static racingcar.constant.ExceptionMessage.DUPLICATE_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.INVALID_NAME_EXCEPTION;
 import static racingcar.constant.ExceptionMessage.LENGTH_EXCEPTION;
 import static racingcar.constant.GameMessage.DELIMITER;
-import static racingcar.constant.GameNumber.NAME_EMPTY_LENGTH;
-import static racingcar.constant.GameNumber.NAME_MAXIMUM_LENGTH;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,36 +39,28 @@ public class Cars {
      * 이름으로 빈 문자열이 들어왔을 경우 예외 발생
      */
     public void checkCarNameValidity(List<String> carNames) {
-        for (String name : carNames) {
-            if (name.isEmpty()) {
-                throw new IllegalArgumentException(INVALID_NAME_EXCEPTION);
-            }
+        if (carNames.stream().anyMatch(String::isEmpty)) {
+            throw new IllegalArgumentException(INVALID_NAME_EXCEPTION);
         }
     }
 
     public void checkCarNameForBlank(List<String> carNames) {
-        for (String name : carNames) {
-            if (name.contains(" ")) {
-                throw new IllegalArgumentException(BLANK_EXCEPTION);
-            }
+        if (carNames.stream().anyMatch(name -> name.contains(" "))) {
+            throw new IllegalArgumentException(BLANK_EXCEPTION);
         }
     }
 
     public void checkCarNamesLength(List<String> carNames) {
-        for (String name : carNames) {
-            if (name.length() == NAME_EMPTY_LENGTH || name.length() > NAME_MAXIMUM_LENGTH) {
-                throw new IllegalArgumentException(LENGTH_EXCEPTION);
-            }
+        if (carNames.stream().anyMatch(name -> name.length() == 0 || name.length() > 5)) {
+            throw new IllegalArgumentException(LENGTH_EXCEPTION);
         }
     }
 
     public void checkCarNamesDuplicate(List<String> carNames) {
         HashSet<String> uniqueNames = new HashSet<>();
 
-        for (String name : carNames) {
-            if (!uniqueNames.add(name)) {
-                throw new IllegalArgumentException(DUPLICATE_EXCEPTION);
-            }
+        if (carNames.stream().anyMatch(name -> !uniqueNames.add(name))) {
+            throw new IllegalArgumentException(DUPLICATE_EXCEPTION);
         }
     }
 
