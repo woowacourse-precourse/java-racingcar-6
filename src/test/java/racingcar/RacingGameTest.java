@@ -11,7 +11,7 @@ class RacingGameTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 시도() {
+    void 시도_횟수에_문자열을_넣었을때_예외처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,java", "STRING"))
                         .isInstanceOf(IllegalArgumentException.class)
