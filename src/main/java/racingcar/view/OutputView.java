@@ -6,8 +6,9 @@ public class OutputView {
     public void currentLocation(Map<String,Integer> car){
         for (String key : car.keySet()){
             int locationNumber = car.get(key);
-            System.out.print(key+" : ");
+            System.out.print(key+": ");
             printLocation(locationNumber);
+            System.out.println("");
         }
     }
     private void printLocation(int locationNumber){

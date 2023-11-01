@@ -9,12 +9,11 @@ import racingcar.view.InputView;
 
 public class UserCar {
     public Map<String, Integer> car;
-    public int roundNumber;
     private UserCarService userCarService = new UserCarService();
 
-    public UserCar(){
+    /*public UserCar(){
         inputCarName();
-    }
+    }*/
     public void inputCarName(){
         Map<String, Integer> resource = InputView.inputCarNameView();
         if(userCarService.checkCorrectName(resource)){
