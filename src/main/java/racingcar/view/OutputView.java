@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.domain.RaceResultDTO;
+import racingcar.domain.RacingResultDTO;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -17,9 +17,9 @@ public class OutputView {
         System.out.println(RACE_RESULT_MESSAGE);
     }
 
-    public void printRaceResult(RaceResultDTO raceResultDTO) {
-        var names = raceResultDTO.names();
-        var positions = raceResultDTO.positions();
+    public void printRacingResult(RacingResultDTO racingResultDTO) {
+        var names = racingResultDTO.names();
+        var positions = racingResultDTO.positions();
         IntStream.range(0, names.size())
                 .forEach(index -> printNameAndPosition(names.get(index), positions.get(index)));
         System.out.println();
