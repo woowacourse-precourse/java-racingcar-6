@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Validator {
+    private static final String INVALID_INPUT = "유효하지 않은 입력입니다.";
     private static final String BLANK = " ";
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
@@ -21,7 +22,7 @@ public class Validator {
 
     public static void validateLength(String carName) {
         if (!isValidLength(carName)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_INPUT);
         }
     }
 
@@ -31,7 +32,7 @@ public class Validator {
 
     public static void validateBlank(String carName) {
         if (carName.contains(BLANK)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_INPUT);
         }
     }
 
@@ -39,7 +40,7 @@ public class Validator {
         Set<String> uniqueCarNames = new HashSet<>(Arrays.asList(carNames));
 
         if (uniqueCarNames.size() != carNames.length) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_INPUT);
         }
     }
 
@@ -53,13 +54,13 @@ public class Validator {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_INPUT);
         }
     }
 
     public static void isValidRoundRange(int round) {
         if (round <= ZERO) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_INPUT);
         }
     }
 }
