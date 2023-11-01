@@ -13,7 +13,9 @@ public class InputView {
     }
 
     public static int inputTryCount() {
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        validateTryCount(input);
+        return Integer.parseInt(input);
     }
 
     public static void validateCarNames(String input) {
@@ -21,6 +23,11 @@ public class InputView {
         validateNotStartOrEndWithComma(input);
         validateNoConsecutiveCommas(input);
         validateNoCommasWithSpaces(input);
+    }
+
+    public static void validateTryCount(String input) {
+        validateNotNull(input);
+        validateIsNumeric(input);
     }
 
     private static void validateNotNull(String input) {
@@ -46,5 +53,12 @@ public class InputView {
             throw new IllegalArgumentException("쉼표 옆에 공백이 있습니다");
         }
     }
+
+    private static void validateIsNumeric(String input) {
+        if (input.chars().anyMatch(ch -> !Character.isDigit(ch))) {
+            throw new IllegalArgumentException("입력은 숫자만 포함해야 합니다.");
+        }
+    }
+
 
 }
