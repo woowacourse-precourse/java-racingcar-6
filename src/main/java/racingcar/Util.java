@@ -8,7 +8,7 @@ public class Util {
 
     public String[] splitString(String input) {
         return input.split(",");
-}
+    }
 
     public int getRandomNum() {
         return Randoms.pickNumberInRange(0, 9);
