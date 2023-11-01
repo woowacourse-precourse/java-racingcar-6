@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class CarService {
     public void printGuide_InputCarsName(){
@@ -36,9 +37,23 @@ public class CarService {
 
         List<Car> carList = new ArrayList<>();
         for(String name : cars_name){
-            carList.add(new Car(name, ""));
+            Car car = Car.createCar(name, "");
+            carList.add(car);
         }
-
         return carList;
+    }
+
+    public void appendCarStatus(Car car, String append_status){
+        car.setStatus(car.getStatus() + append_status);
+    }
+
+    public void moveCars(List<Car> carList){
+        for(Car car : carList){
+            int move_count = pickNumberInRange(0 ,9);
+            if(move_count >= 4){
+                String append_status = "-".repeat(move_count);
+                appendCarStatus(car, append_status);
+            }
+        }
     }
 }
