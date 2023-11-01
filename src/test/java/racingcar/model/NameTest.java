@@ -52,4 +52,28 @@ class NameTest {
             Name n1 = new Name("123456");
         });
     }
+
+    @Test
+    void Name_equals_테스트() {
+        Name n1 = new Name("a");
+        Name n2 = new Name("a");
+        Name n3 = new Name("b");
+        Name n4 = new Name("b");
+
+        // 반사성
+        assertTrue(n1.equals(n1));
+
+        // 대칭성
+        if (n1.equals(n2)) {
+            assertTrue(n2.equals(n1));
+        }
+
+        // 추이성
+        if (n1.equals(n2) && n2.equals(n3)) {
+            assertTrue(n1.equals(n3));
+        }
+
+        // 널
+        assertNotEquals(null, n1);
+    }
 }
