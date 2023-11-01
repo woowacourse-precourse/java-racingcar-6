@@ -34,6 +34,8 @@ public class Move {
     }
 
     public void move(ArrayList<String> names, int times) {
+        StringBuilder stringBuilder = new StringBuilder();
+
         this.names = names;
         this.times = times;
 
@@ -41,6 +43,17 @@ public class Move {
             this.dist.add(0);
         }
 
-        return;
+        System.out.println("실행 결과");
+        int max = makeMovement();
+        stringBuilder.append("최종 우승자 : ");
+
+        for (int i = 0; i < names.size(); i++) {
+            if (dist.get(i) == max && stringBuilder.length() == 9) {
+                stringBuilder.append(names.get(i));
+            } else if (dist.get(i) == max) {
+                stringBuilder.append(", ").append(names.get(i));
+            }
+        }
+        System.out.println(stringBuilder);
     }
 }
