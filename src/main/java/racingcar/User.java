@@ -29,7 +29,7 @@ public class User {
                 continue;
             }
 
-            Car car = new Car(carName);
+            Car car = new Car(carName, 0);
             carList.add(car);
             carNameList.add(carName);
         }

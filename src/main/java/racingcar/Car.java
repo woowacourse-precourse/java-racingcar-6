@@ -6,9 +6,9 @@ public class Car implements Comparable<Car> {
     private final String name;
     private int movingCount;
 
-    public Car(String name) {
+    public Car(String name, int movingCount) {
         this.name = name;
-        this.movingCount = 0;
+        this.movingCount = movingCount;
     }
 
     public String getName() {
@@ -25,7 +25,7 @@ public class Car implements Comparable<Car> {
 
     public int updateMovingCountOrNot(int randomNumber) {
         if (randomNumber >= 4) {
-            return movingCount++;
+            return ++movingCount;
         }
         return movingCount;
     }
