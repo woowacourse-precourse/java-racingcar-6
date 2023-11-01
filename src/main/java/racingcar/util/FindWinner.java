@@ -22,6 +22,10 @@ public class FindWinner {
             isMaxPosition(car.getPosition());
         }
 
+        for (Car car : carList) {
+            isWinner(car);
+        }
+
         return winnerList;
     }
 
@@ -33,8 +37,20 @@ public class FindWinner {
 
     }
 
+    public static void isWinner(Car car) {
+
+        if (car.getPosition() == maxPosition) {
+            winnerList.add(car);
+        }
+
+    }
+
     public static int getMaxPosition() {
         return maxPosition;
+    }
+
+    public static List<Car> getWinnerList() {
+        return winnerList;
     }
 
 }
