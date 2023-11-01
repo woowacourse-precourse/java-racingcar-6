@@ -57,4 +57,19 @@ public class RacingCarTest {
             }
         }
     }
+
+    @Test
+    void 동명이인의_자동차가_있을경우(){
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            String userInput = "junh,bang,bang";
+            Map<String, Integer> map = new HashMap<>();
+            for (String c : userInput.split(",")) {
+                map.put(c, map.getOrDefault(c, 0) + 1); // 중복되면 +1, 중복된것이 없으면 0 -> +1 해서 1
+                if ((map.get(c) > 1)) {
+                    throw new IllegalArgumentException("중복된 자동차 이름이 있습니다. 어플리케이션을 종료합니다.");
+                    //System.out.println("중복된 자동차 이름이 있습니다. 어플리케이션을 종료합니다.");
+                }
+            }
+        });
+    }
 }
