@@ -86,7 +86,7 @@ public class GameManager {
 
 
     public static List<RacingCar> instantiateRacingCars() {
-
+        racingCars = new ArrayList<RacingCar>();
         for (String racingCarName : racingCarNames) {
             racingCars.add(new RacingCar(racingCarName));
         }
