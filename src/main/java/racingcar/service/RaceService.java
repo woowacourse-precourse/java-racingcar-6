@@ -31,4 +31,14 @@ public class RaceService {
         }
         return raceRepository.saveRace(race);
     }
+
+    public Race execRace() {
+        Race race = raceRepository.findRace();
+        race.exec();
+        return race;
+    }
+
+    public int getChance() {
+        return raceRepository.findRace().getChance();
+    }
 }

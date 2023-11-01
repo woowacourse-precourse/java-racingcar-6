@@ -17,6 +17,10 @@ public class Race {
         }
     }
 
+    public int getChance() {
+        return chance;
+    }
+
     public void addCar(Car car) {
         if (containsDuplicatedName(car)) {
             throw new IllegalArgumentException("중복된 자동차 이름입니다.");
@@ -32,5 +36,22 @@ public class Race {
             }
         }
         return false;
+    }
+
+    public void exec() {
+        if (chance <= 0) {
+            throw new IllegalStateException("이동 횟수를 모두 소모했습니다.");
+        }
+        for (Car car : cars) {
+            car.move();
+        }
+    }
+
+    public String showStatus() {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : cars) {
+            sb.append(car.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }

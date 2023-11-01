@@ -17,7 +17,7 @@ public class RaceView {
         return raceView;
     }
 
-    public List<String> startRace() {
+    public List<String> startGame() {
         List<String> raceInfo = new ArrayList<>(2);
         raceInfo.add(inputCarName());
         raceInfo.add(inputRaceChance());
@@ -32,5 +32,14 @@ public class RaceView {
     private String inputRaceChance() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Console.readLine();
+    }
+
+    public void startRace() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
+    public void execRace(String status) {
+        System.out.println(status);
     }
 }
