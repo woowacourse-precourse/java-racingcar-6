@@ -32,6 +32,14 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int number = Integer.parseInt(Console.readLine());
+
+        System.out.println("\n실행 결과");
+        for(int i=0; i<number; i++) {
+            for(int j=0; j<cars.size(); j++) {
+                cars.get(j).step = goStep(cars.get(j).step);
+                System.out.println(cars.get(j).name + " : " + printStep(cars.get(j).step));
+            }
+        }
     }
 
     public static int goStep(int step) {
