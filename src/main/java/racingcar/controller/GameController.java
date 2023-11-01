@@ -29,7 +29,8 @@ public class GameController {
 
     private void prepareSettingValue() {
         List<String> carNames = inputCarNames();
-        int tryNumber = InputView.askTryNumber();
+        String stringNumber = InputView.askTryNumber();
+        int tryNumber = Integer.parseInt(stringNumber);
         game = new Game(tryNumber, carNames);
     }
 

@@ -9,9 +9,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static int askTryNumber() {
+    public static String askTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String stringNumber = Console.readLine();
-        return Integer.parseInt(stringNumber);
+        return Console.readLine();
     }
 }
