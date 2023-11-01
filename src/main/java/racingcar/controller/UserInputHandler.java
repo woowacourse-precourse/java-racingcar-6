@@ -28,7 +28,7 @@ public class UserInputHandler {
     }
     public int getGameRound() {
         String round = getInputGameRound();
-        return UserInput.getUserInputForGameRound();
+        return InputValidationUtil.validateAndParseRound(round);
     }
 
     private String getInputGameRound() {
