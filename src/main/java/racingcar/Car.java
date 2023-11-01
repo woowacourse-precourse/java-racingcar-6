@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     private final String name;
     private int position;
@@ -19,10 +17,13 @@ public class Car {
         return this.position;
     }
 
-    public void moveForward() {
-        int randomNumber = Randoms.pickNumberInRange(Constant.MINIMUM_RANDOM_NUMBER, Constant.MAXIMUM_RANDOM_NUMBER);
+    public void moveOrNot(int randomNumber) {
         if (randomNumber >= Constant.RANDOM_NUMBER_THRESHOLD) {
-            this.position++;
+            moveForward();
         }
+    }
+
+    private void moveForward() {
+        this.position++;
     }
 }
