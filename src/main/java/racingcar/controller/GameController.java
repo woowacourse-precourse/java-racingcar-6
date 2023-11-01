@@ -22,6 +22,9 @@ public class GameController {
     public static void startGame() {
         carsList = generateCar(validateCarNameInput(promptCarNames()));
         tryCount = validateNumericInput(promptTryCount());
+        while (tryCount-- > 0) {
+            executionResult();
+        }
         printExecutionResultMessage();
         executionResult();
         printFinalWinnerMessage();
@@ -29,15 +32,13 @@ public class GameController {
     }
 
     private static void executionResult() {
-        while (tryCount-- > 0) {
-            for (Car car : carsList) {
-                GameNumber gameNumber = new GameNumber();
-                int length = car.checkProcess(gameNumber.generateRandomNumber());
-                String process = makeProcessBar(length);
-                System.out.println(car.getName() + " : " + process);
-            }
-            System.out.println();
+        for (Car car : carsList) {
+            GameNumber gameNumber = new GameNumber();
+            int length = car.checkProcess(gameNumber.generateRandomNumber());
+            String process = makeProcessBar(length);
+            System.out.println(car.getName() + " : " + process);
         }
+        System.out.println();
     }
 
     private static String makeProcessBar(int length) {
