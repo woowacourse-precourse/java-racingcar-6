@@ -40,7 +40,8 @@ public class RacingGame {
         this.participants.add(participant);
     }
 
-    public void game() {
+    public void proceed() {
+        System.out.println("\n실행 결과");
         for (int currentMove = 0; currentMove < this.countOfTotalMoves; ++currentMove) {
             moveOnceForEachParticipants();
             System.out.println();

@@ -26,7 +26,7 @@ public class RacingGameUnitTest {
     }
 
     @Test
-    void game_게임_후_자동차_위치_검증() {
+    void proceed_게임_후_자동차_위치_검증() {
         RacingGame testGame = new RacingGame(2);
         Car testCar1 = new Car("test1");
         Car testCar2 = new Car("test2");
@@ -34,7 +34,7 @@ public class RacingGameUnitTest {
         testGame.addParticipant(testCar1);
         testGame.addParticipant(testCar2);
 
-        testGame.game();
+        testGame.proceed();
 
         assertThat(testCar1.getCurrentLocation() > testCar2.getCurrentLocation()).isTrue();
     }
