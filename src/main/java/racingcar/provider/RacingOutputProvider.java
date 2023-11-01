@@ -14,6 +14,10 @@ public class RacingOutputProvider {
 		this.console = console;
 	}
 
+	public void printRacingStart() {
+		System.out.println("실행 결과");
+	}
+
 	public void printRacing(List<Car> cars) {
 		for (Car car : cars) {
 			System.out.println(car.getName() + " : " + carProgress(car.getPosition()));
