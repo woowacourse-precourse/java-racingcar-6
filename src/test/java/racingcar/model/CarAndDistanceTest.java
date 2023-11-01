@@ -15,11 +15,11 @@ public class CarAndDistanceTest {
         carAndDistance.setCarAndDistance("uncle","____");
         carAndDistance.setCarAndDistance("king","_____");
 
-        assertThat(carAndDistance.getCarAndDistance(0)).isEqualTo("dokgo : __");
-        assertThat(carAndDistance.getCarAndDistance(1)).isEqualTo("may : _");
-        assertThat(carAndDistance.getCarAndDistance(2)).isEqualTo("cat : ___");
-        assertThat(carAndDistance.getCarAndDistance(3)).isEqualTo("uncle : ____");
-        assertThat(carAndDistance.getCarAndDistance(4)).isEqualTo("king : _____");
+        assertThat(carAndDistance.carAndDistanceResult(0)).isEqualTo("dokgo : __");
+        assertThat(carAndDistance.carAndDistanceResult(1)).isEqualTo("may : _");
+        assertThat(carAndDistance.carAndDistanceResult(2)).isEqualTo("cat : ___");
+        assertThat(carAndDistance.carAndDistanceResult(3)).isEqualTo("uncle : ____");
+        assertThat(carAndDistance.carAndDistanceResult(4)).isEqualTo("king : _____");
     }
 
     @Test
@@ -35,8 +35,8 @@ public class CarAndDistanceTest {
             carAndDistance.setCarAndDistance("may",distance2);
         }
 
-        assertThat(carAndDistance.getCarAndDistance(0)).isEqualTo("dokgo : _____");
-        assertThat(carAndDistance.getCarAndDistance(1)).isEqualTo("may : _____");
+        assertThat(carAndDistance.carAndDistanceResult(0)).isEqualTo("dokgo : _____");
+        assertThat(carAndDistance.carAndDistanceResult(1)).isEqualTo("may : _____");
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CarAndDistanceTest {
         for(int i = 0; i < 5; i++) {
             distance1 += "_";
             carAndDistance.setCarAndDistance("dokgo", distance1);
-            assertThat(carAndDistance.getCarAndDistance(0)).isEqualTo("dokgo : " + distance1);
+            assertThat(carAndDistance.carAndDistanceResult(0)).isEqualTo("dokgo : " + distance1);
         }
     }
 }
