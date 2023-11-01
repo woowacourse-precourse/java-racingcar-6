@@ -4,7 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.OutputView;
 
 public class Car {
-
+    private static final Integer MOVING = 1;
+    private static final Integer MOVING_BOUNDARY_VALUE = 4;
     private final String name;
     private Integer distance;
 
@@ -23,11 +24,11 @@ public class Car {
 
     public void move(){
         int randomNumber = makeRandomNumber();
-        if(canMove(randomNumber)) this.distance += 1;
+        if(canMove(randomNumber)) this.distance += MOVING;
     }
 
     public boolean canMove(int num){
-        return num >= 4;
+        return num >= MOVING_BOUNDARY_VALUE;
     }
 
     public void showMove() {
