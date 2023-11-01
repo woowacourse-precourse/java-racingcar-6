@@ -1,8 +1,7 @@
 package racingcar.view;
 
-import racingcar.domain.Car;
-
 import java.util.List;
+import racingcar.domain.Car;
 
 public class OutputView {
 
@@ -14,7 +13,6 @@ public class OutputView {
         for (Car car : cars) {
             printCarPosition(car);
         }
-
         System.out.println();
     }
 
@@ -24,14 +22,6 @@ public class OutputView {
     }
 
     private static void printCarPosition(Car car) {
-        System.out.print(car.getName() + " : ");
-
-        for (int i = 0; i < car.getPosition(); i++) {
-            System.out.print("-");
-        }
-
-        System.out.println();
+        System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
     }
-
-
 }

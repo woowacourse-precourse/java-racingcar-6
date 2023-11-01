@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Race {
+    private static final int MIN_RACE_ROUNDS_VALUE = 1;
+
     private final List<Car> cars;
     private final int totalRounds;
     private int currentRound;
@@ -52,7 +54,7 @@ public class Race {
             throw new IllegalArgumentException("중복된 이름의 자동차가 있습니다.");
         }
 
-        if (rounds <= 0) {
+        if (rounds < MIN_RACE_ROUNDS_VALUE) {
             throw new IllegalArgumentException("라운드 수는 1 이상의 정수여야 합니다.");
         }
     }
