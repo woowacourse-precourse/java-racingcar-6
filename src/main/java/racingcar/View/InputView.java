@@ -12,8 +12,8 @@ public class InputView {
 
     public String inputCar() {
         System.out.println(CAR_NAME_MESSAGE);
-        String carsName = Console.readLine();
         try {
+            String carsName = Console.readLine();
             return carException.checkExceptionCar(carsName);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -23,8 +23,8 @@ public class InputView {
 
     public int inputRaceTime() {
         System.out.println(TIMES_MESSAGE);
-        String raceTime = Console.readLine();
         try {
+            String raceTime = Console.readLine();
             return raceException.checkExceptionRace(raceTime);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
