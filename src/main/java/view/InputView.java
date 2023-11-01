@@ -1,6 +1,9 @@
 package view;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -51,6 +54,9 @@ public class InputView {
 
             checkingNames.put(s,0);
         }
+    }
+    public static int makeRandomValues(){
+        return Randoms.pickNumberInRange(0,9);
     }
 
     public static String getInput(){
