@@ -1,6 +1,6 @@
 package racingcar.util;
 
-import static racingcar.config.FORWARD_CONDITION;
+import static racingcar.Config.FORWARD_CONDITION;
 
 public class Util {
 

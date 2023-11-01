@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import static racingcar.config.MAXIMUM_CAR_NAME;
+import static racingcar.Config.MAXIMUM_CAR_NAME;
 
 import java.util.List;
 import racingcar.model.Car;
