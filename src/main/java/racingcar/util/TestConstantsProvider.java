@@ -132,4 +132,13 @@ public class TestConstantsProvider {
         );
     }
 
+    public static Stream<Arguments> provideInvalidSystemTestNameConstants() {
+        return Stream.of(
+                arguments(named("null", NULL_STRING)),
+                arguments(named("빈 문자열", EMPTY_STRING)),
+                arguments(named("공백 문자열", BLANK_STRING)),
+                arguments(named("5자 이상의 이름", LONGER_THAN_FIVE_STRING))
+        );
+    }
+
 }
