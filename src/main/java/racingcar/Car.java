@@ -17,6 +17,7 @@ public class Car {
         if(createRandomNumber()>=4){
             position++;
         }
+        System.out.println(toString());
     }
 
 
