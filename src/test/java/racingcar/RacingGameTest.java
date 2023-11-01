@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
@@ -91,30 +92,21 @@ public class RacingGameTest {
             for (int value : values) {
                 stubbing = stubbing.thenReturn(value);
             }
-            Application.main(null);
-            assertThat(output.toString()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + lineSeparator
+            Application.main(new String[]{});
+            assertThat(output.toString()).isEqualTo(
+                    "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + lineSeparator
                     + "시도할 회수는 몇회인가요?" + lineSeparator
                     + lineSeparator
                     + "실행 결과" + lineSeparator
-                    + "pobi : -" + lineSeparator
-                    + "woni : " + lineSeparator
-                    + "jun : -" + lineSeparator
+                    + "pobi : -" + lineSeparator + "woni : " + lineSeparator + "jun : -" + lineSeparator
                     + lineSeparator
-                    + "pobi : --" + lineSeparator
-                    + "woni : -" + lineSeparator
-                    + "jun : --" + lineSeparator
+                    + "pobi : --" + lineSeparator + "woni : -" + lineSeparator + "jun : --" + lineSeparator
                     + lineSeparator
-                    + "pobi : ---" + lineSeparator
-                    + "woni : --" + lineSeparator
-                    + "jun : ---" + lineSeparator
+                    + "pobi : ---" + lineSeparator + "woni : --" + lineSeparator + "jun : ---" + lineSeparator
                     + lineSeparator
-                    + "pobi : ----" + lineSeparator
-                    + "woni : ---" + lineSeparator
-                    + "jun : ----" + lineSeparator
+                    + "pobi : ----" + lineSeparator + "woni : ---" + lineSeparator + "jun : ----" + lineSeparator
                     + lineSeparator
-                    + "pobi : -----" + lineSeparator
-                    + "woni : ----" + lineSeparator
-                    + "jun : -----" + lineSeparator
+                    + "pobi : -----" + lineSeparator + "woni : ----" + lineSeparator + "jun : -----" + lineSeparator
                     + lineSeparator
                     + "최종 우승자 : pobi, jun" + lineSeparator);
         }
