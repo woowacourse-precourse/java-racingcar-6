@@ -33,15 +33,19 @@ public class InputView {
             String playerString = Console.readLine();
 
             Integer playerNumber = Integer.valueOf(playerString.trim());
-            if (playerNumber < RACING_COUNT_MINIMUM) {
-                throw new NumberFormatException();
-            }
+            checkMinimumRacingCount(playerNumber);
             return playerNumber;
 
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INVALID_INPUT_RACING_COUNT_EXCEPTION_MESSAGE);
         }
 
+    }
+
+    public static void  checkMinimumRacingCount(Integer playerNumber){
+        if (playerNumber < RACING_COUNT_MINIMUM) {
+            throw new NumberFormatException();
+        }
     }
 
 }
