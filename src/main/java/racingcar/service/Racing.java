@@ -1,11 +1,14 @@
-package racingcar;
+package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.Execution;
+import racingcar.domain.RacingCar;
+import racingcar.io.IOHandler;
 
 public class Racing {
-    private IOHandler ioHandler = new IOHandler();
-    private List<RacingCar> racingCars = new ArrayList<>();
+    private final IOHandler ioHandler = new IOHandler();
+    private final List<RacingCar> racingCars = new ArrayList<>();
     private RacingService racingService;
 
     public void run() {
