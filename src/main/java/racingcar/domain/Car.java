@@ -20,8 +20,8 @@ public class Car {
         }
     }
 
-    public void printName() {
-
+    public void printPosition() {
+        System.out.println(this.name + " : " + this.position);
     }
 
 }
