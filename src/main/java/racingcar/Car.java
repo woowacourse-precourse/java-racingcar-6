@@ -6,7 +6,7 @@ public class Car {
     private String name;
     private int position;
 
-    public Car(String name, int position) {
+    public Car(String name) {
         this.name = name;
         this.position = 0;
     }
@@ -19,6 +19,7 @@ public class Car {
         }
     }
 
+
     public String getName() {
         return name;
     }
@@ -29,7 +30,6 @@ public class Car {
 
     public String toString(){
         return this.name + " : " + "-".repeat(this.position)+ "\n";
-
     }
 
 }
