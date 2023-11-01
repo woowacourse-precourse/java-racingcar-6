@@ -23,6 +23,7 @@ public class Application {
         winnerOutput(winner,cars);
 
     }
+
     public static List<Integer> resultArray(int carSize){
         List<Integer> result=new ArrayList<>();
 
@@ -33,6 +34,7 @@ public class Application {
 
         return result;
     }
+
     public static void winnerOutput(List<Integer> winner,List<String> cars){
         String outputs="최종 우승자 : ";
 
@@ -48,6 +50,7 @@ public class Application {
 
         System.out.print(outputs);
     }
+
     public static List<Integer> winnerSelect(List<Integer> result){
         List<Integer> winner=new ArrayList<>();
         int winnerPosition= Collections.max(result);
@@ -62,7 +65,9 @@ public class Application {
 
         return winner;
     }
+
     public static void executionResult(List<String> cars,List<Integer> result){
+
         for(int i=0;i<cars.size();i++){
             String outputResult=cars.get(i)+" : ";
             outputResult+="-".repeat(result.get(i));
@@ -71,18 +76,23 @@ public class Application {
         }
         System.out.println();
     }
+
     public static void addRandomCondition(List<Integer> result, List<Integer> condition){
+
         for(int i=0;i<result.size();i++)
             result.set(i,result.get(i)+condition.get(i));
     }
+
     public static List<String> inputCars(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
         List<String> cars=new ArrayList<>();
 
         String car=camp.nextstep.edu.missionutils.Console.readLine();
         String checkCar[]=car.split(",",-1);
 
         for(int i=0;i<checkCar.length;i++){
+
             if(checkCar[i].length()==0)
                 throw new IllegalArgumentException("각 자동차 이름은 1자 이상 입력해야 한다");
             else if(checkCar[i].length()<=5)
@@ -93,21 +103,26 @@ public class Application {
         }
         return cars;
     }
+
     public static int tryGameCount(){
         System.out.println("시도할 회수는 몇 회인가요?");
+
         String firstInput= camp.nextstep.edu.missionutils.Console.readLine();
         int tryOut=0;
 
         try{
             tryOut=Integer.parseInt(firstInput);
+
             if (tryOut<0)
                 throw new IllegalArgumentException("시도할 횟수는 0 이상으로 표현해야 한다");
+
         } catch (NumberFormatException e){
             throw new IllegalArgumentException("시도할 횟수는 숫자로 표현해야 한다");
         }
 
         return tryOut;
     }
+
     public static List<Integer> forwardCondition(int carSize){
         List<Integer> randomNumber=new ArrayList<>();
         int repeatNumber=0;
@@ -123,4 +138,5 @@ public class Application {
 
         return randomNumber;
     }
+
 }

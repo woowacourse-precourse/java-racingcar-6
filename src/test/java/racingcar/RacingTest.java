@@ -44,8 +44,7 @@ public class RacingTest extends NsTest {
         cars.add("pobi");cars.add("woni");
     }
 
-    //inputCars 정상- 제대로 나눠졌는가 쉼표에 대해
-    //tryGameOut 정상- 제대로 int가 return 되는가
+
     @Test
     void 이름_시도횟수_입력_정상() {
         assertRandomNumberInRangeTest(
@@ -54,22 +53,6 @@ public class RacingTest extends NsTest {
                     assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
                 },
                 MOVING_FORWARD, MOVING_FORWARD, STOP//random 숫자의 범위 그래서 pobi는 4라서 전진 woni는 3이라서 가만히인듯ㄷㄷ
-        );
-    }
-    @Test
-    void 이름에_대한_예외_처리_콤마_뒤() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("ppp,,", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
-        );
-    }
-    @Test
-    void 이름에_대한_예외_처리_콤마_단독() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(",", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
         );
     }
 
@@ -81,6 +64,7 @@ public class RacingTest extends NsTest {
                         .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
         );
     }
+
     @Test
     void 이름에_대한_예외_처리_콤마_중간() {
         assertSimpleTest(() ->
@@ -90,7 +74,24 @@ public class RacingTest extends NsTest {
         );
     }
 
-    //inputCars 오류- 5자 초과 입력 시 오류가 나는가
+    @Test
+    void 이름에_대한_예외_처리_콤마_뒤() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("ppp,,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_콤마_단독() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("각 자동차 이름은 1자 이상 입력해야 한다")
+        );
+    }
+
     @Test
     void 이름에_대한_예외_처리_5자() {
         assertSimpleTest(() ->
@@ -100,7 +101,6 @@ public class RacingTest extends NsTest {
         );
     }
 
-    //tryGameOut 오류- 숫자로 표현 안된 경우
     @Test
     void 횟수에_대한_예외_처리_다른문자() {
         assertSimpleTest(() ->
@@ -109,9 +109,9 @@ public class RacingTest extends NsTest {
                         .hasMessageContaining("시도할 횟수는 숫자로 표현해야 한다")
         );
     }
-    //tryGameOut 오류- 0이상 입력 필요(음수일때)
+
     @Test
-    void 횟수에_대한_예외_처리_음수(){//코드 작성
+    void 횟수에_대한_예외_처리_음수(){
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("C,java", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -119,8 +119,6 @@ public class RacingTest extends NsTest {
         );
     }
 
-
-    //resultArray 정상- 제대로 초기화됐는가- 길이로 판단
     @Test
     void 현재위치_초기화_정상_초기화() {
         List<Integer> check=new ArrayList<>();
@@ -131,14 +129,13 @@ public class RacingTest extends NsTest {
                 .isEqualTo(check);
     }
 
-    //forwardCondition 정상- 1이나 0이 아닌 값이 반환값List<Integer>에 없어야함
     @Test
-    void 랜덤_전진조건_확인_정상_contain01(){
+    void 랜덤_전진조건_확인_정상_포함숫자(){
         List<Integer> randomCondition=Application.forwardCondition(CAR);
 
         Assertions.assertThat(randomCondition).containsAnyOf(0,1);
     }
-    //forwardCondition 정상- 랜덤값을 조정했을 때 제대로 1, 0 판단하는가, 길이도 맞아야함
+
     @Test
     void 랜덤_전진조건_확인_정상_길이(){
         List<Integer> randomCondition=Application.forwardCondition(CAR);
@@ -146,7 +143,6 @@ public class RacingTest extends NsTest {
         Assertions.assertThat(randomCondition).hasSize(randomCondition.size());
     }
 
-    //addRandomCondition 정상- 여기서 더한거랑 저거 결과값이랑 같은 지 판단
     @Test
     void 현재위치_전진조건_더하기_정상_더하기(){
         List<Integer> result=new ArrayList<>();
@@ -158,7 +154,6 @@ public class RacingTest extends NsTest {
         Assertions.assertThat(positionWin).isEqualTo(result);
     }
 
-    //executionResult 정상- 몇 줄 출력됐는 지를 파악
     @Test
     void 각_실행결과_출력_정상_출력(){
         Application.executionResult(cars,positionWin);
@@ -166,7 +161,6 @@ public class RacingTest extends NsTest {
         Assertions.assertThat(output().split(":")).hasSize(CAR+1);
     }
 
-    //winnerSelect 정상- result 리스트에 따라(2명 중 1명, 2명 중 무승부)
     @Test
     void 승자_도출_정상_우승1명(){
         List<Integer> winner=winnerSelect(positionWin);
@@ -175,6 +169,7 @@ public class RacingTest extends NsTest {
                 .contains(0)
                 .contains(1);
     }
+
     @Test
     void 승자_도출_정상_무승부(){
         List<Integer> winner=winnerSelect(positionTie);
@@ -182,19 +177,20 @@ public class RacingTest extends NsTest {
         Assertions.assertThat(winner).containsOnly(1);
     }
 
-    //winnerOutput 정상- 한 명 우승이랑 무승부 우승일 때 "," 개수 파악
     @Test
     void 승자_출력_정상_우승1명(){
         winnerOutput(positionWin,cars);
 
         Assertions.assertThat(output()).doesNotContain(",");
     }
+
     @Test
     void 승자_출력_정상_우승2명(){
         winnerOutput(positionTie,cars);
 
         Assertions.assertThat(output()).contains(",");
     }
+
 
     @Override
     public void runMain() {
