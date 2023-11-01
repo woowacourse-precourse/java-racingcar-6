@@ -118,6 +118,31 @@ public class RacingCarGameTest extends NsTest {
 
     @Test
     @Order(6)
+    void 우승_후보_Cars_확인(){
+        assertRandomNumberInRangeTest(
+                ()->{
+                    RacingCarGame game = new RacingCarGame();
+                    System.setIn(createTestingInput("aa,bb,cc"));
+                    String[] names = game.splitInputNames();
+                    game.inputNames(names);
+                    Console.close();
+
+                    System.setIn(createTestingInput("2"));
+                    game.inputTryLimit();
+
+                    game.race();
+                    game.setMax();
+
+                    game.setWinnerCars();
+                    assertThat(game.getWinnerCarsSize()).isEqualTo(1);
+                },
+                6,2,6
+                ,6, 2, 2
+        );
+    }
+
+    @Test
+    @Order(6)
     void 게임_3명_5회() {
         assertRandomNumberInRangeTest(
                 ()->{

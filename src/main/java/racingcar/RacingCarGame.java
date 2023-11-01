@@ -67,6 +67,9 @@ public class RacingCarGame {
     public int getMax() {
         return max;
     }
+    public int getWinnerCarsSize(){
+        return winnerCars.size();
+    }
 
     public void inputTryLimit(){
         System.out.println("시도할 회수는 몇회인가요?");
