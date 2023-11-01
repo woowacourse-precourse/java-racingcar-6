@@ -21,6 +21,9 @@ public class RacingGameController implements Controller {
         this.outputView = (OutputView) outputView;
     }
 
+    /**
+     * 자동차 경주 게임을 시작하는 메서드.
+     */
     public void gameStart() {
         List<Car> cars = generateCarList();
 
