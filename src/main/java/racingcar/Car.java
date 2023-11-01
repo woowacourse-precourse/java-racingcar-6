@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+	static final int MIN_RANDOM_NUMBER = 0;
+	static final int MAX_RANDOM_NUMBER = 9;
+
 	private String name;
 	private int distance = 0;
 
@@ -11,18 +14,17 @@ public class Car {
 	}
 
 	void moveForward() {
-		int random = Randoms.pickNumberInRange(0, 9);
+		int random = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 		if (random >= 4) {
 			distance++;
 		}
+		showDistance();
 	}
 
 	void showDistance() {
-		String showDistance = name + " : ";
+		StringBuilder showDistance = new StringBuilder();
 
-		for (int i = 0; i < distance; i++) {
-			showDistance += "-";
-		}
+		showDistance.append(name + " : ").append("-".repeat(distance));
 
 		System.out.println(showDistance);
 	}
