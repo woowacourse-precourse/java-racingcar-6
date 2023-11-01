@@ -11,10 +11,15 @@ public class Game {
     private CarGroup carGroup;
     private int trialNumber;
     public Game() {
-        this.carGroup = initCarGroup();
-        this.trialNumber = initTrialCount();
+        initialize();
         run(carGroup.getCarList(), trialNumber);
         OutputHandler.printFinalResult(carGroup.getWinnerList());
+    }
+
+    private void initialize() {
+        carGroup = initCarGroup();
+        trialNumber = initTrialCount();
+        System.out.println();
     }
 
     public CarGroup initCarGroup() {
