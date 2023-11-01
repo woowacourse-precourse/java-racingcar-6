@@ -1,4 +1,11 @@
 package racingcar;
 
-public class InputHandlerTest {
+class InputHandlerTest {
+    @Test
+    void validCarNames() {
+        String input = "pobi,woni,jun";
+        assertDoesNotThrow(() -> InputHandler.validateCarNames(input));
+    }
+
+
 }
