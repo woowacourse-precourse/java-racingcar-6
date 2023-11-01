@@ -1,4 +1,4 @@
-package study;
+package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;

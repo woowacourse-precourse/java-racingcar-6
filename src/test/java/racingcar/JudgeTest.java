@@ -1,4 +1,4 @@
-package study;
+package racingcar;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

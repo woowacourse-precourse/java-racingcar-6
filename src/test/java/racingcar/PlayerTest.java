@@ -1,4 +1,4 @@
-package study;
+package racingcar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,18 +27,18 @@ class PlayerTest {
     }
 
     @Test
-    @DisplayName("횟수를 잘못 입력함")
-    public void timesShouldBeAtLeast1() {
-        assertThrows(IllegalArgumentException.class, ()->{
-            new Player("amy,lisa", "0");
-        });
-    }
-
-    @Test
     @DisplayName("자동차 이름의 길이에 알파벳 외의 문자,기호가 포함됨")
     public void carNameShouldHaveOnlyAlphabets() {
         assertThrows(IllegalArgumentException.class, ()->{
             new Player("jenny,amy!,rose", "4");
+        });
+    }
+
+    @Test
+    @DisplayName("횟수를 잘못 입력함")
+    public void timesShouldBeAtLeast1() {
+        assertThrows(IllegalArgumentException.class, ()->{
+            new Player("amy,lisa", "0");
         });
     }
 
