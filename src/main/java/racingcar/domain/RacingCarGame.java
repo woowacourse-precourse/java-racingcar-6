@@ -43,4 +43,19 @@ public class RacingCarGame {
 
 		return cars;
 	}
+
+
+	private static int getNumberOfAttemptsFromInputString() {
+		System.out.println("시도할 회수는 몇회인가요?");
+		String inputString = Console.readLine();
+
+		int numberOfAttempts;
+		try {
+			numberOfAttempts = Integer.parseInt(inputString);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("시도할 회수는 0 이상 2147483647 이하의 정수여야 합니다.");
+		}
+
+		return numberOfAttempts;
+	}
 }
