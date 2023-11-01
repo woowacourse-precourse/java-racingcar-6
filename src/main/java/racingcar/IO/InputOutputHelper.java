@@ -1,6 +1,6 @@
 package racingcar.IO;
 
-public abstract class InputOutputHelper {
-    public abstract String input();
-    public abstract String output(String message);
+public interface InputOutputHelper {
+    String input();
+    String output(String message);
 }
