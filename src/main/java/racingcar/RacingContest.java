@@ -27,8 +27,8 @@ public class RacingContest {
         }
     }
 
-    List<String> returnWinner(){
-        List<String> winners = new ArrayList<>();
+    ArrayList<String> returnWinner(){
+        ArrayList<String> winners = new ArrayList<>();
         int max;
 
         Collections.sort(racingCars);
