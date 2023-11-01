@@ -3,19 +3,15 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Player {
 
     private final List<Car> cars;
     private final int times;
 
-    public Player(List<Car> cars, int times){
-        validateTime(times);
-        this.cars = cars;
-        this.times = times;
-    }
-    public Player(String names, String times){
-        this.cars = convertStringToListCars(names);
+    public Player(String cars, String times){
+        this.cars = convertStringToListCars(cars);
         this.times = stringToInteger(times);
         validateTime(this.times);
     }
@@ -33,6 +29,7 @@ public class Player {
     }
 
     public List<String> splitNames(String names){
+
         return Arrays.asList(names.split(","));
     }
 
@@ -60,11 +57,15 @@ public class Player {
     }
 
     public void validateCarName(String name){
+        String regex = "^[a-zA-Z]*$";
         if (name.length() > 5) {
             throw new IllegalArgumentException("[ERROR] The name must not be more than 5 characters.");
         }
         if (name.isEmpty()){
-            throw new IllegalArgumentException("[ERROR] There is no name.");
+            throw new IllegalArgumentException("[ERROR] Car's name shouldn't be null.");
+        }
+        if(!Pattern.matches(regex,name)){
+            throw new IllegalArgumentException("[ERROR] Car's name should have only english character.");
         }
     }
 

@@ -28,6 +28,8 @@ public class Judge {
             }
         }
 
+        validateWinner(winner);
+
         return winner;
     }
 
@@ -41,6 +43,12 @@ public class Judge {
 
     private void addWinner(Car car){
         winner.add(car);
+    }
+
+    private void validateWinner(List<Car> winners){
+        if(winners.isEmpty()){
+            throw new IllegalArgumentException("[ERROR] There should be at least one winner");
+        }
     }
 
 }

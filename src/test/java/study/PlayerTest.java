@@ -34,4 +34,12 @@ class PlayerTest {
         });
     }
 
+    @Test
+    @DisplayName("자동차 이름의 길이에 알파벳 외의 문자,기호가 포함됨")
+    public void carNameShouldHaveOnlyAlphabets() {
+        assertThrows(IllegalArgumentException.class, ()->{
+            new Player("jenny,amy!,rose", "4");
+        });
+    }
+
 }

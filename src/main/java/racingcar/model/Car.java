@@ -46,7 +46,7 @@ public class Car {
             throw new IllegalArgumentException("[ERROR] The name must not be more than 5 characters.");
         }
         if (name.isEmpty()){
-            throw new IllegalArgumentException("[ERROR] There is no name.");
+            throw new IllegalArgumentException("[ERROR] Car's name shouldn't be null.");
         }
     }
 
