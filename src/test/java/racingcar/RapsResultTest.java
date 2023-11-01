@@ -10,6 +10,7 @@ import static org.mockito.Mockito.*;
 class RapsResultTest {
     private RacingCar racingCar = new RacingCar("테스터", 3);
     private RapsResult rapsResult = new RapsResult(racingCar);
+
     @Test
     void testReader_숫자가_4이상이면_True_반환() {
 

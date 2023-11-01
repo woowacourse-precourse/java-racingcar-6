@@ -47,16 +47,15 @@ class RacingGameStartTest {
         RacingCar car2 = new RacingCar("테크", 5);
         RacingCar car3 = new RacingCar("코스", 7);
         RacingCar[] racingCars = {car1, car2, car3};
-
         PrintWinner printWinner = new PrintWinner(racingCars);
-
 
         assertThat(printWinner.winnerListPrint()).isEqualTo("최종 우승자 : 우아한, 코스");
     }
 
     @Test
     void testCheckNameLength_자동차_이름_5자리_이상시_에러_처리() {
-        String name ="f1o2u3r4";
+
+        String name = "f1o2u3r4";
 
         assertThatThrownBy(() -> {
             RacingGameStart.checkNameLength(name);

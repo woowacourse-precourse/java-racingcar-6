@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PrintWinnerTest {
 
-    RacingCar[] racingCars = {new RacingCar("우아한",8),new RacingCar("테크",2),new RacingCar("코스",6)};
+    RacingCar[] racingCars = {new RacingCar("우아한", 8), new RacingCar("테크", 2), new RacingCar("코스", 6)};
 
     @Test
     void testWinnerNum_자동차_그룹_중_가장_멀리간_거리_반환() {
