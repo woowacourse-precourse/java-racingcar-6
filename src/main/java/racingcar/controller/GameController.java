@@ -2,15 +2,17 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.GameNumber;
-import racingcar.view.OutputView;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static racingcar.model.Cars.generateCar;
-import static racingcar.view.InputView.generateCarNameInput;
-import static racingcar.view.InputView.generateTryCountInput;
-import static racingcar.view.OutputView.processResult;
+import static racingcar.view.InputView.promptCarNames;
+import static racingcar.view.InputView.promptTryCount;
+
+import static racingcar.view.OutputView.printExecutionResultMessage;
+import static racingcar.view.OutputView.printFinalWinnerMessage;
 
 
 public class GameController {
@@ -19,9 +21,9 @@ public class GameController {
     private static List<Car> winnerList;
 
     public static void startGame() { // 뷰는 컨트롤러에만 의존한다.
-        carsList = generateCar(generateCarNameInput());
-        tryCount = generateTryCountInput();
-        processResult();
+        carsList = generateCar(promptCarNames());
+        tryCount = promptTryCount();
+        printExecutionResultMessage();
         while (tryCount-- > 0) {
             for (Car car : carsList) {
                 GameNumber gameNumber = new GameNumber();
@@ -32,10 +34,11 @@ public class GameController {
             System.out.println();
 
         }
+        printFinalWinnerMessage();
         winnerList = findWinners(carsList);
-        OutputView.GameResult();
-        for (int i = 0; i < winnerList.size(); i++) {
-            System.out.println(winnerList.get(i).getName());
+
+        for (Car car : winnerList) {
+            System.out.println(car.getName());
         }
     }
 
@@ -56,7 +59,6 @@ public class GameController {
                 winners.clear();
                 winners.add(car);
             }
-
             if (car.getLength() == maxCarLength) {
                 winners.add(car);
             }
