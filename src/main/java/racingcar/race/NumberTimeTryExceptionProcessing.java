@@ -13,12 +13,8 @@ public class NumberTimeTryExceptionProcessing {
 
     private static void checkNumberRange(int numberTimeTry) {
 
-        try {
-            if (numberTimeTry < 1 || numberTimeTry > 2_147_483_646) {
-                throw new IllegalArgumentException(NUMBER_RANGE);
-            }
-        } catch (IllegalStateException ignored) {
-
+        if (numberTimeTry < 1 || numberTimeTry > 2_147_483_646) {
+            throw new IllegalArgumentException(NUMBER_RANGE);
         }
 
     }
