@@ -10,7 +10,6 @@ public class CarRaceController {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
 
-
     public void raceStart() {
         List<String> carsNames = inputView.readCarsNamesInput();
         List<Car> cars = carsNames.stream().map(name -> new Car(name)).toList();
