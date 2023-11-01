@@ -47,9 +47,12 @@
         - 예외처리
 #### [model]
   - Car
-    - 필드 : carNameArray,winner,raceLength,oneStep
-    - Car가 게임플레이 중 step을 갔을 때 raceLength 1 증가
+    - 필드 : carNameArray,raceLength,oneStep,stepDistance
+    - Car가 게임플레이 중 step을 갔을 때 raceLength 1, stepDistance는 onestep 증가
     - Car의 현재까지 진행한 총 거리의 문자열을 반환
+  - GameState
+    - 필드 : Map(carName, stepDistance)
+    - 각라운드당 게임 참여 중인 Car들의 display할 상태
   - GameViewMessage (enum)
     - WRITE_CAR_NAME_MESSAGE
     - WRITE_RACE_LENGTH_MESSAGE
