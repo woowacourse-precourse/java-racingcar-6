@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import racingcar.domain.RaceCountRule;
+import racingcar.domain.TryingCountCondition;
 
 public class InputMoveCountValidator {
 
@@ -21,7 +21,7 @@ public class InputMoveCountValidator {
     }
 
     private static void validateRange(final int moveCount) {
-        if (RaceCountRule.isNotInRange(moveCount)) {
+        if (TryingCountCondition.isNotInRange(moveCount)) {
             throw new IllegalArgumentException("이동 횟수는 1 이상 10 이하의 숫자를 입력해야 합니다.");
         }
     }
