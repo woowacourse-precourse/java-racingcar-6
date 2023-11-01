@@ -61,4 +61,17 @@ public class RacingServiceTest {
 
         assertThat(winners).containsOnly("pobi","jun");
     }
+
+    @Test
+    void pickWinner_단독_우승자인_경우() {
+        List<Car> cars = Arrays.asList(
+                new Car("pobi", 4),
+                new Car("woni", 3),
+                new Car("jun", 2)
+        );
+
+        List<String> winners = racingService.pickWinner(cars);
+
+        assertThat(winners).containsOnly("pobi");
+    }
 }
