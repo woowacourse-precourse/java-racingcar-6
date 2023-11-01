@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +12,13 @@ public class Game{
     static String inputMembers="";
     static String inputAttempts="";
     static int attempts=0;
+    static int maxDistance=0;
     public void run(){
         setInputMembers();
         makeMembers();
         setAttempts();
+        makeAttempts();
+        startAttempts();
     }
     public void setInputMembers(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -33,11 +37,32 @@ public class Game{
         inputAttempts = Console.readLine();
         checker.checkNumber(inputAttempts);
     }
-
-    public void setWinners(){
-
+    public void makeAttempts(){
+        attempts = Integer.parseInt(inputAttempts);
+    }
+    public void startAttempts(){
+        System.out.println("실행 결과");
+        while(attempts!=0){
+            attempts -= 1;
+            playGame();
+            showGame();
+            System.out.print("\n");
+        }
     }
     public void playGame(){
-
+        for (Car car:members) {
+            int randomNumber = Randoms.pickNumberInRange(0,9);
+            if(randomNumber >= 4){
+                car.go();
+            }
+        }
     }
+    public void showGame(){
+        for (Car car:members) {
+            car.display();
+        }
+    }
+    public void setWinners(){
+    }
+
 }
