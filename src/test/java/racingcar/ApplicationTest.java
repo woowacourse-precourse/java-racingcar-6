@@ -22,6 +22,29 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
+    @Test
+    void testApplication_negative_coin_exception() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void testApplication_zero_coin_exception() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void testApplication_empty_name_exception() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Test
     void 이름에_대한_예외_처리() {
