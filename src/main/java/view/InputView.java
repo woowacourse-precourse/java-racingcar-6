@@ -1,7 +1,7 @@
 package view;
 
-import static message.InputMessages.REQUEST_CAR_NAMES;
-import static message.InputMessages.REQUEST_TRY_COUNT;
+import static constants.InputMessages.REQUEST_CAR_NAMES;
+import static constants.InputMessages.REQUEST_TRY_COUNT;
 
 import camp.nextstep.edu.missionutils.Console;
 

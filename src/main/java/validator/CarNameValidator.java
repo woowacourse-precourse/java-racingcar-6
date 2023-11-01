@@ -1,8 +1,8 @@
 package validator;
 
-import static message.Constants.CAR_NAME_MAX_LENGTH;
-import static message.ErrorMessages.NAME_DUPLICATE_ERROR;
-import static message.ErrorMessages.NAME_LENGTH_ERROR;
+import static constants.Constants.CAR_NAME_MAX_LENGTH;
+import static constants.ErrorMessages.NAME_DUPLICATE_ERROR;
+import static constants.ErrorMessages.NAME_LENGTH_ERROR;
 
 import java.util.Set;
 

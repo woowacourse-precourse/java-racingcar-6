@@ -1,9 +1,9 @@
 package model;
 
-import static message.Constants.INIT_POSITION;
-import static message.Constants.MOVE_CONDITION;
-import static message.Constants.RANDOM_NUMBER_MAX;
-import static message.Constants.RANDOM_NUMBER_MIN;
+import static constants.Constants.INIT_POSITION;
+import static constants.Constants.MOVE_CONDITION;
+import static constants.Constants.RANDOM_NUMBER_MAX;
+import static constants.Constants.RANDOM_NUMBER_MIN;
 
 import camp.nextstep.edu.missionutils.Randoms;
 

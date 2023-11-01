@@ -1,8 +1,8 @@
 package validator;
 
-import static message.Constants.TRY_COUNT_MIN;
-import static message.ErrorMessages.COUNT_NOT_NUMBER_ERROR;
-import static message.ErrorMessages.TRY_COUNT_MIN_ERROR;
+import static constants.Constants.TRY_COUNT_MIN;
+import static constants.ErrorMessages.COUNT_NOT_NUMBER_ERROR;
+import static constants.ErrorMessages.TRY_COUNT_MIN_ERROR;
 
 public class TryCountValidator {
 

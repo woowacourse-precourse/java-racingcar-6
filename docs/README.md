@@ -50,7 +50,7 @@
     - Winner
         - getMaxPosition
         - getWinners
-- message
+- constants
     - ErrorMessages
     - InputMessages
     - OutputMessages

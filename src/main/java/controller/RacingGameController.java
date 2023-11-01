@@ -1,6 +1,6 @@
 package controller;
 
-import static message.OutputMessages.RACE_START;
+import static constants.OutputMessages.RACE_START;
 import static validator.CarNameValidator.validateCarNameDuplicate;
 import static validator.CarNameValidator.validateCarNameLength;
 import static validator.TryCountValidator.validateTryCountMin;

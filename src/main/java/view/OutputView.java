@@ -1,6 +1,6 @@
 package view;
 
-import static message.OutputMessages.RACE_WINNERS;
+import static constants.OutputMessages.RACE_WINNERS;
 
 import java.util.List;
 import model.Car;

@@ -1,4 +1,4 @@
-package message;
+package constants;
 
 public class ErrorMessages {
 
