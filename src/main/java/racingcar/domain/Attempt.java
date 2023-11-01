@@ -9,18 +9,19 @@ import racingcar.Utils;
 import racingcar.view.InputView;
 
 public class Attempt {
-    private int count;
+    private int attemptNumber;
 
-    public void saveAttemptNumber() {
-        InputView.printRequestAttempt();
-        String attemptInput = Console.readLine();
-        input(attemptInput);
-        Utils.printLineChanging();
+    public Attempt(String roundNumber) {
+        this.attemptNumber = saveAttemptNumber();
     }
 
-    public void input(String attemptInput) {
+    public int saveAttemptNumber() {
+        InputView.printRequestAttempt();
+        String attemptInput = Console.readLine();
         validateAttemptNumber(attemptInput);
-        this.count = Integer.parseInt(attemptInput);
+        Utils.printLineChanging();
+
+        return Integer.parseInt(attemptInput);
     }
 
     public void validateAttemptNumber(String number) {
@@ -50,8 +51,8 @@ public class Attempt {
         }
     }
 
-    public int getCount() {
-        return count;
+    public int getAttemptNumber() {
+        return attemptNumber;
     }
 
 }
