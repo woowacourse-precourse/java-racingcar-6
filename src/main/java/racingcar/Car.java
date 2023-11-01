@@ -14,15 +14,14 @@ public class Car {
         result = new Result();
     }
 
-    public void move(List<String> carNames, int movingNumber) {
+    public Map<String,Integer> setForRacing(List<String> carNames) {
         Map<String, Integer> carNameAndMoving = listToMap(carNames);
+        return carNameAndMoving;
+    }
+
+    public Map<String, Integer> runRacing(Map<String, Integer> carNameAndMoving, int movingNumber) {
         System.out.println(RACING_RESULT);
-        while (movingNumber > 0) {
-            moveCars(carNameAndMoving);
-            result.printRacingProcess(carNameAndMoving);
-            movingNumber--;
-        }
-        result.printRacingWinner(carNameAndMoving);
+        return startRacing(carNameAndMoving, movingNumber);
     }
 
     private Map<String, Integer> listToMap(List<String> carNames) {
@@ -33,6 +32,15 @@ public class Car {
     private Map<String, Integer> putZeroToValues(List<String> carNames, Map<String, Integer> carNameAndMoving) {
         for (String carName : carNames) {
             carNameAndMoving.put(carName, 0);
+        }
+        return carNameAndMoving;
+    }
+
+    private Map<String, Integer> startRacing(Map<String, Integer> carNameAndMoving, int movingNumber) {
+        while (movingNumber > 0) {
+            moveCars(carNameAndMoving);
+            result.printRacingProcess(carNameAndMoving);
+            movingNumber--;
         }
         return carNameAndMoving;
     }
