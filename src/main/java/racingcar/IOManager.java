@@ -1,13 +1,11 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.*;
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.Cars;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class IOManager {
 
@@ -30,14 +28,24 @@ public class IOManager {
                 .toList();
 
         Optional<String> any = names.stream().filter(name -> name.length() > 5).findAny();
-        if (any.isPresent()) throw new IllegalArgumentException();
+        if (any.isPresent()) {
+            throw new IllegalArgumentException();
+        }
 
         return names;
     }
 
     public int readTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        try {
+            int i = Integer.parseInt(Console.readLine());
+            if (i <= 0) {
+                throw new IllegalArgumentException();
+            }
+            return i;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void printRacingResult(Cars cars) {
