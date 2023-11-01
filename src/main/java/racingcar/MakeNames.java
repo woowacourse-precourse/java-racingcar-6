@@ -24,13 +24,4 @@ public class MakeNames {
         names = new ArrayList<String>(Arrays.asList(tmpNames));
         return names;
     }
-    public int commaCheck(String str){
-        int commaNum = 0;
-
-        for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) == ',')
-                commaNum++;
-        }
-        return commaNum;
-    }
 }
