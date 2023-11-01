@@ -49,4 +49,20 @@ public class Application {
         }
         System.out.println();
     }
+
+    static List<String> getWinners() {
+        int maxMove = 0;
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() < maxMove) {
+                continue;
+            }
+            if (car.getPosition() > maxMove) {
+                winners = new ArrayList<>();
+            }
+
+            winners.add(car.getName());
+        }
+        return winners;
+    }
 }
