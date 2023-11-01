@@ -123,6 +123,26 @@ class RacingGameServiceTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 최대_이동거리_계산_성공_거리3() {
+        Car car = new Car("test1");
+        for (int i = 0; i < 3; i++) {
+            car.move();
+        }
+        racingGameService.entry.add(car);
+        racingGameService.entry.add(new Car("test2"));
+        racingGameService.entry.add(new Car("test3"));
+
+        assertThat(racingGameService.getMaxDistance())
+                .isEqualTo(3);
+    }
+
+    @Test
+    void 최대_이동거리_계산_빈엔트리() {
+        assertThat(racingGameService.getMaxDistance())
+                .isEqualTo(0);
+    }
+
     private static class RacingGameServiceStub {
         private int remainChance;
         private List<Car> entry;
