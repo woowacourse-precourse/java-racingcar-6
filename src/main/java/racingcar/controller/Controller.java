@@ -33,14 +33,27 @@ public class Controller {
 
     private void carRace(int numberOfRaces) {
         outputView.printResultMessage();
+        runRace(numberOfRaces);
+        printWinners();
+    }
+
+    private void runRace(int numberOfRaces) {
         while (hasMoreRaces(numberOfRaces--)) {
-            RaceResultDTO raceResultDTO = cars.oneRace();
-            outputView.printRaceResult(raceResultDTO);
+            carRacing.oneRacing();
+            printRacingResult();
         }
-        outputView.printWinners(cars.getWinners());
     }
 
     private boolean hasMoreRaces(int numberOfRaces) {
         return numberOfRaces > 0;
+    }
+
+    private void printRacingResult() {
+        RacingResultDTO racingResultDTO = carRacing.toDTO();
+        outputView.printRacingResult(racingResultDTO);
+    }
+
+    private void printWinners() {
+        outputView.printWinners(carRacing.getWinners());
     }
 }
