@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.domain.car.strategy.MoveStrategy;
+
 public class Car {
 
 	private final Position position;

@@ -1,8 +1,8 @@
-package racingcar.domain.car;
+package racingcar.domain.car.strategy;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomMoveStrategy implements MoveStrategy{
+public class RandomMoveStrategy implements MoveStrategy {
 
 	private static final int MIN_MOVING_VALUE = 4;
 	private static final int MIN_VALUE = 0;
