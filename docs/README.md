@@ -95,6 +95,15 @@
         <td><b>&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/a7b13c6b-dc98-4571-b8bc-7d50d2ca5b49" width="20px" align="center">&nbsp;&nbsp;constants</b></td>
                 <td><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/b8e837c7-bc6a-4bbc-a4c3-267ec11da553" height="32px">&nbsp;&nbsp;ConstantMessage</b></td>
         <td>사용자에게 출력할 정적 메세지 Enum 클래스</td>
+    </tr>
+    <tr><td colspan="3"></td></tr>
+    <tr>
+      <th colspan="3">Project Flow Chart</th>
+    </tr>
+    <tr>
+      <td colspan="3" align="center"><img src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/de3b64d1-abde-4364-b22c-40ac1982f596" width="99%"/></td>
+    </tr>
+
 </table>
 </div>
 
