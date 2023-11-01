@@ -13,8 +13,10 @@ class RacingcarGameTest {
         racingcarGame.setTryCount(1);
         String[] cars = {"test"};
         racingcarGame.setCars(cars);
+
         assertThat(racingcarGame.race().get("test")).isBetween(0, 1);
     }
+
     @Test
     void getWinner_레이스의_우승자_문자열_반환() {
         racingcarGame.setTryCount(1);
