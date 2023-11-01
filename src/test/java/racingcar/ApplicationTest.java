@@ -119,6 +119,40 @@ class ApplicationTest extends NsTest {
                 System.setOut(originalOut);
             }
         }
+    @Test
+    void 자동차_현위치_출력() {
+        PrintStream originalOut = System.out;
+        OutputView outputView = new OutputView();
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(outputStream));
+
+            car car1 = car.fromName("car1");
+            car car2 = car.fromName("car2");
+            car car3 = car.fromName("car3");
+            car2.move();
+            car3.move();
+            car3.move();
+            List<car> cars = new ArrayList<>(List.of(car1, car2, car3));
+
+            for (car car : cars) {
+                outputView.printCarPosition(car.getName(), car.getPosition());
+            }
+
+            String expectedOutput = """
+                    car1 :\s
+                    car2 : -
+                    car3 : --
+                    """;
+            String actualOutput = outputStream.toString();
+
+            assertThat(actualOutput).isEqualTo(expectedOutput);
+
+
+        } finally {
+            System.setOut(originalOut);
+        }
+    }
         @Test
         void 우승자_도출() {
 
@@ -133,6 +167,33 @@ class ApplicationTest extends NsTest {
 
             assertThat(Winner.judgeWinner(cars)).containsOnly(car2.name, car3.name);
         }
+    @Test
+    void 우승자_출력() {
+        PrintStream originalOut = System.out;
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(outputStream));
+            OutputView outputView = new OutputView();
 
+            car car1 = car.fromName("car1");
+            car car2 = car.fromName("car2");
+            car car3 = car.fromName("car3");
+            car1.move();
+            car2.move();
+            List<car> cars = new ArrayList<>(List.of(car1, car2, car3));
+
+            Winner winner = new Winner();
+            List<String> winners = Winner.judgeWinner(cars);
+
+            outputView.printWinners(winners);
+
+            String expectedOutput = "최종 우승자 : car1, car2";
+            String actualOutput = outputStream.toString().trim();
+
+            assertThat(actualOutput).isEqualTo(expectedOutput);
+        } finally {
+            System.setOut(originalOut);
+        }
+    }
     }
 

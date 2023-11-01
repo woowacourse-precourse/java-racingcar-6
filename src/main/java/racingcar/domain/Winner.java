@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Winner {
-    public List<String> judgeWinner(List<car> cars) {
+    public static List<String> judgeWinner(List<car> cars) {
         int winnerPosition = findFirstPrizeCarPosition(cars);
 
         List<String> winners = new ArrayList<>();
@@ -19,7 +19,7 @@ public class Winner {
         return winners;
     }
 
-    private int findFirstPrizeCarPosition(List<car> cars) {
+    private static int findFirstPrizeCarPosition(List<car> cars) {
         List<car> rankedCars = cars.stream().collect(Collectors.toList());
         Collections.sort(rankedCars);
 
