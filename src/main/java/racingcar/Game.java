@@ -31,7 +31,22 @@ public class Game {
         }
     }
 
-    private void displayWinners() {
-        // 우승자를 계산하고 출력
+    private List<String> determineWinners() {
+        int maxPoints = 0;
+        List<String> winner = new ArrayList<>();
+        for (Car car : cars) {
+            int carPoint = car.getPosition();
+            if (carPoint > maxPoints) {
+                maxPoints = carPoint;
+            }
+        }
+        for (Car car : cars) {
+            int carPoint = car.getPosition();
+            if (carPoint == maxPoints) {
+                winner.add(car.getName());
+            }
+        }
+
+        return winner;
     }
 }
