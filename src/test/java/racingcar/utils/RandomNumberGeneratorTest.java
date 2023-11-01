@@ -7,15 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class RandomNumberGeneratorTest {
 
     @Test
-    public void 랜덤_숫자_생성() throws Exception {
+    public void 한_자리로_이루어진_랜덤_숫자_생성() throws Exception {
         // given
-        NumberGenerator generator = new RandomNumberGenerator();
+        NumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
         // when
-        int number = generator.generateNumberInRange();
+        int generateNumberInRange = randomNumberGenerator.generateNumberInRange();
 
         // then
-        assertTrue(number >= 0 && number <= 9, "0-9 사이의 숫자가 아닙니다!!!");
+        assertTrue(generateNumberInRange >= 0 && generateNumberInRange <= 9, "0-9 사이의 숫자가 아닙니다!!!");
     }
-
 }
