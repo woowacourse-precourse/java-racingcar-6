@@ -17,4 +17,16 @@ class ScoreTest {
         assertThat(score.findFarthestScores()).containsExactly(dobiScore, robiScore);
     }
 
+    @Test
+    @DisplayName("넘겨받은 라운드가 같은 라운드일 때 ture 반환")
+    public void isSameRound() {
+        ScoreDto pobiScore = new ScoreDto("pobi", 3);
+        ScoreDto dobiScore = new ScoreDto("dobi", 4);
+        ScoreDto robiScore = new ScoreDto("dobi", 4);
+        Score score = new Score(1, Arrays.asList(pobiScore, dobiScore, robiScore));
+        assertThat(score.isSameRound(1)).isTrue();
+
+
+    }
+
 }
