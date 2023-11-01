@@ -26,14 +26,6 @@ public class Car implements Comparable<Car> {
         return new CarDto(name, position);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Integer getPosition() {
-        return position;
-    }
-
     @Override
     public int compareTo(Car o) {
         return this.position - o.position;
@@ -56,4 +48,11 @@ public class Car implements Comparable<Car> {
         return Objects.hash(position);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
 }
