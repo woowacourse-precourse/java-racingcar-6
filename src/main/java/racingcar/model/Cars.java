@@ -3,14 +3,7 @@ package racingcar.model;
 import java.util.List;
 import racingcar.util.NumberGenerator;
 
-public class Cars {
-
-    private final List<Car> cars;
-
-    public Cars(List<Car> cars) {
-        this.cars = cars;
-    }
-
+public record Cars(List<Car> cars) {
     public void forward(NumberGenerator numberGenerator) {
         cars.forEach(car -> car.forward(numberGenerator));
     }
@@ -32,9 +25,5 @@ public class Cars {
         return cars.stream()
                 .filter(car -> car.getPoint() == maxPoint)
                 .toList();
-    }
-
-    public List<Car> getCars() {
-        return cars;
     }
 }
