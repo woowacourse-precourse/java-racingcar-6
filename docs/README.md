@@ -8,7 +8,7 @@
 - [x] 전진 횟수가 가장 많은 사람이 우승한다. 
   - [x] 가장 많이 전진한 자동차의 인덱스를 구한다. - WinnerManager#getIndexOfMaxForwardCount()
   - [x] 동점인 우승자가 있는지 구한다. - WinnerManager#findValuesEqualToMax()
-  - [x] 최종 우승자 명단 List를 반환한다. - WinnerManager#getWinnersByForwardCount()
+  - [x] 최종 우승자 명단 List를 반환한다. - WinnerManager#returnWinnerList()
 - [x] 각 차수별 실행 결과를 출력한다. - RaceGameManager#noticeRacingResult()
 - [x] 누가 우승했는지 출력 - RaceGameManager#noticeWinner()
  
