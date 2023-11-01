@@ -13,8 +13,8 @@ public class Constants {
     public static final int MIN_RANDOM_NUMBER = 0;
     public static final int MAX_RANDOM_NUMBER = 9;
     public static final String NUMBER_EXPRESSION = "[0-9]";
-    public final static String CAR_FIELD_LINK = " : ";
-    public final static String DISTANCE_UNIT_STRING = "-";
+    public static final String CAR_FIELD_LINK = " : ";
+    public static final String DISTANCE_UNIT_STRING = "-";
     public static final String COMMA = ",";
     public static final String BLANK = " ";
 
