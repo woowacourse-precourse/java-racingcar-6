@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
-    private List<Car> cars = new ArrayList<>();
+    private List<Car> cars;
+    public Race(List<Car> cars) {
+        this.cars = cars;
+    }
     public void playRounds() {
         for (Car car : cars) {
             int randomNumber = NumberGenerator.createRandomNumber();
@@ -21,7 +24,8 @@ public class Race {
 
     private void displayRoundResults() {
         for (Car car : cars) {
-            System.out.print(car.getName() + " : " + "-".repeat(car.getPosition()));
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
+        System.out.println();
     }
 }
