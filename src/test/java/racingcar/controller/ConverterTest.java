@@ -16,7 +16,7 @@ class ConverterTest {
     void 이름_3개를_1개의_객체로_변환() {
         String names = "First";
 
-        Cars cars = Converter.stringToCar(names);
+        Cars cars = Converter.stringToCars(names);
 
         assertNotNull(cars);
         assertEquals(
@@ -31,7 +31,7 @@ class ConverterTest {
     void 이름_3개를_3개의_객체로_변환() {
         String names = "First,Secon,Third";
 
-        Cars cars = Converter.stringToCar(names);
+        Cars cars = Converter.stringToCars(names);
 
         assertNotNull(cars);
         assertEquals(
@@ -48,7 +48,7 @@ class ConverterTest {
     void 이름이_5초과_익셉션_발생() {
         String names = "abcdef";
 
-        assertThrows(WrongNameException.class, () -> Converter.stringToCar(names));
+        assertThrows(WrongNameException.class, () -> Converter.stringToCars(names));
     }
 
     @Test
@@ -56,7 +56,7 @@ class ConverterTest {
     void 이름이_비어있으면_익셉션_발생() {
         String names = "";
 
-        assertThrows(WrongNameException.class, () -> Converter.stringToCar(names));
+        assertThrows(WrongNameException.class, () -> Converter.stringToCars(names));
     }
 
     @ParameterizedTest
