@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.MoveChecker;
+import racingcar.domain.dto.input.CarsRequestDto;
 import racingcar.domain.dto.output.CarsDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -18,9 +19,14 @@ public class GameController {
     }
 
     public void start() {
-        Cars cars = inputView.getCars();
+        Cars cars = getCars();
         playAllRounds(cars);
         outputView.printWinner(cars.toWinnersDto());
+    }
+
+    private Cars getCars() {
+        CarsRequestDto carsRequestDto = inputView.getCarNameList();
+        return Cars.from(carsRequestDto.carNameList());
     }
 
     private void playAllRounds(Cars cars) {

@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import racingcar.domain.Cars;
 import racingcar.domain.dto.input.CarsRequestDto;
 import racingcar.io.Reader;
 import racingcar.io.Writer;
@@ -19,12 +18,11 @@ public class InputView {
         this.writer = writer;
     }
 
-    public Cars getCars() {
+    public CarsRequestDto getCarNameList() {
         writer.writeln(INPUT_CAR_NAMES);
         String carNames = reader.readLine();
         List<String> carNameList = Parser.parseCarNames(carNames);
-        CarsRequestDto carsRequestDto = new CarsRequestDto(carNameList);
-        return Cars.from(carsRequestDto.carNameList());
+        return new CarsRequestDto(carNameList);
     }
 
     public int getTryTimes() {
