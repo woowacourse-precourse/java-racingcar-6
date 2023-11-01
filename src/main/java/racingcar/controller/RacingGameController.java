@@ -22,6 +22,12 @@ public class RacingGameController {
 
     private final String REGEX_DIGIT = "^[\\d]*$";
 
+    private final String DELIMETER = ",";
+    private final String MOVING_FORWARD_STRING = "-";
+    private final String INITIALIZED_RESULT_STRING = "";
+    private final int RANDOM_START_NUMBER = 0;
+    private final int RANDOM_END_NUMBER = 9;
+
     public void init() {
         view = new View();
         view.initView();
@@ -51,14 +57,14 @@ public class RacingGameController {
     }
 
     public void MovingForward(int idx, List<String> result) {
-        if (Randoms.pickNumberInRange(0, 9) >= CHECK_FORWARD) {
-            result.set(idx, result.get(idx) + "-");
+        if (Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_END_NUMBER) >= CHECK_FORWARD) {
+            result.set(idx, result.get(idx) + MOVING_FORWARD_STRING);
         }
     }
 
     public String[] getCarString() {
         String carName = Console.readLine();
-        return carName.split(",");
+        return carName.split(DELIMETER);
     }
 
     public Integer getTryNumber() {
@@ -69,16 +75,20 @@ public class RacingGameController {
     }
 
     public ThrowingCallable checkTryNumber(String inputTryNumber){
-        if(!Pattern.matches(REGEX_DIGIT, inputTryNumber)) {
+        if(checkNumberInRegex(inputTryNumber)) {
             throw new IllegalArgumentException();
         }
         return null;
     }
 
+    public boolean checkNumberInRegex(String inputTryNumber){
+        return !Pattern.matches(REGEX_DIGIT, inputTryNumber);
+    }
+
     public List<String> getResultList() {
         List<String> resultList = new ArrayList<>();
         for (int i = 0; i < carNameList.getCarCount(); i++) {
-            resultList.add("");
+            resultList.add(INITIALIZED_RESULT_STRING);
         }
         return resultList;
     }
