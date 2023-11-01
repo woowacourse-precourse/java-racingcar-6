@@ -16,7 +16,7 @@ public class InputView {
         try {
             String names = Console.readLine();
             return Arrays.asList(names.split(DELIMITER_COMMA));
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("[Error] 잘못된 형식의 자동차 이름이 입력되었습니다.", e);
         }
     }
@@ -26,7 +26,7 @@ public class InputView {
         try {
             String trialCount = Console.readLine();
             return Integer.parseInt(trialCount);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("[Error] 잘못된 형식의 시도횟수가 입력되었습니다.", e);
         }
     }
