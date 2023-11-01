@@ -23,7 +23,7 @@ public class RacingCarGame {
 
     static boolean validateCarNameLength(List<String> carNamesList) {
         for (int i = 0; i < carNamesList.size(); i++) {
-            if (carNamesList.get(i).length() > 5) {
+            if (carNamesList.get(i).length() > Constants.MAX_LENGTH_OF_CAR_NAME) {
                 throw new IllegalArgumentException();
             }
         }
@@ -60,7 +60,7 @@ public class RacingCarGame {
     }
 
     static boolean validateTrialNumberRange(int trialNumberInt) {
-        if (trialNumberInt <= 0) {
+        if (trialNumberInt < Constants.MINIMUM_VALUE_OF_TRIAL_NUMBER) {
             throw new IllegalArgumentException();
         }
         return true;
@@ -71,12 +71,12 @@ public class RacingCarGame {
     }
 
     static int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(Constants.MINIMUM_VALUE_OF_RANDOM_NUMBER, Constants.MAXIMUM_VALUE_OF_RANDOM_NUMBER);
     }
 
     static void executePerCar(int i, List<String>[] progressOfCarRacing) {
         int number = getRandomNumber();
-        if (number >= 4) {
+        if (number >= Constants.MINIMUM_VALUE_TO_MOVE_FORWARD) {
             progressOfCarRacing[i].add(Constants.PROGRESS_EXPRESSION);
         }
     }
