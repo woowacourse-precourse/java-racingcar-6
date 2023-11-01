@@ -12,7 +12,7 @@ import racingcar.utils.constant.Message;
 
 public class Game { // 게임 진행 클래스
 
-    private static int maxScore = 0;
+    private static int maxScore = -1;
     private static int gameRepeatNumber = 0;
 
     private static ArrayList<String> winnerList = new ArrayList<>();// 최종 우승자 저장을 위한 리스트
@@ -38,23 +38,25 @@ public class Game { // 게임 진행 클래스
         repeatNumberCheck(inputRepeatNumber);
         gameRepeatNumber = Integer.parseInt(inputRepeatNumber);
 
-        setRandomNumberToCars();
+        repeatGame();
 
         pickWinner();
 
     }
 
-
-    public void setRandomNumberToCars() {
+    public void repeatGame() {
         for (int i = 0; i < gameRepeatNumber; i++) {
-            for (Car car : carList) {
-                car.setRandomScore();
-                car.printInfo();
-            }
-            System.out.println();
+            setRandomNumberToCars();
         }
     }
 
+    public void setRandomNumberToCars() {
+        for (Car car : carList) {
+            car.setRandomScore();
+            car.printInfo();
+        }
+        System.out.println();
+    }
 
     public void pickWinner() {
 
@@ -73,7 +75,6 @@ public class Game { // 게임 진행 클래스
         if (maxScore < score) {
             maxScore = score;
             winnerList.add(name);
-            winnerList.remove(0);
         } else if (maxScore == score) {
             winnerList.add(name);
         }
@@ -97,13 +98,11 @@ public class Game { // 게임 진행 클래스
 
     }
 
-    public void repeatNumberCheck(String target) { //
-        if(!isRepeatNumber(target)){
+    public void repeatNumberCheck(String target) {
+        if (!isRepeatNumber(target)) {
             throw new IllegalArgumentException("반복 횟수는 적어도 1번 이상이어야 합니다.");
         }
 
-
     }
-
 
 }
