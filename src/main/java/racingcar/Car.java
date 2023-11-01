@@ -14,6 +14,14 @@ public class Car {
         position.move(movement);
     }
 
+    public Name getName() {
+        return name;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
     @Override
     public String toString() {
         return name.toString();

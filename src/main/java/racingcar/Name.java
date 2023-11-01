@@ -11,6 +11,10 @@ public class Name {
         this.name = name;
     }
 
+    public String getValue() {
+        return name;
+    }
+
     private void validateNameLength(String name) {
         if (name.length() > VALID_LENGTH || name.isBlank()) {
             throw new IllegalArgumentException(INVALID_LENGTH);

@@ -15,7 +15,7 @@ public class MainController {
         trialNumber = new TrialNumber(trialNumberInput);
     }
 
-    private void playGame() {
-        game.play();
+    public void playGame() {
+        RoundResult roundResult = game.race();
     }
 }

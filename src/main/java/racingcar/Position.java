@@ -8,6 +8,10 @@ public class Position {
         this.position = 0;
     }
 
+    public int getValue() {
+        return position;
+    }
+
     public void move(Movement movement) {
         this.position += movement.addingValue();
     }

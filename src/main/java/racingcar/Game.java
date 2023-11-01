@@ -9,8 +9,9 @@ public class Game {
         this.cars = initCars(carNames);
     }
 
-    public void play() {
+    public RoundResult race() {
         cars.race();
+        return new RoundResult(cars.getCarDtos());
     }
 
     private Cars initCars(List<String> carNames) {

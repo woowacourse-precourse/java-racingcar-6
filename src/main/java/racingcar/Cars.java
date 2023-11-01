@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
@@ -17,6 +18,18 @@ public class Cars {
             Movement movement = getRandomMovement();
             car.move(movement);
         }
+    }
+
+    public List<CarDto> getCarDtos() {
+        List<CarDto> carDtos = new ArrayList<>();
+        for (Car car : cars) {
+            CarDto carDto = new CarDto();
+            carDto.setName(car.getName().getValue());
+            carDto.setPosition(car.getPosition().getValue());
+
+            carDtos.add(carDto);
+        }
+        return carDtos;
     }
 
     private Movement getRandomMovement() {
