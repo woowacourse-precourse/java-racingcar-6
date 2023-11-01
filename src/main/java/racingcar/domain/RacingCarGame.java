@@ -41,12 +41,8 @@ public class RacingCarGame {
     private void runRounds(Cars cars, RoundCount roundCount) {
         output.printEnter();
         output.print("실행결과");
-        Round round = new Round(cars, new NumberGenerator(), new ForwardChecker());
-        for (int i = 0; i < roundCount.getRoundCount(); i++) {
-            round.run();
-            output.print(cars);
-            output.printEnter();
-        }
+        RoundManager roundManager = new RoundManager(cars, roundCount, new RandomNumberGenerator(), output);
+        roundManager.runRounds();
     }
 
     private void pickAndPrintWinners() {
