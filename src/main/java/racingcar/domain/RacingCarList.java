@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import racingcar.global.utils.console.ConsoleUtil;
 import racingcar.global.utils.constant.OutputType;
-import racingcar.global.utils.generator.RandomNumberGenerator;
+import racingcar.global.utils.generator.NumberGenerator;
 
 public record RacingCarList(List<RacingCar> racingCars) {
 
@@ -29,9 +29,9 @@ public record RacingCarList(List<RacingCar> racingCars) {
 		ConsoleUtil.commonOutputLine(OutputType.EMPTY.getComment());
 	}
 
-	public void moveOrStop() {
+	public void moveOrStop(NumberGenerator numberGenerator) {
 		racingCars.forEach(racingCar -> {
-			int randomNumber = RandomNumberGenerator.generateRandomNumber();
+			int randomNumber = numberGenerator.generate();
 			updateIncreaseCount(racingCar, randomNumber);
 		});
 	}
