@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
+    StringBuilder sb = new StringBuilder();
 
-    private List<Car> allCars = new ArrayList<>();
+    public List<Car> allCars = new ArrayList<>();
     private int turnNum;
 
     public void start(){
@@ -96,8 +97,7 @@ public class Race {
         selectWinner();
     }
 
-    private void selectWinner() {
-        StringBuilder sb = new StringBuilder();
+    public void selectWinner() {
         int maxDistance = 0;
         for (Car car : allCars) {
 
