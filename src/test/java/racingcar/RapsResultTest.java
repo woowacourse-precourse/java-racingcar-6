@@ -40,9 +40,11 @@ class RapsResultTest {
     }
 
     @Test
-    void distanceText() {
+    void distanceText_1경기_끝난후_자동차_이동거리_텍스트_반환() {
 
+        String result = rapsResult.distanceText();
 
+        assertThat(result).isEqualTo("---");
     }
 
     @Test
