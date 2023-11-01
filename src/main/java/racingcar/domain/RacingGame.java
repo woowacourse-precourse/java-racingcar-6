@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    public List<String> race(List<String> carNames, int attemptCount) {
+    private final MovingCondition movingCondition;
 
-        MovingCondition movingCondition = new MovingCondition();
+    public RacingGame(MovingCondition movingCondition) {
+        this.movingCondition = movingCondition;
+    }
+    public List<String> race(List<String> carNames, int attemptCount) {
         int condition;
         boolean isMovingForward;
         List<String> racingProgress = new ArrayList<>();
@@ -21,8 +24,6 @@ public class RacingGame {
 
                 condition = movingCondition.getRandomNumber();
                 isMovingForward = movingCondition.isMovingForward(condition);
-                System.out.println("condition: " + condition);
-                System.out.println("isMovingForward: "+isMovingForward);
 
                 if(isMovingForward){
                     String currentProgress = racingProgress.get(c);

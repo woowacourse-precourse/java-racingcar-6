@@ -1,9 +1,6 @@
 package racingcar;
 
-import racingcar.domain.Attempt;
-import racingcar.domain.Car;
-import racingcar.domain.RacingGame;
-import racingcar.domain.Winner;
+import racingcar.domain.*;
 
 import java.util.List;
 
@@ -15,7 +12,9 @@ public class Application {
         Attempt attempt = new Attempt();
         int attemptCount = attempt.getCount();
 
-        RacingGame racingGame = new RacingGame();
+        MovingCondition movingCondition = new MovingCondition();
+
+        RacingGame racingGame = new RacingGame(movingCondition);
         List<String> progressResults = racingGame.race(carNames, attemptCount);
 
         Winner winner = new Winner();
