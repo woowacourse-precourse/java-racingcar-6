@@ -21,4 +21,12 @@ public class TryCountValidateTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자만 입력해주세요.");
     }
+
+    @Test
+    void isInputNegativeTest() {
+
+        assertThatThrownBy(() -> TryCountValidate.validateTryCount("-1"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("1 이상의 숫자만 입력해주세요.");
+    }
 }
