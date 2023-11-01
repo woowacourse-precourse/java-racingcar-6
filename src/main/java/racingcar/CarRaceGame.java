@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.function.Supplier;
 import racingcar.domain.RaceJudge;
 import racingcar.dto.MoveResults;
 import racingcar.dto.WinnerNames;
@@ -32,8 +33,9 @@ public class CarRaceGame {
     }
 
     private void startMoveCars(final int moveCount) {
+        Supplier<Integer> supplier = RandomNumberGenerator.getGenerateSupplier();
         for (int count = 1; count <= moveCount; count++) {
-            judge.moveCars(RandomNumberGenerator.getGenerateSupplier());
+            judge.moveCars(supplier);
             printSingleMoveResult();
         }
     }
