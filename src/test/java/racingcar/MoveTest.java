@@ -18,7 +18,7 @@ public class MoveTest {
         // given
         Car car;
 
-        // when
+        // when - initializeDistances()
         car = new Car(Arrays.asList("pobi", "woni", "jun"));
 
         // then
