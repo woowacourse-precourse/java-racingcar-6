@@ -3,8 +3,8 @@
 - [x] 자동차가 전진 또는 멈춘다. - Car#tryToMove()
   - [x] 무작위 값을 구한다. - Car#generateRandomNumber()
   - [x] 4 이상일 경우 전진한다. Car#compare()
-- [ ] 각 자동차에 이름을 부여한다. Application#askName()
-- [ ] 몇번 이동할 것인지 입력받는다. Application#askCount()
+- [x] 각 자동차에 이름을 부여한다. Application#askName()
+- [x] 몇번 이동할 것인지 입력받는다. Application#askCount()
 - [ ] 경주 종료후 우승자를 출력한다. Application#printResult()
 
 
