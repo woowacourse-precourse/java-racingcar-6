@@ -1,7 +1,5 @@
 package racingcar.game.components;
 
-import racingcar.game.components.Car;
-
 import java.util.List;
 
 /**
