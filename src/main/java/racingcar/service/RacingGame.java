@@ -1,6 +1,8 @@
-package racingcar.domain;
+package racingcar.service;
 
-import racingcar.service.RandomGenerator;
+import racingcar.domain.Cars;
+import racingcar.domain.RandomGenerator;
+import racingcar.domain.Winner;
 import racingcar.view.Input.InputView;
 import racingcar.view.Output.OutputView;
 

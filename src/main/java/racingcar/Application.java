@@ -1,7 +1,7 @@
 package racingcar;
 
-import racingcar.domain.RacingGame;
-import racingcar.service.RandomGenerator;
+import racingcar.service.RacingGame;
+import racingcar.domain.RandomGenerator;
 import racingcar.view.Input.InputParser;
 import racingcar.view.Input.InputValidator;
 import racingcar.view.Input.InputView;
