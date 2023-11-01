@@ -2,7 +2,7 @@ package racingcar.config;
 
 import racingcar.controller.RacingController;
 import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.view.OutputMaker;
 import racingcar.view.RacingView;
 
 public class RacingConfig {
@@ -13,19 +13,19 @@ public class RacingConfig {
 
     public static RacingController getRacingController() {
         InputView inputView = getInputView();
-        OutputView outputView = getOutputView();
-        return new RacingController(getRacingView(inputView, outputView));
+        OutputMaker outputMaker = getOutputMaker();
+        return new RacingController(getRacingView(inputView, outputMaker));
     }
 
     private static InputView getInputView() {
         return new InputView();
     }
 
-    private static OutputView getOutputView() {
-        return new OutputView();
+    private static OutputMaker getOutputMaker() {
+        return new OutputMaker();
     }
 
-    private static RacingView getRacingView(InputView inputView, OutputView outputView) {
-        return new RacingView(inputView, outputView);
+    private static RacingView getRacingView(InputView inputView, OutputMaker outputMaker) {
+        return new RacingView(inputView, outputMaker);
     }
 }

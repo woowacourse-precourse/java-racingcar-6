@@ -11,7 +11,7 @@ import racingcar.dto.response.RacingStatus;
 import racingcar.dto.response.WinnerNames;
 import racingcar.model.Racing;
 
-public class OutputView {
+public class OutputMaker {
 
     public void writeInputCarNameMessage() {
         write(getInputCarNameMessage());

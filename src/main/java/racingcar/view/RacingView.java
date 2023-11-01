@@ -8,32 +8,32 @@ import racingcar.model.Racing;
 public class RacingView {
 
     private final InputView inputView;
-    private final OutputView outputView;
+    private final OutputMaker outputMaker;
 
-    public RacingView(InputView inputView, OutputView outputView) {
+    public RacingView(InputView inputView, OutputMaker outputMaker) {
         this.inputView = inputView;
-        this.outputView = outputView;
+        this.outputMaker = outputMaker;
     }
 
     public CarNames inputCarNames() {
-        outputView.writeInputCarNameMessage();
+        outputMaker.writeInputCarNameMessage();
         return inputView.readCarNames();
     }
 
     public TryCount inputTryCount() {
-        outputView.writeInputTryCountMessage();
+        outputMaker.writeInputTryCountMessage();
         return inputView.readTryCount();
     }
 
     public void startPrintTryResult() {
-        outputView.writeTryResultMessage();
+        outputMaker.writeTryResultMessage();
     }
 
     public void showRacingStatus(RacingStatus racingStatus) {
-        outputView.writeRacingStatus(racingStatus);
+        outputMaker.writeRacingStatus(racingStatus);
     }
 
     public void showRacingWinner(Racing racing) {
-        outputView.writeRacingWinner(racing);
+        outputMaker.writeRacingWinner(racing);
     }
 }
