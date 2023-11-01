@@ -5,7 +5,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -13,6 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class PlayerTest {
 
+    Player player = new Player();
 
     @ParameterizedTest
     @ValueSource(strings = {"tom,jenny,rosa"})
@@ -39,7 +39,10 @@ class PlayerTest {
     }
 
     @Test
-    void inputTryCnt() {
+    void inputTryCnt_실패() {
+        int tryCnt = -1;
+        System.setIn(new ByteArrayInputStream(String.valueOf(tryCnt).getBytes()));
+        assertThatThrownBy(player::inputTryCnt).isInstanceOf(IllegalArgumentException.class);
     }
 
 }
