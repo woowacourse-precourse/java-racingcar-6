@@ -5,20 +5,15 @@ import static constant.GameUserInterface.*;
 import static domain.CarDrive.*;
 
 
-import domain.Car;
-import domain.GameInput;
-
-
 import java.util.List;
 //import static 해야지 enum 가져올 수 있음
 
 public class GameControl {
-    private GameControl(){
 
+    private GameControl() {
     }
 
-    public static void start(){
-
+    public static void start() {
         System.out.println(ASK_CAR_NAME.getUserInterface());
         List<String> carNames = GameInput.userCarNameInput();
 
@@ -29,12 +24,9 @@ public class GameControl {
         //car에서 => carNameOutput() => carDistance() 입력순
         getCarNames(carNames);
         driving(tries);
-
-
     }
 
-    public static void stop(){
-
+    public static void stop() {
         GameOutput.gameResult(CarDrive.Winner());
         GameInput.inputStop();
     }
