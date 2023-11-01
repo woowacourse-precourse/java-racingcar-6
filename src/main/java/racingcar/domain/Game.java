@@ -22,7 +22,7 @@ public class Game {
         System.out.println();
     }
 
-    public static int topScore(Map<String, Integer> racers) {
+    public int topScore(Map<String, Integer> racers) {
         List<Integer> maxRacerValue = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : racers.entrySet()) {
             maxRacerValue.add(entry.getValue());
