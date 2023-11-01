@@ -50,7 +50,7 @@ public class Game {
     }
 
     private void alertEnterMoveNumber() {
-        System.out.println(ALERT_ENTER_MOVE_NUMBER);
+        System.out.println(ALERT_ENTER_TRY_NUMBER);
     }
 
     private void saveMoveNumber() {
