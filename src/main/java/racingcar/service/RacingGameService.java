@@ -2,7 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Vector;
+import java.util.List;
 import racingcar.domain.Player;
 import racingcar.domain.PlayerRepository;
 
@@ -22,7 +22,7 @@ public class RacingGameService {
         }
     }
 
-    public Vector<Player> playTurn(){
+    public List<Player> playTurn(){
         // 각 차량에대해
         for (Player player :playerRepository.getPlayers()){
             // 랜덤 넘버 생성

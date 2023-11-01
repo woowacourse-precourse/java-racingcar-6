@@ -1,11 +1,12 @@
 package racingcar.domain;
 
+import java.util.List;
 import java.util.Vector;
 
 public class PlayerRepository {
-    private Vector <Player> players = new Vector<>();
+    private List<Player> players = new Vector<>();
 
-    public Vector<Player> getPlayers() {
+    public List<Player> getPlayers() {
         return players;
     }
 

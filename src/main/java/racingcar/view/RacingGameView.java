@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.ArrayList;
-import java.util.Vector;
+import java.util.List;
 import racingcar.domain.Player;
 
 public class RacingGameView {
@@ -18,7 +18,7 @@ public class RacingGameView {
         System.out.println();
         System.out.println("실행 결과");
     }
-    public void printTurnResultMsg(Vector<Player> players){
+    public void printTurnResultMsg(List<Player> players){
         for (Player player: players){
             System.out.print(player.getName()+" : ");
             //score 출력
