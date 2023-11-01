@@ -24,10 +24,10 @@ public class User {
     }
 
     public void CheckCarName() {
-        for(int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             validator.CheckCarNameLength(cars.get(i));
         }
-        for(int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             validator.CheckCarNameNumber(cars.get(i));
         }
         validator.CheckCarNameDuplication(cars);

@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CarTest {
 
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
     @Test
     @DisplayName("랜덤 숫자 생성 확인")
     void 랜덤_숫자_생성() {
@@ -25,7 +28,7 @@ public class CarTest {
     void 랜덤_숫자_4미만_정지() {
         Car car = new Car();
         car.status = "--";
-        int randomNumber = 3;
+        int randomNumber = STOP;
         car.judgeRandomNumber(randomNumber);
         assertThat(car.status).isEqualTo("--");
     }
@@ -35,7 +38,7 @@ public class CarTest {
     void 랜덤_숫자_4이상_이동() {
         Car car = new Car();
         car.status = "--";
-        int randomNumber = 4;
+        int randomNumber = MOVING_FORWARD;
         car.judgeRandomNumber(randomNumber);
         assertThat(car.status).isEqualTo("---");
     }

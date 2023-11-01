@@ -1,4 +1,5 @@
 package racingcar;
+
 import racingcar.domain.Car;
 import racingcar.domain.Judgement;
 import racingcar.domain.User;
@@ -21,32 +22,37 @@ public class Application {
         playGame();
         printResult();
     }
+
     public static void createCars() {
-        for(int i=0; i<carsList.size(); i++) {
+        for (int i = 0; i < carsList.size(); i++) {
             Car car = new Car();
             car.carName = carsList.get(i);
             cars.add(car);
         }
     }
+
     public static void playGame() {
         System.out.println("\n실행결과");
-        while(gameNumber != 0) {
+        while (gameNumber != 0) {
             driveCar();
             gameNumber--;
             System.out.printf("\n");
         }
     }
+
     public static void driveCar() {
-        for(int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             (cars.get(i)).drive();
         }
     }
+
     public static void setCarsStatus() {
-        for(int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             String carStatus = (cars.get(i)).status;
             carsStatus.add(carStatus);
         }
     }
+
     public static void printResult() {
         setCarsStatus();
         Judgement judgement = new Judgement();
