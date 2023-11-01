@@ -57,7 +57,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도할_회수_입력시_공백_예외_처리() {
+    void 시도할_회수_공백_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,hi"," 수"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("공백 또는 여백이 포함되어 있습니다."));
+    }
+
+    @Test
+    void 시도할_회수_문자_입력_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,hi"," 수"))
                         .isInstanceOf(IllegalArgumentException.class)
