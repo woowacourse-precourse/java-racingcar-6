@@ -12,6 +12,11 @@ public class RacingGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String[] names = InputName();
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        int num = InputNumber();
+
+        System.out.println("\n실행 결과");
     }
 
     private String[] InputName() {
@@ -21,5 +26,16 @@ public class RacingGame {
             throw new IllegalArgumentException();
         }
         return names;
+    }
+
+    private int InputNumber() {
+        int num;
+        try {
+            //검사
+            num = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException nfe) {
+            throw new IllegalArgumentException();
+        }
+        return num;
     }
 }
