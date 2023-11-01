@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar;
 
 import static racingcar.view.InputView.inputCarNames;
 import static racingcar.view.InputView.inputRaceCount;
@@ -9,6 +9,8 @@ import static racingcar.view.OutputView.printResult;
 import java.util.List;
 import racingcar.common.exception.CustomErrorException;
 import racingcar.common.response.ErrorCode;
+import racingcar.domain.Cars;
+import racingcar.domain.RaceCount;
 import racingcar.domain.condition.MoveCondition;
 import racingcar.domain.condition.RandomMoveCondition;
 import racingcar.dto.CarInfo;
