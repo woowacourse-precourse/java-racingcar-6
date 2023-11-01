@@ -1,9 +1,12 @@
 package racingcar;
-import camp.nextstep.edu.missionutils.Console;
-import java.lang.IllegalArgumentException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.lang.IllegalArgumentException;
+
+import camp.nextstep.edu.missionutils.Console;
+
+
 
 public class Input {
     static final int MAX_CAR_NAME = 5;
@@ -15,33 +18,35 @@ public class Input {
         String[] answerArray;
         ArrayList<String> result = new ArrayList<>();
         Set<String> nameIdentify = new HashSet<String>();
-        Output.NameText();
-        answer = ReadLineError();
-        EmptyError(answer);
-        EndNotCharError(answer);
+        Output.nameText();
+        answer = readLineError();
+        emptyError(answer);
+        endNotCharError(answer);
         answerArray = answer.split(",");
-        for(String str : answerArray) {
+        for (String str : answerArray) {
             SizeError(str,result,nameIdentify);
         }
-        for(String str : answerArray){
-            NotCharError(str);
+        for (String str : answerArray) {
+            notCharError(str);
         }
-        DuplicationError(result,nameIdentify);
+        duplicationError(result,nameIdentify);
         return result;
     }
-    public static int MoveCountInput() throws IllegalArgumentException{
+
+    public static int moveCountInput() throws IllegalArgumentException{
         String answer;
         int result;
-        Output.MoveCountText();
-        answer = ReadLineError();
-        EmptyError(answer);
-        NotNumberError(answer);
+        Output.moveCountText();
+        answer = readLineError();
+        emptyError(answer);
+        notNumberError(answer);
         result = Integer.parseInt(answer);
         return result;
     }
-    static void NotNumberError(String answer) throws IllegalArgumentException{
+
+    static void notNumberError(String answer) throws IllegalArgumentException{
         int test;
-        for(int i = 0 ; i<answer.length();i++){
+        for (int i = 0 ; i<answer.length();i++) {
             test = answer.charAt(i) - '0';
             if (test <= INPUT_MIN_DISGIT || test >= INPUT_MAX_DISGIT) {
                 throw new IllegalArgumentException("input type error");
@@ -49,7 +54,7 @@ public class Input {
         }
     }
 
-    static void NotCharError(String str) throws IllegalArgumentException{
+    static void notCharError(String str) throws IllegalArgumentException{
         for (int i = 0; i < str.length(); i++) {
             char test = str.charAt(i);
             if (!Character.isLetter(test)) {
@@ -57,12 +62,14 @@ public class Input {
             }
         }
     }
-    public static void DuplicationError(ArrayList<String> result,Set<String> nameIdentify) throws IllegalArgumentException{
-        if(nameIdentify.size() != result.size()){
+
+    public static void duplicationError(ArrayList<String> result,Set<String> nameIdentify) throws IllegalArgumentException{
+        if (nameIdentify.size() != result.size()) {
             throw new IllegalArgumentException("duplication error");
         }
     }
-    public static String ReadLineError() throws IllegalArgumentException{
+
+    public static String readLineError() throws IllegalArgumentException{
         String answer;
         try {
             answer = Console.readLine();
@@ -72,25 +79,25 @@ public class Input {
         return answer;
     }
 
-    public static void EmptyError(String answer) throws IllegalArgumentException{
-        if(answer.isEmpty()){
+    public static void emptyError(String answer) throws IllegalArgumentException{
+        if (answer.isEmpty()){
             throw new IllegalArgumentException("empty error");
         }
     }
 
-    public static void EndNotCharError(String answer) throws IllegalArgumentException{
+    public static void endNotCharError(String answer) throws IllegalArgumentException{
         int lastIndex = answer.length() - 1;
-        if(answer.charAt(lastIndex) == ','){
+        if (answer.charAt(lastIndex) == ',') {
             throw new IllegalArgumentException("not char error");
         }
     }
 
     public static void SizeError(String answer,ArrayList<String> result,Set<String> nameIdentify) throws IllegalArgumentException{
-        if(answer.isEmpty()){
+        if (answer.isEmpty()) {
             throw new IllegalArgumentException("empty error");
-        } else if(answer.length() > MAX_CAR_NAME){
+        } else if (answer.length() > MAX_CAR_NAME) {
             throw new IllegalArgumentException("size error");
-        } else{
+        } else {
             result.add(answer);
             nameIdentify.add(answer);
         }

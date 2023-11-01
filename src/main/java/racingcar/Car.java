@@ -26,7 +26,7 @@ public class Car {
         this.distance = distance;
     }
 
-    public void PlusDistance(int distance){
+    public void PlusDistance(int distance) {
         int newDistance = GetDistance()+distance;
         PutDistance(newDistance);
     }
@@ -34,8 +34,9 @@ public class Car {
     @Override
     public String toString() {
         String result = name + " : ";
-        for(int i=0 ; i<GetDistance() ; i++)
+        for (int i=0 ; i<GetDistance() ; i++) {
             result = result + "-";
+        }
         return result;
     }
 }

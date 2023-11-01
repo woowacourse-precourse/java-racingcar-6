@@ -1,6 +1,7 @@
 package racingcar;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import camp.nextstep.edu.missionutils.Randoms;
+
 
 public class Racing {
     final int MOVE_CRITICAL_POINT = 4;
@@ -11,68 +12,72 @@ public class Racing {
     private int moveCount;
     private ArrayList<Car> carList = new ArrayList<>();
 
-    Racing(ArrayList<String> carNames){
-        MakeMoveCount();
-        for(String carName : carNames){
-            PutCarList(new Car(carName));
+    Racing(ArrayList<String> carNames) {
+        makeMoveCount();
+        for (String carName : carNames){
+            putCarList(new Car(carName));
         }
     }
-    void PutCarList(Car car){
+
+    void putCarList(Car car) {
         carList.add(car);
     }
-    void PutMoveCount(int moveCount){
+
+    void putMoveCount(int moveCount) {
         this.moveCount = moveCount;
     }
-    ArrayList<Car> GetCarList(){
+
+    ArrayList<Car> getCarList() {
         return carList;
     }
-    int GetMoveCount(){
+
+    int getMoveCount() {
         return moveCount;
     }
-    void MakeMoveCount(){
-        PutMoveCount(Input.MoveCountInput());
+
+    void makeMoveCount() {
+        putMoveCount(Input.moveCountInput());
     }
 
-    void Move(){
+    void move() {
         int randomCount;
-        for(Car car : GetCarList()){
+        for (Car car : getCarList()){
             randomCount = Randoms.pickNumberInRange(RANDOM_NUMBER_START
                     ,RANDOM_NUMBER_FINISH);
-            MovePossible(randomCount,car);
+            movePossible(randomCount,car);
             System.out.println(car.toString());
         }
     }
 
-    void MovePossible(int num, Car car){
-        if(num >= MOVE_CRITICAL_POINT){
+    void movePossible(int num, Car car) {
+        if (num >= MOVE_CRITICAL_POINT){
             car.PlusDistance(MOVE_VELOCITY);
         }
     }
 
-    void race(){
+    void race() {
         int count;
-        count = GetMoveCount();
-        Output.ResultText();
-        for(int i = 0 ; i < count ; i++){
-            Move();
+        count = getMoveCount();
+        Output.resultText();
+        for (int i = 0 ; i < count ; i++) {
+            move();
             System.out.println("");
         }
-        Output.VictoryText(MakeVictoryList());
+        Output.victoryText(makeVictoryList());
     }
 
-
-    ArrayList<String> MakeVictoryList(){
+    ArrayList<String> makeVictoryList() {
         int maxDistance;
         ArrayList<String> result;
-        maxDistance = MaxDistance(GetCarList());
-        result = MaxDistanceCar(GetCarList(),maxDistance);
+        maxDistance = maxDistance(getCarList());
+        result = maxDistanceCar(getCarList(),maxDistance);
         return result;
     }
 
-    int MaxDistance(ArrayList<Car> carList){
+    int maxDistance(ArrayList<Car> carList) {
         int maxDistance = MAX_COUNT_START;
         int distance;
-        for(Car car : carList){
+        for (Car car : carList){
             distance = car.GetDistance();
             if(maxDistance < distance){
                 maxDistance = distance;
@@ -80,10 +85,11 @@ public class Racing {
         }
         return maxDistance;
     }
-    ArrayList<String> MaxDistanceCar(ArrayList<Car> carList,int maxDistance){
+
+    ArrayList<String> maxDistanceCar(ArrayList<Car> carList,int maxDistance) {
         ArrayList<String> result = new ArrayList<>();
         int distance;
-        for(Car car : carList) {
+        for (Car car : carList) {
             distance = car.GetDistance();
             if (maxDistance == distance) {
                 result.add(car.GetName());
