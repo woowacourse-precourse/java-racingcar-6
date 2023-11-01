@@ -27,6 +27,7 @@ public class Validator {
                 if(!carNames.matches("[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힝]*" )) {
                         throw new IllegalArgumentException("자동차 이름에 특수문자가 있습니다.");
                 }
+
         }
         private void tryCountException(){
 
