@@ -1,13 +1,12 @@
 package racingcar.util;
 
-import racingcar.domain.Car;
-import racingcar.input.Input;
+import static racingcar.constant.MessageConstant.WINNER_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static racingcar.constant.MessageConstant.WINNER_MESSAGE;
+import racingcar.domain.Car;
+import racingcar.input.Input;
 
 public class GameUtil {
     private final List<Car> carList;
@@ -39,7 +38,6 @@ public class GameUtil {
 
     public void startRound() {
         this.nowRound++;
-
         carList.forEach(Car::isForward);
     }
 
@@ -50,9 +48,7 @@ public class GameUtil {
 
     public void showWinners() {
         int max = findMax();
-
         List<String> winners = findWinner(max);
-
         System.out.println(WINNER_MESSAGE.getWinner(String.join(", ", winners)));
     }
 
