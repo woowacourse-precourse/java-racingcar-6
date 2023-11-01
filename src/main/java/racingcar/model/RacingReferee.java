@@ -43,7 +43,7 @@ public class RacingReferee {
         List<String> winner = new ArrayList<>();
 
         for (Player player : players.getPlayers()) {
-            if (result.getOrDefault(player, 0) == maxMove) {
+            if (result.get(player) == maxMove) {
                 winner.add(player.getName());
             }
         }
