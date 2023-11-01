@@ -45,10 +45,7 @@ public class RacingcarGame {
     }
 
     public Boolean isContinue() {
-        if (tryCount == 0) {
-            return false;
-        }
-        return true;
+        return tryCount != 0;
     }
 
     public String getWinner() {
@@ -74,10 +71,7 @@ public class RacingcarGame {
     }
 
     private Boolean isJointWinner(List<Car> winnerList) {
-        if (winnerList.size() > 1) {
-            return true;
-        }
-        return false;
+        return winnerList.size() > 1;
     }
 
     private String winnerStringJoin(List<Car> winners) {
