@@ -6,6 +6,7 @@ import racingcar.games.racing.service.RacingService;
 import racingcar.games.racing.util.DefaultProcessor;
 import racingcar.games.racing.util.RacingFormatter;
 import racingcar.games.racing.view.RacingInputView;
+import racingcar.games.racing.view.RacingOutputView;
 
 public class RacingController implements Game {
 
@@ -24,10 +25,16 @@ public class RacingController implements Game {
     public void execute() {
         List<String> carNames = getValidatedCarNames();
         racingService.registerCars(carNames);
+        int attemptNumber = getValidatedAttemptNumber();
     }
 
     private List<String> getValidatedCarNames() {
         String input = racingInputView.readCarNames();
         return racingFormatter.reformatCarNames(input);
+    }
+
+    private int getValidatedAttemptNumber() {
+        String input = racingInputView.readAttempt();
+        return racingFormatter.reformatAttemptNumber(input);
     }
 }
