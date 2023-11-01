@@ -66,6 +66,7 @@ public class Application {
             System.out.println();
         }
         System.out.println();
+        printWinners();
     }
 
     public static List<String> winnersOf() {
@@ -85,11 +86,13 @@ public class Application {
         return winners;
     }
 
-//    public static void printWinners() {
-//        List<String> winners = winnersOf();
-//        System.out.print("최종 우승자 : ");
-//        System.out.println("winner");
-//        for()
-//    }
+    public static void printWinners() {
+        List<String> winners = winnersOf();
+        System.out.print("최종 우승자 : ");
+        System.out.println(winners.get(0));
+        for (int i = 1; i < winners.size(); i++) {
+            System.out.print(", " + winners.get(i));
+        }
+    }
 
 }
