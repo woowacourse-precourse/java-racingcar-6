@@ -31,6 +31,60 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 종합_3대_5회_단독우승() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,inss,R8", "5");
+                    assertThat(output()).contains(
+                            "pobi : -", "inss : ", "R8 : -",
+                            "pobi : --", "inss : -", "R8 : --",
+                            "pobi : ---", "inss : -", "R8 : ---",
+                            "pobi : ----", "inss : --", "R8 : ----",
+                            "pobi : -----", "inss : --", "R8 : ----",
+                            "최종 우승자 : pobi"
+                    );
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, STOP
+        );
+    }
+
+    @Test
+    void 종합_4대_10회_공동우승() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,inss,R8,pepsi", "10");
+                    assertThat(output()).contains(
+                            "pobi : -", "inss : ", "R8 : -", "pepsi : -",
+                            "pobi : --", "inss : -", "R8 : --", "pepsi : --",
+                            "pobi : ---", "inss : -", "R8 : ---", "pepsi : ---",
+                            "pobi : ----", "inss : --", "R8 : ----", "pepsi : ----",
+                            "pobi : -----", "inss : --", "R8 : -----", "pepsi : ----",
+                            "pobi : ------", "inss : --", "R8 : ------", "pepsi : -----",
+                            "pobi : -------", "inss : ---", "R8 : -------", "pepsi : ------",
+                            "pobi : --------", "inss : ---", "R8 : -------", "pepsi : -------",
+                            "pobi : ---------", "inss : ----", "R8 : ---------", "pepsi : --------",
+                            "pobi : ----------", "inss : ----", "R8 : ----------", "pepsi : ---------",
+                            "최종 우승자 : pobi, R8, pepsi"
+                            );
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
