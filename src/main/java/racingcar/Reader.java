@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.ExceptionMessage.INVALID_ATTEMPT_TYPE;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public final class Reader {
@@ -21,7 +23,7 @@ public final class Reader {
         try {
             return Integer.parseInt(inputAttempts);
         } catch (NumberFormatException exception) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_ATTEMPT_TYPE);
         }
     }
 

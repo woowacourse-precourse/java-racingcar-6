@@ -1,6 +1,8 @@
 package racingcar;
 
 
+import static racingcar.ExceptionMessage.INVALID_ATTEMPT;
+
 public final class Game {
     private final Cars cars;
     private final Integer attempts;
@@ -13,7 +15,7 @@ public final class Game {
 
     private void validateAttempts(Integer attempts) {
         if (attempts <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_ATTEMPT);
         }
     }
 

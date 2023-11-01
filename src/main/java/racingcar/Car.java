@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -22,7 +24,7 @@ public class Car {
 
     private void validateNameLength(String name) {
         if (name.length() > NAME_LENGTH_LIMIT) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH);
         }
     }
 
