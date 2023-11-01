@@ -25,6 +25,7 @@ public class RacingGame {
             OutputView.printAllCarNowDistance(racingCar.distanceString());
         }
 
+        OutputView.printWinnerMessage(racingCar.determineWinner());
     }
 
     private void createRacingCar(List<String> playerCarNameList){
