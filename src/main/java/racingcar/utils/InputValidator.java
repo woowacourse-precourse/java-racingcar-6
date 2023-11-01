@@ -1,29 +1,30 @@
 package baseball.utils;
 
+import java.util.Arrays;
+import java.util.List;
+import racingcar.domain.Car;
+
 public class InputValidator {
-    private final String RETRY_REGEX = "[1-2]+";
     private final String USER_INPUT_REGEX = "[1-9]+";
 
-    public void checkUserInput(String userInput) {
-        checkLength(userInput);
-        checkDigit(userInput);
-    }
-
-    public void checkRetryInput(String userInput) {
-        if (!userInput.matches(RETRY_REGEX)) {
-            throw new IllegalArgumentException("1 또는 2만 입력해주세요.");
+    public void checkCarLength(List<Car> carsList) {
+        for (Car car : carsList) {
+            if (car.getName().length() >= 6) {
+                throw new IllegalArgumentException("입력 가능한 자동차의 이름은 5자 이하입니다.");
+            }
         }
     }
 
-    void checkLength(String userInput) {
-        if (userInput.length() != 3) {
-            throw new IllegalArgumentException("3자리 수를 입력해주세요.");
+    // "우승자는 한 명 이상일 수 있다." -> 1대 이상의 자동차 이름 입력 필요
+    public void checkLength(List<Car> carsList) {
+        if (carsList.isEmpty()) {
+            throw new IllegalArgumentException("1대 이상의 자동차 이름을 입력해주세요.");
         }
     }
 
-    void checkDigit(String userInput) {
+    public void checkDigit(String userInput) {
         if (!userInput.matches(USER_INPUT_REGEX)) {
-            throw new IllegalArgumentException("모든 자릿수를 서로 다른 수로 입력해주세요.");
+            throw new IllegalArgumentException("시도 회수는 숫자여야합니다.");
         }
     }
 }
