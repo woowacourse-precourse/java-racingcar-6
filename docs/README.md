@@ -2,7 +2,8 @@
 
 ## 기능 목록
 - [ ] 각 자동차에 이름을 입력한다. - CarGenerator#inputCarNames()
-- [ ] 몇 회 이동할 것인지 입력한다. - NumberGenerator#goChance()
+- [O] 몇 회 이동할 것인지 입력한다. - NumberGenerator#goChance()
+    - [O]숫자인가? 예외처리 진행.   - NumberGenerator#validateGameChanceNumbers()
 - [ ] 0에서 9 사이의 임의의 수를 생성한다. - NumberGenerator#createRandomNumbers()
     - [ ] 숫자가 4 이상인 경우 전진 - ActionCars#goCar()
     - [ ] 숫자가 4 미만인 경우 정지 - ActionCars#stopCar()

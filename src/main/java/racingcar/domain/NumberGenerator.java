@@ -7,11 +7,15 @@ public class NumberGenerator {
 
     public int goChance(){
         String chance = Console.readLine();
+        validateGameChanceNumbers(chance);
         return Integer.parseInt(chance);
     }
 
-    public int createRandomNumbers(){
-        int randomNumber = Randoms.pickNumberInRange(1, 9);
-        return randomNumber;
+    private void validateGameChanceNumbers(String input){
+        try{
+            Integer.parseInt(input);
+        }catch(Exception e){
+            throw new IllegalArgumentException("숫자가 아닌 문자 입력");
+        }
     }
 }
