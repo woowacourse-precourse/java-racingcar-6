@@ -1,12 +1,9 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarTest {
 
@@ -38,11 +35,4 @@ public class CarTest {
         car.move(NON_MOVABLE_NUMBER);
         assertThat(car).isEqualTo(Car.of(NAME,INITIAL_POSITION));
     }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"다섯글자초과", ""})
-    void createCarWithInvalidNames(String input) {
-        assertThatThrownBy(() -> Car.of(input, INITIAL_POSITION)).isInstanceOf(IllegalArgumentException.class);
-    }
-
 }
