@@ -14,7 +14,7 @@ public class Application {
 
         List<Car> cars = createCars(carNames);
 
-
+        startRacing(attempts, cars);
     }
 
     private static List<Car> createCars(List<String> carNames) {
@@ -25,5 +25,19 @@ public class Application {
         return cars;
     }
 
+    private static void startRacing(int attempts, List<Car> cars) {
+        for (int i = 0; i < attempts; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
+            printCurrentPositions(cars);
+        }
+    }
 
+    private static void printCurrentPositions(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println();
+    }
 }
