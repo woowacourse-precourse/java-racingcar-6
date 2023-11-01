@@ -3,6 +3,6 @@ package racingcar.execution;
 import racingcar.data.attempt.Attempt;
 
 public interface GameOutput {
-    public abstract void print(String output);
-    public abstract void print(Attempt attempt);
+    void print(String output);
+    void print(Attempt attempt);
 }
