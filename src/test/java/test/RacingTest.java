@@ -1,9 +1,6 @@
-package tdd;
+package test;
 
-import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.Test;
-import racingcar.Application;
-import racingcar.controller.RacingController;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
