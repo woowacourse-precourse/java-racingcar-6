@@ -7,7 +7,10 @@ import racingcar.domain.racing.car.Car;
 import racingcar.util.ExceptionUtil;
 import racingcar.util.StringUtil;
 
-public class Participations { // 일급컬렉션
+/**
+ * 참가자들의 목록을 관리하는 일급 컬렉션입니다.
+ */
+public class Participations {
 
     private final String EMPTY_INPUT_MESSAGE = "자동차 이름을 하나 이상 입력하세요.";
     private final String DUPLICATE_NAME_MESSAGE = "중복된 이름은 입력할 수 없습니다.";

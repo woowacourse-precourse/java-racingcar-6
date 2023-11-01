@@ -4,20 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.racing.car.Car;
 
-public class Winners { // 일급컬렉션
+/**
+ * 우승자들의 목록을 관리하는 일급 컬렉션입니다.
+ */
+public class Winners {
 
-    private List<Car> winners;
+    private List<Car> winners = new ArrayList<>();
 
     private Winners() {
-        initWinners();
+
     }
 
     public static Winners createEmpty() {
         return new Winners();
-    }
-
-    private void initWinners() {
-        winners = new ArrayList<>();
     }
 
     public void addWinner(Car car) {

@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.Optional;
 import racingcar.domain.IndexModel;
 
+/**
+ * 순차적인 index를 가지는 방식으로 저장되는 저장소를 위해 필수적인 기능을 구현해놓은 추상 클래스입니다.
+ */
 public abstract class MemoryRepository<T extends IndexModel> implements Repository {
 
     protected Map<Long, T> store = new HashMap<>();

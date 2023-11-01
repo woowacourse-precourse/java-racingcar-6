@@ -10,13 +10,20 @@ import racingcar.domain.racing.Participations;
 import racingcar.domain.racing.RacingGame;
 import racingcar.domain.racing.Winners;
 import racingcar.repository.RacingGameRepository;
-import racingcar.util.StringUtil;
-import racingcar.validation.IntegerValidator;
 
+
+/**
+ * 레이싱 게임의 구현 클래스입니다.
+ */
 public class RacingGameServiceImpl implements RacingGameService {
 
     private final RacingGameRepository racingGameRepository;
 
+    /**
+     * RacingGameServiceImpl 객체를 생성합니다.
+     *
+     * @param racingGameRepository RacingGameRepository 의존성 주입
+     */
     public RacingGameServiceImpl(RacingGameRepository racingGameRepository) {
         this.racingGameRepository = racingGameRepository;
     }
@@ -35,6 +42,9 @@ public class RacingGameServiceImpl implements RacingGameService {
         return (RacingGame) racingGameRepository.save(racingGame);
     }
 
+    /**
+     * 모든 자동차에 랜덤값을 뽑고 위치값을 업데이트합니다.
+     */
     @Override
     public void decideRandomMoveCondition(RacingGame racingGame) {
         racingGame.getParticipationsList()

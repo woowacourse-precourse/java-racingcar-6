@@ -40,11 +40,6 @@ public class AppConfig implements Config {
         return appConfig;
     }
 
-    /**
-     * CarRepository를 반환하는 메소드입니다. CarRepository는 자동차 관련 데이터를 저장하고 관리합니다.
-     *
-     * @return CarRepository 인스턴스
-     */
     @Override
     public CarRepository carRepository() {
         if (carRepository == null) {
@@ -53,11 +48,6 @@ public class AppConfig implements Config {
         return carRepository;
     }
 
-    /**
-     * RacingGameRepository를 반환하는 메소드입니다. RacingGameRepository는 경주 게임 관련 데이터를 저장하고 관리합니다.
-     *
-     * @return RacingGameRepository 인스턴스
-     */
     @Override
     public RacingGameRepository racingRepository() {
         if (racingGameRepository == null) {
@@ -81,11 +71,6 @@ public class AppConfig implements Config {
         return racingGameService;
     }
 
-    /**
-     * InputView를 반환하는 메소드입니다. InputView는 사용자 입력을 처리합니다.
-     *
-     * @return InputView 인스턴스
-     */
     @Override
     public InputView inputView() {
         if (inputView == null) {
@@ -94,11 +79,6 @@ public class AppConfig implements Config {
         return inputView;
     }
 
-    /**
-     * OutputView를 반환하는 메소드입니다. OutputView는 결과를 출력합니다.
-     *
-     * @return OutputView 인스턴스
-     */
     @Override
     public OutputView outputView() {
         if (outputView == null) {
@@ -107,11 +87,6 @@ public class AppConfig implements Config {
         return outputView;
     }
 
-    /**
-     * RacingGameController를 반환하는 메소드입니다. RacingGameController는 게임 흐름을 제어합니다.
-     *
-     * @return RacingGameController 인스턴스
-     */
     @Override
     public RacingGameController racingController() {
         if (racingGameController == null) {

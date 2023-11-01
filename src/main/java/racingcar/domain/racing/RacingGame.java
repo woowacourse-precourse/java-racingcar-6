@@ -4,6 +4,9 @@ import java.util.List;
 import racingcar.domain.IndexModel;
 import racingcar.domain.racing.car.Car;
 
+/**
+ * 하나의 레이싱 게임 데이터를 담는 Model입니다. 참가자 목록, 시도 횟수, 우승자 목록을 관리합니다.
+ */
 public class RacingGame extends IndexModel {
 
     private Participations participations;

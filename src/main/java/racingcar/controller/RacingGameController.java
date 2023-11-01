@@ -42,11 +42,6 @@ public class RacingGameController {
         replayGame(false);
     }
 
-    /**
-     * 사용자 입력을 받아 RacingGame 인스턴스를 생성하는 메소드입니다.
-     *
-     * @return 생성된 RacingGame 인스턴스
-     */
     private RacingGame generateRacing() {
         String carNames = inputView.inputCarNames();
         String tryCount = inputView.inputTryCount();
@@ -54,11 +49,6 @@ public class RacingGameController {
         return racingGameService.generateRacing(carNames, tryCount);
     }
 
-    /**
-     * 게임을 다시 플레이하는 메소드입니다.
-     *
-     * @param isContinue 게임을 계속할지 여부를 나타내는 플래그
-     */
     private void replayGame(boolean isContinue) {
         if (isContinue) {
             playGame();

@@ -3,6 +3,9 @@ package racingcar.domain.racing;
 import racingcar.util.StringUtil;
 import racingcar.validation.IntegerValidator;
 
+/**
+ * 시도 횟수를 담는 VO입니다.
+ */
 public class TryCount {
 
     private final int tryCount;

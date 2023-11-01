@@ -38,30 +38,14 @@ public class Car extends IndexModel {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * 자동차의 이름을 반환합니다.
-     *
-     * @return 자동차의 이름
-     */
     public String getName() {
         return name.getName();
     }
 
-    /**
-     * 자동차의 위치 중 가장 큰 위치를 계산하여 반환합니다.
-     *
-     * @return 가장 높은 위치
-     */
     public int calcMaxPosition() {
         return positions.calcMaxPosition();
     }
 
-    /**
-     * 특정 턴에서 자동차의 위치를 조회합니다.
-     *
-     * @param index 위치를 조회할 턴 수
-     * @return 해당 턴에서의 위치
-     */
     public int findPositionAt(int index) {
         return positions.findPositionAt(index);
     }
@@ -75,12 +59,6 @@ public class Car extends IndexModel {
         positions.addPositionByRandomNum(randomNum);
     }
 
-    /**
-     * 자동차의 현재 위치가 주어진 위치와 동일하거나 큰지 확인합니다.
-     *
-     * @param position 비교할 위치
-     * @return 현재 위치가 주어진 위치와 동일하거나 크면 true, 그렇지 않으면 false
-     */
     public boolean isCurrPositionSameOrOver(int position) {
         return positions.isCurrPositionSameOrOver(position);
     }

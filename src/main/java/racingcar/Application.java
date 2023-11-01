@@ -8,23 +8,21 @@ public class Application {
     public static void main(String[] args) {
         Config config = generateConfig();
         RacingGameController racingGameController = generateRacingController(config);
-
         racingGameController.playGame();
     }
 
+    /**
+     * IoC Container를 생성합니다.
+     * @return IoC Container
+     */
     private static Config generateConfig() {
         return AppConfig.getInstance();
     }
 
+    /**
+     * IoC Container에서 racingController객체를 꺼냅니다.
+     */
     private static RacingGameController generateRacingController(Config config) {
         return config.racingController();
     }
 }
-
-/*
-
-TODO:
- final 넣어야할곳 찾아서 다 넣기
- MemoryRepository 쓸떄도 <>써줘야하나?
- 테스트코드에서 중복내용 줄이기
- */
