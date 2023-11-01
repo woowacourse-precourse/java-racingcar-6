@@ -6,8 +6,8 @@ public class InputValidator {
             throw new IllegalArgumentException("자동차 이름이 5글자를 초과해선 안됩니다.");
         }
 
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름이 비어있습니다.");
+        if (name.trim().isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름이 비어있거나 공백입니다.");
         }
     }
 
