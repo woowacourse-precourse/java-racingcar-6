@@ -32,6 +32,14 @@ public class RacingCar {
         }
     }
 
+    public String getCarName() {
+        return carName;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

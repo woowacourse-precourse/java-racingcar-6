@@ -14,7 +14,7 @@ public class RacingCarDto {
     }
 
     public static RacingCarDto valueOf(RacingCar racingCar) {
-        return new RacingCarDto(racingCar.carName(), racingCar.position());
+        return new RacingCarDto(racingCar.getCarName(), racingCar.getPosition());
     }
 
     public RacingCar toRacingCar() {
