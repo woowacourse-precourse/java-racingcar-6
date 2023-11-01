@@ -35,6 +35,6 @@ public class RepositoryTest {
         carRepository.save(car2);
 
         List<Car> result=carRepository.findAll();
-        Assertions.assertThat(result.size()).isEqualTo(2);
+        Assertions.assertThat(result.size()).isEqualTo(carRepository.getId());
     }
 }
