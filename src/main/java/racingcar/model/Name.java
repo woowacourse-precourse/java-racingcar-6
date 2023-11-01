@@ -17,12 +17,12 @@ public class Name {
     }
 
     public static Name from(final String name) {
-        validateNameLengthIsCorrect(name);
+        validateIsNameLengthCorrect(name);
         validateNameNotContainsBlank(name);
         return new Name(name);
     }
 
-    private static void validateNameLengthIsCorrect(final String name) {
+    private static void validateIsNameLengthCorrect(final String name) {
         if (name.length() < MINIMUM_LENGTH || name.length() > MAXIMUM_LENGTH) {
             throw new IllegalArgumentException(NAME_LENGTH_EXCEPTION.getMessage());
         }

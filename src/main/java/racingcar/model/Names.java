@@ -21,11 +21,11 @@ public class Names {
                 .map(Name::from)
                 .toList();
 
-        validateNamesIsNotDuplicate(names);
+        validateIsNamesNotDuplicate(names);
         return new Names(names);
     }
 
-    private static void validateNamesIsNotDuplicate(final List<Name> names) {
+    private static void validateIsNamesNotDuplicate(final List<Name> names) {
         List<Name> uniqueNames = names.stream()
                 .distinct()
                 .toList();
