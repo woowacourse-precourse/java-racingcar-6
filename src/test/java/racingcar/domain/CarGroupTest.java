@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class CarGroupTest {
 
@@ -24,6 +26,17 @@ class CarGroupTest {
         //then
         assertThat(carGroup.size()).isEqualTo(3);
         assertThat(carNameList).containsExactly("Ahri", "Yasuo", "Jinx");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " "})
+    void 자동차_생성시_빈값을_등록하면_예외_발생() {
+        //given
+        String blankName = "";
+
+        //when&then
+        assertThatThrownBy(() -> CarGroup.createNewCarGroupByNames((blankName)))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
