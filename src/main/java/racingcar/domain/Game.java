@@ -31,24 +31,17 @@ public class Game {
         return new RaceProgressResponse(cars, raceProgress);
     }
     public WinnerResponse selectWinner() {
+        int maxDistance = getMaxDistance(raceProgress);
         List<String> winner = IntStream.range(0, raceProgress.size())
-                .filter(k -> raceProgress.get(k).equals(isMaximum(raceProgress)))
+                .filter(k -> raceProgress.get(k).equals(maxDistance))
                 .mapToObj(cars::get)
                 .collect(Collectors.toList());
         return new WinnerResponse(winner);
     }
-    private void validate(List<String> cars) {
-        cars.stream()
-                .filter(car -> car.length() > RaceConstant.MAX_NAME_LENGTH)
-                .findFirst()
-                .ifPresent(car -> {
-                    throw new IllegalArgumentException(ValidateErrorMessage.NAME_LENGTH_ERROR);
-                });
-    }
-    private static int isMaximum(List<Integer> finalResult) {
+    private int getMaxDistance(List<Integer> finalResult) {
         return finalResult.stream()
                 .mapToInt(Integer::intValue)
                 .max()
-                .orElse(Integer.MIN_VALUE);
+                .orElse(0);
     }
 }

@@ -17,7 +17,7 @@ public class RaceController {
     public void race(){
         List<String> cars = inputView.getCars();
         int raceCount = inputView.getRaceCount();
-        Game game = new Game(cars, raceCount);
+        Game game = new Game(cars);
         outputView.printRaceProgressMessage();
 
         for (int i = 0; i < raceCount; i++) {
