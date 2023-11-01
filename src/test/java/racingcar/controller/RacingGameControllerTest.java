@@ -6,7 +6,6 @@ import racingcar.Application;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RacingGameControllerTest extends NsTest {
 
@@ -25,6 +24,21 @@ class RacingGameControllerTest extends NsTest {
                 STOP, MOVING_FORWARD
         );
     }
+
+    @Test
+    void 자동차_3개이상인_경우_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,soni", "3");
+                    assertThat(output()).contains("pobi : --", "woni : --", "soni : -", "최종 우승자 : soni");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                STOP, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+
 
     @Override
     protected void runMain() {
