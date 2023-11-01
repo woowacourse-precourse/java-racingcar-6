@@ -66,5 +66,19 @@ public class GameService {
         return winner.toString();
     }
 
-    public List<String >
+    public List<String> carNameStringToList(String carName){
+        String[] items = carName.split(",");
+
+        List<String> carList = new ArrayList<>();
+
+        for(String name : items){
+            carList.add(name.trim());
+        }
+
+        return carList;
+    }
+
+    public int countStringToInt(String count){
+        return Integer.parseInt(count);
+    }
 }
