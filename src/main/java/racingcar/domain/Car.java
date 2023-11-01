@@ -21,4 +21,13 @@ public class Car {
     public boolean isDuplicate(String name) {
         return Objects.equals(this.name, name);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
 }
