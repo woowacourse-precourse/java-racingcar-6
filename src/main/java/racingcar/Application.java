@@ -71,6 +71,7 @@ public class Application {
                 maxPosition = currentPosition;
         }
 
+
         for(String carName : carState.keySet()) {
             int currentPosition = carState.get(carName);
             if (maxPosition == currentPosition)
@@ -94,6 +95,10 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int attempts = Integer.parseInt(readLine());
+
+        if (attempts < 0) {
+            throw new IllegalArgumentException();
+        }
 
 
         // 사용자 입력 확인
