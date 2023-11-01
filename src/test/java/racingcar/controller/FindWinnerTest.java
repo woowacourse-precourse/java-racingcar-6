@@ -1,4 +1,4 @@
-﻿package racingcar.controller;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import org.assertj.core.api.Assertions;
