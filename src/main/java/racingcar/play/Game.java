@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.play;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.appControl.OutputController;
 
 public class Game {
     public final List<Car> cars;

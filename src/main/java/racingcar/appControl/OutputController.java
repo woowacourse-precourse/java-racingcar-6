@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.appControl;
 
 import java.util.List;
+import racingcar.play.Car;
 
 public class OutputController {
     public static void printCarPosition(Car car) {
