@@ -55,5 +55,9 @@ public class carRaceOutputService {
         }
     }
 
+    public void printNewLine() {
+        System.out.print("\n");
+    }
+
 
 }

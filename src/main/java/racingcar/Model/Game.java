@@ -26,16 +26,22 @@ public class Game {
         return this.round;
     }
 
+    private void increaseRound() {
+        this.round++;
+    }
     public void playGame() {
-        GameReferee.getInstance().setUpGameRound();
         this.cars = GameReferee.getInstance().setUpCars();
+        GameReferee.getInstance().setUpGameRound();
 
         while (GameReferee.getInstance().continueGame()) {
             for (Car car : cars
             ) {
                 car.race();
                 GameReferee.getInstance().setMaxScore(car.getMoves());
+
             }
+            Game.getInstance().increaseRound();
+            carRaceOutputService.getInstance().printNewLine();
         }
         carRaceOutputService.getInstance().printRaceResult(GameReferee.getInstance().selectWinners(this.cars));
     }
