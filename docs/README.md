@@ -23,12 +23,10 @@
     * move(int number)(return void) : 전진기능. (number가 4 이상일 경우 전진)
     * getPosition(return int) : 현재 위치 반환
     * getPositionToString()(return String) : 현재 위치를 '----' 이런 문자열로 바꿈
-    * pickRandomNumber()(return int) : 랜덤 숫자 뽑기
     * 검증 메서드
         -> 자동차 이름이 null 일 경우 에러(생성자)
         -> 이름 길이가 0일 경우 에러(생성자)
         -> 5글자 넘으면 에러 (생성자)
-        -> 숫자가 4 이상인가
         
 ----
 ## 사용자 클래스
