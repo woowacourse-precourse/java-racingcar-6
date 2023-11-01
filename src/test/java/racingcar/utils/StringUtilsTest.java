@@ -18,6 +18,15 @@ public class StringUtilsTest {
         strings.add("2");
         strings.add("3");
 
-        assertEquals(StringUtils.splitCarNames("1,2,3"),strings);
+        assertEquals(StringUtils.splitCarNames("1,2,3"), strings);
+    }
+
+    @Test
+    void joinWinnerCarNameTest() {
+        List<String> winnerNames = new ArrayList<>();
+        winnerNames.add("pobi");
+        winnerNames.add("woni");
+
+        assertEquals("pobi, woni", StringUtils.joinWinnerCarName(winnerNames));
     }
 }
