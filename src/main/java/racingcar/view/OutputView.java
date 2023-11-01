@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
 public class OutputView {
     private static final String ONE_STEP = "-";
 
@@ -13,6 +15,10 @@ public class OutputView {
 
     public void printFirstResultMessage() {
         System.out.println("\n실행 결과");
+    }
+
+    public void printRaceStatusMessage(Car car) {
+        System.out.println(car.getName() + " : " + ONE_STEP.repeat(car.getCurrentPosition()));
     }
 
 }
