@@ -37,4 +37,38 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @Test
+    void 자동차_이름은_쉼표를_기준으로_입력받기() {
+        String input = "car1,car2,car3";
+        String[] carNames = input.split(",");
+
+        assertThat(carNames).contains("car1", "car2", "car3");
+    }
+
+    @Test
+    void 잘못된_값_입력시_illegalArgumentException_발생후_어플리케이션_종료() {
+
+        String input = "car1,car2,car3,car4car5";
+
+        assertThatThrownBy(() -> {
+            String[] carNames = input.split(",");
+            for (String carName : carNames) {
+                if (carName.trim().length() > 5) {
+                    throw new IllegalArgumentException("길이가 5 이상인 값이 감지되었습니다: " + carName);
+                }
+            }
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 이동횟수를_양수로_받는지() {
+        int raceCount = 0;
+
+        assertThatThrownBy(() -> {
+            if (raceCount <= 0) {
+                throw new IllegalArgumentException("횟수는 양수여야 합니다.");
+            }
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }

@@ -80,7 +80,7 @@ public class Application {
     }
   }
 
-  private static void printWinners(String[] carNames, int[] winnerCounts) {
+  public static void printWinners(String[] carNames, int[] winnerCounts) {
     int maxWinnerCnt = 0;
     for (int winnerCount : winnerCounts) {
       if (winnerCount > maxWinnerCnt) {
