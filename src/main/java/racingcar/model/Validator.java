@@ -1,15 +1,15 @@
 package racingcar.model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 public class Validator {
 
     //이름 중복여부 체크 로직 추가 필요
-    public void validateCarName(HashMap<String, String> carMap) {
-        Set<String> carNameSet = carMap.keySet();
+    public void validateCarName(List<String> carNameList) {
 
-        for(String carName : carNameSet) {
+        for(String carName : carNameList) {
             if(carName.contains(" ")) {
                 throw new IllegalArgumentException("자동차 이름에는 공백을 포함할 수 없습니다.");
             }
