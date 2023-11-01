@@ -109,4 +109,19 @@ public class RaceGameTest {
         assertEquals(result, expect);
     }
 
+    @Test
+    void 우승자_자동차_이름_확인() {
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun");
+        raceGame.setCarNames(carNames);
+
+        List<String> carMoveCounts = Arrays.asList("---", "-------", "-");
+        raceGame.setCarMoveCounts(carMoveCounts);
+
+        carRacingController.decicdeWinner(raceGame);
+        List<String> winnerCarName = raceGame.getWinnerCarNames();
+        String winner = String.join(",", winnerCarName);
+
+        assertEquals(winner, "woni");
+    }
+
 }
