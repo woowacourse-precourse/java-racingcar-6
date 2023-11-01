@@ -31,4 +31,11 @@ public class MovingCountTest {
 
         assertThat(list.get(0) + 1).isEqualTo(movingCount.addCount(0));
     }
+
+    @Test
+    void 움직임_횟수_리스트_특정_인덱스값_리턴() {
+        List<Integer> list = movingCount.getMovingCount();
+
+        assertThat(list.get(0)).isEqualTo(movingCount.getEachMovingCount(0));
+    }
 }
