@@ -18,7 +18,7 @@ public class RacingGame {
         }
     }
     private void printCurrentPositions() {
-        cars.forEach(car -> System.out.println(car.getName() + " : " + "-".repeat(car.getScore())));
+        cars.forEach(car -> System.out.println(car.getName() + " : " + "-".repeat(car.getPosition())));
     }
 
     private void findWinners(ArrayList<Car> cars) {
