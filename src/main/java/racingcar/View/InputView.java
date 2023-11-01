@@ -23,4 +23,13 @@ public class InputView {
     public List<String> getCars() {
         return Cars;
     }
+
+    public boolean valideFivename(String name) {
+        Cars = (ArrayList<String>) SplitCarname(name);
+        return Cars.stream().noneMatch(this::isNameOverFiveChars);
+    }
+
+    private boolean isNameOverFiveChars(String name) {
+        return name.length() > 5;
+    }
 }
