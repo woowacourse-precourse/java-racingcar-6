@@ -40,9 +40,7 @@ public class CarName {
     String[] nameArray = input.split(",");
     List<String> names = new ArrayList<>();
     for (String name : nameArray) {
-      name = name.trim(); // 앞뒤 공백 제거
-      name = name.replace(" ", ""); // 중간 공백 제거
-      names.add(name);
+      names.add(name.trim().replace(" ", ""));
     }
     return names;
   }
