@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Referee {
-    public List<String> finalResult_find_maxKeys(LinkedHashMap<String, Integer> map) {
+    public List<String> find_maxKeys(LinkedHashMap<String, Integer> map) {
 
         List<String> maxKeys = new ArrayList<>();
         int maxValue = 0;
@@ -23,8 +23,8 @@ public class Referee {
         return maxKeys;
     }
 
-    public void finalResult_print(LinkedHashMap<String, Integer> map) {
-        List<String> members = finalResult_find_maxKeys(map);
+    public void show(LinkedHashMap<String, Integer> map) {
+        List<String> members = find_maxKeys(map);
         String result = String.join(",", members);
         System.out.print("최종 우승자 : ");
         System.out.println(result);
