@@ -37,7 +37,7 @@ public class Controller {
         return nameInput;
     }
 
-    private ArrayList<String> splitCarNames(String carNames){
+    public ArrayList<String> splitCarNames(String carNames){
 
         ArrayList<String> names = new ArrayList<>(Arrays.asList(carNames.split(",", -1))) ;;
         return names;
