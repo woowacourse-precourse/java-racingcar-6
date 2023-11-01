@@ -25,11 +25,13 @@ public class Validator {
 
     public static boolean isNonNumericInput(String inputAttemptsCount) {
         boolean isNumeric = true;
+
         try {
             Integer.parseInt(inputAttemptsCount);
         } catch (NumberFormatException e) {
             isNumeric = false;
         }
+
         return isNumeric;
     }
 }

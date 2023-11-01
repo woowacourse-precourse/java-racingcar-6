@@ -43,6 +43,7 @@ public class RacingCarGame {
 
     private static void goOrStop(List<StringBuilder> skeleton) {
         RacingCarGame racingCarGame = new RacingCarGame();
+
         for (StringBuilder sb : skeleton) {
             sb.append(generateRandomDash(racingCarGame));
         }
