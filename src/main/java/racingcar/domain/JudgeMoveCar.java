@@ -8,10 +8,7 @@ public class JudgeMoveCar {
     public static void MoveCar(List<CarEntity> cars) {
         RandomNumberGenerator numberGenerator = new RandomNumberGenerator();
         cars.stream()
-                .forEach(car -> {
-                    if (numberGenerator.NumberGenrate() >= 4) {
-                        MoveCarPosition.move(car);
-                    }
-                });
+                .filter(car -> numberGenerator.NumberGenrate() >= 4)
+                .forEachOrdered(MoveCarPosition::move);
     }
 }

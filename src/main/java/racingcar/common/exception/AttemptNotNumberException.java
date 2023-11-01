@@ -1,15 +1,14 @@
 package racingcar.common.exception;
 
+import jdk.dynalink.linker.GuardingDynamicLinker;
 import racingcar.common.constant.GuidePhrases;
-
-import java.util.List;
 
 public class AttemptNotNumberException {
     public static void notNumber(String attemptNumber) {
         try {
             Integer.parseInt(attemptNumber);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("숫자가 아닌 문자가 입력됨");
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException(GuidePhrases.cannotParseToInt);
         }
     }
 }

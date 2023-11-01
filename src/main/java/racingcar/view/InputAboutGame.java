@@ -2,7 +2,6 @@ package racingcar.view;
 
 import racingcar.common.exception.ConfirmException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -9,5 +9,5 @@ public class GuidePhrases {
     public static final String emptyInputPhrase = "빈 문자 입력";
     public static final String havingEmptyPhrase = "자동차 이름이 공백을 포함";
     public static final String isDuplication = "중복 존재";
-    public static final String notNumberPhrase = "빈 문자 입력";
+    public static final String cannotParseToInt = "숫자로 변환할 수 없음";
 }
