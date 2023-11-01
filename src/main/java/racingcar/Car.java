@@ -25,9 +25,6 @@ public class Car {
 
 		System.out.println("\n" + EXECUTION_RESULT);
 		GameResult.execution_result(carNamesArray, moveNumber);
-		// randomNumber = randomNum.getRandomNum();
-		// gameResult.result(carNames, moveNumber);
-		// System.out.println(FINAL_WINNER);
 
 	}
 }
