@@ -51,25 +51,26 @@ public class GameService {
         outPutView.outputResult();
         for (int i = 0; i < chance; i++) {
             carMove();
-            for (int index = 0; index < cars.size(); index++) {
-                if(index == cars.size() - 1){
-                    outPutView.outputCar(cars.get(index).getName() + " : " + printStick(index)+ '\n');  //한 라운드가 종료 되었을 경우 줄 바꿈
-                }else {
-                    outPutView.outputCar(cars.get(index).getName() + " : " + printStick(index));
-                }
-            }
+            String result = cars.stream()
+                    .map(car -> car.getName() + " : " + printStick(cars.indexOf(car)))
+                    .collect(Collectors.joining("\n"));
+            outPutView.outputCar(result);
+            outPutView.outputCar("\n");
         }
     }
 
     public void winnerList() {
-        List<Car> winners = cars.stream().filter(car -> car.getMove() == searchMaxValue()).toList();
+        List<Car> winners = cars.stream()
+                        .filter(car -> car.getMove() == findMaxValue()).toList();
 
-        String printWinners = winners.stream().map(Car::getName).collect(Collectors.joining(", "));
-
+        String printWinners = winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
         outPutView.outputWinner(printWinners);
     }
 
-    public int searchMaxValue() {
-        return cars.stream().mapToInt(Car::getMove).max().orElse(0);
+    public int findMaxValue() {
+        return cars.stream()
+                .mapToInt(Car::getMove).max().orElse(0);
     }
 }
