@@ -1,5 +1,6 @@
 package racingcar.validation;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
@@ -18,9 +19,12 @@ public class ValidationTest {
     @Test
     void 중복된_이름을_가지는_입력() {
         String input = "a,b,c,a";
+        String validInput = "a,b,c,d";
         List<String> carNames = List.of(input.split(","));
+        List<String> validCarNames = List.of(validInput.split(","));
 
         assertThatThrownBy(() -> Validation.isDuplicateCarName(carNames));
+        assertThat(Validation.isDuplicateCarName(validCarNames)).isEqualTo(false);
     }
 
 }
