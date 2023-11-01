@@ -15,21 +15,17 @@ public class RaceController {
     RandomNumberGenerator generator = new RandomNumberGenerator();
 
     public void race(){
-        Game game = setUp();
+        List<String> cars = inputView.getCars();
+        int raceCount = inputView.getRaceCount();
+        Game game = new Game(cars, raceCount);
         outputView.printRaceProgressMessage();
-        for (int i = 0; i < game.getRaceCount(); i++) {
-            List<Integer> randomNumbers = generator.generateRandomNumbers(game.getCars().size());
+
+        for (int i = 0; i < raceCount; i++) {
+            List<Integer> randomNumbers = generator.generateRandomNumbers(cars.size());
             RaceProgressResponse response = game.move(randomNumbers);
             outputView.printRaceResult(response);
         }
         WinnerResponse winnerResponse = game.selectWinner();
         outputView.printWinner(winnerResponse);
-    }
-
-    private Game setUp() {
-        String cars = inputView.getCars();
-        String raceCount = inputView.getRaceCount();
-        Game game = new Game(cars, raceCount);
-        return game;
     }
 }

@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Game;
+import racingcar.dto.RaceProgressResponse;
 
 public class GameTest {
 
@@ -31,8 +32,8 @@ public class GameTest {
     }
 
     private static void assertRaceResult(List<Integer> randomValue, List<Integer> expectedValue) {
-        Game game = new Game("pobi,crong,jun", "3");
-        game.move(randomValue);
-        Assertions.assertThat(game.getRaceProgress()).isEqualTo(expectedValue);
+        Game game = new Game(Arrays.asList("pobi","crong","jun"), 3);
+        RaceProgressResponse response = game.move(randomValue);
+        Assertions.assertThat(response.getRaceProgress()).isEqualTo(expectedValue);
     }
 }
