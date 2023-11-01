@@ -7,6 +7,7 @@ import static racingcar.common.response.ErrorCode.CAR_NAME_DUPLICATION;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.mock.FakeMoveCondition;
 
 @DisplayName("자동차 목록 검증")
 class CarsTest {
@@ -36,7 +37,34 @@ class CarsTest {
     }
 
     @Test
-    void 자동차_경주_우승자() {
-        // todo: 메서드를 추가하지 않고, 게임 결과를 예상(조작)할 수 있을지 고민해보기...
+    void 자동차_경주_단독_우승자() {
+        // given
+        Cars cars = createCars("car", "name", "myCar");
+        cars.racing(new FakeMoveCondition());
+
+        // when
+        List<String> result = cars.winningCarNames();
+
+        // then
+        assertThat(result.size()).isEqualTo(1);
+        assertThat(result).containsExactly("name");
+    }
+
+    @Test
+    void 자동차_경주_공동_우승자() {
+        // given
+        Cars cars = createCars("car", "name", "my", "your");
+        cars.racing(new FakeMoveCondition());
+
+        // when
+        List<String> result = cars.winningCarNames();
+
+        // then
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result).containsExactly("name", "your");
+    }
+
+    private Cars createCars(String... names) {
+        return new Cars(List.of(names));
     }
 }
