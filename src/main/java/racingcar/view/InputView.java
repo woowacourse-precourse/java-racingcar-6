@@ -15,7 +15,7 @@ public class InputView {
         this.typeConvertor = typeConvertor;
     }
 
-    public RacingGame getCars() {
+    public RacingGame getRacingGame() {
         System.out.println(CAR_NAME_INPUT);
         String input = Console.readLine();
         List<Car> cars = typeConvertor.converStringToCarList(input);
