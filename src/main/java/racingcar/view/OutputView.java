@@ -16,8 +16,10 @@ public class OutputView {
 
     public static void printMoveForward(Car car) {
         System.out.print(car.getCarName() + " : ");
-        for (int count = 1; count <= car.getMoveForwardCount(); count++) {
+        int moveForwardCount = car.getMoveForwardCount();
+        while (moveForwardCount > 0) {
             System.out.print("-");
+            moveForwardCount--;
         }
         System.out.println();
     }
