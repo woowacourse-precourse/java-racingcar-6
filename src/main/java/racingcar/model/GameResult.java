@@ -24,6 +24,6 @@ public class GameResult {
     }
 
     private boolean isSameWinPosition(Car car) {
-        return car.getPosition() == winPosition;
+        return car.isSamePosition(winPosition);
     }
 }

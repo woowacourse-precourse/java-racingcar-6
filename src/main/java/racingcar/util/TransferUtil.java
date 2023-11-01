@@ -1,6 +1,5 @@
 package racingcar.util;
 
-import racingcar.model.Car;
 import racingcar.model.dto.CarStatusDto;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.stream.Collectors;
 public class TransferUtil {
 
     public List<String> transferStringToListString(String targetString) {
-        if (targetString.isEmpty()){
+        if (targetString.isEmpty()) {
             return new ArrayList<>(Collections.emptyList());
         }
         String[] targetStringList = targetString.split(",");
