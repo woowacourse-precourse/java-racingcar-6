@@ -16,7 +16,7 @@ public class CarTest {
     @Test
     void Car_생성_검증() {
         Assertions.assertThat(car.getName().getNameValue()).isEqualTo("pobi");
-        Assertions.assertThat(car.getPosition().getPositionValue()).isEqualTo(1);
+        Assertions.assertThat(car.getPosition()).isEqualTo(new Position(1));
     }
 
     private static Stream<Arguments> generateHigherThanFour() {
@@ -32,7 +32,7 @@ public class CarTest {
     void 인자가_4이상이면_전진한다(int higherThanFour) {
         car.move(higherThanFour);
 
-        Assertions.assertThat(car.getPosition().getPositionValue()).isEqualTo(2);
+        Assertions.assertThat(car.getPosition()).isEqualTo(new Position(2));
     }
 
 
@@ -49,7 +49,15 @@ public class CarTest {
     void 인자가_4보다_작으면_멈춘다(int lowerThanFour) {
         car.move(lowerThanFour);
 
-        Assertions.assertThat(car.getPosition().getPositionValue()).isEqualTo(1);
+        Assertions.assertThat(car.getPosition()).isEqualTo(new Position(1));
+    }
+
+    @Test
+    void 같은_Position_검증() {
+        org.junit.jupiter.api.Assertions.assertTrue(car.isSamePosition(new Car(
+                new Name("xxx"), new Position(1))));
+        org.junit.jupiter.api.Assertions.assertFalse(car.isSamePosition(new Car(
+                new Name("xxx"), new Position(2))));
     }
 
 }
