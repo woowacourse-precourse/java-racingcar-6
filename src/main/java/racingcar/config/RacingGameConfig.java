@@ -1,12 +1,12 @@
 package racingcar.config;
 
-import racingcar.util.GameResultMaker;
+import racingcar.domain.Circuit;
 import racingcar.controller.RacingGame;
 
 public class RacingGameConfig {
 
     public RacingGame initRacingGame() {
-        GameResultMaker gameResultMaker = new GameResultMaker();
-        return new RacingGame(gameResultMaker);
+        Circuit circuit = new Circuit();
+        return new RacingGame(circuit);
     }
 }

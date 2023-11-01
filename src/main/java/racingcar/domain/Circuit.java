@@ -1,12 +1,11 @@
-package racingcar.util;
+package racingcar.domain;
 
-import racingcar.domain.Car;
 
 import java.util.List;
 
-public class GameResultMaker {
+public class Circuit {
 
-    public void makeGameResult(List<Car> carNames) {
+    public void race(List<Car> carNames) {
         for (Car car : carNames) {
             if (Car.isMoved()) {
                 car.increaseMovingCount();

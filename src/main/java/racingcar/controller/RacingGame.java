@@ -4,7 +4,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Garage;
 import racingcar.domain.RaceCount;
 import racingcar.domain.Winner;
-import racingcar.util.GameResultMaker;
+import racingcar.domain.Circuit;
 import racingcar.view.OutputView;
 import racingcar.view.InputView;
 
@@ -12,10 +12,10 @@ import java.util.List;
 
 public class RacingGame {
 
-    private GameResultMaker gameResultMaker;
+    private Circuit circuit;
 
-    public RacingGame(GameResultMaker gameResultMaker) {
-        this.gameResultMaker = gameResultMaker;
+    public RacingGame(Circuit circuit) {
+        this.circuit = circuit;
     }
 
     public void start() {
@@ -41,7 +41,7 @@ public class RacingGame {
     }
 
     private void race(List<Car> cars) {
-        gameResultMaker.makeGameResult(cars);
+        circuit.race(cars);
         OutputView.printGameResult(cars);
     }
 

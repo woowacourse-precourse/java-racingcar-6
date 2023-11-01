@@ -58,11 +58,9 @@
     - 숫자가 아닌 입력값(영어 및 한글)을 검증한다.
     - 공백을 검증한다.
 
-### Util
+5. Circuit
 
-1. GameResultMaker
-
-- RacingGameManager와 Car가 협력하여 차(Car)가 이동한 결과를 반영한다. 
+- 자동차 경주가 진행되는 경기장을 추상화한 클래스
   - [x] List<Car>를 순회하면서, CarMotionController가 이동시킨 결과로 Car의 이동 횟수(count)를 증가시킨다.
 
 ### View
