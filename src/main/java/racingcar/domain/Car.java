@@ -13,6 +13,10 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void attemptGo() {
         int number = gameUtil.generateRandomNumber();
         if (gameUtil.judgeGo(number)) {
