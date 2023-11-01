@@ -42,6 +42,19 @@ class RacingCarTest extends NsTest {
         assertThat(car.getLocation()).isEqualTo(0);
     }
 
+    @Test
+    void 자동차의_이름과_위치를_조합해_적절한_출력형태를_만들_수_있다() {
+        RacingCar car = new RacingCar("car1");
+        assertRandomNumberInRangeTest(
+                () -> {
+                    car.moveOrStay();
+                    car.moveOrStay();
+                    car.moveOrStay();
+                },STAY,MOVING_FORWARD,MOVING_FORWARD
+        );
+        assertThat(car.toString()).isEqualTo("car1 : --");
+    }
+
     @Override
     protected void runMain() {
 
