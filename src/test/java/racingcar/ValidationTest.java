@@ -17,4 +17,13 @@ public class ValidationTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 자동차_이름이_5자가_넘어가는_경우() {
+        String carNames = "pobipobi,jun,paul";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> carNamesValidation(carNames))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
