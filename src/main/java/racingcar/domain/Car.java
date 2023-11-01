@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.utils.GameUtil;
+import racingcar.utils.CarUtil;
 
 public class Car {
 
@@ -8,7 +8,7 @@ public class Car {
     private int position = 0;
     private String name;
 
-    private final GameUtil gameUtil = new GameUtil();
+    private final CarUtil carUtil = new CarUtil();
 
     public Car(String name) {
         this.name = name;
@@ -23,8 +23,8 @@ public class Car {
     }
 
     public void attemptGo() {
-        int number = gameUtil.generateRandomNumber();
-        if (gameUtil.judgeGo(number)) {
+        int number = carUtil.generateRandomNumber();
+        if (carUtil.judgeGo(number)) {
             this.position++;
         }
     }
