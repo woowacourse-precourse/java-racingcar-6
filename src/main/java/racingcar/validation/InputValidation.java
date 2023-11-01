@@ -5,7 +5,7 @@ import racingcar.exception.CustomException;
 import racingcar.exception.ErrorCode;
 import racingcar.exception.GlobalExceptionHandler;
 
-public class InputCarNameValidation {
+public class InputValidation {
     private static final String STRING_HAS_KOREAN_OR_ENGLISH = "^[a-z|A-Z|ㄱ-ㅎ|가-힣]*$";
     private static final String STRING_HAS_COMMA_SPLITIER = ",";
 
@@ -17,5 +17,11 @@ public class InputCarNameValidation {
                         new CustomException(ErrorCode.CAR_NAME_WITHIN_FIVE_LETTERS));
             }
         });
+    }
+
+    public static void checkTrialNumber(int trialNum) {
+        if (trialNum <= 0) {
+            GlobalExceptionHandler.handleCustomException(new CustomException(ErrorCode.TRIAL_NUMBER_LESS_THAN_ZERO));
+        }
     }
 }

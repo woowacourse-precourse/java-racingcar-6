@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import racingcar.validation.InputCarNameValidation;
+import racingcar.validation.InputValidation;
 import racingcar.view.InputUserCar;
 
 public class Car {
@@ -15,14 +15,15 @@ public class Car {
 
     public void setCars() {
         String inputValue = InputUserCar.inputName();
-        InputCarNameValidation.checkCarNames(inputValue);
+        InputValidation.checkCarNames(inputValue);
         carSetting = new CarSetting(inputValue);
     }
 
     public int setTrial() {
-        int trial = InputUserCar.inputStringToInt(InputUserCar.inputTrialNumber());
-        carSetting.setTrialNumber(trial);
-        return trial;
+        int trialNum = InputUserCar.inputStringToInt(InputUserCar.inputTrialNumber());
+        InputValidation.checkTrialNumber(trialNum);
+        carSetting.setTrialNumber(trialNum);
+        return trialNum;
     }
 
     public Map<String, Integer> goFront() {
