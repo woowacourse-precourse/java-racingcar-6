@@ -21,4 +21,9 @@ class ErrorHandlerTest {
         }};
         assertThrows(IllegalArgumentException.class, () -> errorHandlerTest.checkUnique("123", playingStatus));
     }
+
+    @Test
+    void round는_양수인_정수_여야_합니다() {
+        assertThrows(IllegalArgumentException.class, () -> errorHandlerTest.checkRound("-1"));
+    }
 }
