@@ -11,7 +11,7 @@ public class race_controller {
     private int leadCarNumber;
     private Cars cars;
     private int[] storage;
-    private final Cars_preparation carGoCountMap;
+    private final Cars_preparation carAndPositionMap;
     private final RoundNumber roundNumber;
 
     public race_controller() {
@@ -20,7 +20,7 @@ public class race_controller {
         cars = createCars(carNames);
         roundNumber = createroundNumber(inputRacingInformation.round_number());
         storage = new int[cars.size()];
-        carGoCountMap = Car_Go_Count_Map(cars, storage);
+        carAndPositionMap = car_And_Position_Map(cars, storage);
     }
 
     public void game() {
@@ -30,7 +30,7 @@ public class race_controller {
             runGame();
             round++;
         }
-        who_win(carGoCountMap);
+        who_win(carAndPositionMap);
     }
 
     private Cars createCars(List<String> carNames) {
@@ -47,7 +47,7 @@ public class race_controller {
     }
 
     private void runGame() {
-        for (Entry<Car, Integer> carGoCountEntry : carGoCountMap.entrySet()) {
+        for (Entry<Car, Integer> carGoCountEntry : carAndPositionMap.entrySet()) {
             int newPosition = process(carGoCountEntry.getValue());
             carGoCountEntry.setValue(newPosition);
             OutputView.printCarPosition(carGoCountEntry.getKey(), carGoCountEntry.getValue());
@@ -55,13 +55,13 @@ public class race_controller {
         System.out.println();
     }
 
-    private Cars_preparation Car_Go_Count_Map(Cars cars, int[] storage) {
-        Map<Car, Integer> cars_go_count_map = new LinkedHashMap<>();
+    private Cars_preparation car_And_Position_Map(Cars cars, int[] storage) {
+        Map<Car, Integer> carAndPositionMap = new LinkedHashMap<>();
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
-            cars_go_count_map.put(car, storage[i]);
+            carAndPositionMap.put(car, storage[i]);
         }
-        return new Cars_preparation(cars_go_count_map);
+        return new Cars_preparation(carAndPositionMap);
     }
 
     private int process(int position){
