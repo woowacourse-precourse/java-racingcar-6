@@ -1,12 +1,14 @@
 package racingcar.util;
 
+import static racingcar.config.FORWARD_CONDITION;
+
 public class Util {
 
-    public static final double FOUR = 4;
+
 
     // 8. 값이 4이상인지 확인하는 기능
     public static boolean isSameOrBiggerThanFour(int number){
-        if(number >= FOUR){
+        if(number >= FORWARD_CONDITION){
             return true;
         } else {
             return false;
