@@ -53,10 +53,23 @@
 - getWinner()
 
 RaceGameController클래스
-- start()
-- validCarNamesInput()
-- splitCarNamesInput()
-- validRoundInput()
+변수
+view
+
+메서드
+- start() : 게임 시작 시 호출, 전반적인 게임 흐름 제어
+- getCarNames() : 유저로부터 자동차 이름 받아오기
+- getRound() : 유저로부터 라운드 수 받아오기
+- validCarNamesInput() : 초기상태 자동차 이름에서 아래 세가지 경우를 검증
+1. 쉼표가 없는 경우. 즉, 자동차가 하나인 경우
+2. 쉼표가 두개 연달아 입력된 경우
+3. 처음 혹은 마지막에 쉼표가 입력된 경우
+- splitCarNamesInput() : 초기상태 자동차 이름을 List<String>으로 변환
+- validCarNamesList() : List<String>상태의 자동차 이름에서 아래 ?가지 경우를 검증
+1. 자동차 이름 중 null값이 포함된 경우
+2. 자동차 이름 중 5자리를 초과하는 이름이 있는 경우
+3. 자동차 이름 중 중복도니 이름이 있는 경우
+- validRoundInput() : 라운드 수 입력값이 정수인지 검증
 
 View클래스
 - getInputString()
