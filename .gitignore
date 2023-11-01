@@ -1,3 +1,4 @@
+*.class
 HELP.md
 .gradle
 build/
@@ -30,3 +31,4 @@ out/
 
 ### VS Code ###
 .vscode/
+*.class
