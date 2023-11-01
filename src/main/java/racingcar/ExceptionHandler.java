@@ -21,4 +21,12 @@ public class ExceptionHandler {
     return cars;
   }
 
+  public int trialNumException(String input) {
+    if (input.isEmpty()) {
+      throw new IllegalArgumentException("아무것도 입력하지 않았습니다.");
+    } else if (!input.chars().allMatch(Character::isDigit)) {
+      throw new IllegalArgumentException("숫자 이외의 문자가 포함되어 있습니다.");
+    }
+    return Integer.parseInt(input);
+  }
 }
