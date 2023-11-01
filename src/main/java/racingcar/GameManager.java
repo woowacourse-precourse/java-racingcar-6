@@ -31,6 +31,8 @@ public class GameManager {
     }
 
     public void move(List<Car> carList, List<Integer> randomNumbers) {
-
+        for (int i = 0; i < carList.size(); i++) {
+            if(randomNumbers.get(i) >= 4) carList.get(i).addMove();
+        }
     }
 }
