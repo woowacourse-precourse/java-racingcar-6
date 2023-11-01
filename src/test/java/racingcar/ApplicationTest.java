@@ -40,20 +40,20 @@ class ApplicationTest extends NsTest {
 
     @Test
     void inputCarNameSplit_정상케이스() {
-      assertThatCode(() -> inputCarNameSplit("테스트1,테스트2,테스트3"))
+        assertThatCode(() -> inputCarNameSplit("테스트1,테스트2,테스트3"))
           .doesNotThrowAnyException();
     }
     @Test
     void inputCarNameSplit_예외케이스() {
-      assertThatThrownBy(() -> inputCarNameSplit("테스트1"))
+        assertThatThrownBy(() -> inputCarNameSplit("테스트1"))
           .isInstanceOf(IllegalArgumentException.class)
           .hasMessageContaining("이름은 쉼표(,) 기준으로 구분합니다.");;
     }
     private void inputCarNameSplit(String inputCarName){
-      String[] cars = inputCarName.split(",");
-      if(cars.length<2){
-        throw new IllegalArgumentException("이름은 쉼표(,) 기준으로 구분합니다.");
-      }
+        String[] cars = inputCarName.split(",");
+        if(cars.length<2){
+            throw new IllegalArgumentException("이름은 쉼표(,) 기준으로 구분합니다.");
+        }
     }
 
     @Test
