@@ -4,6 +4,8 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
@@ -14,9 +16,12 @@ import racingcar.Application;
 import racingcar.domain.Attempt;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Game;
 import racingcar.domain.Umpire;
 
 public class GameTest extends NsTest {
+    private static final int NOT_MOVE = 0;
+
     @Test
     void 자동차_이름을_쉼표로_구분하여_입력받기() {
         Cars cars = new Cars();
@@ -43,7 +48,7 @@ public class GameTest extends NsTest {
                     run("pobi,woni", "2");
                     assertThat(output()).contains("pobi : ", "woni : ", "pobi : ", "woni : ", "최종 우승자 :");
                 },
-                0, 0
+                NOT_MOVE, NOT_MOVE
         );
     }
 
@@ -65,6 +70,30 @@ public class GameTest extends NsTest {
         String winnerResult = umpire.findWinner();
 
         assertEquals("pobi, woni", winnerResult);
+    }
+
+    @Test
+    void 각_라운드_결과_가져오기() {
+        List<Car> cars = new ArrayList<>();
+        Car car1 = mock(Car.class);
+        Car car2 = mock(Car.class);
+        Car car3 = mock(Car.class);
+
+        cars.add(car1);
+        cars.add(car2);
+        cars.add(car3);
+
+        when(car1.getName()).thenReturn("pobi");
+        when(car2.getName()).thenReturn("woni");
+        when(car3.getName()).thenReturn("jun");
+        when(car1.getPosition()).thenReturn(1);
+        when(car2.getPosition()).thenReturn(2);
+        when(car3.getPosition()).thenReturn(3);
+
+        Game game = new Game(cars, 5);
+        List<String> roundResult = game.getRoundResult();
+
+        assertEquals("pobi : -,woni : --,jun : ---", String.join(",", roundResult));
     }
 
     private void command(final String... args) {
