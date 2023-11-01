@@ -5,7 +5,9 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameController {
 
@@ -26,7 +28,7 @@ public class GameController {
             System.out.println();
         }
 
-        outputView.result(cars);
+        outputView.result(getWinner());
     }
 
     private void play() {
@@ -38,4 +40,16 @@ public class GameController {
         });
     }
 
+    private String getWinner() {
+        int max_score = cars.stream()
+                            .max(Comparator.comparingInt(Car::getPosition))
+                            .get()
+                            .getPosition();
+
+        String winner = cars.stream().filter(Car -> Car.getPosition() == max_score)
+                                    .map(Car::getName)
+                                    .collect(Collectors.joining(", "));
+
+        return winner;
+    }
 }
