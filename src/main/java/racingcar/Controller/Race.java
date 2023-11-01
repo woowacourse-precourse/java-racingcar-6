@@ -10,6 +10,7 @@ import java.util.List;
 import racingcar.Model.CarModel;
 
 public class Race {
+    static final Integer CONDITION_ZERO = 0;
 
     public Race(){
         try {
@@ -27,7 +28,7 @@ public class Race {
         notifyToWriteCnt();
         Integer carCnt = getCarCntFromUser();
 
-        while (carCnt--!=0) {
+        while (carCnt--!=CONDITION_ZERO) {
             play(carModelList);
         }
 
