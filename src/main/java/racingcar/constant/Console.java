@@ -6,7 +6,9 @@ public enum Console {
     RESULT("실행 결과"),
     WINNER("최종 우승자 : "),
     SEPARATOR(" : "),
-    PROGRESS("-");
+    PROGRESS("-"),
+    INPUT_DELIMITER(","),
+    PRINT_DELIMITER(", ");
 
     private final String message;
 
