@@ -2,34 +2,58 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 
 public class EvaluateSystem {
-    public ArrayList<Integer> racingCondition() {
-        ArrayList<Integer> racingInProcess = new ArrayList<>();
+    public int racingCondition() {
+        return Randoms.pickNumberInRange(0,9);
 
-        racingInProcess.add(Randoms.pickNumberInRange(0,9));
-        return racingInProcess;
     }
-    public static void winnerDisplay(ArrayList<ArrayList<Integer>> RecordList, String[] name) {
-        int sum = 0;
-        int max = 0;
-        int winnerIndex = 0;
-        for (int j = 0; j < RecordList.size(); j++) {
-                sum += winnerListCount(RecordList.get(j));
+    public void winnerDisplay(ArrayList<ArrayList<Integer>> RecordList, String[] name) {
 
-            if (max < sum) {
-                max = sum;
-                winnerIndex++;
+    }
+    public void winnerSearch(ArrayList<ArrayList<String>> winnerList, int inputRaceTime) {
+        ArrayList<Integer> nameIndexList;
+        ArrayList<Integer> tempList = new ArrayList<>();
+        int tempCountValue = 0;
+        for (int i = 0; i < winnerList.size(); i++) {
+            tempCountValue += winnerCount(winnerList.get(i));
+            tempList.add(tempCountValue);
+        }
+        nameIndexList = winnerSort(tempList);
+
+
+    }
+    public int winnerCount(ArrayList<String> tempoList) {
+        int nameCount = 0;
+        for (int i = 0; i < tempoList.size(); i++) {
+            if (tempoList.get(i) == "=") {
+                nameCount++;
+            } else {
+
             }
-            System.out.println("");
         }
+        return nameCount;
     }
-    public static int winnerListCount(ArrayList<Integer> record) {
-        int temp = 0;
-        for (int i = 0; i < record.size(); i++) {
-            temp += record.get(i);
+    public ArrayList<Integer> winnerSort(ArrayList<Integer> nameList) {
+        int nameCount = 0;
+        ArrayList<Integer> sortedList;
+        ArrayList<Integer> finalList = new ArrayList<>();
+        sortedList = nameList;
+        Collections.sort(sortedList, Collections.reverseOrder());
+        for (int i = 0; i < nameList.size(); i++) {
+            if (sortedList.get(0) == nameList.get(i)) {
+                finalList.add(i);
+            } else {
+
+            }
         }
-        return temp;
+        return finalList;
     }
+
+
+
+
 }

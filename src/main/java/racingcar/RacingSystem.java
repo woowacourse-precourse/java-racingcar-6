@@ -26,66 +26,66 @@ public class RacingSystem {
     public int sequenceSystem(int count, String[] carList) {
         int tempCount = 0;
         int raceStep = 0;
-        ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();
-        ArrayList<ArrayList<String>> winnerCheckList = new ArrayList<>();
-        EvaluateSystem raceCount = new EvaluateSystem();
-        addRecord(winnerCheckList, carList);
+        ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();//this is for actual race record
+        ArrayList<ArrayList<String>> winnerCheckList = new ArrayList<>();//this is for chcking winner
+        addRecord(winnerCheckList, carList);// bring name list to arraylist
+        makeRecord(carRecordSheet,carList.length);//declaring column by name
         while (tempCount < count) {
-            addRecord(carRecordSheet,tempCount);
-
-            addRecord(carRecordSheet, raceStep, raceStep, raceCount.racingCondition());
-            raceStep++;
-            tempCount += 0;
+            addRecord(carRecordSheet, carList.length);//recording race
+            //raceStep++;
+            displaySystem(winnerCheckList, carRecordSheet, carList);
+            tempCount += sequence(winnerCheckList, carRecordSheet);
         }
-        displaySystem(carRecordSheet, carList);
-
-
-
         return 0;
     }
-    public void addRecord(ArrayList<ArrayList<Integer>> raceSheet, int inputCount) {
+    public void makeRecord(ArrayList<ArrayList<Integer>> raceSheet, int nameGroupSize) {
         ArrayList<Integer> tempList = new ArrayList<>();
-        tempList.add(inputCount);
+        for (int i = 0; i < nameGroupSize; i++) {
+            tempList.add(i);
+        }
         raceSheet.add(tempList);
+    }
+
+    public void addRecord(ArrayList<ArrayList<Integer>> raceSheet, int carListSize) {
+        EvaluateSystem raceCount = new EvaluateSystem();
+        for (int i = 0; i < carListSize; i++) {
+            raceSheet.get(i).add(raceCount.racingCondition());
+        }
     }
     public void addRecord(ArrayList<ArrayList<String>> resultSheet, String[]ownerList) {
         ArrayList<String> tempName = new ArrayList<>(Arrays.asList(ownerList));
         resultSheet.add(tempName);
     }
 
-    public void addRecord(ArrayList<ArrayList<Integer>> raceSheet, int inputCount, int raceNum, ArrayList<Integer> raceValue) {
-        raceSheet.get(inputCount).add(raceValue.get(raceNum));
-    }
 
 
 
-    public int sequence(String[] carList, int inputCount) {
-        EvaluateSystem raceResult = new EvaluateSystem();
-        ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();
 
-        for (int i = 0; i < carList.length; i++) {
-            carRecordSheet.add(raceResult.racingCondition());
-        }
-
-        return 0;
-    }
-    public static void displaySystem(ArrayList<ArrayList<Integer>> RecordSheet, String[] carName) {
-        ArrayList<ArrayList<Integer>> recordWinner = new ArrayList<>();
-
+//    public int sequence(ArrayList<ArrayList<String>> resultRecord, ArrayList<ArrayList<Integer>> raceList) {
+//        EvaluateSystem raceResult = new EvaluateSystem();
+//        for (int i = 0; i < ; i++) {
+//            carRecordSheet.add(raceResult.racingCondition());
+//        }
+//
+//        return 0;
+//    }
+    public static void displaySystem(ArrayList<ArrayList<String>> resultRecord, ArrayList<ArrayList<Integer>> RecordSheet, String[] carName) {
         for (int j = 0; j < RecordSheet.size(); j++) {
             System.out.printf(carName[j] + "'s car : ");
             for (int k = 0; k < RecordSheet.get(j).size(); k++) {
-                displayCheck(RecordSheet.get(j).get(k));
+                displayCheck(j, RecordSheet.get(j).get(k), resultRecord);
             }
 
             System.out.println("");
         }
 //        EvaluateSystem.winnerDisplay(recordWinner, carName);
     }
-    public static void displayCheck(int insertedValue) {
+    public static void displayCheck(int insertedRow, int insertedValue, ArrayList<ArrayList<String>> resultList) {
         if (insertedValue >= 4) {
             System.out.printf("=");
+            resultList.get(insertedRow).add("=");//add "=" into winnerchecklist;
         } else {
+            resultList.get(insertedRow).add(" ");
         }
     }
 
