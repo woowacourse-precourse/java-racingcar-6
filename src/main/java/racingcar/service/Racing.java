@@ -1,22 +1,24 @@
 package racingcar.service;
 
-import static racingcar.configurations.GameConfigurations.CONTROL_VALUE;
-import static racingcar.configurations.GameConfigurations.MAXIMUM_OF_RANGE;
-import static racingcar.configurations.GameConfigurations.MINIMUM_OF_RANGE;
-import static racingcar.configurations.GameConfigurations.MOVING_DISTANCE;
+import static racingcar.configurations.GameConfigurations.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.model.Car;
 
 public class Racing {
+
     private Integer movingDistance;
     private Integer controlValue;
     private Integer minimumOfRange;
     private Integer maximumOfRange;
-
-
-    public Racing() {
+    private static class SingletonRacing{
+        private static final Racing RACING = new Racing();
+    }
+    public static Racing getInstance(){
+        return SingletonRacing.RACING;
+    }
+    private Racing() {
         minimumOfRange = MINIMUM_OF_RANGE.get();
         maximumOfRange = MAXIMUM_OF_RANGE.get();
         movingDistance = MOVING_DISTANCE.get();
@@ -29,18 +31,19 @@ public class Racing {
         }
     }
 
-    private void move(Car car) {
+    void move(Car car) {
         Integer randomNumber = generateRandomNumber();
         if (isMove(randomNumber))
             car.move(movingDistance);
     }
 
-    private Boolean isMove(Integer randomNumber) {
+    Boolean isMove(Integer randomNumber) {
         return (randomNumber >= controlValue);
     }
 
     Integer generateRandomNumber() {
         Integer randomNumber = Randoms.pickNumberInRange(minimumOfRange, maximumOfRange);
+        System.out.println(randomNumber);
         return randomNumber;
     }
 
