@@ -22,15 +22,15 @@ public class Car {
         return position;
     }
 
-    public int pickRandomNumber(){
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        return randomNumber;
-    }
     public void move() {
         int number = Randoms.pickNumberInRange(0, 9);
         if (number >= 4) {
             position++;
         }
+    }
+    public int getRandomNumber(){
+        int number = Randoms.pickNumberInRange(0, 9);
+        return number;
     }
     public void validateNull(String str){
         if(str == null) {
