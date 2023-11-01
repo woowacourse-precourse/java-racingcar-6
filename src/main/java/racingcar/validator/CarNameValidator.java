@@ -15,7 +15,7 @@ public class CarNameValidator {
     private final static int MAX_LENGTH = 5;
     private final static int MIN_LENGTH = 1;
 
-    public CarNameValidator(String input){
+    public CarNameValidator(String input) {
         NAME = input;
         NAMES = new ArrayList<>(Arrays.asList(input.split(",")));
         isNull();
@@ -25,34 +25,34 @@ public class CarNameValidator {
         isDuplicate();
     }
 
-    public void isNull(){
-        if (NAME.equals("")){
+    public void isNull() {
+        if (NAME.equals("")) {
             throw new IllegalArgumentException(NAME_NULL_ERROR_MESSAGE);
         }
     }
 
-    public void isNameError(){
-        if (NAME.contains(" ")){
+    public void isNameError() {
+        if (NAME.contains(" ")) {
             throw new IllegalArgumentException(NAME_ERROR_MESSAGE);
         }
     }
 
-    public void isRangeOut(){
+    public void isRangeOut() {
         for (String name : NAMES) {
-            if (name.length() > MAX_LENGTH || name.length() < MIN_LENGTH){
+            if (name.length() > MAX_LENGTH || name.length() < MIN_LENGTH) {
                 throw new IllegalArgumentException(NAME_RANGE_ERROR_MESSAGE);
             }
         }
     }
 
-    public void isOneCar(){
-        if (NAMES.size()<2){
+    public void isOneCar() {
+        if (NAMES.size() < 2) {
             throw new IllegalArgumentException(ONE_CAR_ERROR_MESSAGE);
         }
     }
 
-    public void isDuplicate(){
-        if (NAMES.stream().distinct().count() != NAMES.size()){
+    public void isDuplicate() {
+        if (NAMES.stream().distinct().count() != NAMES.size()) {
             throw new IllegalArgumentException(NAME_DUPLICATE_ERROR_MESSAGE);
         }
     }

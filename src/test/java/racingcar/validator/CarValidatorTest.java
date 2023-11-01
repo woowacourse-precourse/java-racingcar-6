@@ -27,6 +27,7 @@ public class CarValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(NAME_ERROR_MESSAGE);
     }
+
     @Test()
     void 차_이름_1자_미만_예외_처리() {
         assertThatThrownBy(() -> carNameValidator = new CarNameValidator(",pobi,woote"))

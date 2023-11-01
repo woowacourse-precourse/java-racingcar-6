@@ -23,6 +23,7 @@ public class CarStateTest {
         cars = new Cars("Hyun,Doo,Boo");
         car = new Car("Hyun");
     }
+
     @Test
     void 차_이름_입력_테스트() {
         CarNameValidator validator = new CarNameValidator("1,2");
@@ -31,7 +32,7 @@ public class CarStateTest {
     }
 
     @Test
-    void 차_직진_X_테스트(){
+    void 차_직진_X_테스트() {
         for (int i = 0; i <= 3; i++) {
             car.move(i);
             assertThat(car.getCarPosition()).isEqualTo(0);
@@ -39,7 +40,7 @@ public class CarStateTest {
     }
 
     @Test
-    void 차_직진_O_테스트(){
+    void 차_직진_O_테스트() {
         for (int i = 4; i <= 9; i++) {
             car = new Car("Doo");
             car.move(i);
@@ -48,12 +49,12 @@ public class CarStateTest {
     }
 
     @Test
-    void 차_위치_반환_테스트(){
+    void 차_위치_반환_테스트() {
         assertThat(car.getCarPosition()).isEqualTo(0);
     }
 
     @Test
-    void 차_이름_반환_테스트(){
+    void 차_이름_반환_테스트() {
         assertThat(car.getCarName()).isEqualTo("Hyun");
     }
 

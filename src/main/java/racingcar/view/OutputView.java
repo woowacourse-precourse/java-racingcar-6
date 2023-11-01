@@ -25,20 +25,20 @@ public class OutputView {
 
     public static void resultMessage(List<String> winners) {
         System.out.print(RESULT_MESSAGE);
-        String result = String.join(", ",winners);
+        String result = String.join(", ", winners);
         System.out.print(result);
     }
 
-    public static void positionShow(int position){
-        for(int i=0; i<position; i++){
+    public static void positionShow(int position) {
+        for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
         System.out.println();
     }
 
-    public static void carsStateShow(HashMap<String,Integer> carsState){
-        for(Map.Entry<String,Integer> entry: carsState.entrySet()){
-            System.out.print(entry.getKey()+" : ");
+    public static void carsStateShow(HashMap<String, Integer> carsState) {
+        for (Map.Entry<String, Integer> entry : carsState.entrySet()) {
+            System.out.print(entry.getKey() + " : ");
             positionShow(entry.getValue());
         }
         System.out.println();
