@@ -85,9 +85,8 @@ public class InputHandler {
     }
 
     public static boolean hasDuplicates(String target) {
-        Stream<String> stream = Arrays.stream(target.split(COMMA));
-        List<String> list = stream.collect(Collectors.toList());
-        Set<String> set = stream.collect(Collectors.toSet());
+        List<String> list = Arrays.stream(target.split(COMMA)).collect(Collectors.toList());
+        Set<String> set = Arrays.stream(target.split(COMMA)).collect(Collectors.toSet());
         return (list.size() != set.size());
     }
 }
