@@ -22,11 +22,11 @@ class CarTest {
 
     @ParameterizedTest
     @MethodSource("moveArgumentsProvider")
-    void 주어진_MovingStrategy에_따라_이동한다(MovingStrategy movingStrategy, int expectedValue) {
+    void 주어진_MovingStrategy에_따라_이동한다(MovingStrategy movingStrategy, int expectedPosition) {
         Car car = Car.from("melon");
         car.move(movingStrategy);
 
-        assertThat(car.positionValue()).isEqualTo(expectedValue);
+        assertThat(car.positionValue()).isEqualTo(expectedPosition);
     }
 
     static Stream<Arguments> moveArgumentsProvider() {
