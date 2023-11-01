@@ -6,12 +6,15 @@ import java.util.List;
 
 public class Converter {
 
-    public List<String> separatedStringToList(String s, String separator) {
+    private Converter() {
+    }
+
+    public static List<String> separatedStringToList(String s, String separator) {
         String[] result = s.split(separator);
         return new ArrayList<>(Arrays.asList(result));
     }
 
-    public List<Car> nameListToCarList(List<String> nameList) {
+    public static List<Car> nameListToCarList(List<String> nameList) {
         List<Car> carList = new ArrayList<>();
 
         for (String name : nameList) {
