@@ -12,14 +12,12 @@ public class RacingGame {
         this.raceCount = raceCount;
     }
 
-    public static RacingGame init(Cars carList, int raceCount) {
-        return new RacingGame(carList, raceCount);
+    public static RacingGame init(Cars cars, int raceCount) {
+        return new RacingGame(cars, raceCount);
     }
 
-    public void playGame() {
+    public void playGame(RandomSingleNumber number) {
         for (Car car : cars.getCarList()) {
-            RandomSingleNumber number = RandomSingleNumber.create();
-
             if (number.isAtLeast(MOVE_THRESHOLD)) {
                 car.move();
             }

@@ -1,5 +1,8 @@
 package racingcar.controller;
 
+import static racingcar.common.Constant.RAND_NUM_MAX_RANGE;
+import static racingcar.common.Constant.RAND_NUM_MIN_RANGE;
+
 import racingcar.controller.dto.request.CarNameDto;
 import racingcar.controller.dto.request.RaceCountDto;
 import racingcar.controller.dto.response.GameResultDto;
@@ -7,6 +10,7 @@ import racingcar.controller.dto.response.RaceResultDto;
 import racingcar.model.Cars;
 import racingcar.model.GameResult;
 import racingcar.model.RacingGame;
+import racingcar.model.RandomSingleNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -45,7 +49,8 @@ public class GameController {
         outputView.printExecutionResultMessage();
 
         for (int round = 1; round <= racingGame.getRaceCount(); round++) {
-            racingGame.playGame();
+            RandomSingleNumber number = RandomSingleNumber.of(RAND_NUM_MIN_RANGE, RAND_NUM_MAX_RANGE);
+            racingGame.playGame(number);
 
             outputView.printRaceResult(new RaceResultDto(racingGame.getCarList()));
         }
