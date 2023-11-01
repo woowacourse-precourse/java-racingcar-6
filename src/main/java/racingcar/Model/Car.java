@@ -22,10 +22,13 @@ public class Car {
     }
 
     public void move(){
-
-        int randomValue=Randoms.pickNumberInRange(0,9);
-        if(randomValue>=4){
-            position++;
+        try {
+            int randomValue = Randoms.pickNumberInRange(0, 9);
+            if (randomValue >= 4) {
+                position++;
+            }
+        } catch (Exception e) {
+            System.err.println("랜덤 값 생성 오류: " + e.getMessage());
         }
     }
 
