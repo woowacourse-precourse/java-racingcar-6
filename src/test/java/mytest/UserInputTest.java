@@ -9,23 +9,44 @@ import org.junit.jupiter.api.Test;
 import racingcar.util.UserInput;
 
 public class UserInputTest {
-    static final int NAME_LENGTH = 5;
+    static final int MIN_NAME_LENGTH = 1;
+    static final int MAX_NAME_LENGTH = 5;
 
     @DisplayName("차 이름을 입력 받고 유효한 값인지 확인")
     @Test
     void testGetCarNames() {
         String[] carNames = {"Car1", "Car2", "Car3"};
+        assertDoesNotThrow(() -> UserInput.checkEmpty(carNames));
         assertDoesNotThrow(() -> UserInput.checkNameLength(carNames));
         assertDoesNotThrow(() -> UserInput.checkDuplicates(carNames));
     }
 
-    @DisplayName("각 차 이름의 길이가 알맞은지 확인")
+    @DisplayName("차 이름 목록이 비었는지 확인")
     @Test
-    void testCheckNameLength() {
+    void testCheckEmpty() {
+        String[] carNames = {};
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+                UserInput.checkEmpty(carNames));
+        assertEquals(String.format("이름을 %d자 이상, %d자 이내로 입력해주세요.", MIN_NAME_LENGTH, MAX_NAME_LENGTH),
+                exception.getMessage());
+    }
+
+    @DisplayName("차 이름이 최소 길이보다 짧은지 확인")
+    @Test
+    void testCheckNameLength_shortName() {
+        String[] carNames = {"Car1", "Car2", ""};
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+                UserInput.checkNameLength(carNames));
+        assertEquals(String.format("이름을 %d자 이상 입력해주세요.", MIN_NAME_LENGTH), exception.getMessage());
+    }
+
+    @DisplayName("차 이름이 최대 길이보다 긴지 확인")
+    @Test
+    void testCheckNameLength_longName() {
         String[] carNames = {"Car1", "Car2", "Car3456"};
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
                 UserInput.checkNameLength(carNames));
-        assertEquals(String.format("이름을 %s자 이내로 입력해주세요.", NAME_LENGTH), exception.getMessage());
+        assertEquals(String.format("이름을 %s자 이내로 입력해주세요.", MAX_NAME_LENGTH), exception.getMessage());
     }
 
     @DisplayName("차 이름 중 중복된 값이 있는지 확인")
