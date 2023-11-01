@@ -91,5 +91,15 @@ class OutputViewTest {
                 .isEqualTo("");
     }
 
+    @DisplayName("자동차 이름을 구분자와 함께 출력하는 기능 ")
+    @Test
+    void carNameWithDelim() {
+        //given
+        addCars();
+        Car car = carList.get(1);
 
+        //then
+        Assertions.assertThat(OutputView.nameConcatDelim(car))
+                .isEqualTo("홍길동 : ");
+    }
 }
