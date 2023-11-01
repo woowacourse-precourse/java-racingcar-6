@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import javax.naming.Name;
 import java.util.List;
 
 public class UserInput {
