@@ -41,4 +41,11 @@ class NumberOfAttemptsTest {
                 .hasMessageContaining(NUMBER_OF_ATTEMPTS_BLANK_OR_NULL);
     }
 
+    @Test
+    void 입력_받은_시도_횟수는_null이어선_안된다() {
+        assertThatThrownBy(() -> new NumberOfAttempts(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NUMBER_OF_ATTEMPTS_BLANK_OR_NULL);
+    }
+
 }
