@@ -51,6 +51,16 @@ public class RacingServiceTest {
     }
 
     @Test
+    void printForwards_전진_현황_출력() {
+        Car car = new Car("pobi", 3);
+
+        racingService.printForwards(car);
+
+        assertThat(outputStream.toString())
+                .isEqualTo("---");
+    }
+
+    @Test
     void pickWinner_공동_우승자인_경우() {
         List<Car> cars = Arrays.asList(
                 new Car("pobi", 4),
