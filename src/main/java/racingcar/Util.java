@@ -7,7 +7,7 @@ import java.util.List;
 public class Util {
 
     public String[] splitString(String input) {
-            return input.split(",");
+        return input.split(",");
 }
 
     public int getRandomNum() {
