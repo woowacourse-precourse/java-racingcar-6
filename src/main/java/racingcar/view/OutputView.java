@@ -8,10 +8,11 @@ import java.util.List;
 
 public class OutputView {
     private static final String DISTANCE_MARK = "-";
-    private static final String COLON = ":";
+    private static final String COLON = " : ";
     private static final String DELIMITER = ", ";
 
     public static void printExecutionResult() {
+        System.out.println();
         System.out.println(Messages.EXECUTION_RESULT);
     }
 
@@ -32,9 +33,7 @@ public class OutputView {
 
     private static String printDistanceMark(int count) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < count; i++) {
-            stringBuilder.append(DISTANCE_MARK);
-        }
+        stringBuilder.append(DISTANCE_MARK.repeat(Math.max(0, count)));
         return stringBuilder.toString();
     }
 }
