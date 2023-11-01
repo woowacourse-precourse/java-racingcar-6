@@ -17,7 +17,7 @@ public class Cars {
         return this.cars;
     }
 
-    public List<String> winner() {
+    public List<String> getWinner() {
         List<String> winners = cars.stream()
                 .filter(car -> car.getDistance() == maxDistance())
                 .map(Car::getName)

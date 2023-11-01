@@ -50,6 +50,6 @@ public class RacingGameController {
     }
 
     private void showWinners() {
-        printWinners(cars.winner());
+        printWinners(cars.getWinner());
     }
 }
