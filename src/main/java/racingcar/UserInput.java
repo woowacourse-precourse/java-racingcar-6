@@ -10,4 +10,8 @@ public class UserInput {
         String carsInput = Console.readLine();
         List<String> cars = Arrays.asList(carsInput.split(","));
     }
+
+    public static void getGameCount() {
+        String gameCount = Console.readLine();
+    }
 }
