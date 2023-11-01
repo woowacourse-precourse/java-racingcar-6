@@ -15,15 +15,14 @@ public class RacingGameProcessManager {
             int validatedTryCount = tryCount.validateTryCount();
 
             Forward forward = new Forward();
+            RacingGameResultReport report = new RacingGameResultReport();
+            report.printResultTitle();
             for (int i = 0; i < validatedTryCount; i++) {
                 for (String carName : validatedCarNames) {
                     forward.updatePosition(racingStateMap, carName);
                 }
-                RacingGameResultReport report = new RacingGameResultReport();
                 report.printCarPositionWithName(racingStateMap);
             }
-
-            RacingGameResultReport report = new RacingGameResultReport();
             report.announceWinners(racingStateMap);
 
         } catch (IllegalArgumentException e) {
