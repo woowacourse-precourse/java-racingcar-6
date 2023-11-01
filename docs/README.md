@@ -69,3 +69,11 @@
         - [X] 입력받은 이름들로 자동차 클래스를 동적 할당한다. - `RacingGame#entryCars()`
     - [X] 사용자로부터 시도 횟수를 입력받을 수 있다. - `RacingGame#roundInputRequest()`
         - [X] 입력받은 시도 횟수와 자동차 클래스들로 경주 클래스를 동적 할당한다. - `RacingGame#start()`
+
+## ✅ 구현 테스트 목록
+
+- [X] 콘솔에 출력하고자 하는 메세지가 올바른가? - `ConsoleTest`, `ExceptionTypeTest`
+- [X] 게임 내 다룰 상수들이 올바르게 입력되어 있는가? - `ExceptionTypeTest`
+- [X] 올바른 입력과 올바르지 않은 입력에 대해 적절한 검사를 수행하는가? - `ValidatorTest`
+- [X] 자동차가 전진했을 때 올바르게 상태가 출력되는가? - `CarTest`
+- [X] 사용자의 입력에 대한 예외 처리와 공동 우승자에 대한 출력이 올바른가? - `RacingGameTest`
