@@ -27,7 +27,7 @@ public class Racing {
             startMatch();
             showMatchResult();
         }
-
+        showRacingResult();
     }
 
     public void inputCarName() {
@@ -86,4 +86,27 @@ public class Racing {
         System.out.println(sb);
     }
 
+    public void showRacingResult() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        boolean checkPrint = false;
+        int maxMovement = 0;
+        for(Car car : carList) {
+            int movement = car.getMovement();
+            if(movement > maxMovement)
+                maxMovement = movement;
+        }
+        for(Car car : carList) {
+            if(checkPrint && car.getMovement() == maxMovement){
+                sb.append(", ");
+                sb.append(car.getCarName());
+            }
+            else if(!checkPrint && car.getMovement() == maxMovement){
+                sb.append(car.getCarName());
+                checkPrint = true;
+            }
+
+        }
+        System.out.println(sb);
+    }
 }
