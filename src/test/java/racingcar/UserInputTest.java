@@ -3,55 +3,58 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
 
 public class UserInputTest {
-
     private UserInput userInput;
+
     @BeforeEach
     void setUp() {
-        userInput=new UserInput();
+        userInput = new UserInput();
     }
+
     @Test
-    void getCarListTest(){
+    void getCarListTest() {
         try (MockedStatic<Console> mockedStatic = Mockito.mockStatic(Console.class)) {
             mockedStatic.when(Console::readLine).thenReturn("carA,carB,carC");
+
             List<String> result = userInput.getCarList();
             assertEquals(List.of("carA", "carB", "carC"), result);
         }
     }
+
     @Test
-    void validCarTest(){
+    void validCarTest() {
         assertThrows(IllegalArgumentException.class, () -> {
             userInput.validCar("carABC");
         });
-        assertDoesNotThrow(()-> {userInput.validCar("carA");});
+        assertDoesNotThrow(() -> {
+            userInput.validCar("carA");
+        });
 
     }
+
     @Test
-    void getAttemptNumberTest(){
-        try(MockedStatic<Console> mockedStatic = Mockito.mockStatic(Console.class)){
+    void getAttemptNumberTest() {
+        try (MockedStatic<Console> mockedStatic = Mockito.mockStatic(Console.class)) {
             mockedStatic.when(Console::readLine).thenReturn("55");
-            assertEquals(userInput.getAttemptNumber(),Integer.parseInt("55"));
+            assertEquals(userInput.getAttemptNumber(), Integer.parseInt("55"));
         }
     }
+
     @Test
-    void validNumberTest(){
-        assertThrows(IllegalArgumentException.class,() ->{
+    void validNumberTest() {
+        assertThrows(IllegalArgumentException.class, () -> {
             userInput.validAttemptNumber("12w");
         });
-        assertDoesNotThrow(() ->{
+        assertDoesNotThrow(() -> {
             userInput.validAttemptNumber("32");
         });
-
     }
 }
