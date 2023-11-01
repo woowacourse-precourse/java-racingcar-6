@@ -16,10 +16,10 @@ public class ConverterTest {
         Assertions.assertThat(result).isEqualTo(123);
     }
 
-//    @Test
-//    void 숫자가_아닌_문자열을_정수로_변환() {
-//        String input = "notNumber";
-//
-//        assertThrows(IllegalArgumentException.class, () -> Converter.stringToInt(input));
-//    }
+    @Test
+    void 숫자가_아닌_문자열을_정수로_변환() {
+        String input = "notNumber";
+
+        assertThrows(IllegalArgumentException.class, () -> Converter.stringToInt(input));
+    }
 }
