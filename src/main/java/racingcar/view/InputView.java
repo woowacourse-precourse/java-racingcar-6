@@ -16,8 +16,12 @@ public class InputView {
     public int inputTotalRound() {
         outputView.printTotalRoundInputMessage();
         String totalRound = Console.readLine();
+        validateTotalRound(totalRound);
+        return Integer.parseInt(totalRound);
+    }
+
+    private void validateTotalRound(String totalRound) {
         Validator totalRoundValidator = appConfig.totalRoundValidator();
         totalRoundValidator.validate(totalRound);
-        return Integer.parseInt(totalRound);
     }
 }
