@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.game.CarList;
+import racingcar.game.Simulator;
 import racingcar.view.DataIOHandler;
 
 public class Application {
@@ -10,10 +11,7 @@ public class Application {
 
         CarList carList = new CarList(commaSeparatedNames);
 
-        carList.tryAllCars();
-        carList.tryAllCars();
-        carList.tryAllCars();
-        carList.printCarsStatus();
+        Simulator.simulateSeveralTimes(carList, tryCount);
         System.out.println(carList.getLongestDistanceNames());
     }
 }
