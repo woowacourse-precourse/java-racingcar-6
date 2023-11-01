@@ -3,7 +3,7 @@ package racingcar.constant;
 public enum Delimiter {
 
     COMMA(","),
-    WINNER_OUTPUT_DELIMITER(", ");
+    WINNER_OUTPUT_COMMA(", ");
 
 
     private final String delimiter;
