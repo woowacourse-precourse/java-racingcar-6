@@ -1,39 +1,42 @@
 package racingcar.model;
 
+import racingcar.model.vo.Name;
+import racingcar.model.vo.RoundResult;
+
 public final class Car {
-    private final String name;
-    private Integer position;
+    private final Name name;
+    private final Position position;
 
     @Override
     public String toString() {
-        return name;
+        return name.name();
     }
 
-    private Car(final String givenName) {
-        GameRuleValidator.validateName(givenName);
-        this.name = givenName;
-        this.position = 0;
+    private Car(final Name name, final Position position) {
+        this.name = name;
+        this.position = position;
     }
 
-    public static Car applyName(final String givenName) {
-        return new Car(givenName);
+    public static Car applyName(final Name givenName) {
+        return new Car(givenName, new Position(0));
     }
 
     public Integer changePosition(final CarMovementStatus movementStatus) {
         if (movementStatus.equals(CarMovementStatus.MOVING_FORWARD)) {
-            return ++position;
+            return position.plusOne();
         }
         if (movementStatus.equals(CarMovementStatus.STOP)) {
-            return position;
+            return position.getPosition();
         }
         throw new IllegalArgumentException();
     }
 
     public RoundResult getRoundResult() {
-        return new RoundResult(name, position);
+        return new RoundResult(name.name(), position.getPosition());
     }
 
-    public Boolean isWinner(Integer givenPosition) {
-        return position.equals(givenPosition);
+    public Boolean isWinner(Integer maxPosition) {
+        Position givenPosition = new Position(maxPosition);
+        return position.isSame(givenPosition);
     }
 }

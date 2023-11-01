@@ -1,9 +1,10 @@
 package racingcar.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
+import racingcar.model.vo.Name;
+import racingcar.model.vo.RoundResult;
 
 public non-sealed class RacingCars implements Cars{
     private final List<Car> cars;
@@ -16,7 +17,8 @@ public non-sealed class RacingCars implements Cars{
     public RacingCars applyNames(final List<String> names) {
         List<Car> newCars = new ArrayList<>(this.cars);
         for (String name : names) {
-            newCars.add(Car.applyName(name));
+            Name carName = new Name(name);
+            newCars.add(Car.applyName(carName));
         }
         return new RacingCars(newCars);
     }
@@ -48,18 +50,13 @@ public non-sealed class RacingCars implements Cars{
     }
 
     public List<String> getWinnerName() {
-        Integer maxPosition = getWinnerPosition();
-        return cars.stream()
-                .filter(car -> car.isWinner(maxPosition))
-                .map(Car::toString)
-                .toList();
+        RaceResult raceResult = getRaceResult();
+        return raceResult.getWinnerNames();
     }
 
-    public Integer getWinnerPosition() {
-        return cars.stream()
-                .map(Car::getRoundResult)
-                .mapToInt(RoundResult::position)
-                .max()
-                .orElse(0);
+    private RaceResult getRaceResult() {
+        List<RoundResult> results = cars.stream()
+                .map(Car::getRoundResult).toList();
+        return new RaceResult(results);
     }
 }

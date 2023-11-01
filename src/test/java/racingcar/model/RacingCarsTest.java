@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import racingcar.model.vo.Name;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RacingCarsTest {
@@ -71,7 +72,8 @@ public class RacingCarsTest {
     private List<Car> initializeCarListWithPositions(String... names) {
         List<Car> carList = new ArrayList<>();
         for (String name : names) {
-            Car car = Car.applyName(name);
+            Name carName = new Name(name);
+            Car car = Car.applyName(carName);
             car.changePosition(CarMovementStatus.MOVING_FORWARD);
             car.changePosition(CarMovementStatus.MOVING_FORWARD);
             carList.add(car);

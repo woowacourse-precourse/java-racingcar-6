@@ -1,12 +1,12 @@
 package racingcar.model;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.model.vo.Name;
 
 public class CarTest {
     Car car;
@@ -14,14 +14,16 @@ public class CarTest {
     @BeforeEach
     void setUp() {
         String givenName = "cho";
-        car = Car.applyName(givenName);
+        Name name = new Name(givenName);
+        car = Car.applyName(name);
     }
 
     @Test
     @DisplayName("자동차에 이름을 부여할 수 있다.")
     public void carNameApplyTest() {
         String givenName = "sung";
-        Car car = Car.applyName(givenName);
+        Name name = new Name(givenName);
+        Car car = Car.applyName(name);
         assertThat(car.toString()).isEqualTo(givenName);
     }
 
