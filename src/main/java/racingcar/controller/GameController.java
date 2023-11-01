@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.InputUtil;
+import racingcar.model.OutputUtil;
 import racingcar.model.RandomUtil;
+import racingcar.view.RaceProgressView;
 import racingcar.view.RaceStartView;
 
 public class GameController {
@@ -29,6 +31,8 @@ public class GameController {
 
         for (int i = 0; i < lap; i++) {
             oneLap();
+            List<String> carInfo = OutputUtil.printCarInfo(carObjects);
+            RaceProgressView.printRaceProgress(carInfo);
         }
     }
 
