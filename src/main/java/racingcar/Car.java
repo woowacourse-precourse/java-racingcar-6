@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    final static int MOVING_FORWARD=4;
     private String name;
     private int currentStep = 0;
 
@@ -10,13 +11,15 @@ public class Car {
         this.name = name;
     }
 
-    public boolean isMovingForward() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        return randomNumber >= 4;
+    public boolean isMovingForward(int randomNumber){
+        return randomNumber>=MOVING_FORWARD;
     }
 
     public void startGameTurn() {
-        if (isMovingForward()) {
+        Number number=new Number();
+        int randomNumber=number.generateRandomNumber();
+
+        if (isMovingForward(randomNumber)) {
             increaseCurrentStep();
         }
     }
