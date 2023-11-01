@@ -19,8 +19,8 @@ public class Game {
         String[] carNames = carInput.split(",");
 
         // 최소 자동차 2대 에러처리
-        if (carNames.length<2){
-            throw new IllegalArgumentException("자동차는 최소 2대 이상이어야합니다.");
+        if (carNames.length<1){
+            throw new IllegalArgumentException("자동차가 필요합니다.");
         }
         for(String name : carNames){
             Car car = new Car(name.trim());
@@ -70,7 +70,7 @@ public class Game {
             }
         }
 
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             if (i > 0) {
                 System.out.print(", ");
