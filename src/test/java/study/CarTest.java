@@ -11,7 +11,6 @@ public class CarTest {
 
     @Test
     void 생성_유효한_자동차() {
-        // 유효한 자동차 이름인 경우
         Car car = new Car("pobi");
         assertThat(car.getName()).isEqualTo("pobi");
         assertThat(car.getPosition()).isEqualTo(0);
@@ -19,7 +18,6 @@ public class CarTest {
 
     @Test
     void 생성_무효한_자동차_이름() {
-        // 무효한 자동차 이름인 경우
         assertThatThrownBy(() -> new Car("")).isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> new Car("123456")).isInstanceOf(IllegalArgumentException.class);
     }
