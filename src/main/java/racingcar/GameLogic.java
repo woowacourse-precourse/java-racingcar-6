@@ -6,8 +6,8 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameLogic {
-    private List<String> progresses = new ArrayList<>();
-    private int maxPosition = 0;
+    public List<String> progresses = new ArrayList<>();
+    public int maxPosition = 0;
 
     public void runGame(List<String> carNames, int raceRounds) {
         initializeProgress(carNames.size());
@@ -22,25 +22,25 @@ public class GameLogic {
         findWinner(carNames);
     }
 
-    private void initializeProgress(int size) {
+    public void initializeProgress(int size) {
         for (int i = 0; i < size; i++) {
             progresses.add("");
         }
     }
 
-    private void updateProgress(int index) {
+    public void updateProgress(int index) {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             String currentProgress = progresses.get(index);
             progresses.set(index, currentProgress + "-");
         }
     }
 
-    private void findWinner(List<String> carNames) {
+    public void findWinner(List<String> carNames) {
         List<String> winners = getWinners(carNames);
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
-    private List<String> getWinners(List<String> carNames) {
+    public List<String> getWinners(List<String> carNames) {
         List<String> winners = new ArrayList<>();
         for (int i = 0; i < carNames.size(); i++) {
             int currentProgress = countProgress(progresses.get(i));
@@ -49,7 +49,7 @@ public class GameLogic {
         return winners;
     }
 
-    private void updateWinners(List<String> winners, String carName, int currentProgress) {
+    public void updateWinners(List<String> winners, String carName, int currentProgress) {
         if (currentProgress >= maxPosition) {
             if (currentProgress > maxPosition) {
                 winners.clear();
@@ -59,7 +59,7 @@ public class GameLogic {
         }
     }
 
-    private int countProgress(String progress) {
+    public int countProgress(String progress) {
         return (int) progress.chars().filter(ch -> ch == '-').count();
     }
 }
