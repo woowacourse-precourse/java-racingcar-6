@@ -19,4 +19,14 @@ public class RacingCarTest {
         assertThat(advanceMarking).isEqualTo("");
     }
 
+    @Test
+    @DisplayName("한칸 전진한다.")
+    void checkRandomNumberInRange() {
+        // given
+        racingCar = new RacingCar("pobi");
+        //when
+        racingCar.advance();
+        // then
+        assertThat(racingCar.getAdvanceMarking()).isEqualTo("-");
+    }
 }
