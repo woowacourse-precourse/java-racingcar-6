@@ -20,6 +20,7 @@ public class Cars {
             Car car = new Car(carName);
 
             this.carList.add(car);
+            this.movedCount.add(0);
         }
 
         this.carListSize = this.carList.size();
@@ -68,7 +69,7 @@ public class Cars {
         String result = "";
 
         for (Car car : this.carList) {
-            result += car.toString();
+            result += car.getForwardResultMessage();
             result += OutputMessage.LINE_FEED.getMessage();
         }
 
