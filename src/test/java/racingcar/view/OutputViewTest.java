@@ -45,4 +45,21 @@ class OutputViewTest {
         Assertions.assertThat(outputView.getWinnerNames(carList))
                 .isEqualTo("최종 우승자 : 홍길동");
     }
+
+    @DisplayName("동일 이동 거리의 차가 2대 이상 일 경우 컴마(',')를 추가하여 이름을 출력한다.")
+    @Test
+    void getWinnerNamesWithWinnerDelim() {
+        //given
+        addCars();
+        moveCar(1);
+        moveCar(2);
+
+        //when
+        referee.selectWinnerList(carList);
+        OutputView outputView = new OutputView();
+
+        //then
+        Assertions.assertThat(outputView.getWinnerNames(carList))
+                .isEqualTo("최종 우승자 : 홍길동, 포비");
+    }
 }
