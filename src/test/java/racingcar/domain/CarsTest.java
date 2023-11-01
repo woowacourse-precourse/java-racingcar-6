@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static testutil.TestUtil.createCar;
+import static testutil.TestUtil.createCars;
 
 import generator.NumberGenerator;
 import java.util.ArrayList;
@@ -10,14 +12,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarsTest {
-
-    private Car createCar(String name, int position) {
-        return new Car(new CarName(name), new CarPosition(position));
-    }
-
-    private Cars createCars(Car... car) {
-        return new Cars(List.of(car));
-    }
 
     @Test
     @DisplayName("불변컬렉션 여부를 확인한다.")

@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static testutil.TestUtil.createAttempts;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,8 +15,8 @@ public class AttemptsTest {
     @ValueSource(ints = {1, 2, 3, 4, 5, 10, 50, 100, 150, 300, 500})
     @DisplayName("유효한 수는 예외를 발생시키지 않는다.")
     void should_NotThrowIllegalArgumentException_When_NumberIsValid(int number) {
-        Attempts attempts = new Attempts(number);
-        assertThat(attempts).isEqualTo(new Attempts(number));
+        Attempts attempts = createAttempts(number);
+        assertThat(attempts).isEqualTo(createAttempts(number));
     }
 
     @ParameterizedTest
@@ -23,7 +24,7 @@ public class AttemptsTest {
     @DisplayName("MAXIMUM_ATTEMPTS를 초과하는 수는 예외를 발생시킨다.")
     void should_ThrowIllegalArgumentException_When_NumberIsOverThanMaximumAttempts(int number) {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Attempts(number);
+            createAttempts(number);
         });
     }
 
@@ -32,7 +33,7 @@ public class AttemptsTest {
     @DisplayName("0 혹은 음수는 예외를 발생시킨다.")
     void should_ThrowIllegalArgumentException_When_NumberIsZeroOrNegative(int number) {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Attempts(number);
+            createAttempts(number);
         });
     }
 
@@ -41,7 +42,7 @@ public class AttemptsTest {
     @DisplayName("문자열은 예외를 발생시킨다.")
     void should_ThrowIllegalArgumentException_When_ParameterIsString(String input) {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Attempts(Integer.parseInt(input));
+            createAttempts(Integer.parseInt(input));
         });
     }
 
@@ -49,7 +50,7 @@ public class AttemptsTest {
     @DisplayName("공백은 예외를 발생시킨다.")
     void should_ThrowIllegalArgumentException_When_ParameterIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Attempts(Integer.parseInt(""));
+            createAttempts(Integer.parseInt(""));
         });
     }
 
