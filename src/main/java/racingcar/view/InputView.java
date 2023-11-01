@@ -4,7 +4,10 @@ import racingcar.domain.Cars;
 import racingcar.domain.dto.input.CarsRequestDto;
 import racingcar.io.InputReader;
 import racingcar.io.OutputWriter;
+import racingcar.parser.Parser;
 import racingcar.validator.TryTimesValidator;
+
+import java.util.List;
 
 public class InputView {
     private final InputReader reader;
@@ -18,8 +21,9 @@ public class InputView {
     public Cars getCars() {
         writer.writeInputNameMsg();
         String carNames = reader.readLine();
-        CarsRequestDto carsRequestDto = new CarsRequestDto(carNames);
-        return carsRequestDto.toCars();
+        List<String> carNameList = Parser.parseCarNames(carNames);
+        CarsRequestDto carsRequestDto = new CarsRequestDto(carNameList);
+        return Cars.from(carsRequestDto.carNameList());
     }
 
     public int getTryTimes() {

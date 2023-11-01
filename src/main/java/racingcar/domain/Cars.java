@@ -4,7 +4,6 @@ import racingcar.domain.dto.output.CarsDto;
 import racingcar.domain.dto.output.WinnerDto;
 import racingcar.domain.dto.output.WinnersDto;
 import racingcar.exception.ExceptionMessage;
-import racingcar.validator.CarNameValidator;
 
 import java.util.List;
 
@@ -12,16 +11,9 @@ public class Cars {
     private final List<Car> carList;
 
     public Cars(List<String> carNameList) {
-        validate(carNameList);
         this.carList = carNameList.stream()
                 .map(Car::new)
                 .toList();
-    }
-
-    private static void validate(List<String> carNameList) {
-        CarNameValidator.validateWhiteSpace(carNameList);
-        CarNameValidator.validateDuplicatedName(carNameList);
-        CarNameValidator.validateNameLength(carNameList);
     }
 
     public static Cars from(List<String> carNameList) {
