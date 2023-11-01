@@ -25,6 +25,7 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         Integer gameCount = Integer.valueOf(readLine());
+        if (gameCount < 0) throw new IllegalArgumentException("시도 횟수 입력에 대한 예외 처리");
         Monitor monitor = new Monitor(cars);
 
         System.out.println();
@@ -37,8 +38,6 @@ public class Application {
 
             monitor.printCars();
         }
-
-        //
 
         Referee referee = new Referee(cars);
         System.out.println("최종 우승자 : " + referee.whoIsWinner());
