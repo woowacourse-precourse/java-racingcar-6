@@ -7,6 +7,7 @@ public final class Name {
     private final String name;
 
     private Name(String name) {
+        //입력 문자열 압뒤 공백 제거
         String trimmedName = name.trim();
         NameValidator.validate(trimmedName);
         this.name = trimmedName;

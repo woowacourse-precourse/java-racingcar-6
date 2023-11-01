@@ -21,9 +21,13 @@ import racingcar.view.InputView;
  */
 public class GameLauncher {
 
+    private GameLauncher() {
+        throw new AssertionError();
+    }
+
     //게임 실행
     public static void run() {
-        //사용자로부터 입력을 읽음.
+        //사용자로부터 입력을 읽음
         InputDTO userInput = readInput();
 
         //입력에 따라 레이싱 게임을 설정
@@ -62,13 +66,13 @@ public class GameLauncher {
         return Car.createCarList(names);
     }
 
-    // 움직임 전략을 생성, 랜덤 생성기를 DI.
+    // 움직임 전략을 생성, 랜덤 생성기를 DI
     private static MoveStrategy createMoveStrategy() {
         RandomGenerator randomGenerator = NsRandomGenerator.of();
         return RandomMoveStrategy.of(randomGenerator);
     }
 
-    // Racing 객체를 조립하여 반환.
+    // Racing 객체를 조립하여 반환
     private static Racing assembleRacing(RacingCars racingCars, RacingWinners racingWinners) {
         Game game = Game.of(racingCars);
         Result result = Result.of(racingWinners);

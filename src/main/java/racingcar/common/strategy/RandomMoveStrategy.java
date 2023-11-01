@@ -15,6 +15,7 @@ public class RandomMoveStrategy implements MoveStrategy {
         return new RandomMoveStrategy(randomGenerator);
     }
 
+    //램덤 숫자가 4이상인 경우 증가
     @Override
     public boolean isMovable() {
         return randomGenerator.generate() >= MOVABLE_THRESHOLD;
