@@ -24,7 +24,7 @@ public class Control {
     private static void readyCarName() {
         String input = InputView.requestCarName();
         Validation.validateNameInput(input);
-        Cars.carNames = Cars.makeCarList(input);
+        Cars.carNames = Cars.convertStringToList(input);
     }
 
     private static void readyRound() {
