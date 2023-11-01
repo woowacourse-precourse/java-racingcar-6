@@ -7,5 +7,11 @@ public class Application {
         Race race = new Race();
         car.inputCar();
         race.inputMove();
+        for (String name : car.getCar()){
+            if (race.isGo()){
+                car.goCar(name);
+            }
+        }
+        race.endRace();
     }
 }
