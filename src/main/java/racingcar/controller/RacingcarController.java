@@ -23,12 +23,12 @@ public class RacingcarController {
 
         inputCarName = racingcarView.inputName();
         if (!validation.validationNames(inputCarName)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("이름을 정확하게 입력해주세요.");
         }
 
         inputNumber = racingcarView.inputNumber();
         if (!validation.validationNumber(inputNumber)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("횟수를 정확하게 입력해주세요.");
         }
 
         Map<String, Car> carMap = cars.makeCarList(inputCarName);
