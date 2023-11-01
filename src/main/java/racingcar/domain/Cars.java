@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Cars {
     private final List<Car> cars;
@@ -25,6 +26,14 @@ public class Cars {
         for (Car car : cars) {
             car.move(strategy);
         }
+    }
+
+    public int getMaxPosition() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .mapToInt(p -> p)
+                .max()
+                .orElseThrow(NoSuchElementException::new);
     }
 
     public List<Car> getCars() {
