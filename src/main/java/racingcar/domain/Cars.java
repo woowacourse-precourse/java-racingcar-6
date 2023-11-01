@@ -58,8 +58,9 @@ public class Cars {
     }
 
     public void play() {
-        cars.stream()
-                .forEach(car -> car.MoveOrStop(randomNumberGenerator.generateRandomNumber()));
+        for (Car car : cars) {
+            car.MoveOrStop(randomNumberGenerator.generateRandomNumber());
+        }
     }
 
     public List<Car> getCars() {
