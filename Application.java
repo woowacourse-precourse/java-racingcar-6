@@ -110,24 +110,3 @@ public class Application {
         }
     }
 }
-
-
-//        List<Car> PrintWinners(List<Car> cars) {
-//            return PrintWinners(cars, MaxPosition(cars));
-//        }
-//        public static List<Car> PrintWinners(List<Car> cars) {
-//            for (Car car : cars) {
-//                if(cars.isMaxPostion(MacPosition)) {
-//                    winners.add(car);
-//                }
-//            }
-//            return winners;
-//        }
-//        private static int MaxPosition(List<Car> cars) {
-//            int MaxPosition = 0;
-//            for (Car car : cars) {
-//                MaxPosition = car.GetPosition(MaxPosition);
-//            }
-//        }
-
-
