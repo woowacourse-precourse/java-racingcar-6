@@ -1,6 +1,11 @@
 package racingcar.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InputValidator {
+
+    private static List<String> check_duplicate = new ArrayList<>();
 
     public int number(String numString){
         Integer number = validateNum(numString);
@@ -11,13 +16,17 @@ public class InputValidator {
         String[] carNames = carStr.split(",");
         for (String name:
              carNames) {
-            validateCars(name);
-
-        }
+                validateCars(name);
+                check_duplicate.add(name);
+            }
         return carStr;
     }
 
     private static void validateCars(String name) {
+        if (check_duplicate.contains(name)) {
+            throw new IllegalArgumentException("중복된 이름을 입력하셨습니다.");
+        }
+
         if (name.length() > 5) {
             throw new IllegalArgumentException("너무 긴 이름를 입력했습니다.");
         }
