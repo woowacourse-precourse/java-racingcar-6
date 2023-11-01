@@ -1,5 +1,7 @@
 package racingcar.factory.impl;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
@@ -17,9 +19,11 @@ class NamedCarGameFactoryTest {
 
     @Test
     void createGameFail() {
-        NamedCarGameFactory namedCarGameFactory = new NamedCarGameFactory("nero123,naro", 3);
-        Assertions.fail();
-        Game game = namedCarGameFactory.createGame();
-        game.play();
+        assertThrowsExactly(IllegalArgumentException.class, () -> {
+            NamedCarGameFactory namedCarGameFactory = new NamedCarGameFactory("nero123,naro", 3);
+            Assertions.fail();
+            Game game = namedCarGameFactory.createGame();
+            game.play();
+        });
     }
 }
