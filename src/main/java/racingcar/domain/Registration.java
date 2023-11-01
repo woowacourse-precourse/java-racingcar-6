@@ -22,5 +22,13 @@ public class Registration {
         return cars;
     }
 
+    public int enterCountOfPlays(){
+        String input = Console.readLine();
+        final int countOfPlays = inputValidator.convertToValidInteger(input);
+        inputValidator.validatePlayCountIsPositive(countOfPlays);
+        return countOfPlays;
+
+    }
+
 
 }
