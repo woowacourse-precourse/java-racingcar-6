@@ -2,24 +2,27 @@ package domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Attempt;
-import racingcar.domain.CarsFactory;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.Game;
 import racingcar.domain.Movement;
 
 public class GameTest {
-    private CarsFactory carsFactory;
+    private Cars cars;
     private Attempt attempt;
     private Movement movement;
 
     @BeforeEach
     public void setUp() {
-        carsFactory = new CarsFactory();
+        cars = new Cars();
         attempt = new Attempt();
         movement = new Movement();
     }
@@ -29,7 +32,7 @@ public class GameTest {
         String input = "pobi,woni,jun";
         command(input);
 
-        List<String> carNames = carsFactory.inputCarNames();
+        List<String> carNames = cars.inputCarNames();
 
         assertThat(carNames).containsExactly("pobi", "woni", "jun");
     }
@@ -42,13 +45,23 @@ public class GameTest {
     }
 
     @Test
-    void 무작위_값_생성하기() {
-        int RANDOM_NUMBER_MINIMUM = 0;
-        int RANDOM_NUMBER_MAXIMUM = 9;
+    void 우승자_찾기() {
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("pobi"));
+        cars.add(new Car("woni"));
+        cars.add(new Car("jun"));
 
-        int randomValue = movement.createRandomNumber();
+        Game game = new Game(cars, 5);
 
-        assertTrue(randomValue >= RANDOM_NUMBER_MINIMUM && randomValue <= RANDOM_NUMBER_MAXIMUM);
+        cars.get(0).move();
+        cars.get(1).move();
+        cars.get(2).move();
+        cars.get(0).move();
+        cars.get(1).move();
+
+        String winnerResult = game.listWinner();
+
+        assertEquals("pobi, woni", winnerResult);
     }
 
     private void command(final String... args) {
