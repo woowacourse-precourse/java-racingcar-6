@@ -11,8 +11,10 @@ public class GetInput {
     }
 
     public static int getCounts() {
-        int input = Integer.parseInt(Console.readLine());
-//        checkCounts(input);
+        String input = Console.readLine();
+//        check
+//        int input = Integer.parseInt(Console.readLine());
+
         return 1;
     }
 

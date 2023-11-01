@@ -54,6 +54,14 @@ public class Validation {
         }
     }
 
+    public static void checkCountIsNumber(String count) {
+        try {
+            Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 회수는 숫자여야 합니다.");
+        }
+    }
+
     public static void checkCount(int count) {
         if (count <= 0) {
             throw new IllegalArgumentException("시도할 회수는 1 이상이어야 합니다.");
