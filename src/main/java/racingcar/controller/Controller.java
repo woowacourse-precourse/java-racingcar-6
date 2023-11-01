@@ -44,15 +44,13 @@ public class Controller {
     }
 
     private Attempt createAttemptFromInputAttemptCount() {
-        Attempt attempt = new Attempt(InputView.inputAttemptCount());
-        return attempt;
+        return new Attempt(InputView.inputAttemptCount());
     }
 
     private List<Car> createCarsFromInputCarNames() {
-        List<Car> cars = InputView.inputCarNames()
-                                  .stream()
-                                  .map(Car::new)
-                                  .collect(Collectors.toList());
-        return cars;
+        return InputView.inputCarNames()
+                        .stream()
+                        .map(Car::new)
+                        .toList();
     }
 }

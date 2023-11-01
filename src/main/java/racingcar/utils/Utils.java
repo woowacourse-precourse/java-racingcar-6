@@ -10,9 +10,8 @@ public class Utils {
     private static final int MAX_RANDOM_NUMBER_ = 9;
 
     public static List<String> splitAndToList(String carNames) {
-        List<String> separatedCarNames = Arrays.stream(carNames.split("\\s*,\\s*"))
-                                               .collect(Collectors.toList());
-        return separatedCarNames;
+        return Arrays.stream(carNames.split("\\s*,\\s*"))
+                     .toList();
     }
 
     public static int generateRandomNumber() {
