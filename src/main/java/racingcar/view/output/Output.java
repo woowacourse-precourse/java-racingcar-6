@@ -8,4 +8,8 @@ public class Output {
     public void printInputTryNumber() {
         System.out.println(OutputConstants.INPUT_TRY_NUMBER);
     }
+
+    public void printExecutionResult() {
+        System.out.println(OutputConstants.EXECUTION_RESULT);
+    }
 }
