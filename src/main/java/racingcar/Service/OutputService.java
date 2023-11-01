@@ -9,4 +9,10 @@ public class OutputService {
         System.out.println(question);
         return question;
     }
+
+    public String printTryNumQuestion() {
+        String question = "시도할 회수는 몇회인가요?";
+        System.out.println(question);
+        return question;
+    }
 }
