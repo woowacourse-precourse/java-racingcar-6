@@ -1,27 +1,25 @@
 package racingcar.Domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Car {
-    int generatedNum;
+    String name;
+    ArrayList<String> forwardStack;
 
-    public int getGeneratedNum() {
-        return generatedNum;
+    public String getName() {
+        return name;
     }
 
-    public void setGeneratedNum(int generatedNum) {
-        this.generatedNum = generatedNum;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int generateRandomNum() {
-        return generatedNum = Randoms.pickNumberInRange(0, 9);
+    public ArrayList<String> getForwardStack() {
+        return forwardStack;
     }
 
-    public boolean forwardOrStop() {
-        if (this.generatedNum >= 4) {
-            return true;
-        } else {
-            return false;
-        }
+    public void setForwardStack(ArrayList<String> forwardStack) {
+        this.forwardStack = forwardStack;
     }
 }

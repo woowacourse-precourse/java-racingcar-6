@@ -1,23 +1,21 @@
 package racingcar.Service;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.Domain.Car;
 
 public class OutputService {
-    private static Car car;
+    private static CarService car;
     private static InputService inputService;
 
-    public OutputService(Car car, InputService inputService) {
+    public OutputService(CarService car, InputService inputService) {
         this.inputService=inputService;
         this.car = car;
     }
 
-    public static Car getCar() {
+    public static CarService getCar() {
         return car;
     }
 
-    public static void setCar(Car car) {
+    public static void setCar(CarService car) {
         OutputService.car = car;
     }
 
@@ -48,5 +46,9 @@ public class OutputService {
             result += " :\n";
         }
         return result;
+    }
+
+    public String printForwardStatus() {
+
     }
 }

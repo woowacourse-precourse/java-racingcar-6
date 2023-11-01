@@ -1,17 +1,17 @@
-package racingcar.Domain;
+package racingcar.Service;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class CarTest {
+public class CarServiceTest {
 
-    Car car ;
+    CarService car ;
 
     @BeforeEach
     public void init() {
-        car=new Car();
+        car=new CarService();
     }
     @Test
     @DisplayName("각 시도당 0~9범위의 값을 구하는 기능")
