@@ -9,7 +9,7 @@ public class Car {
         this.carName = carName;
     }
 
-r    public CarStatusDto move(int randomNumber) {
+    public CarStatusDto move(int randomNumber) {
         if (randomNumber >= 4) {
             position++;
         }
