@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.TotalCar;
 import racingcar.service.CarGame;
-import racingcar.service.Winner;
+import racingcar.service.FinalWinner;
 import racingcar.util.InputManufacture;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -54,10 +54,7 @@ public class GameSystem {
     }
 
     public void showWinner(OutputView output) {
-        output.showWinnerNotice();
-        output.showColon();
-        Winner winner = new Winner();
-        List<String> winnerList = winner.who(totalCar);
-        output.showWinners(winnerList);
+        FinalWinner finalWinner = new FinalWinner(output);
+        finalWinner.showCars(totalCar);
     }
 }

@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import java.util.List;
-
 public class OutputView {
     private final static String NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private final static String TRY_MESSAGE = "시도할 회수는 몇회인가요?";
@@ -10,6 +8,10 @@ public class OutputView {
     private final static String COLON = " : ";
     private final static String MOVE_DISTANCE = "-";
     private final static String COMMA = ",";
+
+    public void write(String message) {
+        System.out.print(message);
+    }
 
     public void askName() {
         System.out.println(NAME_MESSAGE);
@@ -45,13 +47,13 @@ public class OutputView {
         System.out.println();
     }
 
-    public void showWinners(List<String> winnerList) {
-        for (int name = 0; name < winnerList.size(); name++) {
-            System.out.print(winnerList.get(name));
-            if (winnerList.size() > name + 1) {
-                System.out.print(COMMA);
-            }
-        }
-    }
+//    public void showWinners(List<String> winnerList) {
+//        for (int name = 0; name < winnerList.size(); name++) {
+//            System.out.print(winnerList.get(name));
+//            if (winnerList.size() > name + 1) {
+//                System.out.print(COMMA);
+//            }
+//        }
+//    }
 
 }
