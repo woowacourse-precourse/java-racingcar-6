@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.race.ValidatedRacingCar;
 
 class MoveContextTest {
 
@@ -17,7 +16,7 @@ class MoveContextTest {
 
     // when
     List<CarRaceRecord> carRaceRecords = moveContext.generateRaceRecords(3,
-        List.of(ValidatedRacingCar.of("poo")), (n) -> new Go(1));
+        List.of("poo"), (n) -> new Go(1));
 
     // then
     assertThat(carRaceRecords).hasSize(1);
@@ -33,7 +32,7 @@ class MoveContextTest {
 
     // when
     List<CarRaceRecord> carRaceRecords = moveContext.generateRaceRecords(3,
-        List.of(ValidatedRacingCar.of("다함")), (n) -> new Stop(0));
+        List.of("다함"), (n) -> new Stop(0));
     // then
     assertThat(carRaceRecords).hasSize(1);
     assertThat(carRaceRecords.get(0).getCarName()).isEqualTo("다함");

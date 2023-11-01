@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.IntFunction;
 import java.util.stream.IntStream;
-import racingcar.race.ValidatedRacingCar;
 
 public class MoveContext {
 
-  public List<CarRaceRecord> generateRaceRecords(int roundCount, List<ValidatedRacingCar> racingCars,
+  public List<CarRaceRecord> generateRaceRecords(int roundCount, List<String> racingCars,
       IntFunction<Movement> movementFunction){
-    return racingCars.stream().map(car -> race(roundCount, car.getName(), movementFunction))
+    return racingCars.stream().map(car -> race(roundCount, car, movementFunction))
         .toList();
   }
 
