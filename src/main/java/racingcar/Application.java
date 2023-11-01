@@ -26,7 +26,9 @@ public class Application {
         for (int i = 0; i < tryNumber; i++) {
             for (Car car : cars) {
                 car.move(Randoms.pickNumberInRange(0, 9));
+                System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
             }
+            System.out.println();
         }
     }
 
