@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Map;
 
@@ -24,10 +25,15 @@ public class Racing {
         count = Integer.parseInt(str);
     }
     
-    public void printRacing(Map<String, Integer> carInfo) {
+    public Map<String, Integer> printRacing(Map<String, Integer> carInfo) {
         for (Map.Entry<String, Integer> entry : carInfo.entrySet()) {
+            int randomNumber = Randoms.pickNumberInRange(1, 9);
+            if (randomNumber >= 4) {
+                entry.setValue(entry.getValue() + 1);
+            }
             System.out.println(entry.getKey() + " : " + "-".repeat(entry.getValue()));
         }
+        return carInfo;
     }
 
     public void printTotalRacing(Map<String, Integer> carInfo, int count) {
