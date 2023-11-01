@@ -14,6 +14,7 @@ public class Cars {
     private static final String NAME_DELIMITER = ",";
     private static final String NO_CAR_ERROR_MESSAGE = "자동차가 존재하지 않습니다.";
     private static final String DUPLICATION_ERROR_MESSAGE = "자동차 이름이 중복됩니다.";
+    private static final String DELIMITER_MULTIPLE_ERROR_MESSAGE = "구분자를 포함하면 2명 이상을 입력하세요.";
 
     private final List<Car> cars;
     private final RandomNumberGenerator randomNumberGenerator;
@@ -28,6 +29,7 @@ public class Cars {
     private void validate(final String names) {
         validateCarsSize(names);
         validateDuplication(names);
+        validateMultipleWithDelimiter(names);
     }
 
     private void validateCarsSize(final String names) {
@@ -55,6 +57,16 @@ public class Cars {
                 .map(Name::new)
                 .collect(Collectors.toSet())
                 .size();
+    }
+
+    private void validateMultipleWithDelimiter(final String names) {
+        if (hasOneNameWithDelimiter(names)) {
+            throw new IllegalArgumentException(DELIMITER_MULTIPLE_ERROR_MESSAGE);
+        }
+    }
+
+    private boolean hasOneNameWithDelimiter(final String names) {
+        return names.contains(NAME_DELIMITER) && getSplitNamesByDelimiter(names).size() == 1;
     }
 
     private List<Car> convertToCars(final String names) {
