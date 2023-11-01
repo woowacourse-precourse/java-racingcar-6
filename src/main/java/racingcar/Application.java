@@ -15,14 +15,14 @@ class Cars {
     public Cars() {
         carNames = new ArrayList<>();
         carDistance = new ArrayList<>();
-
     }
 
     public void SetCarNames(String carName) {
+        int MAX_LENGTH = 5;
         String[] InputArray = carName.split(",");
         for (String car : InputArray) {
-            if (car.length() > 5)
-                throw new IllegalArgumentException("carname cannot exceed 5!");
+            if (car.length() > MAX_LENGTH)
+                throw new IllegalArgumentException("CarName cannot exceed 5!");
             carNames.add(car.trim());
         }
     }
@@ -33,7 +33,7 @@ class Cars {
         }
     }
 
-    public void addBar(int ListNum) {
+    public void AddDistance(int ListNum) {
         carDistance.set(ListNum, carDistance.get(ListNum) + 1);
     }
 
@@ -97,9 +97,10 @@ public class Application {
     }
 
     public static void GoOrStop(int Listnum) {
+        int GO_FORWARD = 4;
         int GoStatement = Randoms.pickNumberInRange(0, 9);
-        if (GoStatement >= 4) {//4 대신 뭘 넣지
-            cars.addBar(Listnum);
+        if (GoStatement >= GO_FORWARD) {
+            cars.AddDistance(Listnum);
         }
     }
 
@@ -122,7 +123,7 @@ public class Application {
 
     public static void CheckMax() {
         List<Integer> Check = cars.getCarDistance();
-        for(int Distance : Check){
+        for (int Distance : Check) {
             if (Max_Distance < Check.get(Distance)) {
                 Max_Distance = Check.get(Distance);
             }
