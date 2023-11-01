@@ -14,7 +14,7 @@ class CarsTest {
     void isDifferentCarName() throws Exception{
         //given
         String racingCarName = "pobi";
-        Car car = new Car(racingCarName, 0);
+        Car car = createCar(racingCarName, 0);
         
         List<Car> cars = List.of(car, car);
 
@@ -29,7 +29,7 @@ class CarsTest {
     void minimumCountOfCars() throws Exception{
         //given
         String racingCarName = "pobi";
-        Car car = new Car(racingCarName, 0);
+        Car car = createCar(racingCarName, 0);
 
         List<Car> cars = List.of(car);
 
@@ -37,5 +37,8 @@ class CarsTest {
         Assertions.assertThatThrownBy(() -> new Cars(cars))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차는 최소 2대 이상 생성해야 합니다.");
+    }
+    private static Car createCar(String carName, int location) {
+        return new Car(carName, location);
     }
 }
