@@ -5,6 +5,7 @@ import static racingcar.constants.BoundaryValue.MIN_CAR_COUNT;
 import static racingcar.constants.BoundaryValue.MIN_ROUND;
 import static racingcar.constants.Error.BLANK_ERROR;
 import static racingcar.constants.Error.CAR_COUNT_ERROR;
+import static racingcar.constants.Error.COMMA_ERROR;
 import static racingcar.constants.Error.DUPLICATION_ERROR;
 import static racingcar.constants.Error.LENGTH_ERROR;
 import static racingcar.constants.Error.NOT_NUMBER_ERROR;
@@ -14,6 +15,14 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Validator {
+
+    public static void checkComma(String userInput) {
+
+        if ((!userInput.isEmpty()) && (userInput.charAt(userInput.length() - 1) == ',')) {
+            throw new IllegalArgumentException(COMMA_ERROR.getMessage());
+        }
+
+    }
 
     public static void checkCount(List<String> carNames) {
 
@@ -43,14 +52,6 @@ public class Validator {
                 throw new IllegalArgumentException(LENGTH_ERROR.getMessage());
             }
 
-        }
-
-    }
-
-    public static void checkComma(String userInput) {
-
-        if ((!userInput.isEmpty()) && (userInput.charAt(userInput.length() - 1) == ',')) {
-            throw new IllegalArgumentException("콤마 다음에 이름을 입력해 주세요.");
         }
 
     }
