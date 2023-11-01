@@ -11,10 +11,12 @@ import java.util.Random;
 public class GameController {
     GameView gameView = new GameView();
     private final User user = new User();
+    private Integer tryCount = 0;
     private List<Car> cars;
 
     public void run() {
         String[] carNames = user.getUserInputForCarNames();
+        tryCount = user.getUserInputForTryCount();
 
         cars = CarCreator.createCars(carNames);
     }
@@ -22,12 +24,16 @@ public class GameController {
     // 0에서 9 사이의 무작위 값 생성. 4 이상이면 이동.
     public void moveCars() {
         Random random = new Random();
-        for (Car car : cars) {
-            int randomNumber = random.nextInt(10);
-            if (randomNumber >= 4) {
-                car.move();
+        System.out.println("실행 결과");
+        for (int i = 0; i < tryCount; i++) {
+            for (Car car : cars) {
+                int randomNumber = random.nextInt(10);
+                if (randomNumber >= 4) {
+                    car.move();
+                }
+                gameView.printMoveStatus(car);
             }
-            gameView.printMoveStatus(car);
+            System.out.println("");
         }
     }
 
