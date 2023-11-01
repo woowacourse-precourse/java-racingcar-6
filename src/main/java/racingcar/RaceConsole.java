@@ -20,10 +20,10 @@ public class RaceConsole {
 
         List<String> winners = race.run();
         System.out.print("최종 우승자 : " + winners.get(0));
-        for (int i = 0; i < winners.size(); i++) {
+        for (int i = 1; i < winners.size(); i++) {
             System.out.println(", " + winners.get(i));
         }
-        
+
         Console.close();
     }
 
