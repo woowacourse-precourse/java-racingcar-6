@@ -64,13 +64,7 @@ public class OutputValue {
         StringBuilder messageForm = new StringBuilder();
 
         messageForm.append(GAME_RESULT_MESSAGE);
-
-        for(String name : winners) {
-            messageForm.append(name);
-            messageForm.append(",");
-        }
-
-        messageForm.deleteCharAt(messageForm.length() - 1);
+        messageForm.append(String.join(", ", winners));
 
         return messageForm.toString();
     }
