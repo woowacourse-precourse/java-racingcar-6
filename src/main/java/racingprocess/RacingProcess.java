@@ -33,7 +33,7 @@ public class RacingProcess {
             throw new IllegalArgumentException("숫자가 아닌 입력값을 넣어 오류발생");
         }
     }
-
+    // 레이싱 시작
     private void startRacingGame(String count, String name) {
         String[] nameList = name.split(",");
         String[][] output = new String[nameList.length][2];
@@ -51,22 +51,22 @@ public class RacingProcess {
         }
         System.out.println("최종 우승자 : " + String.join(", ", Winner));
     }
-
+    // 경주 진행 상황 출력
     private void outputPrint(String[][] result) {
         for (String[] strings : result) {
             System.out.printf("%s : %s%n", strings[0], "-".repeat(Integer.parseInt(strings[1])));
         }
         System.out.println();
     }
-
+    // 최종 우승자 출력
     private List<String> whoIsBestDriver(String[][] result) {
 
         int topScore = findTopScorers(result);
         List<String> winnerSearch = findTopPlayers(result, topScore);
         return winnerSearch;
     }
-    // 최고 스코어 값 추출
 
+    // 최고 스코어 값 추출
     private int findTopScorers(String[][] result) {
         int maxScore = 0;
 
@@ -95,17 +95,17 @@ public class RacingProcess {
         return topPlayers;
     }
 
-
+    // 랜덤 숫자로 전진 기능
     private String[][] decisionGoFowardNumber(String[][] output) {
         for(int i =0; i< output.length; i++){
-            int randomNumber = Randoms.pickNumberInRange(0,9); //실제로는 랜덤한 숫자가 생성
+            int randomNumber = Randoms.pickNumberInRange(0,9);
             int go = decisionGoFoward(randomNumber);
             output[i][1] = String.valueOf(Integer.parseInt(output[i][1]) + go);
 
         }
         return output;
     }
-
+    // 전진 여부
     private int decisionGoFoward(int randomNumber) {
         if(randomNumber >= 4) {
             return 1;
