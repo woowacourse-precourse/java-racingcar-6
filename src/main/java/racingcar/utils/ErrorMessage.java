@@ -13,7 +13,10 @@ public enum ErrorMessage {
 
     DIGIT_RACE_COUNT_ERROR("숫자만 입력해주시길 바랍니다"),
 
-    EMPTY_RACE_COUNT_ERROR("레이스 횟수를 입력하시길 바랍니다");
+    EMPTY_RACE_COUNT_ERROR("레이스 횟수를 입력하시길 바랍니다"),
+
+    ZERO_RACE_COUNT_ERROR("레이스 시도 횟수는 1 이상입니다");
+    ;
 
     private String error;
 
@@ -47,5 +50,9 @@ public enum ErrorMessage {
 
     public String getEmptyRaceCountError() {
         return EMPTY_RACE_COUNT_ERROR.error;
+    }
+
+    public String getZeroRaceCountError() {
+        return ZERO_RACE_COUNT_ERROR.error;
     }
 }

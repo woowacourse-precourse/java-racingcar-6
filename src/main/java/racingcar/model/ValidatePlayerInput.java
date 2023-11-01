@@ -32,7 +32,7 @@ public class ValidatePlayerInput {
         this.validateDigitRaceCount(raceCountInput);
         this.validateEmptyRaceCount(raceCountInput);
 
-        final int validateResult = Integer.parseInt(raceCountInput);
+        final int validateResult = this.convertStringToIntRaceCount(raceCountInput);
 
         return validateResult;
     }
@@ -88,9 +88,10 @@ public class ValidatePlayerInput {
 
         return convertedValues;
     }
+
     public int convertStringToIntRaceCount(String raceCountInput) {
         if (raceCountInput.equals("0")) {
-            throw new IllegalArgumentException("레이스 시도 횟수는 1 이상입니다");
+            throw new IllegalArgumentException(ErrorMessage.ZERO_RACE_COUNT_ERROR.getZeroRaceCountError());
         }
 
         final int raceCount = Integer.parseInt(raceCountInput);

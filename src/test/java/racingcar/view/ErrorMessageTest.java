@@ -70,4 +70,13 @@ public class ErrorMessageTest {
         //then
         assertThat(ErrorMessage.EMPTY_RACE_COUNT_ERROR.getEmptyRaceCountError()).isEqualTo(emptyRaceCountError);
     }
+
+    @DisplayName("레이스 시도 횟수가 0일 때 오류 문구에 대한 테스트")
+    @Test
+    void zeroRaceCountErrorTest() {
+        //given
+        String zeroRaceCountError = "레이스 시도 횟수는 1 이상입니다";
+        //then
+        assertThat(ErrorMessage.ZERO_RACE_COUNT_ERROR.getZeroRaceCountError()).isEqualTo(zeroRaceCountError);
+    }
 }
