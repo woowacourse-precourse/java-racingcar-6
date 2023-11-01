@@ -23,4 +23,13 @@ public class Validation {
         }
         return false;
     }
+
+
+    public static boolean isValidRange(Integer attemptCount) throws IllegalArgumentException {
+        if (attemptCount <= 0) {
+            throw new IllegalArgumentException("attempt count must be positive");
+        }
+        return true;
+    }
+
 }
