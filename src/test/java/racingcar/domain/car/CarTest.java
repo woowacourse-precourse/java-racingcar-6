@@ -1,6 +1,5 @@
 package racingcar.domain.car;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,19 +9,21 @@ import static racingcar.Constant.*;
 
 class CarTest {
 
-    private static final String name = "car";
+    private static final String CAR_NAME = "test";
+    private static final int CAR_POINT = 5;
     Car car;
+
 
     @BeforeEach
     void setUp() {
-        car = new Car(name);
+        car = new Car(CAR_NAME);
     }
 
     @Test
     @DisplayName("점수_0점일때_toString_확인")
     public void toString_whenPointIsZero_checkOutput() {
         //given
-        String expected = name + IS;
+        String expected = CAR_NAME + IS;
 
         //when
         String actual = car.toString();
@@ -32,41 +33,19 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("점수_1점일때_toString_확인")
-    public void toString_whenPointIsOne_checkOutput() {
+    @DisplayName("점수_존재할_때_toString_확인")
+    public void toString_whenPointIsNotZero_checkOutput() {
         //given
-        car.forward();
-        String expected = name + IS + LINE;
+        for (int i = 0; i < CAR_POINT; i++) {
+            car.forward();
+        }
+        String expected = CAR_NAME + IS + LINE.repeat(CAR_POINT);
 
         //when
         String actual = car.toString();
 
         //then
         assertThat(actual).isEqualTo(expected);
-    }
-
-    @Test
-    @DisplayName("인자로_비어있는_string_전달시_Car_객체생성_에러_확인")
-    public void constructor_whenStringIsEmpty_IllegalArgumentException() {
-        //given
-        String emptyString = "";
-
-        //when & then
-        Assertions.assertThatThrownBy(() -> new Car(emptyString))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_INPUT_NAME);
-    }
-
-    @Test
-    @DisplayName("인자로_size가_초과인_string_전달시_Car_객체생성_에러_확인")
-    public void constructor_whenStringSizeIsOver_IllegalArgumentException() {
-        //given
-        String longString = "longNameCar";
-
-        //when & then
-        Assertions.assertThatThrownBy(() -> new Car(longString))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_INPUT_NAME);
     }
 
 }

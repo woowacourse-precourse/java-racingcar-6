@@ -9,20 +9,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RoundTest {
 
-    private static final int INPUT = 5;
+    private static final int ROUND_INPUT = 5;
     Round round;
 
     @BeforeEach
     void setUp() {
-        round = new Round(INPUT);
+        round = new Round(ROUND_INPUT);
     }
 
     @Test
-    @DisplayName("overflow_입력시_round_객체_실패")
+    @DisplayName("round_input_만큼_isLeft_호출")
     void isLeft_isLeftCalledSameAsInputCount() {
         //given
         int actual = 0;
-        int expected = INPUT;
 
         //when
         while (round.isLeft()) {
@@ -30,7 +29,7 @@ class RoundTest {
         }
 
         //then
-        assertThat(actual).isEqualTo(expected);
+        assertThat(actual).isEqualTo(ROUND_INPUT);
     }
 
 }

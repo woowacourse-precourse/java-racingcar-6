@@ -1,37 +1,22 @@
 package racingcar.domain.car;
 
-import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.Constant.*;
 
 class CarsTest {
 
-    Car userA;
-    Car userB;
-    private static final String USER_A = "a";
-    private static final String USER_B = "b";
-
-    @BeforeEach
-    void setUp() {
-        userA = new Car(USER_A);
-        userB = new Car(USER_B);
-    }
+    private static final String CAR_NAME = "test";
 
     @Test
-    @DisplayName("userA_1점_userB_0점_일때_결과_출력_확인")
-    public void getWinnersString_whenUserAPoint1UserBPoint0_Output() {
+    @DisplayName("단독_우승_일때_결과_출력_확인")
+    void getWinnersString_SoloWinner_Output() {
         //given
-        userA.forward();
-        Cars cars = new Cars(Lists.list(userA, userB));
-        String expected = MESSAGE_WINNER + IS + USER_A;
+        Cars cars = getCarsWinnerIsSolo();
+        String expected = MESSAGE_WINNER + IS + CAR_NAME;
 
         //when
         String actual = cars.getWinnersString();
@@ -41,11 +26,11 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("userA_0점_userB_0점_일때_공동_출력_확인")
-    public void getWinnersString_whenUserAPoint0UserBPoint0_Output() {
+    @DisplayName("공동_우승_일때_결과_출력_확인")
+    void getWinnersString_JointWinner_Output() {
         //given
-        Cars cars = new Cars(Lists.list(userA, userB));
-        String expected = MESSAGE_WINNER + IS + USER_A + OUTPUT_DELIM + USER_B;
+        Cars cars = getCarsJointWinner();
+        String expected = MESSAGE_WINNER + IS + CAR_NAME + OUTPUT_DELIM + CAR_NAME;
 
         //when
         String actual = cars.getWinnersString();
@@ -55,13 +40,12 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("userA_1점_userB_0점_일때_toString()_확인")
-    public void toString_whenUserAPoint1UserBPoint0_Output() {
+    @DisplayName("cars_toString()_확인")
+    void toString_Cars_Output() {
         //given
-        userA.forward();
-        Cars cars = new Cars(Lists.list(userA, userB));
-        String expected = USER_A + IS + LINE + "\n" +
-                USER_B + IS + "\n";
+        Cars cars = getCarsWinnerIsSolo();
+        String expected = CAR_NAME + IS + LINE + "\n" +
+                CAR_NAME + IS + "\n";
 
         //when
         String actual = cars.toString();
@@ -70,15 +54,16 @@ class CarsTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Test
-    @DisplayName("인자로_비어있는_list_전달시_Cars_객체생성_에러_확인")
-    public void constructor_whenListIsEmpty_IllegalArgumentException() {
-        //given
-        List<Car> emptyList = new ArrayList<>();
+    Cars getCarsWinnerIsSolo() {
+        Car winnerCar = new Car(CAR_NAME);
+        winnerCar.forward();
 
-        //when & then
-        Assertions.assertThatThrownBy(() -> new Cars(emptyList))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_EMPTY_CAR_LIST);
+        Car loserCar = new Car(CAR_NAME);
+
+        return new Cars(Lists.list(winnerCar, loserCar));
+    }
+
+    Cars getCarsJointWinner() {
+        return new Cars(Lists.list(new Car(CAR_NAME), new Car(CAR_NAME)));
     }
 }

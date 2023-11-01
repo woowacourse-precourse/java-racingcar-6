@@ -10,6 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class RoundFactoryTest {
     RoundFactory roundFactory;
 
+    private static final String NORMAL_ROUND_STRING = "5";
+    private static final int CONVERTED_ROUND_NUMBER = 5;
+    private static final String NOT_NUMBER_ROUND_STRING = "notNumber";
+    private static final String OVERFLOW_ROUND_STRING = "3000000000";
+    private static final String NEGATIVE_ROUND_STRING = "-1";
+
     @BeforeEach
     void setUp() {
         roundFactory = new RoundFactory();
@@ -19,44 +25,34 @@ class RoundFactoryTest {
     @DisplayName("정상입력시_round_객체_생성")
     void create_NormalInput_createRoundSuccess() {
         //given
-        String normalInput = "3";
+        Round expected = new Round(CONVERTED_ROUND_NUMBER);
 
         //when
-        Round actual = roundFactory.create(normalInput);
+        Round actual = roundFactory.create(NORMAL_ROUND_STRING);
 
         //then
-        Round expected = new Round(3);
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     @DisplayName("숫자가아닌_input_입력시_round_객체_실패")
     void create_NotNumberInput_createRoundFail() {
-        //given
-        String errorInput = "notNumber";
-
         //when & then
-        assertThrows(IllegalArgumentException.class, () -> roundFactory.create(errorInput));
+        assertThrows(IllegalArgumentException.class, () -> roundFactory.create(NOT_NUMBER_ROUND_STRING));
     }
 
     @Test
     @DisplayName("overflow_입력시_round_객체_실패")
     void create_OverflowInput_createRoundFail() {
-        //given
-        String errorInput = "3000000000";
-
         //when & then
-        assertThrows(IllegalArgumentException.class, () -> roundFactory.create(errorInput));
+        assertThrows(IllegalArgumentException.class, () -> roundFactory.create(OVERFLOW_ROUND_STRING));
     }
 
     @Test
     @DisplayName("음수_입력시_round_객체_실패")
     void create_NegativeInput_createRoundFail() {
-        //given
-        String errorInput = "-1";
-
         //when & then
-        assertThrows(IllegalArgumentException.class, () -> roundFactory.create(errorInput));
+        assertThrows(IllegalArgumentException.class, () -> roundFactory.create(NEGATIVE_ROUND_STRING));
     }
 
 }
