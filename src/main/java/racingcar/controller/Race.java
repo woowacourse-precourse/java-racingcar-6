@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.OptionalInt;
 
 public class Race {
+    private static final int MINIMUM_NUMBER = 0;
+    private static final int MOVING_STANDARD = 4;
     CarModel[] cars;
 
     /**
@@ -73,7 +75,7 @@ public class Race {
     }
 
     private void randomMove(CarModel car) {
-        if (RandomNumber.generate() >= 4) {
+        if (RandomNumber.generate() >= MOVING_STANDARD) {
             car.move();
         }
     }
@@ -92,6 +94,6 @@ public class Race {
                 .mapToInt(CarModel::getPosition)
                 .max();
 
-        return optMaxPosition.orElse(0);
+        return optMaxPosition.orElse(MINIMUM_NUMBER);
     }
 }
