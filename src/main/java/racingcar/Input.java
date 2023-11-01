@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Input {
 
     private final Output output = new Output();
-    private final static String delimter = ",";
+    private final static String delimter = "," ;
 
     // 기본 으로 입력 받는 함수
     private static String getPlayerInput() {
@@ -51,16 +51,14 @@ public class Input {
     }
 
     // 시도할 회수를 입력받습니다.
-    public int getInputTryCount()
-    {
+    public int getInputTryCount() {
         output.promptForTryCount();
         String playerInput = getPlayerInput();
         return validateTryCount(playerInput);
     }
 
     // 시도할 회수가 유효한지 검사합니다.
-    public int validateTryCount(String input)
-    {
+    public int validateTryCount(String input) {
         int tryCount = 0;
 
         try {
