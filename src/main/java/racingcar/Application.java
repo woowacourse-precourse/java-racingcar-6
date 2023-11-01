@@ -7,6 +7,5 @@ public class Application {
 
         RacingGame racingGame = new RacingGame();
         racingGame.gameStart();
-
     }
 }

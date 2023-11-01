@@ -28,7 +28,7 @@ public class Car {
 
         int randNum = Randoms.pickNumberInRange(0, 9);
 
-        if(randNum >= 4) {
+        if (randNum >= 4) {
             setDistance(this.distance + 1);
         }
     }
@@ -37,7 +37,7 @@ public class Car {
 
         StringBuilder sb = new StringBuilder();
 
-        for(int i=0; i<this.distance; i++) {
+        for (int i = 0; i < this.distance; i++) {
             sb.append("-");
         }
 

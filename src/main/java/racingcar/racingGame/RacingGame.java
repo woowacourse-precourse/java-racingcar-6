@@ -17,7 +17,7 @@ public class RacingGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> carName = gamer.getCarName();
 
-        for(String car : carName) {
+        for (String car : carName) {
             Car newCar = new Car(car);
             this.carList.add(newCar);
         }
@@ -32,7 +32,7 @@ public class RacingGame {
     public void raceStart(List<Car> carList, int tryNum) {
 
         System.out.println("\n실행 결과");
-        for (int i=0; i < tryNum; i++) {
+        for (int i = 0; i < tryNum; i++) {
             for (Car car : carList) {
                 car.tryMove();
                 car.printDistance();
@@ -48,21 +48,21 @@ public class RacingGame {
         int winnerDistance = -1;
         List<String> winnerList = new ArrayList<>();
 
-        for(Car car : carList) {
-            if(car.getDistance() > winnerDistance) {
+        for (Car car : carList) {
+            if (car.getDistance() > winnerDistance) {
                 winnerList = new ArrayList<>();
                 winnerDistance = car.getDistance();
                 winnerList.add(car.getName());
-            } else if(car.getDistance() == winnerDistance) {
+            } else if (car.getDistance() == winnerDistance) {
                 winnerList.add(car.getName());
             }
         }
 
         sb.append("최종 우승자 : ");
 
-        for(int i=0; i<winnerList.size(); i++) {
+        for (int i = 0; i < winnerList.size(); i++) {
 
-            if(i != winnerList.size() - 1) {
+            if (i != winnerList.size() - 1) {
                 sb.append(winnerList.get(i) + ", ");
             } else {
                 sb.append(winnerList.get(i));
