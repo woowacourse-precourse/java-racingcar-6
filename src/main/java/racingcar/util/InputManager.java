@@ -16,4 +16,8 @@ public class InputManager {
         return 0;
 
     }
+
+    public List<Car> makePlayerCarList(String[] carNames) {
+        return List.of();
+    }
 }
