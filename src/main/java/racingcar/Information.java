@@ -19,10 +19,18 @@ public class Information {
         System.out.println(name + " : " + "-".repeat(Distance));
     }
 
-    private void isValidCarName(String name) throws IllegalArgumentException {
+    private void isValidCarName(String name) {
+        validateNameBlank(name);
+        validateNameRangeOver(name);
+    }
+
+    private void validateNameBlank(String name) throws IllegalArgumentException {
         if (name.isBlank()) {
             throw new IllegalArgumentException("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
         }
+    }
+
+    private void validateNameRangeOver(String name) throws IllegalArgumentException {
         if (name.length() > MAX_CAR_NAME) {
             throw new IllegalArgumentException("Error : 자동차 이름이 너무 깁니다 이름 최대 길이 " + MAX_CAR_NAME);
         }
