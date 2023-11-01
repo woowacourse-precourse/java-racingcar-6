@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarGroup {
-    private List<Car> carList;
+    private final List<Car> carList;
 
     public CarGroup(List<Car> carList) {
         this.carList = carList;
