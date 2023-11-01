@@ -21,6 +21,7 @@ public class CarController {
     }
 
     private void simulRacingcar() {
+        outputView.printExecutionResult();
         while (!carService.isRacingcarStop()) {
             carService.goOrStop();
             outputView.printAllCarResult(carService.getCarLineupInfo());
