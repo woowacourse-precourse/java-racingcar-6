@@ -28,6 +28,6 @@ public class RacingCarService {
         return Arrays.stream(cars.getCars())
             .filter(car -> car.getMileage() == roundResults.getMaxMoveCount())
             .map(Car::getName)
-            .collect(Collectors.joining(" "));
+            .collect(Collectors.joining(", "));
     }
 }
