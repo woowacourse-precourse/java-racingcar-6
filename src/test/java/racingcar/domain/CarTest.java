@@ -1,16 +1,17 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.Car;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest extends NsTest {
+
+    private static final String CAR_NAME = "BMW";
 
     @ParameterizedTest
     @ValueSource(strings = {"popobi", "ianbest", "abcdefgh"})
@@ -18,6 +19,15 @@ class CarTest extends NsTest {
         // when, then
         Assertions.assertThatThrownBy(() -> new Car(carName))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void 자동차_이름이_올바른_경우_Car_객체를_생성할_수_있다() {
+        // given, when
+        Car car = new Car(CAR_NAME);
+
+        // then
+        Assertions.assertThat(car).isNotNull();
     }
 
     @Test
@@ -36,6 +46,7 @@ class CarTest extends NsTest {
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7})
     public void 랜덤값이_전진하는_기준보다_크면_전진한다(int randomNumber) {
+        // when, then
         assertRandomNumberInRangeTest(
                 () -> {
                     run();
@@ -48,6 +59,7 @@ class CarTest extends NsTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
     public void 랜덤값이_전진하는_기준보다_작으면_멈춘다(int randomNumber) {
+        // when, then
         assertRandomNumberInRangeTest(
                 () -> {
                     run();
