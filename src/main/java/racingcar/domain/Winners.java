@@ -15,7 +15,6 @@ public class Winners {
                 .collect(Collectors.toList());
     }
 
-
     public List<String> getWinnerNames() {
         return winners.stream()
                 .map(Car::getName)
