@@ -32,7 +32,7 @@ public class RacingGame {
 
     private void printLapResult() {
         String lapResult = racingCars.stream()
-                .map(RacingCar::getName)
+                .map(RacingCar::raceState)
                 .collect(Collectors.joining(LAP_RESULT_DELIMITER));
 
         System.out.printf("%s\n%n", lapResult);
