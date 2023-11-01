@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Racing {
 
     private int count;
@@ -9,5 +11,14 @@ public class Racing {
 
     public void printSetCount() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount() {
+        String str = Console.readLine();
+        count = Integer.parseInt(str);
     }
 }
