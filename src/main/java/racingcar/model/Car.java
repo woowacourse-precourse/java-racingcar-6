@@ -13,8 +13,24 @@ public class Car {
     public void move() {
         int randomResult = Randoms.pickNumberInRange(0, 9);
         if (4 <= randomResult) {
-            this.position++;
+            addPosition();
         }
+    }
+
+    public String getName() {
+        return this.name.getName();
+    }
+
+    private void addPosition() {
+        this.position++;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public String getPositionStatus() {
+        return "-".repeat(Math.max(0, this.position));
     }
 
 }

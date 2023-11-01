@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.view.Output;
 
 public class Cars {
     private final List<Car> carList = new ArrayList<>();
@@ -23,8 +24,11 @@ public class Cars {
     }
 
     public void run() {
-        carList.forEach(car -> {
+        this.carList.forEach(car -> {
             car.move();
+            Output.printRunResult(car);
         });
+        Output.printBlankLine();
     }
+
 }
