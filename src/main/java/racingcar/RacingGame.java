@@ -46,7 +46,7 @@ public class RacingGame {
 
         for (String readlineCarName : readlineCarNames) {
             if (readlineCarName.length() > 5) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("자동차의 이름은 각 5글자 이내여야 합니다.");
             } else {
                 racingProgress.put(readlineCarName, "");
             }
@@ -64,7 +64,10 @@ public class RacingGame {
             String readlineGameTimes = Console.readLine();
             gameTimes = Integer.parseInt(readlineGameTimes);
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자연수만 입력하세요.");
+        }
+        if (gameTimes <= 0) {
+            throw new IllegalArgumentException("자연수만 입력하세요.");
         }
         return gameTimes;
     }
