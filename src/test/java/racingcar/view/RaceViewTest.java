@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -49,7 +49,7 @@ public class RaceViewTest {
     }
 
     @AfterAll
-    void 콘솔로_출력() {
+    static void 콘솔로_출력() {
         System.setOut(System.out);
     }
 
