@@ -1,8 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RacingGame {
 
@@ -22,9 +20,9 @@ public class RacingGame {
         System.out.println("실행 결과");
         for (int raceTime = 0; raceTime < maxRaceTime; raceTime++) {
             oneTimeRace(racingCarList);
-            printRaceProgress(racingCarList);
+            GameOutput.printRaceProgress(racingCarList);
         }
-        printWinners(racingCarList);
+        GameOutput.printWinners(racingCarList);
     }
 
     private void oneTimeRace(CarList racingCarList) {
@@ -55,56 +53,4 @@ public class RacingGame {
         return;
     }
 
-    private void printRaceProgress(CarList racingCarList) {
-        for (int carIndex = 0; carIndex < racingCarList.getSize(); carIndex++) {
-            System.out.print(racingCarList.getName(carIndex) + " : ");
-            for (int carPosition = 0; carPosition < racingCarList.getPosition(carIndex); carPosition++) {
-                System.out.print("-");
-            }
-            System.out.println();
-        }
-        System.out.println();
-        return;
-    }
-
-    private void printWinners(CarList carList) {
-        int[] maxCarPositionIndex = findMaxCarPositionIndex(carList);
-        String maxCarPositionName;
-
-        System.out.printf("최종 우승자 : ");
-        for (int index = 0; index < maxCarPositionIndex.length; index++) {
-            if (index >= 1) {
-                System.out.printf(", ");
-            }
-            maxCarPositionName = carList.getName(maxCarPositionIndex[index]);
-            System.out.printf(maxCarPositionName);
-        }
-
-    }
-
-    private int[] findMaxCarPositionIndex(CarList carList) {
-        int carPosition;
-        int maxCarPosition = -1;
-        List<Integer> maxCarPositionIndex = new ArrayList<>();
-
-        for (int index = 0; index < carList.getSize(); index++) {
-            carPosition = carList.getPosition(index);
-            if (maxCarPosition == carPosition) {
-                maxCarPositionIndex.add(index);
-            } else if (maxCarPosition < carPosition) {
-                maxCarPosition = carPosition;
-                maxCarPositionIndex.clear();
-                maxCarPositionIndex.add(index);
-            }
-        }
-        return ListToIntArray(maxCarPositionIndex);
-    }
-
-    public int[] ListToIntArray(List<Integer> intList) {
-        int[] intArray = new int[intList.size()];
-        for (int index = 0; index < intArray.length; index++) {
-            intArray[index] = intList.get(index);
-        }
-        return intArray;
-    }
 }
