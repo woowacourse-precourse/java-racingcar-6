@@ -10,31 +10,26 @@ import racingcarv2.view.OutputView;
 
 public class RacingCarController {
     public void run() {
-        init();
-    }
-
-    private void init() {
-        RacingCars racingCars = getCarsByNames();
-        RoundTotal roundTotal = getRoundTotal();
+        RacingCars racingCars = registerRacingCars();
+        RoundTotal roundTotal = registerRoundTotal();
         displayRacingStatus(roundTotal, racingCars);
+        displayWinner(racingCars);
     }
 
-    private RacingCars getCarsByNames() {
-        OutputView.printInputCarNames();
-        return new RacingCars(StringToCarList.convert(InputView.inputCarNames()));
-    }
-
-    private RoundTotal getRoundTotal() {
+    private RoundTotal registerRoundTotal() {
         OutputView.printInputRoundTotal();
         return new RoundTotal(StringToNumber.convert(InputView.inputRoundTotal()));
+    }
+
+    private RacingCars registerRacingCars() {
+        OutputView.printInputCarNames();
+        return new RacingCars(StringToCarList.convert(InputView.inputCarNames()));
     }
 
     private void displayRacingStatus(RoundTotal roundTotal, RacingCars racingCars) {
         OutputView.printRoundStatus();
         IntStream.range(0, roundTotal.getRoundTotalValue())
                 .forEach((num) -> OutputView.printEachRound(racingCars.moveAllCars()));
-
-        displayWinner(racingCars);
     }
 
     private void displayWinner(RacingCars racingCars) {
