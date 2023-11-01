@@ -6,7 +6,7 @@ public enum GameMessages {
     MESSAGE_RACE_RESULT("실행 결과\n"),
     MESSAGE_ANNOUNCE_WINNER("최종 우승자 : ");
 
-    private String msgType;
+    private final String msgType;
 
     GameMessages(String msgType) {
         this.msgType = msgType;

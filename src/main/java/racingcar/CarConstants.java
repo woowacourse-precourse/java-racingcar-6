@@ -7,7 +7,7 @@ public enum CarConstants {
     TRIGGER_MINIMUM_FORWARD(4),
     LENGTH_CAR_NAME(5);
 
-    private int intConst;
+    private final int intConst;
 
     CarConstants(int typeConst) {
         this.intConst = typeConst;

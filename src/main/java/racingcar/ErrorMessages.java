@@ -9,7 +9,7 @@ public enum ErrorMessages {
     NOT_OVER_ZERO("0보다 큰 수를 입력해주세요"),
     WHOLE_EMPTY_NOT_ALLOW("이름은 공백이 될 수 없습니다.");
 
-    private String description;
+    private final String description;
 
     ErrorMessages(String description) {
         this.description = description;
