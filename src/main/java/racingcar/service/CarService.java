@@ -3,8 +3,9 @@ package racingcar.service;
 import racingcar.object.Car;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
@@ -22,9 +23,23 @@ public class CarService {
         }
         return count;
     }
-    public List<String> checkCarsNameLength(String input_cars_name){
+
+    public boolean checkDuplicate(List<String> cars_name) {
+        Set<String> unique_names = new HashSet<>();
+
+        for (String name : cars_name) {
+            if (unique_names.contains(name)) {
+                return false;
+            }
+            unique_names.add(name);
+        }
+        return true;
+    }
+
+    public List<String> checkCarsName(String input_cars_name){
         String[] cars_name = input_cars_name.split(",");
         int count_Commas = countCommas(input_cars_name);
+        // 자동차 이름 입력 확인
         if(cars_name.length != count_Commas + 1){
             throw new IllegalArgumentException("입력값이 없습니다. 자동차 이름을 입력해주세요.");
         }
@@ -33,6 +48,7 @@ public class CarService {
         for(String name : cars_name){
             String striped_name = name.strip();
 
+            // 자동차 이름 길이 확인
             if(striped_name.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 1~5자만 가능합니다.");
             } else if(striped_name.length() < 1) {
@@ -41,12 +57,19 @@ public class CarService {
 
             final_cars_name.add(striped_name);
         }
-        return final_cars_name;
+
+        boolean is_duplicate = checkDuplicate(final_cars_name);
+        // 자동차 이름 중복 확인
+        if(is_duplicate){
+            return final_cars_name;
+        } else{
+            throw new IllegalArgumentException("중복되는 자동차 이름이 있습니다.");
+        }
     }
 
     public List<Car> inputCarsName(){
         String input_cars_name = readLine();
-        List<String> cars_name = checkCarsNameLength(input_cars_name);
+        List<String> cars_name = checkCarsName(input_cars_name);
 
         List<Car> carList = new ArrayList<>();
         for(String name : cars_name){
