@@ -5,6 +5,16 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 class InputValidatorTest {
+    @Test
+    void 자동차의_이름은_중복될_수_없다() {
+        // given
+        String names = "pobi,pobi,jun";
+
+        // when, then
+        assertThatThrownBy(() -> InputValidator.validateCarNames(names))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("the car names cannot be duplicated");
+    }
 
     @Test
     void 자동차의_이름은_최소_1글자여야_한다() {
