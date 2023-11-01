@@ -25,11 +25,6 @@ public class Car {
         }
     }
 
-    @Override
-    public String toString() {
-        return this.name + " : ";
-    }
-
     public void accel() {
         distance++;
     }

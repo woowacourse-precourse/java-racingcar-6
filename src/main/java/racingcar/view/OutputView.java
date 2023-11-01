@@ -50,5 +50,11 @@ public class OutputView {
 
         return mileage;
     }
+
+    public static String name(Car car) {
+        String name = car.getName();
+        String delimiters = " : ";
+        return name + delimiters;
+    }
 }
 

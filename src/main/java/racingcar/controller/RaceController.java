@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import static racingcar.util.GameResult.getInstance;
-import static racingcar.view.OutputView.countToMileage;
 
 import java.util.List;
 import racingcar.domain.Car;
@@ -39,7 +38,8 @@ public class RaceController {
 
         if (anyCarMove) {
             for (Car car : carNameList) {
-                gameResult.append(car).append(countToMileage(car)).append('\n');
+                gameResult.append(OutputView.name(car))
+                        .append(OutputView.countToMileage(car)).append('\n');
             }
             gameResult.append('\n');
         }
