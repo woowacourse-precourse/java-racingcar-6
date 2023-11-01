@@ -48,6 +48,13 @@ public class RacingCarServiceImpl implements RacingCarService {
     @Override
     public void moveCars(List<Car> carList) {
 
+        for (Car car : carList) {
+            int randomValue = generateRandomValue();
+
+            if (isMoveForward(randomValue)) {
+                car.moveForward();
+            }
+        }
     }
 
     /**
@@ -84,5 +91,15 @@ public class RacingCarServiceImpl implements RacingCarService {
     private int readAndParseAttemptCount() {
         String input = Console.readLine();
         return Integer.parseInt(input);
+    }
+
+    private int generateRandomValue() {
+        int randomMinValue = RacingCarVO.getRandomMinValue();
+        int randomMaxValue = RacingCarVO.getRandomMaxValue();
+        return Randoms.pickNumberInRange(randomMinValue, randomMaxValue);
+    }
+
+    private boolean isMoveForward(int randomValue) {
+        return randomValue >= RacingCarVO.getMoveThreshold();
     }
 }
