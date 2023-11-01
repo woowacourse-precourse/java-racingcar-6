@@ -1,13 +1,16 @@
 package racingcar.controller;
 
-import java.util.List;
+import static racingcar.view.InputView.close;
+import static racingcar.view.InputView.inputAttemptCount;
+import static racingcar.view.InputView.inputNames;
+import static racingcar.view.OutputView.printCars;
+import static racingcar.view.OutputView.printRaceStart;
+import static racingcar.view.OutputView.printWinners;
+
 import racingcar.model.AttemptCount;
-import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.CarsFactory;
 import racingcar.model.ForwardStrategy;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class Game {
     private final ForwardStrategy forwardStrategy;
@@ -17,21 +20,18 @@ public class Game {
     }
 
     public void start() {
-        String inputNames = InputView.inputNames();
-        Cars cars = CarsFactory.createCars(inputNames);
+        Cars cars = CarsFactory.createCars(inputNames());
+        AttemptCount attemptCount = AttemptCount.from(inputAttemptCount());
+        race(cars, attemptCount);
+        printWinners(cars.findWinners());
+        close();
+    }
 
-        String inputAttemptCount = InputView.inputAttemptCount();
-        AttemptCount attemptCount = AttemptCount.from(inputAttemptCount);
-
-        OutputView.printRaceStart();
+    private void race(Cars cars, AttemptCount attemptCount) {
+        printRaceStart();
         while (attemptCount.attemptIfPossible()) {
             cars.race(forwardStrategy);
-            List<Car> carList = cars.copyList();
-            OutputView.printCars(carList);
+            printCars(cars.copyList());
         }
-
-        List<String> winners = cars.findWinners();
-        OutputView.printWinners(winners);
-        InputView.close();
     }
 }
