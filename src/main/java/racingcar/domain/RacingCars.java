@@ -1,10 +1,16 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingCars {
+
+    public static int LOWER_BOUND_OF_NUMBER = 0;
+    public static int UPPER_BOUND_OF_NUMBER = 9;
+
     private List<RacingCar> cars;
 
     public RacingCars(List<String> carNames) {
@@ -26,14 +32,16 @@ public class RacingCars {
     private void attemptMoveEachCar() {
         this.cars.stream()
                 .forEach(racingCar -> {
-                    racingCar.move();
+                    int randomNumber = Randoms.pickNumberInRange(LOWER_BOUND_OF_NUMBER, UPPER_BOUND_OF_NUMBER);
+                    racingCar.move(randomNumber);
                 });
     }
 
     private void printCurrentDistanceEachCar() {
         this.cars.stream()
                 .forEach(racingCar -> {
-                    racingCar.printCurrentDistance();
+                    String graph = racingCar.getDistanceGraph();
+                    System.out.println(graph);
                 });
     }
 
