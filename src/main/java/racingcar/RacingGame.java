@@ -3,7 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class RacingGame {
     private static List<Car> createCars() {
@@ -11,11 +13,23 @@ public class RacingGame {
         String input = Console.readLine();
         String[] carNames = input.split(",");
 
+        validateCarNames(carNames); // 예외 처리: 중복 확인
+
         List<Car> cars = new ArrayList<>();
         for (String name : carNames) {
             cars.add(new Car(name.trim()));
         }
         return cars;
+    }
+
+    private static void validateCarNames(String[] carNames) {
+        Set<String> uniqueNames = new HashSet<>();
+
+        for (String name : carNames) {
+            if (!uniqueNames.add(name.trim())) {
+                throw new IllegalArgumentException("중복된 자동차 이름이 있습니다: " + name);
+            }
+        }
     }
 
     public void startGame() {
