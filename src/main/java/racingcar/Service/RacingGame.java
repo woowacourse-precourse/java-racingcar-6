@@ -12,7 +12,6 @@ public class RacingGame {
 
     public void gameStart() {
         cars = Input.getCars();
-
         attempts = Input.getAttempts();
 
         System.out.println();
@@ -31,7 +30,7 @@ public class RacingGame {
     public void gameEnd() {
         int longestDistance = getLongestDistance();
 
-        String winners = Output.printWinners(cars, longestDistance);
+        Output.printWinners(cars, longestDistance);
 
     }
 
