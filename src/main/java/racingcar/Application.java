@@ -15,6 +15,21 @@ class Cars {
     }
 }
 
+class Round {
+
+    private static int nowRound = 0;
+    public static int finalRound;
+
+    public Round(int inputNum) {
+        this.finalRound = inputNum;
+    }
+
+    public static boolean isContinue() {
+        nowRound ++;
+        return nowRound <= finalRound;
+    }
+}
+
 
 public class Application {
     public static void main(String[] args) {
@@ -22,6 +37,10 @@ public class Application {
         String[] inputCarNames = Console.readLine().split(",");
         Cars.addCars(inputCarNames);
 
+        Round.finalRound = Integer.parseInt(Console.readLine());
 
+        while (Round.isContinue()) {
+            
+        }
     }
 }
