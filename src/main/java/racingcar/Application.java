@@ -13,12 +13,8 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.");
         String cars = readLine();
         List<String> carList = List.of(cars.split(","));
-
-        for(String car : carList){
-            if(car.length()>5){
-                throw new IllegalArgumentException();
-            }
-        }
+        int maxLength = 5;
+        validateInputException(carList, maxLength);
 
         Map<String, Integer> carMap = carList.stream()
                 .collect(Collectors.toMap(key -> key, value -> 0));
@@ -30,19 +26,17 @@ public class Application {
             printRacingState(carMap);
         }
 
-
-        Integer maxvalue = carMap.get(Collections.max(carMap.entrySet(), Comparator.comparingInt(Map.Entry :: getValue)).getKey());
-
-        List<String> winnerList = carMap.entrySet()
-                .stream()
-                .filter(entry -> Objects.equals(entry.getValue(), maxvalue))
-                .map(Map.Entry::getKey)
-                .toList();
-
-        String winners = String.join(", ", winnerList);
+        String winners = winnerDecision(carMap);
         System.out.print("최종 우승자 : "+ winners);
 
+    }
 
+    private static void validateInputException(List<String> list, int maxLength) {
+        for(String element : list){
+            if(element.length()>maxLength){
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
     static void printRacingState(Map<String, Integer> carMap){
@@ -59,4 +53,17 @@ public class Application {
         }
         System.out.println();
     }
+
+    private static String winnerDecision(Map<String, Integer> resultMap) {
+        Integer maxvalue = resultMap.get(Collections.max(resultMap.entrySet(), Comparator.comparingInt(Map.Entry :: getValue)).getKey());
+
+        List<String> winnerList = resultMap.entrySet()
+                .stream()
+                .filter(entry -> Objects.equals(entry.getValue(), maxvalue))
+                .map(Map.Entry::getKey)
+                .toList();
+
+        return String.join(", ", winnerList);
+    }
+
 }
