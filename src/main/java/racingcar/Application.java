@@ -17,7 +17,7 @@ public class Application {
         final int tryCount = readTryCount();
         printNewLine();
         printExecutionResult();
-        for(int i = 0; i < tryCount; i++) {
+        for (int i = 0; i < tryCount; i++) {
             moveForward(carList);
             printCarNameAndDistanceStringInCarList(carList);
             printNewLine();
@@ -96,7 +96,7 @@ public class Application {
     }
 
     private static List<Car> filterCarListWithLongestDistance(final List<Car> carList, final int longestDistance) {
-       return carList.stream()
+        return carList.stream()
                 .filter(car -> car.getDistance() == longestDistance)
                 .collect(Collectors.toList());
     }
