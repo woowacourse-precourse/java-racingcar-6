@@ -44,4 +44,10 @@ public class Validator {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }
+
+    public static void validatePositiveInteger(int inputLoop) {
+        if (inputLoop < INPUT_MINIMUM_LOOP) {
+            throw new IllegalArgumentException("입력 수는 양의 정수여야 합니다.");
+        }
+    }
 }
