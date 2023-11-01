@@ -26,33 +26,64 @@ public class RacingcarModel {
         this.car_names = car_names;
         this.repeat = Integer.parseInt(repeat);
     }
+
+    /*
+     * 자동차 경주를 위해 필요한 변수 생성 후 결과 메서드에 넘겨주는 메서드
+     *
+     * @param void
+     * @return void
+     */
     public void RacingStart(){
-        List<String> car_forward_result = new ArrayList<>();
-        int[] car_forward_count = new int[car_names.size()];
-        init(car_forward_result, car_forward_count);
-        RacingResult(car_forward_result, car_forward_count);
+        int[] car_forward_count = new int[car_names.size()]; // 자동차의 각 전진 횟수를 기록하는 배열
+        init(car_forward_count);
+        RacingResult(car_forward_count);
     }
-    private void RacingResult(List<String> car_forward_result, int[] car_forward_count){
-        ResultForward(car_forward_result, car_forward_count);
-        getWinner(car_forward_count);
-    }
-    private void init(List<String> car_forward_result, int[] car_forward_count){
-        for(int i=0; i< car_names.size(); i++){
-            car_forward_result.add(car_names.get(i));
+    /*
+     * 전진 횟수의 배열들을 모두 0 으로 초기화 해주는 메서드
+     *
+     * @param int[] car_forward_count
+     * @return void
+     */
+    private void init(int[] car_forward_count){
+        for(int i=0; i< car_names.size(); i++)
             car_forward_count[i] = 0;
-        }
     }
-    private void ResultForward(List<String> car_forward_result, int[] car_forward_count){
-        for(int i=0; i<repeat; i++){
-            for(int j=0; j< car_names.size(); j++){
-                if(Randoms.pickNumberInRange(0,9) >= 4){
-                    car_forward_count[j]++;
-                }
+
+    /*
+     * 자동차 경주의 과정과 승자를 View 에 넘겨주는 메서드
+     *
+     * @param int[] car_forward_count
+     * @return void
+     */
+    private void RacingResult(int[] car_forward_count){
+        for(int i=0; i<repeat; i++) {
+            ResultForward(car_forward_count);
+            rv.showForwardResult(car_names, car_forward_count);
+        }
+        rv.showWinner(getWinner(car_forward_count));
+    }
+
+    /*
+     * 각 횟수 마다 자동차의 전진을 판단해주고 전진 결과를 배열에 저장하는 메서드
+     *
+     * @param  int[] car_forward_count
+     * @return void
+     */
+    private void ResultForward(int[] car_forward_count){
+        for(int j=0; j< car_names.size(); j++){
+            if(Randoms.pickNumberInRange(0,9) >= 4){
+                car_forward_count[j]++;
             }
-            rv.showForwardResult(car_forward_result, car_forward_count);
         }
     }
-    private void getWinner(int[] car_forward_count){
+
+    /*
+     * 자동차 경주의 승자를 return 해주는 메서드
+     *
+     * @param int[] car_forward_count
+     * @return String winner
+     */
+    private String getWinner(int[] car_forward_count){
         String winner = "";
         int max = getMaxValue(car_forward_count);
 
@@ -64,8 +95,15 @@ public class RacingcarModel {
         if (winner.endsWith(", ")) {
             winner = winner.substring(0, winner.length() - 2);
         }
-        rv.showWinner(winner);
+        return winner;
     }
+
+    /*
+     * 배열에서 가장 큰 값을 반환하는 메서드
+     *
+     * @param int[] arr
+     * @return return max
+     */
     private int getMaxValue(int[] arr){
         int max = -1;
 
