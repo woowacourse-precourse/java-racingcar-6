@@ -48,6 +48,13 @@ public class Validation {
         }
     }
 
+    public static int validateCounts(String counts) {
+        checkCountEmpty(counts);
+        checkCountIsNumber(counts);
+        checkCountRange(Integer.parseInt(counts));
+        return Integer.parseInt(counts);
+    }
+
     public static void checkCountEmpty(String count) {
         if (count.isEmpty()) {
             throw new IllegalArgumentException("시도할 회수를 입력해주세요.");
@@ -62,7 +69,7 @@ public class Validation {
         }
     }
 
-    public static void checkCount(int count) {
+    public static void checkCountRange(int count) {
         if (count <= 0) {
             throw new IllegalArgumentException("시도할 회수는 1 이상이어야 합니다.");
         }
