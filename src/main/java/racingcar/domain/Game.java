@@ -24,7 +24,7 @@ public class Game {
         }
     }
 
-    private void runCar(Car car) {
+    public void runCar(Car car) {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
 
         if (isRunnable(randomNumber)) {
@@ -33,14 +33,14 @@ public class Game {
         }
     }
 
-    private boolean isRunnable(int randomNumber) {
+    public boolean isRunnable(int randomNumber) {
         if (randomNumber >= MIN_RUNNABLE_VALUE) {
             return true;
         }
         return false;
     }
 
-    private void printOneRoundResult(List<Car> carList) {
+    public void printOneRoundResult(List<Car> carList) {
         for (int i = 0; i < carList.size(); i++) {
             System.out.println(
                     carList.get(i).getName() + " : " + carList.get(i).getDrawingMovement());

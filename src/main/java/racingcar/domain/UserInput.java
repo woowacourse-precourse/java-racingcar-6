@@ -27,7 +27,9 @@ public class UserInput {
             throw new IllegalArgumentException("Input value cannot be blank.");
         }
 
-        if (!isContainComma(nameOfCars)) {
+        carArray = convertStringToArraySplitByComma(nameOfCars);
+
+        if (!isContainComma(carArray.length)) {
             throw new IllegalArgumentException(
                     "There must be two or more cars, and each car must be separated by a comma.");
         }
@@ -43,8 +45,12 @@ public class UserInput {
             }
         }
     }
+    
+    public String[] convertStringToArraySplitByComma(String string) {
+        return string.split(",", -1);
+    }
 
-    private void checkEachCharacter(String name) {
+    public void checkEachCharacter(String name) {
         if (isStringEmpty(name)) {
             throw new IllegalArgumentException("None of the names can be blank.");
         }
@@ -63,21 +69,19 @@ public class UserInput {
         }
     }
 
-    private boolean isStringEmpty(String string) {
+    public boolean isStringEmpty(String string) {
         return string == null || string.isBlank();
     }
 
-    private boolean isContainComma(String input) {
-        carArray = input.split(",", -1);
-
-        if (carArray.length == 1) {
+    public boolean isContainComma(int arrayLength) {
+        if (arrayLength == 1) {
             return false;
         }
 
         return true;
     }
 
-    private boolean isAlphabet(char c) {
+    public boolean isAlphabet(char c) {
         if ((65 <= c && c <= 90) || (97 <= c && c <= 122)) {
             return true;
         }
@@ -85,7 +89,7 @@ public class UserInput {
         return false;
     }
 
-    private boolean isNumber(char c) {
+    public boolean isNumber(char c) {
         if (48 <= c && c <= 57) {
             return true;
         }
@@ -93,7 +97,7 @@ public class UserInput {
         return false;
     }
 
-    private boolean isHyphenSign(char c) {
+    public boolean isHyphenSign(char c) {
         if (c == 45) {
             return true;
         }
@@ -122,25 +126,25 @@ public class UserInput {
         }
     }
 
-    private boolean isOnlyNumbers(String string) {
+    public boolean isOnlyNumbers(String string) {
         return string.matches("\\d*");
     }
 
-    private boolean isZero(String string) {
+    public boolean isZero(String string) {
         return string.equals("0");
     }
 
-    private boolean isHighestDigitZero(String string) {
+    public boolean isHighestDigitZero(String string) {
         return string.charAt(0) == '0';
     }
 
-    private void transferTohashSetFrom(String[] carArray) {
+    public void transferTohashSetFrom(String[] carArray) {
         for (int i = 0; i < carArray.length; i++) {
             carHashSet.add(carArray[i]);
         }
     }
 
-    private boolean containsDuplicates() {
+    public boolean containsDuplicates() {
         return carArray.length != carHashSet.size();
     }
 }
