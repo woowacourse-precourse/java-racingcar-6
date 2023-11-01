@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RacingCarController {
 
-    RacingCarService carService = new RacingCarService();
+    private final RacingCarService carService = new RacingCarService();
 
     public void playGame() {
 
