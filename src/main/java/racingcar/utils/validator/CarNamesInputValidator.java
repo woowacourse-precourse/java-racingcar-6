@@ -1,8 +1,8 @@
 package racingcar.utils.validator;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.configuration.ConfigurationConstants;
 import racingcar.utils.CarExceptionMessage;
 
@@ -15,11 +15,11 @@ public class CarNamesInputValidator {
         validateFirstCharacterIsNotComma(target);
         validateLastCharacterIsNotComma(target);
 
-        String[] elements = target.split(SPLIT_REGEX);
-        validateEachElementIsNotBlank(elements);
-        validateEachElementCorrectLength(elements);
-        validateNonDuplicate(elements);
-        validateTotalCount(elements);
+        List<String> carNames = Arrays.asList(target.split(SPLIT_REGEX));
+        validateEachCarNameIsNotBlank(carNames);
+        validateEachCarNameHasCorrectLength(carNames);
+        validateEachCarNameIsNotDuplicate(carNames);
+        validateTotalCount(carNames);
     }
 
     private static void validateIsNotBlank(String target) {
@@ -40,34 +40,36 @@ public class CarNamesInputValidator {
         }
     }
 
-    private static void validateEachElementIsNotBlank(String[] targets) {
-        for (String target : targets) {
-            if (target.isBlank()) {
-                throw new IllegalArgumentException(CarExceptionMessage.ONLY_BLANK_NAME.getError());
-            }
+    private static void validateEachCarNameIsNotBlank(List<String> targets) {
+        boolean isOnlyBlankNameExists = targets.stream()
+                .anyMatch(String::isBlank);
+
+        if (isOnlyBlankNameExists) {
+            throw new IllegalArgumentException(CarExceptionMessage.ONLY_BLANK_NAME.getError());
         }
     }
 
-    private static void validateEachElementCorrectLength(String[] targets) {
-        for (String target : targets) {
-            if (target.length() > ConfigurationConstants.CAR_NAME_LENGTH_MAX_LIMIT) {
-                throw new IllegalArgumentException(CarExceptionMessage.OUT_OF_NAME_LENGTH.getError());
-            }
+    private static void validateEachCarNameHasCorrectLength(List<String> targets) {
+        boolean isWrongLengthNameExists = targets.stream()
+                .anyMatch(carName -> carName.length() > ConfigurationConstants.CAR_NAME_LENGTH_MAX_LIMIT);
+
+        if (isWrongLengthNameExists) {
+            throw new IllegalArgumentException(CarExceptionMessage.OUT_OF_NAME_LENGTH.getError());
         }
     }
 
-    private static void validateNonDuplicate(String[] targets) {
-        List<String> distinctTargets = Arrays.stream(targets)
-                .distinct()
-                .collect(Collectors.toList());
-        if (distinctTargets.size() != targets.length) {
+    private static void validateEachCarNameIsNotDuplicate(List<String> targets) {
+        boolean isDuplicateNameExists = targets.stream()
+                .anyMatch(carName -> Collections.frequency(targets, carName) > 1);
+
+        if (isDuplicateNameExists) {
             throw new IllegalArgumentException(CarExceptionMessage.DUPLICATE_EXISTS.getError());
         }
     }
 
-    private static void validateTotalCount(String[] targets) {
-        if (targets.length < ConfigurationConstants.TOTAL_CAR_MIN_LIMIT
-                || targets.length > ConfigurationConstants.TOTAL_CAR_MAX_LIMIT) {
+    private static void validateTotalCount(List<String> targets) {
+        if (targets.size() < ConfigurationConstants.TOTAL_CAR_MIN_LIMIT
+                || targets.size() > ConfigurationConstants.TOTAL_CAR_MAX_LIMIT) {
             throw new IllegalArgumentException(CarExceptionMessage.OUT_OF_TOTAL_COUNT.getError());
         }
     }
