@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Racing {
 
+    private int maxScore = 0;
     private static void checkNameException(String name) {
         if (name.length() > 5 || name.isEmpty()) {
             throw new IllegalArgumentException("이름은 1~5자로 입력해주세요.");
@@ -44,14 +45,15 @@ public class Racing {
         return carList;
     }
 
-
-    private void start(List<Car> cars, int turn) {
-        int maxScore = 0;
+    private void roundProgress(List<Car> cars, int turn){
 
         for (int i = 0; i < turn; i++) {
-            maxScore = cars.stream().mapToInt(Car::run).max().orElse(0);
+            this.maxScore = cars.stream().mapToInt(Car::run).max().orElse(0);
             System.out.println();
         }
+    }
+
+    public void printWinner(List<Car> cars) {
 
         List<String> winner = new ArrayList<>();
         for (Car car : cars) {
@@ -64,12 +66,13 @@ public class Racing {
         System.out.println(winnerFormat);
     }
 
-    public void ready() {
+    public void start() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         final List<Car> cars = getCarList(Console.readLine());
         System.out.println("시도할 회수는 몇회인가요?");
         int turn = getTurn(Console.readLine());
         System.out.println("실행 결과");
-        start(cars, turn);
+        roundProgress(cars,turn);
+        printWinner(cars);
     }
 }
