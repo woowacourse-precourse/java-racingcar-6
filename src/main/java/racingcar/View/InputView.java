@@ -15,8 +15,7 @@ public class InputView {
         String carsName = Console.readLine();
         endsWithComma(carsName);
         isEmpty(carsName);
-        ArrayList<String> carNameList = splitCarName(carsName);
-        return carNameList;
+        return splitCarName(carsName);
     }
 
     public String getTryNumber() {

@@ -3,6 +3,9 @@ package racingcar;
 import static racingcar.Utils.checkSize;
 
 public class Validation {
+    private Validation() {
+    }
+
     public static void validateLengthOfName(String input) {
         if (checkSize(input) == Constants.MIN_NAME_LENGTH || checkSize(input) > Constants.MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름을 1자 이상, 5자 이하로 설정해주세요.");
