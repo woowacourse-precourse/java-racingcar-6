@@ -20,6 +20,28 @@ public class Cars {
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
+    
+    public List<String> getWinnersName() {
+        int maxPosition = getMaxPosition();
+
+        return findWinners(maxPosition);
+    }
+
+    private List<String> findWinners(int maxPosition) {
+        return getCars().stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : getCars()) {
+            if (car.getPosition() > maxPosition)
+                maxPosition = car.getPosition();
+        }
+        return maxPosition;
+    }
 
 
 }

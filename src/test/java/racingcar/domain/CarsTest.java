@@ -54,5 +54,14 @@ class CarsTest {
                     cars.getCars().clear();
                 });
     }
-    
+
+    @Test
+    void 우승자_판별_테스트() {
+        Cars cars = new Cars(Arrays.asList(movableCar1, movableCar2, immovableCar));
+        for (int i = 0; i < raceRound; i++) {
+            cars.move();
+        }
+        Assertions.assertEquals(Arrays.asList("ABC", "DEF"), cars.getWinnersName());
+    }
+
 }
