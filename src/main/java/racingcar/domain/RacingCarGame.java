@@ -68,16 +68,20 @@ public class RacingCarGame {
         }
     }
 
-    public void init() {
-        List<RacingCar> cars = createRacingCars(player.inputNames());
-        int numberOfRounds = player.inputNumberOfRounds();
-        System.out.println();
-        System.out.println("실행 결과");
+    public void startGameRounds(List<RacingCar> cars, int numberOfRounds) {
         for (int i = 0; i < numberOfRounds; i++) {
             roundStart(cars);
             printRoundScore(cars);
             System.out.println();
         }
+    }
+
+    public void init() {
+        List<RacingCar> cars = createRacingCars(player.inputNames());
+        int numberOfRounds = player.inputNumberOfRounds();
+        System.out.println();
+        System.out.println("실행 결과");
+        startGameRounds(cars, numberOfRounds);
         printWinnerName(chooseWinner(cars));
     }
 }
