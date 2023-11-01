@@ -9,7 +9,7 @@ public class RacingcarGame {
     private List<String> winners = new ArrayList<>();
     private int tryCount;
 
-    public void run() {
+    public void run() throws IllegalArgumentException {
         String[] carNames = getCarNames();
         tryCount = getTryCount();
         makeCars(carNames);
@@ -18,14 +18,14 @@ public class RacingcarGame {
         InputOutput.printWinner(winners);
     }
 
-    private String[] getCarNames() {
+    private String[] getCarNames() throws IllegalArgumentException {
         String carNamesWithComma = InputOutput.getCarNames();
         String[] carNames = carNamesWithComma.split(",");
         Validator.carNames(carNames);
         return carNames;
     }
 
-    private int getTryCount() {
+    private int getTryCount() throws IllegalArgumentException {
         String tryCountString = InputOutput.getTryCount();
         tryCount = Validator.tryCountInput(tryCountString);
         InputOutput.printEmptyLine();
@@ -59,15 +59,15 @@ public class RacingcarGame {
     }
 
     private void calculateWinners(List<Car> cars) {
-        int maximumMoveCount = 0;
+        int maxMoveCount = 0;
         for (Car car : cars) {
             int moveCount = car.getMoveCount();
             String name = car.getName();
-            if (moveCount > maximumMoveCount) {
+            if (moveCount > maxMoveCount) {
                 winners = new ArrayList<>(); // 비우기
                 winners.add(name);
-                maximumMoveCount = moveCount;
-            } else if (moveCount == maximumMoveCount) {
+                maxMoveCount = moveCount;
+            } else if (moveCount == maxMoveCount) {
                 winners.add(name);
             }
         }
