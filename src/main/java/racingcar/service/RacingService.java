@@ -70,7 +70,7 @@ public class RacingService {
 
     public void printWinners(List<String> winners) {
         System.out.print(NoticeType.PRINT_WINNER.getMessage());
-        System.out.println(String.join(", ", winners));
+        System.out.print(String.join(", ", winners));
     }
 
 }

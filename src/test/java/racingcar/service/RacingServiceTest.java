@@ -7,6 +7,7 @@ import racingcar.domain.Car;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,14 +44,14 @@ public class RacingServiceTest {
 
         racingService.printAttemptResult(cars);
 
-        assertThat(outputStream.toString()).
-                isEqualTo("pobi : ---\n" +
+        assertThat(outputStream.toString())
+                .isEqualTo("pobi : ---\n" +
                         "woni : ---\n" +
                         "jun : -----\n\n");
     }
 
     @Test
-    void pickWinner_중복_우승자인_경우() {
+    void pickWinner_공동_우승자인_경우() {
         List<Car> cars = Arrays.asList(
                 new Car("pobi", 4),
                 new Car("woni", 3),
@@ -73,5 +74,15 @@ public class RacingServiceTest {
         List<String> winners = racingService.pickWinner(cars);
 
         assertThat(winners).containsOnly("pobi");
+    }
+
+    @Test
+    void printWinner_공동_우승자_출력() {
+        List<String> winners = Arrays.asList("pobi", "woni");
+
+        racingService.printWinners(winners);
+
+        assertThat(outputStream.toString())
+                .isEqualTo("최종 우승자 : pobi, woni");
     }
 }
