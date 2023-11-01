@@ -11,7 +11,6 @@ public class ForwardCarCondition {
     private final int FORWARD_NUMBER = 1;
     private final int STOP_NUMBER = 0;
 
-
     public LinkedHashMap<String, Integer> racingCarCount() {
         RacingValue.racingStatus.forEach((key, value) -> {
             int count = forwardControl(RandomNumber());

@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.LinkedHashMap;
 
-public class PrintRacingRankStatus {
+public class RacingRankStatus {
     public void printRacingCar(LinkedHashMap<String, Integer> result) {
         result.forEach((key, value) -> {
             System.out.print(key + " : ");

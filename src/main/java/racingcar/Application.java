@@ -1,22 +1,21 @@
 package racingcar;
 
 import racingcar.domain.CarListPutInMap;
-import racingcar.domain.InputRacingCarName;
-import racingcar.domain.InputRacingCount;
+import racingcar.domain.RacingCarName;
+import racingcar.domain.RacingCount;
 import racingcar.domain.RacingValue;
 import racingcar.domain.Referee;
 
 public class Application {
     public static void main(String[] args) {
-        InputRacingCount inputRacingCount = new InputRacingCount();
+        RacingCount racingCount = new RacingCount();
         CarListPutInMap carListPutInMap = new CarListPutInMap();
-        InputRacingCarName inputRacingCarName = new InputRacingCarName();
+        RacingCarName racingCarName = new RacingCarName();
         Referee referee = new Referee();
-        RacingValue racingValue = new RacingValue();
 
-        inputRacingCarName.inputRacingCarName();
-        carListPutInMap.carListPutInMap(racingValue.racingCarName);
-        inputRacingCount.inputRacingCount();
+        racingCarName.inputRacingCarName();
+        carListPutInMap.carListPutInMap(RacingValue.racingCarName);
+        racingCount.inputRacingCount();
         System.out.println(referee.callWinnerCar());
     }
 }
