@@ -11,9 +11,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class CarTest {
 
     private Car car;
-    private String inputNames = "isaac";
-    private int MOVE_FORWARD = Common.STANDARD_NUMBER.getIntValue();
-    private int STOP = Common.STANDARD_NUMBER.getIntValue() - 1;
+    private final String inputNames = "isaac";
+    private final int MOVE_FORWARD = Common.STANDARD_NUMBER.getIntValue();
+    private final int STOP = Common.STANDARD_NUMBER.getIntValue() - 1;
 
     @BeforeEach
     @Test
