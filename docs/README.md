@@ -3,7 +3,7 @@
 
 ## 기능목록
 
-- [ ] 한 라운드에서 각 자동차는 전진할 기회를 한번씩 갖는다. - GameManagement#playRound
+- [x] 한 라운드에서 각 자동차는 전진할 기회를 한번씩 갖는다. - GameManagement#playRound
 - [ ] 우승자를 판별한다. - GameManagement#getWinners
     - [ ] Max위치값과 각 자동차의 위치값을 비교하여 가장 많이 전진한 자동차를 찾는다.
     - [ ] Max위치값과 같은 자동차가 여러대일 수 있다. (리스트에 추가한다.)
