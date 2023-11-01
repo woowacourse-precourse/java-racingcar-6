@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Input {
     // 자동차 입력받기
-    public static List<String> getCars() throws IllegalArgumentException {
+    public static List<String> getCars() {
         System.out.println(Message.INPUT.getMessage());
         String cars = Console.readLine();
         List<String> carsList = new ArrayList<>();
@@ -17,8 +17,7 @@ public class Input {
         try {
             carsList = SplitString.splitString(cars);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            getCars();
+            throw new IllegalArgumentException();
         }
 
         return carsList;
