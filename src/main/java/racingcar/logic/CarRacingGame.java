@@ -15,6 +15,7 @@ public class CarRacingGame {
 
     public void play() {
         List<String> carNameList = Arrays.asList(InputView.inputCarName().split(","));
+        validateCarNames(carNameList);
         List<Integer> carGoNumberList;
         Integer tryNumber = Integer.parseInt(InputView.inputTryNumber());
         carGoNumberList = new ArrayList<>(carNameList.size());
@@ -48,5 +49,13 @@ public class CarRacingGame {
         }
 
         OutputView.printWinner(maxIndexList, carNameList);
+    }
+
+    private void validateCarNames(List<String> carNameList) {
+        for (String carName : carNameList) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+            }
+        }
     }
 }
