@@ -85,4 +85,14 @@ public class RacingServiceTest {
         assertThat(outputStream.toString())
                 .isEqualTo("최종 우승자 : pobi, woni");
     }
+
+    @Test
+    void printWinner_단독_우승자_출력() {
+        List<String> winners = Arrays.asList("pobi");
+
+        racingService.printWinners(winners);
+
+        assertThat(outputStream.toString())
+                .isEqualTo("최종 우승자 : pobi");
+    }
 }
