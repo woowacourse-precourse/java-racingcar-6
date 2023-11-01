@@ -13,9 +13,15 @@ public class GameService {
     private static final int END_POSITION = 9;
     private static final int MIN_VALUE = -1;
     private final GameRepository gameRepository = new GameRepository();
-    public void Fowardstart(Game game){
+    public void Movingstart(Game game){
         moveForwardByRandomNumber(game);
         game.incresePlayCount();
+    }
+
+    public List<String> getWinnersPosition(Game game) {
+        List<Car> cars = game.getCars();
+        int maxPosition = getWinnerPosition(cars);
+        return getWinnerPositionCars(cars, maxPosition);
     }
 
     public Boolean isEnd(Game game) {
