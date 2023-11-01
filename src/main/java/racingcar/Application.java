@@ -18,6 +18,9 @@ public class Application {
         // 이름 길이 예외 처리
         RacingCarGame.validateCarNameLength(carNamesList);
 
+        // 이름 공백 예외 처리
+        RacingCarGame.validateCarNameBlankness(carNamesList);
+
         // 시도 횟수 입력 요청 문구 출력
         RacingCarGame.printAskingForTrialNumberMessage();
 
