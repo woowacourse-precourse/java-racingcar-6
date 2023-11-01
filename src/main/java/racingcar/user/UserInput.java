@@ -39,13 +39,14 @@ public class UserInput {
 
         // car 객체 저장
         List<Car> cars = new ArrayList<>();
+        Referee referee = new Referee();
 
         // Car 객체 생성
         for(String carName: carNames) {
-            Car car = new Car(carName);
+            Car car = new Car(carName, referee);
             cars.add(car);
         }
 
+        referee.runRace(cars, tryCount);
     }
-
 }
