@@ -1,21 +1,19 @@
 package racingcar.input;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.StringValidateUtils;
 
-class RepeatCountUserInput implements UserInput<Integer> {
+public class RepeatCountUserInput implements UserInput<Integer> {
 
-    private static final String REPEAT_COUNT_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
+    private final ConsoleUserInput consoleUserInput;
 
-    RepeatCountUserInput() {
+    public RepeatCountUserInput(ConsoleUserInput consoleUserInput) {
+        this.consoleUserInput = consoleUserInput;
     }
 
     @Override
     public Integer input() {
-        System.out.println(REPEAT_COUNT_INPUT_MESSAGE);
-        final String userInput = Console.readLine();
+        final String userInput = consoleUserInput.input();
         validate(userInput);
-        System.out.println();
         return Integer.parseInt(userInput);
     }
 
