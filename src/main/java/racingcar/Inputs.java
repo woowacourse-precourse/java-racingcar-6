@@ -33,7 +33,6 @@ public class Inputs {
             raceNumbers = -1; // 에러 테스트를 위해 해당 값을 -1로 변경
             throw new IllegalArgumentException("비정상적인 값을 입력하셨습니다. 경주를 자동으로 종료합니다.");
         }
-
     }
 
     private void checkCarNameLengthLowerThanOrEqualToFive(String carName) {

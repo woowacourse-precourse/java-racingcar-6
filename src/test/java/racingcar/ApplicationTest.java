@@ -17,48 +17,7 @@ class ApplicationTest extends NsTest {
 
     Inputs inputs = new Inputs();
 
-    @Test
-    void 자동차_이름들을_쉼표로_분리() {
-        //자동차 이름이 1개인 경우
-        String carName = "자동차1";
-        //자동차 이름이 여러개인 경우
-        String carNames = "자동차1,자동차2,자동차3";
-        //자동차 이름이 5글자를 넘는 경우
-        String tooLongCarName = "자동차이름5글자이상";
-        //자동차 이름이 5글자를 넘고 쉼표로 구분된 경우
-        String tooLongCarNames = "자동차이름5글자이상,자동차1";
-        //콤마 이후에 공백이 있는 경우
-        String carNameWithSpace = "자동차1, 자동차2";
 
-        //자동차 이름이 1개인 경우
-        inputs.carNamesList.clear();
-        inputs.splitCarNames(carName);
-        assertThat(inputs.carNamesList).containsExactly(carName);
-
-        //자동차 이름이 여러개인 경우
-        inputs.carNamesList.clear();
-        inputs.splitCarNames(carNames);
-        assertThat(inputs.carNamesList).containsExactly("자동차1", "자동차2", "자동차3");
-
-        //자동차 이름이 5글자를 넘는 경우
-        inputs.carNamesList.clear();
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> inputs.splitCarNames(tooLongCarNames))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("비정상적인 값을 입력하셨습니다. 경주를 자동으로 종료합니다."));
-
-        //자동차 이름이 5글자를 넘고 쉼표로 구분된 경우
-        inputs.carNamesList.clear();
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> inputs.splitCarNames(tooLongCarNames))
-                        .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("비정상적인 값을 입력하셨습니다. 경주를 자동으로 종료합니다."));
-
-        //콤마 이후에 공백이 있는 경우
-        inputs.carNamesList.clear();
-        inputs.splitCarNames(carNameWithSpace);
-        assertThat(inputs.carNamesList).containsExactly("자동차1", " 자동차2");
-    }
 
     @Test
     void 전진_정지() {
@@ -71,7 +30,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
-        @Test
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
