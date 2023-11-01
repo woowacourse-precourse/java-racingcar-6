@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class Car {
+    private final static String MOVING_MARK = "-";
     private String name;
     private int move;
 
@@ -22,15 +23,11 @@ public class Car {
     }
 
     private String getMoveMark() {
-        return "-".repeat(this.move);
+        return MOVING_MARK.repeat(this.move);
     }
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer();
-        sb.append(this.name);
-        sb.append(" : ");
-        sb.append(getMoveMark());
-        return sb.toString();
+        return String.format("%s : %s", name, getMoveMark());
     }
 }

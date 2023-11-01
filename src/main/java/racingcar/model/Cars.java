@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> carsList;
@@ -38,11 +39,7 @@ public class Cars {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (Car car : carsList) {
-            sb.append(car);
-            sb.append("\n");
-        }
-        return sb.toString();
+        return carsList.stream().map(Car::toString)
+                .collect(Collectors.joining("\n","","\n"));
     }
 }
