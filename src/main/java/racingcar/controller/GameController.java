@@ -20,32 +20,32 @@ public class GameController {
     }
 
     public void run() {
-        OutputAboutGame.PrintCarInputPhrase();
+        OutputAboutGame.printCarInputPhrase();
 
         List<String> carNames = InputAboutGame.InputCarNames();
 
         ConfirmException.confirmCarName(carNames);
         GameService.carsDataSave(carNames);
 
-        OutputAboutGame.PrintAttemptInputPhrase();
+        OutputAboutGame.printAttemptInputPhrase();
         GameService.raceDataSave(InputAboutGame.InputAttempt());
 
         RaceEntity raceData = RaceDAO.loadAll();
         List<CarEntity> carsData = CarDAO.loadAll();
 
-        OutputAboutGame.PrintResultIntroducePhrase();
+        OutputAboutGame.printResultIntroducePhrase();
 
         while (raceData.getAttemptNumber() > 0) {
-            JudgeMoveCar.MoveCar(carsData);
-            OutputAboutGame.PrintCurrentSituation(CarDAO.loadAll());
+            JudgeMoveCar.moveCar(carsData);
+            OutputAboutGame.printCurrentSituation(CarDAO.loadAll());
             GameService.raceDataSave(raceData.getAttemptNumber() - 1);
             raceData = RaceDAO.loadAll();
         }
 
         List<CarEntity> winner = FindWinnerCar.equalMaxScroe(
-                CarDAO.loadAll(), FindMaxScore.FindMax(CarDAO.loadAll())
+                CarDAO.loadAll(), FindMaxScore.findMax(CarDAO.loadAll())
         );
 
-        OutputAboutGame.PrintWinner(winner);
+        OutputAboutGame.printWinner(winner);
     }
 }
