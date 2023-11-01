@@ -23,7 +23,7 @@ public class RacingController {
     }
 
     public void playRacing() {
-        outputView.printResultAnnouncement();
+        outputView.printRacingAnnouncement();
         while (racing.canMove()) {
             racing.move();
             List<CarState> states = racing.captureCurrentState();

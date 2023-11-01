@@ -4,14 +4,14 @@ import java.util.List;
 import racingcar.model.CarState;
 
 public class OutputView {
-    private static final String RESULT_ANNOUNCEMENT = "실행 결과";
+    private static final String RACING_ANNOUNCEMENT = "실행 결과";
     private static final String NAME_POSITION_DELIMITER = " : ";
     private static final String POSITION_INDICATOR = "-";
     private static final String WINNER_ANNOUNCEMENT = "최종 우승자 : ";
 
-    public void printResultAnnouncement() {
+    public void printRacingAnnouncement() {
         System.out.println();
-        System.out.println(RESULT_ANNOUNCEMENT);
+        System.out.println(RACING_ANNOUNCEMENT);
     }
 
     public void printAllCarPositionByState(List<CarState> carStates) {
