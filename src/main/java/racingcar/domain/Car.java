@@ -43,5 +43,10 @@ public class Car implements Comparable{
         return this.position.compareTo(((Car) target).getPosition());
     }
 
+    @Override
+    public String toString() {
+        return this.name + " : " + "-".repeat(Math.max(0, this.position));
+    }
+
 
 }
