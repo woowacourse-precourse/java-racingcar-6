@@ -16,14 +16,13 @@ public class Cars {
 
     private List<String> inputNewCarNames() {
         List<String> nameList = new LinkedList<>();
-
         String names = Console.readLine();
+
         for (String name : names.split(",")) {
             nameList.add(name);
         }
         return nameList;
     }
-
 
     private void addCarsByNames(List<String> names) {
         for (String name : names) {
@@ -31,5 +30,11 @@ public class Cars {
         }
     }
 
+    public void initCars() {
+        List<String> names;
 
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        names = inputNewCarNames();
+        addCarsByNames(names);
+    }
 }
