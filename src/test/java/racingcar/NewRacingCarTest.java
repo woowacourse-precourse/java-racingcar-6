@@ -54,7 +54,7 @@ public class NewRacingCarTest {
     }
 
     @Test
-    void runRaceTest() {
+    void runOneRoundTest() {
         // given
         String[] carNames = User.carNames();
         for (String carName : carNames) {
