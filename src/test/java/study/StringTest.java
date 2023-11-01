@@ -4,9 +4,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.view.InputView;
 
 public class StringTest {
 
+    @Test
+    void inputViewTest() {
+        InputView.requestCarName();
+        InputView.requestTryCount();
+    }
     @Test
     void split_메서드로_주어진_값을_구분() {
         String input = "1,2";
