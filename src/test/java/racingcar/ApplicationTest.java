@@ -40,9 +40,17 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_이름_특수문자_입력시_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("!@#!"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("차 이름은 영어 또는 한글만 가능합니다."));
+    }
+
+    @Test
     void 시도할_회수_입력시_공백_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,hi"," "))
+                assertThatThrownBy(() -> runException("pobi,hi"," 수"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage("공백 또는 여백이 포함되어 있습니다."));
     }
