@@ -10,7 +10,7 @@ public class OutputView {
         List<String> winnersList = result.winners();
         String winners = String.join(", ", winnersList);
 
-        Messages.WINNER_ANNOUNCEMENT.print();
+        Messages.WINNER.print();
         System.out.println(winners);
     }
 

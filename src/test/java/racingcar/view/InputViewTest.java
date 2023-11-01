@@ -42,7 +42,7 @@ class InputViewTest {
         ByteArrayInputStream input = new ByteArrayInputStream(String.join("\n", names, totalTurns).getBytes());
         System.setIn(input);
         assertThatThrownBy(InputView::getInput).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(Messages.ILLEGAL_NAME_ANNOUNCEMENT.getMessage());
+                .hasMessageContaining(Messages.ILLEGAL_NAME.getMessage());
     }
 
     @Test
@@ -54,7 +54,7 @@ class InputViewTest {
         ByteArrayInputStream input = new ByteArrayInputStream(String.join("\n", names, totalTurns).getBytes());
         System.setIn(input);
         assertThatThrownBy(InputView::getInput).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(Messages.ILLEGAL_NAME_ANNOUNCEMENT.getMessage());
+                .hasMessageContaining(Messages.ILLEGAL_NAME.getMessage());
     }
 
     @Test
@@ -66,7 +66,7 @@ class InputViewTest {
         ByteArrayInputStream input = new ByteArrayInputStream(String.join("\n", names, totalTurns).getBytes());
         System.setIn(input);
         assertThatThrownBy(InputView::getInput).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(Messages.ILLEGAL_NAME_ANNOUNCEMENT.getMessage());
+                .hasMessageContaining(Messages.ILLEGAL_NAME.getMessage());
     }
 
     @Test
@@ -78,7 +78,7 @@ class InputViewTest {
         ByteArrayInputStream input = new ByteArrayInputStream(String.join("\n", names, totalTurns).getBytes());
         System.setIn(input);
         assertThatThrownBy(InputView::getInput).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(Messages.ILLEGAL_NUMBER_RANGE_ANNOUNCEMENT.getMessage());
+                .hasMessageContaining(Messages.ILLEGAL_NUMBER_RANGE.getMessage());
     }
 
     @Test
@@ -90,6 +90,6 @@ class InputViewTest {
         ByteArrayInputStream input = new ByteArrayInputStream(String.join("\n", names, totalTurns).getBytes());
         System.setIn(input);
         assertThatThrownBy(InputView::getInput).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(Messages.ILLEGAL_NUMBER_ANNOUNCEMENT.getMessage());
+                .hasMessageContaining(Messages.ILLEGAL_NUMBER.getMessage());
     }
 }
