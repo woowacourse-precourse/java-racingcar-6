@@ -10,6 +10,8 @@ public class Car {
 
     private final String name;
     private int movedDistance;
+    private final StringBuilder movedDistanceDisplay = new StringBuilder();
+    private final String DISPLAY_UNIT = "-";
 
     public Car(String name, int movedDistance) {
         this.name = name;
@@ -20,6 +22,7 @@ public class Car {
         int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE.getConstant(), END_INCLUSIVE.getConstant());
         if (isProceed(randomNumber)) {
             this.movedDistance++;
+            movedDistanceDisplay.append(DISPLAY_UNIT);
         }
     }
 
@@ -35,11 +38,7 @@ public class Car {
         return movedDistance;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", movedDistance=" + movedDistance +
-                '}';
+    public String getMovedDistanceDisplay() {
+        return String.valueOf(movedDistanceDisplay);
     }
 }
