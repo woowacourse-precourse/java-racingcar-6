@@ -8,8 +8,7 @@ import java.util.Map;
 public class CarRepository {
 
     Map<String, Car> carMap = new HashMap<String,Car>();
-    public Car save(String name) {
-        Car saveCar = new Car(name);
+    public Car save(Car saveCar) {
         carMap.put(name, saveCar);
         return saveCar;
     }

@@ -17,6 +17,7 @@ public class CarService {
     }
 
     public Car carCreate(String input) {
+        Car saveCar = new Car(input);
         return carRepository.save(input);
     }
 
