@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+    private List<Integer> moveCountList = new ArrayList<>(); //전역변수 설정
+    private List<String> notMoveCarNameList = new ArrayList<>(); //전역변수 설정
+    private List<String> winners = new ArrayList<>(); //전역변수 설정
     private final String[] carNames;
     private int firstMagicNumber = 0;
     private int lastMagicNumber = 9;
@@ -45,6 +48,20 @@ public class Cars {
             if (randomNumber() > 3) {     //3보다 크면 -를 추가
                 carNames[i] += "-";     //car의 이름이 하나의 배열을 가지고 있고 그 배열에서 추가
             }
+
+            int distinctionNumber = carNames[i].indexOf("-"); // 위치
+
+            if(distinctionNumber == -1){
+                distinctionNumber = carNames[i].length();
+            }
+
+            String CarName = carNames[i].substring(0,distinctionNumber); //차의 원래값
+            String moveCount = carNames[i].substring(distinctionNumber, carNames[i].length());
+
+            moveCountList.add(i, moveCount.length()); //움직인 횟수 넣기
+            notMoveCarNameList.add(i,CarName);
+
+            System.out.println(CarName + ":" + moveCount);
         }
     }
 }
