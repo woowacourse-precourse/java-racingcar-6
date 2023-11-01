@@ -1,9 +1,6 @@
 package racingcar.game;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Object.Player;
-import racingcar.Object.InputManager;
-import racingcar.Object.RandomNumberGenerator;
 
 import java.util.List;
 

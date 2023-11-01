@@ -1,4 +1,4 @@
-package racingcar.Object;
+package racingcar.game;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Game {
-    private int turn;
-    private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-    private List<GameCar> gameCars;
+    private final int turn;
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    private final List<GameCar> gameCars;
 
     public Game(int turn, List<String> carNameList) {
         this.turn = turn;
