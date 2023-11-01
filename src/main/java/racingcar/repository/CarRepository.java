@@ -1,7 +1,5 @@
 package racingcar.repository;
 
-import static racingcar.Constants.IDENTITY_NUMBER;
-
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
