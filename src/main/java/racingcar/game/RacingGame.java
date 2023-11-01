@@ -6,7 +6,7 @@ import racingcar.message.Console;
 import racingcar.evaluator.WinnerEvaluator;
 import racingcar.printer.ResultPrinter;
 import racingcar.processor.CarDataProcessor;
-import racingcar.processor.Generator;
+import racingcar.util.Generator;
 import racingcar.processor.Request;
 
 public class RacingGame {

@@ -1,7 +1,7 @@
 package racingcar.game;
 
 import racingcar.domain.Car;
-import racingcar.processor.Generator;
+import racingcar.util.Generator;
 
 public class Movement {
 
