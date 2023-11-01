@@ -21,25 +21,27 @@ public class RacingCarGameController {
     public void play() {
 
         String names = inputView.getCarNames();
-
         List<String> carNames = inputView.getSplitCarNames(names);
-
         List<Car> cars = carController.initializeCars(carNames);
-
         int moveCount = inputView.getMoveCount();
 
+        playGame(cars, moveCount);
+
+        gameResult(cars);
+    }
+
+    private void gameResult(List<Car> cars) {
+        List<Car> winners = carController.findWinners(cars);
+        outputView.printWinners(winners);
+    }
+
+    private void playGame(List<Car> cars, int moveCount) {
         System.out.println();
         System.out.println("실행 결과");
 
         for (int i = 0; i < moveCount; i++) {
             carController.moveCarForward(cars);
             outputView.printPositions(cars);
-
         }
-
-        List<Car> winners = carController.findWinners(cars);
-        outputView.printWinners(winners);
     }
-
-
 }
