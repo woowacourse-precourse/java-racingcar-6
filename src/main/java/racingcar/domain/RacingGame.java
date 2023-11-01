@@ -17,20 +17,13 @@ public class RacingGame {
 
             printRequestNames();
             List<Car> cars = generateCars();
+
             printRequestNumber();
-            RacingSimulator simulator = new RacingSimulator(Inputview.consoleLine());
-            simulator.checkNumberValidation();
-            simulator.invertStringToInt();
+            RacingSimulator simulator = inputRaceNumber();
 
-            System.out.println();
-            printStartResult();
+            checkValidation(simulator);
 
-
-            while (simulator.checkZero()) {
-                simulator.playSimulator(cars);
-                printSimulationResult(cars);
-                simulator.minusNumber();
-            }
+            startRacingSimulation(simulator, cars);
 
             List<Integer> winnerList = simulator.checkMaxKey();
 
@@ -55,6 +48,10 @@ public class RacingGame {
         OutputView.consoleLine(GameMessage.INSERT_TURN_MESSAGE);
     }
 
+    private RacingSimulator inputRaceNumber() {
+        return new RacingSimulator(Inputview.consoleLine());
+    }
+
     private void printStartResult() {
         OutputView.consoleLine(GameMessage.INSERT_RESULT_MESSAGE);
     }
@@ -66,6 +63,16 @@ public class RacingGame {
         return carGenerator.generateCars();
     }
 
+    private void startRacingSimulation(RacingSimulator simulator, List<Car> cars){
+        System.out.println();
+        printStartResult();
+        while (simulator.checkZero()) {
+            simulator.playSimulator(cars);
+            printSimulationResult(cars);
+            simulator.minusNumber();
+        }
+    }
+
     private void printSimulationResult(List<Car> cars) {
         for (Car car : cars) {
             car.printResult();
@@ -74,19 +81,11 @@ public class RacingGame {
         System.out.println();
     }
 
-    private void printWinner(List<Integer> winnerNumber, List<Car> cars) {
-        OutputView.console(GameMessage.INSERT_GAME_RESULT_MESSAGE);
-        if (winnerNumber.size() == 1) {
-            Car winner = cars.get(winnerNumber.get(0));
-            winner.printName();
-        } else if (winnerNumber.size() > 1) {
-            for (int i = 0; i < winnerNumber.size() - 1; i++) {
-                Car winner = cars.get(winnerNumber.get(i));
-                winner.printName();
-                OutputView.console(GameMessage.INSERT_REST_MULTIPLE_WINNER);
-            }
-            cars.get(winnerNumber.get(winnerNumber.size()));
-        }
+
+
+    private void checkValidation(RacingSimulator simulator){
+        simulator.checkNumberValidation();
+        simulator.invertStringToInt();
     }
 }
 
