@@ -1,0 +1,104 @@
+package racingcar.domain;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.*;
+
+class CarTest {
+    private Car car;
+
+    @BeforeEach
+    void setUp() {
+        car = new Car();
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름을 쉼표(,)를 기준으로 구분")
+    void testSuccessSplitInputNames() {
+        String input = "pobi,woni,jun";
+
+        List<String> expected = List.of("pobi", "woni", "jun");
+        List<String> result = car.splitInputNames(input);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름을 쉼표(,)를 기준으로 구분")
+    void testSplitWithEmptyInputNames() {
+        String input = "pobi,woni,";
+
+        List<String> expected = List.of("pobi","woni", "");
+
+        assertThatThrownBy(() -> car.splitInputNames(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 빈값이 있습니다.");
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름을 쉼표(,)를 기준으로 구분")
+    void testFailSplitInputNames() {
+        String input = "pobi,woni,jun";
+
+        List<String> expected = List.of("pobi,woni,jun");
+        List<String> result = car.splitInputNames(input);
+
+        assertNotEquals(expected, result);
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름에 빈값 존재")
+    void testGetNamesWithEmptyInput() {
+        List<String> carNames = Arrays.asList("");
+
+        assertThatThrownBy(() -> car.checkEmpty(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 빈값이 있습니다.");
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름에 빈값 존재")
+    void testGetNamesWithEmptyInputContainingEmptyValues() {
+        List<String> carNames = Arrays.asList("pobi", "", "jun");
+
+        assertThatThrownBy(() -> car.checkEmpty(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 빈값이 있습니다.");
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름의 마지막에 빈값 존재")
+    void testGetNamesWithInvalidInput() {
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun", "");
+
+        assertThatThrownBy(() -> car.checkEmpty(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 빈값이 있습니다.");
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름에 중복 값 존재")
+    void testGetNamesWithDuplicateInput() {
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun", "pobi");
+
+        assertThatThrownBy(() -> car.checkDuplicate(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 중복 값이 있습니다. 서로 다른 이름을 입력해 주세요.");
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름에 5자 초과된 값 존재")
+    void testGetNamesWithLongInput() {
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun", "longname");
+
+        assertThatThrownBy(() -> car.checkLength(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름의 길이를 5 이하로 지정해주세요.");
+    }
+}
