@@ -12,7 +12,7 @@ class NamedCarGameFactoryTest {
 
     @Test
     void createGame() {
-        NamedCarGameFactory namedCarGameFactory = new NamedCarGameFactory("nero,naro", 3);
+        NamedCarGameFactory namedCarGameFactory = new NamedCarGameFactory("nero,naro", "3");
         Game game = namedCarGameFactory.createGame();
         game.play();
     }
@@ -20,7 +20,7 @@ class NamedCarGameFactoryTest {
     @Test
     void createGameFail() {
         assertThrowsExactly(IllegalArgumentException.class, () -> {
-            NamedCarGameFactory namedCarGameFactory = new NamedCarGameFactory("nero123,naro", 3);
+            NamedCarGameFactory namedCarGameFactory = new NamedCarGameFactory("nero123,naro", "3");
             Assertions.fail();
             Game game = namedCarGameFactory.createGame();
             game.play();

@@ -35,7 +35,7 @@ public class NamedCarGameFactory implements GameFactory {
     public Game createGame() throws IllegalArgumentException {
         String[] split = input.split(",");
         List<Car> cars = Arrays.stream(split)
-                .map(name -> new NamedCar(name))
+                .map(NamedCar::new)
                 .collect(Collectors.toList());
         return new GameImpl(cars, iterNumber);
     }
