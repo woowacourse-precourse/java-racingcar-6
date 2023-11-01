@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Validate {
-    private static final String ZERO = "0";
+    private static final int ZERO = 0;
     private static final int MAX = 100;
 
     public void inputLineOfCarNames(String inputLineOfCarNames) {
@@ -63,7 +63,7 @@ public class Validate {
     }
 
     private void validateIsZero(String numberOfAttempts) {
-        if (Pattern.matches(ZERO, numberOfAttempts)) {
+        if (ZERO == Integer.parseInt(numberOfAttempts)) {
             throw new IllegalArgumentException("[오류] 0은 입력할 수 없습니다.");
         }
     }

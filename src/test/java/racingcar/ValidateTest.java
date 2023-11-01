@@ -57,4 +57,11 @@ public class ValidateTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("0은 입력할 수 없습니다.");
     }
+    @Test
+    void 시도할_회수가_최대값을_초과했을_때_예외_발생(){
+        String input = "101";
+        assertThatThrownBy(() -> validate.numberOfAttemptsForm(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("최대값을 초과합니다.");
+    }
 }
