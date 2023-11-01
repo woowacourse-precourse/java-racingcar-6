@@ -5,7 +5,7 @@ import pojo.RacingCar;
 
 public class RapsResult {
 
-    RacingCar racingCar;
+    private RacingCar racingCar;
 
     public RapsResult(RacingCar racingCar) {
 

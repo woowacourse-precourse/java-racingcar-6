@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PrintWinner {
 
-    RacingCar[] racingCars;
+    private RacingCar[] racingCars;
 
     public PrintWinner(RacingCar[] racingCars) {
 
@@ -15,7 +15,7 @@ public class PrintWinner {
     }
 
     //우승자의 전진 횟수를 반환합니다.
-    private int winnerNum() {
+    public int winnerNum() {
 
         int wNum = 0;
 
@@ -27,7 +27,7 @@ public class PrintWinner {
     }
 
     //최종 우승자를 탐색하여 리스트로 반환합니다.
-    private List<String> winnerList() {
+    public List<String> winnerList() {
 
         List<String> wList = new ArrayList<>();
         int wNum = winnerNum();
