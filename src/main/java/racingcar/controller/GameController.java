@@ -15,26 +15,33 @@ public class GameController {
     }
 
     public void start() {
-        GameInputView.printStartMessage();
+        List<String> carNames = enterCarNames();
+        int tryNum = enterTryNum();
 
+        gameService.processStart(carNames, tryNum);
+    }
+
+    private List<String> enterCarNames() {
+        GameInputView.printStartMessage();
         String carNameInput = readLine();
-        InputValidator.checkHasComma(carNameInput);
-        InputValidator.checkEndsWithComma(carNameInput);
+        InputValidator.checkCarNameInput(carNameInput);
 
         List<String> carNames = getCarNames(carNameInput);
-        InputValidator.checkLengthFive(carNames);
-        InputValidator.checkBlankName(carNames);
+        InputValidator.checkCarName(carNames);
 
-        GameInputView.printTryInputMessage();
-        String tryCount = readLine();
-        InputValidator.checkNumeric(tryCount);
-        InputValidator.checkZero(tryCount);
-
-        gameService.start(carNames, Integer.parseInt(tryCount));
+        return carNames;
     }
 
     private List<String> getCarNames(String carNameInput) {
         String[] split = carNameInput.split(",");
         return List.of(split);
+    }
+
+    private int enterTryNum() {
+        GameInputView.printTryInputMessage();
+        String tryNum = readLine();
+        InputValidator.checkTryNum(tryNum);
+
+        return Integer.parseInt(tryNum);
     }
 }
