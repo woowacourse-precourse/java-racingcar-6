@@ -14,6 +14,7 @@ import org.mockito.Mockito;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.anyInt;
 
 @DisplayName("Racing 도메인 테스트")
@@ -103,5 +104,13 @@ class RacingTest {
                 () -> assertThat(winingCars).hasSize(2),
                 () -> assertThat(winingCars).containsAll(List.of(carA, carC))
         );
+    }
+
+    @Test
+    void 자동차_이름_중복_검증() {
+        // given & when & then
+        assertThatThrownBy(() -> new Racing().generateCars(List.of("Car", "Car")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 자동차 이름입니다.");
     }
 }
