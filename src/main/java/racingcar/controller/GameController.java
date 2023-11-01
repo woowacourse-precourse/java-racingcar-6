@@ -52,8 +52,8 @@ public class GameController {
 
     private boolean finishGame(int trialNum, int triedNum){
         if (trialNum == triedNum){
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }
