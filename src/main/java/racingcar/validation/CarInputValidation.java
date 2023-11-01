@@ -69,7 +69,7 @@ public class CarInputValidation {
     private void validateSpecialCharacters(String input) {
         String[] inputCars = input.split(Util.CAR_NAME_DELIMITER);
         for (String name : inputCars) {
-            if (!Pattern.matches("^[\\p{L}\\p{N}-_.]*$", name)) {
+            if (!Pattern.matches("^[a-zA-Z0-9-_.]*$", name)) {
                 throw new IllegalArgumentException(ErrorMessage.INVALID_CHARACTERS_ERROR_MESSAGE);
             }
         }
