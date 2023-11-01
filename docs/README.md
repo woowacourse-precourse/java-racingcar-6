@@ -2,8 +2,8 @@
 
 class Car
 
-- [ ] 전진 여부 판단하기 - isMove()
-- [ ] 전진하기 - Move()
+- [x] 전진 여부 판단하기 - isMove()
+- [x] 전진하기 - Move()
 
 class Game
 
