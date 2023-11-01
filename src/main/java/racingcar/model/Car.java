@@ -18,6 +18,9 @@ public class Car implements Comparable<Car>, Model {
         this.index = index;
     }
 
+    /**
+     * Car 객체의 이동/정지에 따른 moved 정수 변수 값을 변경하는 메서드
+     */
     public void moveOrStop() {
         if (Randoms.pickNumberInRange(LOWER_BOUND.number(), UPPER_BOUND.number()) >= THRESHOLD.number()) {
             moved++;

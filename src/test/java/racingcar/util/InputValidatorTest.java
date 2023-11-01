@@ -37,18 +37,18 @@ class InputValidatorTest {
     void isNumber() {
         String invalidCount1 = "";
 
-        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isPositiveInteger(invalidCount1));
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isNonNegativeInteger(invalidCount1));
 
         String invalidCount2 = "12af";
 
-        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isPositiveInteger(invalidCount2));
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isNonNegativeInteger(invalidCount2));
 
         String invalidCount3 = "-34";
 
-        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isPositiveInteger(invalidCount3));
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isNonNegativeInteger(invalidCount3));
 
         String validCount = "34";
 
-        assertDoesNotThrow(() -> testInputValidator.isPositiveInteger(validCount));
+        assertDoesNotThrow(() -> testInputValidator.isNonNegativeInteger(validCount));
     }
 }

@@ -12,6 +12,13 @@ public class InputValidator implements Validator {
     InputValidator() {
     }
 
+    /**
+     * 주어진 이름 문자열 리스트가 유효한 리스트인지 확인하는 메서드.
+     * 이름의 길이가 1 ~ 5자인지와 중복된 이름이 있는지 확인하고,
+     * 유효하지 않으면 IllegalArgumentException 예외를 던진다.
+     *
+     * @param names 이름 문자열 리스트
+     */
     public void isValidList(final List<String> names) {
         if (!hasValidNames(names)) {
             throw RacingCarException.of(ErrorMessage.INVALID_NAME);
@@ -22,7 +29,16 @@ public class InputValidator implements Validator {
         }
     }
 
-    public Integer isPositiveInteger(final String count) {
+    /**
+     * 주어진 문자열이 음이 아닌 정수인지 확인하고,
+     * 음이 아닌 정수라면 정수 값을 반환하는 메서드.
+     * 숫자가 아니거나, 음이 아닌 정수가 아니면
+     * IllegalArgumentException 예외를 던진다.
+     *
+     * @param count 숫자로 이루어진 문자열
+     * @return int 타입 정수
+     */
+    public int isNonNegativeInteger(final String count) {
         int number;
         try {
             number = Integer.parseInt(count);

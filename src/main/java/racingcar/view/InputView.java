@@ -17,6 +17,11 @@ public class InputView implements View {
         this.inputValidator = (InputValidator) inputValidator;
     }
 
+    /**
+     * Console로 입력받은 문자열을 이름의 리스트로 변환하는 메서드.
+     *
+     * @return 이름 문자열 리스트
+     */
     public List<String> getUserInputName() {
         System.out.println(INPUT_CARS_NAME.message());
         String input = Console.readLine();
@@ -28,11 +33,16 @@ public class InputView implements View {
         return nameList;
     }
 
-    public Integer getUserInputCount() {
+    /**
+     * Console로 입력받은 문자열을 정수로 변환하는 메서드.
+     *
+     * @return int 타입 정수
+     */
+    public int getUserInputCount() {
         System.out.println(TRY_COUNT.message());
         String input = Console.readLine();
         Console.close();
 
-        return inputValidator.isPositiveInteger(input);
+        return inputValidator.isNonNegativeInteger(input);
     }
 }

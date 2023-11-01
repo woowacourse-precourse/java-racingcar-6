@@ -13,6 +13,11 @@ public class CarRank implements Model {
         rankQueue = new PriorityQueue<>(cars);
     }
 
+    /**
+     * 가장 멀리 간 자동차의 이름(name)과 더불어 같은 거리만큼 움직인 자동차의 이름을 모은 리스트를 반환하는 메서드
+     *
+     * @return 우승자들의 이름 문자열 리스트
+     */
     public List<String> getWinnerList() {
         List<String> winnerList = new ArrayList<>();
 
