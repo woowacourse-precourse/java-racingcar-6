@@ -18,7 +18,7 @@ public class RacingGameTest {
         //given
         String carsName = "pobi,namzi,jnam,jonh";
 
-        racingGame.createCars(carsName);
+        racingGame.createCarsAfterValidation(carsName);
         List<RacingCar> racingCars = racingGame.getRacingCars();
         //then
         assertThat(racingCars.size()).isEqualTo(4);
@@ -35,7 +35,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame();
         //given
         String carsName = "pobi,namzi,jnam,jonh";
-        racingGame.createCars(carsName);
+        racingGame.createCarsAfterValidation(carsName);
         List<RacingCar> racingCars = racingGame.getRacingCars();
 
         RacingCar pobi = racingCars.get(0);
@@ -74,7 +74,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame();
         //given
         String carsName = "pobi,namzi,jnam,jonh";
-        racingGame.createCars(carsName);
+        racingGame.createCarsAfterValidation(carsName);
         List<RacingCar> racingCars = racingGame.getRacingCars();
 
         RacingCar pobi = racingCars.get(0);

@@ -131,4 +131,3 @@
 - String getDuplicatedCarNamesError() : 자동차 이름 중복 오류에 대한 문구 반환
 - String getDigitRaceCountError() : 레이스 실행 횟수가 숫자로만 구성되지 않은 오류에 대한 문구 반환
 - String getEmptyRaceCountError() : 레이스 실행 횟수가 없는 오류에 대한 문구 반환
-- 

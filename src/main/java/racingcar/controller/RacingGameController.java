@@ -8,23 +8,23 @@ public class RacingGameController {
     private final RacingGame racingGame = new RacingGame();
     private final RacingGameView racingGameView = new RacingGameView();
 
-    public void readyToPlay() {
+    public void ready() {
         racingGameView.raceStartMessage();
-        String carNames = getInputLine();
+        final String carNames = getInputLine();
 
-        racingGame.createCars(carNames);
+        racingGame.createCarsAfterValidation(carNames);
 
         racingGameView.raceCountMessage();
-        String raceCount = getInputLine();
+        final String raceCount = getInputLine();
 
-        racingGame.setRaceCount(raceCount);
+        racingGame.setRaceCountAfterValidation(raceCount);
     }
 
     public void play() {
-        String raceResults = racingGame.race();
+        final String raceResults = racingGame.race();
         racingGameView.raceResults(raceResults);
 
-        String winners = racingGame.getWinners();
+        final String winners = racingGame.getWinners();
         racingGameView.winners(winners);
     }
 
