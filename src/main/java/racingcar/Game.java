@@ -5,8 +5,6 @@ import static racingcar.utils.ValidationRegex.*;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import racingcar.model.Car;
 import racingcar.utils.constant.Message;
 
@@ -14,10 +12,7 @@ public class Game { // 게임 진행 클래스
 
     private static int maxScore = -1;
     private static int gameRepeatNumber = 0;
-
     private static ArrayList<String> winnerList = new ArrayList<>();// 최종 우승자 저장을 위한 리스트
-
-
     private List<Car> carList = new ArrayList<>();
 
 
@@ -101,7 +96,7 @@ public class Game { // 게임 진행 클래스
 
     public void repeatNumberCheck(String target) {
         if (!isRepeatNumber(target)) {
-            throw new IllegalArgumentException("반복 횟수는 적어도 1번 이상이어야 합니다.");
+            throw new IllegalArgumentException(Message.MIN_REPEAT_ERROR);
         }
 
     }

@@ -7,6 +7,8 @@ public class Message {
     public static final String MIN_CAR_NUMBER_ERROR="게임 진행을 위해 자동차 이름을 최소 2개 이상 입력해주세요.";
     public final static String MAX_CAR_NAME_ERROR="이름은 최소 한글자 이상 다섯글자 이하로 작성해 주세요.";
 
+    public final static String MIN_REPEAT_ERROR="반복 횟수는 적어도 1번 이상이어야 합니다.";
+
     /**
      * 안내 관련
      */
