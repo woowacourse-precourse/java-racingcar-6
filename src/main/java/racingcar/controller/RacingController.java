@@ -41,7 +41,7 @@ public class RacingController {
         outputView.printRacingStartMessage();
         List<String> carNames = racingService.getCarNamesList();
         while(racingService.isContinue()) {
-            outputView.printRoundResult(carNames, racingService.race());
+            outputView.printRoundResult(carNames, racingService.race());//racingService.race()는 race를 실행하고 race 결과를 반환합니다.
         }
     }
 

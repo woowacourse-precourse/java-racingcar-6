@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 public class Attempt {
-    private final int attemptNumber;
-    private int attemptCount;
+    private final int attemptNumber;//총 경기 횟수
+    private int attemptCount;//여지껏 했던 경기 횟수
 
     public Attempt(String attemptNumber) {
         this.attemptNumber = Integer.parseInt(attemptNumber);
