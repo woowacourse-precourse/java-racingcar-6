@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class RacingCars {
     private static final String DUPLICATE_NAME = "중복된 이름이 있습니다.";
+    public final String HASH = ",";
     private final List<RacingCar> racingCars;
 
     private void checkDuplicateNames(List<String> racingCarNames) {
@@ -14,9 +15,14 @@ public class RacingCars {
         if (racingCarNameSet.size() != racingCarNames.size()) throw new IllegalArgumentException(DUPLICATE_NAME);
     }
 
-    public RacingCars (List<String> racingCarNames) {
-        checkDuplicateNames(racingCarNames);
-        this.racingCars = racingCarNames.stream().map(RacingCar::new).collect(Collectors.toList());
+    public RacingCars (String racingCarNames) {
+        List<String> racingCarNameList = splitNameList(racingCarNames);
+        checkDuplicateNames(racingCarNameList);
+        this.racingCars = racingCarNameList.stream().map(RacingCar::new).collect(Collectors.toList());
+    }
+
+    public List<String> splitNameList(String inputRacingCarNames) {
+        return List.of(inputRacingCarNames.split(HASH));
     }
 
     public int getMaxMoveCount() {
