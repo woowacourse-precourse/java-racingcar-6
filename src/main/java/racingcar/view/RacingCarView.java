@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.Map;
+import java.util.StringJoiner;
 
 public class RacingCarView {
 
@@ -27,19 +28,10 @@ public class RacingCarView {
 		System.out.print("\n");
 	}
 
-	public void printResult(List<String> resultCarName) {
-		StringBuilder result = new StringBuilder("최종 우승자 : ");
-		for (int i = 0; i < resultCarName.size(); i++) {
-			result.append(resultCarName.get(i));
-			addComma(resultCarName, result, i);
-		}
+	public static void printResult(List<String> resultCarName) {
+		StringJoiner result = new StringJoiner(", ", "최종 우승자 : ", "");
+		resultCarName.forEach(result::add);
 		System.out.println(result);
-	}
-
-	private static void addComma(List<String> resultCarName, StringBuilder result, int i) {
-		if (i < resultCarName.size() - 1) {
-			result.append(", ");
-		}
 	}
 
 }
