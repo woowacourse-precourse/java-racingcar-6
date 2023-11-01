@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +15,14 @@ public class InputHandler {
     private static final String BLANK = " ";
     private static int MAX_LENGTH = 5;
     private static final String NUMBER = "[0-9]";
+
+    public static List<Car> getCarListFromInput() {
+        List<Car> carList = new ArrayList<>();
+        Arrays.stream(splitToArray(userInput()))
+                .forEach(name -> carList.add(new Car(name)));
+        return carList;
+    }
+
     public static String userInput() {
         return Console.readLine();
     }
