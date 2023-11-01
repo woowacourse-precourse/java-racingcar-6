@@ -45,4 +45,14 @@ public class Cars {
     public Map<String, Integer> getState() {
         return state;
     }
+
+    public List<String> getName() {
+        List<String> carNames = new ArrayList<>(state.keySet());
+        Collections.sort(carNames);
+        return carNames;
+    }
+
+    public int getScore(String name) {
+        return state.get(name);
+    }
 }
