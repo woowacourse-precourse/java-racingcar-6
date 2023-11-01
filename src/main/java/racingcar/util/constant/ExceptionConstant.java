@@ -10,11 +10,12 @@ public class ExceptionConstant {
 
     // 시도 횟수 입력
     public static String INPUT_VALID_NUMBER = "숫자를 입력해주세요.";
-    public static String INPUT_VALID_NUMBER_RANGE = "1 이상의 숫자를 입력해주세요.";
+    public static String INPUT_VALID_NUMBER_RANGE = "1 이상의 10억 이하의 숫자를 입력해주세요.";
 
     // 우승자 출력
     public static String MORE_THAN_TWO_WINNERS = "우승자가 2명 이상일 경우 출력은 ', '로 구분해야합니다.";
 
     public static int MINIMUM_NUMBER_VALUE = 1;
+    public static int MAXIMUM_NUMBER_VALUE = (int)1e9;
     public static int MINIMUM_NAME_LENGTH = 5;
 }
