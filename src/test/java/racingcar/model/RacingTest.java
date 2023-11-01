@@ -21,7 +21,7 @@ public class RacingTest {
 
     @BeforeEach
     void setUp() {
-        defaultNames = List.of("pobi");
+        defaultNames = List.of("pobi", "woni");
         defaultGenerator = new CustomIntGenerator(MOVING_CONDITION);
         defaultRacing = new Racing(defaultNames, 1, defaultGenerator);
     }
@@ -55,11 +55,16 @@ public class RacingTest {
         assertThat(after).isFalse();
     }
 
-    void 이동_후_현재_경주_상태를_확인할_수_있다() {
+    @Test
+    void 현재_경주_상태_확인_시_자동차들의_이름과_전진횟수를_확인할_수_있다() {
+        List<CarState> states = defaultRacing.captureCurrentState();
 
+        for (int i = 0; i < 2; i++) {
+            assertThat(states.get(i).name()).isEqualTo(defaultNames.get(i));
+            assertThat(states.get(i).forwardCount()).isEqualTo(0);
+        }
     }
 
     void 최대_전진횟수를_가진_자동차이름으로_경주의_우승자_이름을_생성한다() {
-
     }
 }
