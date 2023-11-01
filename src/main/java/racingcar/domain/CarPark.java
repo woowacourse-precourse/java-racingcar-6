@@ -13,6 +13,17 @@ public class CarPark {
         this.park = park;
     }
 
+    private static int updateMaxScore(int maxScore, List<String> winnerList, Car car) {
+        if (car.isScoreBiggerThanMaxScore(maxScore).equals("Bigger")) {
+            maxScore = car.getScore();
+            winnerList.clear();
+            winnerList.add(car.getName());
+        } else if (car.isScoreBiggerThanMaxScore(maxScore).equals("Equal")) {
+            winnerList.add(car.getName());
+        }
+        return maxScore;
+    }
+
     public List<String> makeNameList() {
         return park.stream()
                 .map(Car::getName)
@@ -39,17 +50,6 @@ public class CarPark {
         }
 
         return winnerList;
-    }
-
-    private static int updateMaxScore(int maxScore, List<String> winnerList, Car car) {
-        if (car.isScoreBiggerThanMaxScore(maxScore).equals("Bigger")) {
-            maxScore = car.getScore();
-            winnerList.clear();
-            winnerList.add(car.getName());
-        } else if (car.isScoreBiggerThanMaxScore(maxScore).equals("Equal")) {
-            winnerList.add(car.getName());
-        }
-        return maxScore;
     }
 
     public String getWinnerList() {
