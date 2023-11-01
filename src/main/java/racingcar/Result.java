@@ -20,10 +20,8 @@ public class Result {
     }
 
     public void printRacingWinner(Map<String, Integer> carNameAndMoving) {
-        int maxMoving = findMaxMoving(carNameAndMoving);
-        List<String> winners = getWinners(carNameAndMoving, maxMoving);
-        String winner = String.join(COMMA_AND_BLANK, winners);
-        System.out.print(FINAL_WINNER + winner);
+        List<String> winners = getWinners(carNameAndMoving, findMaxMoving(carNameAndMoving));
+        System.out.print(FINAL_WINNER + toJoin(winners));
     }
 
     private StringBuilder appendBar(int count) {
@@ -47,5 +45,9 @@ public class Result {
                 .filter(name -> name.getValue() == maxMoving)
                 .map(Map.Entry::getKey)
                 .collect(toList());
+    }
+
+    private String toJoin(List<String> winners) {
+        return String.join(COMMA_AND_BLANK, winners);
     }
 }
