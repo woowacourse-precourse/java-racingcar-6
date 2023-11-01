@@ -2,6 +2,9 @@ package racingprocess;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RacingProcess {
     String count;
     String name;
@@ -39,11 +42,14 @@ public class RacingProcess {
             output[i][0] = nameList[i];
             output[i][1] = "0";
         }
+        List<String> Winner = null;
 
         for(int i=0; i < Integer.parseInt(count); i++) {
             String[][] result = decisionGoFowardNumber(output);
             outputPrint(result);
+            Winner = whoIsBestDriver(result);
         }
+        System.out.println("최종 우승자 : " + String.join(", ", Winner));
     }
 
     private void outputPrint(String[][] result) {
@@ -52,6 +58,43 @@ public class RacingProcess {
         }
         System.out.println();
     }
+
+    private List<String> whoIsBestDriver(String[][] result) {
+
+        int topScore = findTopScorers(result);
+        List<String> winnerSearch = findTopPlayers(result, topScore);
+        return winnerSearch;
+    }
+    // 최고 스코어 값 추출
+
+    private int findTopScorers(String[][] result) {
+        int maxScore = 0;
+
+        for (int i = 0; i < result.length; i++) {
+            int score = Integer.parseInt(result[i][1]);
+
+            if (score > maxScore) {
+                maxScore = score;
+            }
+        }
+        return maxScore;
+    }
+
+
+    // 최고 스코어를 가진 드라이버 이름 추출
+    private List<String> findTopPlayers(String[][] result, int topScore) {
+        List<String> topPlayers = new ArrayList<>();
+
+        for (int i = 0; i < result.length; i++) {
+            int score = Integer.parseInt(result[i][1]);
+
+            if (score == topScore) {
+                topPlayers.add(result[i][0]);
+            }
+        }
+        return topPlayers;
+    }
+
 
     private String[][] decisionGoFowardNumber(String[][] output) {
         for(int i =0; i< output.length; i++){
@@ -70,6 +113,4 @@ public class RacingProcess {
             return 0;
         }
     }
-
-
 }
