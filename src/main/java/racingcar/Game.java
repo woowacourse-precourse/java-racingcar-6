@@ -24,7 +24,7 @@ public class Game {
 
     private void playGame() {
         Race race = new Race(cars);
-
+        System.out.println();
         System.out.println("실행 결과");
         for (int turn = 0; turn < numberOfTurns; turn++) {
             race.playRounds();
@@ -52,7 +52,7 @@ public class Game {
 
     private void displayWinners() {
         List<String> winner = determineWinners();
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         System.out.println(String.join(", ", winner));
     }
 }
