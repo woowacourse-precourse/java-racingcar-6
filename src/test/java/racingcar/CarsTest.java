@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 class CarsTest {
 
     private static final String NAME_EXCEEDS_LENGTH_LIMIT = "longCar";
+    private static final String NAME_UNDER_LENGTH_LIMIT = "car";
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
@@ -17,6 +18,12 @@ class CarsTest {
         Assertions.assertThatThrownBy(() -> 자동차들_생성(NAME_EXCEEDS_LENGTH_LIMIT))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(INVALID_CAR_NAME_LENGTH);
+    }
+
+    @Test
+    void 지정한_길이_이하_길이의_자동차_생성_시_예외가_발생하지_않음() {
+        Assertions.assertThatCode(() -> 자동차들_생성(NAME_UNDER_LENGTH_LIMIT))
+                .doesNotThrowAnyException();
     }
 
     @Test
