@@ -12,9 +12,10 @@ public class GameService {
     SystemOutput systemOutput = new SystemOutput();
 
     public void run(String input, String gameNum) {
-        List<String> carList = userInput.askCarList(input);
 
         System.out.println(Constants.RESULT_OF_GAME);
+
+        List<String> carList = userInput.askCarList(input);
         Map<String, Integer> numMoveMap = moveContainer.initMap(carList);
 
         printMoveGameNumber(userInput.askNumberGame(gameNum), carList, numMoveMap);
