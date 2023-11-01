@@ -9,5 +9,8 @@ public class Application {
 
         List<Car> cars = Service.createCars(carNames);
         Service.raceCars(cars, tryCount);
+
+        List<String> winners = Service.determineWinners(cars);
+        Service.printWinners(winners);
     }
 }
