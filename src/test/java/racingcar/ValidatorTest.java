@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.utils.Validator;
@@ -65,11 +66,22 @@ class ValidatorTest {
 
     @Test
     @DisplayName("예외 - 쉼표가 연속된다.")
-    void test() {
+    void test6() {
         //given
         final String carNames = "go,,min,seok";
 
         //when, then
         assertThatIllegalArgumentException().isThrownBy(() -> validator.correctCommaLocation(carNames));
+    }
+
+    @Test
+    @DisplayName("예외 - 자동차 이름이 중복된다.")
+    void test7() {
+        //given
+        List<String> members = List.of("go", "go", "min");
+        String carNames = "go,go,min";
+
+        //when, then
+        assertThatIllegalArgumentException().isThrownBy(() -> validator.duplicateCarName(members, carNames));
     }
 }
