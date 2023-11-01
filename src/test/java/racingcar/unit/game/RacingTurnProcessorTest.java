@@ -56,7 +56,6 @@ class RacingTurnProcessorTest {
                 MOVING_FORWARD, STOP, MOVING_FORWARD);
         //when
         racingTurnProcessor.progressTurn();
-
         //then
         String position = racingTurnProcessor.toString().replaceAll("[^0-9]", "");
         assertThat(position).isEqualTo("101");
@@ -94,7 +93,6 @@ class RacingTurnProcessorTest {
         racingTurnProcessor.progressTurn();
         racingTurnProcessor.progressTurn();
         List<String> winners = racingTurnProcessor.getWinners();
-
         //then
         assertThat(winners).hasSize(2)
                 .containsExactly("a", "c");

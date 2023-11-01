@@ -26,7 +26,6 @@ class ExceptionCaseTest extends IntegrationTest {
         void fail_EmptyInput(String racingCarName) {
             //given
             String turnsCount = "1";
-
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -42,7 +41,6 @@ class ExceptionCaseTest extends IntegrationTest {
             Arrays.fill(ch, 'a');
             String racingCarName = String.valueOf(ch);
             String turnsCount = "1";
-
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -51,12 +49,11 @@ class ExceptionCaseTest extends IntegrationTest {
         }
 
         @DisplayName("알파벳과 숫자, 쉼표 이외 문자가 있다면 예외를 발생시킨다.")
-        @ValueSource(strings = {"valid,3 4", "fd$,valid", "inv\n,valid"})
+        @ValueSource(strings = {"valid,3 4", "fd$,valid", "in v,valid"})
         @ParameterizedTest
         void fail_InvalidInputFormat(String racingCarName) {
             //given
             String turnsCount = "1";
-
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -70,7 +67,23 @@ class ExceptionCaseTest extends IntegrationTest {
         void fail_DuplicatedName(String racingCarName) {
             //given
             String turnsCount = "1";
+            // when then
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException(racingCarName, turnsCount))
+                            .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
 
+        @DisplayName("경주할 자동차의 개수가 최소 경주 가능한 자동차 개수보다 작다면 예외를 발생시킨다.")
+        @Test
+        void fail_LessThanMinRacingCarSize() {
+            //given
+            List<String> racingCarList = new ArrayList<>();
+            for (int i = 0; i < RacingCarRule.MIN_RACER_SIZE - 1; i++) {
+                racingCarList.add(String.valueOf(i));
+            }
+            String racingCarName = String.join(",", racingCarList);
+            String turnsCount = "1";
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -88,7 +101,6 @@ class ExceptionCaseTest extends IntegrationTest {
             }
             String racingCarName = String.join(",", racingCarList);
             String turnsCount = "1";
-
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -102,7 +114,6 @@ class ExceptionCaseTest extends IntegrationTest {
             //given
             String racingCarName = "a".repeat(RacingCarRule.MAX_RACER_NAME_LENGTH + 1);
             String turnsCount = "1";
-
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -121,7 +132,6 @@ class ExceptionCaseTest extends IntegrationTest {
         void fail_EmptyInput(String turnsCount) {
             //given
             String racingCarName = "1,3";
-
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -135,7 +145,6 @@ class ExceptionCaseTest extends IntegrationTest {
             //given
             String racingCarName = "1,3";
             String turnsCount = RacingCarRule.MAX_TOTAL_TURN + "0";
-
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -149,7 +158,6 @@ class ExceptionCaseTest extends IntegrationTest {
         void fail_InvalidInputFormat(String turnsCount) {
             //given
             String racingCarName = "1,3";
-
             // when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))
@@ -163,7 +171,6 @@ class ExceptionCaseTest extends IntegrationTest {
             //given
             String racingCarName = "1,3";
             String turnsCount = String.valueOf(RacingCarRule.MAX_TOTAL_TURN + 1);
-
             //when then
             assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(racingCarName, turnsCount))

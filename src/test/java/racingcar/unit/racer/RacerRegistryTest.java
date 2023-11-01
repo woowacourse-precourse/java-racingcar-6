@@ -59,7 +59,6 @@ class RacerRegistryTest {
             //when
             RacerRegistry<RacingCar> racerRegistry = new RacerRegistry<>();
             racerRegistry.addAll(racingCarList);
-
             //then
             assertThat(racerRegistry.getRacers()).hasSize(racingCarList.size());
         }

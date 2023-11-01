@@ -41,10 +41,8 @@ class RacingCarTest {
         void success() {
             //given
             String name = "pobi";
-
             //when
             RacingCar racingCar = RacingCar.from(name);
-
             //then
             assertThat(racingCar.getName()).isEqualTo(name);
         }
@@ -81,10 +79,8 @@ class RacingCarTest {
             //given
             given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(number);
             RacingCar racingCar = RacingCar.from("stop");
-
             //when
             racingCar.move();
-
             //then
             assertThat(racingCar.getPosition()).isZero();
         }
@@ -96,10 +92,8 @@ class RacingCarTest {
             //given
             given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(number);
             RacingCar racingCar = RacingCar.from("go");
-
             //when
             racingCar.move();
-
             //then
             assertThat(racingCar.getPosition()).isEqualTo(1);
         }

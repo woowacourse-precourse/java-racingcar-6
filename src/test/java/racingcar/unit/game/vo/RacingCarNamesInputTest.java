@@ -1,4 +1,4 @@
-package racingcar.unit.vo;
+package racingcar.unit.game.vo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -23,10 +23,8 @@ class RacingCarNamesInputTest {
             //given
             String name = "a".repeat(RacingCarRule.MAX_RACER_NAME_LENGTH);
             String input = name + name.repeat(RacingCarRule.MAX_RACER_SIZE - 1);
-
             //when
             RacingCarNamesInput racingCarNamesInput = new RacingCarNamesInput(input);
-
             //then
             assertThat(racingCarNamesInput).isNotNull();
             assertThat(racingCarNamesInput.input()).isEqualTo(input);
@@ -37,7 +35,6 @@ class RacingCarNamesInputTest {
         void fail_InvalidLength() {
             //given
             String input = "a".repeat(RacingCarRule.MAX_RACER_NAME_INPUT_LENGTH + 1);
-
             //when then
             assertThatThrownBy(() -> new RacingCarNamesInput(input))
                     .isInstanceOf(IllegalArgumentException.class);

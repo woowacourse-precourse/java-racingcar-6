@@ -61,10 +61,8 @@ class RacingGameScreenTest {
         //given
         String input = "name1,name2";
         mockReader.setInput(input);
-
         //when
         RacingCarNamesInput racingCarNamesInput = racingGameScreen.inputRacingCar();
-
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
@@ -77,10 +75,8 @@ class RacingGameScreenTest {
         //given
         String input = "10";
         mockReader.setInput(input);
-
         //when
         TotalTurnInput totalTurnInput = racingGameScreen.inputTotalTurn();
-
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("시도할 횟수는 몇 회인가요?\n");
@@ -93,7 +89,6 @@ class RacingGameScreenTest {
         //given
         //when
         racingGameScreen.startShowGameResult();
-
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("\n실행 결과\n");
@@ -106,10 +101,8 @@ class RacingGameScreenTest {
     void test_ShowFinalWinnerScreen(String expected) {
         //given
         List<String> result = Arrays.asList(expected.split(","));
-
         //when
         racingGameScreen.showFinalWinner(result);
-
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo(String.format("최종 우승자 : %s\n", expected));
@@ -124,10 +117,8 @@ class RacingGameScreenTest {
         result.add(new RacerPosition("name2", 2));
 
         TurnResult turnResult = new TurnResult(result);
-
         //when
         racingGameScreen.showTurnResult(turnResult);
-
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("""

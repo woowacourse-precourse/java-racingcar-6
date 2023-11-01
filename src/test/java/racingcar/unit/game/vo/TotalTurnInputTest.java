@@ -1,4 +1,4 @@
-package racingcar.unit.vo;
+package racingcar.unit.game.vo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -23,10 +23,8 @@ class TotalTurnInputTest {
         void success() {
             //given
             String input = String.valueOf(RacingCarRule.MAX_TOTAL_TURN);
-
             //when
             TotalTurnInput totalTurnInput = new TotalTurnInput(input);
-
             //then
             assertThat(totalTurnInput).isNotNull();
             assertThat(totalTurnInput.input()).isEqualTo(input);
@@ -37,7 +35,6 @@ class TotalTurnInputTest {
         void fail_InvalidLength() {
             //given
             String input = RacingCarRule.MAX_TOTAL_TURN + "0";
-
             //when then
             assertThatThrownBy(() -> new TotalTurnInput(input))
                     .isInstanceOf(IllegalArgumentException.class);
