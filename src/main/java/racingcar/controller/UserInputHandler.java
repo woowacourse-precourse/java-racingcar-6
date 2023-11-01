@@ -18,7 +18,7 @@ public class UserInputHandler {
     }
 
     private List<String> separateNames(String names) {
-        if (names == null) {
+        if (! InputValidationUtil.hasValue(names)) {
             throw new IllegalArgumentException(AppConstants.ERR_PLEASE_ENTER_NAME_VALUE);
         }
         List<String> nameList = List.of(names.split(AppConstants.INPUT_DELIMITER));

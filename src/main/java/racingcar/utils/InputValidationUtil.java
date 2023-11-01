@@ -27,11 +27,11 @@ public class InputValidationUtil {
         }
     }
 
-    private static boolean hasValue(String str) {
+    public static boolean hasValue(String str) {
         return str != null && !str.isEmpty() && !str.isBlank();
     }
 
-    private static boolean isValidLength(String str) {
+    public static boolean isValidLength(String str) {
         return str.length() <= AppConstants.NAME_LENGTH_LIMIT;
     }
 
