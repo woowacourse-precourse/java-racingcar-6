@@ -6,6 +6,7 @@ import java.util.Set;
 import racingcar.domain.Car;
 import racingcar.domain.NumberGenerator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class CarRaceGame {
     private static CarRaceGame instance;
@@ -30,12 +31,14 @@ public class CarRaceGame {
     private void play(int round) {
         for (int i = 0; i < round; i++) {
             moveCars();
-            
+            displayCars();
         }
     }
 
     private void displayCars() {
-
+        for (Car car : cars) {
+            OutputView.displayCar(car);
+        }
     }
 
     private void moveCars() {
