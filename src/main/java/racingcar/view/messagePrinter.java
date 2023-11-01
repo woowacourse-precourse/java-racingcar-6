@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.Application;
 
 
 public class messagePrinter {
@@ -29,6 +30,7 @@ public class messagePrinter {
 
         }
     }
+
     public static void printWinners(List<Car> cars){
         int max = 0;
         for(int i=0;i<cars.size();i++){
