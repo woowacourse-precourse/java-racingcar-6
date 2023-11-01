@@ -4,8 +4,18 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.HashSet;
 import java.util.List;
 
+/**
+ * 입력값들을 검증 하는 클래스
+ */
 public class Validator {
-
+    /**
+     * 이름들을 검증
+     * <p>
+     * 개별 이름의 사이즈는 5이하, 공백 및 ,의 이름 및 중복된 이름은 금지
+     *
+     * @param nameList
+     * @throws IllegalArgumentException
+     */
     public void names(List<String> nameList) {
         try {
             size(nameList);
@@ -18,6 +28,14 @@ public class Validator {
         }
     }
 
+    /**
+     * 시도 횟수 검증
+     * <p>
+     * 공백 금지, 양의 정수만 허용
+     *
+     * @param trial
+     * @throws IllegalArgumentException
+     */
     public void trial(String trial) {
         try {
             blank(trial);

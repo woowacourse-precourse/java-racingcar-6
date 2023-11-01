@@ -20,7 +20,6 @@ class CarsTest {
     @Test
     void 읽기전용_결과반환() {
         cars.add("a");
-        List<Car> original = cars.getCars();
         List<Unchangeable> test = cars.giveCopiedResult();
 
         assertThatThrownBy(() -> test.set(0, new Car("error", 30)))

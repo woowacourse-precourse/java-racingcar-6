@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Car들을 담는 일급 컬렉션
+ */
 public class Cars {
     private List<Car> cars = new ArrayList<>();
 
@@ -18,6 +21,13 @@ public class Cars {
         }
     }
 
+    /**
+     * 경주 결과들을 반환하기 위해 복사본 생성
+     * <p>
+     * 반환 리스트에 수정 권한 x, 요소 출력 이외 접근 제한
+     *
+     * @return Unchangeable로 복사한 Car객체들의 unmodifiableList
+     */
     public List<Unchangeable> copyResult() {
         List<Unchangeable> copiedResult = new ArrayList<>();
         for (Car car : cars) {
@@ -28,7 +38,7 @@ public class Cars {
         return neverChange;
     }
 
-    public List<Unchangeable> giveCopiedResult() { //반환 리스트에 수정 권한 x, 요소 출력 이외 접근 제한
+    public List<Unchangeable> giveCopiedResult() {
         return copyResult();
     }
 

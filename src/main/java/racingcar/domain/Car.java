@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+/**
+ * 자동차 정보를 담는 클래스
+ */
 public class Car implements Unchangeable {
     private String name;
     private int movement;
@@ -19,6 +22,11 @@ public class Car implements Unchangeable {
         }
     }
 
+    /**
+     * 경주 결과를 만듬.
+     *
+     * @return ex) 이름 : ---
+     */
     @Override
     public String toString() {
         return name + " : " + showMovement();
