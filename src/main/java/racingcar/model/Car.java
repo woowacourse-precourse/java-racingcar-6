@@ -3,8 +3,8 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
-    private int moveCount;
+    public String name;
+    public int moveCount;
     public Car(String name) {
         this.name = name;
         this.moveCount = 0;
