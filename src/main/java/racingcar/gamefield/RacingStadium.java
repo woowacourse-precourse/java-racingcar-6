@@ -1,5 +1,7 @@
 package racingcar.gamefield;
 
+import static racingcar.system.SystemConstant.*;
+
 import java.util.List;
 import racingcar.assist.NumberComparator;
 import racingcar.car.Car;
@@ -46,7 +48,7 @@ public class RacingStadium {
     }
 
     private void tryGoForward(Car car) {
-        if (numberComparator.isNumberOverWinNumber()) {
+        if (numberComparator.isNumberOverWinNumber(WIN_NUMBER_AT_LEAST)) {
             car.goForward();
             displayBoard.updateCurrentCarPosition(car);
         }
