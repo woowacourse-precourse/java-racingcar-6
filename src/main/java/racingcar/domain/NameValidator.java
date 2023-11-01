@@ -33,7 +33,7 @@ public class NameValidator {
     public static void correctNumberOfChar(List<String> carNameList) {
         for (String name : carNameList) {
             if (name.length() > 5) {
-                throw new IllegalArgumentException("글자 수를 초과 입력하여 게임을 종료합니다. (자동차 이름 글자 수는 1자 이상 5자 이하)");
+                throw new IllegalArgumentException("글자 수를 초과 입력하여 게임을 종료합니다. (자동차 이름 글자 수는 5자 이하 까지 가능합니다.)");
             }
         }
     }
