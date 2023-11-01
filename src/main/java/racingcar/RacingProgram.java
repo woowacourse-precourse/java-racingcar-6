@@ -2,10 +2,6 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class RacingProgram {
 
     public void start() {
@@ -25,7 +21,14 @@ public class RacingProgram {
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        count = Integer.parseInt(readLine());
+        try {
+            count = Integer.parseInt(readLine());
+            if (count < 1) {
+                throw new IllegalArgumentException("정상적인 회수를 입력하세요.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 회수는 숫자 입력만 가능합니다.");
+        }
 
         System.out.println("실행 결과");
         for (int i = 0; i < count; i++) {
