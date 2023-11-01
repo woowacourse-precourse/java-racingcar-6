@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class CarNameParserTest {
     CarNameParser carNameParser = new CarNameParser();
     @Test
-    void 이름_입력_파싱_테스트1() {
+    void 이름_파싱_검증_예외_테스트1() {
         String failInputNames = "dave";
 
         assertThatThrownBy(()-> carNameParser.parse(failInputNames))
@@ -19,7 +19,7 @@ class CarNameParserTest {
     }
 
     @Test
-    void 이름_입력_파싱_테스트2() {
+    void 이름_파싱_검증_예외_테스트2() {
         String failInputNames = "david,pobi";
 
         assertThatThrownBy(()->carNameParser.parse(failInputNames))
@@ -27,7 +27,7 @@ class CarNameParserTest {
     }
 
     @Test
-    void 이름_입력_파싱_테스트3() {
+    void 이름_파싱_검증_성공_테스트() {
         String successInputNames = "상현,자바지기";
         List<CarName> names = new ArrayList<>();
 
