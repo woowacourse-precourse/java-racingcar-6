@@ -15,6 +15,17 @@ public class Application {
         int gameCount = Integer.parseInt(Console.readLine());
 
         // TODO: 전진 및 멈춤 로직
+        for (int i = 0; i < gameCount; i++) {
+
+            // TODO: 경주차 개수에 따른 랜덤 정수 생성
+            int carsNum = cars.length;
+            int[] randomNumArray = new int[carsNum];
+
+            for (int j = 0; j < carsNum; j++) {
+                int randomNum = Randoms.pickNumberInRange(0,9);
+                randomNumArray[j] = randomNum;
+            }
+        }
 
         // TODO: 실행 결과 출력
 
