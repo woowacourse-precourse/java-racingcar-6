@@ -24,13 +24,19 @@ public class Game {
     }
 
     /**
-     * userInput 을 받아 name을 분리하고 cars 리스트에 car 를 추가하는 함수
+     * cars 리스트에 car 를 추가하는 함수
      */
     public void addCars(String userInput) {
-        String[] nameList = userInput.split(",");
-        for (String name : nameList) {
+        for (String name :  splitNameOfCars(userInput)) {
             addCar(name);
         }
+    }
+
+    /**
+     * userInput 을 받아 name을 분리하는 함수
+     */
+    private String[] splitNameOfCars(String userInput) {
+        return userInput.split(",");
     }
 
     /**
