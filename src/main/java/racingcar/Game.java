@@ -12,6 +12,7 @@ public class Game {
     public int MOVES;
     public static int MAX_LENGTH_OF_NAME = 5;
     public static int MIN_LENGTH_OF_NAME = 1;
+    public static int MIN_NUMBERS_OF_MOVES = 1;
     public static final String NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
     public static final String MOVES_MESSAGE = "시도할 회수는 몇회인가요?\n";
     public static final String OUTPUT_MESSAGE = "\n실행 결과\n";
@@ -41,6 +42,9 @@ public class Game {
 
     public void getNumberOfMoves() {
         MOVES = Integer.parseInt(Console.readLine());
+        if (MOVES < MIN_NUMBERS_OF_MOVES) {
+            throw new IllegalArgumentException("시도 회수는 " + MIN_NUMBERS_OF_MOVES + "회 이상이어야 합니다.");
+        }
     }
 
     public void printOutput() {
