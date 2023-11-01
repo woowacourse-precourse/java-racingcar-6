@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.ExceptionMessage;
+import racingcar.common.ExceptionMessage;
 import racingcar.common.Constants;
 
 public class Validator {
@@ -18,25 +18,32 @@ public class Validator {
         validateNotEndsWithComma(name);
     }
 
-    public static void validateNameLengthLessThanEqualToFive(String name) {
+    private static void validateNameLengthLessThanEqualToFive(String name) {
         if (name.length() > Constants.NAME_LENGTH) {
             throw new IllegalArgumentException(ExceptionMessage.MORE_THAN_ALLOWED_NAME_LENGTH.getMessage());
         }
     }
 
-    public static void validateNameNotBlank(String name) {
+    private static void validateNameNotBlank(String name) {
         if (null == name || name.isBlank()) {
             throw new IllegalArgumentException(ExceptionMessage.EMPTY_NAME.getMessage());
         }
     }
 
-    public static void validateNotEndsWithComma(String name) {
+    private static void validateNotEndsWithComma(String name) {
         if (name.endsWith(Constants.COMMA)) {
             throw new IllegalArgumentException(ExceptionMessage.ENDS_WITH_COMMA.getMessage());
         }
     }
 
-    public static void validateMoveCountNumber(String number) {
-
+    public static void validateMoveCountNaturalNumber(String number) {
+        try {
+            if (Integer.parseInt(number) < 0) {
+                throw new IllegalArgumentException(ExceptionMessage.NEGATIVE_NUMBER.getMessage());
+            }
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException(ExceptionMessage.NOT_NUMBER.getMessage());
+        }
     }
+
 }
