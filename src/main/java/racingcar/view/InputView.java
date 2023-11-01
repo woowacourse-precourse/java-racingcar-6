@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER;
 import static racingcar.constant.PrintMessage.INPUT_NUMBER_OF_ATTEMPTS;
 import static racingcar.constant.PrintMessage.INPUT_RACING_CAR_NAME;
 
@@ -13,17 +12,9 @@ public class InputView {
         return Console.readLine();
     }
 
-    public Integer readNumberOfAttempts() {
+    public String readNumberOfAttempts() {
         System.out.println(INPUT_NUMBER_OF_ATTEMPTS);
-        return convertInputToInteger(Console.readLine());
-    }
-
-    private Integer convertInputToInteger(String input) {
-        try {
-            return Integer.valueOf(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER);
-        }
+        return Console.readLine();
     }
 
 }

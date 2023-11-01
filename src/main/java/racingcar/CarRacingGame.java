@@ -3,13 +3,9 @@ package racingcar;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS;
-
 import java.util.List;
 
 public class CarRacingGame {
-
-    private static final Integer MINIMUM_NUMBER_OF_ATTEMPTS = 1;
 
     private final InputView inputView;
     private final OutputView outputView;
@@ -22,9 +18,9 @@ public class CarRacingGame {
     public void run(){
         String carNames = inputView.readCarNames();
         RacingCars racingCars = new RacingCars(carNames);
-        Integer numberOfAttempts = inputView.readNumberOfAttempts();
-        validateNumberOfAttemptsIsOneOrLess(numberOfAttempts);
-        play(racingCars, numberOfAttempts);
+        String inputNumberOfAttempts = inputView.readNumberOfAttempts();
+        NumberOfAttempts numberOfAttempts = new NumberOfAttempts(inputNumberOfAttempts);
+        play(racingCars, numberOfAttempts.getNumberOfAttempts());
     }
 
     private void play(RacingCars racingCars, Integer numberOfAttempts) {
@@ -36,12 +32,6 @@ public class CarRacingGame {
         outputView.printResult(resultBuilder);
         List<String> winnerNames = racingCars.getWinnerNames();
         outputView.printWinners(winnerNames);
-    }
-
-    private void validateNumberOfAttemptsIsOneOrLess(Integer numberOfAttempts) {
-        if (numberOfAttempts < MINIMUM_NUMBER_OF_ATTEMPTS) {
-            throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS);
-        }
     }
 
 }
