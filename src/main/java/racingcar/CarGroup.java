@@ -17,8 +17,8 @@ public class CarGroup {
     public List<String> getWinnerList() {
         List<String> winnerList = new ArrayList<>();
         for (Car car : carList) {
-            int max = getMaxDistance();
-            if (car.getDistance() == max) {
+            int maxDistance = getMaxDistance();
+            if (car.getDistance() == maxDistance) {
                 winnerList.add(car.getName());
             }
         }

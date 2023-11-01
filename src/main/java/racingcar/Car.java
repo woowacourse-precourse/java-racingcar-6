@@ -1,7 +1,6 @@
 package racingcar;
 
 public class Car {
-    private static final int MOVE_CONDITION = 4;
     private final String name;
     private int distance = 0;
 
@@ -18,7 +17,7 @@ public class Car {
     }
 
     public void move(int number) {
-        if (number >= MOVE_CONDITION) {
+        if (number >= Constants.MOVE_CONDITION_STANDARD) {
             addDistance();
         }
     }

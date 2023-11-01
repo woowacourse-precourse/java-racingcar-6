@@ -5,9 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Game {
-    private final static String INIT_CARGROUP_TEXT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private final static String INIT_TRIALNUMBER_TEXT = "시도할 회수는 몇회인가요?";
-    private final static String TRIAL_RESULT = "실행 결과";
+
     private CarGroup carGroup;
     private int trialNumber;
     public Game() {
@@ -23,17 +21,17 @@ public class Game {
     }
 
     private CarGroup initCarGroup() {
-        System.out.println(INIT_CARGROUP_TEXT);
+        System.out.println(Constants.CARNAME_INPUT_MESSAGE);
         return new CarGroup(InputHandler.getCarListFromInput());
     }
 
     private int initTrialCount() {
-        System.out.println(INIT_TRIALNUMBER_TEXT);
+        System.out.println(Constants.TRIALNUMBER_INPUT_MESSAGE);
         return InputHandler.getTrialNumberFromInput();
     }
 
     private void run(List<Car> carList, int trialNumber) {
-        System.out.println(TRIAL_RESULT);
+        System.out.println(Constants.RESULT_MESSAGE);
         while (trialNumber > 0) {
             doTrial(carList);
             OutputHandler.printEachResult(carList);
@@ -49,6 +47,6 @@ public class Game {
     }
 
     private int getNumber() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUMBER,Constants.MAX_RANDOM_NUMBER);
     }
 }
