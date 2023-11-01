@@ -18,7 +18,7 @@ public class RacingCarsTest {
 
         racingCars.setCars(names);
 
-        for(int i = 0; i < racingCars.getCars().size(); i++) {
+        for (int i = 0; i < racingCars.getCars().size(); i++) {
             assertThat(names).contains(racingCars.getCars().get(i).getName());
         }
     }
@@ -31,7 +31,7 @@ public class RacingCarsTest {
 
         racingCars.setWinners(names);
 
-        for(int i = 0; i < racingCars.getCars().size(); i++) {
+        for (int i = 0; i < racingCars.getCars().size(); i++) {
             assertThat(names).contains(racingCars.getWinners().get(i));
         }
     }

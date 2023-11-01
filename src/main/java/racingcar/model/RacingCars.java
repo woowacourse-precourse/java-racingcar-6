@@ -10,11 +10,12 @@ public class RacingCars {
     private final List<String> winners = new ArrayList<>();
 
 
-    public RacingCars() {}
+    public RacingCars() {
+    }
 
 
     public void setCars(List<String> names) {
-        for(String name : names)
+        for (String name : names)
             cars.add(new Car(name));
     }
 
@@ -23,7 +24,7 @@ public class RacingCars {
     }
 
     public void setWinners(List<String> names) {
-        for(String name : names)
+        for (String name : names)
             winners.add(name);
     }
 

@@ -20,7 +20,7 @@ public class GameController {
         gameInit();
         gameStart();
         gameEnd();
-    };
+    }
 
     private void gameInit() {
 
@@ -40,7 +40,7 @@ public class GameController {
 
         OutputValue.executionResultMessage();
 
-        for(int i = 0; i < range; i++) {
+        for (int i = 0; i < range; i++) {
             gameService.gameProgress(racingCars);
             OutputValue.gameProgressMessage(racingCars);
         }

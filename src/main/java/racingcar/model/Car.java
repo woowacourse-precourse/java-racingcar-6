@@ -17,5 +17,7 @@ public class Car {
         return location;
     }
 
-    public void forwardLocation() { this.location++; }
+    public void forwardLocation() {
+        this.location++;
+    }
 }

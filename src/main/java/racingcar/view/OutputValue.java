@@ -16,20 +16,28 @@ public class OutputValue {
     private static final String GAME_RESULT_MESSAGE = "최종 우승자 : ";
 
 
-    public static void getNamesMessage(){ System.out.println(RACING_CARS_NAME_MESSAGE); }
+    public static void getNamesMessage() {
+        System.out.println(RACING_CARS_NAME_MESSAGE);
+    }
 
-    public static void getRangeMessage(){ System.out.println(RACING_RANGE_MESSAGE); }
+    public static void getRangeMessage() {
+        System.out.println(RACING_RANGE_MESSAGE);
+    }
 
-    public static void executionResultMessage(){ System.out.println(EXECUTION_RESULT_MESSAGE); }
+    public static void executionResultMessage() {
+        System.out.println(EXECUTION_RESULT_MESSAGE);
+    }
 
     public static void gameProgressMessage(RacingCars racingCars) {
-        for(Car car : racingCars.getCars()) { System.out.println(createGameProgressMessage(car)); }
+        for (Car car : racingCars.getCars()) {
+            System.out.println(createGameProgressMessage(car));
+        }
         System.out.println();
     }
 
     public static void gameResultMessage(RacingCars racingCars) {
 
-        if(racingCars.getWinners().size() == 1) {
+        if (racingCars.getWinners().size() == 1) {
             System.out.println(singleWinnerMessage(racingCars.getWinners().get(0)));
             return;
         }

@@ -24,7 +24,7 @@ public class GameService {
 
         findMaxValue(racingCars);
 
-        for(Car car : racingCars.getCars()) {
+        for (Car car : racingCars.getCars()) {
             findWinner(car);
         }
 
@@ -33,13 +33,13 @@ public class GameService {
     }
 
     private void forwardCar(Car car) {
-        if(forwardJudgment(createNumber())){
+        if (forwardJudgment(createNumber())) {
             car.forwardLocation();
         }
     }
 
     private boolean forwardJudgment(int number) {
-        if(number >= 4) return true;
+        if (number >= 4) return true;
         return false;
     }
 
@@ -48,12 +48,12 @@ public class GameService {
     }
 
     private void findMaxValue(RacingCars racingCars) {
-        for(Car car : racingCars.getCars()) {
+        for (Car car : racingCars.getCars()) {
             max = Math.max(car.getLocation(), max);
         }
     }
 
     private void findWinner(Car car) {
-        if(max == car.getLocation()) winnerList.add(car.getName());
+        if (max == car.getLocation()) winnerList.add(car.getName());
     }
 }

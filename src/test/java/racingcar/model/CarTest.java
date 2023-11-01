@@ -31,7 +31,7 @@ public class CarTest {
         Car car = new Car("자동차");
         int moveNumber = 4;
 
-        for(int i = 0; i < moveNumber; i++) {
+        for (int i = 0; i < moveNumber; i++) {
             car.forwardLocation();
         }
 
