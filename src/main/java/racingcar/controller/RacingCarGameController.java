@@ -11,6 +11,10 @@ public class RacingCarGameController {
         racingCarGameService = new RacingCarGameService();
     }
     public void gameStart(int totalRoundNumber, Cars cars){
-        racingCarGameService.run(totalRoundNumber,cars);
+        racingCarGameService.gameRun(totalRoundNumber,cars);
+    }
+
+    public int getMaxStep(Cars cars){
+        return racingCarGameService.getMaxStep(cars);
     }
 }

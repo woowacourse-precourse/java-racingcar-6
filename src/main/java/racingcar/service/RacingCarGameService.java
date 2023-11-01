@@ -28,11 +28,20 @@ public class RacingCarGameService {
         }
     }
 
-    public void run(int totalRoundNumber, Cars cars){
+    public void gameRun(int totalRoundNumber, Cars cars){
         for(int i=0;i<totalRoundNumber;++i){
             fowardCars(cars);
             outputView.printRoundResult(cars);
         }
+    }
+
+    public int getMaxStep(Cars cars){
+        List<Car> carList = cars.getCars();
+        int maxStepValue = 0;
+        for(int i=0;i<carList.size();++i){
+            maxStepValue = Math.max(maxStepValue,carList.get(i).getStep());
+        }
+        return maxStepValue;
     }
 
 }

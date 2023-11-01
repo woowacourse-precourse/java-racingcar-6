@@ -4,6 +4,7 @@ import racingcar.controller.RacingCarGameController;
 import racingcar.domain.Car;
 import racingcar.model.Cars;
 import racingcar.view.CarsInputView;
+import racingcar.view.OutputView;
 import racingcar.view.RoundInputView;
 
 import java.util.List;
@@ -19,7 +20,12 @@ public class Application {
         int totalRoundNumber = roundInputView.generateRoundNumber();
 
         RacingCarGameController racingCarGameController = new RacingCarGameController();
+
+        OutputView outputView = new OutputView();
+        outputView.printStartMessage();
         racingCarGameController.gameStart(totalRoundNumber,cars);
 
+        int maxStepValue = racingCarGameController.getMaxStep(cars);
+        outputView.printFinalResult(cars,maxStepValue);
     }
 }
