@@ -7,7 +7,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.RacingGameModel;
-import racingcar.validator.InputValidator;
 import racingcar.view.RacingGameView;
 
 public class RacingGameController {
@@ -24,7 +23,6 @@ public class RacingGameController {
     // 1. 자동차 이름 입력받는 기능
     public String inputCarName(){
         String carName = Console.readLine();
-        System.out.println(carName.length());
 
         return carName;
     }
