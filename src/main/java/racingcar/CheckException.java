@@ -10,7 +10,11 @@ public class CheckException {
                 break;
             }
         }
-        if (hasInvalidName) {
+        checkRightNamelength(hasInvalidName);
+    }
+
+    static void checkRightNamelength(boolean flag){
+        if (flag) {
             throw new IllegalArgumentException();
         }
     }
