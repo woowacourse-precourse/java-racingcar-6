@@ -28,8 +28,8 @@
 ## Print
 
 - method
-  - status : 차량의 현재 위치를 출력
-  - result : 게임의 결과를 출력
+  - status : 차량의 현재 위치를 출력합니다.
+  - result : 게임의 결과를 출력합니다.
 
 ## Application
 
