@@ -9,7 +9,6 @@ public enum ErrorMessage {
     TYPE_MISMATCH("시도할 회수는 숫자만 입력 가능합니다."),
     INVALID_COUNT("시도할 회수는 최소 1회 이상입니다.");
 
-
     private final String message;
 
     ErrorMessage(String message) {
