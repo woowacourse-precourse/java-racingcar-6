@@ -11,15 +11,15 @@ public class OutView {
         }
     }
 
-    public static void printWinners(List<Car> cars){
+    public static void printWinners(List<Car> winners){
         System.out.print("최종 우승자 : ");
 
-        for(int i = 0; i < cars.size(); i++){
-            if(i == cars.size() - 1){
-                System.out.print(cars.get(i).getName());
+        for(int i = 0; i < winners.size(); i++){
+            if(i == winners.size() - 1){
+                System.out.print(winners.get(i).getName());
             }
-            if(i != cars.size() - 1) {
-                System.out.print(cars.get(i).getName() + ", ");
+            if(i != winners.size() - 1) {
+                System.out.print(winners.get(i).getName() + ", ");
             }
         }
     }
