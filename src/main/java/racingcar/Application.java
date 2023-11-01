@@ -4,6 +4,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import domain.RacingCar;
+import domain.RacingGamePlayManager;
 import domain.RacingGameStartManager;
 import java.util.Set;
 
@@ -14,6 +15,7 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         RacingGameStartManager racingGameStartManager = new RacingGameStartManager();
+        RacingGamePlayManager racingGamePlayManager = new RacingGamePlayManager();
 
         // 자동차 경주에 참여할 자동차 세팅
         String[] inputRacingCarNames = inputRacingCarNames();
@@ -24,7 +26,10 @@ public class Application {
         int racingCarMoveNum = racingGameStartManager.convertInputRacingCarMoveNumToInt(inputRacingCarMoveNum);
 
         // 경주 진행
-        int pickNumberInRange = pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
+        for (RacingCar racingCar : racingCarSet) {
+            int pickNumberInRange = pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
+            racingGamePlayManager.moveOrStayRacingCars(racingCar, pickNumberInRange);
+        }
 
     }
 
