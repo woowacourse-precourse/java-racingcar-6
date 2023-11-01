@@ -31,10 +31,12 @@ public class RacingService {
     }
 
     public Long save(Racing racing) {
+
         return racingRepository.save(racing);
     }
 
     public int get_Random_Number() {
+
         return Randoms.pickNumberInRange(START,END);
     }
 
@@ -58,7 +60,7 @@ public class RacingService {
         return car_Names;
     }
 
-    private int moveForward_check_numbers(Racing racing){
+    private void moveForward_check_numbers(Racing racing){
         for (Car car : racing.getCars()) {
             if (FORWARD_criterion <= get_Random_Number()){
                 car.moveForward(1);
