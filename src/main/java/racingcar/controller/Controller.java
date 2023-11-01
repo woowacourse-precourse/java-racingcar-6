@@ -35,7 +35,7 @@ public class Controller {
     private List<Car> prepareCarList() {
         List<Car> list = new LinkedList<>();
         for (String name : inputView.inputCarNames()) {
-            validator.checkLength(name);
+            validator.checkCarName(name);
             list.add(new Car(name));
         }
         validator.checkDuplicateName(list);
