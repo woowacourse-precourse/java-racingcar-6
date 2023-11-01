@@ -3,6 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.dto.PerGameCarResultDto;
 
 class CarTest {
 
@@ -22,11 +23,11 @@ class CarTest {
     }
 
     @Test
-    void race() {
-    }
-
-    @Test
     void getCarStatus() {
+        assertThat(car.getCarStatus().getClass()).isEqualTo(PerGameCarResultDto.class);
+
+        PerGameCarResultDto carStatus = car.getCarStatus();
+        assertThat(carStatus.carName()).isEqualTo(car.getName());
     }
 
     @Test
