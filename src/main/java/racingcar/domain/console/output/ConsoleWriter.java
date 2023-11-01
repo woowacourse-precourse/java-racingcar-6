@@ -3,6 +3,7 @@ package racingcar.domain.console.output;
 public class ConsoleWriter {
     private static final String INPUT_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_ATTEMPT_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String FINAL_WINNERS_PREFIX = "최종 우승자 : ";
 
     private ConsoleWriter() {
     }
@@ -22,4 +23,9 @@ public class ConsoleWriter {
     public void println(final String message) {
         System.out.println(message);
     }
+
+    public void finalWinnersPrint(final String finalWinningCarNames) {
+        System.out.println(FINAL_WINNERS_PREFIX + finalWinningCarNames);
+    }
+
 }

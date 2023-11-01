@@ -17,18 +17,30 @@ public class RacingCarGame {
     }
 
     public void start() {
-        final String[] carNames = console.inputNames();
-        final int count = console.inputAttemptCount();
-        race.addCarToRace(carNames);
+        addCarsToRaceFromUserInput();
 
-        for (int i = 0; i < count; i++) {
+        final int raceCount = console.inputAttemptCount();
+
+        runRace(raceCount);
+        finalResultsPrint();
+    }
+
+    private void addCarsToRaceFromUserInput() {
+        final String[] carNames = console.inputNames();
+        race.addCarToRace(carNames);
+    }
+
+    private void runRace(final int raceCount) {
+        for (int i = 0; i < raceCount; i++) {
             race.startOneLap();
             final String lapResult = race.getLapResult();
             console.oneLapResultPrint(lapResult);
         }
+    }
 
+    private void finalResultsPrint() {
         final String finalWinningCarNames = race.getFinalWinningCarNames();
-        System.out.println("최종 우승자 : " + finalWinningCarNames);
+        console.finalWinnersPrint(finalWinningCarNames);
     }
 
 }

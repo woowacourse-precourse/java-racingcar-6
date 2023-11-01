@@ -29,6 +29,8 @@ public class ConsoleReader {
 
     public int readAttemptCount() {
         final String inputAttemptCount = readLine();
+        inputValidator.validateNumericInput(inputAttemptCount);
+
         final int count = inputParser.parseInt(inputAttemptCount);
         inputValidator.validateAttemptSize(count);
 
