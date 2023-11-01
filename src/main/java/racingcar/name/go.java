@@ -2,13 +2,13 @@ package racingcar.name;
 
 import java.util.Random;
 import java.util.Scanner;
-import static camp.nextstep.edu.missionutils.Randoms;
 
 import racingcar.name.Name;
 
 public class go {
     public int WhatIsNumber() {
-        int number = Randoms.pickNumberInRange(0,9);
+        Random random = new Random();
+        int number = random.nextInt(10);
         return number;
     }
 
