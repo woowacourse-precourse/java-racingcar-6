@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.TreeMap;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.DataTypeChanger;
@@ -11,7 +11,7 @@ import racingcar.view.UserInput;
 
 public class RaceController {
     private static final int FIRST_RANK = 0;
-    private final LinkedHashMap<Integer, List<String>> ranks = new LinkedHashMap<>();
+    private final TreeMap<Integer, List<String>> ranks = new TreeMap<>();
 
     private Cars cars;
 
