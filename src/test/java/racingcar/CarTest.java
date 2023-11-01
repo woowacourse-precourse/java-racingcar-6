@@ -4,7 +4,9 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.ExceptionMessage.BLANK_NAME;
 import static racingcar.constant.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
+import static racingcar.constant.TestConstants.EMPTY_NAME;
 import static racingcar.constant.TestConstants.MOVING_FORWARD;
 import static racingcar.constant.TestConstants.NAME_EXCEEDS_LENGTH_LIMIT;
 import static racingcar.constant.TestConstants.NAME_UNDER_LENGTH_LIMIT;
@@ -19,6 +21,13 @@ class CarTest {
         assertThatThrownBy(() -> 자동차_생성(NAME_EXCEEDS_LENGTH_LIMIT))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(INVALID_CAR_NAME_LENGTH);
+    }
+
+    @Test
+    void 빈칸_이름_자동차_생성_시_예외_발생() {
+        assertThatThrownBy(() -> 자동차_생성(EMPTY_NAME))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(BLANK_NAME);
     }
 
     @Test
