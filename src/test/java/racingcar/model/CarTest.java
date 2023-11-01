@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,5 +32,22 @@ public class CarTest {
 
     }
 
+
+    @DisplayName("자동차 전진, 멈춤 테스트")
+    @Test
+    void stopOrMoveForwardTest(){
+        //given
+        final Car car = new Car("hi");
+
+        //when
+        car.stopOrMoveForward();
+
+        //then
+        assertThat(car.measureDistance()).as("자동차가 한칸 전진하거나 멈추지 않았습니다.")
+                .satisfiesAnyOf(actual -> assertThat(actual).isEqualTo(0)
+                        ,actual -> assertThat(actual).isEqualTo(1));
+    }
+
+    
 
 }
