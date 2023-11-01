@@ -17,12 +17,7 @@ public class Race{
     public void conductRace(){
         for (int i=1;i<tryCount+1;i++){
             for (Car car : cars){
-                // 자동차 이동
-                int randomNumber= Randoms.pickNumberInRange(0,9);
-                if(randomNumber>=4){
-                    car.position++;
-                }
-
+                car.move();
                 View.printCarMove(car.getCarName(), car.getCarPosition());
             }
             System.out.println();
