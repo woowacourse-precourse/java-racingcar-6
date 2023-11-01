@@ -5,6 +5,7 @@ import model.Car;
 
 public class OutputView {
     public static void printProceeding(List<Car> carList) {
+        System.out.println("실행 결과");
         for (Car car : carList) {
             printCarLocation(car);
         }
