@@ -30,10 +30,16 @@ public class RacingCarGame {
         for (int i = 0; i < times; i++) {
             step();
         }
+
+        checkWinner();
     }
 
     public void step(){
         racingCars.moveRacingCars();
         racingCarOutput.printStep(racingCars);
+    }
+
+    private void checkWinner() {
+        racingCarOutput.printWinner(racingCars.findCarsWithMaxDistance());
     }
 }
