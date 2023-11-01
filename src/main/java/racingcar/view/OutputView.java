@@ -1,6 +1,7 @@
 package racingcar.view;
 
-import racingcar.constants.ViewConstant;
+import static racingcar.constants.ViewConstant.*;
+
 import java.util.List;
 
 public class OutputView {
@@ -18,14 +19,14 @@ public class OutputView {
     }
 
     public void printMoveRecord(String carName, int moveRecord) {
-        System.out.printf("%s : %s\n", carName, ViewConstant.ONE_MOVE_SYMBOL.repeat(moveRecord));
+        System.out.printf("%s : %s\n", carName, ONE_MOVE_SYMBOL.repeat(moveRecord));
     }
 
     public void printRoundSeparator() {
-        System.out.print(ViewConstant.ROUND_SEPARATOR);
+        System.out.print(ROUND_SEPARATOR);
     }
 
     public void printWinners(List<String> winnersName) {
-        System.out.println("최종 우승자 : " + String.join(ViewConstant.WINNERS_SEPARATOR, winnersName));
+        System.out.println("최종 우승자 : " + String.join(WINNERS_SEPARATOR, winnersName));
     }
 }
