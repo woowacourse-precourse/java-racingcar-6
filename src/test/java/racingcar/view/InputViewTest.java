@@ -1,11 +1,10 @@
 package racingcar.view;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,8 +36,8 @@ class InputViewTest {
 
         List<String> carNames = inputView.readCarNames();
 
-        Assertions.assertThat(carNames.size()).isEqualTo(size);
-        Assertions.assertThat(carNames.get(0)).isEqualTo(first);
+        assertThat(carNames.size()).isEqualTo(size);
+        assertThat(carNames.get(0)).isEqualTo(first);
 
     }
 
@@ -51,7 +50,7 @@ class InputViewTest {
 
         int numRound = inputView.readNumRound();
 
-        Assertions.assertThat(numRound).isEqualTo(result);
+        assertThat(numRound).isEqualTo(result);
 
     }
 

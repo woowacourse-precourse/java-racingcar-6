@@ -1,14 +1,15 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.List;
 import java.util.stream.Stream;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class CarsTest {
 
-    static int MOVE_FORWARD = 4;
+    static final int MOVE_FORWARD = 4;
 
     @ParameterizedTest
     @CsvSource(value = {"pobi,woni,jun:0,3,1:woni", "pobi,jun:5,5:pobi,jun"}, delimiter = ':')
@@ -24,11 +25,12 @@ class CarsTest {
             }
         }
 
+        //when
         Cars cars = new Cars(carList);
         List<String> winner = cars.findWinner();
 
         //then
-        winner.forEach(name -> Assertions.assertThat(winnerLine).contains(name));
+        winner.forEach(name -> assertThat(winnerLine).contains(name));
 
 
     }
@@ -52,7 +54,7 @@ class CarsTest {
         int winnersPosition = cars.findWinnersPosition();
 
         //then
-        Assertions.assertThat(winnersPosition).isEqualTo(length);
+        assertThat(winnersPosition).isEqualTo(length);
 
 
     }

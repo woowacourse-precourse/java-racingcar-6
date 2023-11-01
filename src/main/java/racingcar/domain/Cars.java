@@ -1,9 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.RandomNumberGenerator.createRandomNumber;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.RandomNumberGenerator;
 
 public class Cars {
 
@@ -31,7 +32,7 @@ public class Cars {
 
     public void roundLevelMove() {
         for (Car car : cars) {
-            car.move(RandomNumberGenerator.createRandomNumber());
+            car.move(createRandomNumber());
         }
     }
 

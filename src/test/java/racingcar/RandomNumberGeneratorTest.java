@@ -1,6 +1,7 @@
 package racingcar;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.RepeatedTest;
 
 class RandomNumberGeneratorTest {
@@ -13,7 +14,7 @@ class RandomNumberGeneratorTest {
 
         int randomNumber = RandomNumberGenerator.createRandomNumber();
 
-        Assertions.assertThat(randomNumber).isBetween(START_INCLUSIVE, END_INCLUSIVE);
+        assertThat(randomNumber).isBetween(START_INCLUSIVE, END_INCLUSIVE);
 
     }
 }

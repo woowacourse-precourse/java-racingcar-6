@@ -1,10 +1,11 @@
 package racingcar.view;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.stream.Stream;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -40,7 +41,6 @@ class OutputViewTest {
                 Arguments.of("car", 10, fixedLength + 10),
                 Arguments.of("car", 1000, fixedLength + 1000),
                 Arguments.of("car", 100000000, fixedLength + 100000000)
-//                , Arguments.of("car", Integer.MAX_VALUE, fixedLength + Integer.MAX_VALUE) //메모리 초과 발생
         );
     }
 
@@ -67,7 +67,7 @@ class OutputViewTest {
         List<Car> list = List.of(car);
         outputView.printResult(list);
 
-        Assertions.assertThat(output.toString()).isEqualTo(result);
+        assertThat(output.toString()).isEqualTo(result);
 
     }
 
@@ -83,7 +83,7 @@ class OutputViewTest {
         List<Car> list = List.of(car);
         outputView.printResult(list);
 
-        Assertions.assertThat(output.toString().length()).isEqualTo(length);
+        assertThat(output.toString().length()).isEqualTo(length);
 
     }
 
@@ -94,7 +94,7 @@ class OutputViewTest {
 
         outputView.printWinner(winners);
 
-        Assertions.assertThat(output.toString()).isEqualTo(WINNER_MESSAGE + "pobi" + LINE_SEPARATOR);
+        assertThat(output.toString()).isEqualTo(WINNER_MESSAGE + "pobi" + LINE_SEPARATOR);
 
     }
 
@@ -105,7 +105,7 @@ class OutputViewTest {
 
         outputView.printWinner(winners);
 
-        Assertions.assertThat(output.toString()).isEqualTo(WINNER_MESSAGE + "pobi, woni, jun" + LINE_SEPARATOR);
+        assertThat(output.toString()).isEqualTo(WINNER_MESSAGE + "pobi, woni, jun" + LINE_SEPARATOR);
 
     }
 
