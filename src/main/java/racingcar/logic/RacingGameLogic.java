@@ -7,6 +7,7 @@ import racingcar.view.PlayersPrint;
 
 public class RacingGameLogic {
     PlayersPrint playersPrint = new PlayersPrint();
+
     public Map<String, Integer> forwardLogic(Map<String, Integer> players, int tryCount) {
         for (int i = 0; i < tryCount; i++) {
             for (String playerName : players.keySet()) {

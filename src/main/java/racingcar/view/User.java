@@ -11,10 +11,10 @@ import racingcar.repository.PlayerRepository;
 import racingcar.validation.Validation;
 
 public class User {
-    private final PlayerRepository playerRepository = new PlayerRepository();
-    private final RacingGameLogic racingGameLogic = new RacingGameLogic();
-    private final WinnerLogic winnerLogic = new WinnerLogic();
-    private final Validation validation = new Validation();
+    PlayerRepository playerRepository = new PlayerRepository();
+    RacingGameLogic racingGameLogic = new RacingGameLogic();
+    WinnerLogic winnerLogic = new WinnerLogic();
+    Validation validation = new Validation();
 
     public void run() {
         inputPlayer();
