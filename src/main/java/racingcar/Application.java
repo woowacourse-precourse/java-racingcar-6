@@ -11,6 +11,7 @@ public class Application {
     private static final String TRY_COUNT_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_TITLE_MESSAGE = "\n" + "실행 결과";
 
+
     private static List<Car> cars = new ArrayList<>();
     public static void main(String[] args) {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
@@ -31,6 +32,8 @@ public class Application {
             processGame();
             printResultOfTry();
         }
+
+        printGameResult();
     }
 
     static void processGame() {
@@ -59,6 +62,7 @@ public class Application {
             }
             if (car.getPosition() > maxMove) {
                 winners = new ArrayList<>();
+                maxMove = car.getPosition();
             }
 
             winners.add(car.getName());
