@@ -10,11 +10,11 @@ public class Car {
     private final int FOWARD = 1;
     private HashMap<String, Integer> car = new HashMap<>();
 
-    InputData inputData = new InputData();
+    InputView inputView = new InputView();
 
     public void initializeCar() {
-        inputData.inputCarName();
-        ArrayList<String> carName = inputData.returnCarName();
+        inputView.inputCarName();
+        ArrayList<String> carName = inputView.returnCarName();
 
         for (String eachCarName : carName) {
             car.put(eachCarName, STARTING_POINT);
@@ -32,8 +32,8 @@ public class Car {
         int maxPosition = getMaxPosition();
 
         for (String carName : car.keySet()) {
-          if (isMaxPosition(maxPosition, car.get(carName))) {
-              winner.add(carName);
+            if (isMaxPosition(maxPosition, car.get(carName))) {
+                winner.add(carName);
             }
         }
         return winner;

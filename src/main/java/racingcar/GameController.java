@@ -7,7 +7,7 @@ public class GameController {
     private int executionTime;
     Car car = new Car();
     RandomNumber randomNumber = new RandomNumber();
-    InputData inputData = new InputData();
+    InputView inputView = new InputView();
     OutputGame outputGame = new OutputGame();
 
     public void startGame() {
@@ -17,8 +17,8 @@ public class GameController {
     private void initializeGame() {
         car.initializeCar();
         ;
-        inputData.inputExecutionTime();
-        executionTime = inputData.returnExecutionTime();
+        inputView.inputExecutionTime();
+        executionTime = inputView.returnExecutionTime();
 
         outputGame.printGame();
         for (int time = START; time < executionTime; time++) {
