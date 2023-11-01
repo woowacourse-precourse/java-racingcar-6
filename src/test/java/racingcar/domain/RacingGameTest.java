@@ -2,12 +2,18 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RacingGameTest {
     private RacingGame racingGame;
-    private String[] carsNameList = {"pobi", "woni", "jun"};
+    private User user;
+    private String[] carsNameArray = {"pobi", "woni", "jun"};
 
     @BeforeEach
     void setUp() {
@@ -16,40 +22,31 @@ class RacingGameTest {
 
     @Test
     void 자동차_배열_리스트로_변환() {
-        racingGame.carsArrayToList(carsNameList);
+        List<String> carNameEntryKeyList = new ArrayList();
+        List<Integer> scoreEntryValueList = new ArrayList();
 
-        assertThat(racingGame.getCarsList())
-                .containsExactly("pobi", "woni", "jun")
-                .startsWith("pobi")
-                .endsWith("jun");
+        racingGame.setScoreEntryList(carsNameArray);
+        for(Entry<String, Integer> entry : racingGame.getScoreEntryList()) {
+            carNameEntryKeyList.add(entry.getKey());
+            scoreEntryValueList.add(entry.getValue());
+        }
+
+        List<String> expectedKeyList = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
+        List<Integer> expectedValueList = new ArrayList<>(Arrays.asList(0, 0, 0));
+
+        assertThat(carNameEntryKeyList)
+                .isEqualTo(expectedKeyList);
+        assertThat(scoreEntryValueList)
+                .isEqualTo(expectedValueList);
     }
 
     @Test
-    void 자동차_위치_초기화() {
-        racingGame.carsArrayToList(carsNameList);
-        racingGame.setPositionList();
+    void 자동차_전진_테스트() {
+        Integer testIndex = 0;
+        racingGame.setScoreEntryList(carsNameArray);
+        racingGame.carMoveOneStepForward(testIndex);
 
-        assertThat(racingGame.getCarsPositionList())
-                .containsExactly(0, 0, 0);
-    }
-
-    @Test
-    void 자동차_전진_확인() {
-        racingGame.carsArrayToList(carsNameList);
-        racingGame.setPositionList();
-        racingGame.singleRaceAttempt(4, 9); // 무조건 한 번씩 전진해야 함.
-
-        assertThat(racingGame.getCarsPositionList())
-                .containsExactly(1, 1, 1);
-    }
-
-    @Test
-    void 자동차_멈춤_확인() {
-        racingGame.carsArrayToList(carsNameList);
-        racingGame.setPositionList();
-        racingGame.singleRaceAttempt(0, 3); // 무조건 정지해 있어야 함.
-
-        assertThat(racingGame.getCarsPositionList())
-                .containsExactly(0, 0, 0);
+        assertThat(racingGame.getScoreEntryList().get(testIndex).getValue())
+                .isEqualTo(1);
     }
 }

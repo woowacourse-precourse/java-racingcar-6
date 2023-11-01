@@ -12,8 +12,8 @@ public class GameResult {
     public static final String ATTEMPTS_COLON_MESSAGE = " : ";
     public static final String CAR_POSITION_SYMBOL = "-";
 
-    public void singleAttemptResult() {
-        for(Map.Entry<String, Integer> entry : RacingGame.getScoreEntryList()) {
+    public void singleAttemptResult(List<Map.Entry<String, Integer>> list) {
+        for(Map.Entry<String, Integer> entry : list) {
             System.out.println(entry.getKey()
                     + ATTEMPTS_COLON_MESSAGE
                     + CAR_POSITION_SYMBOL.repeat(entry.getValue()));
@@ -21,19 +21,19 @@ public class GameResult {
         System.out.print("\n");
     }
 
-    public void printWinner() {
+    public void printWinner(List<Map.Entry<String, Integer>> list) {
         System.out.print(WINNER_OUTPUT_MESSAGE);
-        List<Integer> indexOfWinner = findIndexOfWinner();
-        String winner = RacingGame.scoreEntryList.get(indexOfWinner.get(0)).getKey();
+        List<Integer> indexOfWinner = findIndexOfWinner(list);
+        String winner = list.get(indexOfWinner.get(0)).getKey();
         System.out.print(winner);
         for(int i = 1; i < indexOfWinner.size(); i++) {
-            String coWinner = RacingGame.scoreEntryList.get(indexOfWinner.get(i)).getKey();
+            String coWinner = list.get(indexOfWinner.get(i)).getKey();
             System.out.print(COMMA_OUTPUT_MESSAGE +  coWinner);
         }
     }
 
-    public List<Integer> findIndexOfWinner() {
-        List<Integer> score = RacingGame.getScoreEntryList().stream()
+    public List<Integer> findIndexOfWinner(List<Map.Entry<String, Integer>> list) {
+        List<Integer> score = list.stream()
                 .map(Map.Entry::getValue)
                 .toList();
         int maxScore = Collections.max(score);

@@ -19,19 +19,19 @@ public class RacingGame {
 
     User user = new User();
     GameResult gameResult = new GameResult();
-    public static List<Map.Entry<String, Integer>> scoreEntryList = new ArrayList<>();
+    private final List<Map.Entry<String, Integer>> scoreEntryList = new ArrayList<>();
 
     public void playGame() {
         user.setCarsName();
         user.setAttempts();
-        setScoreEntryList();
+        setScoreEntryList(user.getCarsNameArray());
 
         runRaceAttempts();
-        gameResult.printWinner();
+        gameResult.printWinner(getScoreEntryList());
     }
 
-    public void setScoreEntryList() {
-        for(String carName : user.getCarsNameArray()) {
+    public void setScoreEntryList(String[] carNameArray) {
+        for(String carName : carNameArray) {
             scoreEntryList.add(new AbstractMap.SimpleEntry<>(carName, 0));
         }
     }
@@ -39,14 +39,14 @@ public class RacingGame {
     public void runRaceAttempts() {
         System.out.println(ATTEMPTS_RESULT_MESSAGE);
         for(int i = 0; i < attempts; i++) {
-            singleRaceAttempt(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
-            gameResult.singleAttemptResult();
+            singleRaceAttempt();
+            gameResult.singleAttemptResult(getScoreEntryList());
         }
     }
 
-    public void singleRaceAttempt(int min, int max) {
+    public void singleRaceAttempt() {
         for(int j = 0; j < totalCars; j++) {
-            int randomDigit = Randoms.pickNumberInRange(min, max);
+            int randomDigit = Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
             if(randomDigit >= MIN_CAR_FORWARD_NUM && randomDigit <= MAX_CAR_FORWARD_NUM) {
                 carMoveOneStepForward(j);
             }
@@ -60,7 +60,7 @@ public class RacingGame {
         scoreEntryList.set(j, newEntry);
     }
 
-    public static List<Map.Entry<String, Integer>> getScoreEntryList() {
+    public List<Map.Entry<String, Integer>> getScoreEntryList() {
         return scoreEntryList;
     }
 }
