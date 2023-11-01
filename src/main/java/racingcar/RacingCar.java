@@ -35,6 +35,6 @@ public class RacingCar implements Comparable<RacingCar>{
     @Override
     public int compareTo(RacingCar o) {
         //오름차순 정렬
-        return this.advanceCount - o.advanceCount;
+        return o.advanceCount-this.advanceCount;
     }
 }

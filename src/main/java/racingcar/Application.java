@@ -25,7 +25,7 @@ public class Application {
             result = result.concat(winner)
                     .concat(", ");
         }
-        result = result.substring(result.length()-2);
+        result = result.substring(0, result.length()-2);
         System.out.println(result);
     }
 }
