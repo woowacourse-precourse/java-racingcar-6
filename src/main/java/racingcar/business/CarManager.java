@@ -1,19 +1,16 @@
 package racingcar.business;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class CarManager {
 
-    public static final int MIN_NUMBER_RANGE = 0;
-    public static final int MAX_NUMBER_RANGE = 9;
+    private List<Car> carList = new ArrayList<>();
+    private NumberMaker numberMaker;
 
-    List<Car> carList = new ArrayList<>();
+    public CarManager(NumberMaker numberMaker) {
+        this.numberMaker = numberMaker;
+    }
 
     public void generateCarList(List<String> names) {
         for (String name : names) {
@@ -30,12 +27,8 @@ public class CarManager {
     }
 
     private void makeCarMove(Car car) {
-        int randomNumber = getRandomNumber();
+        int randomNumber = numberMaker.getRandomNumber();
         car.moveCar(randomNumber);
-    }
-
-    public Integer getRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
     }
 
     public String getWinnerNames() {
