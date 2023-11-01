@@ -11,6 +11,10 @@ public class Name {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private void validateName(String name) {
         checkNameNull(name);
         checkNameLength(name);
