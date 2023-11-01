@@ -49,4 +49,22 @@ public class ValidationTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> Validation.validateIsNumber("abc"));
     }
+
+
+    @Test
+    void validateNaturalNumber_문자열자연수체크_오류없음() {
+        Assertions.assertDoesNotThrow(() -> Validation.validateNaturalNumber(123));
+    }
+
+    @Test
+    void validateNaturalNumber_문자열음수체크_오류발생() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Validation.validateNaturalNumber(-123));
+    }
+
+    @Test
+    void validateNaturalNumber_문자열0체크_오류발생() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Validation.validateNaturalNumber(0));
+    }
 }
