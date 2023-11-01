@@ -23,7 +23,7 @@ public class GameController {
             carObjects.add(new Car(carNameStr));
         }
 
-        int lap = Integer.parseInt(raceLap);
+        int lap = InputUtil.getRaceLap(raceLap);
 
         RaceService raceService = new RaceService();
         String result = raceService.startRace(carObjects, lap);

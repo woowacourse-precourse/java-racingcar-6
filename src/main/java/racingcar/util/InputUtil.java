@@ -18,4 +18,24 @@ public class InputUtil {
 
         return carNameStrings;
     }
+
+    public static int getRaceLap(String raceLap) {
+        return validateRaceLap(raceLap);
+    }
+
+    private static int validateRaceLap(String raceLap) {
+        int lap;
+
+        try {
+            lap = Integer.parseInt(raceLap);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("랭킹 수는 숫자만 입력 가능하다.");
+        }
+        
+        if (lap <= 0) {
+            throw new IllegalArgumentException("랭킹 수는 1 이상의 정수만 입력 가능하다.");
+        }
+
+        return lap;
+    }
 }
