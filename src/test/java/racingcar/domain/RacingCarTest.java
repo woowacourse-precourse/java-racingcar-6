@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,5 +51,32 @@ class RacingCarTest {
         int expectedDistance = 1;
 
         assertEquals(expectedDistance, racingCar.findMaxDistance());
+    }
+
+    @Test
+    void RacingCar_단일_우승자_찾기() {
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        Car car3 = new Car("car3");
+        car1.canForward(Car.MIN_NUMBER_TO_MOVE);
+        racingCar = new RacingCar(List.of(car1, car2, car3));
+
+        List<Car> winner = racingCar.findWinner();
+
+        assertEquals(Arrays.asList(car1), winner);
+    }
+
+    @Test
+    void RacingCar_복수의_우승자_찾기() {
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        Car car3 = new Car("car3");
+        car1.canForward(Car.MIN_NUMBER_TO_MOVE);
+        car2.canForward(Car.MIN_NUMBER_TO_MOVE);
+        racingCar = new RacingCar(List.of(car1, car2, car3));
+
+        List<Car> winners = racingCar.findWinner();
+
+        assertEquals(Arrays.asList(car1, car2), winners);
     }
 }
