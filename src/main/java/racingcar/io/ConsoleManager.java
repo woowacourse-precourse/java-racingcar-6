@@ -9,7 +9,7 @@ public class ConsoleManager implements Input, Output{
 
     @Override
     public String readCarNames() {
-        printGameMessage(GameMessage.INPUT_CAR_NAMES_MESSAGE);
+        printGameMessage(GameMessage.INPUT_CAR_NAMES);
         return Console.readLine();
     }
 
@@ -33,6 +33,21 @@ public class ConsoleManager implements Input, Output{
                     .append("-".repeat(result.position()))
                     .append("\n");
         }
+        System.out.println(sb.toString());
+    }
+
+    @Override
+    public void printWinner(List<String> winners) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(GameMessage.FINAL_WINNER.getMessage());
+
+        for(int i=0; i<winners.size(); i++){
+            sb.append(winners.get(i));
+            if(i != winners.size()-1){
+                sb.append(", ");
+            }
+        }
+
         System.out.println(sb.toString());
     }
 }

@@ -15,10 +15,10 @@ public class RacingGame {
         this.numberGenerator = numberGenerator;
     }
 
-    public List<RaceResult> play(List<Car> cars){
+    public List<RaceResult> play(List<Car> cars) {
         List<RaceResult> raceResults = new ArrayList<>();
-        for(Car car : cars){
-            if(canMove(generateNum())) {
+        for (Car car : cars) {
+            if (canMove(generateNum())) {
                 car.move();
             }
             raceResults.add(new RaceResult(car.getName(), car.getPosition()));
@@ -27,11 +27,27 @@ public class RacingGame {
         return raceResults;
     }
 
-    private boolean canMove(int generateNum){
+    public List<String> getWinners(List<Car> cars) {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+
+        for(Car car : cars){
+            if(car.getPosition() == maxPosition){
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
+
+    private boolean canMove(int generateNum) {
         return generateNum >= MOVE_STANDARD;
     }
 
-    private int generateNum(){
+    private int generateNum() {
         return numberGenerator.generate();
     }
 

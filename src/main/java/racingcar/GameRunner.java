@@ -30,6 +30,7 @@ public class GameRunner {
         List<Car> cars= createCars(readCarNames());
         GameCount count = readGameCount();
         playGame(cars, count);
+        endGame(cars);
     }
 
     private List<Car> createCars(List<Name> names){
@@ -54,6 +55,11 @@ public class GameRunner {
             List<RaceResult> results = racingGame.play(cars);
             consoleManager.printRaceResult(results);
         }
+    }
+
+    private void endGame(List<Car> cars){
+        List<String> winners = racingGame.getWinners(cars);
+        consoleManager.printWinner(winners);
     }
 
 }
