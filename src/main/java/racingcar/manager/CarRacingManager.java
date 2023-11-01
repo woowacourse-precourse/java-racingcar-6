@@ -4,13 +4,13 @@ import racingcar.domain.CarRacing;
 import racingcar.domain.Cars;
 import racingcar.domain.Referee;
 import racingcar.domain.Turn;
-import racingcar.io.CarRacingInputProcessor;
-import racingcar.io.CarRacingOutputProcessor;
+import racingcar.io.CarRacingInputView;
+import racingcar.io.CarRacingOutputView;
 
 public class CarRacingManager {
     // 주요 의존성 관리
-    private final CarRacingOutputProcessor outputProcessor = new CarRacingOutputProcessor();
-    private final CarRacingInputProcessor inputProcessor = new CarRacingInputProcessor(outputProcessor);
+    private final CarRacingOutputView outputView = new CarRacingOutputView();
+    private final CarRacingInputView inputView = new CarRacingInputView(outputView);
 
     public void execute() {
         CarRacing carRacing = createCarRacing();
@@ -18,18 +18,18 @@ public class CarRacingManager {
     }
 
     private CarRacing createCarRacing() {
-        Cars cars = readCarsInfo(inputProcessor);
-        Turn turn = readTurn(inputProcessor);
+        Cars cars = readCarsInfo(inputView);
+        Turn turn = readTurn(inputView);
         Referee referee = new Referee();
 
-        return new CarRacing(cars, turn, referee, outputProcessor);
+        return new CarRacing(cars, turn, referee, outputView);
     }
 
-    private Turn readTurn(CarRacingInputProcessor inputProcessor) {
-        return Turn.fromTryCount(inputProcessor.readTryToMoveTurnCount());
+    private Turn readTurn(CarRacingInputView inputView) {
+        return Turn.fromTryCount(inputView.readTryToMoveTurnCount());
     }
 
-    private Cars readCarsInfo(CarRacingInputProcessor inputProcessor) {
-        return Cars.fromCarNames(inputProcessor.readCarNames());
+    private Cars readCarsInfo(CarRacingInputView inputView) {
+        return Cars.fromCarNames(inputView.readCarNames());
     }
 }

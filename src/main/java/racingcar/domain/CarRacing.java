@@ -3,19 +3,19 @@ package racingcar.domain;
 import static racingcar.constant.CarRacingMessage.RACING_RESULT_MESSAGE;
 
 import java.util.List;
-import racingcar.io.CarRacingOutputProcessor;
+import racingcar.io.CarRacingOutputView;
 
 public class CarRacing {
     private final Cars cars;
     private final Turn turn;
     private final Referee referee;
-    private final CarRacingOutputProcessor outputProcessor;
+    private final CarRacingOutputView outputView;
 
-    public CarRacing(Cars cars, Turn turn, Referee referee, CarRacingOutputProcessor outputProcessor) {
+    public CarRacing(Cars cars, Turn turn, Referee referee, CarRacingOutputView outputView) {
         this.cars = cars;
         this.turn = turn;
         this.referee = referee;
-        this.outputProcessor = outputProcessor;
+        this.outputView = outputView;
     }
 
 
@@ -27,7 +27,7 @@ public class CarRacing {
     }
 
     private void announceWinners(Winners winners) {
-        outputProcessor.printWinners(winners.getWinnerNames());
+        outputView.printWinners(winners.getWinnerNames());
     }
 
     private Winners judgeWinners(Cars cars) {
@@ -35,15 +35,15 @@ public class CarRacing {
     }
 
     private void move(Turn turn, Cars cars) {
-        outputProcessor.println(RACING_RESULT_MESSAGE);
+        outputView.printMessage(RACING_RESULT_MESSAGE);
 
         List<Car> moveResult;
         for (int i = 0; i < turn.getCount(); i++) {
             moveResult = cars.tryToMove();
             for (Car car : moveResult) {
-                outputProcessor.printCarPosition(car.getName(), car.getPosition());
+                outputView.printCarPosition(car.getName(), car.getPosition());
             }
-            outputProcessor.printEnter();
+            outputView.printEnter();
         }
     }
 }

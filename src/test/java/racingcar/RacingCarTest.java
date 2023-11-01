@@ -16,7 +16,7 @@ import racingcar.domain.Cars;
 import racingcar.domain.Referee;
 import racingcar.domain.Turn;
 import racingcar.domain.Winners;
-import racingcar.io.CarRacingOutputProcessor;
+import racingcar.io.CarRacingOutputView;
 
 public class RacingCarTest {
 
@@ -98,9 +98,9 @@ public class RacingCarTest {
             String carNames = "jamy,risa,jun";
             Cars cars = Cars.fromCarNames(carNames);
 
-            CarRacingOutputProcessor outputProcessor = new CarRacingOutputProcessor();
+            CarRacingOutputView outputView = new CarRacingOutputView();
             for (Car car : cars.tryToMove()) {
-                outputProcessor.printCarPosition(car.getName(), car.getPosition());
+                outputView.printCarPosition(car.getName(), car.getPosition());
             }
 
             List<String> expectedOutputs = List.of("jamy : ", "risa : ", "jun : ");
@@ -117,7 +117,7 @@ public class RacingCarTest {
     @Test
     void 자동차_현위치_출력() {
         PrintStream originalOut = System.out;
-        CarRacingOutputProcessor outputProcessor = new CarRacingOutputProcessor();
+        CarRacingOutputView outputView = new CarRacingOutputView();
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             System.setOut(new PrintStream(outputStream));
@@ -131,7 +131,7 @@ public class RacingCarTest {
             List<Car> cars = new ArrayList<>(List.of(car1, car2, car3));
 
             for (Car car : cars) {
-                outputProcessor.printCarPosition(car.getName(), car.getPosition());
+                outputView.printCarPosition(car.getName(), car.getPosition());
             }
 
             String expectedOutput = """
@@ -171,7 +171,7 @@ public class RacingCarTest {
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             System.setOut(new PrintStream(outputStream));
-            CarRacingOutputProcessor outputProcessor = new CarRacingOutputProcessor();
+            CarRacingOutputView outputView = new CarRacingOutputView();
 
             Car car1 = Car.fromName("car1");
             Car car2 = Car.fromName("car2");
@@ -183,7 +183,7 @@ public class RacingCarTest {
             Referee referee = new Referee();
             Winners winners = referee.judgeWinners(cars);
 
-            outputProcessor.printWinners(winners.getWinnerNames());
+            outputView.printWinners(winners.getWinnerNames());
 
             String expectedOutput = "최종 우승자 : car1, car2";
             String actualOutput = outputStream.toString().trim();

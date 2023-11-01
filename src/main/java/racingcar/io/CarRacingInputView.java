@@ -6,21 +6,21 @@ import static racingcar.constant.CarRacingMessage.INPUT_TRY_COUNT_MESSAGE;
 import camp.nextstep.edu.missionutils.Console;
 
 
-public class CarRacingInputProcessor {
-    private final CarRacingOutputProcessor outputProcessor;
+public class CarRacingInputView {
+    private final CarRacingOutputView outputView;
 
-    public CarRacingInputProcessor(CarRacingOutputProcessor outputProcessor) {
-        this.outputProcessor = outputProcessor;
+    public CarRacingInputView(CarRacingOutputView outputView) {
+        this.outputView = outputView;
     }
 
 
     public String readCarNames() {
-        outputProcessor.println(INPUT_CAR_NAMES_MESSAGE);
+        outputView.printMessage(INPUT_CAR_NAMES_MESSAGE);
         return readLine();
     }
 
     public String readTryToMoveTurnCount() {
-        outputProcessor.println(INPUT_TRY_COUNT_MESSAGE);
+        outputView.printMessage(INPUT_TRY_COUNT_MESSAGE);
         return readLine();
     }
 
