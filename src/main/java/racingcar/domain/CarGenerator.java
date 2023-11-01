@@ -17,13 +17,9 @@ public class CarGenerator {
         carNames = Arrays.asList(input.split(","));
 
         validateCarNameNull(input);
-
-        // if(input.charAt(0) == ',' || 
-        //         input.charAt(lengthCarNames-1) == ','){
-        //     validateCarNameBlank(input, ",");
-        // }
         validateCarNameBlank(carNames);
-
+        validateCarOnlyOne(carNames);
+        
         for(int i = 0 ; i < carNames.size(); i++){
             String checkCarNameLength = (String) carNames.get(i);
             validateCarNameLength(checkCarNameLength);
@@ -34,6 +30,11 @@ public class CarGenerator {
         racinggame.setCarNames(carNames);
     }
 
+    private void validateCarOnlyOne(List<String> input){
+        if(input.size() == 1){
+            throw new IllegalArgumentException();
+        }
+    }
     private void validateCarNameNull(String input){
         if (input == null){
             throw new IllegalArgumentException("NULL을 입력 하였습니다.");
