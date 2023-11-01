@@ -22,6 +22,16 @@ public class RacingGameServiceImplTest {
     private CarRepository carRepository = config.carRepository();
     private RacingGameService racingGameService = config.racingService();
 
+    String carNames = "pobi,woni,jun";
+    String tryCount = "5";
+    Car pobi = Car.create("pobi");
+    Car woni = Car.create("woni");
+    List<Car> carList = List.of(pobi, woni);
+    RacingGame racingGame = RacingGame.create(
+            Participations.create(carList),
+            TryCount.create("2"),
+            Winners.createEmpty());
+
     @BeforeEach
     public void setUp() {
         carRepository.deleteAll();
@@ -30,8 +40,6 @@ public class RacingGameServiceImplTest {
     @Test
     public void 차이름과_시도횟수_정제해서_Racing객체_만들기() {
         // given
-        String carNames = "pobi,woni,jun";
-        String tryCount = "5";
 
         // when
         final RacingGame result = racingGameService.generateRacing(carNames, tryCount);
@@ -45,8 +53,6 @@ public class RacingGameServiceImplTest {
     @Test
     public void Racing객체_저장하기() {
         // given
-        String carNames = "pobi,woni,jun";
-        String tryCount = "5";
         final RacingGame racingGame = racingGameService.generateRacing(carNames, tryCount);
 
         // when
@@ -59,8 +65,6 @@ public class RacingGameServiceImplTest {
     @Test
     public void 시도횟수만큼_각Car에_랜덤정수넣기() {
         // given
-        String carNames = "pobi,woni,jun";
-        String tryCount = "5";
         final RacingGame racingGame = racingGameService.generateRacing(carNames, tryCount);
 
         // when
@@ -73,28 +77,13 @@ public class RacingGameServiceImplTest {
     @Test
     public void 단일_우승자_계산하기() {
         // given
-        Car pobi = Car.create("pobi");
         pobi.addPositionByRandomNum(1);
         pobi.addPositionByRandomNum(2);
 
-        Car woni = Car.create("woni");
         woni.addPositionByRandomNum(1);
         woni.addPositionByRandomNum(4);
 
-        List<Car> carList = new ArrayList<>() {{
-           add(pobi);
-           add(woni);
-        }};
-
-        Participations participations = Participations.create(carList);
-
-        TryCount tryCount = TryCount.create("3");
-        Winners winners = Winners.createEmpty();
-        RacingGame racingGame = RacingGame.create(participations, tryCount, winners);
-
-        List<Car> winnerList =  new ArrayList<>() {{
-            add(woni);
-        }};
+        List<Car> winnerList =  List.of(woni);
 
         // when
         racingGameService.calculateWinners(racingGame);
@@ -104,5 +93,20 @@ public class RacingGameServiceImplTest {
         assertThat(racingGame.getWinnerList()).isEqualTo(winnerList);
     }
 
-    //TODO: 우승자 없는 경우, 공동 우승자 테스트
+    @Test
+    public void 공동_우승자_계산하기() {
+        // given
+        pobi.addPositionByRandomNum(1);
+        pobi.addPositionByRandomNum(4);
+
+        woni.addPositionByRandomNum(1);
+        woni.addPositionByRandomNum(4);
+
+        // when
+        racingGameService.calculateWinners(racingGame);
+
+        // then
+        assertThat(racingGame.calcWinnerSize()).isEqualTo(2);
+        assertThat(racingGame.getWinnerList()).isEqualTo(carList);
+    }
 }
