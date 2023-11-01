@@ -11,12 +11,12 @@ public class CarMovementDecider {
     }
 
     public Integer decideMovement() {
-        Integer movePosition = null;
+        int movePosition;
 
         if (GameCondition.hasDriveCondition()) {
             movePosition = carMover.moveForward();
         } else {
-            carMover.stopMovement();
+            movePosition = carMover.stopMovement();
         }
 
         return movePosition;

@@ -19,7 +19,9 @@ public class CarMover {
         return updatedCar.position();
     }
 
-    public void stopMovement() {
+    public Integer stopMovement() {
+        Car updatedCar = new Car(car.name(), car.position());
         carStore.updateCarInfo(car);
+        return updatedCar.position();
     }
 }

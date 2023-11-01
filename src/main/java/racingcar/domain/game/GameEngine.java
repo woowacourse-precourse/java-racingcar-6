@@ -18,10 +18,8 @@ public class GameEngine {
     }
 
     private void printStatusOfRaceCar(String name, Integer position) {
-        if (position != null) {
-            String messageToPrint = name + " : " + "-".repeat(position);
-            OutputView.printOutputMessage(messageToPrint);
-        }
+        String messageToPrint = name + " : " + "-".repeat(position);
+        OutputView.printOutputMessage(messageToPrint);
     }
 
     public List<Car> findWinner() {
