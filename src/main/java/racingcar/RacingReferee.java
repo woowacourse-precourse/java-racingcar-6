@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.view.ScoreBoard;
 
 public class RacingReferee {
 
@@ -10,7 +11,7 @@ public class RacingReferee {
 
     public static void printWinnersName(List<RacingCar> racingCars) {
         final int winnerPosition = getWinnerPosition(racingCars);
-        System.out.println(getWinnersName(racingCars, winnerPosition));
+        ScoreBoard.displayWinnerNames(getWinnersName(racingCars, winnerPosition));
     }
 
     private static String getWinnersName(List<RacingCar> racingCars, int winnerPosition) {
