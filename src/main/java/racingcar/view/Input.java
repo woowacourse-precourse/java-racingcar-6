@@ -1,20 +1,31 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.GameData;
 
 public class Input {
+	private static final int WORDS_LIMIT_NUMBER = 5;
 
-	public void getCarName() {
+	public void getCarName(GameData data) {
 		String carName = Console.readLine();
-		// carName 입력 예외처리 메서드 만들기(예외처리 클래스 따로 필요)
-		// ,단위로 split 하기 -> 메서드로 간다
-		// 배열에 담기 -> 도메인의 data클래스에 저장
+		String[] carNameList = carName.split(",");
+		checkWordsLimit(carNameList);
+		data.setCarList(carNameList);
 	}
-	
+
 	public int getTrialNumber() {
 		String strTrialNumber = Console.readLine();
-		// 시도횟수 입력 예외처리 메서드 만들기
 		int trialNumber = Integer.parseInt(strTrialNumber);
 		return trialNumber;
 	}
+
+	// input exception1: 이름 5자 이하
+	public void checkWordsLimit(String[] list) {
+		for (int i = 0; i < list.length; i++) {
+			if (list[i].length() > WORDS_LIMIT_NUMBER) {
+				throw new IllegalArgumentException("이름은 5자리 이하만 입력해야 합니다.\n게임 종료!");
+			}
+		}
+	}
+
 }
