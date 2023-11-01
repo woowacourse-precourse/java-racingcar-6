@@ -15,11 +15,12 @@
 - [x] round should be integer and non-negative
 
 ## Race
-- [ ] keep raceStatus in HashMap<String, Integer>
-- [ ] go() if randomNumber is greater than 4 or more
+- [x] keep playingStatus in HashMap<String, Integer>
+- [x] play() update playingStatus each round
+  - [x] move() if randomNumber is greater than 4 or more
 
 ## Output
-- [ ] printRaceStatus
+- [x] printEachRound();
   - print current batch result 
 - [ ] printWinner
   - use comma to separate winners3

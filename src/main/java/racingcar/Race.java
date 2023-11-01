@@ -19,11 +19,25 @@ public class Race {
 
     private HashMap<String, Integer> playingStatus = new HashMap<>();
 
+    private Integer roundInt;
+
+
     public void run() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         userInput = Console.readLine();
         separatePlayers(userInput);
         initHashmap();
+        printPlayers();
+        System.out.println("시도할 회수는 몇회인가요?");
+        String round = Console.readLine();
+        checkRound(round);
+
+        System.out.println("실행 결과");
+        roundInt = Integer.parseInt(round);
+        for (int i = 0; i < roundInt; i++) {
+            play();
+            printEachRound();
+        }
     }
 
     public void separatePlayers(String userInput) {
@@ -38,5 +52,38 @@ public class Race {
             checkUnique(player, playingStatus);
             playingStatus.put(player, 0);
         }
+    }
+
+    public void printPlayers() {
+        String print = players.stream().
+                map(Object::toString).
+                collect(Collectors.joining(",")).toString();
+        System.out.println(print);
+    }
+    public void updateStatus(String player) {
+        playingStatus.put(player, playingStatus.get(player) + 1);
+    }
+
+    private void move(String player) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            updateStatus(player);
+        }
+    }
+    private void play() {
+        for (String player : players) {
+            move(player);
+        }
+    }
+    private void printEachRound() {
+        for (String player : players) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(player).append(" : ");
+            for (int i = 0; i < playingStatus.get(player); i++) {
+                stringBuilder.append("-");
+            }
+            System.out.println(stringBuilder);
+        }
+        System.out.println();
     }
 }
