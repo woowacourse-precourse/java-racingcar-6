@@ -28,9 +28,7 @@ public class TextProcessor {
 
     public int parseTryNumber(String str) {
         try {
-            validateInputTryCount(str);
-
-            return Integer.parseInt(str);
+            return validateInputTryCount(str);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_INTEGER_FORMAT
                     .getErrorMessage());
@@ -58,10 +56,25 @@ public class TextProcessor {
                 .repeat(Math.max(0, distance));
     }
 
-    private void validateInputTryCount(String str) {
-        if(str.isEmpty()) {
+    private int validateInputTryCount(String str) {
+        validateTryCountEmpty(str);
+        return validTryCountNegativeValue(str);
+    }
+
+    private void validateTryCountEmpty(String str) {
+        if (str.isEmpty()) {
             throw new IllegalArgumentException(ExceptionMessage.EMPTY_TRY_COUNT
                     .getErrorMessage());
         }
+    }
+
+    private int validTryCountNegativeValue(String str) {
+        int count = Integer.parseInt(str);
+        if (count < 0) {
+            throw new IllegalArgumentException(ExceptionMessage.NEGATIVE_VALUE_TRY_COUNT
+                    .getErrorMessage());
+        }
+
+        return count;
     }
 }
