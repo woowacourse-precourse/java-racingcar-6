@@ -64,6 +64,8 @@ Round
 
 
 Count
+- [x] 0보다 같거나 큰 카운트 값을 하나 생성한다.
+  - [x] 카운트 생성 시 0보다 작은 값으로 생성하려고 하면 IllegalArgumentException 를 발생시킨다.
 - [x] 카운트를 감소시키는 기능 구현
   - [x] 카운트가 없는 경우에 감소시키려고 하면 IllegalArgumentException 를 발생시킨다.
 

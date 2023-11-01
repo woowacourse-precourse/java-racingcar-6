@@ -9,7 +9,14 @@ public class Count {
     private final int count;
 
     public Count(final int count) {
+        validateRange(count);
         this.count = count;
+    }
+
+    private void validateRange(final int count) {
+        if (count < COUNT_ZERO) {
+            throw new IllegalArgumentException("[Error] 시도할 횟수는 0보다 같거나 커야 합니다.");
+        }
     }
 
     public Count down() {

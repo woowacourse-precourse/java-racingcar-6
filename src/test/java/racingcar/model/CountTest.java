@@ -9,6 +9,14 @@ import org.junit.jupiter.api.Test;
 
 class CountTest {
 
+    @DisplayName("Count(count) 생성 예외 테스트 : 0보다 작다면 IllegalArgumentException가 발생한다.")
+    @Test
+    void 예외발생_시도할횟수가_0보다_작을경우() {
+        assertThatThrownBy(() -> new Count(-1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[Error] 시도할 횟수는 0보다 같거나 커야 합니다.");
+    }
+
     @DisplayName("down() 테스트 : 카운트 숫자를 하나 감소시킨다.")
     @Test
     void down() {
