@@ -9,6 +9,11 @@ import racingcar.view.OutputView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.model.Cars.generateCar;
+import static racingcar.view.InputView.generateCarNameInput;
+import static racingcar.view.InputView.generateTryCountInput;
+import static racingcar.view.OutputView.processResult;
+
 
 public class GameController {
     private static int tryCount;
@@ -16,9 +21,9 @@ public class GameController {
     private static List<Car> winnerList;
 
     public static void startGame() { // 뷰는 컨트롤러에만 의존한다.
-        carsList = Cars.generateCar(InputView.generateCarNameInput());
-        tryCount = InputView.generateTryCountInput();
-        OutputView.processResult();
+        carsList = generateCar(generateCarNameInput());
+        tryCount = generateTryCountInput();
+        processResult();
         while (tryCount-- > 0) {
             for (Car car : carsList) {
                 GameNumber gameNumber = new GameNumber();
