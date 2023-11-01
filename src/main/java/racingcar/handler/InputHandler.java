@@ -33,12 +33,16 @@ public class InputHandler {
     }
 
     private List<String> convertToNameList(String names) {
-        String[] nameArray = names.split(NAME_DELIMITER);
+        String[] nameArray = splitNames(names);
 
         List<String> nameList = Arrays.stream(nameArray)
                 .map(name -> name.trim())
                 .toList();
         return nameList;
+    }
+
+    private String[] splitNames(String names) {
+        return names.split(NAME_DELIMITER);
     }
 
     private void validateNameList(List<String> nameList) {
