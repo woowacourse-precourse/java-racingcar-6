@@ -11,9 +11,9 @@ public class InputOutput {
   public String[] getCarNames() {
     System.out.println(GameConstant.Output.INPUTCARNAME.print());
     String carNameInput = Console.readLine();
+    check.carNameEmptyInput(carNameInput);
     String[] carNames = carNameInput.split(",");
     check.carNamelength(carNames);
-
     return carNames;
   }
 
@@ -55,7 +55,7 @@ public class InputOutput {
         winners.add(car.getKey());
       }
     }
-    
+
     System.out.println(String.join(", ",winners));
   }
 
