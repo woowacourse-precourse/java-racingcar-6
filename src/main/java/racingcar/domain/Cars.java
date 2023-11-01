@@ -16,6 +16,9 @@ public class Cars {
     public Cars(String input){
         List<String> carNames =  Arrays.asList(input.split(DELIMITER));
         validateDuplicateName(carNames);
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 
     public void move(){
