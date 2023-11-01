@@ -46,4 +46,17 @@ public class RacingTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    @DisplayName("initParticipants 참여자 초과 실패 테스트")
+    void initParticipants_participants_over_fail() {
+
+        Racing racing = new Racing();
+        String[] carNames = {"디카프리오", "레옹", "마틸다", "로즈", "고든", "레이첼"};
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> racing.initParticipants(carNames))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
