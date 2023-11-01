@@ -2,9 +2,6 @@ package view;
 
 import static view.Constant.*;
 
-import camp.nextstep.edu.missionutils.Console;
-import controller.RacingcarController;
-
 import java.util.List;
 
 
@@ -21,10 +18,10 @@ public class RacingcarView {
         System.out.println(EXECUTION_RESULT);
     }
 
-    public void showForwardResult(List<String> car_forward, List<Integer> car_forward_count){
+    public void showForwardResult(List<String> car_forward, int[] car_forward_count){
         for(int i=0; i<car_forward.size(); i++){
             System.out.print(car_forward.get(i) + " : ");
-            for(int j=0; j<car_forward_count.get(i); j++){
+            for(int j=0; j<car_forward_count[i]; j++){
                 System.out.print("-");
             }
             System.out.println();
