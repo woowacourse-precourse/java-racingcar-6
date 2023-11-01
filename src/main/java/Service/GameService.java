@@ -5,7 +5,7 @@ import Domain.Game;
 import View.View;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class GameService {
     public Game createGame() {
@@ -13,6 +13,28 @@ public class GameService {
         int tryCount = getTryCount();
         Car[] cars = createCars(carNames);
         return new Game(cars, tryCount);
+    }
+
+    public void runGame(Game game) {
+        game.runGame();
+        showGameProgress(game.getGameProgress(), game.getCars());
+
+        String winners = game.getWinners();
+        View.printWinners(winners);
+    }
+
+    private void showGameProgress(List<String> gameProgress, Car[] cars) {
+        int tryCount = gameProgress.size();
+        for (int i = 0; i < tryCount; i++) {
+            StringBuilder progress = new StringBuilder();
+            for (int j = 0; j < cars.length; j++) {
+                String carName = cars[j].getCarName();
+                String[] results = gameProgress.get(i).split("\n");
+                String result = results[j];
+                View.printGameProgress(result);
+            }
+            System.out.println();
+        }
     }
 
     private String[] getCarName() {
@@ -33,21 +55,4 @@ public class GameService {
         }
         return cars;
     }
-
-    /** 테스트용 **/
-    public void testGetCarName() {
-        View.inputCars();
-    }
-
-    public void testGetTryCount() {
-        View.inputTryCount();
-    }
-
-    public Game testCreateGame() {
-        String[] carNames = new String[]{"A, B, C"};
-        int tryCount = 5;
-        Car[] cars = createCars(carNames);
-        return new Game(cars, tryCount);
-    }
 }
-

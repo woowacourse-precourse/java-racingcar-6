@@ -8,4 +8,13 @@ public class View {
     public static void inputTryCount(){
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public static void printGameProgress(String progress) {
+        System.out.println( progress);
+    }
+
+
+    public static void printWinners(String winners) {
+        System.out.println("최종 우승자: " + winners);
+    }
 }

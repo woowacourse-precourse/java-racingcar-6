@@ -1,8 +1,12 @@
 package Domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
     private Car[] cars;
     private int tryCount;
+    private List<String> gameProgress = new ArrayList<>();
 
     public Game(Car[] cars, int tryCount) {
         this.cars = cars;
@@ -44,7 +48,20 @@ public class Game {
         return winners.toString();
     }
 
-    public int getTryCount() {
-        return tryCount;
+
+    public List<String> getGameProgress() {
+        return gameProgress;
     }
+
+    public void runGame() {
+        for (int i = 0; i < tryCount; i++) {
+            StringBuilder progress = new StringBuilder();
+            for (Car car : cars) {
+                car.move();
+                progress.append(car.getCarName()).append(" : ").append("-".repeat(car.getPosition())).append("\n");
+            }
+            gameProgress.add(progress.toString());
+        }
+    }
+
 }
