@@ -11,10 +11,14 @@ public class Console {
     }
 
     public static void resultWinner(String name) {
-        System.out.print("최종 우승자 : " + name);
+        System.out.printf("최종 우승자 : %s", name);
     }
 
-    public static void move(String name, String movement){
-        System.out.println(name + " : " + movement);
+    public static void move(String name, String movement) {
+        System.out.printf("%s : %s%n", name, movement);
+    }
+
+    public static void newLine() {
+        System.out.println();
     }
 }
