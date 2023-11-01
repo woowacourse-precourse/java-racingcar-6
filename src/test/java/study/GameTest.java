@@ -90,6 +90,29 @@ public class GameTest {
                 .hasMessageContaining("차 이름은 5글자 이하로 해주세요.");
 
     }
+    @Test
+    void parseIntTurnAnswer_성공_테스트() {
+        //given
+        InputManager inputManager = new InputManager();
+        //when
+        int answer = inputManager.parseIntTurnAnswer("5");
+        //then
+        assertThat(answer).isEqualTo(5);
+
+    }
+
+    @Test
+    void parseIntTurnAnswer_6글자_이상_실패_테스트() {
+        //given
+        InputManager inputManager = new InputManager();
+        //when
+
+        //then
+        assertThatThrownBy(() -> inputManager.parseIntTurnAnswer("a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자만 입력해 주세요.");
+
+    }
 
     @Test
     void displayGameScore_테스트() {
