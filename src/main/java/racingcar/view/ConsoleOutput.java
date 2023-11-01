@@ -31,7 +31,7 @@ public class ConsoleOutput {
 
     public static void winnersPrint(List<Car> winnerList) {
         String winnerString = "";
-        for(Car winner : winnerList) {
+        for (Car winner : winnerList) {
             winnerString += winner.getName() + WINNER_DELIMITER.getText();
         }
         String trimWinnerString = trimString(winnerString);

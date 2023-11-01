@@ -27,7 +27,7 @@ public class CarInputValidator {
     public static void duplicateNameValidate(List<Car> carList) {
         int carListSize = carList.size();
         carList = DeduplicationUtils.deduplication(carList, Car::getName);
-        if(carListSize != carList.size()) {
+        if (carListSize != carList.size()) {
             throw new IllegalArgumentException("자동차 이름이 중복되었습니다.");
         }
     }
