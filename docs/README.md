@@ -25,3 +25,6 @@
       } 
 
 # @ Output
+
+- HashMap<winCount, carName>
+- syso(Map.get(max(wincount)))
