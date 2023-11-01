@@ -19,6 +19,11 @@ public class Application {
             return;
         }
 
+        for (Car car : cars) {
+            car.displayNameWithDash();
+        }
+
+
     }
     private static List<Car> inputCarNames(Scanner scanner) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -56,7 +61,13 @@ public class Application {
             this.name = name;
             this.position = 0;
         }
-
+        public void displayNameWithDash() {
+            System.out.print(name + " : ");
+            for (int i = 0; i < position; i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
 
     }
 }
