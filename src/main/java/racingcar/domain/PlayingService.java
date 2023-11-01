@@ -25,6 +25,7 @@ public class PlayingService {
         System.out.println(ROUND_MSG);
         for (int i = 0; i < number.number; i++) {
             cars = master.playRound(cars);
+            System.out.println();
         }
     }
 
