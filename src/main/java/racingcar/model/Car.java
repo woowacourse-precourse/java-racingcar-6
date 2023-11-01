@@ -26,6 +26,14 @@ public class Car {
     }
 
     /**
+     * @return ex. "pobi : ---"
+     */
+    @Override
+    public String toString() {
+        return name + " : " + distance;
+    }
+
+    /**
      * 10번 중 6번 꼴로 전진한다.
      * @return 전진한 경우 true를, 그렇지 않은 경우 false를 반환한다.
      */
