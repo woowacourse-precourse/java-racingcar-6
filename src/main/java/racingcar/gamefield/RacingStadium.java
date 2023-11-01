@@ -26,13 +26,17 @@ public class RacingStadium {
         List<String> carNameList = inputView.requestCarNamesInput();
         List<Car> carList = CarFactory.generateCarListWithName(carNameList);
         displayBoard.initCarPosition(carNameList);
+        startRacing(carList);
+        outputView.responseRaceWinner(displayBoard);
+    }
+
+    private void startRacing(List<Car> carList) {
         int repeatTimes = inputView.requestRepeatTimesInput();
         outputView.responseRaceResultMessage();
         for (int i = 0; i < repeatTimes; i++) {
             tryEachCarGoForward(carList);
             outputView.responseRacingResult(displayBoard);
         }
-        outputView.responseRaceWinner(displayBoard);
     }
 
     private void tryEachCarGoForward(List<Car> carList) {
