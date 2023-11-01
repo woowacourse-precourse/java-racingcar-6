@@ -2,10 +2,14 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCar {
+    private static final int FORWARD_BASE_NUMBER = 4;
+    private static final String FORWARD_MARK_STRING = "-";
+
     public void execute() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNameArr = getCarName();
@@ -25,7 +29,7 @@ public class RacingCar {
     // 입력한 자동차 이름 쉼표(,)로 구분
     // 5자 이하가 아니면, 에러 발생
     // 띄워쓰기가 포함되어 있으면, 에러 발생
-    public String[] getCarName() {
+    private String[] getCarName() {
         String[] carNameArr = Console.readLine().split(",");
         for (String carName : carNameArr) {
             if (carName.contains(" ")) {
@@ -42,7 +46,7 @@ public class RacingCar {
     // 게임 횟수 입력
     // 숫자가 아니면, 에러 발생
     // 0이면, 에러 발생
-    public int readTryCount() {
+    private int readTryCount() {
         int tryCount = 0;
         try {
             tryCount = Integer.parseInt(Console.readLine());
@@ -57,7 +61,7 @@ public class RacingCar {
     }
 
     // 입력한 반복 횟수만큼 게임 반복 실행
-    public int[] executeRacingGame(int tryCount, String[] carNameArr) {
+    private int[] executeRacingGame(int tryCount, String[] carNameArr) {
         int[] carResult = new int[carNameArr.length];
         for (int i = 0; i < tryCount; i++) {
             executeRacing(carResult);
@@ -68,45 +72,44 @@ public class RacingCar {
     }
 
     // 랜덤 숫자 4이상 이면, 한칸 전진
-    public void executeRacing(int[] carResult) {
+    private void executeRacing(int[] carResult) {
         for (int idx = 0; idx < carResult.length; idx++) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber >= 4) {
+            if (isForward()) {
                 carResult[idx] = carResult[idx] + 1;
             }
         }
     }
 
+    private static boolean isForward() {
+        return Randoms.pickNumberInRange(0, 9) >= FORWARD_BASE_NUMBER;
+    }
+
     // "자동차 이름 : 전진 칸 수(-)" 형태로 출력
-    public void printRacingResult(String[] carNameArr, int[] carResult) {
+    private void printRacingResult(String[] carNameArr, int[] carResult) {
         for (int idx = 0; idx < carNameArr.length; idx++) {
             System.out.println(carNameArr[idx] + " : " + getResultString(carResult[idx]));
         }
     }
 
     // 한칸 전진을 "-"로 표현
-    public String getResultString(int result) {
+    private String getResultString(int result) {
         String resultString = "";
         for (int i = 0; i < result; i++) {
-            resultString += "-";
+            resultString += FORWARD_MARK_STRING;
         }
         return resultString;
     }
 
     // 전진한 칸 수 비교해서, winners에 추가
-    public List<String> getWinnersResult(int[] carResult, String[] carNameArr) {
+    private List<String> getWinnersResult(int[] carResult, String[] carNameArr) {
         int maxResult = -1;
         List<String> winners = new ArrayList<>();
 
         for (int idx = 0; idx < carResult.length; idx++) {
             if (maxResult == carResult[idx]) {
                 winners.add(carNameArr[idx]);
-                continue;
-            }
-
-            int beforeMax = maxResult;
-            maxResult = Math.max(maxResult, carResult[idx]);
-            if (maxResult > beforeMax) {
+            } else if (maxResult < carResult[idx]) {
+                maxResult = carResult[idx];
                 winners.clear();
                 winners.add(carNameArr[idx]);
             }
@@ -115,7 +118,7 @@ public class RacingCar {
     }
 
     // 공동 우승자 출력 시, 쉼표(,)로 구분
-    public String getWinnerString(List<String> winners) {
+    private String getWinnerString(List<String> winners) {
         return String.join(", ", winners);
     }
 }
