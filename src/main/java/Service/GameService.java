@@ -39,7 +39,7 @@ public class GameService {
         }
     }
 
-    private String[] getCarName() {
+    public String[] getCarName() {
         View.inputCars();
         String input = Console.readLine();
         return input.split(",");
