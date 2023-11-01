@@ -28,4 +28,5 @@ class TrialTest {
         //then
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
 }

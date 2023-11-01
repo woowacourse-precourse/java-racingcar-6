@@ -70,4 +70,5 @@ class CarTest {
         assertThat(car1.hashCode()).isEqualTo(car3.hashCode());
         assertThat(car1.hashCode()).isNotEqualTo(car2.hashCode());
     }
+
 }

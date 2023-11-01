@@ -20,4 +20,5 @@ public class Winner {
         return winners.stream()
                 .collect(Collectors.joining(WINNER_NAME_DELIMITER));
     }
+
 }

@@ -31,4 +31,5 @@ public class GameResult {
     private String convertPositionToSign(int position) {
         return POSITION_SIGN.repeat(position);
     }
+
 }

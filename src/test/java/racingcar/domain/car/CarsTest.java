@@ -96,4 +96,5 @@ class CarsTest {
                 .extracting(Car::getPosition)
                 .containsExactly(1, 0);
     }
+
 }

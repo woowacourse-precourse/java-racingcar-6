@@ -2,6 +2,7 @@ package racingcar.global.enums;
 
 public enum Constant {
 
+    MIN_TRIAL_NUMBER(1),
     MAX_NAME_LENGTH(5),
     BEGIN_NUMBER(0),
     END_NUMBER(9),
@@ -16,4 +17,5 @@ public enum Constant {
     public int getConstant() {
         return constant;
     }
+
 }

@@ -10,4 +10,5 @@ public class Application {
 
         racingGameController.run();
     }
+
 }

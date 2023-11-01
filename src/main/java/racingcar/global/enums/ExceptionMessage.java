@@ -18,4 +18,5 @@ public enum ExceptionMessage {
     public String getMessage() {
         return message;
     }
+
 }

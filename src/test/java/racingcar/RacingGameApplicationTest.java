@@ -95,4 +95,5 @@ class RacingGameApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
 }
