@@ -25,6 +25,9 @@ public class OutputValues {
         Arrays.fill(movement, "-");
         return movement;
     }
+    public void carRaceOutPut(String carName, int getPosition) {
+        System.out.println(carNameOutput(carName) + ":" + carMovementOutput(getPosition));
+    }
     public void carRaceWinnerOutput(String winner) {
         System.out.println(SystemMessage.CAR_RACE_WINNER_MESSAGE.getMessage() + winner);
     }

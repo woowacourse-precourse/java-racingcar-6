@@ -1,18 +1,20 @@
 package racingcar.service;
 
+import racingcar.constant.CarValue;
+
 public class VerificationService {
     public Boolean nameCheck(String carNames) {
 
-        return nameRangeCheck(carNames) && nullValueCheck(carNames);
+        return (nameRangeCheck(carNames) && nullValueCheck(carNames));
     }
 
-    private final Boolean nameRangeCheck(String carNames) {
+    private Boolean nameRangeCheck(String carNames) {
         int carNamesLength = carNames.length();
 
-        return carNamesLength < 5;
+        return carNamesLength < CarValue.CAR_NAME_MAXIMUM_RANGE.getValue();
     }
 
-    private final Boolean nullValueCheck(String value) {
+    private Boolean nullValueCheck(String value) {
 
         if (value != null) {
             return true;
@@ -29,7 +31,7 @@ public class VerificationService {
 
     }
 
-    private final Boolean countIsInteger(String count) {
+    private Boolean countIsInteger(String count) {
         try {
             Integer.parseInt(count);
             return true;

@@ -109,19 +109,26 @@ Service
     static int positionValue;
     3-1. randomMove() { return Randoms.pickNumberInRange(Constant.CAR_MOVE_MINIMUM_RANGE, Constant.CAR_MOVE_MAXIMUM_RANGER); } 
     
-    3-2. carRace(int carNameListSize)  
+    3-2. carRace(int carNameListIndex)  
      if (randomMove() > 4) {
-        forward(int carNameListSize);
+        forward(carNameListIndex);
 }
-    3-3. public int getPosition(int carNameListSize) { // 자동차의 최종 위치값 출력
-    carPosition[carNameListSize] = position[carNameListSize];
-    return carPosition[carNameListSize];
+    3-3. public int[] getPosition(int carNameListIndex) { // 자동차의 최종 위치값 출력
+    carPosition[carNameListIndex] = position[carNameListIndex];
+    return carPosition[carNameListIndex];
    }
 
-    3-4. forward(int carNameListSize) { // 전진 횟수 저장
+    3-4. forward(int carNameListIndex) { // 전진 횟수 저장
     positionValue++;
-    position[carNameListSize] = positionValue;
-    positionValue = 0;
+    position[carNameListIndex] = positionValue;
+
+    3-5. public List<Integer> getAllPosition() {
+   allPosition = Arrays.stream(carPosition)
+   .boxed()
+   .collect(Collectors.toList());
+   return allPosition;
+   }
+
 }
 
    
@@ -135,9 +142,9 @@ Service
    private final CarRaceGameService carRaceGameService;
    private final int max = Collections.max(carRaceGameService.carPosition);
    private final int maxFrequency = Collections.frequency(carRaceGameService.carPosition, max); 
-   public List<String> WinnerList = new ArrayList<String>;
+   public List<String> winnerList = new ArrayList<String>;
 
-   public Facade() {
+   public FacadeService() {
    this.verificationService = new verificationService();
    this.addValueService = new addValueService();
    this.carRaceGameService = new carRaceGameService(); 
@@ -160,8 +167,7 @@ Service
     if (maxFrequency == 1) { // 제일 높은 점수의 동점이 존재하지 않는다면
     for (int k = 0 ; k < addValueService.carNameList.size ; k ++ ){
     findWinnerName(k) // 해당 점수 자동차명 찾기
-    } else if (maxFrequency == 0) { throw new IllegalArgException; 
-    } else { 
+    }  else { 
     for (int k = 0 ; k < addValueService.carNameList.size ; k ++ ){
     findWinnerList(k);
     }
