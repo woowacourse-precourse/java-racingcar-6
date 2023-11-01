@@ -70,13 +70,10 @@ public class RacingGame implements Game {
     public void getResult() {
         List<Participant> winner = getWinner();
         System.out.print("최종 우승자 : ");
-        for(int indexOfWinner = 0; indexOfWinner < winner.size(); indexOfWinner++) {
-            if(indexOfWinner == winner.size() - 1) {
-                System.out.println(winner.get(indexOfWinner).getName());
-                break;
-            }
-            System.out.print(winner.get(indexOfWinner).getName() + ", ");
-        }
+        String result = String.join(", ", winner.stream()
+                .map(Participant::getName)
+                .toList());
+        System.out.println(result);
     }
 
     public void setGameInfo(GameInfo gameInfo) {
