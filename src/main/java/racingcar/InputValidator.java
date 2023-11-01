@@ -20,4 +20,12 @@ public class InputValidator {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validateTryNumber(String tryNumber) {
+        try {
+            Integer.parseInt(tryNumber);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

@@ -11,7 +11,7 @@ public class Application {
         List<String> carNames = splitNames(getCarNames());
         MessagePrinter.askTryNumber();
 
-        int tryNumber = Integer.parseInt(Console.readLine());
+        int tryNumber = getTryNumber();
 
         Cars cars = new Cars(carNames);
 
@@ -28,6 +28,12 @@ public class Application {
         List<String> name = Arrays.asList(names.split(","));
         InputValidator.validateName(name);
         return name;
+    }
+
+    public static int getTryNumber() {
+        String input = Console.readLine();
+        InputValidator.validateTryNumber(input);
+        return Integer.parseInt(input);
     }
 
 }
