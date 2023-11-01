@@ -1,19 +1,13 @@
 package racingcar.model.car;
 
-public class CarId {
-    private final int id;
-
-    public CarId(int id) {
+public record CarId(int id) {
+    public CarId {
         validateId(id);
-        this.id = id;
     }
 
     private void validateId(int id) {
         if (id < 0) {
             throw new IllegalArgumentException();
         }
-    }
-    public int getId() {
-        return id;
     }
 }
