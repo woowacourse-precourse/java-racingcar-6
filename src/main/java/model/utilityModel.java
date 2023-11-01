@@ -17,16 +17,6 @@ public class utilityModel {
             throw new IllegalArgumentException();
         }
     }
-//    public static ArrayList<String> stringArrayToStringArrayList(String[] namesArray){
-//        ArrayList<String> newArrayList = new ArrayList<>();
-//
-//        for(String name : namesArray){
-//            if(isValidName(MAX_NAME_LENGTH, name)){
-//                newArrayList.add(name);
-//            }
-//        }
-//        return newArrayList;
-//    }
     public static int stringToInt(String string){
         return Integer.parseInt(string);
     }

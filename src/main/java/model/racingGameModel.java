@@ -19,7 +19,6 @@ public class racingGameModel {
             idx++;
         }
     }
-
     public void updateRaceStatus(){
         for(racingCarInfo carInfo : racingCarInfos){
             int randomNumber = getRandomNumber();
@@ -28,7 +27,6 @@ public class racingGameModel {
             }
         }
     }
-
     public List<String> findWinners(){
         int max = findMaxCountOfCarInfos();
 

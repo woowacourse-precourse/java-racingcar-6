@@ -5,7 +5,6 @@ import static view.guideMessage.PLEASE_INPUT_RACING_COUNT;
 import static view.guideMessage.EXECUTION_RESULT;
 import static model.utilityModel.splitByComma;
 import static model.utilityModel.stringToInt;
-//import static model.utilityModel.stringArrayToStringArrayList;
 
 import java.util.List;
 import model.racingGameModel;
@@ -19,7 +18,6 @@ public class game {
         System.out.println(PLEASE_INPUT_RACINGCAR_NAMES);
         String userInput = userInputController.userInput();
         String[] carNamesArray = splitByComma(userInput);
-        //ArrayList<String> racingCarNames = stringArrayToStringArrayList(carNamesArray);
         //시도 횟수 입력
         System.out.println(PLEASE_INPUT_RACING_COUNT);
         userInput = userInputController.userInput();
