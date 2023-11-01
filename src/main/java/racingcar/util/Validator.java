@@ -3,6 +3,7 @@ package racingcar.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 import racingcar.domain.Game;
 
 public class Validator {
@@ -51,9 +52,8 @@ public class Validator {
     }
 
     public void isInteger(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (IllegalArgumentException e) {
+        String pattern = "^[0-9]*$";
+        if (!Pattern.matches(pattern, input)) {
             throw new IllegalArgumentException(ROUND_NUMBER_WRONG_ERROR);
         }
     }
