@@ -9,7 +9,7 @@ public class Validator {
     private static final String SPACE = " ";
     private final Parser parser = new Parser();
 
-    public void checkCarNameInput(String input) {
+    public void checkCarNameInput(String input) throws IllegalArgumentException {
         checkEmptyAndThrowException(input);
         checkCommaAndThrowException(input);
         List<String> carNameList = parser.parseCarNames(input);
@@ -20,14 +20,14 @@ public class Validator {
         }
     }
 
-    public void checkAttemptNumInput(String input) {
+    public void checkAttemptNumInput(String input) throws IllegalArgumentException {
         checkEmptyAndThrowException(input);
         checkCharAndThrowException(input);
     }
 
     private void checkEmptyAndThrowException(String input) {
         if (input.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("입력이 없습니다.");
         }
     }
 
@@ -35,26 +35,26 @@ public class Validator {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("숫자가 아닌 문자가 입력되었습니다.");
         }
     }
 
     private void checkLengthAndThrowException(String carName) {
         if (CAR_NAME_MAX_LENGTH < carName.length()
                 || CAR_NAME_MIN_LENGTH > carName.length()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("차이름은 5글자 제한입니다.");
         }
     }
 
     private void checkSpaceAndThrowException(String carName) {
         if (carName.contains(SPACE)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("차이름에 공백이 포함되어 있습니다.");
         }
     }
 
     private void checkCommaAndThrowException(String input) {
         if (input.lastIndexOf(",") == input.length() - 1) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("콤마로 끝나는 이름이 있습니다.");
         }
     }
 
@@ -68,7 +68,7 @@ public class Validator {
 
     private void checkEqualTwoCarNamesAndThrowException(String carName1, String carName2) {
         if (carName1.equals(carName2)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("차이름이 중복입니다.");
         }
     }
 
