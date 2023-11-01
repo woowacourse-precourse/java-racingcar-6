@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.model.Car;
 import racingcar.validator.Validator;
@@ -43,7 +42,7 @@ public class RaceController {
         });
     }
 
-    private Car findWinner(List<Car> cars){
+    private Car findWinner(List<Car> cars) {
         cars.sort(Collections.reverseOrder());
         return cars.get(0);
     }

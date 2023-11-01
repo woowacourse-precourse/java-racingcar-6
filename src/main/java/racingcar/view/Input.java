@@ -7,7 +7,6 @@ import java.util.List;
 public class Input {
 
     public static List<String> getCarNames() {
-        /* 이름 입력 */
         System.out.println("경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)");
         return Arrays.stream(Console.readLine().split(",")).toList();
     }
