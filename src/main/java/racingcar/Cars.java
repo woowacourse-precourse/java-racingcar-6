@@ -61,7 +61,7 @@ public class Cars {
             moveCountList.add(i, moveCount.length()); //움직인 횟수 넣기
             CarNameList.add(i,CarName);
 
-            System.out.println(CarName + ":" + moveCount);
+            System.out.println(CarName + " : " + moveCount);
         }
 
         moveCountList = moveCountList.subList(0,carNames.length);   //나온 차수만큼 나누기
@@ -87,13 +87,14 @@ public class Cars {
     }
     public void printWinnerCar(){
         if(winners.size() == 1){
+
             System.out.println("최종 우승자 : " + winners.get(0)); // 승자가 한명일 때
         }
 
         if(winners.size() != 1){
             String result = "";
             for(int i = 0; i< winners.size(); i++){
-                result += winners.get(i);
+                result += winners.get(i) + ", ";
             }
             System.out.println("최종 우승자 : " + result.substring(0, result.length() - 2)); //승자가 두명 이상일 떄
         }

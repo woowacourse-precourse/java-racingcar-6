@@ -9,10 +9,11 @@ public class Controller {
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNumber = tryNumber();
 
-        System.out.println("실행결과");
+        System.out.println();   //개행
+
+        System.out.println("실행 결과");
         moveWhlie(tryNumber, cars);
 
-        System.out.println();   //개행
         cars.winnerCar();
         cars.printWinnerCar();
     }
@@ -20,9 +21,9 @@ public class Controller {
 
     private void moveWhlie(int tryNumber, Cars car){  // 입력받은 숫자만큼 반복
         for(int i = 0; i < tryNumber; i++){
-            System.out.println();   //개행
 
             car.moveCar();
+            System.out.println();  //개행
         }
     }
     public int tryNumber(){
