@@ -1,7 +1,15 @@
 package racingcar;
 
+import racingcar.config.AppConfig;
+import racingcar.game.Launcher;
+
 public class Application {
+
+    private static final AppConfig appConfig = new AppConfig();
+
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Launcher launcher = appConfig.launcher();
+        launcher.StartGameLauncher();
     }
 }
