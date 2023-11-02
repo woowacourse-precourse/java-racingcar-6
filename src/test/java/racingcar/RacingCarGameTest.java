@@ -19,13 +19,17 @@ class RacingCarGameTest {
 
     private RandomValueGenerator randomValueGenerator;
 
+    private UserIo userIo;
+
     @BeforeEach
     public void setUp() {
         randomValueGenerator = mock(RandomValueGenerator.class);
+        userIo = mock(UserIo.class);
 
-        racingCarGame = new RacingCarGame(new CarNameParser(),
-                new CarMovementDecider(randomValueGenerator),
-                new RacingCarResultFormatter());
+        racingCarGame = new RacingCarGame(
+                new RacingGameInteractionHandler(userIo, new CarNameParser(), new RacingCarResultFormatter()),
+                new CarMovementDecider(randomValueGenerator)
+        );
     }
 
 
@@ -33,12 +37,11 @@ class RacingCarGameTest {
     @Test
     void givenConditions_pobiAlwaysWins() {
         // Given
-        UserIo userIo = mock(UserIo.class);
         given(userIo.readLine()).willReturn("pobi,woni,jun", "3");
         given(randomValueGenerator.generate()).willReturn(5, 0, 5, 5, 0, 0, 0, 0, 0);
 
         // When
-        racingCarGame.run(userIo);
+        racingCarGame.run();
 
         // Then
         verify(userIo, times(1)).print("최종 우승자 : pobi");

@@ -4,46 +4,28 @@ import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.car.Car;
 import racingcar.car.name.CarName;
-import racingcar.car.name.CarNameParser;
-import racingcar.io.UserIo;
-import racingcar.result.RacingCarResultFormatter;
 import racingcar.result.RacingResult;
 
 public class RacingCarGame {
 
-    private final CarNameParser carNameParser;
+    private final RacingGameInteractionHandler racingGameInteractionHandler;
     private final CarMovementDecider carMovementDecider;
-    private final RacingCarResultFormatter racingCarResultFormatter;
 
     public RacingCarGame(
-            CarNameParser carNameParser,
-            CarMovementDecider carMovementDecider,
-            RacingCarResultFormatter racingCarResultFormatter) {
-        this.carNameParser = carNameParser;
+            RacingGameInteractionHandler racingGameInteractionHandler,
+            CarMovementDecider carMovementDecider) {
+        this.racingGameInteractionHandler = racingGameInteractionHandler;
         this.carMovementDecider = carMovementDecider;
-        this.racingCarResultFormatter = racingCarResultFormatter;
     }
 
-    public void run(UserIo userIo) {
-        List<CarName> carNameList = getCarNameList(userIo);
-
-        RacingAttempt racingAttempt = getRacingAttempt(userIo);
+    public void run() {
+        List<CarName> carNameList = racingGameInteractionHandler.readCarNameList();
+        RacingAttempt racingAttempt = racingGameInteractionHandler.readRacingAttempt();
 
         List<Car> carList = createCarList(carNameList);
-        List<RacingResult> racingResultList = race(carList, racingAttempt, userIo);
+        List<RacingResult> racingResultList = race(carList, racingAttempt);
 
-        userIo.print(racingCarResultFormatter.formatFinalResult(racingResultList));
-    }
-
-    private List<CarName> getCarNameList(UserIo userIo) {
-        userIo.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
-        String carNameLine = userIo.readLine();
-        return carNameParser.parse(carNameLine);
-    }
-
-    private RacingAttempt getRacingAttempt(UserIo userIo) {
-        userIo.print("시도할 회수는 몇회인가요?\n");
-        return new RacingAttempt(userIo.readLine());
+        racingGameInteractionHandler.printFinalResult(racingResultList);
     }
 
     private List<Car> createCarList(List<CarName> carNameList) {
@@ -52,8 +34,8 @@ public class RacingCarGame {
                 .toList();
     }
 
-    private List<RacingResult> race(List<Car> carList, RacingAttempt racingAttempt, UserIo userIo) {
-        userIo.print("\n실행결과\n");
+    private List<RacingResult> race(List<Car> carList, RacingAttempt racingAttempt) {
+        racingGameInteractionHandler.announceRaceStart();
 
         IntStream.range(0, racingAttempt.getAttempts())
                 .forEach(i -> {
@@ -63,7 +45,7 @@ public class RacingCarGame {
                             .map(car -> new RacingResult(car.getCarName(), car.getDistanceDriven()))
                             .toList();
 
-                    userIo.print(racingCarResultFormatter.formatRoundResult(rountResultList));
+                    racingGameInteractionHandler.printRoundResult(rountResultList);
                 });
 
         return carList.stream()

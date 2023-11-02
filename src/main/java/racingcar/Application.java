@@ -8,13 +8,11 @@ import racingcar.result.RacingCarResultFormatter;
 public class Application {
 
     public static void main(String[] args) {
-        CarNameParser carNameParser = new CarNameParser();
-        CarMovementDecider carMovementDecider = new CarMovementDecider(new SingleDigitRandomValueGenerator());
-        RacingCarResultFormatter racingCarResultFormatter = new RacingCarResultFormatter();
+        RacingCarGame racingCarGame = new RacingCarGame(
+                new RacingGameInteractionHandler(new UserIo(), new CarNameParser(), new RacingCarResultFormatter()),
+                new CarMovementDecider(new SingleDigitRandomValueGenerator())
+        );
 
-        RacingCarGame racingCarGame = new RacingCarGame(carNameParser, carMovementDecider, racingCarResultFormatter);
-
-        UserIo userIo = new UserIo();
-        racingCarGame.run(userIo);
+        racingCarGame.run();
     }
 }
