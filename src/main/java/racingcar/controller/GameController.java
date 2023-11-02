@@ -35,11 +35,11 @@ public class GameController {
 
     private void createCarsFromCarNamesUserInput() {
         List<String> carNames = getCarNames();
-        List<Car> carList = new ArrayList<>();
+        List<Car> carsFromUserInput = new ArrayList<>();
         for (String name : carNames) {
-            carList.add(Car.create(name));
+            carsFromUserInput.add(Car.create(name));
         }
-        cars = Cars.create(carList);
+        cars = Cars.create(carsFromUserInput);
     }
 
     private List<String> getCarNames() {

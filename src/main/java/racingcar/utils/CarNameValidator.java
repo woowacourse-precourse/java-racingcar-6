@@ -5,6 +5,7 @@ import racingcar.exception.ErrorMessage;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CarNameValidator {
     private static final int MINIMUM_CAR_NAMES = 2;
@@ -51,8 +52,8 @@ public class CarNameValidator {
     }
 
     private static void validateDuplicate(List<String> names) {
-        HashSet<String> namesToSet = new HashSet<>(names);
-        if (names.size() != namesToSet.size()) {
+        Set<String> uniqueNames = new HashSet<>(names);
+        if (names.size() != uniqueNames.size()) {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME_ERROR.getMessage());
         }
     }
