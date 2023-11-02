@@ -4,6 +4,8 @@ import static racingcar.common.Config.*;
 
 
 public class OutputView {
+    private OutputView() {
+    }
     public static void gameStartMessage() {
         System.out.println(START_MESSAGE);
     }
