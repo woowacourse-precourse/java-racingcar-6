@@ -20,14 +20,6 @@ public class RacingInfo {
         this.turn = turn;
     }
 
-    public List<String> getCarNames() {
-        return carNames;
-    }
-
-    public int getTurn() {
-        return turn;
-    }
-
     private void validateInputs(int turn, List<String> carNames) {
         if (turn <= 0) {
             throw new IllegalArgumentException(TURN_IS_MORE_THAN_ZERO.getMessage());
@@ -69,5 +61,13 @@ public class RacingInfo {
     private static List<String> parseCarString(String carString) {
         return Arrays.stream(carString.split(","))
                 .map(String::trim).collect(Collectors.toList());
+    }
+
+    public List<String> getCarNames() {
+        return carNames;
+    }
+
+    public int getTurn() {
+        return turn;
     }
 }

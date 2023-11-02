@@ -8,15 +8,6 @@ public class Racing {
     private List<Car> cars;
     private int turn;
     private List<Integer> distanceRecord;
-
-    public List<Integer> getDistanceRecord() {
-        return distanceRecord;
-    }
-
-    public List<Car> getWinners() {
-        return winners;
-    }
-
     private List<Car> winners;
 
     public Racing(List<Car> cars, int turn) {
@@ -24,30 +15,6 @@ public class Racing {
         this.turn = turn;
         this.distanceRecord = new ArrayList<>();
         this.winners = new ArrayList<>();
-    }
-
-    public void start() {
-        iterateEachTurn();
-        selectWinners();
-    }
-
-    private void iterateEachTurn() {
-        for (int i = 0; i < turn; i++) {
-            for (Car car : cars) {
-                car.move();
-                distanceRecord.add(car.getMovedDist());
-            }
-        }
-    }
-
-    private void selectWinners() {
-        Collections.sort(cars);
-        int maxDist = cars.get(0).getMovedDist();
-        for (Car car : cars) {
-            if (car.getMovedDist() == maxDist) {
-                winners.add(car);
-            } else break;
-        }
     }
 
     public static Racing create(RacingInfo racingInfo) {
@@ -78,5 +45,37 @@ public class Racing {
         List<String> winnersName = racing.winners
                 .stream().map(Car::getName).toList();
         System.out.println("최종 우승자 : " + String.join(", ", winnersName));
+    }
+
+    public void start() {
+        iterateEachTurn();
+        selectWinners();
+    }
+
+    private void iterateEachTurn() {
+        for (int i = 0; i < turn; i++) {
+            for (Car car : cars) {
+                car.move();
+                distanceRecord.add(car.getMovedDist());
+            }
+        }
+    }
+
+    private void selectWinners() {
+        Collections.sort(cars);
+        int maxDist = cars.get(0).getMovedDist();
+        for (Car car : cars) {
+            if (car.getMovedDist() == maxDist) {
+                winners.add(car);
+            } else break;
+        }
+    }
+
+    public List<Integer> getDistanceRecord() {
+        return distanceRecord;
+    }
+
+    public List<Car> getWinners() {
+        return winners;
     }
 }

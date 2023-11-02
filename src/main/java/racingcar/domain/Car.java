@@ -11,19 +11,19 @@ public class Car implements Comparable<Car> {
         movedDist = 0;
     }
 
+    public void move() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (4 <= randomNumber) {
+            movedDist++;
+        }
+    }
+
     public String getName() {
         return name;
     }
 
     public int getMovedDist() {
         return movedDist;
-    }
-
-    public void move() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (4 <= randomNumber) {
-            movedDist++;
-        }
     }
 
     @Override
