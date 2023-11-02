@@ -56,4 +56,4 @@
 - Model과 view를 연결
 
 ### Application
-- 프로그램 실행
+- 프로그램을 실행함
