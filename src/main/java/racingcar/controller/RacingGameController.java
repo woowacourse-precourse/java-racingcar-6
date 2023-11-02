@@ -23,7 +23,7 @@ public class RacingGameController {
 
     private RacingResult race(final Cars cars) {
         final CarSpeedGenerator speedGenerator = createSpeedGenerator();
-        final int numberOfAttempts = InputView.readNumberOfAttempts();
+        final int numberOfAttempts = readNumberOfAttempts();
 
         OutputView.printRacingResultTitle();
         for (int attempt = 0; attempt < numberOfAttempts - 1; attempt++) {
@@ -34,6 +34,15 @@ public class RacingGameController {
 
     private CarSpeedGenerator createSpeedGenerator() {
         return new RandomSpeedGenerator();
+    }
+
+    private static int readNumberOfAttempts() {
+        final int numberOfAttempts = InputView.readNumberOfAttempts();
+
+        if (numberOfAttempts <= 0) {
+            throw new IllegalArgumentException();
+        }
+        return numberOfAttempts;
     }
 
     private RacingResult raceWith(final Cars cars, final CarSpeedGenerator speedGenerator) {
