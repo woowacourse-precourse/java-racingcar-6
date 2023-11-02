@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 public class Race {
     private String userInput;
     static List<String> players;
-    private HashMap<String, Integer> playingStatus = new HashMap<>();
+    public HashMap<String, Integer> playingStatus = new HashMap<>();
     private Integer roundInt;
-    private static List<String> winners = new ArrayList<>();
+    static List<String> winners = new ArrayList<>();
 
 
     public void run() {
@@ -101,7 +101,7 @@ public class Race {
         }
     }
 
-    private void findWinner() {
+    public void findWinner() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("최종 우승자 : ");
         int maxValue = Collections.max(playingStatus.values());
