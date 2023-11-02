@@ -2,7 +2,8 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.utils.Validator;
+import racingcar.utils.CarNameValidator;
+import racingcar.utils.TotalRoundValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -43,12 +44,12 @@ public class GameController {
 
     private List<String> getCarNames() {
         String input = inputView.readCarNames();
-        return Validator.validateCarNames(input);
+        return CarNameValidator.validateCarNames(input);
     }
 
     private void setTotalRoundFromUserInput() {
         String input = inputView.readTotalRound();
-        totalRound = Validator.validateTotalRound(input);
+        totalRound = TotalRoundValidator.validateTotalRound(input);
     }
 
     private void play(Cars cars, int totalRound) {

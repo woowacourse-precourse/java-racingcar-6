@@ -1,14 +1,15 @@
 package racingcar.utils;
 
-import racingcar.constants.ErrorMessage;
+import racingcar.exception.ErrorMessage;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import static racingcar.constants.CarNameConstants.*;
+public class CarNameValidator {
+    public static final int MAXIMUM_CAR_NAME_LENGTH = 5;
+    public static final String CAR_NAME_DELIMITER = ",";
 
-public class Validator {
     public static List<String> validateCarNames(String input) {
         validateBlank(input);
         validateStartsOrEndsWith(input);
@@ -17,12 +18,6 @@ public class Validator {
         validateLength(names);
         validateDuplicate(names);
         return names;
-    }
-
-    public static int validateTotalRound(String input) {
-        int totalRound = validateNumeric(input);
-        validateIfZero(totalRound);
-        return totalRound;
     }
 
     private static void validateSize(List<String> names) {
@@ -58,22 +53,6 @@ public class Validator {
         HashSet<String> namesToSet = new HashSet<>(names);
         if (names.size() != namesToSet.size()) {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME_ERROR.getMessage());
-        }
-    }
-
-    private static int validateNumeric(String input) {
-        int totalRound;
-        try {
-            totalRound = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_TOTAL_ROUND_ERROR.getMessage());
-        }
-        return totalRound;
-    }
-
-    private static void validateIfZero(int totalRound) {
-        if (totalRound == 0) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_TOTAL_ROUND_ERROR.getMessage());
         }
     }
 }

@@ -1,4 +1,4 @@
-package racingcar.constants;
+package racingcar.exception;
 
 public enum ErrorMessage {
     //car
