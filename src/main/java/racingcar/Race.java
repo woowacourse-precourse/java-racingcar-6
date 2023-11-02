@@ -1,8 +1,10 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Race {
 
@@ -18,18 +20,13 @@ public class Race {
     }
     public void start(){
         System.out.println(UserMessages.RACE_RESULT);
-        for (int raceTime = 0; raceTime < this.numbersOfRace; raceTime++){
-            this.participants.stream()
-                    .forEach(driver ->{
-                        driver.drive();
-                        printDriverDistance(driver);
-                    });
-            for (Driver driver : this.participants){
+        IntStream.range(0, this.numbersOfRace).forEach(raceTime -> {
+            this.participants.forEach(driver -> {
                 driver.drive();
                 printDriverDistance(driver);
-            }
+            });
             System.out.println();
-        }
+        });
     }
 
     private void printDriverDistance(Driver driver) {
