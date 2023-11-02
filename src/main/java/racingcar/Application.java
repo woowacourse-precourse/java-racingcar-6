@@ -1,7 +1,13 @@
 package racingcar;
 
+import racingcar.presentation.RacingCarApplication;
+import racingcar.presentation.CarViewer;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        CarViewer carViewer = CarViewer.getInstance();
+
+        RacingCarApplication racingCarApplication = new RacingCarApplication(carViewer);
+        racingCarApplication.run();
     }
 }
