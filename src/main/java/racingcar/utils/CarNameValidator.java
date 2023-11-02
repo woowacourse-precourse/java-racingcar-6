@@ -7,8 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 
 public class CarNameValidator {
-    public static final int MAXIMUM_CAR_NAME_LENGTH = 5;
-    public static final String CAR_NAME_DELIMITER = ",";
+    private static final int MINIMUM_CAR_NAMES = 2;
+    private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
+    private static final String CAR_NAME_DELIMITER = ",";
 
     public static List<String> validateCarNames(String input) {
         validateBlank(input);
@@ -20,12 +21,6 @@ public class CarNameValidator {
         return names;
     }
 
-    private static void validateSize(List<String> names) {
-        if (names.size() == 1) {
-            throw new IllegalArgumentException(ErrorMessage.INSUFFICIENT_CAR_SIZE_ERROR.getMessage());
-        }
-    }
-
     private static void validateBlank(String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_BLANK_ERROR.getMessage());
@@ -35,6 +30,12 @@ public class CarNameValidator {
     private static void validateStartsOrEndsWith(String input) {
         if (input.startsWith(CAR_NAME_DELIMITER) || input.endsWith(CAR_NAME_DELIMITER)) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DELIMITER_ERROR.getMessage());
+        }
+    }
+
+    private static void validateSize(List<String> names) {
+        if (names.size() < MINIMUM_CAR_NAMES) {
+            throw new IllegalArgumentException(ErrorMessage.INSUFFICIENT_CAR_SIZE_ERROR.getMessage());
         }
     }
 
