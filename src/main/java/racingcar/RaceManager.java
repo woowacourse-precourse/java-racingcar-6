@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class RaceManager {
@@ -24,8 +24,7 @@ public class RaceManager {
     }
 
     private void award() {
-        List<Driver> winners = race.getWinners();
-        String winnersName = winners.stream()
+        String winnersName = race.getWinners().stream()
                 .map(Driver::getName)
                 .collect(Collectors.joining(", "));
         System.out.println(UserMessages.WINNER_ANNOUNCEMENT + winnersName);
@@ -33,9 +32,8 @@ public class RaceManager {
 
     private void entryDrivers() {
         System.out.println(UserMessages.ASK_FOR_DRIVER_NAMES);
-        for (String driverName : Console.readLine().split(",")) {
-            race.addParticipant(driverName);
-        }
+        Arrays.stream(Console.readLine().split(","))
+                .forEach(race::addParticipant);
     }
 
     private void askAndSetNumbersOfRaces(){

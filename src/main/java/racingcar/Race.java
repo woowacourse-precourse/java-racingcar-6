@@ -19,6 +19,11 @@ public class Race {
     public void start(){
         System.out.println(UserMessages.RACE_RESULT);
         for (int raceTime = 0; raceTime < this.numbersOfRace; raceTime++){
+            this.participants.stream()
+                    .forEach(driver ->{
+                        driver.drive();
+                        printDriverDistance(driver);
+                    });
             for (Driver driver : this.participants){
                 driver.drive();
                 printDriverDistance(driver);
