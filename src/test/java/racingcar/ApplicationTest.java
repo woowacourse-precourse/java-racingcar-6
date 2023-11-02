@@ -201,11 +201,10 @@ class ApplicationTest extends NsTest {
 
 //            리플렉션으로 생성한 인스턴스를 스파이로 감싼다
             Racing racingSpy = spy(racingObj);
-
+//            테스트할 메소드 실행
             racingSpy.racingStart();
-
+//            검증
             verify(racingSpy, times(4)).raceOneStep();
-
         }
 
 
