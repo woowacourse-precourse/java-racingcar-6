@@ -17,16 +17,19 @@ public class OutputView {
         printMessage(INPUT_TRIES_COUNT.getMessage());
     }
 
-    public static void displayCarsCurrentState(List<Car> racingCars) {
+    public static void displayResultMessage() {
         printMessage();
         printMessage(RESULT.getMessage());
+    }
+
+    public static void displayCarsCurrentState(List<Car> racingCars) {
         for (Car car : racingCars) {
             printMessage(getSingleCarMovementString(car));
         }
+        printMessage();
     }
 
     public static void displayWinners(List<Car> winners) {
-        printMessage();
         printMessage(getWinnersString(winners));
     }
 

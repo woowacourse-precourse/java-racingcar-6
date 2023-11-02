@@ -39,6 +39,7 @@ public class RacingGameController {
     }
 
     private void runRaces(int triesCount, List<Car> racingCars) {
+        OutputView.displayResultMessage();
         IntStream.range(0, triesCount).forEach(moveIndex -> {
             executeOneMove(racingCars);
             OutputView.displayCarsCurrentState(racingCars);
