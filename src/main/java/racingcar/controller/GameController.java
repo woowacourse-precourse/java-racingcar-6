@@ -12,7 +12,7 @@ import racingcar.view.OutputView;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
-import static racingcar.view.constant.SystemMessage.*;
+import static racingcar.view.message.SystemMessage.*;
 
 public class GameController {
 
