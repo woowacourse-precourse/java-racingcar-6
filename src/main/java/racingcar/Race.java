@@ -108,7 +108,7 @@ public class Race {
         for (Map.Entry<String, Integer> set :
                 playingStatus.entrySet()) {
             compareMaxValue(set, maxValue);
-            }
+        }
         String print = winners.stream().
                 map(Object::toString).
                 collect(Collectors.joining(", ")).toString();

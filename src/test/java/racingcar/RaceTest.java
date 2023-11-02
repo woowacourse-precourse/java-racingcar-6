@@ -10,20 +10,18 @@ class RaceTest {
     void separatePlayers() {
         Race race = new Race();
         race.separatePlayers("1, 2, 3");
-        List<String> expectedResult = List.of("1","2","3");
+        List<String> expectedResult = List.of("1", "2", "3");
         assertEquals(expectedResult, race.players);
     }
 
     @Test
     void findWinner() {
         Race race = new Race();
-        race.playingStatus.put("1",1);
-        race.playingStatus.put("2",5);
+        race.playingStatus.put("1", 1);
+        race.playingStatus.put("2", 5);
         race.findWinner();
         List<String> expectedResult = List.of("2");
         assertEquals(expectedResult, race.winners);
     }
-
-
 
 }
