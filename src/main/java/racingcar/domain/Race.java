@@ -18,7 +18,7 @@ public class Race {
 
     public Race(List<Car> cars) {
         CarNameValidator.validateDuplicateForList(cars);
-        this.cars = cars;
+        this.cars = Collections.unmodifiableList(cars);
     }
 
     public void moveEachCar(int randomNumber) {
@@ -50,6 +50,6 @@ public class Race {
     }
 
     public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+        return cars;
     }
 }
