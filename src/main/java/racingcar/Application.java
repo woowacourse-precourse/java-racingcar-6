@@ -1,7 +1,10 @@
 package racingcar;
 
+import racingcar.domain.ActionCars;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        ActionCars actioncars = new ActionCars();
+        actioncars.gameStart();
     }
 }
