@@ -30,3 +30,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### 클래스 파일 ###
+*.class
