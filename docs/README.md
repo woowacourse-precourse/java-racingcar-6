@@ -1,5 +1,7 @@
 # 미션 - 자동차 경주
 
+\- github: [[https://github.com/HSBODo/java-baseball-6](https://github.com/HSBODo/java-baseball-6)](https://github.com/HSBODo/java-racingcar-6)
+
 ## 🔍 진행 방식
 
 - 미션은 **기능 요구 사항, 프로그래밍 요구 사항, 과제 진행 요구 사항** 세 가지로 구성되어 있다.
