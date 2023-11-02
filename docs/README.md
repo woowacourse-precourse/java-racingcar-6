@@ -27,7 +27,7 @@ _'+' 는 개인적으로 추가한 기능입니다._
   - [x] 최종 우승자 이름 출력 기능
 
 
-✏️&nbsp;[2주차 기록](https://meteor-patch-519.notion.site/2-921adf1d51104a09b2302482a124c957)
+✏️&nbsp;[2주차 기록](https://goodchoii.notion.site/2-921adf1d51104a09b2302482a124c957)
 
 
 
