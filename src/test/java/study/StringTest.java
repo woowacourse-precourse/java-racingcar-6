@@ -1,9 +1,18 @@
 package study;
-
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static java.lang.Compiler.command;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.Test;
+import racingcar.Domain.Car;
+import racingcar.repository.CarRepository;
+import racingcar.service.RacingGameService;
+
+import java.util.Scanner;
 
 public class StringTest {
 
@@ -46,6 +55,47 @@ public class StringTest {
         assertThatThrownBy(() -> input.charAt(5))
                 .isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
+    }
+
+    @Test
+    public void testMultipleWinners() {
+        // Given
+        Car car1 = new Car("Car1", "------");
+        Car car2 = new Car("Car2", "-------");
+        Car car3 = new Car("Car3", "-------"); // 동일한 Displacement를 가진 차
+
+        CarRepository.getInstance().save(car1);
+        CarRepository.getInstance().save(car2);
+        CarRepository.getInstance().save(car3);
+
+        RacingGameService winnerDecider = new RacingGameService();
+
+        // When
+        String winners = winnerDecider.decideWinner();
+
+        // Then
+        // 여러 우승자가 있는지 확인
+        assertEquals("Car2, Car3", winners); // 예상 우승자 목록을 확인합니다.
+    }
+
+    @Test
+    public void testUniWinners() {
+        // Given
+        RacingGameService winnerDecider = new RacingGameService();
+        Car car1 = new Car("Car1", "------");
+        Car car2 = new Car("Car2", "------");
+        Car car3 = new Car("Car3", "-------"); // 동일한 Displacement를 가진 차
+
+        CarRepository.getInstance().save(car1);
+        CarRepository.getInstance().save(car2);
+        CarRepository.getInstance().save(car3);
+
+        // When
+        String winners = winnerDecider.decideWinner();
+
+        // Then
+        // 여러 우승자가 있는지 확인
+        assertEquals("Car3", winners); // 예상 우승자 목록을 확인합니다.
     }
 
 }
