@@ -22,11 +22,37 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
+    @Test
+    void 동률_결과값() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("a,b", "1");
+                    assertThat(output()).contains("a : -", "b : -", "최종 우승자 : a,b");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
 
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_값이_없는_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 라운드_0회() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("a,b,c", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
