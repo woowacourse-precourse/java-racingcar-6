@@ -19,7 +19,7 @@ class RacingTest {
         racing.start();
 
         //then
-        Assertions.assertThat(racing.getDistanceRecord().size())
+        Assertions.assertThat(racing.getDistanceRecords().size())
                 .isEqualTo(TURN * NUMBER_OF_SAMPLE_CARS);
     }
 

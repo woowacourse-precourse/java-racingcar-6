@@ -30,27 +30,27 @@ public class RacingInfo {
         }
     }
 
-    private boolean validateCarName(List<String> carList) {
-        Set<String> set = new HashSet<>();
-        for (String carStr : carList) {
+    private boolean validateCarName(List<String> duplicateCarNames) {
+        Set<String> carNames = new HashSet<>();
+        for (String car : duplicateCarNames) {
             // 자동차 이름 5자 이하 체크
-            if (carStr.length() > 5) {
+            if (car.length() > 5) {
                 return false;
             }
 
             // 자동차 이름 중복 체크
-            if (set.contains(carStr)) {
+            if (carNames.contains(car)) {
                 return false;
             }
-            set.add(carStr);
+            carNames.add(car);
         }
         return true;
     }
 
     public static RacingInfo enter() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carString = Console.readLine();
-        List<String> carNames = parseCarString(carString);
+        String rawCars = Console.readLine();
+        List<String> carNames = parseCarString(rawCars);
 
         System.out.println("시도할 회수는 몇회인가요?");
         int turn = Integer.parseInt(Console.readLine());
@@ -58,8 +58,8 @@ public class RacingInfo {
         return new RacingInfo(carNames, turn);
     }
 
-    private static List<String> parseCarString(String carString) {
-        return Arrays.stream(carString.split(","))
+    private static List<String> parseCarString(String rawCars) {
+        return Arrays.stream(rawCars.split(","))
                 .map(String::trim).collect(Collectors.toList());
     }
 

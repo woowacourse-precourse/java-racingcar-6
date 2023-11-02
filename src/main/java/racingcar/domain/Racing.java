@@ -7,13 +7,13 @@ import java.util.List;
 public class Racing {
     private List<Car> cars;
     private int turn;
-    private List<Integer> distanceRecord;
+    private List<Integer> distanceRecords;
     private List<Car> winners;
 
     public Racing(List<Car> cars, int turn) {
         this.cars = cars;
         this.turn = turn;
-        this.distanceRecord = new ArrayList<>();
+        this.distanceRecords = new ArrayList<>();
         this.winners = new ArrayList<>();
     }
 
@@ -28,7 +28,7 @@ public class Racing {
     public static void printEachTurn(Racing racing) {
         System.out.println("\n실행결과: ");
         int carIndex = 0;
-        for (Integer movedDist : racing.distanceRecord) {
+        for (Integer movedDist : racing.distanceRecords) {
             if (carIndex == racing.cars.size()) {
                 System.out.println();
                 carIndex = 0;
@@ -56,7 +56,7 @@ public class Racing {
         for (int i = 0; i < turn; i++) {
             for (Car car : cars) {
                 car.move();
-                distanceRecord.add(car.getMovedDist());
+                distanceRecords.add(car.getMovedDist());
             }
         }
     }
@@ -71,8 +71,8 @@ public class Racing {
         }
     }
 
-    public List<Integer> getDistanceRecord() {
-        return distanceRecord;
+    public List<Integer> getDistanceRecords() {
+        return distanceRecords;
     }
 
     public List<Car> getWinners() {
