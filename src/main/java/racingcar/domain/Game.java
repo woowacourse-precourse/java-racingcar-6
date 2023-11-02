@@ -29,4 +29,8 @@ public class Game {
         return attempts == totalAttempts;
     }
 
+    public int getAttempts() {
+        return attempts;
+    }
+
 }
