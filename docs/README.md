@@ -1,6 +1,6 @@
 # 미션 - 자동차 경주
 
-\- github: [[https://github.com/HSBODo/java-baseball-6](https://github.com/HSBODo/java-baseball-6)](https://github.com/HSBODo/java-racingcar-6)
+\- github: https://github.com/HSBODo/java-baseball-6](https://github.com/HSBODo/java-baseball-6)](https://github.com/HSBODo/java-racingcar-6
 
 ## 🔍 진행 방식
 
