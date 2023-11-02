@@ -241,9 +241,13 @@
 <hr>
 
 ## constant
-### MessageConstant
+### ValidatorConstant
 
-- 사용자에게 보여지는 메시지 상수를 저장
+- 예외 처리에 대한 메시지 상수를 저장
+
+### ViewConstant
+
+- view에 필요한 상수 저장
 
 ### SystemConstant
 
