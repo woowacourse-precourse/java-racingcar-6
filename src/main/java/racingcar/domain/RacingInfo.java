@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static racingcar.type.ErrorCode.*;
+
 public class RacingInfo {
     private List<String> carNames;
     private int turn;
@@ -28,11 +30,11 @@ public class RacingInfo {
 
     private void validateInputs(int turn, List<String> carNames) {
         if (turn <= 0) {
-            throw new IllegalArgumentException("0보다 큰 회수를 입력해주세요.");
+            throw new IllegalArgumentException(TURN_IS_MORE_THAN_ZERO.getMessage());
         }
 
         if (!validateCarName(carNames)) {
-            throw new IllegalArgumentException("중복되지 않는 5자 이하의 자동차 이름을 입력해주세요.");
+            throw new IllegalArgumentException(CAR_NAME_IS_NOT_DUPLICATE_AND_LESS_THAN_5.getMessage());
         }
     }
 
