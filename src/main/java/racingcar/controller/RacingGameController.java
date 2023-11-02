@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import racingcar.model.CarSpeedGenerator;
 import racingcar.model.Cars;
-import racingcar.model.RacingResult;
 import racingcar.model.RandomSpeedGenerator;
 import racingcar.model.Winners;
 import racingcar.view.InputView;
@@ -12,24 +11,24 @@ public class RacingGameController {
 
     public void run() {
         final Cars cars = createRacingCars();
-        final RacingResult racingResult = race(cars);
-        final Winners winners = Winners.from(racingResult.getHighScorePlayers());
-        OutputView.printWinners(winners);
+        race(cars);
+        printWinners(cars);
     }
 
     private Cars createRacingCars() {
         return Cars.withNames(InputView.readCarNames());
     }
 
-    private RacingResult race(final Cars cars) {
+    private void race(final Cars cars) {
         final CarSpeedGenerator speedGenerator = createSpeedGenerator();
         final int numberOfAttempts = readNumberOfAttempts();
 
         OutputView.printRacingResultTitle();
-        for (int attempt = 0; attempt < numberOfAttempts - 1; attempt++) {
-            raceWith(cars, speedGenerator);
+
+        for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
+            cars.moveForward(speedGenerator);
+            OutputView.printRacingResult(cars);
         }
-        return raceWith(cars, speedGenerator);
     }
 
     private CarSpeedGenerator createSpeedGenerator() {
@@ -45,9 +44,8 @@ public class RacingGameController {
         return numberOfAttempts;
     }
 
-    private RacingResult raceWith(final Cars cars, final CarSpeedGenerator speedGenerator) {
-        final RacingResult racingResult = cars.race(speedGenerator);
-        OutputView.printRacingResult(racingResult);
-        return racingResult;
+    private static void printWinners(final Cars cars) {
+        final Winners winners = Winners.from(cars.getMostForwarded());
+        OutputView.printWinners(winners);
     }
 }

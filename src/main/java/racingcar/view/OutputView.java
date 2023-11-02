@@ -1,7 +1,7 @@
 package racingcar.view;
 
+import racingcar.model.Cars;
 import racingcar.model.RaceScore;
-import racingcar.model.RacingResult;
 import racingcar.model.Winners;
 
 public class OutputView {
@@ -23,8 +23,8 @@ public class OutputView {
         System.out.println(RACING_RESULT_TITLE);
     }
 
-    public static void printRacingResult(final RacingResult racingResult) {
-        for (RaceScore score : racingResult.getScores()) {
+    public static void printRacingResult(final Cars cars) {
+        for (RaceScore score : cars.getScores()) {
             printRacingResultLine(score);
         }
         System.out.println();

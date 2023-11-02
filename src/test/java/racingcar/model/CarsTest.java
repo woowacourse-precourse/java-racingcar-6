@@ -54,8 +54,8 @@ public class CarsTest {
         CarSpeedGenerator zeroSpeedGenerator = () -> 0;
 
         // when
-        RacingResult result = cars.race(zeroSpeedGenerator);
-        List<RaceScore> scores = result.getScores();
+        cars.moveForward(zeroSpeedGenerator);
+        List<RaceScore> scores = cars.getScores();
 
         // then
         assertThat(scores.size()).isEqualTo(3);
@@ -76,8 +76,8 @@ public class CarsTest {
         CarSpeedGenerator validSpeedGenerator = () -> 4;
 
         // when
-        RacingResult result = cars.race(validSpeedGenerator);
-        List<RaceScore> scores = result.getScores();
+        cars.moveForward(validSpeedGenerator);
+        List<RaceScore> scores = cars.getScores();
 
         // then
         assertThat(scores.size()).isEqualTo(3);
@@ -98,8 +98,8 @@ public class CarsTest {
         CarSpeedGenerator validSpeedGenerator = () -> 4;
 
         // when
-        RacingResult result = cars.race(validSpeedGenerator);
-        Winners winners = Winners.from(result.getHighScorePlayers());
+        cars.moveForward(validSpeedGenerator);
+        Winners winners = Winners.from(cars.getMostForwarded());
         List<String> winnerNames = winners.getNames();
 
         // then
