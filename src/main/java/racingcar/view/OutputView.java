@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.model.Racer;
+
 import java.util.List;
 import java.util.Map;
 
@@ -9,17 +11,18 @@ public class OutputView {
         System.out.println(ENTER_RACE_RESULT);
     }
 
-    public void printResult(Map<String, Integer> position){
-        for (String name : position.keySet()){
-            System.out.println(name + " : " + "-".repeat(position.get(name)));
-        }
+    public void printResult(Racer racer){
+//        for (String name : position.keySet()){
+//            System.out.println(name + " : " + "-".repeat(position.get(name)));
+//        }
+        System.out.println(racer.toString());
     }
 
-    public void printWinner(List<String> winner){
-        System.out.println("최종 우승자 : " + formatted(winner));
+    public void printWinner(String winner){
+        System.out.println("최종 우승자 : " + winner);
     }
 
-    private String formatted(List<String> winner){
-        return String.join(", ", winner);
-    }
+//    private String formatted(List<String> winner){
+//        return String.join(", ", winner);
+//    }
 }

@@ -11,7 +11,7 @@ public class RacerTest {
     @DisplayName("참가자가 없는 경우 예외 발생")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = {""})
+    @ValueSource(strings = {"asdf"})
     void checkRacer(String value){
         assertThatThrownBy(() -> new Racer(value))
                 .isInstanceOf(IllegalArgumentException.class);
