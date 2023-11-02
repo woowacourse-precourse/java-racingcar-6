@@ -36,7 +36,7 @@ public class RacingGameController {
         return new RandomSpeedGenerator();
     }
 
-    private static int readNumberOfAttempts() {
+    private int readNumberOfAttempts() {
         final int numberOfAttempts = InputView.readNumberOfAttempts();
 
         if (numberOfAttempts <= 0) {
