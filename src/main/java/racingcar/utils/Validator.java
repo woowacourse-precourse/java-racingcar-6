@@ -6,13 +6,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-public class Validator {
-    private static final int MAXIMUM_NAME_LENGTH = 5;
+import static racingcar.constants.CarNameConstants.*;
 
+public class Validator {
     public static List<String> validateCarNames(String input) {
         validateBlank(input);
         validateStartsOrEndsWith(input);
-        List<String> names = Arrays.asList(input.split(","));
+        List<String> names = Arrays.asList(input.split(CAR_NAME_DELIMITER));
         validateSize(names);
         validateLength(names);
         validateDuplicate(names);
@@ -38,7 +38,7 @@ public class Validator {
     }
 
     private static void validateStartsOrEndsWith(String input) {
-        if (input.startsWith(",") || input.endsWith(",")) {
+        if (input.startsWith(CAR_NAME_DELIMITER) || input.endsWith(CAR_NAME_DELIMITER)) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DELIMITER_ERROR.getMessage());
         }
     }
@@ -48,7 +48,7 @@ public class Validator {
             if (name.isBlank()) {
                 throw new IllegalArgumentException(ErrorMessage.CAR_NAME_MINIMUM_LENGTH_ERROR.getMessage());
             }
-            if (name.length() > MAXIMUM_NAME_LENGTH) {
+            if (name.length() > MAXIMUM_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_EXCEEDED_ERROR.getMessage());
             }
         }
