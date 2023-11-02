@@ -13,7 +13,7 @@ public class InputValidator {
     }
 
     public static void checkIsNumber(String inputStr) {
-        System.out.println(inputStr);
+        System.out.println();
         if (inputStr == null || inputStr.isEmpty()) {
             throw new IllegalArgumentException("원하는 시도 횟수를 입력해주세요!");
         }
