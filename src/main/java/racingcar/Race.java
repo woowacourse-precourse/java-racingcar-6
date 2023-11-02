@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 public class Race {
     private String userInput;
-    private static List<String> players;
+    static List<String> players;
     private HashMap<String, Integer> playingStatus = new HashMap<>();
     private Integer roundInt;
     private static List<String> winners = new ArrayList<>();
