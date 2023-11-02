@@ -1,7 +1,9 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.OptionalInt;
 
 public class Cars {
     private final List<Car> cars;
@@ -10,46 +12,35 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars create(List<Car> cars) {
+    public static Cars create(List<String> carNames) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(Car.create(carName));
+        }
         return new Cars(cars);
     }
 
     public void play() {
-        for (Car car : cars) {
-            car.play();
-        }
+        cars.forEach(Car::play);
     }
 
-    public List<List<Integer>> provideAllCumulativeScoreList() {
-        List<List<Integer>> roundScores = new ArrayList<>();
-        for (Car car : cars) {
-            roundScores.add(car.getCumulativeScoreList());
-        }
-        return roundScores;
+    public List<Integer> provideRoundResult() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .toList();
     }
 
-    public List<String> provideCarNames() {
-        List<String> carNames = new ArrayList<>();
-        for (Car car : cars) {
-            carNames.add(car.getName());
-        }
-        return carNames;
+    public List<Car> determineWinners() {
+        int maxPosition = calculateMaxPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
     }
 
-    public List<String> determineWinners() {
-        List<String> winnerNames = new ArrayList<>();
-        int topScore = 0;
-        for (Car car : cars) {
-            if (topScore < car.getCurrentScore()) {
-                topScore = car.getCurrentScore();
-                winnerNames.clear();
-                winnerNames.add(car.getName());
-                continue;
-            }
-            if (topScore == car.getCurrentScore()) {
-                winnerNames.add(car.getName());
-            }
-        }
-        return winnerNames;
+    private int calculateMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
     }
 }

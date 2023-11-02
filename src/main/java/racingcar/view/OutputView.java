@@ -1,60 +1,50 @@
 package racingcar.view;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
+    private static final String ROUND_RESULT_NAME_FORMAT = " : %s\n";
+    private static final String DASH = "-";
     private static final String WINNER_MESSAGE_FORMAT = "최종 우승자 : %s";
+    private static final String WINNERS_DELIMITER = ", ";
 
     private static final OutputView instance = new OutputView();
+
+    private OutputView() {
+    }
 
     public static OutputView getInstance() {
         return instance;
     }
 
-    private OutputView() {
-    }
-
-    public void printResult(int totalRound, List<String> carNames, List<List<Integer>> roundScores, List<String> winnerNames) {
+    public void printStartResultMessage() {
         System.out.println();
         System.out.println(RESULT_MESSAGE);
-        printTotalRoundResult(totalRound, carNames, roundScores);
-        printWinnerMessage(winnerNames);
     }
 
-    private void printTotalRoundResult(int totalRound, List<String> carNames, List<List<Integer>> roundScores) {
-        String resultMessageFormat = createRoundResultMessageFormat(carNames);
-
-        for (int i = 0; i < totalRound; i++) {
-            printRoundResult(roundScores, i, resultMessageFormat);
-        }
+    public void printRoundResult(List<String> carNames, List<Integer> positions) {
+        String roundResultMessageFormat = createRoundResultMessageFormat(carNames);
+        List<String> positionMarks = positions.stream()
+                .map(DASH::repeat)
+                .toList();
+        System.out.println(String.format(roundResultMessageFormat, positionMarks.toArray()));
     }
 
-    private String createRoundResultMessageFormat(List<String> carNames) {
-        StringBuilder sb = new StringBuilder();
-        for (String name : carNames) {
-            sb.append(name + " : %s\n");
-        }
-        return sb.toString();
-    }
-
-    private void printRoundResult(List<List<Integer>> roundScores, int i, String resultMessageFormat) {
-        List<String> roundData = new ArrayList<>();
-        for (int j = 0; j < roundScores.size(); j++) {
-            String bars = "-".repeat(roundScores.get(j).get(i));
-            roundData.add(bars);
-        }
-        System.out.println(String.format(resultMessageFormat, roundData.toArray()));
-    }
-
-    private void printWinnerMessage(List<String> winnerNames) {
+    public void printWinners(List<String> winnerNames) {
         if (winnerNames.size() == 1) {
             String winnerMessage = String.format(WINNER_MESSAGE_FORMAT, winnerNames.toArray());
             System.out.println(winnerMessage);
             return;
         }
-        String winnerNamesString = String.join(", ", winnerNames);
+        String winnerNamesString = String.join(WINNERS_DELIMITER, winnerNames);
         System.out.println(String.format(WINNER_MESSAGE_FORMAT, winnerNamesString));
+    }
+
+    private String createRoundResultMessageFormat(List<String> carNames) {
+        return carNames.stream()
+                .map(name -> name + ROUND_RESULT_NAME_FORMAT)
+                .collect(Collectors.joining());
     }
 }

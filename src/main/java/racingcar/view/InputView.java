@@ -7,11 +7,11 @@ public class InputView {
     private static final String ASK_TOTAL_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final InputView instance = new InputView();
 
-    public static InputView getInstance() {
-        return instance;
+    private InputView() {
     }
 
-    private InputView() {
+    public static InputView getInstance() {
+        return instance;
     }
 
     public String readCarNames() {

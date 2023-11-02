@@ -1,67 +1,83 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.utils.CarNameParser;
 import racingcar.utils.CarNameValidator;
 import racingcar.utils.TotalRoundValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
+    private Cars cars;
+    private List<String> carNames;
+    private int totalRound;
 
     public GameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }
 
-    private int totalRound;
-    private Cars cars;
-
     public void run() {
-        prepareGame();
-        play(cars, totalRound);
-        processResult(cars, totalRound);
+        init();
+        process();
+        Console.close();
     }
 
-    private void prepareGame() {
-        createCarsFromCarNamesUserInput();
-        setTotalRoundFromUserInput();
+    private void init() {
+        initializeCars();
+        initializeTotalRound();
     }
 
-    private void createCarsFromCarNamesUserInput() {
-        List<String> carNames = getCarNames();
-        List<Car> carsFromUserInput = new ArrayList<>();
-        for (String name : carNames) {
-            carsFromUserInput.add(Car.create(name));
-        }
-        cars = Cars.create(carsFromUserInput);
+    private void initializeCars() {
+        initializeCarNames();
+        cars = Cars.create(carNames);
     }
 
-    private List<String> getCarNames() {
+    private void initializeCarNames() {
+        String carNamesInput = readCarNamesFromUser();
+        carNames = CarNameParser.parse(carNamesInput);
+    }
+
+    private String readCarNamesFromUser() {
         String input = inputView.readCarNames();
-        return CarNameValidator.validateCarNames(input);
+        CarNameValidator.validateCarNamesInput(input);
+        return input;
     }
 
-    private void setTotalRoundFromUserInput() {
+    private void initializeTotalRound() {
         String input = inputView.readTotalRound();
         totalRound = TotalRoundValidator.validateTotalRound(input);
     }
 
-    private void play(Cars cars, int totalRound) {
-        for (int i = 0; i < totalRound; i++) {
-            cars.play();
+    private void process() {
+        outputView.printStartResultMessage();
+        processRounds();
+        printWinners();
+    }
+
+    public void processRounds() {
+        for (int round = 0; round < totalRound; round++) {
+            processRound();
         }
     }
 
-    private void processResult(Cars cars, int totalRound) {
-        List<String> carNames = cars.provideCarNames();
-        List<List<Integer>> roundScores = cars.provideAllCumulativeScoreList();
-        List<String> winnerNames = cars.determineWinners();
-        outputView.printResult(totalRound, carNames, roundScores, winnerNames);
+    public void processRound() {
+        cars.play();
+        List<Integer> positions = cars.provideRoundResult();
+        outputView.printRoundResult(carNames, positions);
+    }
+
+    private void printWinners() {
+        List<Car> winners = cars.determineWinners();
+        List<String> winnerNames = winners.stream()
+                .map(Car::getName)
+                .toList();
+        outputView.printWinners(winnerNames);
     }
 }
