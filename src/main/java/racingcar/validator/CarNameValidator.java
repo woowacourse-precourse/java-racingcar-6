@@ -1,6 +1,8 @@
 package racingcar.validator;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static racingcar.global.GameSymbols.*;
 import static racingcar.global.GameConfig.*;
@@ -9,7 +11,7 @@ import static racingcar.validator.ErrorMessage.*;
 public class CarNameValidator {
 
     public List<String> validateAndGetCarNames(String userInput) {
-        userInput = removeWhiteSpace(userInput);
+        userInput = CarNameValidationUtil.cleanInput(userInput);
         validateNotEmpty(userInput);
         validateSeparator(userInput);
         List<String> carNames = splitCarNames(userInput);
@@ -54,11 +56,9 @@ public class CarNameValidator {
     }
 
     private List<String> splitCarNames(String userInput) {
-        return List.of(userInput.split(CAR_NAME_SEPARATOR.getValue()));
+        return Arrays.stream(userInput.split(CAR_NAME_SEPARATOR.getValue()))
+                .filter(name -> !name.isEmpty())
+                .collect(Collectors.toList());
     }
 
-    private String removeWhiteSpace(String userInput) {
-        userInput = userInput.replace(" ", "");
-        return userInput;
-    }
 }
