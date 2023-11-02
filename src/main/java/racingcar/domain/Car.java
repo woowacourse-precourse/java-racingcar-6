@@ -7,10 +7,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class Car {
-    private final String name;
-
+    private static final int MINIMUM_RANDOM_NUMBER = 0;
+    private static final int MAXIMUM_RANDOM_NUMBER = 9;
+    private static final int MOVE_THRESHOLD = 4;
     private int currentScore = 0;
-
+    private final String name;
     private final List<Integer> cumulativeScoreList = new ArrayList<>();
 
     private Car(String name) {
@@ -30,8 +31,8 @@ public class Car {
     }
 
     private boolean move() {
-        int number = Randoms.pickNumberInRange(0, 9);
-        return (number >= 4);
+        int number = Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
+        return (number >= MOVE_THRESHOLD);
     }
 
     public String getName() {
