@@ -1,6 +1,6 @@
 # :tada: 우아한 테크 프리 코스
 
-## :baseball: 미션 1주차 - 숫자야구
+## :baseball: 미션 2주차 - 자동차경주
 
 [미션 설명, github설정, 제출 방법](https://github.com/woowacourse-precourse/java-racingcar-6)
 
