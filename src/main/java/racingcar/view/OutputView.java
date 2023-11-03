@@ -1,7 +1,8 @@
 package racingcar.view;
 
-import racingcar.model.Cars;
+import java.util.List;
 import racingcar.model.RaceScore;
+import racingcar.model.RoundResult;
 import racingcar.model.Winners;
 
 public class OutputView {
@@ -18,19 +19,26 @@ public class OutputView {
         throw new AssertionError();
     }
 
-    public static void printRacingResultTitle() {
+    public static void printRoundResults(final List<RoundResult> roundResults) {
+        printRacingResultTitle();
+        for (final RoundResult roundResult : roundResults) {
+            printRaceScores(roundResult.getResults());
+        }
+    }
+
+    private static void printRacingResultTitle() {
         System.out.println();
         System.out.println(RACING_RESULT_TITLE);
     }
 
-    public static void printRacingResult(final Cars cars) {
-        for (RaceScore score : cars.getScores()) {
-            printRacingResultLine(score);
+    private static void printRaceScores(final List<RaceScore> scores) {
+        for (final RaceScore score : scores) {
+            printRacingScore(score);
         }
         System.out.println();
     }
 
-    private static void printRacingResultLine(final RaceScore score) {
+    private static void printRacingScore(final RaceScore score) {
         System.out.printf(RACING_RESULT_LINE_FORMAT,
                 score.name(),
                 formatRacingScore(score)

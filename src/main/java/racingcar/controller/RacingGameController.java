@@ -1,8 +1,11 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.model.CarSpeedGenerator;
 import racingcar.model.Cars;
+import racingcar.model.RacingGame;
 import racingcar.model.RandomSpeedGenerator;
+import racingcar.model.RoundResult;
 import racingcar.model.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -10,29 +13,24 @@ import racingcar.view.OutputView;
 public class RacingGameController {
 
     public void run() {
-        final Cars cars = createRacingCars();
-        race(cars);
-        printWinners(cars);
-    }
-
-    private Cars createRacingCars() {
-        return Cars.withNames(InputView.readCarNames());
-    }
-
-    private void race(final Cars cars) {
         final CarSpeedGenerator speedGenerator = createSpeedGenerator();
-        final int numberOfAttempts = readNumberOfAttempts();
+        final RacingGame game = new RacingGame(speedGenerator);
 
-        OutputView.printRacingResultTitle();
+        game.play(createRacingCars(), readNumberOfAttempts());
 
-        for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
-            cars.moveForward(speedGenerator);
-            OutputView.printRacingResult(cars);
-        }
+        final List<RoundResult> roundResults = game.getRoundResults();
+        OutputView.printRoundResults(roundResults);
+
+        final Winners winners = Winners.from(game.getHighScores());
+        OutputView.printWinners(winners);
     }
 
     private CarSpeedGenerator createSpeedGenerator() {
         return new RandomSpeedGenerator();
+    }
+
+    private Cars createRacingCars() {
+        return Cars.withNames(InputView.readCarNames());
     }
 
     private int readNumberOfAttempts() {
@@ -42,10 +40,5 @@ public class RacingGameController {
             throw new IllegalArgumentException();
         }
         return numberOfAttempts;
-    }
-
-    private static void printWinners(final Cars cars) {
-        final Winners winners = Winners.from(cars.getMostForwarded());
-        OutputView.printWinners(winners);
     }
 }

@@ -30,8 +30,4 @@ public class Car {
     public int getPosition() {
         return position.getPosition();
     }
-
-    public boolean matchPosition(final Car other) {
-        return position.equals(other.position);
-    }
 }
