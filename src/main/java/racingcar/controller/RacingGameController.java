@@ -4,20 +4,22 @@ import java.util.List;
 import racingcar.domain.car.Cars;
 import racingcar.domain.round.GameRound;
 import racingcar.utils.RandomNumber;
-import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
 
-    private Cars cars;
-    private GameRound gameRound;
-    private final RandomNumber randomNumber = new RandomNumberGenerator();
+    private final Cars cars;
+    private final GameRound gameRound;
+    private final RandomNumber randomNumber;
+
+    public RacingGameController(RandomNumber randomNumber) {
+        this.randomNumber = randomNumber;
+        this.cars = initCarNames();
+        this.gameRound = initGameRound();
+    }
 
     public void run() {
-        initCarNames();
-        initGameRound();
-
         printGameResultMessage();
         printGameContinuable();
         printGameWinner();
@@ -44,11 +46,11 @@ public class RacingGameController {
         OutputView.printGameWinnerMessage(winnerNames);
     }
 
-    private void initCarNames() {
-        cars = new Cars(InputView.readCarName(), randomNumber);
+    private Cars initCarNames() {
+        return new Cars(InputView.readCarName(), randomNumber);
     }
 
-    private void initGameRound() {
-        gameRound = new GameRound(InputView.readGameRound());
+    private GameRound initGameRound() {
+        return new GameRound(InputView.readGameRound());
     }
 }
