@@ -30,18 +30,22 @@ public class RacingGame {
 
     public List<MoveResult> getHighScores() {
         final RoundResult finalResult = getFinalResult();
-        final int maxPosition = getMaxPosition(finalResult);
-
-        return finalResult.getResults().stream()
-                .filter(moveResult -> moveResult.position() == maxPosition)
-                .toList();
+        return getMostForwarded(finalResult);
     }
 
     private RoundResult getFinalResult() {
         return Collections.max(roundResults, comparing(RoundResult::getRound));
     }
 
-    private static int getMaxPosition(final RoundResult finalResult) {
+    private List<MoveResult> getMostForwarded(final RoundResult roundResult) {
+        final int maxPosition = getMaxPosition(roundResult);
+
+        return roundResult.getResults().stream()
+                .filter(moveResult -> moveResult.position() == maxPosition)
+                .toList();
+    }
+
+    private int getMaxPosition(final RoundResult finalResult) {
         return Collections
                 .max(finalResult.getResults(), comparing(MoveResult::position))
                 .position();
