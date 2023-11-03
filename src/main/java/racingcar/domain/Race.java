@@ -3,9 +3,7 @@ package racingcar.domain;
 import racingcar.domain.car.Car;
 import racingcar.validator.CarNameValidator;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Race {
@@ -18,7 +16,7 @@ public class Race {
 
     public Race(List<Car> cars) {
         CarNameValidator.validateDuplicateForList(cars);
-        this.cars = Collections.unmodifiableList(cars);
+        this.cars = new ArrayList<>(cars);
     }
 
     public void moveEachCar(int randomNumber) {
@@ -32,6 +30,7 @@ public class Race {
     }
 
     private Car getMaxDistanceCar() {
+        Optional<Car> max = cars.stream().max(Comparator.comparingInt(Car::getDistance));
         return cars.stream()
                 .max(Comparator.comparingInt(Car::getDistance))
                 .orElseThrow(IllegalArgumentException::new);
@@ -50,6 +49,6 @@ public class Race {
     }
 
     public List<Car> getCars() {
-        return cars;
+        return new ArrayList<>(cars);
     }
 }

@@ -43,5 +43,4 @@ public class Car {
     public String getMovementString() {
         return String.format("%s : %s", name.getName(), "-".repeat(distance));
     }
-
 }
