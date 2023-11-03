@@ -17,8 +17,8 @@ public class RacingGame {
         this.generator = generator;
     }
 
-    public void play(final Cars cars, final int tryCount) {
-        for (int round = 1; round <= tryCount; round++) {
+    public void play(final Cars cars, final TryCount tryCount) {
+        for (int round = 1; round <= tryCount.getValue(); round++) {
             cars.moveForward(generator);
             roundResults.add(new RoundResult(round, cars.getScores()));
         }

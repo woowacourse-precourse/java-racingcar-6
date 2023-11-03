@@ -21,7 +21,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame(() -> 0);
 
         // when
-        racingGame.play(Cars.withNames(names), 1);
+        racingGame.play(Cars.withNames(names), TryCount.valueOf(1));
 
         // then
         String[] carNames = names.split(",");
@@ -43,7 +43,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame(() -> 4);
 
         // when
-        racingGame.play(Cars.withNames(names), 1);
+        racingGame.play(Cars.withNames(names), TryCount.valueOf(1));
 
         // then
         String[] carNames = names.split(",");
@@ -65,7 +65,7 @@ public class RacingGameTest {
         RacingGame racingGame = new RacingGame(() -> 4);
 
         // when
-        racingGame.play(Cars.withNames(names), 1);
+        racingGame.play(Cars.withNames(names), TryCount.valueOf(1));
         Winners winners = Winners.from(racingGame.getHighScores());
         List<String> winnerNames = winners.getNames();
 
