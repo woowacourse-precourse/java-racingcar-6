@@ -24,6 +24,6 @@ public class OutputView {
     }
 
     public static void printGameWinnerMessage(final List<String> gameWinner) {
-        System.out.println(PRINT_GAME_WINNER_MESSAGE + String.join(GAME_WINNER_DELIMITER, gameWinner));
+        System.out.print(PRINT_GAME_WINNER_MESSAGE + String.join(GAME_WINNER_DELIMITER, gameWinner));
     }
 }
