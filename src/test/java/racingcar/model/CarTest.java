@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class CarTest {
+class CarTest {
     @DisplayName("자동차 이름의 길이가 잘못된 경우 예외 발생")
     @ParameterizedTest(name = "{displayName} value = {0}")
     @ValueSource(strings = {"soul", "bb", "안 녕"})

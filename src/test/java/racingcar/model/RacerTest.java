@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class RacerTest {
+class RacerTest {
     @DisplayName("참가자가 없는 경우 예외 발생")
     @ParameterizedTest
     @NullSource

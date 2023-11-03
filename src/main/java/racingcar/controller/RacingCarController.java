@@ -1,15 +1,9 @@
 package racingcar.controller;
 
 import racingcar.model.Racer;
-import racingcar.service.ShiftGear;
-import racingcar.service.JudgeWinner;
+import racingcar.model.Round;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 public class RacingCarController {
     private final InputView inputView;
@@ -25,7 +19,8 @@ public class RacingCarController {
 //        String resultCars = cars.replaceAll(" ", "");
 //        List<String> names = List.of(resultCars.split(","));
         Racer racer = new Racer(inputView.readRaceCarNames());
-        int round = Integer.parseInt(inputView.readRaceRound());
+//        int round = Integer.parseInt(inputView.readRaceRound());
+        Round round = new Round(inputView.readRaceRound());
 
         // 각각의 racer 초기화
 //        Map<String, Integer> position = new LinkedHashMap<>();
@@ -35,13 +30,17 @@ public class RacingCarController {
 
         outputView.printExecution();
         // 라운드 별 각각의 레이서 결과 출력
-        for (int i=0 ; i < round ; i++){
+        while(round.isContinue()){
             racer.play();
             outputView.printResult(racer);
+        }
+//        for (int i=0 ; i < round ; i++){
+//            racer.play();
+//            outputView.printResult(racer);
 //            play(position);
 //            outputView.printResult(position);
 //            System.out.println();
-        }
+//        }
 
         outputView.printWinner(racer.getWinner());
     }
