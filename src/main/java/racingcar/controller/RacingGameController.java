@@ -13,8 +13,7 @@ import racingcar.view.OutputView;
 public class RacingGameController {
 
     public void run() {
-        final CarSpeedGenerator speedGenerator = createSpeedGenerator();
-        final RacingGame game = new RacingGame(speedGenerator);
+        final RacingGame game = createRacingGame();
 
         game.play(createRacingCars(), readNumberOfAttempts());
 
@@ -23,6 +22,10 @@ public class RacingGameController {
 
         final Winners winners = Winners.from(game.getHighScores());
         OutputView.printWinners(winners);
+    }
+
+    private RacingGame createRacingGame() {
+        return new RacingGame(createSpeedGenerator());
     }
 
     private CarSpeedGenerator createSpeedGenerator() {
