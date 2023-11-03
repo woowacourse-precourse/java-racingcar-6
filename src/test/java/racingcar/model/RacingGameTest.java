@@ -27,11 +27,11 @@ public class RacingGameTest {
         String[] carNames = names.split(",");
         List<RoundResult> roundResults = racingGame.getRoundResults();
         RoundResult findRound = Collections.max(roundResults, comparing(RoundResult::getRound));
-        List<RaceScore> finalRoundScores = findRound.getResults();
+        List<MoveResult> finalRoundScores = findRound.getResults();
 
         for (int i = 0; i < finalRoundScores.size(); i++) {
             assertThat(finalRoundScores.get(i).name()).isEqualTo(carNames[i]);
-            assertThat(finalRoundScores.get(i).score()).isEqualTo(0);
+            assertThat(finalRoundScores.get(i).position()).isEqualTo(0);
         }
     }
 
@@ -49,11 +49,11 @@ public class RacingGameTest {
         String[] carNames = names.split(",");
         List<RoundResult> roundResults = racingGame.getRoundResults();
         RoundResult findRound = Collections.max(roundResults, comparing(RoundResult::getRound));
-        List<RaceScore> finalRoundScores = findRound.getResults();
+        List<MoveResult> finalRoundScores = findRound.getResults();
 
         for (int i = 0; i < finalRoundScores.size(); i++) {
             assertThat(finalRoundScores.get(i).name()).isEqualTo(carNames[i]);
-            assertThat(finalRoundScores.get(i).score()).isEqualTo(1);
+            assertThat(finalRoundScores.get(i).position()).isEqualTo(1);
         }
     }
 

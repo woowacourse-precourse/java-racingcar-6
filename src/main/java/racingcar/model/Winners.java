@@ -4,19 +4,19 @@ import java.util.List;
 
 public class Winners {
 
-    private final List<RaceScore> highScores;
+    private final List<MoveResult> highScores;
 
-    private Winners(final List<RaceScore> highScores) {
+    private Winners(final List<MoveResult> highScores) {
         this.highScores = highScores;
     }
 
-    public static Winners from(final List<RaceScore> highScores) {
+    public static Winners from(final List<MoveResult> highScores) {
         return new Winners(highScores);
     }
 
     public List<String> getNames() {
         return highScores.stream()
-                .map(RaceScore::name)
+                .map(MoveResult::name)
                 .toList();
     }
 }

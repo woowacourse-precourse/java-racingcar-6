@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.model.RaceScore;
+import racingcar.model.MoveResult;
 import racingcar.model.RoundResult;
 import racingcar.model.Winners;
 
@@ -31,22 +31,22 @@ public class OutputView {
         System.out.println(RACING_RESULT_TITLE);
     }
 
-    private static void printRaceScores(final List<RaceScore> scores) {
-        for (final RaceScore score : scores) {
+    private static void printRaceScores(final List<MoveResult> scores) {
+        for (final MoveResult score : scores) {
             printRacingScore(score);
         }
         System.out.println();
     }
 
-    private static void printRacingScore(final RaceScore score) {
+    private static void printRacingScore(final MoveResult score) {
         System.out.printf(RACING_RESULT_LINE_FORMAT,
                 score.name(),
                 formatRacingScore(score)
         );
     }
 
-    private static String formatRacingScore(final RaceScore score) {
-        return RACING_SCORE_FORMAT.repeat(score.score());
+    private static String formatRacingScore(final MoveResult score) {
+        return RACING_SCORE_FORMAT.repeat(score.position());
     }
 
     public static void printWinners(final Winners winners) {

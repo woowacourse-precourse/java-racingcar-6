@@ -43,9 +43,9 @@ public class Cars {
         }
     }
 
-    public List<RaceScore> getScores() {
+    public List<MoveResult> getResults() {
         return cars.stream()
-                .map(RaceScore::from)
+                .map(MoveResult::from)
                 .toList();
     }
 }

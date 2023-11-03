@@ -7,14 +7,14 @@ public class RoundResult {
 
     private final int round;
 
-    private final List<RaceScore> scores;
+    private final List<MoveResult> scores;
 
-    public RoundResult(final int round, final List<RaceScore> scores) {
+    public RoundResult(final int round, final List<MoveResult> scores) {
         this.round = round;
         this.scores = scores;
     }
 
-    public List<RaceScore> getResults() {
+    public List<MoveResult> getResults() {
         return Collections.unmodifiableList(scores);
     }
 

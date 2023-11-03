@@ -20,7 +20,7 @@ public class RacingGame {
     public void play(final Cars cars, final TryCount tryCount) {
         for (int round = 1; round <= tryCount.getValue(); round++) {
             cars.moveForward(generator);
-            roundResults.add(new RoundResult(round, cars.getScores()));
+            roundResults.add(new RoundResult(round, cars.getResults()));
         }
     }
 
@@ -28,12 +28,12 @@ public class RacingGame {
         return Collections.unmodifiableList(roundResults);
     }
 
-    public List<RaceScore> getHighScores() {
+    public List<MoveResult> getHighScores() {
         final RoundResult finalResult = getFinalResult();
-        final int highScore = getHighScore(finalResult);
+        final int maxPosition = getMaxPosition(finalResult);
 
         return finalResult.getResults().stream()
-                .filter(raceScore -> raceScore.score() == highScore)
+                .filter(moveResult -> moveResult.position() == maxPosition)
                 .toList();
     }
 
@@ -41,9 +41,9 @@ public class RacingGame {
         return Collections.max(roundResults, comparing(RoundResult::getRound));
     }
 
-    private static int getHighScore(final RoundResult finalResult) {
+    private static int getMaxPosition(final RoundResult finalResult) {
         return Collections
-                .max(finalResult.getResults(), comparing(RaceScore::score))
-                .score();
+                .max(finalResult.getResults(), comparing(MoveResult::position))
+                .position();
     }
 }
