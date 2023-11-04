@@ -17,10 +17,12 @@ public class RacingCarService {
     }
 
     public List<String> getWinnerCarNames(Cars cars) {
+        var maxDistance = maxCarsDistance(cars);
+
         return cars.getCars()
                 .stream()
                 .filter(car ->
-                        car.getDistance() == maxCarsDistance(cars))
+                        car.getDistance() == maxDistance)
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
