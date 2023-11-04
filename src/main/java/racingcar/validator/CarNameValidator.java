@@ -40,4 +40,21 @@ public class CarNameValidator {
             throw new IllegalArgumentException(VALIDATE_DUPLICATE_FOR_LIST.getMessage());
         }
     }
+
+    public static void validateForEachName(String name) {
+        validateEmptyForEachName(name);
+        validateLengthForEachName(name);
+    }
+
+    private static void validateEmptyForEachName(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException(VALIDATE_EMPTY_FOR_EACH_NAME.getMessage());
+        }
+    }
+
+    private static void validateLengthForEachName(String name) {
+        if (name.length() > NAME_LENGTH_CONDITION.getNumber()) {
+            throw new IllegalArgumentException(String.format(VALIDATE_LENGTH_FOR_EACH_NAME.getMessage(), NAME_LENGTH_CONDITION.getNumber()));
+        }
+    }
 }
