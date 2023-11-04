@@ -34,3 +34,7 @@
     ✅ 기능14. 전체 경주 종료 후 우승자 목록을 출력한다. ➡ announceWinner()
 
     ✅ 기능15. 경기 흐름을 제어한다. ➡ play()
+
+## 📕 utils.StringUtils :
+
+    ✅ 기능16. 문자열에서 특정 문자열이 몇 번 등장하는지 세어준다. ➡ countOccurrences()
