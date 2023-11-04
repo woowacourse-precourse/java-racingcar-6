@@ -21,42 +21,31 @@ public class CarController {
 
     public void startRacingGame() {
         //경주할 자동차 이름을 입력
+        String carNames = setCarName();
+
+        //경주할 자동차 목록
+        List<Car> carList = carGameService.getCarList(carNames);
+
+        //시도할 회수 입력
+        Game.tryCount = setTryCount();
+
+        //자동차 게임 실행
+        List<Car> racingGameResult = getRacingGameResult(carList);
+
+        //최종 우승자 선정
+        String WinnerList = carGameService.getRacingGameWinner(racingGameResult);
+        outputView.print(WinnerList);
+        Console.close();
+    }
+
+    private String setCarName(){
         outputView.printGameMessage(GAME_START);
         String carNames = Console.readLine();
 
         if(!inputView.isBlank(carNames) || !validateCarNameList(carNames)){
             throw new IllegalArgumentException();
         }
-
-        //경주할 자동차 목록
-        List<Car> carList = carGameService.getCarList(carNames);
-
-        //시도할 회수 입력
-        outputView.printGameMessage(TRY_COUNT);
-        String tryCount = Console.readLine();
-
-        if(!inputView.isBlank(tryCount) || !validateTryCount(tryCount)){
-            throw new IllegalArgumentException();
-        }
-        Game.tryCount = Integer.parseInt(tryCount);
-
-        //실행 결과
-        outputView.printGameMessage(PROGRESS_RESULT);
-
-        //자동차 게임 실행
-        List<Car> racingGameResult = null;
-        while (Game.tryCount > 0){
-            racingGameResult = carGameService.runRacingGame(carList);
-            List<String> getRacingGameResultList = carGameService.getRacingGameResultList(racingGameResult);
-            for(String result : getRacingGameResultList){
-                outputView.print(result);
-            }
-            outputView.print("");
-        }
-
-        //최종 우승자 선정
-        String WinnerList = carGameService.getRacingGameWinner(racingGameResult);
-        outputView.print(WinnerList);
+        return carNames;
     }
 
     /**
@@ -69,6 +58,7 @@ public class CarController {
      */
     private boolean validateCarNameList(String carList){
         String[] carArray = carList.split(",");
+
         for(String carName : carArray){
             if(carName.isBlank()){
                 throw new IllegalArgumentException(ErrorCodeConstant.STRING_BLANK_ERROR);
@@ -79,6 +69,15 @@ public class CarController {
         return true;
     }
 
+    private int setTryCount(){
+        outputView.printGameMessage(TRY_COUNT);
+        String tryCount = Console.readLine();
+
+        if(!inputView.isBlank(tryCount) || !validateTryCount(tryCount)){
+            throw new IllegalArgumentException();
+        }
+        return Integer.parseInt(tryCount);
+    }
 
     /**
      * 시도 횟수 유효성 검사
@@ -105,5 +104,23 @@ public class CarController {
 
         return true;
     }
+
+    private List<Car> getRacingGameResult(List<Car> carList){
+        outputView.printGameMessage(PROGRESS_RESULT);
+
+        List<Car> racingGameResult = null;
+        while (Game.tryCount > 0){
+            racingGameResult = carGameService.runRacingGame(carList);
+
+            List<String> getRacingGameResultList = carGameService.getRacingGameResultList(racingGameResult);
+
+            for(String result : getRacingGameResultList){
+                outputView.print(result);
+            }
+            outputView.print("");
+        }
+        return racingGameResult;
+    }
+
 
 }
