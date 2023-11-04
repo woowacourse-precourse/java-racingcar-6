@@ -138,5 +138,61 @@ class RacingServiceTest {
         assertThat(maxMovingDistance).isEqualTo(3);
     }
 
+    @Test
+    @DisplayName("기능6 테스트: 우승자가 1명일 때 generateWinner가 우승자 목록을 제대로 반환한다.")
+    void generateWinnerListWhenWinnerIsOne() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car(CAR_1, 1));
+        carList.add(new Car(CAR_2, 2));
+        carList.add(new Car(CAR_3, 3));
+
+        // when
+        List<String> winnerList = racingService.generateWinnerList(carList);
+
+        // then
+        assertThat(winnerList)
+                .hasSize(1)
+                .containsExactly(CAR_3);
+    }
+
+    @Test
+    @DisplayName("기능6 테스트: 우승자가 2명일 때 generateWinner가 우승자 목록을 제대로 반환한다.")
+    void generateWinnerListWhenWinnerIsTwo() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car(CAR_1, 1));
+        carList.add(new Car(CAR_2, 3));
+        carList.add(new Car(CAR_3, 3));
+
+        // when
+        List<String> winnerList = racingService.generateWinnerList(carList);
+
+        // then
+        assertThat(winnerList)
+                .hasSize(2)
+                .containsExactly(CAR_2, CAR_3);
+    }
+
+    @Test
+    @DisplayName("기능6 테스트: 우승자가 3명일 때 generateWinner가 우승자 목록을 제대로 반환한다.")
+    void generateWinnerListWhenWinnerIsThree() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car(CAR_1, 3));
+        carList.add(new Car(CAR_2, 3));
+        carList.add(new Car(CAR_3, 3));
+
+        // when
+        List<String> winnerList = racingService.generateWinnerList(carList);
+
+        // then
+        assertThat(winnerList)
+                .hasSize(3)
+                .containsExactly(CAR_1, CAR_2, CAR_3);
+    }
 
 }
