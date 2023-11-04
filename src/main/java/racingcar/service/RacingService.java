@@ -51,5 +51,20 @@ public class RacingService {
         return maxMovingDistance;
     }
 
+    public List<String> generateWinnerList(List<Car> carList) {
+        List<String> winnerList = new ArrayList<>();
+
+        int maxMovingDistance = getMaxMovingDistance(carList);
+
+        for (Car car : carList) {
+            int curLocation = car.getMovingDistance();
+            if (curLocation == maxMovingDistance) {
+                winnerList.add(car.getName());
+            }
+        }
+
+        return winnerList;
+    }
+
 
 }
