@@ -21,7 +21,7 @@ public class CarController {
 
     public void startRacingGame() {
         //경주할 자동차 이름을 입력
-        String carNames = setCarName();
+        String carNames = setCarNames();
 
         //경주할 자동차 목록
         List<Car> carList = carGameService.getCarList(carNames);
@@ -38,7 +38,7 @@ public class CarController {
         Console.close();
     }
 
-    private String setCarName(){
+    private String setCarNames(){
         outputView.printGameMessage(GAME_START);
         String carNames = Console.readLine();
 
@@ -62,7 +62,8 @@ public class CarController {
         for(String carName : carArray){
             if(carName.isBlank()){
                 throw new IllegalArgumentException(ErrorCodeConstant.STRING_BLANK_ERROR);
-            } else if(GameConstant.MAX_NAME_LENGTH < carName.length()){
+            }
+            if(GameConstant.MAX_NAME_LENGTH < carName.length()){
                 throw new IllegalArgumentException(ErrorCodeConstant.NAME_LENGTH_ERROR);
             }
         }
@@ -98,7 +99,8 @@ public class CarController {
         int tryCountNumber = Integer.parseInt(tryCount);
         if(tryCountNumber > Integer.MAX_VALUE) {
             throw new IllegalArgumentException(ErrorCodeConstant.MAX_NUMBER_ERROR);
-        } else if (tryCountNumber == GameConstant.MIN_TRY_COUNT) {
+        }
+        if (tryCountNumber == GameConstant.MIN_TRY_COUNT) {
             throw new IllegalArgumentException(ErrorCodeConstant.MIN_TRY_COUNT_ERROR);
         }
 
