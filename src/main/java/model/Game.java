@@ -1,5 +1,6 @@
 package model;
 
+import constants.GameConstant;
 import constants.MessageType;
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +33,17 @@ public class Game {
      * @return 우승자를 선발하여 데이터를 가공한 후 리턴
      */
     public String getWinnerList(List<Car> carList, int maxStepCount){
+        String winnerList = getCommaResult(carList, maxStepCount);
+
+        winnerList = removeCommaResult(winnerList);
+
+        winnerList = MessageType.GAME_RESULT.getMessage()
+                .replace(GameConstant.WINNER_TEXT,winnerList);
+
+        return winnerList;
+    }
+
+    private String getCommaResult(List<Car> carList, int maxStepCount){
         String winnerList = "";
         for(Car car : carList){
             if(car.getStepCount() == maxStepCount){
@@ -40,16 +52,15 @@ public class Game {
             }
         }
 
-        if(winnerList.endsWith(", ")){
-            winnerList = winnerList.substring(0, winnerList.length() - 2);
-        }
-
-        String gameResultMessage = MessageType.GAME_RESULT.getMessage();
-        winnerList = gameResultMessage.replace("{우승 자동차}",winnerList);
-
         return winnerList;
     }
 
+    private String removeCommaResult(String winnerList){
+        if(winnerList.endsWith(", ")){
+            winnerList = winnerList.substring(0, winnerList.length() - 2);
+        }
+        return winnerList;
+    }
 
 }
 
