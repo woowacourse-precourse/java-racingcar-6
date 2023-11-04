@@ -7,14 +7,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.utils.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
 class RacingServiceTest {
-    private final String carName1 = "A";
-    private final String carName2 = "B";
-    private final String carName3 = "C";
+    private final String CAR_1 = "A";
+    private final String CAR_2 = "B";
+    private final String CAR_3 = "C";
 
     private RacingService racingService;
 
@@ -29,9 +28,9 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(carName1, 0));
-        carList.add(new Car(carName2, 0));
-        carList.add(new Car(carName3, 0));
+        carList.add(new Car(CAR_1, 0));
+        carList.add(new Car(CAR_2, 0));
+        carList.add(new Car(CAR_3, 0));
 
         // when
         List<String> result = racingService.playRound(carList);
@@ -39,9 +38,9 @@ class RacingServiceTest {
         // then
         assertThat(result).hasSize(3);
         assertThat(result.toString())
-                .containsOnlyOnce(carName1)
-                .containsOnlyOnce(carName2)
-                .containsOnlyOnce(carName3);
+                .containsOnlyOnce(CAR_1)
+                .containsOnlyOnce(CAR_2)
+                .containsOnlyOnce(CAR_3);
     }
 
     @Test
@@ -50,16 +49,16 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(carName1, 0));
-        carList.add(new Car(carName2, 0));
-        carList.add(new Car(carName3, 0));
+        carList.add(new Car(CAR_1, 0));
+        carList.add(new Car(CAR_2, 0));
+        carList.add(new Car(CAR_3, 0));
 
         // when
         List<String> result = racingService.playRound(carList);
 
         // then
         assertThat(result.toString())
-                .containsSubsequence(carName1, carName2, carName3);
+                .containsSubsequence(CAR_1, CAR_2, CAR_3);
     }
 
 
@@ -69,22 +68,75 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(carName1, 0));
-        carList.add(new Car(carName2, 0));
-        carList.add(new Car(carName3, 0));
+        carList.add(new Car(CAR_1, 0));
+        carList.add(new Car(CAR_2, 0));
+        carList.add(new Car(CAR_3, 0));
 
         int totalCount = 5;
 
         // when
         String result = racingService.playAllRounds(carList, totalCount).toString();
 
-        int countCarName1 = StringUtils.countOccurrences(result, carName1);
-        int countCarName2 = StringUtils.countOccurrences(result, carName2);
-        int countCarName3 = StringUtils.countOccurrences(result, carName3);
+        int countCarName1 = StringUtils.countOccurrences(result, CAR_1);
+        int countCarName2 = StringUtils.countOccurrences(result, CAR_2);
+        int countCarName3 = StringUtils.countOccurrences(result, CAR_3);
 
         // then
         assertThat(countCarName1).isEqualTo(totalCount);
         assertThat(countCarName2).isEqualTo(totalCount);
         assertThat(countCarName3).isEqualTo(totalCount);
     }
+
+    @Test
+    @DisplayName("기능5 테스트: getMaxMovingDistance 메서드가 최댓값이 하나일 때 최댓값을 정확하게 반환한다.")
+    void getMaxMovingDistanceWhenOneMaxExist() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car(CAR_1, 1));
+        carList.add(new Car(CAR_2, 2));
+        carList.add(new Car(CAR_3, 3));
+
+        // when
+        int maxMovingDistance = racingService.getMaxMovingDistance(carList);
+
+        // then
+        assertThat(maxMovingDistance).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("기능5 테스트: getMaxMovingDistance 메서드가 최댓값이 두개일 때 최댓값을 정확하게 반환한다.")
+    void getMaxMovingDistanceWhenTwoMaxExist() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car(CAR_1, 1));
+        carList.add(new Car(CAR_2, 3));
+        carList.add(new Car(CAR_3, 3));
+
+        // when
+        int maxMovingDistance = racingService.getMaxMovingDistance(carList);
+
+        // then
+        assertThat(maxMovingDistance).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("기능5 테스트: getMaxMovingDistance 메서드가 최댓값이 세개일 때 최댓값을 정확하게 반환한다.")
+    void getMaxMovingDistanceWhenThreeMaxExist() {
+        // given
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(new Car(CAR_1, 3));
+        carList.add(new Car(CAR_2, 3));
+        carList.add(new Car(CAR_3, 3));
+
+        // when
+        int maxMovingDistance = racingService.getMaxMovingDistance(carList);
+
+        // then
+        assertThat(maxMovingDistance).isEqualTo(3);
+    }
+
+
 }
