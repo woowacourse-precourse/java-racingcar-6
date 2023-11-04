@@ -18,7 +18,7 @@ public class RacingCarRun {
 
     public void run() {
         var cars = createCarsByInput(view.getCarNameInput());
-        int count = getTryCountByInput(view.getTryCountInput());
+        var count = getTryCountByInput(view.getTryCountInput());
         view.racingResultOutput();
         repeatMoveCar(cars, count);
         view.racingWinnerOutput(getRacingWinners(cars));
@@ -37,7 +37,7 @@ public class RacingCarRun {
     private void repeatMoveCar(Cars cars, int count) {
         for (int i = 0; i < count; i++) {
             service.moveCars(cars);
-            String output = textProcessor.carsDistanceAsString(cars);
+            var output = textProcessor.carsDistanceAsString(cars);
             view.racingCarsDistanceOutput(output);
         }
     }
