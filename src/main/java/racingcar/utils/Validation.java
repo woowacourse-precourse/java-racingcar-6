@@ -1,0 +1,49 @@
+package racingcar.utils;
+
+import racingcar.utils.constant.message.ErrorMessage;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static racingcar.utils.constant.Number.MAX_NAME_LENGTH;
+
+public class Validation {
+
+    public void isNumeric(String str) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.NOTHING.getMessage());
+        }
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException(ErrorMessage.NOT_A_NUMBER.getMessage());
+            }
+        }
+    }
+
+    public void checkNameListSize(List<String> nameList) {
+        if (nameList == null || nameList.size() < 2) {
+            throw new IllegalArgumentException(ErrorMessage.TOO_FEW_NAMES.getMessage());
+        }
+    }
+
+    public void checkName(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(ErrorMessage.TOO_LONG.getMessage());
+        }
+    }
+
+    public void checkPlayCount(int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.MORE_THAN_ZERO.getMessage());
+        }
+    }
+
+    public void hasDuplication(List<String> nameList) {
+        Set<String> nameSet = new HashSet<>(nameList);
+        if (nameSet.size() != nameList.size()) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_NAME.getMessage());
+        }
+    }
+}
+
