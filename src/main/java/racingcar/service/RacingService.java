@@ -12,7 +12,9 @@ public class RacingService {
     // 도메인 객체를 사용하여 비즈니스 로직을 구현
     // 필요에 따라 데이터 베이스 또는 외부 서비스와 상호 작용
     private final String PLAY_RESULT = "실행 결과";
+    private final String FINAL_RESULT = "최종 우승자 : ";
     private final String NEW_LINE = "/n";
+    private final String COMMA = ",";
 
     public List<String> playRound(List<Car> carList) {
         List<String> result = new ArrayList<>();
@@ -64,6 +66,19 @@ public class RacingService {
         }
 
         return winnerList;
+    }
+
+    public String makeFinalResult(List<Car> carList) {
+        StringBuilder result = new StringBuilder();
+
+        result.append(FINAL_RESULT);
+
+        List<String> winnerList = generateWinnerList(carList);
+        String winners = String.join(COMMA, winnerList);
+
+        result.append(winners);
+
+        return result.toString();
     }
 
 
