@@ -2,11 +2,11 @@ package racingcar.domain.car;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.validator.CarNameValidator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.config.GameConfig.NAME_LENGTH_CONDITION;
-import static racingcar.domain.car.Name.validate;
 import static racingcar.exception.ErrorMessage.VALIDATE_EMPTY_FOR_EACH_NAME;
 import static racingcar.exception.ErrorMessage.VALIDATE_LENGTH_FOR_EACH_NAME;
 
@@ -20,7 +20,7 @@ class NameTest {
         String input = "";
 
         // when, then
-        assertThatThrownBy(() -> validate(input))
+        assertThatThrownBy(() -> CarNameValidator.validateForEachName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(VALIDATE_EMPTY_FOR_EACH_NAME.getMessage());
     }
@@ -32,7 +32,7 @@ class NameTest {
         String input = "holyPigeon";
 
         // when, then
-        assertThatThrownBy(() -> validate(input))
+        assertThatThrownBy(() -> CarNameValidator.validateForEachName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(String.format(VALIDATE_LENGTH_FOR_EACH_NAME.getMessage(), NAME_LENGTH_CONDITION.getNumber()));
     }
