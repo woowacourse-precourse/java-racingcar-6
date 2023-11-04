@@ -38,5 +38,18 @@ public class RacingService {
         return result;
     }
 
+    public int getMaxMovingDistance(List<Car> carList) {
+        int maxMovingDistance = Integer.MIN_VALUE;
+
+        for (Car car : carList) {
+            int carLocation = car.getMovingDistance();
+            if (carLocation > maxMovingDistance) {
+                maxMovingDistance = carLocation;
+            }
+        }
+
+        return maxMovingDistance;
+    }
+
 
 }
