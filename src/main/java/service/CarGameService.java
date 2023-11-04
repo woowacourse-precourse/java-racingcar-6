@@ -64,27 +64,32 @@ public class CarGameService {
      * 자동차 실행 결과 가공하기
      *
      * @param carList 경주한 자동차와 이동횟수를 담은 리스트
-     * @return "{자동차명} : {전진횟수}" 형태로 가공하여 리턴
+     * @return 가공될 게임메세지가 담긴 리스트 리턴
      */
     public List<String> getRacingGameResultList(List<Car> carList){
         List<String> racingGameResultList = new ArrayList<>();
 
         for(Car car : carList){
-            String step = "";
-            int stepCount = car.getStepCount();
-
-            while (stepCount > 0){
-                stepCount--;
-                step += "-";
-            }
-
-            StringBuilder gameText = new StringBuilder(car.getName())
-                    .append(" : ")
-                    .append(step);
-            racingGameResultList.add(gameText.toString());
+            String racingGameProgress = getRacingGameProgress(car.getStepCount(), car.getName());
+            racingGameResultList.add(racingGameProgress);
         }
 
         return racingGameResultList;
+    }
+
+    // "{자동차명} : {전진횟수}" 형태로 가공하여 리턴
+    private String getRacingGameProgress(int stepCount, String carName){
+        String step = "";
+        while (stepCount > 0){
+            stepCount--;
+            step += "-";
+        }
+
+        StringBuilder gameText = new StringBuilder(carName)
+                .append(" : ")
+                .append(step);
+
+        return gameText.toString();
     }
 
     /**
