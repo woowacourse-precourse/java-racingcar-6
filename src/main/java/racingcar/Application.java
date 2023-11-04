@@ -5,23 +5,23 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import racingcar.domain.Car;
 import racingcar.domain.ResultGenerator;
 import racingcar.domain.UserInputParser;
+import racingcar.view.InputView;
 
 import java.util.List;
 
 public class Application {
+    private static final String CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String HOW_MANY_ROUND_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
+
     public static void main(String[] args) {
-        String userInput = "";
+
         UserInputParser userInputParser = new UserInputParser();
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        userInput = readLine();
+        String carNameInput = InputView.readInput(CAR_NAME_INPUT_MESSAGE);
+        List<Car> carList = userInputParser.generateCarList(carNameInput);
 
-        List<Car> carList = userInputParser.generateCarList(userInput);
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        userInput = readLine();
-
-        int totalRound = userInputParser.parseInt(userInput);
+        String roundInput = InputView.readInput(CAR_NAME_INPUT_MESSAGE);
+        int totalRound = userInputParser.parseInt(roundInput);
 
         ResultGenerator resultGenerator = new ResultGenerator();
 
