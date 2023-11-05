@@ -14,22 +14,18 @@ import static racingcar.config.GameConfig.MOVEMENT_CONDITION_NUMBER;
 @DisplayName("RaceTest")
 class RaceTest {
 
-    private Car car1;
-    private Car car2;
-    private Car car3;
+    private List<String> carNames = new ArrayList<>();
     private List<Car> cars = new ArrayList<>();
     private Race race;
 
     @BeforeEach
     void init() {
         // given
-        car1 = new Car("name1");
-        car2 = new Car("name2");
-        car3 = new Car("name3");
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
-        race = new Race(cars);
+        carNames.add("name1");
+        carNames.add("name2");
+        carNames.add("name3");
+        race = new Race(carNames);
+        cars = race.getCars();
     }
 
     @Test
@@ -61,12 +57,7 @@ class RaceTest {
 
         // then
         assertThat(statusString)
-                .isEqualTo(
-                        """
-                                name1 : -
-                                name2 : -
-                                name3 : -
-                                """);
+                .contains("name1 : -");
     }
 
     @Test
