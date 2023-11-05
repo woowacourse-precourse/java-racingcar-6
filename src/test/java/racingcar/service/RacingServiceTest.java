@@ -11,10 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 class RacingServiceTest {
-    private final String CAR_1 = "A";
-    private final String CAR_2 = "B";
-    private final String CAR_3 = "C";
-
     private RacingService racingService;
 
     @BeforeEach
@@ -28,9 +24,9 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 0));
-        carList.add(new Car(CAR_2, 0));
-        carList.add(new Car(CAR_3, 0));
+        carList.add(new Car("A", 0));
+        carList.add(new Car("B", 0));
+        carList.add(new Car("C", 0));
 
         // when
         List<String> result = racingService.playRound(carList);
@@ -38,9 +34,9 @@ class RacingServiceTest {
         // then
         assertThat(result).hasSize(3);
         assertThat(result.toString())
-                .containsOnlyOnce(CAR_1)
-                .containsOnlyOnce(CAR_2)
-                .containsOnlyOnce(CAR_3);
+                .containsOnlyOnce("A")
+                .containsOnlyOnce("B")
+                .containsOnlyOnce("C");
     }
 
     @Test
@@ -49,16 +45,16 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 0));
-        carList.add(new Car(CAR_2, 0));
-        carList.add(new Car(CAR_3, 0));
+        carList.add(new Car("A", 0));
+        carList.add(new Car("B", 0));
+        carList.add(new Car("C", 0));
 
         // when
         List<String> result = racingService.playRound(carList);
 
         // then
         assertThat(result.toString())
-                .containsSubsequence(CAR_1, CAR_2, CAR_3);
+                .containsSubsequence("A", "B", "C");
     }
 
 
@@ -68,18 +64,18 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 0));
-        carList.add(new Car(CAR_2, 0));
-        carList.add(new Car(CAR_3, 0));
+        carList.add(new Car("A", 0));
+        carList.add(new Car("B", 0));
+        carList.add(new Car("C", 0));
 
         int totalCount = 5;
 
         // when
         String result = racingService.playAllRounds(carList, totalCount).toString();
 
-        int countCarName1 = StringUtils.countOccurrences(result, CAR_1);
-        int countCarName2 = StringUtils.countOccurrences(result, CAR_2);
-        int countCarName3 = StringUtils.countOccurrences(result, CAR_3);
+        int countCarName1 = StringUtils.countOccurrences(result, "A");
+        int countCarName2 = StringUtils.countOccurrences(result, "B");
+        int countCarName3 = StringUtils.countOccurrences(result, "C");
 
         // then
         assertThat(countCarName1).isEqualTo(totalCount);
@@ -93,9 +89,9 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 1));
-        carList.add(new Car(CAR_2, 2));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 1));
+        carList.add(new Car("B", 2));
+        carList.add(new Car("C", 3));
 
         // when
         int maxMovingDistance = racingService.getMaxMovingDistance(carList);
@@ -110,9 +106,9 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 1));
-        carList.add(new Car(CAR_2, 3));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 1));
+        carList.add(new Car("B", 3));
+        carList.add(new Car("C", 3));
 
         // when
         int maxMovingDistance = racingService.getMaxMovingDistance(carList);
@@ -127,9 +123,9 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 3));
-        carList.add(new Car(CAR_2, 3));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 3));
+        carList.add(new Car("B", 3));
+        carList.add(new Car("C", 3));
 
         // when
         int maxMovingDistance = racingService.getMaxMovingDistance(carList);
@@ -144,9 +140,9 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 1));
-        carList.add(new Car(CAR_2, 2));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 1));
+        carList.add(new Car("B", 2));
+        carList.add(new Car("C", 3));
 
         // when
         List<String> winnerList = racingService.generateWinnerList(carList);
@@ -154,7 +150,7 @@ class RacingServiceTest {
         // then
         assertThat(winnerList)
                 .hasSize(1)
-                .containsExactly(CAR_3);
+                .containsExactly("C");
     }
 
     @Test
@@ -163,9 +159,9 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 1));
-        carList.add(new Car(CAR_2, 3));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 1));
+        carList.add(new Car("B", 3));
+        carList.add(new Car("C", 3));
 
         // when
         List<String> winnerList = racingService.generateWinnerList(carList);
@@ -173,7 +169,7 @@ class RacingServiceTest {
         // then
         assertThat(winnerList)
                 .hasSize(2)
-                .containsExactly(CAR_2, CAR_3);
+                .containsExactly("B", "C");
     }
 
     @Test
@@ -182,9 +178,9 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 3));
-        carList.add(new Car(CAR_2, 3));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 3));
+        carList.add(new Car("B", 3));
+        carList.add(new Car("C", 3));
 
         // when
         List<String> winnerList = racingService.generateWinnerList(carList);
@@ -192,7 +188,7 @@ class RacingServiceTest {
         // then
         assertThat(winnerList)
                 .hasSize(3)
-                .containsExactly(CAR_1, CAR_2, CAR_3);
+                .containsExactly("A", "B", "C");
     }
 
     @Test
@@ -201,15 +197,15 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 1));
-        carList.add(new Car(CAR_2, 2));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 1));
+        carList.add(new Car("B", 2));
+        carList.add(new Car("C", 3));
 
         // when
         String result = racingService.makeFinalResult(carList);
 
         // then
-        assertThat(result).isEqualTo("최종 우승자 : " + CAR_3);
+        assertThat(result).isEqualTo("최종 우승자 : " + "C");
     }
 
     @Test
@@ -218,16 +214,16 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 1));
-        carList.add(new Car(CAR_2, 3));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 1));
+        carList.add(new Car("B", 3));
+        carList.add(new Car("C", 3));
 
         // when
         String result = racingService.makeFinalResult(carList);
 
         // then
         assertThat(result)
-                .isEqualTo("최종 우승자 : " + CAR_2 + ","+CAR_3);
+                .isEqualTo("최종 우승자 : " + "B" + "," + "C");
     }
 
     @Test
@@ -236,15 +232,15 @@ class RacingServiceTest {
         // given
         List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car(CAR_1, 3));
-        carList.add(new Car(CAR_2, 3));
-        carList.add(new Car(CAR_3, 3));
+        carList.add(new Car("A", 3));
+        carList.add(new Car("B", 3));
+        carList.add(new Car("C", 3));
 
         // when
         String result = racingService.makeFinalResult(carList);
 
         // then
         assertThat(result)
-                .isEqualTo("최종 우승자 : " + CAR_1 + "," + CAR_2 + ","+CAR_3);
+                .isEqualTo("최종 우승자 : " + "A" + "," + "B" + "," + "C");
     }
 }
