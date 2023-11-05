@@ -32,6 +32,10 @@ public class RacingController {
         return stringCarArrayToCarList(stringCarArray);
     }
 
+    public int registerTotalRound() {
+        String userInput = readInput(HOW_MANY_ROUND_INPUT);
+        return userInputToInt(userInput);
+    }
 
     public String[] userInputToStringCarArray(String userInput) {
         return userInput.split(",");
