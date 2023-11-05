@@ -28,7 +28,6 @@ public class StringTest {
     void substring_메서드로_특정_구간_값을_반환() {
         String input = "(1,2)";
         String result = input.substring(1, 4);
-
         assertThat(result).isEqualTo("1,2");
     }
 
