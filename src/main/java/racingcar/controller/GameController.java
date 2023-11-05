@@ -17,9 +17,9 @@ import static racingcar.view.message.SystemMessage.*;
 public class GameController {
 
     public void run() {
-        String carNames = readCarNames();
+        List<String> carNames = readCarNames();
         int tryCount = readTryCount();
-        Race race = new Race(generateCars(carNames));
+        Race race = new Race(carNames);
 
         printRaceStatus(race, tryCount);
         printRaceWinner(race);
@@ -37,19 +37,12 @@ public class GameController {
         }
     }
 
-    private List<Car> generateCars(String carNames) {
-        return InputUtil.convertInputStringToList(carNames)
-                .stream()
-                .map(Car::new)
-                .toList();
-    }
-
-    private String readCarNames() {
+    private List<String> readCarNames() {
         OutputView.printMessage(READ_CAR_NAMES.getMessage());
         String carNames = InputView.read();
         CarNameValidator.validateForInputString(carNames);
 
-        return carNames;
+        return InputUtil.convertInputStringToList(carNames);
     }
 
     private int readTryCount() {

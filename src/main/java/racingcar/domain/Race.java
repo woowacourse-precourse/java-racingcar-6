@@ -10,13 +10,15 @@ public class Race {
 
     private List<Car> cars;
 
-    private Race() {
-
+    public Race(List<String> carNames) {
+        CarNameValidator.validateDuplicateForList(carNames);
+        this.cars = new ArrayList<>(generateCars(carNames));
     }
 
-    public Race(List<Car> cars) {
-        CarNameValidator.validateDuplicateForList(cars);
-        this.cars = new ArrayList<>(cars);
+    public List<Car> generateCars(List<String> carNames) {
+        return carNames.stream()
+                .map(Car::new)
+                .toList();
     }
 
     public void moveEachCar(int randomNumber) {
