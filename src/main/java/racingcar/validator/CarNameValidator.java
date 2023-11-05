@@ -30,13 +30,10 @@ public class CarNameValidator {
         }
     }
 
-    public static void validateDuplicateForList(List<Car> cars) {
-        List<String> carNameList = cars.stream()
-                .map(Car::getName)
-                .toList();
-        if (carNameList.stream()
+    public static void validateDuplicateForList(List<String> carNames) {
+        if (carNames.stream()
                 .distinct()
-                .count() != cars.size()) {
+                .count() != carNames.size()) {
             throw new IllegalArgumentException(VALIDATE_DUPLICATE_FOR_LIST.getMessage());
         }
     }
