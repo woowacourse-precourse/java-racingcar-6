@@ -1,163 +1,140 @@
-# 미션 - 자동차 경주
+# ✨ 프로젝트 소개
 
-## 🔍 진행 방식
+이 프로젝트는
 
-- 미션은 **기능 요구 사항, 프로그래밍 요구 사항, 과제 진행 요구 사항** 세 가지로 구성되어 있다.
-- 세 개의 요구 사항을 만족하기 위해 노력한다. 특히 기능을 구현하기 전에 기능 목록을 만들고, 기능 단위로 커밋 하는 방식으로 진행한다.
-- 기능 요구 사항에 기재되지 않은 내용은 스스로 판단하여 구현한다.
+**<span style="color:royalblue">우아한 테크코스 6기 프리코스</span>**
 
-## 📮 미션 제출 방법
+**<span style="color:red">(2주차 미션) 자동차 경주 프로젝트</span>**  입니다.
 
-- 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-  - GitHub을 활용한 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고해 제출한다.
-- GitHub에 미션을 제출한 후 [우아한테크코스 지원](https://apply.techcourse.co.kr) 사이트에 접속하여 프리코스 과제를 제출한다.
-  - 자세한 방법은 [제출 가이드](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 참고
-  - **Pull Request만 보내고 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
-
-## 🚨 과제 제출 전 체크 리스트 - 0점 방지
-
-- 기능 구현을 모두 정상적으로 했더라도 **요구 사항에 명시된 출력값 형식을 지키지 않을 경우 0점으로 처리**한다.
-- 기능 구현을 완료한 뒤 아래 가이드에 따라 테스트를 실행했을 때 모든 테스트가 성공하는지 확인한다.
-- **테스트가 실패할 경우 0점으로 처리**되므로, 반드시 확인 후 제출한다.
-
-### 테스트 실행 가이드
-
-- 터미널에서 `java -version`을 실행하여 Java 버전이 17인지 확인한다.
-  Eclipse 또는 IntelliJ IDEA와 같은 IDE에서 Java 17로 실행되는지 확인한다.
-- 터미널에서 Mac 또는 Linux 사용자의 경우 `./gradlew clean test` 명령을 실행하고,
-  Windows 사용자의 경우 `gradlew.bat clean test` 또는 `./gradlew.bat clean test` 명령을 실행할 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
+<br>
 
 ```
-BUILD SUCCESSFUL in 0s
+<자동차 경주 프로젝트 간단 설명>
+
+사용자가 경주에 참여할 자동차 이름을 입력하고
+
+경주를 시도할 횟수를 입력하면
+
+자동차 경주를 실시하고 경기 결과를 출력
 ```
 
----
+![참고](https://velog.velcdn.com/images/rednada1486_/post/c5376df4-334e-44e1-b328-81011f2de109/image.gif)
 
-## 🚀 기능 요구 사항
+<br><br><br>
 
-초간단 자동차 경주 게임을 구현한다.
+# ✨ 프로젝트 구조
 
-- 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
-- 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
-- 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
-- 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
-- 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-- 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
-- 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
-- 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
+(미숙하지만.. ^^)
 
-### 입출력 요구 사항
+**<span style="color:red">MVC 패턴을 적용해서</span>**
 
-#### 입력
+프로젝트를 만들어 보았습니다.
 
-- 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
+![프로젝트 구조](https://velog.velcdn.com/images/rednada1486_/post/af376d1c-489e-48e3-874b-5ccadb3170cd/image.png)
 
+<br>
+
+💼 Model : 비즈니스 로직을 담당
 ```
-pobi,woni,jun
-```
-
-- 시도할 회수
-
-```
-5
+domain
+    ㄴ Car : 개별 차량과 관련된 비즈니스 로직을 담당    
+service
+    ㄴ RacingService : 자동차 경주를 진행할 때 필요한 비즈니스 로직을 담당
 ```
 
-#### 출력
+<br>
 
-- 각 차수별 실행 결과
-
-```
-pobi : --
-woni : ----
-jun : ---
-```
-
-- 단독 우승자 안내 문구
+👁️ View : 사용자에게 데이터를 시각적으로 표시하는 부분
 
 ```
-최종 우승자 : pobi
+view
+    ㄴ InputView : 사용자가 입력한 값을 가져오는 역할을 담당
+    ㄴ OutputView : 사용자에게 결과물을 보여주는 역할을 담당
 ```
 
-- 공동 우승자 안내 문구
+<br>
 
-```
-최종 우승자 : pobi, jun
-```
+🕹️ Controller : Model과 View 사이의 상호작용을 조정하고 제어하는 부분
 
-#### 실행 결과 예시
-
-```
-경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-pobi,woni,jun
-시도할 회수는 몇회인가요?
-5
-
-실행 결과
-pobi : -
-woni : 
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-
-최종 우승자 : pobi, jun
+``` 
+controller
+    ㄴ RacingController : 사용자 입력값을 받아서 자동차 경주를 진행하고 결과값을 출력함
 ```
 
----
+<br>
 
-## 🎯 프로그래밍 요구 사항
+🔧 기타 : 프로젝트를 할 때 유용한 기능 모음
 
-- JDK 17 버전에서 실행 가능해야 한다. **JDK 17에서 정상적으로 동작하지 않을 경우 0점 처리한다.**
-- 프로그램 실행의 시작점은 `Application`의 `main()`이다.
-- `build.gradle` 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다.
-- [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/master/styleguide/java) 가이드를 준수하며 프로그래밍한다.
-- 프로그램 종료 시 `System.exit()`를 호출하지 않는다.
-- 프로그램 구현이 완료되면 `ApplicationTest`의 모든 테스트가 성공해야 한다. **테스트가 실패할 경우 0점 처리한다.**
-- 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
-
-### 추가된 요구 사항
-
-- indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-  - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
-  - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
-- 3항 연산자를 쓰지 않는다.
-- 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
-- JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
-  - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다.
-
-### 라이브러리
-
-- JDK에서 제공하는 Random 및 Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` 및 `Console` API를 사용하여 구현해야 한다.
-    - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
-    - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-
-#### 사용 예시
-
-- 0에서 9까지의 정수 중 한 개의 정수 반환
-
-```java
-Randoms.pickNumberInRange(0,9);
+```
+utils 
+     ㄴ StringUtils : 문자열과 관련된 기능을 모아놓음
 ```
 
----
+<br><br><br>
 
-## ✏️ 과제 진행 요구 사항
+# ✨ 기능 구현  목록
 
-- 미션은 [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
-- **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
-- **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
-  - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
-- 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+<br>
+
+📕 domain.Car :
+
+    ✏️ 기능1. 랜덤 값에 따라 자동차를 한 칸 전진한다. ➡ move()
+
+    ✏️ 기능2. 특정 자동차의 이름과 이동거리를 반환한다. ➡ getStatus()
+
+<br>
+
+📕 service.RacingService :
+
+    ✏️ 기능4. 전체 라운드를 진행한다. ➡ playAllRounds()
+    
+        ✏️ 기능3. 현재 라운드를 진행한다. ➡ playRound()
+
+    ✏️ 기능7. 최종 결과를 반환한다. ➡ makeFinalResult()
+
+        ✏️ 기능6. 우승자들을 찾는다. ➡ generateWinnerList()
+
+            ✏️ 기능5. 경기가 끝났을 때, 가장 많이 이동한 자동차의 이동거리를 찾는다. ➡ getMaxMovingDistance()
+
+<br>
+
+📕 controller.RacingController :
+
+    ✏️ 기능18. 경기 흐름을 제어한다. ➡ play()
+
+        ✏️ 기능8. 경기에 출전하는 자동차의 이름을 등록한다. ➡ registerPlayer()
+    
+            ✏️ 기능9. 유저의 입력을 쉼표 기준으로 분리한다. ➡ userInputToStringCarArray()
+    
+            ✏️ 기능10. 자동차의 이름이 6글자 이상이면 에러를 발생시킨다. ➡ validateCarName()
+    
+            ✏️ 기능12. 사용자 입력값을 자동차 리스트로 변환한다. ➡ stringCarArrayToCarList()
+
+        ✏️ 기능13. 경주의 전체 라운드 수를 등록한다. ➡ registerTotalRound()
+    
+            ✏️ 기능14. 경주 전체 라운드 수로 입력한 값을 숫자로 바꾼다. ➡ userInputToInt()
+     
+            ✏️ 기능15. 경주 전체 라운드 수로 입력한 값이 숫자가 아니면 에러를 발생시킨다. ➡ userInputToInt()
+
+        ✏️ 기능16. 전체 경주를 진행하고 결과를 출력한다. ➡ playRacing()
+    
+        ✏️ 기능17. 전체 경주 종료 후 우승자 목록을 출력한다. ➡ announceWinner()
+
+<br>
+
+📕 utils.StringUtils :
+
+    ✏️ 기능19. 문자열에서 특정 문자열이 몇 번 등장하는지 세어준다. ➡ countOccurrences()
+
+
+<br><br><br>
+
+# ✨ 이번 프로젝트에서 중점을 둔 부분
+
+이번 프로젝트에서는 다음 사항을 지키려고 노력하면서 프로그래밍을 진행하였습니다.
+
+    📌 MVC 패턴 적용해서 클래스 분리
+    
+    📌 메서드가 하나의 역할만 수행할 수 있도록 최대한 기능을 분리하기
+    
+    📌 테스트 코드 작성
