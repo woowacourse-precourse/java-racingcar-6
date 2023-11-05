@@ -186,9 +186,9 @@ class RacingControllerTest {
     @DisplayName("기능16 테스트: playRacing 메서드가 전체 경주를 진행하고 결과를 출력해주는 지 확인한다.")
     void playRacingShouldPlayRacingAndPrintPlayResult() {
         // given
-        Car car1 = new Car("A",0);
-        Car car2 = new Car("B",0);
-        Car car3 = new Car("C",0);
+        Car car1 = new Car("A", 0);
+        Car car2 = new Car("B", 0);
+        Car car3 = new Car("C", 0);
 
         List<Car> carList = new ArrayList<>();
 
@@ -207,6 +207,76 @@ class RacingControllerTest {
         // then
         assertThat(result).contains("실행 결과");
         assertThat(count).isEqualTo(totalRound);
+    }
+
+    @Test
+    @DisplayName("기능17 테스트: announceWinner 메서드가 경기 종료 후 우승자 목록을 출력한다.(우승자 1명)")
+    void announceWinnerShouldPrintRacingFinalResultWhenWinnerIsOne() {
+        // given
+        Car car1 = new Car("A", 1);
+        Car car2 = new Car("B", 2);
+        Car car3 = new Car("C", 3);
+
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(car1);
+        carList.add(car2);
+        carList.add(car3);
+
+        // when
+        racingController.announceWinner(carList);
+
+        String result = outputStreamCaptor.toString();
+        System.out.println(result);
+
+        // then
+        assertThat(result).isEqualTo("최종 우승자 : C");
+    }
+
+    @Test
+    @DisplayName("기능17 테스트: announceWinner 메서드가 경기 종료 후 우승자 목록을 출력한다.(우승자 2명)")
+    void announceWinnerShouldPrintRacingFinalResultWhenWinnerIsTwo() {
+        // given
+        Car car1 = new Car("A", 1);
+        Car car2 = new Car("B", 3);
+        Car car3 = new Car("C", 3);
+
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(car1);
+        carList.add(car2);
+        carList.add(car3);
+
+        // when
+        racingController.announceWinner(carList);
+
+        String result = outputStreamCaptor.toString();
+        System.out.println(result);
+
+        // then
+        assertThat(result).isEqualTo("최종 우승자 : B,C");
+    }
+
+    @Test
+    @DisplayName("기능17 테스트: announceWinner 메서드가 경기 종료 후 우승자 목록을 출력한다.(우승자 3명)")
+    void announceWinnerShouldPrintRacingFinalResultWhenWinnerIsThree() {
+        // given
+        Car car1 = new Car("A", 3);
+        Car car2 = new Car("B", 3);
+        Car car3 = new Car("C", 3);
+
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(car1);
+        carList.add(car2);
+        carList.add(car3);
+
+        // when
+        racingController.announceWinner(carList);
+        String result = outputStreamCaptor.toString();
+
+        // then
+        assertThat(result).isEqualTo("최종 우승자 : A,B,C");
     }
 
 
