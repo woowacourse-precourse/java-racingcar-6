@@ -3,8 +3,12 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
+import racingcar.view.InputView;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static racingcar.view.InputView.*;
 
 public class RacingController {
 
@@ -17,6 +21,23 @@ public class RacingController {
     public RacingController(RacingService racingService) {
         this.racingService = new RacingService();
     }
+
+
+    public List<Car> registerPlayer() {
+        String userInput = readInput(CAR_NAME_INPUT);
+        String[] stringCarArray = userInputToStringCarArray(userInput);
+
+        validateCarNames(stringCarArray);
+
+        return stringCarArrayToCarList(stringCarArray);
+    }
+
+
+
+
+
+
+
 
     public String[] userInputToStringCarArray(String userInput) {
         return userInput.split(",");
