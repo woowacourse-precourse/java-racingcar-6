@@ -10,7 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
@@ -140,7 +139,17 @@ class RacingControllerTest {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    @DisplayName("기능15 테스트 : 유저가 입력한 값이 숫자가 아니면 userInputToInt 메서드가 IllegalArgument Exception을 발생시킨다.")
+    void userInputToIntShouldThrowIllegalArgumnetExceptionWhenUserInputIsNotANumber() {
+        // given
+        String userInput = "A";
 
+        // when, then
+        assertThatThrownBy(() -> racingController.userInputToInt(userInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE);
+    }
 
 
     InputStream createUserInput(String input) {
