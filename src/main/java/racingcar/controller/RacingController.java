@@ -33,15 +33,22 @@ public class RacingController {
     }
 
 
-
-
-
-
-
-
     public String[] userInputToStringCarArray(String userInput) {
         return userInput.split(",");
     }
+
+    public int userInputToInt(String userInput) {
+        int result;
+
+        try {
+            result = Integer.parseInt(userInput);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE);
+        }
+
+        return result;
+    }
+
 
     public void validateCarNames(String[] carArray) {
         for (String carName : carArray) {
