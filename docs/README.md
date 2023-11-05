@@ -29,7 +29,7 @@
 
         ✅ 기능12. 사용자 입력값을 자동차 리스트로 변환한다. ➡ stringCarArrayToCarList()
 
-    ✅ 기능13. 경주의 전체 라운드 수를 등록한다. ➡ registerRound()
+    ✅ 기능13. 경주의 전체 라운드 수를 등록한다. ➡ registerTotalRound()
 
         ✅ 기능14. 경주 전체 라운드 수로 입력한 값을 숫자로 바꾼다. ➡ userInputToInt()
  
