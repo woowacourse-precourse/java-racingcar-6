@@ -184,7 +184,7 @@ class RacingControllerTest {
 
     @Test
     @DisplayName("기능16 테스트: playRacing 메서드가 전체 경주를 진행하고 결과를 출력해주는 지 확인한다.")
-    void playRacing() {
+    void playRacingShouldPlayRacingAndPrintPlayResult() {
         // given
         Car car1 = new Car("A",0);
         Car car2 = new Car("B",0);
