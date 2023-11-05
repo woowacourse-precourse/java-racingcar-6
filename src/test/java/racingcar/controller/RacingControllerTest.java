@@ -1,12 +1,18 @@
 package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.controller.RacingController.*;
 
+import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
 
 class RacingControllerTest {
@@ -17,6 +23,11 @@ class RacingControllerTest {
     public void beforeEach() {
         racingService = new RacingService();
         racingController = new RacingController(racingService);
+    }
+
+    @AfterEach
+    void closeConsole() {
+        Console.close();
     }
 
     @Test
@@ -44,7 +55,7 @@ class RacingControllerTest {
         // then
         assertThat(stringCarArray)
                 .hasSize(2)
-                .containsExactly("A","B");
+                .containsExactly("A", "B");
     }
 
     @Test
@@ -62,12 +73,12 @@ class RacingControllerTest {
     @DisplayName("기능11 테스트: 자동차 이름이 6글자 이상인 경우 validateCarName 메서드는 IllegalArgument Exception을 발생킨다.")
     public void validateCarNameThrowIllegalArgumentExceptionWhenCarNameIsLongerThanSixWords() {
         // given
-        String[] stringCarArray= new String[]{"A", "B", "CDEFGH"};
+        String[] stringCarArray = new String[]{"A", "B", "CDEFGH"};
 
         // when, then
         assertThatThrownBy(() -> racingController.validateCarNames(stringCarArray))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RacingController.WRONG_CAR_NAME_ERROR_MESSAGE);
+                .hasMessageContaining(WRONG_CAR_NAME_ERROR_MESSAGE);
     }
 
     @Test
@@ -85,5 +96,39 @@ class RacingControllerTest {
         assertThat(carList.get(0).getName()).isEqualTo("A");
         assertThat(carList.get(1).getName()).isEqualTo("B");
         assertThat(carList.get(2).getName()).isEqualTo("C");
+    }
+
+
+    @Test
+    @DisplayName("기능8. 테스트 : registerPlayer 메서드는 유저의 입력값을 검증 후 carList로 변환하여 반환한다.")
+    void registerPlayerShouldReturnCarListAfterValidationPass() {
+        // given
+        System.setIn(createUserInput("A,B,C"));
+
+        // when
+        List<Car> result = racingController.registerPlayer();
+
+        // then
+        assertThat(result).hasSize(3);
+
+        assertThat(result.get(0).getName()).isEqualTo("A");
+        assertThat(result.get(1).getName()).isEqualTo("B");
+        assertThat(result.get(2).getName()).isEqualTo("C");
+    }
+
+    @Test
+    @DisplayName("기능8. 테스트 : registerPlayer 메서드는 유저의 입력값을 검증 후 이상이 있으면 IllegalArgument Exception을 발생시킨다.")
+    void registerPlayerShouldThrowIllegalArgumentExceptionWhenValidationFail() {
+        // given
+        System.setIn(createUserInput("A,B,CDEFGH"));
+
+        // when, then
+        assertThatThrownBy(() -> racingController.registerPlayer())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(WRONG_CAR_NAME_ERROR_MESSAGE);
+    }
+
+    InputStream createUserInput(String input) {
+        return new ByteArrayInputStream(input.getBytes());
     }
 }
