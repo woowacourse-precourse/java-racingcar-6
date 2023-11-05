@@ -1,7 +1,10 @@
 package racingcar.controller;
 
 
+import racingcar.domain.Car;
 import racingcar.service.RacingService;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingController {
 
@@ -15,7 +18,7 @@ public class RacingController {
         this.racingService = new RacingService();
     }
 
-    public String[] userInputToCarArray(String userInput) {
+    public String[] userInputToStringCarArray(String userInput) {
         return userInput.split(",");
     }
 
@@ -27,7 +30,15 @@ public class RacingController {
         }
     }
 
+    public List<Car> stringCarArrayToCarList(String[] stringCarrArray) {
+        List<Car> carList = new ArrayList<>();
 
+        for (String carName : stringCarrArray) {
+            carList.add(new Car(carName, 0));
+        }
+
+        return carList;
+    }
 
 
 }
