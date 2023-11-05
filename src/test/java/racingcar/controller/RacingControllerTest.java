@@ -1,8 +1,9 @@
 package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.controller.RacingController.*;
-import static racingcar.utils.StringUtils.*;
+import static racingcar.controller.RacingController.NOT_A_INTEGER_NUMBER_ERROR_MESSAGE;
+import static racingcar.controller.RacingController.WRONG_CAR_NAME_ERROR_MESSAGE;
+import static racingcar.utils.StringUtils.countOccurrences;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
@@ -11,8 +12,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
-import racingcar.utils.StringUtils;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -21,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 class RacingControllerTest {
-
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     private RacingController racingController;
@@ -308,7 +306,7 @@ class RacingControllerTest {
 
         // then
         assertThat(result).contains("실행 결과", "최종 우승자 : ");
-        assertThat(count).isEqualTo(5+1);
+        assertThat(count).isEqualTo(5 + 1);
     }
 
 

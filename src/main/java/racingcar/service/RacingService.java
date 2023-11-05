@@ -6,11 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingService {
-    // Service
-    // 비즈니스 규칙, 데이터 처리, 외부 시스템과의 상호작용 등을 처리하는 데 주로 사용
-    // 도메인 객체를 사용하여 비즈니스 로직을 구현
-    // 필요에 따라 데이터 베이스 또는 외부 서비스와 상호 작용
-
     private final String FINAL_RESULT = "최종 우승자 : ";
     private final String WHITE_SPACE = "";
     private final String COMMA = ",";
