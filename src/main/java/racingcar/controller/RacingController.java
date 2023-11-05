@@ -41,6 +41,15 @@ public class RacingController {
         printResult(result);
     }
 
+    public void play() {
+        List<Car> carList = registerPlayer();
+        int totalRound = registerTotalRound();
+
+        playRacing(carList, totalRound);
+
+        announceWinner(carList);
+    }
+
     public String[] userInputToStringCarArray(String userInput) {
         return userInput.split(",");
     }
