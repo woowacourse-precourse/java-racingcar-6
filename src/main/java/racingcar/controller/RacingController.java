@@ -18,4 +18,16 @@ public class RacingController {
     public String[] userInputToCarArray(String userInput) {
         return userInput.split(",");
     }
+
+    public void validateCarNames(String[] carArray) {
+        for (String carName : carArray) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException(WRONG_CAR_NAME_ERROR_MESSAGE);
+            }
+        }
+    }
+
+
+
+
 }
