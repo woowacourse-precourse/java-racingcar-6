@@ -10,23 +10,32 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
+import racingcar.utils.StringUtils;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 
 class RacingControllerTest {
+
+    private final PrintStream standardOut = System.out;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     private RacingController racingController;
-    private RacingService racingService;
 
     @BeforeEach
     public void beforeEach() {
-        racingService = new RacingService();
+        RacingService racingService = new RacingService();
         racingController = new RacingController(racingService);
+
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
     @AfterEach
     void closeConsole() {
         Console.close();
+        System.setOut(standardOut);
     }
 
     @Test
@@ -173,8 +182,37 @@ class RacingControllerTest {
                 .hasMessageContaining(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE);
     }
 
+    @Test
+    @DisplayName("기능16 테스트: playRacing 메서드가 전체 경주를 진행하고 결과를 출력해주는 지 확인한다.")
+    void playRacing() {
+        // given
+        Car car1 = new Car("A",0);
+        Car car2 = new Car("B",0);
+        Car car3 = new Car("C",0);
+
+        List<Car> carList = new ArrayList<>();
+
+        carList.add(car1);
+        carList.add(car2);
+        carList.add(car3);
+
+        int totalRound = 3;
+
+        // when
+        racingController.playRacing(carList, totalRound);
+
+        String result = outputStreamCaptor.toString();
+        int count = StringUtils.countOccurrences(result, "A");
+
+        // then
+        assertThat(result).contains("실행 결과");
+        assertThat(count).isEqualTo(totalRound);
+    }
+
 
     InputStream createUserInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
     }
+
+
 }
