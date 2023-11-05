@@ -12,6 +12,6 @@ public class OutputView {
     }
 
     public static void printResult(String result) {
-        System.out.println(result);
+        System.out.print(result);
     }
 }

@@ -36,6 +36,11 @@ public class RacingController {
         return userInputToInt(userInput);
     }
 
+    public void announceWinner(List<Car> carList) {
+        String result = racingService.makeFinalResult(carList);
+        printResult(result);
+    }
+
     public String[] userInputToStringCarArray(String userInput) {
         return userInput.split(",");
     }
