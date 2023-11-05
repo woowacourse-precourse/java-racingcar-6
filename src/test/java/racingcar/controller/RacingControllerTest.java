@@ -128,7 +128,24 @@ class RacingControllerTest {
                 .hasMessageContaining(WRONG_CAR_NAME_ERROR_MESSAGE);
     }
 
+    @Test
+    @DisplayName("기능14 테스트 : userInputToInt 메서드가 유저의 입력값을 숫자로 변환한다.")
+    void userInputToIntShouldTransformUserInputToIntegerNumber() {
+        // given
+        String userInput = "1";
+        // when
+        int result = racingController.userInputToInt(userInput);
+
+        // then
+        assertThat(result).isEqualTo(1);
+    }
+
+
+
+
     InputStream createUserInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
     }
+
+
 }
