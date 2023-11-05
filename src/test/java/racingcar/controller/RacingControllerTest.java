@@ -99,7 +99,7 @@ class RacingControllerTest {
 
 
     @Test
-    @DisplayName("기능8. 테스트 : registerPlayer 메서드는 유저의 입력값을 검증 후 carList로 변환하여 반환한다.")
+    @DisplayName("기능8. 테스트: registerPlayer 메서드는 유저의 입력값을 검증 후 carList로 변환하여 반환한다.")
     void registerPlayerShouldReturnCarListAfterValidationPass() {
         // given
         System.setIn(createUserInput("A,B,C"));
@@ -116,7 +116,7 @@ class RacingControllerTest {
     }
 
     @Test
-    @DisplayName("기능8. 테스트 : registerPlayer 메서드는 유저의 입력값을 검증 후 이상이 있으면 IllegalArgument Exception을 발생시킨다.")
+    @DisplayName("기능8. 테스트: registerPlayer 메서드는 유저의 입력값을 검증 후 이상이 있으면 IllegalArgument Exception을 발생시킨다.")
     void registerPlayerShouldThrowIllegalArgumentExceptionWhenValidationFail() {
         // given
         System.setIn(createUserInput("A,B,CDEFGH"));
@@ -128,7 +128,7 @@ class RacingControllerTest {
     }
 
     @Test
-    @DisplayName("기능14 테스트 : userInputToInt 메서드가 유저의 입력값을 숫자로 변환한다.")
+    @DisplayName("기능14 테스트: userInputToInt 메서드가 유저의 입력값을 숫자로 변환한다.")
     void userInputToIntShouldTransformUserInputToIntegerNumber() {
         // given
         String userInput = "1";
@@ -140,8 +140,8 @@ class RacingControllerTest {
     }
 
     @Test
-    @DisplayName("기능15 테스트 : 유저가 입력한 값이 숫자가 아니면 userInputToInt 메서드가 IllegalArgument Exception을 발생시킨다.")
-    void userInputToIntShouldThrowIllegalArgumnetExceptionWhenUserInputIsNotANumber() {
+    @DisplayName("기능15 테스트: 유저가 입력한 값이 숫자가 아니면 userInputToInt 메서드가 IllegalArgument Exception을 발생시킨다.")
+    void userInputToIntShouldThrowIllegalArgumentExceptionWhenUserInputIsNotANumber() {
         // given
         String userInput = "A";
 
@@ -151,10 +151,30 @@ class RacingControllerTest {
                 .hasMessageContaining(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE);
     }
 
+    @Test
+    @DisplayName("기능13 테스트 : registerTotalRound 메서드가 유저가 입력한 값을 검증후 숫자로 반환한다.")
+    void registerTotalRoundShouldReturnIntegerNumberAfterValidation() {
+        System.setIn(createUserInput("1"));
+
+        int result = racingController.registerTotalRound();
+
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("기능13 테스트 : registerTotalRound 메서드는 숫자가 아닌 입력값을 받았을 때 IllegalArgument Exception을 발생시킨다.")
+    void registerTotalRoundShouldThrowIllegalArgumentExceptionWhenUserInputIsNotANumber() {
+        // given
+        System.setIn(createUserInput("A"));
+
+        // when, then
+        assertThatThrownBy(() -> racingController.registerTotalRound())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE);
+    }
+
 
     InputStream createUserInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
     }
-
-
 }
