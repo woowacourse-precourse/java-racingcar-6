@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGameModel {
 
@@ -50,17 +51,13 @@ public class RacingGameModel {
     }
 
     public List<Car> getWinners() {
-        int maxPosition = 0;
-        List<Car> results = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-                results.clear();
-                results.add(car);
-            } else if (car.getPosition() == maxPosition) {
-                results.add(car);
-            }
-        }
-        return results;
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 }

@@ -26,8 +26,4 @@ public class Car {
     public int getPosition() {
         return position;
     }
-
-    public String getPositionString() {
-        return "-".repeat(Math.max(0, position));
-    }
 }

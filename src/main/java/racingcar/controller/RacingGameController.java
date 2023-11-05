@@ -7,7 +7,6 @@ public class RacingGameController {
 
     private final RacingGameModel model;
     private final RacingGameView view;
-    private static final String RESULT_MESSAGE = "실행 결과";
 
     public RacingGameController() {
         model = new RacingGameModel();
@@ -28,8 +27,7 @@ public class RacingGameController {
     }
 
     private void playRacingGame() {
-        System.out.println();
-        System.out.println(RESULT_MESSAGE);
+        view.printResultMessage();
         for (int i = 0; i < model.getAttempts(); i++) {
             model.moveCars();
             view.printRoundResults(model.getCars());
