@@ -67,8 +67,8 @@ public class Cars {
         Validate.inputStringNotContainsComma(inputTemp); // 구분자가 컴마가 아닌 경우 유효성 검사
         Validate.lastCharIsComma(inputTemp); // 구분자 뒤 자동치 이름이 없는 경우 유효성 검사
 
-        List<String> carList = splitCarNamesReturnList(inputTemp);
-        List<Car> cars = convertStringListToCarsModel(carList);
+        List<String> tempCars = splitCarNamesReturnList(inputTemp);
+        List<Car> cars = convertStringListToCarsModel(tempCars);
 
         return new Cars(cars);
     }
