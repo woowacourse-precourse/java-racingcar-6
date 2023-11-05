@@ -26,21 +26,19 @@ class Car {
 public class Cars {
     Car[] carList;
 
-    Car[] initCars(){
-        System.out.println(Constants.carsStr);
-        String names = Console.readLine();
+    Car[] initCars(String names){
 
         Validation.validNames(names);
         int cntComma = names.split(",").length;
-        String[] arrname = names.split(",");
+        String[] arrName = names.split(",");
         Car[] cars = new Car[cntComma];
         for (int i = 0; i < cntComma; i++){
-            cars[i] = new Car(arrname[i], "");
+            cars[i] = new Car(arrName[i], "");
         }
         return cars;
     }
 
-    Cars(){
-        this.carList = initCars();
+    Cars(String names){
+        this.carList = initCars(names);
     }
 }

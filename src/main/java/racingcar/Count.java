@@ -20,19 +20,8 @@ public class Count {
         return s.charAt(0) - '0';
     }
 
-    private int initCount(String count){
-        Validation.validCount(count);
-
-        return strToInt(count);
-    }
-
-    Count(){
-        System.out.println(Constants.countStr);
-        String count = Console.readLine();
-        this.val = initCount(count);
-    }
-
     Count(String count){
-        this.val = initCount(count);
+        Validation.validCount(count);
+        this.val = strToInt(count);
     }
 }

@@ -56,11 +56,13 @@ public class Racing {
     }
 
     public void run(){
-        Cars cars = new Cars();
-        Count count = new Count();
+        String names = userInput.inputNames();
+        String number = userInput.inputNumber();
         ArrayList<String> winners;
         int maxMove;
 
+        Cars cars = new Cars(names);
+        Count count = new Count(number);
         race(cars.carList, count.val);
         maxMove = getMaxMove(cars.carList);
         winners = getWinners(cars.carList, maxMove);
