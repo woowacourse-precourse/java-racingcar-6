@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.*;
 import static racingcar.controller.RacingController.*;
+import static racingcar.utils.StringUtils.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
 import racingcar.utils.StringUtils;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -202,7 +204,7 @@ class RacingControllerTest {
         racingController.playRacing(carList, totalRound);
 
         String result = outputStreamCaptor.toString();
-        int count = StringUtils.countOccurrences(result, "A");
+        int count = countOccurrences(result, "A");
 
         // then
         assertThat(result).contains("실행 결과");
@@ -277,6 +279,36 @@ class RacingControllerTest {
 
         // then
         assertThat(result).isEqualTo("최종 우승자 : A,B,C");
+    }
+
+    @Test
+    @DisplayName("기능18 테스트 : play 메서드를 실행하면 경주가 제대로 진행되고 경주 결과가 제대로 출력된다.")
+    void playShouldPlayRacingGameAndPrintRacingResult() {
+        // given
+        System.setIn(createUserInput("A,B,C\n3"));
+        racingController.play();
+
+        // when
+        String result = outputStreamCaptor.toString();
+
+        // then
+        assertThat(result).contains("실행 결과", "최종 우승자 : ");
+    }
+
+    @Test
+    @DisplayName("기능18 테스트 : play 메서드를 실행하면 경주가 사용자가 입력한 값 만큼 진행된다.")
+    void playShouldPlayRoundExactlyTotalRound() {
+        // given
+        System.setIn(createUserInput("A\n5"));
+        racingController.play();
+
+        // when
+        String result = outputStreamCaptor.toString();
+        int count = countOccurrences(result, "A");
+
+        // then
+        assertThat(result).contains("실행 결과", "최종 우승자 : ");
+        assertThat(count).isEqualTo(5+1);
     }
 
 
