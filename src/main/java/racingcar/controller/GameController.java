@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.domain.Race;
-import racingcar.domain.car.Car;
 import racingcar.util.InputUtil;
 import racingcar.util.RandomUtil;
 import racingcar.validator.CarNameValidator;
