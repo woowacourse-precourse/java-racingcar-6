@@ -23,11 +23,11 @@
 
     ✅ 기능8. 경기에 출전하는 자동차의 이름을 등록한다. ➡ registerPlayer()
 
-        ✅ 기능9. 유저의 입력을 쉼표 기준으로 분리한다. ➡ userInputToCarArray()
+        ✅ 기능9. 유저의 입력을 쉼표 기준으로 분리한다. ➡ userInputToStringCarArray()
 
         ✅ 기능10. 자동차의 이름이 6글자 이상이면 에러를 발생시킨다. ➡ validateCarName()
 
-        ✅ 기능12. 사용자 입력값을 자동차 리스트로 변환한다. ➡ userInputToCarList()
+        ✅ 기능12. 사용자 입력값을 자동차 리스트로 변환한다. ➡ stringCarArrayToCarList()
 
     ✅ 기능13. 경주의 전체 라운드 수를 등록한다. ➡ registerRound()
 

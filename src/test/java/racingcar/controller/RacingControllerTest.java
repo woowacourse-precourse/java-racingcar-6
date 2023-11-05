@@ -24,7 +24,7 @@ class RacingControllerTest {
         String userInput = "A";
 
         // when
-        String[] carArray = racingController.userInputToCarArray(userInput);
+        String[] carArray = racingController.userInputToStringCarArray(userInput);
 
         // then
         assertThat(carArray).isEqualTo(new String[]{"A"});
@@ -37,7 +37,7 @@ class RacingControllerTest {
         String userInput = "A,B";
 
         // when
-        String[] carArray = racingController.userInputToCarArray(userInput);
+        String[] carArray = racingController.userInputToStringCarArray(userInput);
 
         // then
         assertThat(carArray).isEqualTo(new String[]{"A", "B"});
