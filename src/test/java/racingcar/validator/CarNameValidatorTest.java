@@ -2,7 +2,6 @@ package racingcar.validator;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,14 +41,38 @@ class CarNameValidatorTest {
     @DisplayName("리스트가 중복된 원소를 가지고 있다면 예외를 반환한다.")
     void validateDuplicateForList() {
         // given
-        List<Car> cars = new ArrayList<>();
-        cars.add(new Car("name1"));
-        cars.add(new Car("name1"));
-        cars.add(new Car("name3"));
+        List<String> carNames = new ArrayList<>();
+        carNames.add("name1");
+        carNames.add("name1");
+        carNames.add("name3");
 
         // when, then
-        assertThatThrownBy(() -> CarNameValidator.validateDuplicateForList(cars))
+        assertThatThrownBy(() -> CarNameValidator.validateDuplicateForList(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(VALIDATE_DUPLICATE_FOR_LIST.getMessage());
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 빈 문자열일 경우 예외를 반환한다.")
+    void validateEmpty() {
+        // given
+        String input = "";
+
+        // when, then
+        assertThatThrownBy(() -> CarNameValidator.validateForEachName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(VALIDATE_EMPTY_FOR_EACH_NAME.getMessage());
+    }
+
+    @Test
+    @DisplayName("이름의 길이가 기준값 초과일 경우 예외를 반환한다.")
+    void validateLength() {
+        // given
+        String input = "holyPigeon";
+
+        // when, then
+        assertThatThrownBy(() -> CarNameValidator.validateForEachName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(String.format(VALIDATE_LENGTH_FOR_EACH_NAME.getMessage(), NAME_LENGTH_CONDITION.getNumber()));
     }
 }
