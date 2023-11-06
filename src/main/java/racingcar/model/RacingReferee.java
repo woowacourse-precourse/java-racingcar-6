@@ -1,24 +1,15 @@
 package racingcar.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.view.ScoreBoard;
 
 public class RacingReferee {
 
     private RacingReferee() {
     }
 
-    public static void printWinnersName(List<RacingCar> racingCars) {
+    public static Winners getWinners(List<RacingCar> racingCars) {
         final int winnerPosition = getWinnerPosition(racingCars);
-        ScoreBoard.displayWinnerNames(getWinnersName(racingCars, winnerPosition));
-    }
-
-    private static String getWinnersName(List<RacingCar> racingCars, int winnerPosition) {
-        return racingCars.stream()
-            .filter(racingCar -> racingCar.getPosition() == winnerPosition)
-            .map(RacingCar::getName)
-            .collect(Collectors.joining(", "));
+        return new Winners(getWinners(racingCars, winnerPosition));
     }
 
     private static int getWinnerPosition(List<RacingCar> racingCars) {
@@ -26,5 +17,12 @@ public class RacingReferee {
             .mapToInt(RacingCar::getPosition)
             .max()
             .orElse(0);
+    }
+
+    private static List<String> getWinners(List<RacingCar> racingCars, int winnerPosition) {
+        return racingCars.stream()
+            .filter(racingCar -> racingCar.getPosition() == winnerPosition)
+            .map(RacingCar::getName)
+            .toList();
     }
 }

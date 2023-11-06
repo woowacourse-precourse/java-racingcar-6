@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 import racingcar.model.CarFactory;
+import racingcar.model.Winners;
 import racingcar.model.movingstrategy.RacingCarMovingStrategy;
 import racingcar.model.RacingCars;
 import racingcar.model.movingstrategy.RandomRacingCarMovingStrategy;
@@ -54,6 +55,12 @@ public class CarRacingGameMachine {
             racingCars.race();
             racingCars.printCarsPosition();
         }
-        racingCars.printWinnersName();
+
+        displayWinners(racingCars);
+    }
+
+    private void displayWinners(RacingCars racingCars) {
+        Winners winners = racingCars.getWinners();
+        ScoreBoard.displayWinners(winners.winners());
     }
 }

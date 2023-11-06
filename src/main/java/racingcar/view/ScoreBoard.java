@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class ScoreBoard {
 
     private static final String GAME_PROGRESS_MESSAGE = "실행 결과";
@@ -18,7 +20,11 @@ public class ScoreBoard {
         System.out.println();
     }
 
-    public static void displayWinnerNames(String winnerNames) {
-        System.out.println(WINNER_MESSAGE_PREFIX + winnerNames);
+    public static void displayWinners(List<String> winners) {
+        System.out.println(WINNER_MESSAGE_PREFIX + joinWinners(winners));
+    }
+
+    private static String joinWinners(List<String> winners) {
+        return String.join(", ", winners);
     }
 }
