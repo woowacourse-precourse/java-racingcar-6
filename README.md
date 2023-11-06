@@ -55,5 +55,8 @@
 - [ ] 한 함수가 한가지 기능만 담당하게 하기
 - [ ] 작은 단위의 테스트 작성하기
 
-## 🚨 발견한 문제점
-- [ ] enter 메소드 테스트 시 메소드 내부에서 호출하는 생성자로 테스트하는 것이 어색하다고 느껴짐 
+## 📜 클래스 다이어그램
+
+<img src="https://github.com/dsadara/java-racingcar-6/assets/22488593/0f5013be-3e77-4453-87fd-274491b2a5f1" width="65%" height="65%"/>
+
+## 🪞 [2주차 미션 회고 링크](https://milkyway2722.tistory.com/15)
