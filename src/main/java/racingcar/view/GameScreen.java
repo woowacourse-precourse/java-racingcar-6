@@ -3,12 +3,12 @@ package racingcar.view;
 import java.util.List;
 import racingcar.model.CarPosition;
 
-public class ScoreBoard {
+public class GameScreen {
 
     private static final String GAME_PROGRESS_MESSAGE = "실행 결과";
     private static final String WINNER_MESSAGE_PREFIX = "최종 우승자 : ";
 
-    private ScoreBoard() {
+    private GameScreen() {
     }
 
     public static void displayGameProgressMessage() {

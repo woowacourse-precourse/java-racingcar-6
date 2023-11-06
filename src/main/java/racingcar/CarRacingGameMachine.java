@@ -9,7 +9,7 @@ import racingcar.model.movingstrategy.RandomRacingCarMovingStrategy;
 import racingcar.util.NamesInputConverter;
 import racingcar.util.NumberInputConverter;
 import racingcar.view.InputView;
-import racingcar.view.ScoreBoard;
+import racingcar.view.GameScreen;
 
 public class CarRacingGameMachine {
 
@@ -50,10 +50,10 @@ public class CarRacingGameMachine {
 
 
     private void race(RacingCars racingCars, int gameCount) {
-        ScoreBoard.displayGameProgressMessage();
+        GameScreen.displayGameProgressMessage();
         while (gameCount-- > 0) {
             racingCars.race();
-            ScoreBoard.displayCurrentRacingCarsPosition(racingCars.getCarCurrentPositions());
+            GameScreen.displayCurrentRacingCarsPosition(racingCars.getCarCurrentPositions());
         }
 
         displayWinners(racingCars);
@@ -61,6 +61,6 @@ public class CarRacingGameMachine {
 
     private void displayWinners(RacingCars racingCars) {
         Winners winners = racingCars.getWinners();
-        ScoreBoard.displayWinners(winners.winners());
+        GameScreen.displayWinners(winners.winners());
     }
 }
