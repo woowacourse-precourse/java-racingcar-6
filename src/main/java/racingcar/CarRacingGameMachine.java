@@ -13,11 +13,19 @@ import racingcar.view.GameScreen;
 
 public class CarRacingGameMachine {
 
+    private final InputView inputView;
+    private final GameScreen gameScreen;
+
     private final static int CAR_NAME_LENGTH_LIMIT = 5;
+
+    public CarRacingGameMachine(InputView inputView, GameScreen gameScreen) {
+        this.inputView = inputView;
+        this.gameScreen = gameScreen;
+    }
 
     public void start() {
         RacingCars racingCars = getRacingCars();
-        int gameCount = NumberInputConverter.convert(InputView.requestPlayCountInput());
+        int gameCount = NumberInputConverter.convert(inputView.requestPlayCountInput());
 
         race(racingCars, gameCount);
     }
@@ -28,7 +36,7 @@ public class CarRacingGameMachine {
     }
 
     private List<String> getCarNames() {
-        String carNamesInput = InputView.requestCarNamesInput();
+        String carNamesInput = inputView.requestCarNamesInput();
         return NamesInputConverter.convertToNames(carNamesInput)
             .stream()
             .peek(this::validateNamesEqualOrLessThanLengthLimit)
@@ -50,10 +58,10 @@ public class CarRacingGameMachine {
 
 
     private void race(RacingCars racingCars, int gameCount) {
-        GameScreen.displayGameProgressMessage();
+        gameScreen.displayGameProgressMessage();
         while (gameCount-- > 0) {
             racingCars.race();
-            GameScreen.displayCurrentRacingCarsPosition(racingCars.getCarCurrentPositions());
+            gameScreen.displayCurrentRacingCarsPosition(racingCars.getCarCurrentPositions());
         }
 
         displayWinners(racingCars);
@@ -61,6 +69,6 @@ public class CarRacingGameMachine {
 
     private void displayWinners(RacingCars racingCars) {
         Winners winners = racingCars.getWinners();
-        GameScreen.displayWinners(winners.winners());
+        gameScreen.displayWinners(winners.winners());
     }
 }
