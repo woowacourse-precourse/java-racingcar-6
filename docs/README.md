@@ -30,7 +30,7 @@
   - 만약 다음과 같은 상황에서는 예외가 발생한다.
     - 5자를 초과하면 `IllegalArgumentException` 예외가 발생한다.
     - 음수를 입력하면 `IllegalArgumentException` 예외가 발생한다.
-    - BigInteger 의 범위를 넘어가는 수를 입력하면 `NumberFormatException` 예외가 발샌한다.
+    - BigInteger 의 범위를 넘어가는 수를 입력하면 `NumberFormatException` 예외가 발생한다.
 
 ### 자동차
 - 0에서 9사이에서 임의의 숫자를 무작위로 선택할 수 있다.
