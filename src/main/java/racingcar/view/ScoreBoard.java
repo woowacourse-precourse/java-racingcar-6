@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.model.CarPosition;
 
 public class ScoreBoard {
 
@@ -15,8 +16,11 @@ public class ScoreBoard {
         System.out.println(GAME_PROGRESS_MESSAGE);
     }
 
-    public static void displayCurrentRacingCarsPosition(String currentRacingPosition) {
-        System.out.println(currentRacingPosition);
+    public static void displayCurrentRacingCarsPosition(List<CarPosition> currentRacingCarPositions) {
+        String currentRacingCarsPosition = RacingCarsPositionStringBuilder
+            .buildCurrentRacingCarsPosition(currentRacingCarPositions);
+
+        System.out.println(currentRacingCarsPosition);
         System.out.println();
     }
 

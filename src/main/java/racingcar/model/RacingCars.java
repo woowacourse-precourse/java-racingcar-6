@@ -14,11 +14,17 @@ public class RacingCars {
         racingCars.forEach(RacingCar::race);
     }
 
-    public void printCarsPosition() {
-        RacingCarsCurrentPositionDisplay.displayCurrentRacingCarsPosition(List.copyOf(racingCars));
+    public List<CarPosition> getCarCurrentPositions() {
+        return racingCars.stream()
+            .map(this::getCarPosition)
+            .toList();
     }
 
     public Winners getWinners() {
         return RacingReferee.getWinners(List.copyOf(racingCars));
+    }
+
+    private CarPosition getCarPosition(RacingCar racingCar) {
+        return new CarPosition(racingCar.getName(), racingCar.getPosition());
     }
 }

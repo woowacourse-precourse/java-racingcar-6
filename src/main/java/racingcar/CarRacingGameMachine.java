@@ -2,9 +2,9 @@ package racingcar;
 
 import java.util.List;
 import racingcar.model.CarFactory;
+import racingcar.model.RacingCars;
 import racingcar.model.Winners;
 import racingcar.model.movingstrategy.RacingCarMovingStrategy;
-import racingcar.model.RacingCars;
 import racingcar.model.movingstrategy.RandomRacingCarMovingStrategy;
 import racingcar.util.NamesInputConverter;
 import racingcar.util.NumberInputConverter;
@@ -53,7 +53,7 @@ public class CarRacingGameMachine {
         ScoreBoard.displayGameProgressMessage();
         while (gameCount-- > 0) {
             racingCars.race();
-            racingCars.printCarsPosition();
+            ScoreBoard.displayCurrentRacingCarsPosition(racingCars.getCarCurrentPositions());
         }
 
         displayWinners(racingCars);
