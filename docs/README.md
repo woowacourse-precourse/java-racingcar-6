@@ -6,7 +6,7 @@
         * 5글자 이하
         * 쉼표로 구분
         * 잘못 입력 시: IllegalArgumentException 발생 후 애플리케이션 종료
-    2) 입력받은 값 Map의 key로 저장, key당 value는 0으로 할당
+    2) 입력받은 값은 List로 저장
 3. 이동 횟수 입력
    1) 입력 유효성 체크
         * 숫자
