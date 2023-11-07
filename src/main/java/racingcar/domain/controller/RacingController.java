@@ -19,15 +19,9 @@ public class RacingController {
         List<Car> cars = racingService.getCars();
         Challenge challenge = ChallengeInputer.getChallenge();
 
-        challengeRace(racingService, cars, challenge);
+        racingService.challengeRace(cars, challenge);
 
         List<Car> winners = InGameReferee.findWinner(cars);
         WinnerPrinter.printWinner(winners);
-    }
-
-    private static void challengeRace(RacingService racingService, List<Car> cars, Challenge challenge) {
-        for (int i = 0; i < challenge.getNumber(); i++) {
-            racingService.getResult(cars);
-        }
     }
 }
