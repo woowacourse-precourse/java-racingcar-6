@@ -10,10 +10,10 @@ public class CarNameValidator {
     private static final int MAXIMUM_NAME = GameConfig.MAXIMUM_NAME;
 
     public static void validate(String name) {
-        maximumName(name);
+        checkMaximumName(name);
     }
 
-    private static void maximumName(String name) {
+    private static void checkMaximumName(String name) {
         if (name.length() > MAXIMUM_NAME) {
             throw new IllegalArgumentException("The name must be less than " + (MAXIMUM_NAME + 1) + " characters.");
         }
