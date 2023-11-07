@@ -1,9 +1,8 @@
 package racingcar.model;
 
 import racingcar.service.ShiftGear;
-
-import static racingcar.type.PlayType.MAX_LENGTH;
-import static racingcar.type.PlayType.MIN_LENGTH;
+import racingcar.validation.CarValidator;
+import racingcar.validation.Validator;
 
 public class Car implements Comparable<Car> {
     private static final String MARK = "-";
@@ -19,6 +18,13 @@ public class Car implements Comparable<Car> {
     public void move() {
         if (ShiftGear.moveForward()){
             currentPosition++;
+        }
+    }
+
+    private void validateName(String value){
+        Validator carValidator = new CarValidator();
+        if(carValidator.support(Car.class)) {
+            carValidator.validate(value);
         }
     }
 
@@ -48,13 +54,13 @@ public class Car implements Comparable<Car> {
         return this.currentPosition - car.currentPosition;
     }
 
-    private void validateName(String name){
-        validateLength(name);
-    }
-
-    private void validateLength(String value){
-        if(MIN_LENGTH.getPlayValue() > value.length() || value.length() > MAX_LENGTH.getPlayValue()){
-            throw new IllegalArgumentException();
-        }
-    }
+//    private void validateName(String name){
+//        validateLength(name);
+//    }
+//
+//    private void validateLength(String value){
+//        if(MIN_LENGTH.getPlayValue() > value.length() || value.length() > MAX_LENGTH.getPlayValue()){
+//            throw new IllegalArgumentException();
+//        }
+//    }
 }
