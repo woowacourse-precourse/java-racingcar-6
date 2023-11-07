@@ -13,18 +13,18 @@ public class Cars {
     private final RandomNumber randomNumber;
 
     public Cars(final List<String> names, final RandomNumber randomNumber) {
-        names.forEach(name -> cars.add(new Car(name)));
         CarNamesValidator.validateCarNames(names);
+        names.forEach(name -> cars.add(new Car(name)));
         this.randomNumber = randomNumber;
     }
 
     public List<CarDto> getCarStatus() {
         return cars.stream()
-                .map(Cars::convertToDto)
+                .map(this::convertToDto)
                 .toList();
     }
 
-    private static CarDto convertToDto(final Car car) {
+    private CarDto convertToDto(final Car car) {
         return new CarDto(car.getName(), car.getPosition());
     }
 
