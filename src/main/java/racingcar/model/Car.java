@@ -2,6 +2,9 @@ package racingcar.model;
 
 import racingcar.service.ShiftGear;
 
+import static racingcar.type.PlayType.MAX_LENGTH;
+import static racingcar.type.PlayType.MIN_LENGTH;
+
 public class Car implements Comparable<Car> {
     private static final String MARK = "-";
     private final String name;
@@ -50,7 +53,7 @@ public class Car implements Comparable<Car> {
     }
 
     private void validateLength(String value){
-        if(value.isEmpty() || value.length() > 5){
+        if(MIN_LENGTH.getPlayValue() > value.length() || value.length() > MAX_LENGTH.getPlayValue()){
             throw new IllegalArgumentException();
         }
     }

@@ -1,8 +1,11 @@
 package racingcar.type;
 
 public enum PlayType {
+    MAX_LENGTH(1),
+    MIN_LENGTH(5),
     MAX_NUM(9),
-    MIN_NUM(0);
+    MIN_NUM(0),
+    MOVING_POSSIBILITY(4);
 
     private final int playValue;
 
