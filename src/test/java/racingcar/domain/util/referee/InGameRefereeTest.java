@@ -23,7 +23,7 @@ class InGameRefereeTest {
         assertThat(큰result).isEqualTo(true);
         assertThat(같은result).isEqualTo(true);
     }
-
+    
     @Test
     public void findWinner_우승_판별() throws Exception {
         Car car1 = new Car("car1");
