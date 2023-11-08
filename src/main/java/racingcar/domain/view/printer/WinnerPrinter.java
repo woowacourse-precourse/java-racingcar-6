@@ -7,6 +7,7 @@ import racingcar.domain.entity.Car;
 
 public class WinnerPrinter {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String ARRAY_WINNER_WITH_COMMA = ", ";
 
     public static void printWinner(List<Car> winCars) {
         String winners = arrangeWinners(winCars);
@@ -14,9 +15,7 @@ public class WinnerPrinter {
     }
 
     private static String arrangeWinners(List<Car> winCars) {
-        Stream<Car> carStream = winCars.stream();
-        Stream<String> stringStream = carStream.map(Car::getName);
-        List<String> strings = stringStream.collect(Collectors.toList());
-        return String.join(", ", strings);
+        List<String> winners = winCars.stream().map(Car::getName).collect(Collectors.toList());
+        return String.join(ARRAY_WINNER_WITH_COMMA, winners);
     }
 }

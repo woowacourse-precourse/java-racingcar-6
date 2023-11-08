@@ -11,10 +11,10 @@ import racingcar.domain.view.printer.IntermediateCoursePrinter;
 import racingcar.domain.util.referee.InGameReferee;
 
 public class RacingService {
-    private void getResult(List<Car> carList) {
-        List<Integer> randomList = RandomNumberGenerator.createListNumber(carList.size());
-        runRacing(carList, randomList);
-        IntermediateCoursePrinter.printResult(carList);
+    private void getResult(List<Car> cars) {
+        List<Integer> randoms = RandomNumberGenerator.createListNumber(cars.size());
+        runRacing(cars, randoms);
+        IntermediateCoursePrinter.printResult(cars);
     }
 
     public List<Car> getCars() {
@@ -31,13 +31,15 @@ public class RacingService {
     /**
      * 생성된 무작위 값이 LOWER_LIMIT 이상이면 전진
      *
-     * @param carList    입력받은 자동차들
-     * @param randomList 생성된 랜덤 숫자들
+     * @param cars    입력받은 자동차들
+     * @param randoms 생성된 랜덤 숫자들
      */
-    private void runRacing(List<Car> carList, List<Integer> randomList) {
-        for (int index = 0; index < carList.size(); index++) {
-            if (InGameReferee.isBiggerLowerLimit(randomList.get(index))) {
-                Car car = carList.get(index);
+    private void runRacing(List<Car> cars, List<Integer> randoms) {
+        for (int index = 0; index < cars
+                .size(); index++) {
+            if (InGameReferee.isBiggerLowerLimit(randoms.get(index))) {
+                Car car = cars
+                        .get(index);
                 car.forward();
             }
         }

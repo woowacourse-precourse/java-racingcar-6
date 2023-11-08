@@ -9,6 +9,7 @@ public class ChallengeInputer {
         IntermediateCoursePrinter.printChallenge();
         String userInput = InputManager.getInput();
         System.out.println();
+        
         return new Challenge(userInput);
     }
 }

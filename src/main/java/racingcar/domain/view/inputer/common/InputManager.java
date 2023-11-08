@@ -9,6 +9,6 @@ public class InputManager {
     }
 
     private static String removeSpace(String input) {
-        return input.replace(" ", "");
+        return input.trim();
     }
 }
