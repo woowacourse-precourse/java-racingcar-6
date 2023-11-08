@@ -15,6 +15,7 @@ public class StringUtils {
         return text.split(",");
     }
 
+    // 스트링 .repeat() 사용하기
     public static String repeatString(String text, int count) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < count; i++) {
@@ -23,6 +24,8 @@ public class StringUtils {
         return result.toString();
     }
 
+    // elements.size() 밖으로 빼기 -> 반복마다 호출
+    // String.join()으로 바꾸기!!
     public static StringBuilder joinWithCommas(List<String> elements) {
         StringBuilder result = new StringBuilder();
 
