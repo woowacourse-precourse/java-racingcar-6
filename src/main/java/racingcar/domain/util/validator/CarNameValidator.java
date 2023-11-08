@@ -8,6 +8,8 @@ import racingcar.domain.entity.Car;
 
 public class CarNameValidator {
     private static final int MAXIMUM_NAME = GameConfig.MAXIMUM_NAME;
+    private static final String NAME_TOO_LONG_ERROR_MESSAGE = "The name must be less than %d characters.";
+    private static final String DUPLICATE_NAME_ERROR_MESSAGE = "Car name duplicate";
 
     public static void validate(String name) {
         checkMaximumName(name);
@@ -15,7 +17,7 @@ public class CarNameValidator {
 
     private static void checkMaximumName(String name) {
         if (name.length() > MAXIMUM_NAME) {
-            throw new IllegalArgumentException("The name must be less than " + (MAXIMUM_NAME + 1) + " characters.");
+            throw new IllegalArgumentException(String.format(NAME_TOO_LONG_ERROR_MESSAGE, (MAXIMUM_NAME + 1)));
         }
     }
 
@@ -23,7 +25,7 @@ public class CarNameValidator {
         Set<Car> uniqueCar = new HashSet<>(cars);
 
         if (cars.size() != uniqueCar.size()) {
-            throw new IllegalArgumentException("Car name duplicate");
+            throw new IllegalArgumentException(DUPLICATE_NAME_ERROR_MESSAGE);
         }
     }
 }
