@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
-
 import racingcar.model.Car;
 import racingcar.repository.CarRepository;
 

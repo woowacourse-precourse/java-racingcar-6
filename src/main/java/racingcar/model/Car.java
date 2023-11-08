@@ -23,6 +23,7 @@ public class Car {
         return carPosition;
     }
 
+    //model에 이런 기능 매서드 넣어도 될까? -> 될것같다고 하심
     public void increaseCarPosition() {
         this.carPosition++;
     }
