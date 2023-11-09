@@ -28,9 +28,9 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    public int getPosition() {
-        return this.position;
-    }
+//    public int getPosition() {
+//        return this.position;
+//    }
 
     public void move(final int randomNumber) {
         if (moveCheck(randomNumber)) {
