@@ -49,6 +49,10 @@ public class Cars {
 //                .toList();
 //    }
 
+    public int sumPosition() {
+        return this.cars.get(0).sumPosition(this.cars);
+    }
+
     // 코드 리팩토링 (getPosition을 쓰지 않고 꺼내오기)
     public Car getMaxPositionCar() {
         /**

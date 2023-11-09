@@ -4,6 +4,8 @@ import racingcar.message.OutputMessage;
 import racingcar.resource.CarGameValue;
 import racingcar.util.LetterUtil;
 
+import java.util.List;
+
 public class Car implements Comparable<Car> {
 
     private final String name;
@@ -31,6 +33,9 @@ public class Car implements Comparable<Car> {
 //    public int getPosition() {
 //        return this.position;
 //    }
+    public int sumPosition(List<Car> cars) {
+        return cars.stream().mapToInt(car -> car.position).sum();
+    }
 
     public void move(final int randomNumber) {
         if (moveCheck(randomNumber)) {

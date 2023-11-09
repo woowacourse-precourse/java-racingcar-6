@@ -39,7 +39,7 @@ public class CarsTest {
 
     @Test
     void 모든_자동차의_초기_position_0_확인() {
-        assertThat(this.cars.getCars().stream().mapToInt(Car::getPosition).sum()).isEqualTo(0);
+        assertThat(this.cars.sumPosition()).isEqualTo(0);
     }
 
     @Test
@@ -51,9 +51,9 @@ public class CarsTest {
             number = number * 2 + 1;
         }
 
-        int maxPosition = this.cars.getMaxPosition();
+        Car maxPositionCar = this.cars.getMaxPositionCar();
 
-        assertThat(maxPosition).isEqualTo(1);
+        assertThat(maxPositionCar).extracting("position").isEqualTo(1);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class CarsTest {
             car.move(this.moveNumber);
         }
 
-        List<String> winners = this.cars.getWinner();
+        List<String> winners = this.cars.getWinnerNames();
 
         assertThat(winners).isEqualTo(List.of("july", "june", "joo"));
     }
@@ -74,7 +74,7 @@ public class CarsTest {
             this.moveNumber = this.moveNumber * 2 + 1;
         }
 
-        List<String> winners = this.cars.getWinner();
+        List<String> winners = this.cars.getWinnerNames();
 
         assertThat(winners.size()).isEqualTo(1);
         assertThat(winners).isEqualTo(List.of("joo"));
