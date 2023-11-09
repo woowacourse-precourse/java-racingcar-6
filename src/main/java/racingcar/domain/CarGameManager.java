@@ -24,6 +24,6 @@ public class CarGameManager {
     }
 
     public void resultWinner(Cars cars) {
-        OutPutView.resultWinnerView(cars.getWinner());
+        OutPutView.resultWinnerView(cars.getWinnerNames());
     }
 }

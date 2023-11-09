@@ -7,6 +7,7 @@ import racingcar.validation.StringValidator;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
@@ -41,20 +42,54 @@ public class Cars {
         );
     }
 
-    public List<String> getWinner() {
+//    public List<String> getWinner() {
+//        return this.cars.stream()
+//                .filter(car -> car.isSamePosition(getMaxPosition()))
+//                .map(Car::getName)
+//                .toList();
+//    }
+
+    // 코드 리팩토링 (getPosition을 쓰지 않고 꺼내오기)
+    public Car getMaxPositionCar() {
+        /**
+         * 해당 표현이 최종 형태
+         */
         return this.cars.stream()
-                .filter(car -> car.isSamePosition(getMaxPosition()))
+                .max(Car::compareTo)
+                .orElseThrow(IllegalAccessError::new);
+        /**
+         * 이렇게 표현도 똑같음
+         */
+//        return this.cars.stream()
+//                .max((car, otherCar) -> car.compareTo(otherCar))
+//                .orElseThrow(IllegalAccessError::new);
+        /**
+         * 이렇게 표현도 똑같음
+         */
+//        Car maxCar = this.cars.get(0);
+//        for (Car car : this.cars) {
+//            if (car.compareTo(maxCar) > 0) {
+//                maxCar = car;
+//            }
+//        }
+//        return maxCar;
+    }
+
+    // 코드 리팩토링
+    public List<String> getWinnerNames() {
+        return this.cars.stream()
+                .filter(car -> car.isSamePosition(getMaxPositionCar()))
                 .map(Car::getName)
                 .toList();
     }
 
-    public int getMaxPosition() {
-        return Collections.max(getPositions());
-    }
-
-    public List<Integer> getPositions() {
-        return this.cars.stream().map(Car::getPosition).toList();
-    }
+//    public int getMaxPosition() {
+//        return Collections.max(getPositions());
+//    }
+//
+//    public List<Integer> getPositions() {
+//        return this.cars.stream().map(Car::getPosition).toList();
+//    }
 
     public List<Car> getCars() {
         return this.cars;

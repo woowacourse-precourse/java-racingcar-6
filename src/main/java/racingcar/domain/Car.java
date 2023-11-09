@@ -4,7 +4,7 @@ import racingcar.message.OutputMessage;
 import racingcar.resource.CarGameValue;
 import racingcar.util.LetterUtil;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private final String name;
     private int position;
@@ -15,11 +15,17 @@ public class Car {
 
     public Car(String name, int position) {
         this.name = name;
-        this.position =position;
+        this.position = position;
     }
 
     public String getName() {
         return this.name;
+    }
+
+    public void isSixLengthName() {
+        if (this.name.length() != 6) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public int getPosition() {
@@ -36,8 +42,18 @@ public class Car {
         return this.name + " : " + LetterUtil.sameLetterPaste(OutputMessage.RACE.getValue(), this.position);
     }
 
-    public boolean isSamePosition(int winnerPosition) {
-        return this.position == winnerPosition;
+//    public boolean isSamePosition(int winnerPosition) {
+//        return this.position == winnerPosition;
+//    }
+
+    // 코드 리팩토링
+    public boolean isSamePosition(Car other) {
+        return this.position == other.position;
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.position - other.position;
     }
 
     private boolean moveCheck(final int randomNumber) {
