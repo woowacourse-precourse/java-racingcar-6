@@ -11,15 +11,14 @@ public class OutputView {
     }
 
     public static void printRoundResult(List<Car> roundResult) {
-        System.out.println();
         for (Car car : roundResult) {
             System.out.println(car.toString());
         }
+        System.out.println();
     }
 
     public static void printWinner(List<String> winnerList) {
         String finalResult = makeFinalWinnerOutputStatement(winnerList);
-        System.out.println();
         System.out.print(finalResult);
     }
 
