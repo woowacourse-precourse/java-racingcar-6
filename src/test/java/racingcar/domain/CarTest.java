@@ -33,7 +33,7 @@ class CarTest {
         // given
         Car car = new Car("A", 0);
         // when
-        String result = car.getStatus();
+        String result = car.toString();
         // then
         assertThat(result).isEqualTo("A : ");
     }
@@ -43,7 +43,7 @@ class CarTest {
         // given
         Car car = new Car("A", 1);
         // when
-        String result = car.getStatus();
+        String result = car.toString();
         // then
         assertThat(result).isEqualTo("A : -");
     }
@@ -53,7 +53,7 @@ class CarTest {
         // given
         Car car = new Car("A", 2);
         // when
-        String result = car.getStatus();
+        String result = car.toString();
         // then
         assertThat(result).isEqualTo("A : --");
     }

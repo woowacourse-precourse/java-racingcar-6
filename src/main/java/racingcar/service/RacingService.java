@@ -16,7 +16,7 @@ public class RacingService {
         for (Car car : carList) {
             int randomNumber = Randoms.pickNumberInRange(0, 10);
             car.move(randomNumber);
-            result.add(car.getStatus());
+            result.add(car.toString());
         }
 
         return result;

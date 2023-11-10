@@ -34,7 +34,8 @@ public class Car {
         }
     }
 
-    public String getStatus() {
+    @Override
+    public String toString() {
         return this.name +
                 " : " +
                 "-".repeat(this.movingDistance);
