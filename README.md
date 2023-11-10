@@ -37,7 +37,8 @@
 💼 Model : 비즈니스 로직을 담당
 ```
 domain
-    ㄴ Car : 개별 차량과 관련된 비즈니스 로직을 담당    
+    ㄴ Car : 개별 차량과 관련된 비즈니스 로직을 담당 
+       
 service
     ㄴ RacingService : 자동차 경주를 진행할 때 필요한 비즈니스 로직을 담당
 ```
@@ -49,6 +50,7 @@ service
 ```
 view
     ㄴ InputView : 사용자가 입력한 값을 가져오는 역할을 담당
+    
     ㄴ OutputView : 사용자에게 결과물을 보여주는 역할을 담당
 ```
 
@@ -80,21 +82,17 @@ utils
 
     ✏️ 기능1. 랜덤 값에 따라 자동차를 한 칸 전진한다. ➡ move()
 
-    ✏️ 기능2. 특정 자동차의 이름과 이동거리를 반환한다. ➡ getStatus()
+    ✏️ 기능2. 특정 자동차의 이름과 이동거리를 반환한다. ➡ toString()
 
 <br>
 
 📕 service.RacingService :
 
-    ✏️ 기능4. 전체 라운드를 진행한다. ➡ playAllRounds()
-    
-        ✏️ 기능3. 현재 라운드를 진행한다. ➡ playRound()
+    ✏️ 기능3. 현재 라운드를 진행한다. ➡ playRound()
 
-    ✏️ 기능7. 최종 결과를 반환한다. ➡ makeFinalResult()
+    ✏️ 기능6. 우승자들을 찾는다. ➡ generateWinnerList()
 
-        ✏️ 기능6. 우승자들을 찾는다. ➡ generateWinnerList()
-
-            ✏️ 기능5. 경기가 끝났을 때, 가장 많이 이동한 자동차의 이동거리를 찾는다. ➡ getMaxMovingDistance()
+        ✏️ 기능5. 경기가 끝났을 때, 가장 많이 이동한 자동차의 이동거리를 찾는다. ➡ getMaxMovingDistance()
 
 <br>
 
@@ -102,7 +100,7 @@ utils
 
     ✏️ 기능18. 경기 흐름을 제어한다. ➡ play()
 
-        ✏️ 기능8. 경기에 출전하는 자동차의 이름을 등록한다. ➡ registerPlayer()
+        ✏️ 기능8. 경주에 출전하는 자동차의 이름을 등록한다. ➡ registerPlayer()
     
             ✏️ 기능9. 유저의 입력을 쉼표 기준으로 분리한다. ➡ userInputToStringCarArray()
     
@@ -122,9 +120,21 @@ utils
 
 <br>
 
-📕 utils.StringUtils :
+📕 view.InputView :
 
-    ✏️ 기능19. 문자열에서 특정 문자열이 몇 번 등장하는지 세어준다. ➡ countOccurrences()
+    ✏️ 기능11. 경주에 출전하는 차량 목록을 유저로 부터 입력받는다.  ➡ readPlayer()
+    
+    ✏️ 기능19. 경주의 전체 라운드 수를 유저로 부터 입력받는다.  ➡ readTotalRound()
+
+<br>
+
+📕 view.OutputView :
+
+	✏️ 기능4. 현재 라운드의 결과를 출력한다. ➡ printRoundResult()
+
+	✏️ 기능7. 최종 결과를 출력한다. ➡ printWinner()
+
+		✏️ 기능20. 최종 결과 문구를 만든다. ➡ makeFinalWinnerOutputStatement()
 
 
 <br><br><br>
