@@ -1,9 +1,8 @@
 package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.controller.RacingController.NOT_A_INTEGER_NUMBER_ERROR_MESSAGE;
-import static racingcar.controller.RacingController.WRONG_CAR_NAME_ERROR_MESSAGE;
 import static racingcar.utils.StringUtils.countOccurrences;
+import static racingcar.view.ErrorMessage.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
@@ -86,7 +85,7 @@ class RacingControllerTest {
         // when, then
         assertThatThrownBy(() -> racingController.validateCarNames(stringCarArray))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(WRONG_CAR_NAME_ERROR_MESSAGE);
+                .hasMessageContaining(WRONG_CAR_NAME_ERROR_MESSAGE.getErrorMessage());
     }
 
     @Test
@@ -133,7 +132,7 @@ class RacingControllerTest {
         // when, then
         assertThatThrownBy(() -> racingController.registerPlayer())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(WRONG_CAR_NAME_ERROR_MESSAGE);
+                .hasMessageContaining(WRONG_CAR_NAME_ERROR_MESSAGE.getErrorMessage());
     }
 
     @Test
@@ -157,7 +156,7 @@ class RacingControllerTest {
         // when, then
         assertThatThrownBy(() -> racingController.userInputToInt(userInput))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE);
+                .hasMessageContaining(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE.getErrorMessage());
     }
 
     @Test
@@ -179,7 +178,7 @@ class RacingControllerTest {
         // when, then
         assertThatThrownBy(() -> racingController.registerTotalRound())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE);
+                .hasMessageContaining(NOT_A_INTEGER_NUMBER_ERROR_MESSAGE.getErrorMessage());
     }
 
     @Test
