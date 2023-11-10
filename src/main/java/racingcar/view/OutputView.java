@@ -2,21 +2,24 @@ package racingcar.view;
 
 import static racingcar.view.OutputMessage.*;
 
+import racingcar.domain.Car;
 import java.util.List;
 
 public class OutputView {
-    public static void printResult(List<String> resultList) {
-        for (String result : resultList) {
-            System.out.println(result);
-        }
+    public static void printPlayResult() {
+        System.out.println(PLAY_RESULT.getOutputMessage());
     }
 
-    public static void printResult(String result) {
-        System.out.print(result);
+    public static void printRoundResult(List<Car> roundResult) {
+        System.out.println();
+        for (Car car : roundResult) {
+            System.out.println(car.toString());
+        }
     }
 
     public static void printWinner(List<String> winnerList) {
         String finalResult = makeFinalWinnerOutputStatement(winnerList);
+        System.out.println();
         System.out.print(finalResult);
     }
 

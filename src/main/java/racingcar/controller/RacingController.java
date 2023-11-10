@@ -17,7 +17,6 @@ public class RacingController {
         this.racingService = new RacingService();
     }
 
-
     public List<Car> registerPlayer() {
         String userInput = readPlayer();
         String[] stringCarArray = userInputToStringCarArray(userInput);
@@ -33,12 +32,12 @@ public class RacingController {
     }
 
     public void playRacing(List<Car> carList, int totalRound) {
-        List<String> result = new ArrayList<>();
+        printPlayResult();
 
-        result.add(PLAY_RESULT.getOutputMessage());
-        result.addAll(racingService.playAllRounds(carList, totalRound));
-
-        printResult(result);
+        for (int round = 0; round < totalRound; round++) {
+            racingService.playRound(carList);
+            printRoundResult(carList);
+        }
     }
 
     public void announceWinner(List<Car> carList) {

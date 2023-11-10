@@ -29,11 +29,11 @@ class RacingServiceTest {
         carList.add(new Car("C", 0));
 
         // when
-        List<String> result = racingService.playRound(carList);
+        List<Car> rondResult = racingService.playRound(carList);
 
         // then
-        assertThat(result).hasSize(3);
-        assertThat(result.toString())
+        assertThat(rondResult).hasSize(3);
+        assertThat(rondResult.toString())
                 .containsOnlyOnce("A")
                 .containsOnlyOnce("B")
                 .containsOnlyOnce("C");
@@ -50,37 +50,11 @@ class RacingServiceTest {
         carList.add(new Car("C", 0));
 
         // when
-        List<String> result = racingService.playRound(carList);
+        List<Car> rondResult = racingService.playRound(carList);
 
         // then
-        assertThat(result.toString())
+        assertThat(rondResult.toString())
                 .containsSubsequence("A", "B", "C");
-    }
-
-
-    @Test
-    @DisplayName("기능4 테스트: playAllRounds 메서드 실제로 전체 라운드를 진행하는지 확인한다.")
-    void playAllRoundsShouldInvokePlayRoundAsManyAsTotalRound() {
-        // given
-        List<Car> carList = new ArrayList<>();
-
-        carList.add(new Car("A", 0));
-        carList.add(new Car("B", 0));
-        carList.add(new Car("C", 0));
-
-        int totalCount = 5;
-
-        // when
-        String result = racingService.playAllRounds(carList, totalCount).toString();
-
-        int countCarName1 = StringUtils.countOccurrences(result, "A");
-        int countCarName2 = StringUtils.countOccurrences(result, "B");
-        int countCarName3 = StringUtils.countOccurrences(result, "C");
-
-        // then
-        assertThat(countCarName1).isEqualTo(totalCount);
-        assertThat(countCarName2).isEqualTo(totalCount);
-        assertThat(countCarName3).isEqualTo(totalCount);
     }
 
     @Test

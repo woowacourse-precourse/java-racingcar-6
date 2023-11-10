@@ -229,7 +229,7 @@ class RacingControllerTest {
         System.out.println(result);
 
         // then
-        assertThat(result).isEqualTo("최종 우승자 : C");
+        assertThat(result).contains("최종 우승자 : C");
     }
 
     @Test
@@ -253,7 +253,7 @@ class RacingControllerTest {
         System.out.println(result);
 
         // then
-        assertThat(result).isEqualTo("최종 우승자 : B,C");
+        assertThat(result).contains("최종 우승자 : B,C");
     }
 
     @Test
@@ -275,7 +275,7 @@ class RacingControllerTest {
         String result = outputStreamCaptor.toString();
 
         // then
-        assertThat(result).isEqualTo("최종 우승자 : A,B,C");
+        assertThat(result).contains("최종 우승자 : A,B,C");
     }
 
     @Test

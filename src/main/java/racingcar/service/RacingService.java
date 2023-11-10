@@ -6,28 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingService {
-    public List<String> playRound(List<Car> carList) {
-        List<String> result = new ArrayList<>();
-
+    public List<Car> playRound(List<Car> carList) {
         for (Car car : carList) {
             int randomNumber = Randoms.pickNumberInRange(0, 10);
             car.move(randomNumber);
-            result.add(car.toString());
         }
 
-        return result;
-    }
-
-    public List<String> playAllRounds(List<Car> carList, int totalRound) {
-        List<String> result = new ArrayList<>();
-
-        for (int round = 0; round < totalRound; round++) {
-            List<String> roundResult = playRound(carList);
-            roundResult.add("");
-            result.addAll(roundResult);
-        }
-
-        return result;
+        return carList;
     }
 
     public int getMaxMovingDistance(List<Car> carList) {
