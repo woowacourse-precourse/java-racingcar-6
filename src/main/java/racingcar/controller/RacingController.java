@@ -55,7 +55,7 @@ public class RacingController {
     }
 
     public String[] userInputToStringCarArray(String userInput) {
-        return userInput.split(",");
+        return userInput.replace(" ","").split(",");
     }
 
     public int userInputToInt(String userInput) {
