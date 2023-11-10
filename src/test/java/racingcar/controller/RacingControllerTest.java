@@ -302,6 +302,7 @@ class RacingControllerTest {
         // when
         String result = outputStreamCaptor.toString();
         int count = countOccurrences(result, "A");
+        System.out.println(result);
 
         // then
         assertThat(result).contains("실행 결과", "최종 우승자 : ");

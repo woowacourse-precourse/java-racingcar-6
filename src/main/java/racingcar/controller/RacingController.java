@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import static racingcar.view.ErrorMessage.*;
-import static racingcar.view.InputMessage.*;
 import static racingcar.view.InputView.*;
 import static racingcar.view.OutputView.*;
 
@@ -21,7 +20,7 @@ public class RacingController {
 
 
     public List<Car> registerPlayer() {
-        String userInput = readInput(CAR_NAME_INPUT.getInputMessage());
+        String userInput = readPlayer();
         String[] stringCarArray = userInputToStringCarArray(userInput);
 
         validateCarNames(stringCarArray);
@@ -30,7 +29,7 @@ public class RacingController {
     }
 
     public int registerTotalRound() {
-        String userInput = readInput(HOW_MANY_ROUND_INPUT.getInputMessage());
+        String userInput = readTotalRound();
         return userInputToInt(userInput);
     }
 
