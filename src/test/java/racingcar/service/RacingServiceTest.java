@@ -191,56 +191,5 @@ class RacingServiceTest {
                 .containsExactly("A", "B", "C");
     }
 
-    @Test
-    @DisplayName("기능7 테스트: 우승자가 한 명일 때 makeFinalResult가 최종 결과를 제대로 반환한다.")
-    void makeFinalResultWhenWinnerIsOne() {
-        // given
-        List<Car> carList = new ArrayList<>();
 
-        carList.add(new Car("A", 1));
-        carList.add(new Car("B", 2));
-        carList.add(new Car("C", 3));
-
-        // when
-        String result = racingService.makeFinalResult(carList);
-
-        // then
-        assertThat(result).isEqualTo("최종 우승자 : " + "C");
-    }
-
-    @Test
-    @DisplayName("기능7 테스트: 우승자가 두 명일 때 makeFinalResult가 최종 결과를 제대로 반환한다.")
-    void makeFinalResultWhenWinnerIsTwo() {
-        // given
-        List<Car> carList = new ArrayList<>();
-
-        carList.add(new Car("A", 1));
-        carList.add(new Car("B", 3));
-        carList.add(new Car("C", 3));
-
-        // when
-        String result = racingService.makeFinalResult(carList);
-
-        // then
-        assertThat(result)
-                .isEqualTo("최종 우승자 : " + "B" + "," + "C");
-    }
-
-    @Test
-    @DisplayName("기능7 테스트: 우승자가 세 명일 때 makeFinalResult가 최종 결과를 제대로 반환한다.")
-    void makeFinalResultWhenWinnerIsThree() {
-        // given
-        List<Car> carList = new ArrayList<>();
-
-        carList.add(new Car("A", 3));
-        carList.add(new Car("B", 3));
-        carList.add(new Car("C", 3));
-
-        // when
-        String result = racingService.makeFinalResult(carList);
-
-        // then
-        assertThat(result)
-                .isEqualTo("최종 우승자 : " + "A" + "," + "B" + "," + "C");
-    }
 }

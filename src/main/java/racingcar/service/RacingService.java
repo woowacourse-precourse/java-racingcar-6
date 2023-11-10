@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingService {
-    private final String FINAL_RESULT = "최종 우승자 : ";
-    private final String WHITE_SPACE = "";
-    private final String COMMA = ",";
-
     public List<String> playRound(List<Car> carList) {
         List<String> result = new ArrayList<>();
 
@@ -27,7 +23,7 @@ public class RacingService {
 
         for (int round = 0; round < totalRound; round++) {
             List<String> roundResult = playRound(carList);
-            roundResult.add(WHITE_SPACE);
+            roundResult.add("");
             result.addAll(roundResult);
         }
 
@@ -61,19 +57,4 @@ public class RacingService {
 
         return winnerList;
     }
-
-    public String makeFinalResult(List<Car> carList) {
-        StringBuilder result = new StringBuilder();
-
-        result.append(FINAL_RESULT);
-
-        List<String> winnerList = generateWinnerList(carList);
-        String winners = String.join(COMMA, winnerList);
-
-        result.append(winners);
-
-        return result.toString();
-    }
-
-
 }

@@ -1,7 +1,8 @@
 package racingcar.view;
 
 public enum OutputMessage {
-    PLAY_RESULT("실행 결과");
+    PLAY_RESULT("실행 결과"),
+    FINAL_RESULT("최종 우승자 : ");
 
 
 

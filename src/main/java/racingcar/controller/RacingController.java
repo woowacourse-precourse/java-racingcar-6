@@ -2,12 +2,11 @@ package racingcar.controller;
 
 import static racingcar.view.ErrorMessage.*;
 import static racingcar.view.InputView.*;
+import static racingcar.view.OutputMessage.*;
 import static racingcar.view.OutputView.*;
 
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
-import racingcar.view.OutputMessage;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,15 +35,15 @@ public class RacingController {
     public void playRacing(List<Car> carList, int totalRound) {
         List<String> result = new ArrayList<>();
 
-        result.add(OutputMessage.PLAY_RESULT.getOutputMessage());
+        result.add(PLAY_RESULT.getOutputMessage());
         result.addAll(racingService.playAllRounds(carList, totalRound));
 
         printResult(result);
     }
 
     public void announceWinner(List<Car> carList) {
-        String result = racingService.makeFinalResult(carList);
-        printResult(result);
+        List<String> winnerList = racingService.generateWinnerList(carList);
+        printWinner(winnerList);
     }
 
     public void play() {
