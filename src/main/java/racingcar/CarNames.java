@@ -15,28 +15,19 @@ public class CarNames {
         List<String> splitCarNames = new ArrayList<>();
         String nowCarNames = rawCarNames;
 
-        if (rawCarNames.contains(",")) {
-
-
-            while (nowCarNames.contains(",")) {
-                int index = nowCarNames.indexOf(",");
-                String tempCarNames = nowCarNames.substring(0, index);
-                checkAndthenAdd(tempCarNames, splitCarNames);
-                nowCarNames = nowCarNames.substring(index + 1);
-            }
+        while (nowCarNames.contains(",")) {
+            int index = nowCarNames.indexOf(",");
+            String tempCarNames = nowCarNames.substring(0, index);
+            checkAndthenAdd(tempCarNames, splitCarNames);
+            nowCarNames = nowCarNames.substring(index + 1);
         }
-        if(!nowCarNames.isEmpty()) {
-            checkAndthenAdd(nowCarNames, splitCarNames);
 
-        }
-        if(nowCarNames.isEmpty()) {
-            checkAndthenAdd(rawCarNames, splitCarNames);
-        }
+        checkAndthenAdd(nowCarNames, splitCarNames);
         return splitCarNames;
     }
 
     private void checkCarNameSize(String carName) {
-        if (carName.length() > 5 || (carName.length() == 0)) {
+        if (carName.length() > 5 || (carName.isEmpty())) {
             throw new IllegalArgumentException("자동차의 이름은 다섯 글자를 초과할수 없습니다");
         }
     }
