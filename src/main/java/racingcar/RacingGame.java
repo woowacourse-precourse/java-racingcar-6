@@ -5,18 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.operate;
-import racingcar.RacingCar;
-import racingcar.racing;
 
 public class RacingGame {
 
     private Map<RacingCar, Integer> scoreNum;
 
-    private final operate printoutput;
+    private final UserInterface printoutput;
 
     public RacingGame() {
-        this.printoutput = new operate();
+        this.printoutput = new UserInterface();
     }
 
 
@@ -24,7 +21,7 @@ public class RacingGame {
         final String[] carNames = printoutput.getCarNames();
 
         scoreNum = initScore(carNames);
-        final racing loopCount = racing.of(printoutput.getoperate());
+        final Racing loopCount = Racing.of(printoutput.getOperationCount());
 
         printoutput.printRacingresult();
 
@@ -58,9 +55,10 @@ public class RacingGame {
                 .toList();
     }
 
-    private int regulate(final int count) {
-        final int regulatedCount = count - 3;
-        return Math.max(regulatedCount, 0);
+    private int regulate(final int randomValue) {
+        // 랜덤한 값이 4 이상인 경우에만 1을 반환하여 전진을 나타냅니다.
+        // 그렇지 않은 경우에는 0을 반환하여 제자리에 머무르게 합니다.
+        return randomValue >= 4 ? 1 : 0;
     }
 
     private Map<RacingCar, Integer> initScore(final String[] carNames) {

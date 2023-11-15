@@ -1,17 +1,17 @@
 package racingcar;
 
-public class racing {
+public class Racing {
 
     private final int value;
 
-    private racing(final String value) {
+    private Racing(final String value) {
         int convertedValue = parseint(value);
         validate(convertedValue);
         this.value = convertedValue;
     }
 
-    public static racing of(String value) {
-        return new racing(value);
+    public static Racing of(String value) {
+        return new Racing(value);
     }
 
     public int getValue() {

@@ -19,11 +19,11 @@ public class RacingCar {
 
     public RacingCar(final String name) {
         final String trimmedName = name.trim();
-        inputlength(trimmedName);
+        validateNameLength(trimmedName);
         this.name = trimmedName;
     }
 
-    private void inputlength(final String name) {
+    private void validateNameLength(final String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException(ErrorMessage.LONG_CAR_NAME.getMessage());
         }

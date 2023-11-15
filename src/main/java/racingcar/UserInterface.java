@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.text.MessageFormat;
 import java.util.List;
 
-public class operate {
+public class UserInterface {
 
     public enum ConsoleMessage {
         CAR_NAME("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
@@ -36,7 +36,7 @@ public class operate {
         return input.split(",");
     }
 
-    public String getoperate() {
+    public String getOperationCount() {
         System.out.println("시도할 횟수는 몇회인가요?");
         return Console.readLine();
     }
