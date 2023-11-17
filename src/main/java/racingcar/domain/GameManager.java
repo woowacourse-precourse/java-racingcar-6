@@ -11,7 +11,7 @@ public class GameManager {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
     private final RoundManager roundManager = new RoundManager();
-    private final List<Car> raceCars;
+    private final Cars raceCars;
     private final int attempts;
 
     public GameManager() {
@@ -34,15 +34,16 @@ public class GameManager {
     }
 
     private void gameEnd() {
-        List<String> winnerCarNames = Referee.determineWinner(this.raceCars);
+        List<String> winnerCarNames = raceCars.determineWinner();
         outputView.printWinners(winnerCarNames);
     }
 
-    private List<Car> initRaceCars() {
+    private Cars initRaceCars() {
         List<String> carNames = inputView.getCarNames();
-        return carNames.stream()
+        List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+        return new Cars(cars);
     }
 
     private int initAttempts() {

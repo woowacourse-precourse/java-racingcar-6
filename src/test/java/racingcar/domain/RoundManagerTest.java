@@ -20,7 +20,8 @@ class RoundManagerTest {
     void 랜덤값이_4이상인_전진하는_경우() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    roundManager.moveCars(cars);
+                    Cars raceCars = new Cars(cars);
+                    roundManager.moveCars(raceCars);
                     assertThat(cars.get(0).getTotalMovedDistance())
                             .isEqualTo(4);
                 },
@@ -33,7 +34,8 @@ class RoundManagerTest {
     void 랜덤값이_4미만인_전진하지않는_경우() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    roundManager.moveCars(cars);
+                    Cars raceCars = new Cars(cars);
+                    roundManager.moveCars(raceCars);
                     assertThat(cars.get(0).getTotalMovedDistance())
                             .isEqualTo(3);
                 },

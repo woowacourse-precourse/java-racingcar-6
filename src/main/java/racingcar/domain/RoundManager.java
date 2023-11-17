@@ -6,8 +6,9 @@ import java.util.List;
 
 public class RoundManager {
 
-    public void moveCars(List<Car> cars) {
-        cars.forEach(car -> {
+    public void moveCars(Cars cars) {
+        List<Car> raceCars = cars.getCars();
+        raceCars.forEach(car -> {
             if (canCarMove())
                 car.move();
         });

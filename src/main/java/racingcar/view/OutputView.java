@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 import java.util.List;
 
@@ -15,10 +16,9 @@ public class OutputView {
         System.out.println("\n" + GAME_START_MESSAGE);
     }
 
-    public void printRoundResult(List<Car> cars) {
-        for (Car car : cars) {
-            makeRoundResultMessage(car);
-        }
+    public void printRoundResult(Cars cars) {
+        List<Car> raceCars = cars.getCars();
+        raceCars.forEach(this::makeRoundResultMessage);
         System.out.println();
     }
 
