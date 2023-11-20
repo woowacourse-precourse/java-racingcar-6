@@ -22,7 +22,7 @@ public class OutputView {
         List<CarDTO> carDTOs = roundResult.carDTOs();
 
         carDTOs.forEach(carDTO ->
-                System.out.println(carDTO.getName() + DELIMITER_COLON + BAR.repeat(carDTO.getPosition()))
+                System.out.println(carDTO.name() + DELIMITER_COLON + BAR.repeat(carDTO.position()))
         );
         System.out.println();
     }
@@ -36,7 +36,7 @@ public class OutputView {
 
     private String getWinnersFormat(List<CarDTO> carDTOs) {
         return carDTOs.stream()
-                .map(CarDTO::getName)
+                .map(CarDTO::name)
                 .collect(Collectors.joining(DELIMITER_COMMA));
     }
 }
