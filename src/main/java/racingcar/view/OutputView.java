@@ -11,8 +11,10 @@ public class OutputView {
     private static final String DELIMITER_COLON = " : ";
     private static final String BAR = "-";
     private static final String DELIMITER_COMMA = ", ";
+    private static final String FINAL_WINNER = "최종 우승자";
 
     public void printRoundResultMessage() {
+        System.out.println();
         System.out.println("실행결과");
     }
 
@@ -28,7 +30,7 @@ public class OutputView {
     public void printWinners(Winners winners) {
         List<CarDTO> carDTOs = winners.carDTOs();
         String winnersFormat = getWinnersFormat(carDTOs);
-        System.out.println("최종 우승자" + DELIMITER_COLON + winnersFormat);
+        System.out.println(FINAL_WINNER + DELIMITER_COLON + winnersFormat);
     }
 
 
