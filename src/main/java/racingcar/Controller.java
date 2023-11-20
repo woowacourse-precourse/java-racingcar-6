@@ -30,5 +30,6 @@ public class Controller {
         }
 
         Winners winners = racingGame.getWinners();
+        outputView.printWinners(winners);
     }
 }
