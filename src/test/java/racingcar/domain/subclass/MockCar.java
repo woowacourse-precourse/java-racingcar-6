@@ -1,6 +1,9 @@
 package racingcar.domain.subclass;
 
 
+import racingcar.domain.RandomNumberGenerator;
+import racingcar.system.SystemConstant;
+
 public class MockCar implements Comparable<MockCar> {
     private final String name;
 
@@ -17,7 +20,9 @@ public class MockCar implements Comparable<MockCar> {
     }
 
     public void move() {
-        totalMovedDistance += 1;
+        int randomValue = RandomNumberGenerator.randomNumGenerate();
+        if(randomValue >= SystemConstant.MIN_MOVE_THRESHOLD)
+            totalMovedDistance++;
     }
 
     public String getName() {
