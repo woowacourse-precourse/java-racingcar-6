@@ -21,7 +21,7 @@ public class Car {
     }
 
     private void validateName(String newCarName) {
-        if (!(newCarName.length() <= CAR_NAME_MAN_SIZE.getNumber())) {
+        if (!(newCarName.length() <= CAR_NAME_MIN_SIZE.getNumber())) {
             throw new IllegalArgumentException(CAR_NAME_ERROR.getMessage());
         }
     }

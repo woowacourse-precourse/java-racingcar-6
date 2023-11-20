@@ -13,6 +13,7 @@ import static racingcar.message.GuideMessage.INPUT_RACE_NUM_GUIDE;
 
 public class InputView {
     private final InputValidator inputValidator;
+    private static final String NAME_SPLIT_FORMAT = ",";
 
     public InputView() {
         this.inputValidator = new InputValidator();
@@ -20,7 +21,7 @@ public class InputView {
 
     public List<String> inputCarName() {
         System.out.println(INPUT_NAME_GUIDE.getMessage());
-        List<String> cars = Arrays.asList(Console.readLine().trim().split(OutputFormat.CAR_NAME_STEP_FORMAT.getFormat()));
+        List<String> cars = Arrays.asList(Console.readLine().trim().split(NAME_SPLIT_FORMAT));
         if (!inputValidator.nameSplitValid(cars)) {
             System.out.println(INCLUDE_NULL_ERROR.getMessage());
             throw new IllegalArgumentException();
