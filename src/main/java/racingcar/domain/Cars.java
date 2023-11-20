@@ -21,6 +21,10 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
+    public void moveCars() {
+        cars.forEach(Car::move);
+    }
+
     private Car findMaxPositioncar() {
         return cars.stream()
                 .max(Car::compareTo)

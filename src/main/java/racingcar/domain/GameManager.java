@@ -10,7 +10,6 @@ import java.util.stream.IntStream;
 public class GameManager {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
-    private final RoundManager roundManager = new RoundManager();
     private final Cars raceCars;
     private final int attempts;
 
@@ -51,7 +50,7 @@ public class GameManager {
     }
 
     private void playSingeRound() {
-        roundManager.moveCars(raceCars);
+        raceCars.moveCars();
         outputView.printRoundResult(raceCars);
     }
 }

@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.system.SystemConstant;
+
 public class Car implements Comparable<Car>{
 
     private final String name;
@@ -12,7 +14,9 @@ public class Car implements Comparable<Car>{
     }
 
     public void move() {
-        totalMovedDistance += 1;
+        int randomValue = RandomNumberGenerator.randomNumGenerate();
+        if(randomValue >= SystemConstant.MIN_MOVE_THRESHOLD)
+            totalMovedDistance++;
     }
 
     public String getName() {
