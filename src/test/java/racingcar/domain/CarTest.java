@@ -74,5 +74,24 @@ class CarTest {
         }
     }
 
+    @Nested
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    class isSamePosition {
+        @DisplayName("isSamePosition 메소드 테스트")
+        @ParameterizedTest
+        @MethodSource("parameterProvider")
+        void isSamePosition_메소드_테스트(MockCar mockCar, MockCar other, boolean expected) {
+            Assertions.assertThat(mockCar.isSamePosition(other)).isEqualTo(expected);
+        }
+
+        private Stream<Arguments> parameterProvider() {
+            return Stream.of(
+                    Arguments.of(new MockCar("pobi", 4), new MockCar("mini", 3), false),
+                    Arguments.of(new MockCar("pobi"), new MockCar("mini", 2), false),
+                    Arguments.of(new MockCar("pobi", 2), new MockCar("mini", 2), true)
+            );
+        }
+    }
+
 
 }
