@@ -18,4 +18,8 @@ public class Name {
             throw new IllegalArgumentException(NAME_BY_OVERSIZE);
         }
     }
+
+    public String getValue() {
+        return name;
+    }
 }

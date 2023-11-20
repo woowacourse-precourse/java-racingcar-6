@@ -16,6 +16,10 @@ public class Car {
     }
 
     public int getPosition() {
-        return position.getPosition();
+        return position.getValue();
+    }
+
+    public CarDTO getCarDTO() {
+        return new CarDTO(name.getValue(), position.getValue());
     }
 }

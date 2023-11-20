@@ -14,7 +14,7 @@ public class Position {
         this.position += movement.getAddingValue();
     }
 
-    public int getPosition() {
+    public int getValue() {
         return position;
     }
 }
