@@ -22,7 +22,7 @@ public class Cars {
     }
 
     private Movement getRandomMovement() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
         return Movement.from(randomNumber);
     }
 }
