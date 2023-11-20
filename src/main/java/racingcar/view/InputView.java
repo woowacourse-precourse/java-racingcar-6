@@ -16,4 +16,13 @@ public class InputView {
 
         return namesInput;
     }
+
+    public int getTrialNumber() {
+        String input = Console.readLine();
+        Validator.validateIsBlank(input);
+        Validator.validateIsInteger(input.trim());
+        Validator.isPositiveInteger(input.trim());
+
+        return Integer.parseInt(input.trim());
+    }
 }
