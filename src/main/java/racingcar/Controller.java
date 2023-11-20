@@ -18,17 +18,31 @@ public class Controller {
     }
 
     public void run() {
-        List<String> carNames = inputView.getCarNames();
-        int trialNumber = inputView.getTrialNumber();
-        racingGame = new RacingGame(carNames);
+        initGame();
+        race();
+        printWinners();
+    }
 
+    private void initGame() {
+        List<String> carNames = inputView.getCarNames();
+        racingGame = new RacingGame(carNames);
+    }
+
+    private void race() {
+        int trialNumber = inputView.getTrialNumber();
         outputView.printRoundResultMessage();
+        raceMultipleRounds(trialNumber);
+    }
+
+    private void raceMultipleRounds(int trialNumber) {
         for (int i = 0; i < trialNumber; i++) {
             racingGame.race();
             RoundResult roundResult = racingGame.getRoundResult();
             outputView.printRoundResult(roundResult);
         }
+    }
 
+    private void printWinners() {
         Winners winners = racingGame.getWinners();
         outputView.printWinners(winners);
     }
