@@ -38,25 +38,41 @@ class CarTest {
 
     @Nested
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    class getTotalMovedDistance{
+    class getTotalMovedDistance {
         @DisplayName("getTotalMovedDistance 메소드 테스트")
         @ParameterizedTest
         @MethodSource("parameterProvider")
-        void getTotalMovedDistance_메소드_테스트(MockCar mockCar,int expected) {
+        void getTotalMovedDistance_메소드_테스트(MockCar mockCar, int expected) {
             Assertions.assertThat(mockCar.getTotalMovedDistance()).isEqualTo(expected);
         }
 
         private Stream<Arguments> parameterProvider() {
             return Stream.of(
-                    Arguments.of(new MockCar("pobi", 4),4),
-                    Arguments.of(new MockCar("juni"),0),
-                    Arguments.of(new MockCar("zeka", 2),2)
+                    Arguments.of(new MockCar("pobi", 4), 4),
+                    Arguments.of(new MockCar("juni"), 0),
+                    Arguments.of(new MockCar("zeka", 2), 2)
             );
         }
-
     }
 
+    @Nested
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    class compareTo {
+        @DisplayName("compareTo 메소드 테스트")
+        @ParameterizedTest
+        @MethodSource("parameterProvider")
+        void compareTo_메소드_테스트(MockCar mockCar, MockCar other, int expected) {
+            Assertions.assertThat(mockCar.compareTo(other)).isEqualTo(expected);
+        }
 
+        private Stream<Arguments> parameterProvider() {
+            return Stream.of(
+                    Arguments.of(new MockCar("pobi", 4), new MockCar("mini", 3), 1),
+                    Arguments.of(new MockCar("pobi"), new MockCar("mini", 2), -2),
+                    Arguments.of(new MockCar("pobi", 2), new MockCar("mini", 2), 0)
+            );
+        }
+    }
 
 
 }
