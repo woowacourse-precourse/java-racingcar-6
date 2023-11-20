@@ -7,6 +7,7 @@ import racingcar.domain.Movement;
 public class Cars {
     private static final int START_INCLUSIVE = 0;
     private static final int END_INCLUSIVE = 9;
+    private static final int DEFAULT_POSITION = 0;
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
@@ -32,5 +33,19 @@ public class Cars {
         return cars.stream()
                 .map(Car::getCarDTO)
                 .toList();
+    }
+
+    public List<CarDTO> getWinners() {
+        return cars.stream()
+                .filter(car -> car.getPosition() == getMaxPosition())
+                .map(Car::getCarDTO)
+                .toList();
+    }
+
+    public int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(DEFAULT_POSITION);
     }
 }

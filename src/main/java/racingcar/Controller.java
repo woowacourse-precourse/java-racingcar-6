@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 import racingcar.domain.car.RoundResult;
+import racingcar.domain.car.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -27,5 +28,7 @@ public class Controller {
             RoundResult roundResult = racingGame.getRoundResult();
             outputView.printRoundResult(roundResult);
         }
+
+        Winners winners = racingGame.getWinners();
     }
 }
