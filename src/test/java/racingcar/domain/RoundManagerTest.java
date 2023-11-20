@@ -14,7 +14,7 @@ class RoundManagerTest {
 
     private final RoundManager roundManager = new RoundManager();
 
-    private List<Car> cars = Arrays.asList(new Car("pobi", 3));
+    private List<Car> cars = Arrays.asList(new Car("pobi"));
 
     @Test
     void 랜덤값이_4이상인_전진하는_경우() {
@@ -23,7 +23,7 @@ class RoundManagerTest {
                     Cars raceCars = new Cars(cars);
                     roundManager.moveCars(raceCars);
                     assertThat(cars.get(0).getTotalMovedDistance())
-                            .isEqualTo(4);
+                            .isEqualTo(1);
                 },
                 MIN_MOVE_THRESHOLD
         );
@@ -37,7 +37,7 @@ class RoundManagerTest {
                     Cars raceCars = new Cars(cars);
                     roundManager.moveCars(raceCars);
                     assertThat(cars.get(0).getTotalMovedDistance())
-                            .isEqualTo(3);
+                            .isEqualTo(0);
                 },
                 2
         );

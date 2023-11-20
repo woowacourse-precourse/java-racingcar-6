@@ -1,14 +1,19 @@
-package racingcar.domain;
+package racingcar.domain.subclass;
 
-public class Car implements Comparable<Car>{
 
+public class MockCar implements Comparable<MockCar> {
     private final String name;
 
     private int totalMovedDistance;
 
-    public Car(String name) {
+    public MockCar(String name) {
         this.name = name;
         this.totalMovedDistance = 0;
+    }
+
+    public MockCar(String name, int totalMovedDistance) {
+        this.name = name;
+        this.totalMovedDistance = totalMovedDistance;
     }
 
     public void move() {
@@ -24,11 +29,11 @@ public class Car implements Comparable<Car>{
     }
 
     @Override
-    public int compareTo(Car other) {
+    public int compareTo(MockCar other) {
         return this.totalMovedDistance - other.totalMovedDistance;
     }
 
-    public boolean isSamePosition(Car other){
+    public boolean isSamePosition(MockCar other){
         return this.totalMovedDistance ==  other.totalMovedDistance;
     }
 }
