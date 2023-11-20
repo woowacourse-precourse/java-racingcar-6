@@ -58,4 +58,4 @@
            <br><br>
 
 ### 최종 구현 후 클래스 다이어그램
-<img src = "img/Final_ClassDiagram.png">
+<img src = "img/FinalDiagram.png">
