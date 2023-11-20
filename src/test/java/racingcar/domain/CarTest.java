@@ -36,5 +36,27 @@ class CarTest {
 
     }
 
+    @Nested
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    class getTotalMovedDistance{
+        @DisplayName("getTotalMovedDistance 메소드 테스트")
+        @ParameterizedTest
+        @MethodSource("parameterProvider")
+        void getTotalMovedDistance_메소드_테스트(MockCar mockCar,int expected) {
+            Assertions.assertThat(mockCar.getTotalMovedDistance()).isEqualTo(expected);
+        }
+
+        private Stream<Arguments> parameterProvider() {
+            return Stream.of(
+                    Arguments.of(new MockCar("pobi", 4),4),
+                    Arguments.of(new MockCar("juni"),0),
+                    Arguments.of(new MockCar("zeka", 2),2)
+            );
+        }
+
+    }
+
+
+
 
 }
