@@ -20,7 +20,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CarsTest {
 
     @Nested
-    class SingleWinnerTests {
+    class determineWinner {
+        @DisplayName("determineWinner 단독 우승자인 경우 테스트")
         @ParameterizedTest
         @CsvSource({"4,3,2,pobi", "1,2,3,jun", "2,5,4,woni"})
         void 단독_우승자인경우(int pobiDistance, int woniDistance, int junDistance, String expectedWinners) {
@@ -29,16 +30,14 @@ class CarsTest {
             cars.add(new MockCar("pobi", pobiDistance));
             cars.add(new MockCar("woni", woniDistance));
             cars.add(new MockCar("jun", junDistance));
-            MockCars raceCars =new MockCars(cars);
+            MockCars raceCars = new MockCars(cars);
 
             List<String> answer = raceCars.determineWinner();
             List<String> expected = List.of(expectedWinners);
             assertThat(answer).isEqualTo(expected);
         }
-    }
 
-    @Nested
-    class MultipleWinnersTests {
+        @DisplayName("determineWinner 우승자가 여러명인 경우 테스트")
         @ParameterizedTest
         @CsvSource(value = {"4:4:4:pobi,woni,jun", "4:2:4:pobi,jun", "0:1:1:woni,jun"}, delimiter = ':')
         void 공동_우승자인경우(int pobiDistance, int woniDistance, int junDistance, String expectedWinners) {
@@ -46,7 +45,7 @@ class CarsTest {
             cars.add(new MockCar("pobi", pobiDistance));
             cars.add(new MockCar("woni", woniDistance));
             cars.add(new MockCar("jun", junDistance));
-            MockCars raceCars =new MockCars(cars);
+            MockCars raceCars = new MockCars(cars);
 
             List<String> answer = raceCars.determineWinner();
             List<String> expected = List.of(expectedWinners.split(","));
@@ -54,22 +53,23 @@ class CarsTest {
         }
     }
 
+
     @Nested
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    class getCarsTest{
+    class getCarsTest {
         @DisplayName("getCars() 메소드 테스트")
         @ParameterizedTest
         @MethodSource("parameterProvider")
-        void getCars_메소드_테스트(List<MockCar> cars){
+        void getCars_메소드_테스트(List<MockCar> cars) {
             MockCars raceCars = new MockCars(cars);
             Assertions.assertThat(raceCars.getCars()).isEqualTo(cars);
         }
 
         private Stream<Arguments> parameterProvider() {
             return Stream.of(
-                    Arguments.of(List.of(new MockCar("pobi",4))),
-                    Arguments.of(List.of(new MockCar("pobi",4),new MockCar("enji",3))),
-                    Arguments.of(List.of(new MockCar("pobi",4),new MockCar("woni",3),new MockCar("jun",2)))
+                    Arguments.of(List.of(new MockCar("pobi", 4))),
+                    Arguments.of(List.of(new MockCar("pobi", 4), new MockCar("enji", 3))),
+                    Arguments.of(List.of(new MockCar("pobi", 4), new MockCar("woni", 3), new MockCar("jun", 2)))
             );
         }
     }
