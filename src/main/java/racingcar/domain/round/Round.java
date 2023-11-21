@@ -1,4 +1,4 @@
-package racingcar.domain.dto.round;
+package racingcar.domain.round;
 
 public record Round(int value) {
 
@@ -9,6 +9,7 @@ public record Round(int value) {
     }
 
     private static void validateMinRound(final int value) {
+
         if (value < MIN_ROUND) {
             throw new IllegalArgumentException("최소 라운드 수는 1입니다.");
         }
@@ -31,11 +32,11 @@ public record Round(int value) {
         return new Round(MIN_ROUND);
     }
 
-    public boolean isSameAs(final Round other) {
-        return value == other.value;
+    public boolean isNotAfter(final Round other) {
+        return value <= other.value;
     }
 
     public Round increased() {
-        return new Round(value - 1);
+        return new Round(value + 1);
     }
 }

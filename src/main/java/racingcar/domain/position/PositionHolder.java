@@ -1,4 +1,4 @@
-package racingcar.domain.dto.position;
+package racingcar.domain.position;
 
 public final class PositionHolder {
 

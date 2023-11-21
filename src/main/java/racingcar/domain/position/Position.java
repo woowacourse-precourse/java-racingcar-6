@@ -1,4 +1,4 @@
-package racingcar.domain.dto.position;
+package racingcar.domain.position;
 
 public record Position(int value) {
     private static final int MIN_POSITION = 0;
