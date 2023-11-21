@@ -1,10 +1,10 @@
 package racingcar.domain.racinggame;
 
-import racingcar.domain.dto.RoundsDto;
-import racingcar.domain.dto.WinnersDto;
-import racingcar.domain.dto.car.Cars;
-import racingcar.domain.dto.round.Round;
+import racingcar.controller.dto.RoundDto;
+import racingcar.controller.dto.WinnersDto;
+import racingcar.domain.car.Cars;
 import racingcar.domain.move.MovePicker;
+import racingcar.domain.round.Round;
 
 public final class RacingGame {
 
@@ -43,24 +43,15 @@ public final class RacingGame {
     }
 
     public boolean isPlaying() {
-        return currentRound.isSameAs(maxRound);
+        return currentRound.isNotAfter(maxRound);
     }
 
-//    private void _play(final Round currentRound) {
-//        if (currentRound.isSameAs(maxRound)) {
-//            return;
-//        }
-//        cars.moveAllBy(movePicker);
-//        _play(currentRound.increased());
-//    }
 
-    public WinnersDto getWinners() {
-        // TODO
-        return null;
+    public WinnersDto getWinnersDto() {
+        return cars.toWinnersDto();
     }
 
-    public RoundsDto getRoundResult() {
-        // TODO
-        return null;
+    public RoundDto getRoundDto() {
+        return cars.toRoundDto();
     }
 }
