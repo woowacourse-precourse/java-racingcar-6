@@ -1,16 +1,21 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.dto.car.Cars;
-import racingcar.domain.dto.round.Round;
+import number.RandomNumberPicker;
+import racingcar.domain.car.Cars;
+import racingcar.domain.move.RandomMovePicker;
 import racingcar.domain.racinggame.RacingGame;
+import racingcar.domain.round.Round;
 
 public final class InputView {
 
     public RacingGame inputRacingGame() {
         return RacingGame.of(
                 inputCars(),
-                inputMaxRound()
+                inputMaxRound(),
+                new RandomMovePicker(
+                        new RandomNumberPicker()
+                )
         );
     }
 
