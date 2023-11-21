@@ -27,7 +27,11 @@ public record Round(int value) {
         }
     }
 
-    public boolean equals(final Round other) {
+    public static Round first() {
+        return new Round(MIN_ROUND);
+    }
+
+    public boolean isSameAs(final Round other) {
         return value == other.value;
     }
 
