@@ -26,7 +26,7 @@ public class OutputView {
     }
 
     public void printWinners(List<String> winnerNames) {
-        String winners = String.join(RacingConst.DELIMITER, winnerNames);
+        String winners = String.join(RacingConst.WINNER_DELIMITER, winnerNames);
         writer.printMessage("최종 우승자 : " + winners);
     }
 }

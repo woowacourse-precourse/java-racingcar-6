@@ -6,4 +6,5 @@ public interface RacingConst {
     int RACING_NUMBER_MOVE = 4;
 
     String DELIMITER = ",";
+    String WINNER_DELIMITER = ", ";
 }
