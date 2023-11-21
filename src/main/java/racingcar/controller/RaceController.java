@@ -20,8 +20,16 @@ public final class RaceController {
 
     public void run() {
         final RacingGame racingGame = inputView.inputRacingGame();
+        playRound(racingGame);
+        outputView.printWinnersDto(racingGame.getWinnersDto());
+    }
+
+    private void playRound(final RacingGame racingGame) {
         racingGame.play();
-        outputView.printRoundsResult(racingGame.getRoundsResult());
-        outputView.printWinners(racingGame.getWinners());
+        outputView.printRoundDto(racingGame.getRoundDto());
+
+        if (racingGame.isPlaying()) {
+            playRound(racingGame);
+        }
     }
 }
