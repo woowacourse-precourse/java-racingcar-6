@@ -10,4 +10,8 @@ public enum Move {
     Move(final int moveAmount) {
         this.moveAmount = moveAmount;
     }
+
+    public int toInt() {
+        return moveAmount;
+    }
 }
