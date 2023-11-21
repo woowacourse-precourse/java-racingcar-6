@@ -57,7 +57,7 @@ class CarsTest {
 
         @ParameterizedTest(name = "{2} 우승")
         @MethodSource("carsAndResult")
-        @DisplayName("우승자가 정상적으로 반환된다.")
+        @DisplayName("[SUCCESS] 우승자가 정상적으로 반환된다.")
         void 우승자_성공_테스트(Cars cars, int roundNumber, String[] expectedResult) {
             for (int round = 0; round < roundNumber; round++) {
                 cars.move();

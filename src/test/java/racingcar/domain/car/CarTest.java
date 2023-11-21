@@ -58,7 +58,7 @@ class CarTest {
                 "1, 1",
                 "11, 11"
         })
-        @DisplayName("정확한 위치 질의 테스트")
+        @DisplayName("[SUCCESS] 정확한 위치 질의 테스트")
         void 정확한_위치_질의(int moveNum, int queryPosition) {
             for (int i = 0; i < moveNum; i++) {
                 car.move(new MoveNumber(MOVE));
@@ -73,7 +73,7 @@ class CarTest {
                 "12, 1",
                 "11, 10"
         })
-        @DisplayName("잘못된 위치 질의 테스트")
+        @DisplayName("[SUCCESS] 잘못된 위치 질의 테스트")
         void 잘못된_위치_질의(int moveNum, int queryPosition) {
             for (int i = 0; i < moveNum; i++) {
                 car.move(new MoveNumber(MOVE));

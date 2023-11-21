@@ -40,7 +40,7 @@ class MoveNumberTest {
 
         @ParameterizedTest(name = "{0}의 값은 이동할 수 있는 숫자이다.")
         @ValueSource(ints = {4, 5, 6, 7, 8, 9})
-        @DisplayName("이동 가능 숫자 테스트")
+        @DisplayName("[SUCCESS] 이동 가능 숫자 테스트")
         void 이동_가능_테스트(int number) {
             MoveNumber moveNumber = new MoveNumber(number);
             assertThat(moveNumber.canMove())
@@ -49,7 +49,7 @@ class MoveNumberTest {
 
         @ParameterizedTest(name = "{0}의 값은 이동할 수 없는 숫자이다.")
         @ValueSource(ints = {0, 1, 2, 3})
-        @DisplayName("이동 불가능 숫자 테스트")
+        @DisplayName("[SUCCESS] 이동 불가능 숫자 테스트")
         void 이동_불가능_테스트(int number) {
             MoveNumber moveNumber = new MoveNumber(number);
             assertThat(moveNumber.canMove())
