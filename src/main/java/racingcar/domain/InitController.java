@@ -6,7 +6,7 @@ import racingcar.domain.numbergenerator.RandomNumberGenerator;
 import racingcar.view.InputView;
 
 public class InitController {
-    InputView inputView = new InputView();
+    private final InputView inputView = new InputView();
 
     public Cars initCars() {
         List<String> names = inputView.getNames();

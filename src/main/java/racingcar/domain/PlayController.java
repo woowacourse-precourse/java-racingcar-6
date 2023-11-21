@@ -6,7 +6,7 @@ import racingcar.domain.car.Cars;
 import racingcar.view.OutputView;
 
 public class PlayController {
-    OutputView outputView = new OutputView();
+    private final OutputView outputView = new OutputView();
 
     public void move(Cars cars) {
         cars.move();

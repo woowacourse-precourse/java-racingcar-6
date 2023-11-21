@@ -4,7 +4,7 @@ import racingcar.RacingConst;
 import racingcar.exception.RacingException;
 
 public class MoveNumber {
-    int number;
+    private final int number;
 
     public MoveNumber(int number) {
         validateNumber(number);

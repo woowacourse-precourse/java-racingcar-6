@@ -4,7 +4,7 @@ import racingcar.exception.RacingException;
 
 public class CarName {
     public static final int NAME_MAX_LEN = 5;
-    String name;
+    private final String name;
 
     public CarName(String name) {
         validateName(name);

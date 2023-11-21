@@ -7,8 +7,8 @@ import racingcar.view.io.Reader;
 import racingcar.view.io.Writer;
 
 public class InputView {
-    Reader reader = new Reader();
-    Writer writer = new Writer();
+    private final Reader reader = new Reader();
+    private final Writer writer = new Writer();
 
     public List<String> getNames() {
         writer.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");

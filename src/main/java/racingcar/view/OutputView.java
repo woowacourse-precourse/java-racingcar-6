@@ -6,8 +6,8 @@ import racingcar.domain.car.Car;
 import racingcar.view.io.Writer;
 
 public class OutputView {
-    public static final String DISTANCE_TOKEN = "-";
-    Writer writer = new Writer();
+    private static final String DISTANCE_TOKEN = "-";
+    private final Writer writer = new Writer();
 
     public void printResultTitle() {
         writer.printMessage("");

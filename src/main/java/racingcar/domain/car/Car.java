@@ -3,7 +3,8 @@ package racingcar.domain.car;
 import racingcar.domain.numbergenerator.MoveNumber;
 
 public class Car {
-    public static final int INIT_POSITION = 0;
+    private static final int INIT_POSITION = 0;
+    private static final int DISTANCE_INCREASE = 1;
     private final CarName name;
     private int position;
 
@@ -14,7 +15,7 @@ public class Car {
 
     public boolean move(MoveNumber number) {
         if (number.canMove()) {
-            this.position++;
+            this.position += DISTANCE_INCREASE;
             return true;
         }
         return false;
