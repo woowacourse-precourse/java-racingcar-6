@@ -1,8 +1,9 @@
-package racingcar.domain.dto.car;
+package racingcar.domain.car;
 
-import racingcar.domain.dto.CarDto;
-import racingcar.domain.dto.position.PositionHolder;
+import racingcar.controller.dto.CarDto;
+import racingcar.controller.dto.WinnerDto;
 import racingcar.domain.move.Move;
+import racingcar.domain.position.PositionHolder;
 
 public final class Car {
 
@@ -25,10 +26,18 @@ public final class Car {
         positionHolder.increaseBy(move.toInt());
     }
 
+    public int getPosition() {
+        return positionHolder.getPosition();
+    }
+
     public CarDto toCarDto() {
         return new CarDto(
                 name,
                 positionHolder.getPosition()
         );
+    }
+
+    public WinnerDto toWinnerDto() {
+        return new WinnerDto(name);
     }
 }
