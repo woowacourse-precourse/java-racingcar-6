@@ -1,5 +1,6 @@
 package view;
 
+import view.validator.AttemptsValidator;
 import view.validator.CarNamesValidator;
 
 public class InputView {
@@ -15,5 +16,11 @@ public class InputView {
         System.out.println(INPUT_CAR_NAMES);
         String carNameInput = reader.readLine().trim();
         return CarNamesValidator.validate(carNameInput);
+    }
+
+    public int readAttempts(){
+        System.out.println(INPUT_ATTEMPTS);
+        String attempts = reader.readLine().trim();
+        return AttemptsValidator.validate(attempts);
     }
 }
