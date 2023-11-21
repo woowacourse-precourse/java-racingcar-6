@@ -27,11 +27,11 @@ public record Round(int value) {
         }
     }
 
-    public boolean isEnded() {
-        return value < MIN_ROUND;
+    public boolean equals(final Round other) {
+        return value == other.value;
     }
 
-    public Round decreased() {
+    public Round increased() {
         return new Round(value - 1);
     }
 }
