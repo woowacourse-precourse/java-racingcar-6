@@ -20,11 +20,9 @@ public class Car {
         return false;
     }
 
-
     public boolean at(int position) {
         return this.position == position;
     }
-
 
     public String getName() {
         return name.getName();

@@ -16,4 +16,8 @@ public class InitController {
     public int getRounds() {
         return inputView.getRoundNumber();
     }
+
+    public void closeConsole() {
+        inputView.closeConsole();
+    }
 }

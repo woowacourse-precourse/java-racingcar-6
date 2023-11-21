@@ -29,4 +29,7 @@ public class InputView {
         }
     }
 
+    public void closeConsole() {
+        reader.closeConsole();
+    }
 }

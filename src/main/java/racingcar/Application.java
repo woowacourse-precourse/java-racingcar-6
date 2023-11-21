@@ -11,6 +11,7 @@ public class Application {
     public static void main(String[] args) {
         Cars cars = initController.initCars();
         int rounds = initController.getRounds();
+        initController.closeConsole();
 
         playController.printResultTitle();
         for (int round = 0; round < rounds; round++) {

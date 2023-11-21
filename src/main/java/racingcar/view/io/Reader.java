@@ -35,4 +35,8 @@ public class Reader {
             throw RacingException.NOT_NUMBER.makeException();
         }
     }
+
+    public void closeConsole() {
+        Console.close();
+    }
 }
