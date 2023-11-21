@@ -15,5 +15,23 @@ public record Round(int value) {
     }
 
     public static Round from(final String input) {
+        validateRound(input);
+        return new Round(Integer.parseInt(input));
+    }
+
+    private static void validateRound(final String input) {
+        for (char ch : input.toCharArray()) {
+            if (!Character.isDigit(ch)) {
+                throw new IllegalArgumentException("라운드는 반드시 숫자를 입력해야 합니다.");
+            }
+        }
+    }
+
+    public boolean isEnded() {
+        return value < MIN_ROUND;
+    }
+
+    public Round decreased() {
+        return new Round(value - 1);
     }
 }
