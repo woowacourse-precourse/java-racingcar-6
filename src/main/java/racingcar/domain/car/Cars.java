@@ -39,7 +39,6 @@ public final class Cars {
                 .getPosition();
     }
 
-
     public RoundDto toRoundDto() {
         final List<CarDto> carsDto = cars.stream()
                 .map(Car::toCarDto)
