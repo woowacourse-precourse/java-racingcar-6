@@ -1,40 +1,48 @@
 package racingcar.model;
 
-import static racingcar.constant.Constant.Four;
-import static racingcar.constant.Constant.NINE;
-import static racingcar.constant.Constant.ZERO;
-
-import camp.nextstep.edu.missionutils.Randoms;
-
-public class Car {
+public class Car implements Comparable<Car> {
+    private final DriveStrategy driveStrategy;
     private final String name;
-    private StringBuilder distance;
+    private int position;
 
 
-    public Car(String name) {
+    public Car(DriveStrategy driveStrategy, String name, int position) {
+        this.driveStrategy = driveStrategy;
         this.name = name;
-        this.distance = new StringBuilder();
+        this.position = position;
     }
 
     public String getName() {
         return name;
     }
 
-    public StringBuilder getDistance() {
-        return distance;
+    public int getPosition() {
+        return position;
     }
 
     public void move() {
-        if (canMove()) {
-            distance.append("-");
-        }
+        position += 1;
     }
 
-    private boolean canMove() {
-        int randomNumber = Randoms.pickNumberInRange(ZERO.number, NINE.number);
-        if (randomNumber >= Four.number) {
-            return true;
+    public boolean canMove() {
+        return driveStrategy.determineDistance();
+    }
+
+    public StringBuilder showPosition() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            sb.append("-");
         }
-        return false;
+        return sb;
+    }
+
+
+    public boolean isSamePosition(Car other) {
+        return other.position == this.position;
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.position - other.position;
     }
 }
