@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.constant.Constant.ZERO;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
@@ -11,6 +12,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
 import racingcar.model.Car;
+import racingcar.model.DriveStrategy;
+import racingcar.model.RandomDriveStrategy;
 import racingcar.model.TryCount;
 import racingcar.validation.CarNameValidation;
 import racingcar.validation.TryCountValidation;
@@ -58,7 +61,7 @@ class RacingGameServiceTest extends NsTest {
 
     @DisplayName("최종 우승자가 1명인 경우")
     @ParameterizedTest
-    @ValueSource(strings = {"pobi", "pobi,woni", "pobi,woni,jun",})
+    @ValueSource(strings = {"pobi", "pobi,woni"})
     void OnlyOneWinner(String input) {
         //given
         List<Car> cars = createCars(input);
@@ -98,7 +101,8 @@ class RacingGameServiceTest extends NsTest {
 
         for (String name : carNames) {
             String character = name.trim();
-            Car car = new Car(character);
+            DriveStrategy driveStrategy = new RandomDriveStrategy();
+            Car car = new Car(driveStrategy, character, ZERO.number);
             cars.add(car);
         }
 

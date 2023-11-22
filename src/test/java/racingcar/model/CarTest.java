@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.constant.Constant.ZERO;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,12 +11,13 @@ class CarTest {
     @Test
     void canMoveTest() {
         //given
-        Car pobi = new Car("pobi");
+        DriveStrategy driveStrategy = new RandomDriveStrategy();
+        Car pobi = new Car(driveStrategy, "pobi", ZERO.number);
 
         //when
         pobi.move();
 
         //then
-        assertThat(pobi.getDistance().toString()).isNotNull(); // 랜덤 테스트 어떻게 짤까?
+        assertThat(pobi.getPosition()).isNotNull(); // 랜덤 테스트 어떻게 짤까?
     }
 }

@@ -8,8 +8,9 @@ public enum ValidateMessage {
 
     TRY_COUNT_MUST_NOT_BE_NULL_OR_EMPTY("시도할 횟수 입력값은 null 이거나 빈 값이면 안됩니다."),
     TRY_COUNT_MUST_BE_INTEGER("시도할 횟수 입력값은 숫자만 입력 가능합니다."),
-    TRY_COUNT_MUST_BE_MORE_THAN_ONE("시도할 횟수 입력값은 1이상의 자연수만 입력 가능합니다.");
+    TRY_COUNT_MUST_BE_MORE_THAN_ONE("시도할 횟수 입력값은 1이상의 자연수만 입력 가능합니다."),
 
+    NOT_FOUND_CAR("차량 리스트가 비었습니다.");
     private static final String errorMessage = "[ERROR] ";
     public final String message;
 
