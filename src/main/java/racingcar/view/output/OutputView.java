@@ -23,7 +23,7 @@ public class OutputView {
 
     public void printGameStep(List<Car> cars) {
         for (Car car : cars) {
-            System.out.println(car.getName() + " : " + car.getDistance());
+            System.out.println(car.getName() + " : " + car.showPosition().toString());
         }
         System.out.println();
     }

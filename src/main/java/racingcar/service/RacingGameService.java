@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import static racingcar.constant.ValidateMessage.NOT_FOUND_CAR;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
@@ -19,33 +21,34 @@ public class RacingGameService {
     public void playGame(List<Car> cars, TryCount tryCount) {
         outputView.printOutExecuteGame();
         for (int i = 0; i < tryCount.getTryCount(); i++) {
-            for (Car car : cars) {
-                move(car);
-            }
+            moveCars(cars);
             outputView.printGameStep(cars);
         }
     }
 
-    private void move(Car car) {
-        car.move();
+    private void moveCars(List<Car> cars) {
+        for (Car car : cars) {
+            if (car.canMove()) {
+                car.move();
+            }
+        }
     }
 
     public void findWinner(List<Car> cars) {
-        int maxMove = getMaxMove(cars);
-        List<String> winners = getWinners(cars, maxMove);
+        Car maxPositionCar = getMaxMove(cars);
+        List<String> winners = getWinners(cars, maxPositionCar);
         outputView.printOutWinner(winners);
     }
 
-    private int getMaxMove(List<Car> cars) {
+    private Car getMaxMove(List<Car> cars) {
         return cars.stream()
-                .mapToInt(car -> car.getDistance().length())
-                .max()
-                .orElse(0);
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_CAR.message));
     }
 
-    private List<String> getWinners(List<Car> cars, int maxMove) {
+    private List<String> getWinners(List<Car> cars, Car maxPositionCar) {
         return cars.stream()
-                .filter(car -> car.getDistance().length() == maxMove)
+                .filter(car -> car.isSamePosition(maxPositionCar))
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
