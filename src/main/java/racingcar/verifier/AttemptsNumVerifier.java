@@ -20,7 +20,8 @@ public class AttemptsNumVerifier implements Verifier {
 
     private void checkRange(String input) {
         int attempts = Integer.parseInt(input);
-        if (attempts <= 0)
+        if (attempts <= 0) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_NUM_OF_ATTEMPTS);
+        }
     }
 }

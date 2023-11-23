@@ -15,8 +15,9 @@ public class Car implements Comparable<Car>{
 
     public void move() {
         int randomValue = RandomNumberGenerator.randomNumGenerate();
-        if(randomValue >= SystemConstant.MIN_MOVE_THRESHOLD)
+        if(randomValue >= SystemConstant.MIN_MOVE_THRESHOLD) {
             totalMovedDistance++;
+        }
     }
 
     public String getName() {

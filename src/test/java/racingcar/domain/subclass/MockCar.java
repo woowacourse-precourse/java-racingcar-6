@@ -21,8 +21,9 @@ public class MockCar implements Comparable<MockCar> {
 
     public void move() {
         int randomValue = RandomNumberGenerator.randomNumGenerate();
-        if(randomValue >= SystemConstant.MIN_MOVE_THRESHOLD)
+        if (randomValue >= SystemConstant.MIN_MOVE_THRESHOLD) {
             totalMovedDistance++;
+        }
     }
 
     public String getName() {
@@ -38,7 +39,7 @@ public class MockCar implements Comparable<MockCar> {
         return this.totalMovedDistance - other.totalMovedDistance;
     }
 
-    public boolean isSamePosition(MockCar other){
-        return this.totalMovedDistance ==  other.totalMovedDistance;
+    public boolean isSamePosition(MockCar other) {
+        return this.totalMovedDistance == other.totalMovedDistance;
     }
 }
