@@ -2,16 +2,26 @@ package domain.wrapper;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.wrapper.Name;
 import racingcar.domain.wrapper.RaceCount;
 
 import static racingcar.domain.constant.RaceConstant.RACE_MIN_TRY_COUNT;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static racingcar.util.message.ExceptionMessage.RANGE_MESSAGE;
-import static racingcar.util.message.ExceptionMessage.TYPE_MESSAGE;
+import static racingcar.util.message.ExceptionMessage.*;
 
 class RaceCountTest {
+
+    @ParameterizedTest
+    @DisplayName("시도횟수가 공백일 경우 예외를 처리한다.")
+    @EmptySource
+    void givenBlankRaceCount_thenFail(final String raceCount) {
+        assertThatThrownBy(() -> RaceCount.create(raceCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(String.format(BLANK_MESSAGE.getValue(), "시도횟수"));
+    }
 
 
     @ParameterizedTest

@@ -2,19 +2,25 @@ package racingcar.domain.wrapper;
 
 import racingcar.domain.constant.RaceConstant;
 
-import static racingcar.util.message.ExceptionMessage.RANGE_MESSAGE;
-import static racingcar.util.message.ExceptionMessage.TYPE_MESSAGE;
+import static racingcar.util.message.ExceptionMessage.*;
 
 public class RaceCount {
     private final int count;
 
     private RaceCount(final String raceCount) {
+        validateNameBlank(raceCount);
         int count = validateType(raceCount);
         this.count = validateRange(count);
     }
 
     public static RaceCount create(final String raceCount) {
         return new RaceCount(raceCount);
+    }
+
+    private void validateNameBlank(final String raceCount) {
+        if (raceCount.isBlank()) {
+            throw new IllegalArgumentException(String.format(BLANK_MESSAGE.getValue(), "시도횟수"));
+        }
     }
 
     private int validateType(final String raceCount) {
