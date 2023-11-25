@@ -19,4 +19,8 @@ public class Cars {
             car.move(Randoms.pickNumberInRange(1,9));
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }

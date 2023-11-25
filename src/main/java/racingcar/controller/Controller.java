@@ -11,6 +11,7 @@ public class Controller {
     public void init() {
         Cars cars = enrollCars();
         Rounds rounds = enrollCounts();
+        race(cars, rounds);
     }
 
     public Cars enrollCars() {
@@ -26,9 +27,9 @@ public class Controller {
     public void race(Cars cars, Rounds rounds) {
         int currentRound = 0;
         OutputView.printResultMessage();
-        while (rounds.isNotOver(currentRound)) {
+        while (rounds.isNotOver(currentRound++)) {
             cars.moveCars();
-//            OutputView.printStatus(cars.getCars());
+            OutputView.printCarsStatus(cars.getCars());
         }
     }
 }
