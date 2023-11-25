@@ -1,7 +1,7 @@
 package racingcar.View;
 
 public class PrintScoreMessage {
-    public void PrintMessage(){
+    public static void PrintMessage(){
 
     }
 }

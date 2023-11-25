@@ -9,7 +9,7 @@ public class userInputTest {
     @DisplayName("사용자가 경주할 자동차 이름 입력")
     @Test
     public void userInputCarName() {
-        String input
+        String input;
 
     }
 
