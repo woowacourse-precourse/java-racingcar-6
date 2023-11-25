@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.utils.StringConstants;
 
 public class OutputView {
     public static void printRequestInputCars() {
@@ -28,7 +29,6 @@ public class OutputView {
     }
 
     private static String createDashString(int count) {
-        return "-".repeat(Math.max(0, count));
+        return StringConstants.CURRENT_POSITION.getValue().repeat(Math.max(0, count));
     }
-
 }

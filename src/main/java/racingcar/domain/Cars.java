@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.utils.NumberConstants.MAXIMUM_RANDOM_NUMBER;
+import static racingcar.utils.NumberConstants.MINIMUM_RANDOM_NUMBER;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +19,7 @@ public class Cars {
 
     public void moveCars() {
         for (Car car : cars) {
-            car.move(Randoms.pickNumberInRange(1,9));
+            car.move(Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER.getValue(), MAXIMUM_RANDOM_NUMBER.getValue()));
         }
     }
 

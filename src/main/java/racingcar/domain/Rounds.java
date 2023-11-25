@@ -10,8 +10,4 @@ public class Rounds {
     public boolean isNotOver(int rounds) {
         return this.rounds != rounds;
     }
-
-    public int getRounds() {
-        return rounds;
-    }
 }

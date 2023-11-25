@@ -1,5 +1,11 @@
 package racingcar.view;
 
+import static racingcar.utils.NumberConstants.MAXIMUM_CAR_NAME_LENGTH;
+import static racingcar.utils.NumberConstants.MAXIMUM_ROUNDS;
+import static racingcar.utils.NumberConstants.MINIMUM_CAR_NAME_LENGTH;
+import static racingcar.utils.NumberConstants.MINIMUM_ROUNDS;
+import static racingcar.utils.StringConstants.ENGLISH_PATTERN;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -13,8 +19,6 @@ public class InputView {
         String cars = Console.readLine();
         List<String> list = convertToList(cars);
         validateCarInput(list);
-        System.out.println(list);
-        System.out.println("size: " + list.size());
         return new Cars(list);
     }
 
@@ -48,7 +52,7 @@ public class InputView {
 
     private boolean isLengthWithinLimit(List<String> list) {
         for (String element : list) {
-            if (element.length() < 1 || element.length() > 5) {
+            if (element.length() < MINIMUM_CAR_NAME_LENGTH.getValue() || element.length() > MAXIMUM_CAR_NAME_LENGTH.getValue()) {
                 return false;
             }
         }
@@ -56,7 +60,7 @@ public class InputView {
     }
 
     private boolean isEnglish(List<String> list) {
-        String englishPattern = "^[a-zA-Z]*$";
+        String englishPattern = ENGLISH_PATTERN.getValue();
         for (String element : list) {
             if (!(Pattern.matches(englishPattern, element))) {
                 return false;
@@ -97,7 +101,7 @@ public class InputView {
     }
 
     private boolean isBetweenLimit(int input) {
-        if (input < 1 || input > 100) {
+        if (input < MINIMUM_ROUNDS.getValue() || input > MAXIMUM_ROUNDS.getValue()) {
             return false;
         }
         return true;
