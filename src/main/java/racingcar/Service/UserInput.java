@@ -26,8 +26,9 @@ public class UserInput {    //사용자가 경주할 자동차 이름 입력 & �
     }
 
     public void tryNumber() throws IllegalAccessException {   //사용자가 시도할 횟수를 입력
-        car.tryNumber = Integer.parseInt(readLine());
-        if (car.tryNumber != ){
+        try {
+            car.tryNumber = Integer.parseInt(readLine());
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("[Error] 정수만 입력바랍니다.");
         }
     }

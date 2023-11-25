@@ -1,6 +1,14 @@
 package racingcar.View;
 
-public class OutputView {
+public class OutputView {   //최종 결과 출력
 
-    //결과 나와야함 여기서
+    public void printWinnerResult() {
+
+        for (int i = 0; i < ; i++) {
+            
+        }
+        System.out.println( + + ); 
+    }
+
+   
 }

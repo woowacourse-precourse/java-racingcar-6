@@ -14,7 +14,7 @@ public class RandomAdvanceOrstop {
     Car car;
 
     public void judgeAdvanceOrStop() {
-        //몇번 할지 입력 했음 car.tryNumber 가져와서 for문 car.tryNumber.length 만큼 돌려주기
+        //몇번 시도할지 입력 했음 car.tryNumber 가져와서 for문 car.tryNumber.length 만큼 돌려주기
         for (int i = 0; i < car.tryNumber; i++) {
             advanceOrStop();
         }
