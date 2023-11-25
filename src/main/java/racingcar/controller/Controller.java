@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Rounds;
 import racingcar.view.InputView;
@@ -31,5 +33,19 @@ public class Controller {
             cars.moveCars();
             OutputView.printCarsStatus(cars.getCars());
         }
+        printWinners(cars);
+    }
+
+    private void printWinners(Cars cars) {
+        int maxPosition = cars.getMaxPosition();
+        List<Car> winners = cars.getWinners(maxPosition);
+        StringBuilder winnerNames = new StringBuilder();
+        for (Car winner : winners) {
+            if (winnerNames.length() > 0) {
+                winnerNames.append(", ");
+            }
+            winnerNames.append(winner.getName());
+        }
+        System.out.println("최종 우승자 : " + winnerNames.toString());
     }
 }
