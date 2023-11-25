@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.Rounds;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -9,6 +10,8 @@ public class Controller {
 
     public void init() {
         Cars cars = enrollCars();
+        Rounds rounds = enrollCounts();
+
     }
 
     public Cars enrollCars() {
@@ -16,7 +19,8 @@ public class Controller {
         return inputView.getCarsInput();
     }
 
-    public void enrollCounts() {
-
+    public Rounds enrollCounts() {
+        OutputView.printRequestInputRounds();
+        return inputView.getRoundsInput();
     }
 }
