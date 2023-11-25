@@ -40,6 +40,12 @@ public class InputView {
         }
     }
 
+    public void validateRoundsInput(int input) {
+        if (!isBetweenLimit(input)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     private boolean isLengthWithinLimit(List<String> list) {
         for (String element : list) {
             if (element.length() < 1 || element.length() > 5) {
@@ -86,12 +92,6 @@ public class InputView {
             return Integer.parseInt(input);
         }
         catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public void validateRoundsInput(int input) {
-        if (!isBetweenLimit(input)) {
             throw new IllegalArgumentException();
         }
     }
