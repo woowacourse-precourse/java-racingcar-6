@@ -6,4 +6,12 @@ public class Rounds {
     public Rounds(int rounds) {
         this.rounds = rounds;
     }
+
+    public boolean isNotOver(int rounds) {
+        return this.rounds != rounds;
+    }
+
+    public int getRounds() {
+        return rounds;
+    }
 }
