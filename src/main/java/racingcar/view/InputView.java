@@ -22,7 +22,7 @@ public class InputView {
         return Arrays.asList(array);
     }
 
-    private void validateCarInput(List<String> list) {
+    public void validateCarInput(List<String> list) {
         if (!isLengthWithinLimit(list)) {
             throw new IllegalArgumentException();
         }
