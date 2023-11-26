@@ -1,14 +1,25 @@
 package racingcar.View;
 
+import racingcar.Service.UserInput;
+
 public class OutputView {   //최종 결과 출력
 
-    public void printWinnerResult() {
+    UserInput userInput = new UserInput();
+    public void printWinnerResult(int tryNumber) throws IllegalAccessException {
+        for (int i = 0; i < tryNumber; i++) {
 
-        for (int i = 0; i < ; i++) {
-            
         }
-        System.out.println( + + ); 
+        System.out.println();
     }
+
+
+    public static void printCarPosition(int carPosition) {
+        for (int i = 0; i < carPosition; i++) {
+            System.out.print("-");
+        }
+    }
+
+
 
    
 }
