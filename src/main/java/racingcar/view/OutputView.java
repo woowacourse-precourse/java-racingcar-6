@@ -5,12 +5,16 @@ import racingcar.domain.Cars;
 
 import java.util.List;
 
-public class OutputView {
+public final class OutputView {
 
-    public static final String GAME_START_MESSAGE = "실행 결과";
+    public static final OutputView OUTPUT_VIEW = new OutputView();
+    public final String GAME_START_MESSAGE = "실행 결과";
     private final String WINNER_OUTPUT_MESSAGE = "최종 우승자 : ";
-
     private final String DELIMITER = ", ";
+
+    private OutputView() {
+
+    }
 
     public void printGameStartMessage() {
         System.out.println("\n" + GAME_START_MESSAGE);
@@ -22,13 +26,13 @@ public class OutputView {
         System.out.println();
     }
 
+    public void printWinners(List<String> cars) {
+        System.out.println(makeGameResultMessage(cars));
+    }
+
     private void makeRoundResultMessage(Car car) {
         String message = car.getName() + " : " + "-".repeat(car.getTotalMovedDistance());
         System.out.println(message);
-    }
-
-    public void printWinners(List<String> cars) {
-        System.out.println(makeGameResultMessage(cars));
     }
 
     private String makeGameResultMessage(List<String> cars) {

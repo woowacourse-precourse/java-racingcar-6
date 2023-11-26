@@ -7,6 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CarNameVerifier implements Verifier<String> {
+
+    public static final CarNameVerifier CAR_NAME_VERIFIER = new CarNameVerifier();
+
+    private CarNameVerifier(){
+
+    }
     @Override
     public void validate(String input) {
         List<String> carNames = Arrays.asList(input.split(","));

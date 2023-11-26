@@ -4,6 +4,12 @@ import racingcar.system.ExceptionMessage;
 
 public class AttemptsNumVerifier implements Verifier<String> {
 
+    public static final AttemptsNumVerifier ATTEMPTS_NUM_VERIFIER = new AttemptsNumVerifier();
+
+    private AttemptsNumVerifier() {
+
+    }
+
     @Override
     public void validate(String input) {
         validateNumeric(input);

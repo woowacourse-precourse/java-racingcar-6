@@ -1,15 +1,13 @@
 package racingcar.domain;
 
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
-
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static racingcar.view.InputView.INPUT_VIEW;
+import static racingcar.view.OutputView.OUTPUT_VIEW;
+
 public class GameManager {
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
     private final Cars raceCars;
     private final int attempts;
 
@@ -25,7 +23,7 @@ public class GameManager {
     }
 
     private void gameStart() {
-        outputView.printGameStartMessage();
+        OUTPUT_VIEW.printGameStartMessage();
     }
 
     private void gameRunning() {
@@ -34,11 +32,11 @@ public class GameManager {
 
     private void gameEnd() {
         List<String> winnerCarNames = raceCars.determineWinner();
-        outputView.printWinners(winnerCarNames);
+        OUTPUT_VIEW.printWinners(winnerCarNames);
     }
 
     private Cars initRaceCars() {
-        List<String> carNames = inputView.readCarNames();
+        List<String> carNames = INPUT_VIEW.readCarNames();
         List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
@@ -46,11 +44,11 @@ public class GameManager {
     }
 
     private int initAttempts() {
-        return inputView.readAttempts();
+        return INPUT_VIEW.readAttempts();
     }
 
     private void playSingeRound() {
         raceCars.moveCars();
-        outputView.printRoundResult(raceCars);
+        OUTPUT_VIEW.printRoundResult(raceCars);
     }
 }
