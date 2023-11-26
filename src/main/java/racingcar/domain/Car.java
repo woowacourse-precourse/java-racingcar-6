@@ -3,11 +3,11 @@ package racingcar.domain;
 public class Car {
     private static final int STANDARD_VALUE = 4;
 
-    private final String name;
+    private final Name name;
     private final Position position;
 
     public Car(String name) {
-        this.name = name;
+        this.name = new Name(name);
         this.position = new Position();
     }
 
@@ -17,7 +17,7 @@ public class Car {
         }
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
