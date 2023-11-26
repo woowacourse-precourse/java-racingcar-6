@@ -5,16 +5,18 @@ import static racingcar.utils.NumberConstants.MINIMUM_RANDOM_NUMBER;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<String> carNames) {
-        this.cars = new ArrayList<>();
+        List<Car> tempCars = new ArrayList<>();
         for (String carName : carNames) {
-            this.cars.add(new Car(carName));
+            tempCars.add(new Car(carName));
         }
+        this.cars = Collections.unmodifiableList(tempCars);
     }
 
     public void moveCars() {

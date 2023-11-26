@@ -3,8 +3,8 @@ package racingcar.domain;
 public class Car {
     private static final int STANDARD_VALUE = 4;
 
-    private String name;
-    private Position position;
+    private final String name;
+    private final Position position;
 
     public Car(String name) {
         this.name = name;

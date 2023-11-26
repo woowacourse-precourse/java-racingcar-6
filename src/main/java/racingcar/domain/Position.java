@@ -8,7 +8,7 @@ public class Position {
     }
 
     public void move() {
-        position ++;
+        position++;
     }
 
     public int getPosition() {

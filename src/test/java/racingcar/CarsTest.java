@@ -29,6 +29,6 @@ public class CarsTest {
     @ParameterizedTest
     @MethodSource("invalidCarInputs")
     void validateCarInput(List<String> carNames) {
-        assertThrows(IllegalArgumentException.class, () -> inputView.validateCarInput(carNames));
+        assertThrows(IllegalArgumentException.class, () -> inputView.validateCarsInput(carNames));
     }
 }

@@ -7,36 +7,36 @@ import static racingcar.utils.NumberConstants.MINIMUM_ROUNDS;
 import static racingcar.utils.StringConstants.ENGLISH_PATTERN;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Pattern;
 import racingcar.domain.Cars;
 import racingcar.domain.Rounds;
+import racingcar.utils.Util;
 
 public class InputView {
     public Cars getCarsInput() {
         String cars = Console.readLine();
-        List<String> list = convertToList(cars);
-        validateCarInput(list);
+        List<String> list = Util.convertToList(cars);
+        validateCarsInput(list);
         return new Cars(list);
     }
 
     public Rounds getRoundsInput() {
         String input = Console.readLine();
-        int rounds = parseInt(input);
+        int rounds = Util.parseInt(input);
         validateRoundsInput(rounds);
         return new Rounds(rounds);
     }
 
-    public void validateCarInput(List<String> list) {
+    public void validateCarsInput(List<String> list) {
         if (!isLengthWithinLimit(list)) {
             throw new IllegalArgumentException();
         }
         if (!isEnglish(list)) {
             throw new IllegalArgumentException();
         }
-        if (!isNoEmptySpace(list)) {
+        if (!containsNoEmptySpace(list)) {
             throw new IllegalArgumentException();
         }
         if (!isUnique(list)) {
@@ -69,7 +69,7 @@ public class InputView {
         return true;
     }
 
-    private boolean isNoEmptySpace(List<String> list) {
+    private boolean containsNoEmptySpace(List<String> list) {
         for (String element : list) {
             if (element.contains(" ")) {
                 return false;
@@ -84,20 +84,6 @@ public class InputView {
             return false;
         }
         return true;
-    }
-
-    public List<String> convertToList(String input) {
-        String[] array = input.split(",");
-        return Arrays.asList(array);
-    }
-
-    private Integer parseInt(String input) {
-        try {
-            return Integer.parseInt(input);
-        }
-        catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
     }
 
     private boolean isBetweenLimit(int input) {
