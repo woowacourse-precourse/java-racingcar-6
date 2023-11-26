@@ -38,7 +38,7 @@ public class GameManager {
     }
 
     private Cars initRaceCars() {
-        List<String> carNames = inputView.getCarNames();
+        List<String> carNames = inputView.readCarNames();
         List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
@@ -46,7 +46,7 @@ public class GameManager {
     }
 
     private int initAttempts() {
-        return inputView.getAttempts();
+        return inputView.readAttempts();
     }
 
     private void playSingeRound() {

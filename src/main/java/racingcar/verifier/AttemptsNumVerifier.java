@@ -2,26 +2,26 @@ package racingcar.verifier;
 
 import racingcar.system.ExceptionMessage;
 
-public class AttemptsNumVerifier implements Verifier {
+public class AttemptsNumVerifier implements Verifier<String> {
 
     @Override
-    public void check(String input) throws IllegalArgumentException {
-        checkNumeric(input);
-        checkRange(input);
+    public void validate(String input) {
+        validateNumeric(input);
+        validateRange(input);
     }
 
-    private void checkNumeric(String input) {
+    private void validateNumeric(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ExceptionMessage.NOT_NUMERIC);
+            Verifier.throwIllegalArgumentError(ExceptionMessage.NOT_NUMERIC);
         }
     }
 
-    private void checkRange(String input) {
+    private void validateRange(String input) {
         int attempts = Integer.parseInt(input);
         if (attempts <= 0) {
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_NUM_OF_ATTEMPTS);
+            Verifier.throwIllegalArgumentError(ExceptionMessage.INVALID_NUM_OF_ATTEMPTS);
         }
     }
 }

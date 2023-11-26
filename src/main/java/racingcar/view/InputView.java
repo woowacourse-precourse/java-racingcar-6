@@ -14,21 +14,21 @@ public class InputView {
 
     private static final String ATTEMPTS_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
 
-    private final Verifier carNameVerifier = new CarNameVerifier();
+    private final Verifier<String> carNameVerifier = new CarNameVerifier();
 
-    private final Verifier attemptsNumVerifier = new AttemptsNumVerifier();
+    private final Verifier<String> attemptsNumVerifier = new AttemptsNumVerifier();
 
-    public List<String> getCarNames() {
+    public List<String> readCarNames() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String carNames = Console.readLine();
-        carNameVerifier.check(carNames);
+        carNameVerifier.validate(carNames);
         return Arrays.asList(carNames.split(","));
     }
 
-    public Integer getAttempts() {
+    public Integer readAttempts() {
         System.out.println(ATTEMPTS_INPUT_MESSAGE);
         String attempts = Console.readLine();
-        attemptsNumVerifier.check(attempts);
+        attemptsNumVerifier.validate(attempts);
         return Integer.parseInt(attempts);
     }
 

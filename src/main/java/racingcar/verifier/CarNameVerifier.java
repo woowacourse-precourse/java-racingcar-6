@@ -6,17 +6,17 @@ import racingcar.system.SystemConstant;
 import java.util.Arrays;
 import java.util.List;
 
-public class CarNameVerifier implements Verifier {
+public class CarNameVerifier implements Verifier<String> {
     @Override
-    public void check(String input) throws IllegalArgumentException {
+    public void validate(String input) {
         List<String> carNames = Arrays.asList(input.split(","));
-        checkCarNameLength(carNames);
+        validateCarNameLength(carNames);
     }
 
-    private void checkCarNameLength(List<String> carNames) {
+    private void validateCarNameLength(List<String> carNames) {
         carNames.forEach(carName -> {
             if (carName.isEmpty() || carName.length() > SystemConstant.MAX_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException(ExceptionMessage.INVALID_CAR_NAME);
+                Verifier.throwIllegalArgumentError(ExceptionMessage.INVALID_CAR_NAME);
             }
         });
     }
