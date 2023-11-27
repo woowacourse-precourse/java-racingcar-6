@@ -21,7 +21,7 @@ public class Car implements Comparable<Car> {
         this.distance = CAR_INIT_DISTANCE.getValue();
     }
 
-    public static Car of(String name) {
+    public static Car from(String name) {
         validate(name);
         return new Car(name);
     }

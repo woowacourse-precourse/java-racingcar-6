@@ -28,8 +28,8 @@ public class GameController {
 
     private Cars initCars() {
         List<String> carNames = getCarNames();
-        return Cars.of(carNames.stream()
-                .map(Car::of)
+        return Cars.from(carNames.stream()
+                .map(Car::from)
                 .toList());
     }
 

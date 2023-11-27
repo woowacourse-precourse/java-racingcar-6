@@ -35,7 +35,7 @@ public class InputParser {
     }
 
     private List<String> parseToStrings(String userInput) {
-        return Arrays.stream(userInput.split(","))
+        return Arrays.stream(userInput.split(CAR_NAME_DELIMITER.getSymbol()))
                 .toList();
     }
 

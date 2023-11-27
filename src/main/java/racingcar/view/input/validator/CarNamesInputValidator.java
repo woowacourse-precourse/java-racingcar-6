@@ -5,7 +5,5 @@ public class CarNamesInputValidator implements NotEmptyCheckable, ContainingDeli
         validateIsNotEmpty(userInput);
         validateContainsDelimiter(userInput);
         validateIsNotEndWithDelimiter(userInput);
-//        isEachCarNameLengthInAppropriateRange(userInput);
-//        isNotDuplicated(userInput);
     }
 }

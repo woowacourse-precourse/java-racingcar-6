@@ -14,7 +14,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars of(List<Car> cars) {
+    public static Cars from(List<Car> cars) {
         validate(cars);
         return new Cars(cars);
     }
