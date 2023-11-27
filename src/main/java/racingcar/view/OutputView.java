@@ -1,50 +1,72 @@
 package racingcar.view;
 
+import static racingcar.view.output.constant.OutputFormatConstant.PRINT_CAR_NAME_AND_DISTANCE_FORMAT;
+import static racingcar.view.output.constant.OutputMessageConstant.EXECUTION_START_SIGN;
+import static racingcar.view.output.constant.OutputMessageConstant.FINAL_WINNER_ANNOUNCEMENT_SIGN;
+import static racingcar.view.output.constant.OutputMessageConstant.INSERT_CAR_NAMES_DIRECTION;
+import static racingcar.view.output.constant.OutputMessageConstant.INSERT_TRIAL_TIMES_DIRECTION;
+import static racingcar.view.output.constant.OutputSymbolConstant.CAR_DISTANCE_VALUE_SYMBOL;
+import static racingcar.view.output.constant.OutputSymbolConstant.FINAL_WINNER_DUPLICATE_DELIMITER;
+import static racingcar.view.output.constant.OutputSymbolConstant.NEW_LINE;
+
+import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.constant.OutputConstant;
-import racingcar.constant.message.GuideMessage;
-import racingcar.domain.Car;
-import racingcar.domain.CarList;
+import racingcar.dto.CarNamesWithDistanceDto;
+import racingcar.dto.WinnerNamesDto;
 
 public class OutputView {
     public void askToInsertCarNameList() {
-        System.out.println(GuideMessage.INSERT_CAR_NAME_LIST_DIRECTION);
+        print(INSERT_CAR_NAMES_DIRECTION.getMessage());
+        printLine();
     }
 
-    public void askToInsertNumberOfGames() {
-        System.out.println(GuideMessage.INSERT_NUMBER_OF_GAMES_DIRECTION);
+    public void askToInsertTrialTimes() {
+        print(INSERT_TRIAL_TIMES_DIRECTION.getMessage());
+        printLine();
     }
 
     public void printExecutionStartSign() {
-        System.out.println();
-        System.out.println(GuideMessage.EXECUTION_START_SIGN);
+        printLine();
+        print(EXECUTION_START_SIGN.getMessage());
+        printLine();
     }
 
-    public void printCarStatus(CarList carList) {
-        for (Car car : carList.getCarList()) {
-            printCarNameAndDistance(car);
-        }
-        System.out.println();
+    public void printCarStatus(CarNamesWithDistanceDto carNamesWithDistanceDto) {
+        printCarNameAndDistance(carNamesWithDistanceDto);
+        printLine();
     }
 
-    private void printCarNameAndDistance(Car car) {
-        System.out.print(car.getName() + " : ");
-        System.out.println(convertCarDistanceValueToDistanceSymbol(car.getDistance()));
+    private void printCarNameAndDistance(CarNamesWithDistanceDto carNamesWithDistanceDto) {
+        Map<String, Integer> carNamesWithDistance = carNamesWithDistanceDto.carNamesWithDistance();
+        carNamesWithDistance.forEach(
+                (carName, distance) -> {
+                    print(
+                            String.format(PRINT_CAR_NAME_AND_DISTANCE_FORMAT.getFormat(),
+                                    carName,
+                                    convertToSymbol(distance))
+                    );
+                    printLine();
+                }
+        );
     }
 
-    private String convertCarDistanceValueToDistanceSymbol(Long distance) {
-        StringBuilder sb = new StringBuilder();
-        for (long i = 0; i < distance; i++) {
-            sb.append(OutputConstant.CAR_DISTANCE_VALUE_SYMBOL);
-        }
-        return sb.toString();
+    private String convertToSymbol(int distance) {
+        return CAR_DISTANCE_VALUE_SYMBOL.getSymbol().repeat(distance);
     }
 
-    public void printFinalWinner(CarList mostDistanceCarList) {
-        System.out.print(GuideMessage.FINAL_WINNER_ANNOUNCEMENT_SIGN);
-        String finalWinnerResult = mostDistanceCarList.getCarList()
-                .stream().map(Car::getName)
-                .collect(Collectors.joining(OutputConstant.FINAL_WINNER_DUPLICATE_DELIMITER));
-        System.out.println(finalWinnerResult);
+    public void printFinalWinner(WinnerNamesDto winnerNamesDto) {
+        print(FINAL_WINNER_ANNOUNCEMENT_SIGN.getMessage());
+        String gameResult = winnerNamesDto.winnerNames().stream()
+                .collect(Collectors.joining(FINAL_WINNER_DUPLICATE_DELIMITER.getSymbol()));
+        print(gameResult);
+        printLine();
+    }
+
+    private void print(String message) {
+        System.out.print(message);
+    }
+
+    private void printLine() {
+        print(NEW_LINE.getSymbol());
     }
 }

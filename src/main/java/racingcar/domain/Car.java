@@ -1,70 +1,91 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.constant.GameConstant;
-import racingcar.constant.message.CarGenerationErrorMessage;
-import racingcar.constant.message.CarNamesInputErrorMessage;
+import static racingcar.domain.constant.GameValueConstant.CAR_INIT_DISTANCE;
+import static racingcar.domain.constant.GameValueConstant.CAR_NAME_MAX_LENGTH;
+import static racingcar.domain.constant.GameValueConstant.MOVE_OR_STOP_BOUNDARY;
+import static racingcar.domain.constant.GameValueConstant.RANDOM_VALUE_UPPER_LIMIT;
 
-public class Car {
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import racingcar.domain.exception.DomainConstraintsException;
+import racingcar.domain.exception.DomainConstraintsExceptionMessage;
+import racingcar.domain.util.RandomNumberGenerator;
+
+public class Car implements Comparable<Car> {
     private final String name;
-    private Long distance;
+    private int distance;
 
-    public Car(String name) {
-        validateNameRange(name);
+    private Car(String name) {
         this.name = name;
-        this.distance = GameConstant.CAR_INIT_DISTANCE_VALUE;
+        this.distance = CAR_INIT_DISTANCE.getValue();
     }
 
-    private void validateNameRange(String name) {
-        isLengthUnderMaxLength(name);
-        isNotEmpty(name);
+    public static Car of(String name) {
+        validate(name);
+        return new Car(name);
     }
 
-    private void isLengthUnderMaxLength(String name) {
-        if (name.length() > GameConstant.CAR_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_LENGTH_EXCEEDS_LIMIT);
+    private static void validate(String name) {
+        validateIsLengthUpperLimit(name);
+    }
+
+    private static void validateIsLengthUpperLimit(String name) {
+        if (name.length() > CAR_NAME_MAX_LENGTH.getValue()) {
+            throw DomainConstraintsException.of(
+                    DomainConstraintsExceptionMessage.CAR_NAME_LENGTH_EXCEEDS_LIMIT.getMessage());
         }
     }
 
-    private void isNotEmpty(String name) {
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_IS_EMPTY);
-        }
-    }
-
-    public void moveOrStop() {
-        int randomValue = makeRandomValue();
-        if (randomValue >= GameConstant.MOVE_OR_STOP_BOUNDARY_VALUE
-                && randomValue <= GameConstant.RANDOM_VALUE_UPPER_LIMIT) {
+    public void playOneTurn() {
+        if (isMoveCondition()) {
             move();
-            return;
         }
-        if (randomValue < GameConstant.MOVE_OR_STOP_BOUNDARY_VALUE
-                && randomValue >= GameConstant.RANDOM_VALUE_LOWER_LIMIT) {
-            stop();
-            return;
-        }
-        throw new IllegalArgumentException(CarGenerationErrorMessage.RANDOM_VALUE_IS_NOT_IN_APPROPRIATE_RANGE);
     }
 
-    private int makeRandomValue() {
-        return Randoms.pickNumberInRange(GameConstant.RANDOM_VALUE_LOWER_LIMIT,
-                GameConstant.RANDOM_VALUE_UPPER_LIMIT);
+    private boolean isMoveCondition() {
+        int randomValue = RandomNumberGenerator.generate();
+        return randomValue >= MOVE_OR_STOP_BOUNDARY.getValue()
+                && randomValue <= RANDOM_VALUE_UPPER_LIMIT.getValue();
     }
 
     private void move() {
         distance++;
     }
 
-    private void stop() {
-
+    public Map<String, Integer> getNameWithDistance() {
+        Map<String, Integer> nameWithDistance = new HashMap<>();
+        nameWithDistance.put(name, distance);
+        return nameWithDistance;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
-    public Long getDistance() {
-        return this.distance;
+    public boolean isSameDistance(Car car) {
+        return distance == car.distance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Car car = (Car) o;
+        return Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.distance - other.distance;
     }
 }

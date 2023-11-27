@@ -1,85 +1,61 @@
 package racingcar.controller;
 
-import racingcar.domain.CarList;
-import racingcar.domain.CarNameList;
-import racingcar.domain.NumberOfGames;
-import racingcar.domain.RacingCarManager;
-import racingcar.validator.CarNamesInputValidator;
-import racingcar.validator.NumberOfGamesInputValidator;
+import java.util.List;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.dto.CarNamesWithDistanceDto;
+import racingcar.dto.WinnerNamesDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private RacingCarManager racingCarManager;
-    private NumberOfGames numberOfGames;
 
     public GameController() {
-        inputView = new InputView(new CarNamesInputValidator(), new NumberOfGamesInputValidator());
+        inputView = new InputView();
         outputView = new OutputView();
     }
 
     public void playGame() {
-        setUpGame();
-        executeGame();
-        showGameResult();
+        Cars cars = initCars();
+        int trialTimes = getTrialTimes();
+
+        executeGame(cars, trialTimes);
+
+        showGameResult(cars);
     }
 
-    private void setUpGame() {
-        initRacingCarManager();
-        initNumberOfGames();
+    private Cars initCars() {
+        List<String> carNames = getCarNames();
+        return Cars.of(carNames.stream()
+                .map(Car::of)
+                .toList());
     }
 
-    private void initRacingCarManager() {
-        CarNameList carNameList = getCarNameListFromUser();
-        racingCarManager = new RacingCarManager(carNameList);
-    }
-
-    private CarNameList getCarNameListFromUser() {
+    private List<String> getCarNames() {
         outputView.askToInsertCarNameList();
-        return inputView.getCarNameListFromUser();
+        return inputView.getCarNames();
     }
 
-    private void initNumberOfGames() {
-        numberOfGames = getNumberOfGamesFromUser();
+    private int getTrialTimes() {
+        outputView.askToInsertTrialTimes();
+        return inputView.getTrialTimes();
     }
 
-    private NumberOfGames getNumberOfGamesFromUser() {
-        outputView.askToInsertNumberOfGames();
-        return inputView.getNumberOfGamesFromUser();
-    }
-
-    private void executeGame() {
-        printExecutionStartSign();
-        for (long i = 0; i < numberOfGames.getNumberOfGames(); i++) {
-            playRacingGame();
-            printEachCarStatus();
+    private void executeGame(Cars cars, final int trialTimes) {
+        outputView.printExecutionStartSign();
+        for (int i = 0; i < trialTimes; i++) {
+            cars.race();
+            printEachCarStatus(CarNamesWithDistanceDto.from(cars.getCarNamesWithDistance()));
         }
     }
 
-    private void printExecutionStartSign() {
-        outputView.printExecutionStartSign();
+    private void printEachCarStatus(CarNamesWithDistanceDto carNamesWithDistanceDto) {
+        outputView.printCarStatus(carNamesWithDistanceDto);
     }
 
-    private void playRacingGame() {
-        racingCarManager.playRacingGame();
-    }
-
-    private void printEachCarStatus() {
-        outputView.printCarStatus(racingCarManager.getCarList());
-    }
-
-    private void showGameResult() {
-        CarList mostDistanceCarList = getMostDistanceCarList();
-        printFinalWinner(mostDistanceCarList);
-    }
-
-    private CarList getMostDistanceCarList() {
-        return racingCarManager.getMostDistanceCarList();
-    }
-
-    private void printFinalWinner(CarList mostDistanceCarList) {
-        outputView.printFinalWinner(mostDistanceCarList);
+    private void showGameResult(Cars cars) {
+        outputView.printFinalWinner(WinnerNamesDto.from(cars.findWinners()));
     }
 }
