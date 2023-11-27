@@ -14,7 +14,6 @@ public class JudgeWinnerResult {
     public String judgeWinner(){
         List<String> winnerList = new ArrayList<String>();
 
-
         String[] WinnerList = new String[5];
         return String.join(", ",winnerList);
     }
