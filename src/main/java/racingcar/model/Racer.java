@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.model.car.Car;
 import racingcar.validation.RacerValidator;
 import racingcar.validation.Validator;
+import racingcar.validation.ValidatorFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,8 +23,11 @@ public class Racer {
     }
 
     private void validate(String value){
-        Validator validator = new RacerValidator();
+        ValidatorFactory validatorFactory = ValidatorFactory.buildDefaultValidatorFactory();
+        Validator validator = validatorFactory.getValidator(this.getClass());
         validator.validate(value);
+//        Validator validator = new RacerValidator();
+//        validator.validate(value);
     }
 
 //    public String getWinner() {

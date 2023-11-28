@@ -2,6 +2,7 @@ package racingcar.model;
 
 import racingcar.validation.RoundValidator;
 import racingcar.validation.Validator;
+import racingcar.validation.ValidatorFactory;
 
 import static racingcar.type.PlayType.MAX_NUM;
 import static racingcar.type.PlayType.MIN_NUM;
@@ -32,8 +33,11 @@ public class Round {
     }
 
     private void validate(String value){
-        Validator validator = new RoundValidator();
+        ValidatorFactory validatorFactory = ValidatorFactory.buildDefaultValidatorFactory();
+        Validator validator = validatorFactory.getValidator(this.getClass());
         validator.validate(value);
+//        Validator validator = new RoundValidator();
+//        validator.validate(value);
 //        validateType(value);
 //        validateRange(value);
     }
