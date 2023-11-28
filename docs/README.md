@@ -34,3 +34,4 @@
 * [x] 1급 Collection 적용
 * [ ] 상수 사용
 * [ ] interface 활용 (메세지 던지기)
+* [ ] Integer 대신 Long 사용 고려
