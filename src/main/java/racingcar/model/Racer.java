@@ -17,7 +17,6 @@ public class Racer {
                 .toList();
     }
 
-    // TODO: 메서드 위치 고민 해보기
     public void play(){
         racer.forEach(Car::move);
     }
@@ -47,13 +46,20 @@ public class Racer {
     }
 
     public String winnerToString() {
-        List<Car> winner = getWinner();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Car car : winner){
-            stringBuilder.append(car.getName()).append(",");
-        }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        return stringBuilder.toString();
+        List<String> winner = getWinner()
+                .stream()
+                .map(Car::getName)
+                .toList();
+
+        return String.join(SEPERATOR, winner);
+
+//        List<Car> winner = getWinner();
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for (Car car : winner){
+//            stringBuilder.append(car.getName()).append(",");
+//        }
+//        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+//        return stringBuilder.toString();
     }
 
     @Override
