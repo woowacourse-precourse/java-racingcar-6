@@ -25,7 +25,7 @@ public class RoundValidator implements Validator {
     }
 
     private void validateRange(String value){
-        if (0 >= Integer.parseInt(value)) {
+        if (0 > Integer.parseInt(value)) {
             throw new IllegalArgumentException();
         }
     }
