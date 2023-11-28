@@ -6,7 +6,7 @@ import racingcar.model.Racer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RacerValidatorTest {
+class RacerValidatorTest {
     // TODO: 추후 검증기 모아 한 클래스 에서 테스트
     @DisplayName("클래스 지원 테스트")
     @Test
