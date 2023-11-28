@@ -55,7 +55,7 @@ public class Racer {
                 .map(Car::getName)
                 .toList();
 
-        return String.join(SEPERATOR, winner);
+        return String.join(SEPERATOR + " ", winner);
 
 //        List<Car> winner = getWinner();
 //        StringBuilder stringBuilder = new StringBuilder();
