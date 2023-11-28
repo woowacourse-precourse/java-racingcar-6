@@ -28,7 +28,7 @@ public class RacingCarController {
 //            position.put(name, 0);
 //        }
 
-        outputView.printExecution();
+        outputView.printExecutionResult();
         // 라운드 별 각각의 레이서 결과 출력
         while(round.hasRound()){
             racer.play();
