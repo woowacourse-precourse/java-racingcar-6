@@ -8,7 +8,7 @@ import static racingcar.type.PlayType.MIN_LENGTH;
 public class CarValidator implements Validator {
     @Override
     public boolean support(Class<?> clazz) {
-        return clazz.isAssignableFrom(Car.class);
+        return Car.class.isAssignableFrom(clazz);
     }
 
     @Override

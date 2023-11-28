@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import racingcar.validation.RacerValidator;
+import racingcar.validation.Validator;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,6 +20,11 @@ public class Racer {
     // TODO: 메서드 위치 고민 해보기
     public void play(){
         racer.forEach(Car::move);
+    }
+
+    private void validate(String value){
+        Validator validator = new RacerValidator();
+        validator.validate(value);
     }
 
     public String getWinner() {
@@ -50,13 +58,13 @@ public class Racer {
         return racer.equals(target.racer);
     }
 
-    private void validate(String name){
-        validateSize(name);
-    }
-
-    private void validateSize(String value){
-        if (value == null || value.split(SEPERATOR).length == 0){
-            throw new IllegalArgumentException("참가자 없음");
-        }
-    }
+//    private void validate(String name){
+//        validateSize(name);
+//    }
+//
+//    private void validateSize(String value){
+//        if (value == null || value.split(SEPERATOR).length == 0){
+//            throw new IllegalArgumentException("참가자 없음");
+//        }
+//    }
 }
