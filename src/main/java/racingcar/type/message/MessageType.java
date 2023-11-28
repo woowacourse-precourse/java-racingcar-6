@@ -1,4 +1,4 @@
-package racingcar.type;
+package racingcar.type.message;
 
 public enum MessageType {
     MARK("-"),

@@ -2,8 +2,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import static racingcar.type.MessageType.ENTER_CAR_NAME;
-import static racingcar.type.MessageType.ENTER_RACE_ROUND;
+import static racingcar.type.message.MessageType.ENTER_CAR_NAME;
+import static racingcar.type.message.MessageType.ENTER_RACE_ROUND;
 
 public class InputViewImpl implements InputView {
 //    private static final String ENTER_CAR_NAME = "경주할 자동차 이름을 입력 하세요.(이름은 쉼표(,) 기준 으로 구분)";

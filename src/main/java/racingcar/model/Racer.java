@@ -3,7 +3,7 @@ package racingcar.model;
 import racingcar.model.car.Car;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
-import static racingcar.type.MessageType.NAME_SEPARATOR;
+import static racingcar.type.message.MessageType.NAME_SEPARATOR;
 
 import java.util.Arrays;
 import java.util.List;

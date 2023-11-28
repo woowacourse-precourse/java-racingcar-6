@@ -6,7 +6,7 @@ import racingcar.validation.ValidatorFactory;
 
 import java.util.Comparator;
 
-import static racingcar.type.MessageType.MARK;
+import static racingcar.type.message.MessageType.MARK;
 
 // TODO : 자동차 경주에 말이 들어 온다면?
 public class Car {
