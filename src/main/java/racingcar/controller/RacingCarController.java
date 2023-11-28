@@ -18,9 +18,9 @@ public class RacingCarController {
 //        String cars = inputView.readRaceCarNames();
 //        String resultCars = cars.replaceAll(" ", "");
 //        List<String> names = List.of(resultCars.split(","));
-        Racer racer = new Racer(inputView.readRaceCarNames());
+        Racer racer = new Racer(inputView.readCars());
 //        int round = Integer.parseInt(inputView.readRaceRound());
-        Round round = new Round(inputView.readRaceRound());
+        Round round = new Round(inputView.readRound());
 
         // 각각의 racer 초기화
 //        Map<String, Integer> position = new LinkedHashMap<>();
@@ -32,7 +32,7 @@ public class RacingCarController {
         // 라운드 별 각각의 레이서 결과 출력
         while(round.isContinue()){
             racer.play();
-            outputView.printResult(racer);
+            outputView.printResult(racer.toString());
         }
 //        for (int i=0 ; i < round ; i++){
 //            racer.play();
@@ -42,7 +42,7 @@ public class RacingCarController {
 //            System.out.println();
 //        }
 
-        outputView.printWinner(racer.getWinner());
+        outputView.printFinalWinner(racer.getWinner());
     }
 
 //    private void play(Map<String, Integer> position) {
