@@ -9,7 +9,9 @@ public class Application {
     public static void main(String[] args) {
 //        RacingCarController racingCarController = new RacingCarController(new InputViewImpl(), new OutputViewImpl());
 //        racingCarController.run();
-        RacingCarApplication racingCarApplication = new RacingCarApplication();=
+
+        RacingCarApplication racingCarApplication = new RacingCarApplication();
+
         racingCarApplication.run();
     }
 }

@@ -30,7 +30,7 @@ public class RacingCarController {
 
         outputView.printExecution();
         // 라운드 별 각각의 레이서 결과 출력
-        while(round.isContinue()){
+        while(round.hasRound()){
             racer.play();
             outputView.printResult(racer.toString());
         }

@@ -15,12 +15,20 @@ public class Round {
     }
 
     // TODO: 진행 중인지 확인 하는 것 뿐 아니라 감소도 함
-    public Boolean isContinue(){
-        if (round > 0){
-            round --;
-            return true;
-        }
-        return false;
+//    public Boolean isContinue(){
+//        if (round > 0){
+//            round --;
+//            return true;
+//        }
+//        return false;
+//    }
+    public Boolean hasRound(){
+        turn();
+        return round >= 0;
+    }
+
+    public void turn() {
+        round--;
     }
 
     private void validate(String value){
