@@ -1,6 +1,6 @@
 package racingcar.validation;
 
-import racingcar.model.Car;
+import racingcar.model.car.Car;
 
 import static racingcar.type.PlayType.MAX_LENGTH;
 import static racingcar.type.PlayType.MIN_LENGTH;

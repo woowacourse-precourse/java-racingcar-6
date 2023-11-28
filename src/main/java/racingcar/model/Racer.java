@@ -1,11 +1,11 @@
 package racingcar.model;
 
+import racingcar.model.car.Car;
 import racingcar.validation.RacerValidator;
 import racingcar.validation.Validator;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Racer {
     public static final String SEPERATOR = ",";
@@ -27,13 +27,33 @@ public class Racer {
         validator.validate(value);
     }
 
-    public String getWinner() {
-        Car winner = racer.stream().max(Car::compareTo).orElseThrow();
+//    public String getWinner() {
+//        Car winner = racer.stream().max(Car::compareTo).orElseThrow();
+//
+//        return racer.stream()
+//                .filter(winner::equals)
+//                .map(Car::getName)
+//                .collect(Collectors.joining(SEPERATOR));
+//    }
+
+    public List<Car> getWinner() {
+        Car first = racer.stream()
+                .max(Car::compareTo)
+                .orElseThrow(IllegalAccessError::new);
 
         return racer.stream()
-                .filter(winner::equals)
-                .map(Car::getName)
-                .collect(Collectors.joining(SEPERATOR));
+                .filter(car -> car.equals(first))
+                .toList();
+    }
+
+    public String winnerToString() {
+        List<Car> winner = getWinner();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Car car : winner){
+            stringBuilder.append(car.getName()).append(",");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        return stringBuilder.toString();
     }
 
     @Override

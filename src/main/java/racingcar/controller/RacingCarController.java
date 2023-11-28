@@ -42,7 +42,7 @@ public class RacingCarController {
 //            System.out.println();
 //        }
 
-        outputView.printFinalWinner(racer.getWinner());
+        outputView.printFinalWinner(racer.winnerToString());
     }
 
 //    private void play(Map<String, Integer> position) {
