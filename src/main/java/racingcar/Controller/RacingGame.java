@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGame {
+    
     private List<Car> cars;
     private int number;
-
-
+    
     public RacingGame(List<String> cars, int number) {
         setCars(cars);
         this.number = number;
@@ -27,13 +27,14 @@ public class RacingGame {
             cars.add(new Car(name));
         }
     }
+    
     private void playRacingRound(){
         for(Car car : cars){
             car.move();
         }
         System.out.println();
     }
-
+    
     public void playRacingGame(){
         System.out.println(Message.GAME_RESULT);
         for (int i=0; i<number; i++){
@@ -42,6 +43,7 @@ public class RacingGame {
         System.out.print(Message.OUTPUT_WINNER);
         System.out.println(winnerMaxDistance());
     }
+    
     public String winnerMaxDistance(){
         int maxDistance = getMaxDistance();
         return this.cars
@@ -50,6 +52,7 @@ public class RacingGame {
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
     }
+    
     public int getMaxDistance(){
         return this.cars.stream()
                 .mapToInt(car -> car.getPosition())
