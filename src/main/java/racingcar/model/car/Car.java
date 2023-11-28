@@ -1,15 +1,16 @@
 package racingcar.model.car;
 
 import racingcar.service.ShiftGear;
-import racingcar.validation.CarValidator;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
 
 import java.util.Comparator;
 
+import static racingcar.type.MessageType.MARK;
+
 // TODO : 자동차 경주에 말이 들어 온다면?
 public class Car {
-    private static final String MARK = "-";
+//    private static final String MARK = "-";
     // TODO : 어떻게 선언 할까
     private final Comparator<Car> comparator = new OrderByPosition();
 

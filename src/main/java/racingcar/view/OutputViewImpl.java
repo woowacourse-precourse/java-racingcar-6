@@ -1,7 +1,9 @@
 package racingcar.view;
 
+import static racingcar.type.MessageType.ENTER_RACE_RESULT;
+
 public class OutputViewImpl implements OutputView {
-    private static final String ENTER_RACE_RESULT = "\n실행 결과";
+//    private static final String ENTER_RACE_RESULT = "\n실행 결과";
     @Override
     public void printExecution() {
         System.out.println(ENTER_RACE_RESULT);

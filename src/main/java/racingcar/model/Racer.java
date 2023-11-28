@@ -1,19 +1,19 @@
 package racingcar.model;
 
 import racingcar.model.car.Car;
-import racingcar.validation.RacerValidator;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
+import static racingcar.type.MessageType.NAME_SEPARATOR;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Racer {
-    public static final String SEPERATOR = ",";
+//    public static final String SEPERATOR = ",";
     private final List<Car> racer;
     public Racer(String name) {
         validate(name);
-        this.racer = Arrays.stream(name.split(SEPERATOR))
+        this.racer = Arrays.stream(name.split(NAME_SEPARATOR.getMessageValue()))
                 .map(Car::new)
                 .toList();
     }
@@ -55,7 +55,7 @@ public class Racer {
                 .map(Car::getName)
                 .toList();
 
-        return String.join(SEPERATOR + " ", winner);
+        return String.join(NAME_SEPARATOR + " ", winner);
 
 //        List<Car> winner = getWinner();
 //        StringBuilder stringBuilder = new StringBuilder();
