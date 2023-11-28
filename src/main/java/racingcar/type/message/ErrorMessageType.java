@@ -5,7 +5,8 @@ public enum ErrorMessageType {
     BLANK_SPACE("이름은 공백이 아니어야 합니다."),
     NO_PARTICIPANT("참가자가 없습니다."),
     INVALID_TYPE("잘못된 타입 입니다."),
-    INVALID_RANGE("잘못된 범위 입니다.");
+    INVALID_RANGE("잘못된 범위 입니다."),
+    INVALID_UNIQUE("중복 입니다.");
 
     private final String errorMessageValue;
 
