@@ -4,15 +4,13 @@ import racingcar.service.ShiftGear;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
 
-import java.util.Comparator;
-
 import static racingcar.type.message.MessageType.MARK;
 
 // TODO : 자동차 경주에 말이 들어 온다면?
 public class Car {
 //    private static final String MARK = "-";
     // TODO : 어떻게 선언 할까
-    private final Comparator<Car> comparator = new OrderByPosition();
+//    private final Comparator<Car> comparator = new OrderByPosition();
 
     protected final String name;
     protected Long currentPosition;
@@ -67,10 +65,10 @@ public class Car {
         return this.currentPosition.equals(car.currentPosition);
     }
 
-    public int compareTo(Car car) {
-        return comparator.compare(this, car);
-//        return this.currentPosition - car.currentPosition;
-    }
+//    public int compareTo(Car car) {
+//        return comparator.compare(this, car);
+////        return this.currentPosition - car.currentPosition;
+//    }
 
 //    private void validateName(String name){
 //        validateLength(name);

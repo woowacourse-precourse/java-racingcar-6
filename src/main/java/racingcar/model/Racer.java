@@ -1,6 +1,8 @@
 package racingcar.model;
 
 import racingcar.model.car.Car;
+import racingcar.model.car.OrderByPosition;
+import racingcar.model.car.OrderStrategy;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
 import static racingcar.type.message.MessageType.NAME_SEPARATOR;
@@ -39,18 +41,27 @@ public class Racer {
 //                .collect(Collectors.joining(SEPERATOR));
 //    }
 
-    public List<Car> getWinner() {
-        Car first = racer.stream()
-                .max(Car::compareTo)
-                .orElseThrow(IllegalAccessError::new);
+//    public List<Car> getWinner() {
+//        Car first = racer.stream()
+//                .max(Car::compareTo)
+//                .orElseThrow(IllegalAccessError::new);
+//
+//        return racer.stream()
+//                .filter(car -> car.equals(first))
+//                .toList();
+//    }
 
+    public List<Car> getWinner(OrderStrategy orderStrategy){
+        Car first = racer.stream()
+                .max(orderStrategy)
+                .orElseThrow();
         return racer.stream()
                 .filter(car -> car.equals(first))
                 .toList();
     }
 
     public String winnerToString() {
-        List<String> winner = getWinner()
+        List<String> winner = getWinner(new OrderByPosition())
                 .stream()
                 .map(Car::getName)
                 .toList();
