@@ -13,13 +13,13 @@ public class Car {
     // TODO : 어떻게 선언 할까
     private final Comparator<Car> comparator = new OrderByPosition();
 
-    protected String name;
-    protected Integer currentPosition;
+    protected final String name;
+    protected Long currentPosition;
 
     public Car(String name){
         validate(name);
-//        this.name = name;
-//        this.currentPosition = 0;
+        this.name = name;
+        this.currentPosition = 0L;
     }
 
     public void move() {
@@ -45,7 +45,13 @@ public class Car {
 
     @Override
     public String toString(){
-        return this.name + " : " + MARK.repeat(this.currentPosition);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(this.name).append(" : ");
+        for (long i=0 ; i < this.currentPosition ; i++){
+            stringBuilder.append(MARK);
+        }
+        return stringBuilder.toString();
+//        return this.name + " : " + MARK.repeat(this.currentPosition);
     }
 
     @Override

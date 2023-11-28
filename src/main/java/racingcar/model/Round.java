@@ -8,11 +8,12 @@ import static racingcar.type.PlayType.MAX_NUM;
 import static racingcar.type.PlayType.MIN_NUM;
 
 public class Round {
-    private Integer round;
+    private Long round;
+//    private Integer round;
 
     public Round(String round){
         validate(round);
-        this.round = Integer.parseInt(round);
+        this.round = Long.valueOf(round);
     }
 
     // TODO: 진행 중인지 확인 하는 것 뿐 아니라 감소도 함
