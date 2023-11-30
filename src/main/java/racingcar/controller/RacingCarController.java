@@ -33,6 +33,7 @@ public class RacingCarController {
         while(round.hasRound()){
             racer.play();
             outputView.printResult(racer.toString());
+            round.turn();
         }
 //        for (int i=0 ; i < round ; i++){
 //            racer.play();

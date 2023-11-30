@@ -29,7 +29,7 @@ public class Round {
 //        return false;
 //    }
     public Boolean hasRound(){
-        turn();
+//        turn();
         return round >= 0;
     }
 
