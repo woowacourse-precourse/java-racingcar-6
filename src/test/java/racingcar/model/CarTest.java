@@ -12,7 +12,7 @@ class CarTest {
     @ParameterizedTest(name = "{displayName} value = {0}")
     @ValueSource(strings = {"myCarIsKia", "myName", " "})
     void checkValidateLength(String name){
-        assertThatThrownBy(() -> new Car(name))
+        assertThatThrownBy(() -> Car.ofStartPoint(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

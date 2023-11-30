@@ -15,10 +15,14 @@ public class Car {
     protected final String name;
     protected Long currentPosition;
 
-    public Car(String name){
+    private Car(String name, Long currentPosition){
         validate(name);
         this.name = name;
-        this.currentPosition = 0L;
+        this.currentPosition = currentPosition;
+    }
+
+    public static Car ofStartPoint(String name){
+        return new Car(name, 0L);
     }
 
     public void move() {
