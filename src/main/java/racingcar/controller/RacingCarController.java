@@ -31,8 +31,9 @@ public class RacingCarController {
         outputView.printExecutionResult();
         // 라운드 별 각각의 레이서 결과 출력
         while(round.hasRound()){
-            racer.play();
-            outputView.printResult(racer.toString());
+            play(racer);
+//            racer.play();
+//            outputView.printResult(racer.toString());
             round.turn();
         }
 //        for (int i=0 ; i < round ; i++){
@@ -44,6 +45,11 @@ public class RacingCarController {
 //        }
 
         outputView.printFinalWinner(racer.winnerToString());
+    }
+
+    private void play(Racer racer){
+        racer.play();
+        outputView.printResult(racer.toString());
     }
 
 //    private void play(Map<String, Integer> position) {
