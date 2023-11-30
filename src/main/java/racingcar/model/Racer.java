@@ -9,6 +9,7 @@ import static racingcar.type.message.MessageType.NAME_SEPARATOR;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Racer {
 //    public static final String SEPERATOR = ",";
@@ -61,12 +62,17 @@ public class Racer {
     }
 
     public String winnerToString() {
-        List<String> winner = getWinner(new OrderByPosition())
+        return getWinner(new OrderByPosition())
                 .stream()
                 .map(Car::getName)
-                .toList();
+                .collect(Collectors.joining(NAME_SEPARATOR + " "));
 
-        return String.join(NAME_SEPARATOR + " ", winner);
+//        List<String> winner = getWinner(new OrderByPosition())
+//                .stream()
+//                .map(Car::getName)
+//                .toList();
+//
+//        return String.join(NAME_SEPARATOR + " ", winner);
 
 //        List<Car> winner = getWinner();
 //        StringBuilder stringBuilder = new StringBuilder();
