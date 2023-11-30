@@ -24,4 +24,17 @@ class RoundTest {
     void checkValidRound(String value){
         assertThat(Round.of(value).hasRound()).isTrue();
     }
+
+    @DisplayName("라운드 플레이 테스트")
+    @ParameterizedTest(name = "{displayName}: {0}")
+    @ValueSource(strings = {"3", "5", "100", "0"})
+    void checkRoundPlay(String value){
+        Round round = Round.of(value);
+        long count = Long.parseLong(value);
+        while(round.hasRound()) {
+            round.turn();
+            count--;
+        }
+        assertThat(count).isEqualTo(-1);
+    }
 }
