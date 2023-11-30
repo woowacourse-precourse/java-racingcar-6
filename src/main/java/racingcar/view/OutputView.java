@@ -8,16 +8,16 @@ public class OutputView {
     private static final String CAR_NAME_INPUT_TEXT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
     private static final String FIRST_SHOWN_WINNER_TEXT = "최종 우승자 : ";
 
-    public static void printWinners(List<String> winners) {
+    public void printWinners(List<String> winners) {
         printFirstShownWinnerText();
         System.out.println(String.join(", ", winners));
     }
 
-    public static void printFirstShownWinnerText() {
+    public void printFirstShownWinnerText() {
         System.out.print(FIRST_SHOWN_WINNER_TEXT);
     }
 
-    public static void printMovingDistance(Object carName, int movingDistance) {
+    public void printMovingDistance(Object carName, int movingDistance) {
         System.out.print(carName + " : ");
         for (int moved = 0; moved < movingDistance; moved++) {
             System.out.print("-");
@@ -25,15 +25,15 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printFirstShownResultText() {
+    public void printFirstShownResultText() {
         System.out.print(FIRST_SHOWN_RESULT_TEXT);
     }
 
-    public static void printTrialNumberInputText() {
+    public void printTrialNumberInputText() {
         System.out.print(TRIAL_NUMBER_INPUT_TEXT);
     }
 
-    public static void printCarNameInputText() {
+    public void printCarNameInputText() {
         System.out.print(CAR_NAME_INPUT_TEXT);
     }
 }
