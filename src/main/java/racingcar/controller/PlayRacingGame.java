@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.domain.Game;
-import racingcar.repository.CarRepository;
 import racingcar.service.CarService;
 import racingcar.service.GameService;
 import racingcar.util.Parser;
@@ -22,12 +21,12 @@ public class PlayRacingGame {
 
 
     public void racingGame(){
-        carService.saveCars(getCarNames());
+        carService.saveCars(inputUserCarNames());
         playGame(createNewGame());
     }
 
     private Game createNewGame() {
-        Game game = new Game(carService.getCarList(), getTrialNumber());
+        Game game = new Game(carService.getCarList(), inputUserTrialNumber());
         gameService.saveGame(game);
         return game;
     }
@@ -43,14 +42,14 @@ public class PlayRacingGame {
     }
 
     //축약 가능
-    private int getTrialNumber(){
+    private int inputUserTrialNumber(){
         String userInput = inputView.inputTrialNumber();
         validator.isValidTrialNumber(userInput);
         int trialNumber = parser.parseTrialNumber(userInput);
         return trialNumber;
     }
 
-    private List<String> getCarNames(){
+    private List<String> inputUserCarNames(){
         String userInput = inputView.inputCarName();
         List<String> carNames = validator.isValidCarName(userInput);
         return carNames;
