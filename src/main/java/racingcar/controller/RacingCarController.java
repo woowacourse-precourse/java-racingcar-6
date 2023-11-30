@@ -20,8 +20,8 @@ public class RacingCarController {
 //        List<String> names = List.of(resultCars.split(","));
         Racer racer = new Racer(inputView.readCars());
 //        int round = Integer.parseInt(inputView.readRaceRound());
-        Round round = new Round(inputView.readRound());
-
+//        Round round = new Round(inputView.readRound());
+        Round round = Round.of(inputView.readRound());
         // 각각의 racer 초기화
 //        Map<String, Integer> position = new LinkedHashMap<>();
 //        for(String name: names){

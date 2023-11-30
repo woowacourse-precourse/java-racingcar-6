@@ -11,9 +11,13 @@ public class Round {
     private Long round;
 //    private Integer round;
 
-    public Round(String round){
+    private Round(String round){
         validate(round);
         this.round = Long.valueOf(round);
+    }
+
+    public static Round of(String round){
+        return new Round(round);
     }
 
     // TODO: 진행 중인지 확인 하는 것 뿐 아니라 감소도 함
