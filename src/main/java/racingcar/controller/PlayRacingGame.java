@@ -51,7 +51,8 @@ public class PlayRacingGame {
 
     private List<String> inputUserCarNames(){
         String userInput = inputView.inputCarName();
-        List<String> carNames = validator.isValidCarName(userInput);
+        List<String> carNames = parser.parseCarNames(userInput);
+        validator.isValidCarName(carNames);
         return carNames;
     }
 

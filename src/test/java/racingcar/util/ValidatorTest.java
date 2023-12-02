@@ -51,10 +51,11 @@ class ValidatorTest {
     @Test
     void isValidCarNameTest(){
 
-        List<String> carNameList = new ArrayList<>();
-        String name = "woonbe, java, spring";
+        List<String> carNameList = List.of("woonbe", "java", "spring");
 
-        assertThatThrownBy(() -> validator.isValidCarName(name))
+//        String name = "woonbe, java, spring";
+
+        assertThatThrownBy(() -> validator.isValidCarName(carNameList))
                 .isInstanceOf(IllegalArgumentException.class);
 
     }

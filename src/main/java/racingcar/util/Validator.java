@@ -11,9 +11,9 @@ public class Validator {
     private final Parser parser = new Parser();
 
     private List<String> carNameList = new ArrayList<>();
-    public List<String> isValidCarName(String input){
+    public List<String> isValidCarName(List<String> list){
         carNameList.clear();
-        carNameList = parser.parseCarNames(input);
+        carNameList = list;
         checkEachCarNameLengthValid(carNameList);
         checkDuplicateName(carNameList);
         return carNameList;
@@ -43,7 +43,6 @@ public class Validator {
 
     //비어있지 않거나 숫자일때
     public boolean isValidTrialNumber(String input){
-
         if(!input.isEmpty() && isNumberDigit(input)){
             return true;
         }
