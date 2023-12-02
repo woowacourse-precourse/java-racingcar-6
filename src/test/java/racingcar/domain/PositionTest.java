@@ -35,5 +35,16 @@ class PositionTest {
         //then
         assertThat(newPosition).isEqualTo(position + 1);
     }
+    
+    @Test
+    @DisplayName("Test name")
+    void metodName() throws Exception {
+        //given
+        Map<String, Integer> a = Map.of("a", 1, "b", 2);
+        Integer a1 = a.put("a", 2);
+        //when
+    
+        //then
+    }
 
 }
