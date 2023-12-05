@@ -1,6 +1,6 @@
 package racingcar.Model;
 
-public class Cars {
+public class Car {
     public int tryNumber;
 
     public String getCarName() {
