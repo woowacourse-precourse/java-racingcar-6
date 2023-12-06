@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BadInputException {
+public class Validator {
     public static void checkNumber(String attemptCount) {
         try {
             Integer.parseInt(attemptCount);

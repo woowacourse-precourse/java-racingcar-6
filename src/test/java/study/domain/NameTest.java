@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RacingGame;
-import racingcar.model.BadInputException;
+import racingcar.model.Validator;
 
 public class NameTest {
     @Test
@@ -13,7 +13,7 @@ public class NameTest {
         String name = "gahyeon";
 
         assertThatThrownBy(() -> {
-            BadInputException.checkNameLength(name);
+            Validator.checkNameLength(name);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -22,7 +22,7 @@ public class NameTest {
         String name = "ga hyeon";
 
         assertThatThrownBy(() -> {
-            BadInputException.isSpace(name);
+            Validator.isSpace(name);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -31,7 +31,7 @@ public class NameTest {
         String[] participants = new String[]{"ghlee"};
 
         assertThatThrownBy(() -> {
-            BadInputException.checkMinimumParticipants(participants);
+            Validator.checkMinimumParticipants(participants);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -40,7 +40,7 @@ public class NameTest {
         String[] names = new String[]{"ghlee", "ghlee"};
 
         assertThatThrownBy(() -> {
-            BadInputException.isNameDuplicate(names);
+            Validator.isNameDuplicate(names);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 

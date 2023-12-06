@@ -4,7 +4,7 @@ package study.domain;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
-import racingcar.model.BadInputException;
+import racingcar.model.Validator;
 
 public class AttemptCountTest {
     @Test
@@ -12,7 +12,7 @@ public class AttemptCountTest {
         String attemptCount = "ㅇ";
 
         assertThatThrownBy(() -> {
-            BadInputException.checkNumber(attemptCount);
+            Validator.checkNumber(attemptCount);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -21,7 +21,7 @@ public class AttemptCountTest {
         Integer attemptCount = -1;
 
         assertThatThrownBy(() -> {
-            BadInputException.isPositiveNum(attemptCount);
+            Validator.isPositiveNum(attemptCount);
         }).isInstanceOf(IllegalArgumentException.class);
     }
 

@@ -2,8 +2,8 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.BadInputException;
 import racingcar.model.Car;
+import racingcar.model.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -30,13 +30,13 @@ public class RacingGame {
     private String[] checkValid(String carNames) {
         String[] names = carNames.split(",");
 
-        BadInputException.checkMinimumParticipants(names);
+        Validator.checkMinimumParticipants(names);
         trimSpaces(names); // 양끝 공백 제거
-        BadInputException.isNameDuplicate(names);
+        Validator.isNameDuplicate(names);
 
         for (String name : names) {
-            BadInputException.isSpace(name); // 이름에 공백이 포함되어 있는지 확인
-            BadInputException.checkNameLength(name);
+            Validator.isSpace(name); // 이름에 공백이 포함되어 있는지 확인
+            Validator.checkNameLength(name);
         }
 
         return names;
@@ -62,8 +62,8 @@ public class RacingGame {
     }
 
     private void checkNaturalNumber(String count) {
-        BadInputException.checkNumber(count);
-        BadInputException.isPositiveNum(Integer.parseInt(count));
+        Validator.checkNumber(count);
+        Validator.isPositiveNum(Integer.parseInt(count));
     }
 
     private void setAttemptCount(int attemptCount) {
