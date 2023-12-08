@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
-	String name;
 	List<String> moved;
+	String name;
 
 	public Car(String name){
 		this.name = name;
 		moved = new ArrayList<>();
-	}
-	public void printMoved(){
-		moved.forEach(System.out::print);
 	}
 	public void addMove(boolean move){
 		if (move){
@@ -21,5 +18,8 @@ public class Car {
 	}
 	public int howManyMoved(){
 		return moved.size();
+	}
+	public void printMoved(){
+		moved.forEach(System.out::print);
 	}
 }
