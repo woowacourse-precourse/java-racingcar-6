@@ -19,7 +19,4 @@ public class Car {
 	public int howManyMoved(){
 		return moved.size();
 	}
-	public void printMoved(){
-		moved.forEach(System.out::print);
-	}
 }
