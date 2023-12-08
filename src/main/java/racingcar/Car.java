@@ -19,4 +19,7 @@ public class Car {
 			moved.add("-");
 		}
 	}
+	public int howManyMoved(){
+		return moved.size();
+	}
 }
