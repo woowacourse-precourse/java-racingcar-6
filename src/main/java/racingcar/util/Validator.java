@@ -1,14 +1,11 @@
 package racingcar.util;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;
-
-    private final Parser parser = new Parser();
 
     private List<String> carNameList = new ArrayList<>();
     public List<String> isValidCarName(List<String> list){

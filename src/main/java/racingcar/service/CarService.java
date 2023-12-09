@@ -9,10 +9,11 @@ public class CarService {
 
     private final CarRepository carRepository = new CarRepository();
 
-    public void saveCars(List<String> carNames){
+    public List<Car> saveCars(List<String> carNames){
         for(String carName : carNames){
             carRepository.save(new Car(carName));
         }
+        return getCarList();
     }
 
     public List<Car> getCarList(){

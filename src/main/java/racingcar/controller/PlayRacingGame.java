@@ -20,13 +20,13 @@ public class PlayRacingGame {
     private final InputView inputView = new InputView();
 
 
+    //1209.게임을 생성할 때 carName이 input 되도록 변경
     public void racingGame(){
-        carService.saveCars(inputUserCarNames());
         playGame(createNewGame());
     }
 
     private Game createNewGame() {
-        Game game = new Game(carService.getCarList(), inputUserTrialNumber());
+        Game game = new Game(carService.saveCars(inputUserCarNames()), inputUserTrialNumber());
         gameService.saveGame(game);
         return game;
     }
