@@ -1,4 +1,4 @@
-package racingcar.Model;
+package racingcar.Infomation;
 
 public class NumberConstant {   //매직넘버 모아둠
     public final static int MIN_RANDOM_NUMBER = 0;

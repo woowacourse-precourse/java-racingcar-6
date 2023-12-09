@@ -9,7 +9,7 @@ class UserInputTest {
     @Test
     void 자동차_이름에_대한_예외_출력테스트() {
         //when
-        UserInput userInput = new UserInput();
+        UserInputCarName userInput = new UserInputCarName();
         assertThatThrownBy(() -> {
             userInput.userInputCarName();
         })

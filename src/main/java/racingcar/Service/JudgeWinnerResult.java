@@ -1,15 +1,12 @@
 package racingcar.Service;
 
-import racingcar.Model.Cars;
-import racingcar.Util.RandomAdvanceOrstop;
+import racingcar.Model.Car;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class JudgeWinnerResult {
-    Cars cars = new Cars();
+    Car cars = new Car();
 
     public String judgeWinner(){
         List<String> winnerList = new ArrayList<String>();

@@ -1,6 +1,14 @@
 package racingcar.Model;
 
 public class Car {
+    public int getTryNumber() {
+        return tryNumber;
+    }
+
+    public void setTryNumber(int tryNumber) {
+        this.tryNumber = tryNumber;
+    }
+
     public int tryNumber;
 
     public String getCarName() {

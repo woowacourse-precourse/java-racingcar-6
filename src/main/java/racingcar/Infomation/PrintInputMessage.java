@@ -1,4 +1,4 @@
-package racingcar.Model;
+package racingcar.Infomation;
 
 public class PrintInputMessage {
     public static void printInputCarName(){
