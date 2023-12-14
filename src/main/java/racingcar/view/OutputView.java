@@ -1,11 +1,14 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.view.console.ConsoleWriter;
 
 public class OutputView {
-    public static final String RESULT_NOTICE = "실행 결과";
+    private static final String RESULT_NOTICE = "실행 결과";
+    private static final String WINNER_NOTICE = "최종 우승자 : %s";
+    private static final String WINNER_SEPARATOR = ", ";
 
     public void printResult(Cars cars) {
         ConsoleWriter.printlnMessage(RESULT_NOTICE);
@@ -21,8 +24,19 @@ public class OutputView {
     }
 
     private void printCarStatus(Car car, int i) {
-        String name = car.getName();
-        int moved = car.getMoved();
+        String name = car.name();
+        int moved = car.moved();
         ConsoleWriter.printlnMessage(name + " : " + "_".repeat(moved));
+    }
+
+    public void printWinners(List<String> winners) {
+        ConsoleWriter.printlnFormat(
+                WINNER_NOTICE,
+                generateWinnerResult(winners)
+        );
+    }
+
+    private String generateWinnerResult(List<String> winners) {
+        return String.join(WINNER_SEPARATOR, winners);
     }
 }

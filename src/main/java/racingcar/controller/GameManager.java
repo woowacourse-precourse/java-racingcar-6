@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import java.util.function.Supplier;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
@@ -26,11 +27,17 @@ public class GameManager {
         for (int i = 0; i < count; i++) {
             play(cars);
         }
+        complete();
     }
 
     private void play(Cars cars) {
         cars.moveCars();
         outputView.printResult(cars);
+    }
+
+    private void complete(Cars cars) {
+        List<String> winners = cars.selectWinners();
+        outputView.printWinners(winners);
     }
 
     private static <T> T retry(Supplier<T> supplier) {

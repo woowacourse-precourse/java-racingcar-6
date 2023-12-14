@@ -29,11 +29,11 @@ public class Car {
         return false;
     }
 
-    public int getMoved() {
+    public int moved() {
         return moved;
     }
 
-    public String getName() {
+    public String name() {
         return name.getValue();
     }
 }

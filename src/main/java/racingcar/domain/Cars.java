@@ -21,6 +21,22 @@ public class Cars {
         }
     }
 
+    public List<String> selectWinners() {
+        int maxMoved = getMaxMoved();
+
+        return cars.stream()
+                .filter(car -> car.moved() == maxMoved)
+                .map(Car::name)
+                .toList();
+    }
+
+    private int getMaxMoved() {
+        return cars.stream()
+                .mapToInt(car -> car.moved())
+                .max()
+                .orElseThrow(IllegalStateException::new);
+    }
+
     public int size() {
         return cars.size();
     }
