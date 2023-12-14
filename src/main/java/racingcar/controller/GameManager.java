@@ -3,13 +3,16 @@ package racingcar.controller;
 import java.util.function.Supplier;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 import racingcar.view.console.ConsoleWriter;
 
 public class GameManager {
     private final InputView inputView;
+    private final OutputView outputView;
 
-    public GameManager(InputView inputView) {
+    public GameManager(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void run() {
@@ -27,6 +30,7 @@ public class GameManager {
 
     private void play(Cars cars) {
         cars.moveCars();
+        outputView.printResult(cars);
     }
 
     private static <T> T retry(Supplier<T> supplier) {

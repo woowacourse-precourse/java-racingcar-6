@@ -13,6 +13,10 @@ public class Name {
         this.name = name;
     }
 
+    public String getValue() {
+        return name;
+    }
+
     public static class Validator {
         private static void validateRange(int length, int start, int end) {
             if (isInvalidRange(length, start, end)) {

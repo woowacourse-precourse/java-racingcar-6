@@ -20,4 +20,12 @@ public class Cars {
             car.move();
         }
     }
+
+    public int size() {
+        return cars.size();
+    }
+
+    public Car get(int i) {
+        return cars.get(i);
+    }
 }

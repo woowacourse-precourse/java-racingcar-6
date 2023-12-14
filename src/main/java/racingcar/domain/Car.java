@@ -28,4 +28,12 @@ public class Car {
         }
         return false;
     }
+
+    public int getMoved() {
+        return moved;
+    }
+
+    public String getName() {
+        return name.getValue();
+    }
 }
