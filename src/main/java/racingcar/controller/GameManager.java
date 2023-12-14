@@ -1,11 +1,9 @@
 package racingcar.controller;
 
 import java.util.List;
-import java.util.function.Supplier;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import racingcar.view.console.ConsoleWriter;
 
 public class GameManager {
     private final InputView inputView;
@@ -17,17 +15,13 @@ public class GameManager {
     }
 
     public void run() {
-        Cars cars = retry(() -> {
-            return new Cars(inputView.readCarNames());
-        });
-        int count = retry(() -> {
-            return inputView.readTryCount();
-        });
+        Cars cars = new Cars(inputView.readCarNames());
+        int count = inputView.readTryCount();
 
         for (int i = 0; i < count; i++) {
             play(cars);
         }
-        complete();
+        complete(cars);
     }
 
     private void play(Cars cars) {
@@ -38,15 +32,5 @@ public class GameManager {
     private void complete(Cars cars) {
         List<String> winners = cars.selectWinners();
         outputView.printWinners(winners);
-    }
-
-    private static <T> T retry(Supplier<T> supplier) {
-        while (true) {
-            try {
-                return supplier.get();
-            } catch (IllegalArgumentException e) {
-                ConsoleWriter.printlnMessage(e.getMessage());
-            }
-        }
     }
 }

@@ -26,7 +26,7 @@ public class OutputView {
     private void printCarStatus(Car car, int i) {
         String name = car.name();
         int moved = car.moved();
-        ConsoleWriter.printlnMessage(name + " : " + "_".repeat(moved));
+        ConsoleWriter.printlnMessage(name + " : " + "-".repeat(moved));
     }
 
     public void printWinners(List<String> winners) {
