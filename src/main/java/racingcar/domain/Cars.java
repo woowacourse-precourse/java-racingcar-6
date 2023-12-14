@@ -14,4 +14,8 @@ public class Cars {
                 .map(name -> new Car(new Name(name)))
                 .toList();
     }
+
+    public void moveCars() {
+        
+    }
 }
