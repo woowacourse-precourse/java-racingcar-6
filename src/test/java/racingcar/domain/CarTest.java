@@ -13,7 +13,7 @@ class CarTest {
         // when
         car.move(true);
         // then
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPosition()).isEqualTo(1ㄱ);
     }
 
     @Test
