@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.repository.Track;
 
@@ -32,7 +31,7 @@ public class Cars {
 
     public String run(Track track) {
         cars.forEach(car ->
-            track.move(car, Randoms.pickNumberInRange(0, 9))
+            track.move(car, RandomNumberGenerator.generateNumber())
         );
         return track.toString();
     }
