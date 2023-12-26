@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.repository.Track;
-
 public class Count {
 
     private final int count;
@@ -17,11 +15,7 @@ public class Count {
         }
     }
 
-    public String moveByCount(Track track, Cars cars) {
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < count; i++) {
-            sb.append(cars.run(track));
-        }
-        return sb.toString();
+    public int getCount() {
+        return count;
     }
 }

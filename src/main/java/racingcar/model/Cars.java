@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.List;
-import racingcar.repository.Track;
 
 public class Cars {
 
@@ -25,14 +24,7 @@ public class Cars {
         }
     }
 
-    public void ready(Track track) {
-        cars.forEach(track::stand);
-    }
-
-    public String run(Track track) {
-        cars.forEach(car ->
-            track.move(car, RandomNumberGenerator.generateNumber())
-        );
-        return track.toString();
+    public List<Car> getCars() {
+        return cars;
     }
 }
