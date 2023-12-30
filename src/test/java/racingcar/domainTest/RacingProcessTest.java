@@ -21,7 +21,7 @@ public class RacingProcessTest {
         ArrayList<Integer> progress= new ArrayList<>(Arrays.asList(1,2,0));
         String[] results = new String[cars.size()];
         for(int i=0; i<cars.size(); i++){
-            results[i] = race.printRacingStatus(cars, progress, i);
+            results[i] = race.makingStatusBar(cars, progress, i);
         }
 
         assertThat(results[0]).contains("pobi : -");
