@@ -9,7 +9,7 @@ public class ApplicationConfig {
         return new RacingCarService(track());
     }
 
-    public Track track() {
+    private Track track() {
         return new Track();
     }
 }

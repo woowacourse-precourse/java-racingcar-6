@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class CountTest {
 
     @Test
-    void validateCountTest() {
+    void 실행횟수_유효성_검사_테스트() {
         Assertions.assertThatThrownBy(() -> new Count(0))
                 .isInstanceOf(IllegalArgumentException.class);
     }

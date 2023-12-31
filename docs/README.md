@@ -1,4 +1,4 @@
-## 기능 요구 사항
+_## 기능 요구 사항
 
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
 - 각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
@@ -19,8 +19,10 @@
 
 ### View
 
-- InputView
-  - 입력 화면 구현
+- CarsInputView
+  - 차량 이름 입력 화면
+- CountInputView
+  - 실행 횟수 입력 화면
 - OutputView
   - 출력 화면 구현
 
@@ -28,7 +30,7 @@
 
 - CarsRequestDto
 - CountRequestDto
-  - 입력 받는 값이 숫자가 아니면 예외를 발생시킨다.
+  - 입력받는 데이터를 담는 객체
 
 ### Model
 
@@ -58,4 +60,4 @@
 
 ### Controller
 
-- View와 domain을 연결
+- View와 domain을 연결_

@@ -7,7 +7,6 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        validateNumberOfCars(cars);
         validateDistinctName(cars);
         this.cars = cars;
     }
@@ -18,13 +17,16 @@ public class Cars {
         }
     }
 
-    private void validateNumberOfCars(List<Car> cars) {
-        if (cars.size() < 2) {
-            throw new IllegalArgumentException("[ERROR] 2개 이상의 자동차를 입력해주세요.");
-        }
-    }
-
     public List<Car> getCars() {
         return cars;
+    }
+
+    @Override
+    public String toString() {
+        String str = cars.stream()
+                .map(Car::getName)
+                .toList()
+                .toString();
+        return str.substring(1, str.length()-1);
     }
 }

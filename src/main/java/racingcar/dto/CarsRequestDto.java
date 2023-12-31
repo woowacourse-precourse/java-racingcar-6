@@ -2,13 +2,13 @@ package racingcar.dto;
 
 public class CarsRequestDto {
 
-    private String[] names;
+    private String names;
 
-    public String[] getNames() {
+    public String getNames() {
         return names;
     }
 
     public void setNames(String names) {
-        this.names = names.split(",");
+        this.names = names;
     }
 }

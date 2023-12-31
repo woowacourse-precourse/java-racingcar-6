@@ -1,36 +1,53 @@
 package racingcar.repository;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.model.Count;
 
 public class Track {
 
     private static final Map<Car, Integer> track = new HashMap<>();
 
-    public void init() {
+    public void ready(Cars cars) {
         track.clear();
+        cars.getCars().forEach(c -> track.put(c, 0));
+        validateNumberOfCars();
     }
 
-    public void stand(Car car) {
-        track.put(car, 0);
+
+    private void validateNumberOfCars() {
+        if (track.keySet().size() < 2) {
+            throw new IllegalArgumentException("[ERROR] 2개 이상의 자동차를 입력해주세요.");
+        }
     }
 
-    public void move(Car car, int randomNumber) {
-        if(randomNumber > 3) {
+    public void go(Count count) {
+        for(int i = 0; i < count.getCount(); i++) {
+            track.keySet().forEach(c -> move(c, Randoms.pickNumberInRange(0, 9)));
+        }
+    }
+
+    private void move(Car car, int number) {
+        if(number > 3) {
             int index = track.get(car);
             track.put(car, ++index);
         }
     }
 
-    public String winners() {
+    public List<Car> findWinners() {
         int max = max();
-        String winners = track.keySet().stream()
-                .filter(k -> max == track.get(k))
-                .map(Car::getName)
-                .toList()
-                .toString();
-        return winners.substring(1, winners.length()-1);
+        return track.keySet().stream()
+                        .filter(c -> isWinner(c, max))
+                        .toList();
+    }
+
+
+    private boolean isWinner(Car car, int max) {
+        return track.get(car) == max;
     }
 
     private int max() {

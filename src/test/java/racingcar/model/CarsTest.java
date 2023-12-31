@@ -7,15 +7,9 @@ import org.junit.jupiter.api.Test;
 public class CarsTest {
 
     @Test
-    void validateDistinctNameTest() {
+    void 차량_이름_중복_검사_테스트() {
         List<Car> cars = List.of(new Car("abc"), new Car("abc"));
-        Assertions.assertThatThrownBy(() -> new Cars(cars))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
 
-    @Test
-    void validateNumberOfCarsTest() {
-        List<Car> cars = List.of(new Car("name"));
         Assertions.assertThatThrownBy(() -> new Cars(cars))
                 .isInstanceOf(IllegalArgumentException.class);
     }

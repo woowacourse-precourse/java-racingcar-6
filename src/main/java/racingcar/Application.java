@@ -1,11 +1,11 @@
 package racingcar;
 
-import racingcar.controller.Controller;
+import racingcar.controller.RacingCarController;
 
 public class Application {
     public static void main(String[] args) {
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        Controller controller = new Controller(applicationConfig.racingCarService());
+        RacingCarController controller = new RacingCarController(applicationConfig.racingCarService());
         controller.run();
     }
 }
