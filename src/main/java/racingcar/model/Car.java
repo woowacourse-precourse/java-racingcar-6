@@ -10,7 +10,7 @@ public class Car {
     }
 
     public void move(int number) {
-        if (number >= 4) {
+        if (isMovePossible(number)) {
             position++;
         }
     }
@@ -25,5 +25,9 @@ public class Car {
 
     public String getPositionString() {
         return "-".repeat(position);
+    }
+
+    private boolean isMovePossible(int number) {
+        return number >= 4;
     }
 }

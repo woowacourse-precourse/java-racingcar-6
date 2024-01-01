@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import java.util.List;
 import racingcar.model.Car;
+import java.util.List;
 
 public class ConsoleView {
     public static void printMessage(String message) {

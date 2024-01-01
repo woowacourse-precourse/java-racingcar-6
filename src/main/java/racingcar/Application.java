@@ -10,13 +10,21 @@ import racingcar.view.ConsoleView;
 public class Application {
     public static void main(String[] args) {
 
+        List<Car> cars = initializeCars();
 
+        int tryCount = getTryCount();
+
+        simulateRace(cars, tryCount);
+
+        List<String> winners = findWinners(cars);
+
+        ConsoleView.printWinners(winners);
+    }
+
+    private static List<Car> initializeCars() {
         ConsoleView.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         String[] carNames = input.split(",");
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        int tryCount = Integer.parseInt(Console.readLine());
 
         for (String carName : carNames) {
             if (carName.length() > 5) {
@@ -29,15 +37,25 @@ public class Application {
             cars.add(new Car(carName));
         }
 
+        return cars;
+    }
+
+    private static int getTryCount() {
+        ConsoleView.printMessage("시도할 회수는 몇회인가요?");
+        return Integer.parseInt(Console.readLine());
+    }
+
+    private static void simulateRace(List<Car> cars, int tryCount) {
         for (int i = 0; i < tryCount; i++) {
-            for (Car car : cars) {
-                car.move(Randoms.pickNumberInRange(0, 9));
-            }
+            moveCars(cars);
             ConsoleView.printRaceStatus(cars);
         }
+    }
 
-        List<String> winners = findWinners(cars);
-        ConsoleView.printWinners(winners);
+    private static void moveCars(List<Car> cars) {
+        for (Car car : cars) {
+            car.move(Randoms.pickNumberInRange(0, 9));
+        }
     }
 
     private static List<String> findWinners(List<Car> cars) {
