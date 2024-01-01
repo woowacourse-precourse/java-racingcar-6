@@ -4,12 +4,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.model.Car;
+import racingcar.view.ConsoleView;
 
 public class Application {
     public static void main(String[] args) {
 
-        
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+        ConsoleView.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         String[] carNames = input.split(",");
 
@@ -22,7 +24,6 @@ public class Application {
             }
         }
 
-
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
@@ -32,18 +33,11 @@ public class Application {
             for (Car car : cars) {
                 car.move(Randoms.pickNumberInRange(0, 9));
             }
-            printRaceStatus(cars);
+            ConsoleView.printRaceStatus(cars);
         }
 
         List<String> winners = findWinners(cars);
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
-    }
-
-    private static void printRaceStatus(List<Car> cars) {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + car.getPositionString());
-        }
-        System.out.println();
+        ConsoleView.printWinners(winners);
     }
 
     private static List<String> findWinners(List<Car> cars) {
@@ -59,34 +53,6 @@ public class Application {
             }
         }
         return winners;
-    }
-}
-
-class Car {
-    private final String name;
-    private int position;
-
-    public Car(String name) {
-        this.name = name;
-        this.position = 0;
-    }
-
-    public void move(int number) {
-        if (number >= 4) {
-            position++;
-        }
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
-    public String getPositionString() {
-        return "-".repeat(position);
     }
     
 }
