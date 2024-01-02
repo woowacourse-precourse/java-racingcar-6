@@ -1,26 +1,24 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import racingcar.domain.Car;
 import racingcar.domain.Judgement;
-import racingcar.domain.Racingprocess;
-import racingcar.domain.Userconsole;
+import racingcar.domain.RacingProcess;
+import racingcar.domain.UserConsole;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        Judgement referee = new Judgement();
-        Userconsole ask = new Userconsole();
-        Racingprocess race = new Racingprocess();
+        Judgement judgement = new Judgement();
+        UserConsole userConsole = new UserConsole();
+        RacingProcess race = new RacingProcess();
 
-        ArrayList<String> cars = ask.makingCarList();
-        int rounds = ask.askRounds();
+        ArrayList<Car> carList = userConsole.makingCarList();
+        int rounds = userConsole.askRounds();
 
         System.out.println("\n실행 결과");
-        ArrayList<Integer> progress = new ArrayList<>(Collections.nCopies(cars.size(), 0));
-        race.doRace(rounds, cars, progress);
+        race.doRace(rounds, carList);
 
-        String winner = referee.whoisWinner(cars, progress);
+        String winner = judgement.judgeWinner(carList);
         System.out.println("최종 우승자 : " + winner);
     }
 }
