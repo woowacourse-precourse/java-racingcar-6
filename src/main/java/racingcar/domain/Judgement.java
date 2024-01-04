@@ -1,12 +1,12 @@
 package racingcar.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Judgement {
-    public String judgeWinner(ArrayList<Car> carList) {
+    public List<String> judgeWinner(List<Car> carList) {
         int maxPoint;
         List<String> winners = new ArrayList<>();
-        String result;
 
         maxPoint = findMaxPoint(carList);
         for (int i = 0; i < carList.size(); i++) {
@@ -14,12 +14,10 @@ public class Judgement {
                 winners.add(carList.get(i).getName());
             }
         }
-        result = String.join(", ", winners);
-
-        return result;
+        return winners;
     }
 
-    private int findMaxPoint(ArrayList<Car> carList) {
+    private int findMaxPoint(List<Car> carList) {
         int maxPoint = 0;
         for (int i = 0; i < carList.size(); i++) {
             maxPoint = Math.max(maxPoint, carList.get(i).getProgress());

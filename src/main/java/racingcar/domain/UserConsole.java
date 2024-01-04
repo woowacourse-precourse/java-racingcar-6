@@ -1,40 +1,69 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class UserConsole {
-    public ArrayList<Car> makingCarList() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carName = Console.readLine();
-        if (carName.equals("")) {
-            throw new IllegalArgumentException();
-        }
-        ArrayList<String> carNames = new ArrayList<String>(Arrays.asList(carName.split(",")));
-        ArrayList<Car> carList = new ArrayList<>();
-        if (carNames.size() < 1) {
-            throw new IllegalArgumentException();
-        }
+    public final int MAX_NAME_LENGTH = 5;
+
+    public List<Car> makingCarList() {
+        List<String> carNames;
+        List<Car> carList = new ArrayList<>();
+
+        carNames = makingCarNames();
         for (int i = 0; i < carNames.size(); i++) {
-            if (carNames.get(i).length() > 5) {
-                throw new IllegalArgumentException();
-            }
             Car car = new Car(carNames.get(i));
             carList.add(car);
         }
+
         return carList;
     }
 
+    public List<String> makingCarNames() {
+        String carName;
+        List<String> carNames;
+
+        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+        carName = Console.readLine();
+        if (carName.isBlank()) {
+            throw new IllegalArgumentException();
+        }
+        carNames = new ArrayList<>(Arrays.asList(carName.split(",")));
+        validateCarNames(carNames);
+
+        return carNames;
+    }
+
+    public void validateCarNames(List<String> carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        for (int i = 0; i < carNames.size(); i++) {
+            if (carNames.get(i).length() > MAX_NAME_LENGTH) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
     public int askRounds() {
+        int rounds;
+        String input;
+
         System.out.println("시도할 횟수는 몇회인가요?");
-        String input = Console.readLine();
-        int rounds = Integer.parseInt(input);
+        input = Console.readLine();
+        rounds = Integer.parseInt(input);
+
         return rounds;
     }
 
     public static void printRaceStatus(String status) {
         System.out.println(status);
+    }
+
+    public static void printWinners(List<String> winners) {
+        String result = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + result);
     }
 }

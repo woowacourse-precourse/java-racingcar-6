@@ -1,30 +1,37 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
+import java.util.*;
 
 public class RacingProcess {
+    public static final int MOVE_FORWARD_NUMBER = 4;
+
     public static void goForwardRandom(Car car) {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVE_FORWARD_NUMBER) {
             car.move();
         }
     }
 
     public String makingStatusBar(Car car) {
-        String progressbar = "";
+        String result;
+        String progressBar = " : ";
+
         for (int i = 0; i < car.getProgress(); i++) {
-            progressbar += "-";
+            progressBar += "-";
         }
-        String result = car.getName() + " : " + progressbar;
+        result = car.getName() + progressBar;
+
         return result;
     }
 
-    public void doRace(int rounds, ArrayList<Car> carList) {
+    public void doRace(int rounds, List<Car> carList) {
+        System.out.println("\n실행 결과");
         for (int i = 0; i < rounds; i++) {
             for (int j = 0; j < carList.size(); j++) {
-                goForwardRandom(carList.get(j));
-                UserConsole.printRaceStatus(makingStatusBar(carList.get(j)));
+                Car car = carList.get(j);
+                goForwardRandom(car);
+                UserConsole.printRaceStatus(makingStatusBar(car));
             }
             System.out.println(" ");
         }
