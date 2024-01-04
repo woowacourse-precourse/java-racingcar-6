@@ -7,9 +7,10 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import racingcar.Application;
 
-public class UserConsoleTest extends NsTest{
+public class UserConsoleTest extends NsTest {
     @Test
     void 이름입력_받기와_처리() {
         assertSimpleTest(() -> {
@@ -27,7 +28,7 @@ public class UserConsoleTest extends NsTest{
 
             String result = output();
             int roundsCount = 0;
-            roundsCount += (result.length() - result.replace("pobi","").length()) / 4;
+            roundsCount += (result.length() - result.replace("pobi", "").length()) / 4;
 
             assertThat(roundsCount < 3).isTrue();
             assertThat(roundsCount > 0).isTrue();
