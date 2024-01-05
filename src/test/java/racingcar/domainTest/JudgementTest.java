@@ -13,6 +13,7 @@ import racingcar.domain.Judgement;
 
 public class JudgementTest extends NsTest {
     public static final int LENGTH_OF_CARS = 3;
+
     @Test
     void 우승자를_가리는_기능() {
         Judgement judgement = new Judgement();
@@ -43,9 +44,9 @@ public class JudgementTest extends NsTest {
         for (int i = 0; i < LENGTH_OF_CARS; i++) {
             carListDuoWin.add(new Car(cars.get(i), progressDuoWin.get(i)));
         }
-
         winners = judgement.judgeWinner(carListDuoWin);
         result = String.join(", ", winners);
+
         assertThat(result).contains("minju, java");
     }
 

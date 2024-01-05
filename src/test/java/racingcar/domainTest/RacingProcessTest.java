@@ -16,7 +16,7 @@ public class RacingProcessTest {
     @Test
     void 자동차목록을_받아서_진행도를_출력하는_기능_검사() {
         RacingProcess race = new RacingProcess();
-        ArrayList<Car> carList = new ArrayList<>();
+        List<Car> carList = new ArrayList<>();
         String[] names = {"pobi", "minju", "woni"};
         int[] progress = {1, 2, 0};
         for (int i = 0; i < 3; i++) {

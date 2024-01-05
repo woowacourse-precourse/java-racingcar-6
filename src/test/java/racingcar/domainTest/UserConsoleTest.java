@@ -15,6 +15,7 @@ public class UserConsoleTest extends NsTest {
     void 이름입력_받기와_처리() {
         assertSimpleTest(() -> {
             run("pobi,minju", "1");
+
             assertThat(output()).contains("minju :");
             assertThat(output()).contains("pobi : ");
         });
@@ -25,7 +26,6 @@ public class UserConsoleTest extends NsTest {
     void 실시횟수_입력받고_저장() {
         assertSimpleTest(() -> {
             run("pobi,minju", "1");
-
             String result = output();
             int roundsCount = 0;
             roundsCount += (result.length() - result.replace("pobi", "").length()) / 4;

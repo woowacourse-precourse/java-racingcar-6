@@ -13,9 +13,11 @@ public class Application {
         UserConsole userConsole = new UserConsole();
         RacingProcess race = new RacingProcess();
         List<String> winners;
+        List<Car> carList;
+        int rounds;
 
-        List<Car> carList = userConsole.makingCarList();
-        int rounds = userConsole.askRounds();
+        carList = userConsole.makingCarList();
+        rounds = userConsole.askRounds();
         race.doRace(rounds, carList);
         winners = judgement.judgeWinner(carList);
         UserConsole.printWinners(winners);
