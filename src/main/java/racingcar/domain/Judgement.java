@@ -4,24 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Judgement {
-    public List<String> judgeWinner(List<Car> carList) {
-        int maxPoint;
-        List<String> winners = new ArrayList<>();
 
-        maxPoint = findMaxPoint(carList);
-        for (int i = 0; i < carList.size(); i++) {
-            if (carList.get(i).getProgress() == maxPoint) {
-                winners.add(carList.get(i).getName());
-            }
-        }
-        return winners;
-    }
+  public List<String> judgeWinner(List<Car> carLineUp) {
+    int maxPoint;
+    List<String> winners = new ArrayList<>();
 
-    private int findMaxPoint(List<Car> carList) {
-        int maxPoint = 0;
-        for (int i = 0; i < carList.size(); i++) {
-            maxPoint = Math.max(maxPoint, carList.get(i).getProgress());
-        }
-        return maxPoint;
+    maxPoint = findMaxPoint(carLineUp);
+    for (int i = 0; i < carLineUp.size(); i++) {
+      if (carLineUp.get(i).getProgress() == maxPoint) {
+        winners.add(carLineUp.get(i).getName());
+      }
     }
+    return winners;
+  }
+
+  private int findMaxPoint(List<Car> carLineUP) {
+    int maxPoint = 0;
+    for (int i = 0; i < carLineUP.size(); i++) {
+      maxPoint = Math.max(maxPoint, carLineUP.get(i).getProgress());
+    }
+    return maxPoint;
+  }
 }
