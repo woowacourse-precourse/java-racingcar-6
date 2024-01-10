@@ -13,14 +13,10 @@ public class Application {
     Judgement judgement = new Judgement();
     UserConsole userConsole = new UserConsole();
     RacingProcess race = new RacingProcess();
-    List<String> winners;
-    List<Car> carLineUp;
-    int rounds;
-
-    carLineUp = userConsole.makingCarLineUp();
-    rounds = userConsole.askRounds();
+    List<Car> carLineUp = userConsole.makingCarLineUp();
+    int rounds = userConsole.askRounds();
     race.doRace(rounds, carLineUp);
-    winners = judgement.judgeWinner(carLineUp);
+    List<String> winners = judgement.judgeWinner(carLineUp);
     UserConsole.printWinners(winners);
   }
 }

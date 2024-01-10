@@ -19,35 +19,30 @@ public class JudgementTest extends NsTest {
   void 우승자를_가리는_기능() {
     Judgement judgement = new Judgement();
     List<Car> carLineUp = new ArrayList<>();
-    List<String> cars = Arrays.asList("pobi", "minju", "java");
-    List<Integer> progress = Arrays.asList(1, 2, 1);
-    List<String> winners;
-    String result;
+    List<String> cars = List.of("pobi", "minju", "java");
+    List<Integer> progress = List.of(1, 2, 1);
 
     for (int i = 0; i < LENGTH_OF_CARS; i++) {
       carLineUp.add(new Car(cars.get(i), progress.get(i)));
     }
+    List<String> winners = judgement.judgeWinner(carLineUp);
 
-    winners = judgement.judgeWinner(carLineUp);
-    result = String.join(", ", winners);
-    assertThat(result).contains("minju");
+    assertThat(winners).containsExactly("minju");
   }
 
   @Test
   void 공동우승자를_가리는_기능() {
     Judgement judgement = new Judgement();
     List<Car> carLineUp = new ArrayList<>();
-    List<String> cars = Arrays.asList("pobi", "minju", "java");
-    List<Integer> progress = new ArrayList<>(Arrays.asList(1, 2, 2));
-    List<String> winners;
-    String result;
+    List<String> cars = List.of("pobi", "minju", "java");
+    List<Integer> progress = List.of(1, 2, 2);
 
     for (int i = 0; i < LENGTH_OF_CARS; i++) {
       carLineUp.add(new Car(cars.get(i), progress.get(i)));
     }
-    winners = judgement.judgeWinner(carLineUp);
-    result = String.join(", ", winners);
-    assertThat(result).contains("minju, java");
+    List<String> winners = judgement.judgeWinner(carLineUp);
+
+    assertThat(winners).containsExactly("minju", "java");
   }
 
   @Override

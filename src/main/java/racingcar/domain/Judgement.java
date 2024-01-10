@@ -6,12 +6,10 @@ import java.util.List;
 public class Judgement {
 
   public List<String> judgeWinner(List<Car> carLineUp) {
-    int maxPoint;
     List<String> winners = new ArrayList<>();
-
-    maxPoint = findMaxPoint(carLineUp);
+    int maxPoint = findMaxPoint(carLineUp);
     for (int i = 0; i < carLineUp.size(); i++) {
-      if (carLineUp.get(i).getProgress() == maxPoint) {
+      if (carLineUp.get(i).isWinner(maxPoint)) {
         winners.add(carLineUp.get(i).getName());
       }
     }

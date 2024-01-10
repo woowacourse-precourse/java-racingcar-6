@@ -27,8 +27,8 @@ public class RacingProcessTest {
       results.add(race.makingStatusBar(carLineUp.get(i)));
     }
 
-    assertThat(results.get(0)).contains("pobi : -");
-    assertThat(results.get(1)).contains("minju : --");
-    assertThat(results.get(2)).contains("woni : ");
+    assertThat(results.get(0)).isEqualTo("pobi : -");
+    assertThat(results.get(1)).isEqualTo("minju : --");
+    assertThat(results.get(2)).isEqualTo("woni : ");
   }
 }

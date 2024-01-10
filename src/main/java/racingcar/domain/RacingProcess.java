@@ -15,15 +15,11 @@ public class RacingProcess {
   }
 
   public String makingStatusBar(Car car) {
-    String result;
     String progressBar = " : ";
-
     for (int i = 0; i < car.getProgress(); i++) {
       progressBar += "-";
     }
-    result = car.getName() + progressBar;
-
-    return result;
+    return (car.getName() + progressBar);
   }
 
   public void doRace(int rounds, List<Car> carLineUp) {
