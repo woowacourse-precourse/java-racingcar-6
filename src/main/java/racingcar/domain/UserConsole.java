@@ -7,8 +7,6 @@ import java.util.List;
 
 public class UserConsole {
 
-  public final int MAX_NAME_LENGTH = 5;
-
   public List<Car> makingCarLineUp() {
     List<String> carNames = makingCarNames();
     List<Car> carLineUp = new ArrayList<>();
@@ -23,7 +21,7 @@ public class UserConsole {
     System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
     String carName = Console.readLine();
     List<String> carNames = Arrays.asList(carName.split(","));
-    if(carNames.size() == 1){
+    if (carNames.size() == 1) {
       throw new IllegalArgumentException();
     }
     return carNames;
