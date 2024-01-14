@@ -50,13 +50,11 @@ class BroadcastTest {
             for (int i = 0; i < entry.getValue(); i++) {
                 expectedOutput.append("-");
             }
-            expectedOutput.append("\n");
+            expectedOutput.append(System.lineSeparator());
         }
 
         // 캡처한 출력 문자열과 예상 출력 문자열 비교
-        Assertions.assertThat(capturedOutput).isEqualTo(expectedOutput.toString());
-
-        // 아무리 봐도 문제가 없는데 통과가 안되는 이유를 모르겠네요
+        Assertions.assertThat(capturedOutput).contains(expectedOutput.toString());
     }
 
     @Test

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -20,7 +21,7 @@ class CheckerTest {
 
     @DisplayName("쉼표 전후에 값이 없는 경우 테스트")
     @ParameterizedTest
-    @CsvSource(value = {"123,,:", ",123,:", ",,123:"}, delimiterString = ":")
+    @ValueSource(strings = {"123,,", ",123,", ",,123"})
     void hasCommasWithoutSurroundingValues(String val) {
         // 유효하지 않은 이름 테스트
         assertThatThrownBy(() -> Checker.hasCommasWithoutSurroundingValues(val))
@@ -45,7 +46,7 @@ class CheckerTest {
 
     @DisplayName("숫자를 입력 했을 때")
     @ParameterizedTest
-    @CsvSource(value = {"1:", "3:", "100:"}, delimiterString = ":")
+    @ValueSource(strings = {"1", "3", "100"})
     void typeCheck1(String value) {
         // 유효한 이름 배열 테스트
         int result = Checker.typeCheck(value);
@@ -54,7 +55,7 @@ class CheckerTest {
 
     @DisplayName("문자를 입력 했을 때")
     @ParameterizedTest
-    @CsvSource(value = {"test:", "1회:", "ㅁㄴㅇㄴㅁㅁㅇ:"}, delimiterString = ":")
+    @ValueSource(strings = {"test", "1회", "ㅁㄴㅇㄴㅁㅁㅇ"})
     void typeCheck2(String value) {
         // 유효한 이름 배열 테스트
         assertThatThrownBy(() -> Checker.typeCheck(value))
