@@ -8,24 +8,13 @@ public class Car {
   private int progress;
 
   public Car(String name) {
-    validateCar(name);
-    this.name = name;
-    this.progress = 0;
+    this(name, 0);
   }
 
   public Car(String name, int progress) {
     validateCar(name, progress);
     this.name = name;
     this.progress = progress;
-  }
-
-  public void validateCar(String name) {
-    if (name.length() > MAX_NAME_LENGTH) {
-      throw new IllegalArgumentException();
-    }
-    if (name.isBlank()) {
-      throw new IllegalArgumentException();
-    }
   }
 
   public void validateCar(String name, int progress) {

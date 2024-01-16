@@ -7,6 +7,9 @@ import java.util.List;
 
 public class UserConsole {
 
+  public final int MIN_CAR_NUMBER = 2;
+  public final int MIN_ROUNDS_NUMBER = 1;
+
   public List<Car> makingCarLineUp() {
     List<String> carNames = makingCarNames();
     List<Car> carLineUp = new ArrayList<>();
@@ -21,7 +24,7 @@ public class UserConsole {
     System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
     String carName = Console.readLine();
     List<String> carNames = Arrays.asList(carName.split(","));
-    if (carNames.size() == 1) {
+    if (carNames.size() < MIN_CAR_NUMBER) {
       throw new IllegalArgumentException();
     }
     return carNames;
@@ -36,7 +39,7 @@ public class UserConsole {
 
   public int validateRounds(String input) {
     int rounds = Integer.parseInt(input);
-    if (rounds < 1) {
+    if (rounds < MIN_ROUNDS_NUMBER) {
       throw new IllegalArgumentException();
     }
     return rounds;
