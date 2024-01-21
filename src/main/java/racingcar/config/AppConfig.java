@@ -1,5 +1,7 @@
 package racingcar.config;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import racingcar.controller.RacingCarController;
 import racingcar.io.input.InputManager;
 import racingcar.io.input.InputMapper;
@@ -10,33 +12,41 @@ import racingcar.model.RacingCarMovingCondition;
 import racingcar.service.CarService;
 import racingcar.service.RacingCarService;
 
+
+@Configuration
 public class AppConfig {
 
     public RacingCarController racingCarController() {
         return new RacingCarController(inputManager(), outputView(), racingCarService());
     }
 
-    private CarService racingCarService() {
+    @Bean
+    public CarService racingCarService() {
         return new RacingCarService(movingCondition());
     }
 
-    private MovingCondition movingCondition() {
+    @Bean
+    public MovingCondition movingCondition() {
         return new RacingCarMovingCondition();
     }
 
-    private OutputView outputView() {
+    @Bean
+    public OutputView outputView() {
         return new OutputView();
     }
 
-    private InputManager inputManager() {
+    @Bean
+    public InputManager inputManager() {
         return new InputManager(inputView(), inputMapper());
     }
 
-    private InputMapper inputMapper() {
+    @Bean
+    public InputMapper inputMapper() {
         return new InputMapper();
     }
 
-    private InputView inputView() {
+    @Bean
+    public InputView inputView() {
         return new InputView();
     }
 }
