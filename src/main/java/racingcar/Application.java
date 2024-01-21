@@ -3,11 +3,11 @@ package racingcar;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import racingcar.config.AppConfig;
+import racingcar.controller.RacingCarController;
 
 public class Application {
 
     public static void main(String[] args) {
-        AppConfig appConfig = new AppConfig();
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(
             AppConfig.class);
@@ -16,6 +16,12 @@ public class Application {
             System.out.println(name);
         }
 
-        appConfig.racingCarController().run();
+        RacingCarController racingCarController = applicationContext.getBean(
+            "racingCarController",
+            RacingCarController.class
+        );
+
+        racingCarController.run();
+
     }
 }
