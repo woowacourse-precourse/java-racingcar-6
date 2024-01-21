@@ -4,15 +4,16 @@ import racingcar.constants.RacingCarMove;
 import racingcar.io.input.InputManager;
 import racingcar.io.output.OutputView;
 import racingcar.model.Cars;
-import racingcar.service.RacingCarService;
+import racingcar.service.CarService;
 
 public class RacingCarController {
 
     private final InputManager inputManager;
     private final OutputView outputView;
-    private final RacingCarService racingCarService;
+    private final CarService racingCarService;
 
-    public RacingCarController(InputManager inputManager, OutputView outputView, RacingCarService racingCarService) {
+    public RacingCarController(InputManager inputManager, OutputView outputView,
+        CarService racingCarService) {
         this.inputManager = inputManager;
         this.outputView = outputView;
         this.racingCarService = racingCarService;

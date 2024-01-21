@@ -1,10 +1,10 @@
 package racingcar;
 
-import racingcar.factory.RacingCarFactory;
+import racingcar.config.AppConfig;
 
 public class Application {
     public static void main(String[] args) {
-        RacingCarFactory racingCarConfig = new RacingCarFactory();
+        AppConfig racingCarConfig = new AppConfig();
         racingCarConfig.racingCarController().run();
     }
 }
