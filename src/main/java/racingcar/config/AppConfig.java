@@ -16,7 +16,7 @@ import racingcar.service.RacingCarService;
 @Configuration
 public class AppConfig {
 
-    @Bean
+    @Bean("racingCarController")
     public RacingCarController racingCarController() {
         return new RacingCarController(inputManager(), outputView(), racingCarService());
     }

@@ -11,10 +11,6 @@ public class Application {
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(
             AppConfig.class);
-        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-        for (String name : beanDefinitionNames) {
-            System.out.println(name);
-        }
 
         RacingCarController racingCarController = applicationContext.getBean(
             "racingCarController",
