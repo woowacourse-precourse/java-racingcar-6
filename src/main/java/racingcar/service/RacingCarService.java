@@ -1,12 +1,11 @@
 package racingcar.service;
 
+import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.MovingCondition;
 
-import java.util.List;
-
-public class RacingCarService {
+public class RacingCarService implements CarService {
 
     private final MovingCondition movingCondition;
 
@@ -14,11 +13,12 @@ public class RacingCarService {
         this.movingCondition = movingCondition;
     }
 
+    @Override
     public void startRacing(Cars cars) {
         List<Car> racingCars = cars.getRacingCars();
 
         racingCars.stream()
-                .filter(car -> movingCondition.canMove())
-                .forEach(Car::movePosition);
+            .filter(car -> movingCondition.canMove())
+            .forEach(Car::movePosition);
     }
 }
