@@ -1,17 +1,21 @@
 package racingcar.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import racingcar.constants.RacingCarMove;
 import racingcar.io.input.InputManager;
 import racingcar.io.output.OutputView;
 import racingcar.model.Cars;
 import racingcar.service.CarService;
 
+@Component
 public class RacingCarController {
 
     private final InputManager inputManager;
     private final OutputView outputView;
     private final CarService racingCarService;
 
+    @Autowired
     public RacingCarController(InputManager inputManager, OutputView outputView,
         CarService racingCarService) {
         this.inputManager = inputManager;

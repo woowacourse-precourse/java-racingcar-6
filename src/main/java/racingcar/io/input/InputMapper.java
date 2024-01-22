@@ -1,7 +1,9 @@
 package racingcar.io.input;
 
+import org.springframework.stereotype.Component;
 import racingcar.model.Cars;
 
+@Component
 public class InputMapper {
 
     public Cars toCars(String carNames) {

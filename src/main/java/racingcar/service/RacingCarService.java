@@ -1,14 +1,18 @@
 package racingcar.service;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.MovingCondition;
 
+@Component
 public class RacingCarService implements CarService {
 
     private final MovingCondition movingCondition;
 
+    @Autowired
     public RacingCarService(MovingCondition movingCondition) {
         this.movingCondition = movingCondition;
     }

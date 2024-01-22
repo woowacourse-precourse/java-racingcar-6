@@ -1,8 +1,10 @@
 package racingcar.io.output;
 
+import org.springframework.stereotype.Component;
 import racingcar.constants.GameResultElement;
 import racingcar.constants.message.ProgressMessage;
 
+@Component
 public class OutputView {
 
     public void printRacingCarNamesMessage() {

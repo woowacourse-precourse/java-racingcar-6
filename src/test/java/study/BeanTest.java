@@ -30,4 +30,11 @@ class BeanTest {
         }
     }
 
+    @Test
+    @DisplayName("스프링 컨테이너에서 빈이 어떤 형식으로 저장되는지 출력")
+    void checkBeanDeep() {
+        AppConfig bean = ac.getBean(AppConfig.class);
+        System.out.println("bean = " + bean.getClass());
+    }
+
 }
