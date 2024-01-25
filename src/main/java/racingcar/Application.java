@@ -1,7 +1,22 @@
 package racingcar;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import racingcar.config.AutoAppConfig;
+import racingcar.controller.RacingCarController;
+
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
+        ApplicationContext context = new AnnotationConfigApplicationContext(AutoAppConfig.class);
+
+        RacingCarController racingCarController = context.getBean(
+            "racingCarController",
+            RacingCarController.class
+        );
+
+        racingCarController.run();
+
     }
 }
