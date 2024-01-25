@@ -1,12 +1,8 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 import racingcar.constants.RacingCarRole;
 
-@Component
-@Qualifier("moreFastCondition")
 public class MoreFastRacingCarMovingCondition implements MovingCondition {
 
     private static final int MIN_NUMBER = 2;

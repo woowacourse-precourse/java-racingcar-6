@@ -11,14 +11,14 @@ import racingcar.model.MovingCondition;
 @RequiredArgsConstructor
 public class RacingCarService implements CarService {
 
-    private final MovingCondition movingCondition;
+    private final MovingCondition racingCarMovingCondition;
 
     @Override
     public void startRacing(Cars cars) {
         List<Car> racingCars = cars.getRacingCars();
 
         racingCars.stream()
-            .filter(car -> movingCondition.canMove())
+            .filter(car -> racingCarMovingCondition.canMove())
             .forEach(Car::movePosition);
     }
 }
