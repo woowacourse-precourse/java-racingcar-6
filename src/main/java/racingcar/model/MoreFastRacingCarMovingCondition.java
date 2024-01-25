@@ -1,16 +1,17 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import racingcar.constants.RacingCarRole;
 
 @Component
-@Primary
-public class RacingCarMovingCondition implements MovingCondition {
+@Qualifier("moreFastCondition")
+public class MoreFastRacingCarMovingCondition implements MovingCondition {
 
-    private static final int MIN_NUMBER = 0;
-    private static final int MAX_NUMBER = 9;
+    private static final int MIN_NUMBER = 2;
+    private static final int MAX_NUMBER = 5;
+
 
     @Override
     public boolean canMove() {
