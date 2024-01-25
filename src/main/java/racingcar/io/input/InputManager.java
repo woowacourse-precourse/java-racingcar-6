@@ -1,20 +1,15 @@
 package racingcar.io.input;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import racingcar.model.Cars;
 
 @Component
+@RequiredArgsConstructor
 public class InputManager {
 
     private final InputView inputView;
     private final InputMapper inputMapper;
-
-    @Autowired
-    public InputManager(InputView inputView, InputMapper inputMapper) {
-        this.inputView = inputView;
-        this.inputMapper = inputMapper;
-    }
 
     public Cars inputCarNames() {
         String carNames = inputView.inputCarNames();

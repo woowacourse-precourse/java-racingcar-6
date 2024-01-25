@@ -1,12 +1,11 @@
 package racingcar.model;
 
+import java.util.stream.IntStream;
 import racingcar.constants.GameResultElement;
 import racingcar.constants.RacingCarMove;
 import racingcar.constants.RacingCarRole;
 import racingcar.constants.message.ErrorMessage;
 import racingcar.exception.car.CarNameLengthException;
-
-import java.util.stream.IntStream;
 
 public class Car {
 
@@ -33,7 +32,7 @@ public class Car {
 
         stringBuilder.append(name).append(GameResultElement.COLON);
         IntStream.range(RacingCarMove.END_ATTEMPT_NUMBER.getValue(), position)
-                .forEach(i -> stringBuilder.append(GameResultElement.DASH));
+            .forEach(i -> stringBuilder.append(GameResultElement.DASH));
         stringBuilder.append(GameResultElement.ENTER);
 
         return stringBuilder.toString();

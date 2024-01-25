@@ -1,22 +1,22 @@
 package racingcar.model;
 
+import java.util.Arrays;
+import java.util.List;
 import racingcar.constants.GameResultElement;
 import racingcar.constants.RacingCarRole;
 import racingcar.constants.message.ErrorMessage;
 import racingcar.exception.car.CarsCountException;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class Cars {
+
     public static final String DIVISION = ",";
     private static final int INITIAL_POSITION = 0;
     private final List<Car> racingCars;
 
     public Cars(String carNames) {
         this.racingCars = Arrays.stream(carNames.split(DIVISION))
-                .map(Car::new)
-                .toList();
+            .map(Car::new)
+            .toList();
         validateCarsCount();
     }
 
@@ -36,17 +36,17 @@ public class Cars {
 
     public String getFinalWinners() {
         List<String> winners = racingCars.stream()
-                .filter(car -> car.isEqualCarPosition(findCarMaxPosition()))
-                .map(Car::getName)
-                .toList();
+            .filter(car -> car.isEqualCarPosition(findCarMaxPosition()))
+            .map(Car::getName)
+            .toList();
         return String.join(GameResultElement.COMMA.getElement(), winners);
     }
 
     private int findCarMaxPosition() {
         return racingCars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(INITIAL_POSITION);
+            .mapToInt(Car::getPosition)
+            .max()
+            .orElse(INITIAL_POSITION);
     }
 
     public List<Car> getRacingCars() {

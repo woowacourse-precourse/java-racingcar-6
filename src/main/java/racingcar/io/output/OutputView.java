@@ -24,6 +24,7 @@ public class OutputView {
     }
 
     public void printFinalWinners(String finalWinners) {
-        System.out.println(ProgressMessage.FINAL_WINNERS.toString() + GameResultElement.COLON + finalWinners);
+        System.out.println(
+            ProgressMessage.FINAL_WINNERS.toString() + GameResultElement.COLON + finalWinners);
     }
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import racingcar.config.AppConfig;
+import racingcar.config.AutoAppConfig;
 
 class BeanTest {
 
@@ -35,6 +36,17 @@ class BeanTest {
     void checkBeanDeep() {
         AppConfig bean = ac.getBean(AppConfig.class);
         System.out.println("bean = " + bean.getClass());
+    }
+
+    @Test
+    @DisplayName("AutoAppConfig의 모든 빈 출력")
+    void checkBeansInAutoAppConfig() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(
+            AutoAppConfig.class);
+        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+        for (String name : beanDefinitionNames) {
+            System.out.println(name);
+        }
     }
 
 }
