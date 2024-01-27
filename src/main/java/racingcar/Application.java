@@ -24,7 +24,6 @@ public class Application {
             int tryNum = Integer.parseInt(Console.readLine());
 
             // 게임 시작하기
-            int cnt = 0;
             System.out.println("\n실행 결과");
             gaming.playGame(tryNum);
 
