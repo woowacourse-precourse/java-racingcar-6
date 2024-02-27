@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.*;
 
 public class CheckException {
-    static void checkRightCarName(Set<String> carNameSet){
+    public void checkRightCarName(Set<String> carNameSet){
         boolean hasInvalidName = false;
         for (String name : carNameSet){
             if (name.length() > 5) {
@@ -14,13 +14,13 @@ public class CheckException {
         checkRightNamelength(hasInvalidName);
     }
 
-    static void checkRightNamelength(boolean flag){
+    private void checkRightNamelength(boolean flag){
         if (flag) {
             throw new IllegalArgumentException();
         }
     }
 
-    static int checkRightNumberOfMove(String move){
+    public int checkRightNumberOfMove(String move){
         try{
             return Integer.parseInt(move);
         }
@@ -29,7 +29,7 @@ public class CheckException {
         }
     }
 
-    static int checkPositiveNumberOfMove(int num){
+    public int checkPositiveNumberOfMove(int num){
         if (num > 0){
             return num;
         }
