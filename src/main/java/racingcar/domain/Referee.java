@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Referee {
     private List<Car> carList;
-    private int location;
 
     public Referee(List<Car> carList) {
         this.carList = carList;
