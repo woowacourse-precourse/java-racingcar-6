@@ -23,6 +23,9 @@ public class RacingGame {
             }
             OutputView.printRoundResult(carList);
         }
+        Referee referee = new Referee(carList);
+        List<Car> winners = referee.judgeWinners();
+        OutputView.printWinners(winners);
     }
 
     private void initCarList() {
