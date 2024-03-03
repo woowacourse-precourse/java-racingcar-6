@@ -1,7 +1,6 @@
 package racingcar.view;
 
 public class OutputView {
-    public void result(){
-        System.out.println("실행 결과");
-    }
+    private static final String GREETING_MESSAGE = "숫자 야구 게임을 시작합니다.";
+    private static final String WIN_MESSAGE = "최종 우승자 :";
 }
