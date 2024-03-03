@@ -10,15 +10,16 @@ public class RacingGame {
     private List<Car> carList;
     private int round;
 
-    public RacingGame(){
+    public RacingGame() {
         round = 0;
         carList = new ArrayList<>();
     }
-    public void play(){
+
+    public void play() {
         initCarList();
         initTryCount();
-        for(int i=0; i<round; i++) {
-            for(Car car : carList) {
+        for (int i = 0; i < round; i++) {
+            for (Car car : carList) {
                 car.decideMove();
             }
             OutputView.printRoundResult(carList);
@@ -35,20 +36,18 @@ public class RacingGame {
                 Validator.validateSize(carName);
                 carList.add(Car.createCar(carName));
             } catch (IllegalArgumentException e) {
-                OutputView.printErrorMessage(e.toString());
-                System.exit(1);
+                throw new IllegalArgumentException();
             }
         }
     }
 
     private void initTryCount() {
-        while(true) {
-            try {
-                round = InputView.inputTryCount();
-                break;
-            }catch(IllegalArgumentException e) {
-                OutputView.printErrorMessage(e.toString());
-            }
+        try {
+            round = InputView.inputTryCount();
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
         }
+
     }
 }

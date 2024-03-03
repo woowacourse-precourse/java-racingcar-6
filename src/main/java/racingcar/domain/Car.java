@@ -23,7 +23,7 @@ public class Car {
     }
 
     public void decideMove() {
-        if(Randoms.pickNumberInRange(START_NUM, END_NUM) >= GO_FORWARD) {
+        if (Randoms.pickNumberInRange(START_NUM, END_NUM) >= GO_FORWARD) {
             location++;
             status.append(ONE_STEP);
         }

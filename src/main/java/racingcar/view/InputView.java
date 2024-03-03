@@ -15,7 +15,7 @@ public class InputView {
         System.out.println(INPUT_TRY_MESSAGE);
         try {
             return Integer.parseInt(Console.readLine());
-        }catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("횟수는 숫자여야 합니다.");
         }
     }
