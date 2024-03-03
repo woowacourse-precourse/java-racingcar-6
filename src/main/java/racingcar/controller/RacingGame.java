@@ -7,34 +7,34 @@ import racingcar.domain.*;
 import racingcar.view.*;
 
 public class RacingGame {
-    private List<Car> carList;
+    private List<Car> cars;
     private int round;
 
     public RacingGame() {
         round = 0;
-        carList = new ArrayList<>();
+        cars = new ArrayList<>();
     }
 
     public void play() {
-        initCarList();
+        initCars();
         initTryCount();
         for (int i = 0; i < round; i++) {
-            for (Car car : carList) {
+            for (Car car : cars) {
                 car.decideMove();
             }
-            OutputView.printRoundResult(carList);
+            OutputView.printRoundResult(cars);
         }
-        Referee referee = new Referee(carList);
+        Referee referee = new Referee(cars);
         List<Car> winners = referee.judgeWinners();
         OutputView.printWinners(winners);
     }
 
-    private void initCarList() {
+    private void initCars() {
         String[] carNames = InputView.inputCarNames().split(",");
         for (String carName : carNames) {
             try {
                 Validator.validateSize(carName);
-                carList.add(Car.createCar(carName));
+                cars.add(Car.createCar(carName));
             } catch (IllegalArgumentException e) {
                 throw new IllegalArgumentException();
             }
@@ -48,6 +48,5 @@ public class RacingGame {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }
-
     }
 }

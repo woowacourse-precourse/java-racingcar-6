@@ -7,8 +7,8 @@ import racingcar.domain.Car;
 public class OutputView {
     private static final String WIN_MESSAGE = "최종 우승자 : ";
 
-    public static void printRoundResult(List<Car> carList) {
-        for (Car car : carList) {
+    public static void printRoundResult(List<Car> cars) {
+        for (Car car : cars) {
             System.out.printf("%s : %s\n", car.getName(), car.getStatus());
         }
         System.out.println();
