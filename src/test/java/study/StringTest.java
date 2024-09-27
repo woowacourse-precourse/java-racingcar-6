@@ -13,7 +13,7 @@ public class StringTest {
         String[] result = input.split(",");
 
         assertThat(result).contains("2", "1");
-        assertThat(result).containsExactly("1", "2");
+        assertThat(result).containsExactly("1", "3");
     }
 
     @Test
