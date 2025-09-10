@@ -7,7 +7,6 @@ public class Application {
 
     private final View view;
     private final Controller controller;
-    private String clientMessage;
 
     public Application() {
         this.view = new View();
@@ -20,7 +19,7 @@ public class Application {
     }
 
     private void run() {
-        clientMessage = view.requestCarNames();
+        String clientMessage = view.requestCarNames();
         controller.registerCars(clientMessage);
         clientMessage = view.requestNumberOfAttempts();
         controller.playRace(clientMessage);
