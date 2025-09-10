@@ -1,9 +1,5 @@
 package racingcar.view;
 
-import java.util.List;
-import racingcar.controller.Parser;
-import racingcar.service.Car;
-
 public class View {
 
     private final Input input;
